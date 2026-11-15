@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ASO Study Hub</title>
-<meta name="description" content="OPSC ASO 2027 dashboard: syllabus, past papers, mocks and guides.">
+<meta name="description" content="OPSC ASO 2027 dashboard: every guide, test and past paper, sorted by subject and topic.">
 <meta name="theme-color" content="#fbfbfb">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -14,7 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
 <style>
-/* ASO Hub: a dashboard app shell around the study pages.
+/* ASO Hub. Everything is filed two ways:
+   by SUBJECT (the six parts of the exam) and by KIND (guides, tests, past papers).
    To add a page, add one line to the R list in the script. */
 :root{
   --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
@@ -22,7 +23,7 @@
   --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
   --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
   --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
-  --nav:216px; --tab:60px;
+  --nav:240px; --tab:60px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -32,37 +33,43 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .m{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.none{color:#b9b9bf}
+.hidden{display:none!important}
 
 /* ---------- shell ---------- */
 .app{display:grid;grid-template-columns:var(--nav) minmax(0,1fr);height:100vh;height:100dvh}
-nav.side{border-right:1px solid var(--fg);background:var(--paper);display:flex;flex-direction:column;padding:18px 0 16px;min-height:0}
-.brand{padding:0 18px 16px;border-bottom:1px dotted var(--muted)}
+nav.side{border-right:1px solid var(--fg);background:var(--paper);display:flex;flex-direction:column;min-height:0}
+.brand{padding:18px 18px 14px;border-bottom:1px dotted var(--muted)}
 .brand b{display:block;font:400 1.7rem/1 var(--f-pixel);color:var(--blue);letter-spacing:.02em}
 .brand span{display:block;margin-top:6px}
-.navlist{list-style:none;margin:12px 0 0;padding:0}
-.navlist a{display:flex;align-items:center;gap:12px;padding:9px 18px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-left:3px solid transparent}
-.navlist a:hover{background:var(--blue-soft)}
-.navlist a[aria-current="page"]{border-left-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
-.navlist svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
-.navlist .c{margin-left:auto;font-size:10px;color:var(--muted)}
-.sidefoot{margin-top:auto;padding:12px 18px 0;border-top:1px dotted var(--muted)}
+.navscroll{flex:1;min-height:0;overflow:auto;padding:10px 0}
+.ng{padding:14px 18px 5px}
+.ni{display:flex;align-items:center;gap:10px;padding:7px 18px 7px 15px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;border-left:3px solid transparent;line-height:1.25}
+.ni:hover{background:var(--blue-soft)}
+.ni[aria-current="page"]{border-left-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.ni svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+.ni .rn{width:17px;flex:none;color:var(--blue);font-size:10.5px;letter-spacing:0}
+.ni .c{margin-left:auto;font-size:10px;color:var(--muted)}
+.ni.off,.ni.off .rn{color:var(--muted)}
+.sidefoot{padding:12px 18px 16px;border-top:1px dotted var(--muted)}
 .sidefoot .big{font:400 2rem/1 var(--f-pixel);color:var(--blue)}
 
 .main{min-width:0;min-height:0;display:flex;flex-direction:column}
-.bar{display:flex;align-items:center;gap:12px;padding:12px 24px;border-bottom:1px solid var(--fg);background:var(--bg);min-height:56px}
-.bar h1{margin:0;font:500 13px/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{display:flex;align-items:center;gap:12px;padding:10px 28px;border-bottom:1px solid var(--fg);background:var(--bg);min-height:52px}
+.bar h1{margin:0;font:500 12px/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar h1 i{font-style:normal;color:var(--muted)}
 .bar .sp{flex:1}
-.bar input{width:220px;min-width:0;border:1px solid var(--fg);background:var(--paper);padding:5px 10px;font-family:var(--f-mono);font-size:12px;border-radius:3px}
+.bar input{width:240px;min-width:0;border:1px solid var(--fg);background:var(--paper);padding:5px 10px;font-family:var(--f-mono);font-size:12px;border-radius:3px}
 .bar .days{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--blue);border:1px solid var(--blue);padding:2px 8px;white-space:nowrap}
 .btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--fg);background:var(--paper);padding:4px 10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;white-space:nowrap}
-.btn:hover{border-color:var(--blue);color:var(--blue)}
-.btn.pri{border-color:var(--blue);color:var(--blue)}
-.view{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:22px 24px 40px}
+.btn:hover,.btn.pri{border-color:var(--blue);color:var(--blue)}
+.view{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:26px 28px 48px}
 .view.frame{padding:0;overflow:hidden}
 .view.frame iframe{display:block;width:100%;height:100%;border:0;background:var(--paper)}
+.wrap{max-width:1080px;margin:0 auto}
 
-/* mobile: bottom tab bar */
 nav.tabs{display:none}
+@media (min-width:761px){#sbtn,.bar .days{display:none}}
 @media (max-width:760px){
   .app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) calc(var(--tab) + env(safe-area-inset-bottom,0px))}
   nav.side{display:none}
@@ -72,110 +79,191 @@ nav.tabs{display:none}
   nav.tabs svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
   .bar{padding:10px 16px;gap:8px}
   .bar input{display:none}
+  .bar h1 .bc{display:none}
   .bar.searching input{display:block;flex:1}
-  .bar.viewing #sbtn{display:none}
+  .bar.searching h1,.bar.searching .days{display:none}
+  .bar.viewing #sbtn,.bar.viewing .sp{display:none}
   .bar.viewing h1{flex:1}
-  .bar.viewing .sp{display:none}
   #full .lbl{display:none}
-  .view{padding:16px 16px 28px}
+  .view{padding:18px 16px 30px}
 }
-@media (min-width:761px){#sbtn{display:none}}
 
-/* ---------- widgets ---------- */
-.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
-.card{grid-column:span 6;background:var(--paper);border:1px solid var(--rule);padding:14px 16px;min-width:0;position:relative}
-.card.s3{grid-column:span 3}.card.s4{grid-column:span 4}.card.s8{grid-column:span 8}.card.s12{grid-column:1/-1}
-@media (max-width:1100px){.card.s3{grid-column:span 6}.card.s4,.card.s8{grid-column:span 6}}
-@media (max-width:760px){.card,.card.s4,.card.s8,.card.s12{grid-column:1/-1}.card.s3{grid-column:span 6}}
-.card h2{margin:0 0 10px;display:flex;align-items:center;gap:10px;font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
-.card h2::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
-.card h2 a{order:2;font-weight:400;color:var(--blue);font-size:10px}
-.kpi .v{font:400 clamp(1.8rem,3.4vw,2.6rem)/1 var(--f-pixel);color:var(--blue);font-variant-numeric:tabular-nums}
-.kpi .sub{margin-top:8px}
-.kpi.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
-.empty{color:var(--muted);font-size:.95rem;padding:10px 0}
+/* ---------- page furniture ---------- */
+.ph{display:flex;justify-content:space-between;align-items:flex-end;gap:10px 16px;flex-wrap:wrap;margin-bottom:16px}
+.ph h2{margin:5px 0 0;font:500 2.1rem/1.08 var(--f-serif);letter-spacing:-.01em}
+.ph p{margin:6px 0 0;color:#444;max-width:46em}
+.sec{display:flex;align-items:baseline;gap:10px;margin:28px 0 8px}
+.sec .no{font:400 .95rem/1 var(--f-pixel);color:var(--blue)}
+.sec h3{margin:0;font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.sec .lead{flex:1;border-bottom:1px dotted var(--muted);min-width:12px}
+.sec .ct{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.sec a.more{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.panel{background:var(--paper);border:1px solid var(--rule);min-width:0}
+.panel>.hd{display:flex;justify-content:space-between;gap:8px;padding:8px 14px;border-bottom:1px solid var(--fg)}
+.note{margin:12px 0 0;color:var(--muted);font-size:.95rem}
+.note b{font-weight:500;color:var(--warn)}
+.two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 20px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+@media (max-width:1080px){.two{grid-template-columns:minmax(0,1fr)}.three{grid-template-columns:minmax(0,1fr)}}
 
-/* chart */
+/* number strip */
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--paper);border:1px solid var(--rule)}
+.strip .cell{padding:12px 16px 13px;border-left:1px solid var(--rule);min-width:0}
+.strip .cell:first-child{border-left:0}
+.strip .v{display:block;margin:7px 0 6px;font:400 clamp(1.6rem,3vw,2.2rem)/1 var(--f-pixel);color:var(--blue);font-variant-numeric:tabular-nums}
+.strip .v small{font-size:.5em;color:var(--muted)}
+.strip .v.txt{font:500 1.25rem/1.15 var(--f-serif);color:var(--fg);min-height:1.6em}
+@media (max-width:760px){
+  .strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strip .cell:nth-child(3){border-left:0}
+  .strip .cell:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+
+/* rows: one line per page, with a dotted leader */
+.row{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-bottom:1px solid var(--rule);line-height:1.3}
+.rows>.row:last-child,.rows>details:last-child>.row:last-child{border-bottom:0}
+.row:hover{background:var(--blue-soft)}
+.row:hover .t{color:var(--blue)}
+.row .t{flex:0 1 auto;min-width:0;font-weight:500;overflow-wrap:anywhere}
+.row .t .chip{margin-left:6px;vertical-align:1px}
+.row .x{display:block;margin-top:3px;font-weight:400}
+.row .lead{flex:1 1 12px;min-width:12px;border-bottom:1px dotted #a9a9ae}
+.row .go{font-family:var(--f-mono);font-size:12px;color:#a9a9ae}
+.row:hover .go{color:var(--blue)}
+.row .r{white-space:nowrap;display:inline-flex;gap:5px;align-items:baseline}
+.row .n{flex:none;width:1.2em;font:400 1rem/1 var(--f-pixel);color:var(--blue)}
+.dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--blue);flex:none;display:inline-block}
+.dot.done{background:var(--blue)}
+.dot.prog{background:linear-gradient(90deg,var(--blue) 50%,transparent 50%)}
+.dot.new,.dot.none{border-color:#a9a9ae}
+.net{font:400 1.05rem/1 var(--f-pixel);color:var(--blue)}
+.st-prog{color:var(--warn);font-family:var(--f-mono);font-size:11px}
+.chip{display:inline-block;flex:none;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:0 5px;line-height:1.7;white-space:nowrap}
+.chip.fill{background:var(--blue);color:#fff}
+details>summary{list-style:none;cursor:pointer;padding:8px 14px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"+ "}
+details[open]>summary::before{content:"– "}
+details>summary:hover{color:var(--blue)}
+.rows>details:last-child:not([open])>summary{border-bottom:0}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.filters button,.filters a{border:1px solid var(--fg);background:var(--paper);padding:3px 10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.filters [aria-pressed="true"],.filters [aria-current="page"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.sw{display:none}
+@media (max-width:760px){.sw{display:flex;margin-bottom:14px}}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:.98rem}
+.tbl th{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--fg);white-space:nowrap}
+.tbl th button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
+.tbl th button:hover,.tbl th.on button{color:var(--blue)}
+.tbl td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+.tbl tbody tr:last-child td{border-bottom:0}
+.tbl th:first-child,.tbl td:first-child{padding-left:14px}
+.tbl th:last-child,.tbl td:last-child{padding-right:14px}
+.tbl tr.rowlink{cursor:pointer}
+.tbl tr.rowlink:hover td{background:var(--blue-soft)}
+.tbl tr.grp td{padding:14px 14px 6px;border-bottom:1px solid var(--fg);font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.tbl .num{font-family:var(--f-mono);font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
+.tbl th.num{text-align:right}
+.tbl .t{font-weight:500}
+.tbl .rn{font:400 .95rem/1 var(--f-pixel);color:var(--blue)}
+.tbl tr.off .t,.tbl tr.off .rn{color:var(--muted)}
+.tbl .sm{display:none}
+.tbl a.cl{color:var(--blue)}
+.tbl a.cl:hover{text-decoration:underline}
+.cov{display:flex;align-items:center;gap:10px}
+.trk{flex:1;height:8px;background:var(--grid);position:relative;min-width:40px;display:block}
+.fil{position:absolute;left:0;top:0;bottom:0;background:var(--blue);border-radius:0 2px 2px 0;display:block}
+.val{font-family:var(--f-mono);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:760px){
+  .tbl.stack thead{display:none}
+  .tbl.stack tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;padding:10px 14px;border-bottom:1px solid var(--rule)}
+  .tbl.stack tbody tr:last-child{border-bottom:0}
+  .tbl.stack td{border:0;padding:0!important;width:auto!important}
+  .tbl.stack td.hide-m{display:none}
+  .tbl.stack tr.grp{padding:14px 14px 6px;border-bottom:1px solid var(--fg)}
+  .tbl.stack tr.grp td{border-bottom:0}
+  .tbl .sm{display:block;margin-top:2px}
+  .tbl.tests td:nth-child(1){grid-row:1/3;grid-column:1}
+  .tbl.tests td:nth-child(2),.tbl.tests td:nth-child(3){grid-column:2;text-align:right}
+  .tbl.tests td:nth-child(3):empty{display:none}
+  .tbl.bd tr{grid-template-columns:2em minmax(0,1fr) auto}
+  .tbl.bd td:nth-child(6){grid-column:2/-1;grid-row:2}
+  .tbl.yr tr{grid-template-columns:minmax(0,1fr);gap:6px}
+  .tbl.yr td[data-l]{display:flex;gap:10px;align-items:baseline}
+  .tbl.yr td[data-l]::before{content:attr(data-l);flex:0 0 5.4em;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+}
+
+/* topic table: one row per syllabus topic, same columns everywhere */
+.mx .hd,.mx .tr{display:grid;grid-template-columns:2.4rem minmax(0,1.9fr) 8.6rem minmax(0,1fr) minmax(0,.85fr) minmax(0,1.35fr) 6rem;gap:2px 14px;align-items:baseline;padding:8px 14px}
+.mx .hd{border-bottom:1px solid var(--fg);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mx .tr{border-bottom:1px solid var(--rule)}
+.mx .tr:last-child{border-bottom:0}
+.mx .code{font-family:var(--f-mono);font-size:11px;color:var(--blue);white-space:nowrap}
+.mx .tn{font-weight:500;min-width:0;overflow-wrap:anywhere}
+.mx .ask{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));font-family:var(--f-mono);font-size:12px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.mx .ask b{font-weight:500;color:var(--fg)}
+.mx .ask i{display:none;font-style:normal}
+.mx .hd .ask{font-size:10px}
+.mx .lk{min-width:0}
+.mx .lk a{color:var(--blue);white-space:nowrap}
+.mx .lk a:hover{text-decoration:underline}
+.mx .lk s{text-decoration:none;color:#b9b9bf;padding:0 2px}
+.mx .you{display:flex;align-items:center;justify-content:flex-end;gap:7px;font-family:var(--f-mono);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mx .hd .you{font-size:10px}
+.yb{width:34px;height:6px;background:var(--grid);position:relative;display:inline-block}
+.yb span{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:1080px){
+  .mx .hd{display:none}
+  .mx .tr{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:11px 14px}
+  .mx .code{display:none}
+  .mx .tn{grid-column:1;grid-row:1}
+  .mx .you{grid-column:2;grid-row:1}
+  .mx .tr>[data-l]{grid-column:1/-1;display:flex;gap:10px;align-items:baseline;text-align:left}
+  .mx .tr>[data-l]::before{content:attr(data-l);flex:0 0 5.4em;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .mx .tr>.lk.empty{display:none}
+  .mx .ask{display:flex;gap:14px}
+  .mx .ask i{display:inline;margin-right:4px;font-size:10px}
+  .mx .lk a{white-space:normal}
+}
+.tlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;padding:6px 14px 10px}
+.tlist>span{display:flex;gap:9px;align-items:baseline;padding:6px 0;border-bottom:1px dotted var(--rule);min-width:0}
+.tlist .dot{transform:translateY(-1px)}
+@media (max-width:600px){.tlist{grid-template-columns:minmax(0,1fr)}}
+
+/* figures (charts sit in dashed boxes on grid paper) */
+.fig{position:relative;border:1px dashed #9aa3c7;padding:12px 12px 8px 30px;min-width:0;background:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:12px 12px}
+.fig .tag{position:absolute;left:9px;top:12px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;color:var(--blue)}
+.fig .cap{display:block;margin-bottom:4px}
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.figs{grid-template-columns:minmax(0,1fr)}}
 .chart{position:relative}
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
-.chart .gl{stroke:var(--grid);stroke-width:1}
-.chart .zero{stroke:var(--rule);stroke-width:1}
+.chart .gl{stroke:#dfe3f0;stroke-width:1}
+.chart .zero{stroke:#b9b9bf;stroke-width:1}
 .chart .ax{font-family:var(--f-mono);font-size:9px;fill:var(--muted)}
 .chart .ln{fill:none;stroke:var(--blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
 .chart .ar{fill:var(--blue-soft);opacity:.6}
 .chart .pt{fill:var(--blue);stroke:var(--paper);stroke-width:2}
+.chart .pend{fill:var(--paper);stroke:#a9a9ae;stroke-width:1.2}
 .chart .hit{fill:transparent;cursor:pointer}
 .chart .lab{font-family:var(--f-mono);font-size:9.5px;fill:var(--fg)}
-.tip{position:absolute;pointer-events:none;background:var(--fg);color:#fff;font-family:var(--f-mono);font-size:11px;line-height:1.5;padding:6px 9px;border-radius:2px;white-space:nowrap;transform:translate(-50%,calc(-100% - 10px));display:none;z-index:5}
-.twocharts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-@media (max-width:560px){.twocharts{grid-template-columns:1fr}}
-.twocharts .m{display:block;margin-bottom:4px}
-
-/* bars */
-.bars{display:grid;gap:9px}
-.brow{display:grid;grid-template-columns:minmax(0,8.5em) minmax(0,1fr) 3.2em;gap:10px;align-items:center;font-size:.95rem}
-.brow .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.brow .trk{height:10px;background:var(--grid);position:relative}
-.brow .fil{position:absolute;left:0;top:0;bottom:0;background:var(--blue);border-radius:0 2px 2px 0}
-.brow .val{font-family:var(--f-mono);font-size:11px;text-align:right;font-variant-numeric:tabular-nums}
-.brow.zero .lbl,.brow.zero .val{color:var(--warn)}
-.brow.zero .trk{background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 4px,#f6e4da 4px,#f6e4da 8px)}
-
-/* lists */
-.todo{list-style:none;margin:0;padding:0}
-.todo li{border-bottom:1px dotted var(--muted)}
-.todo li:last-child{border-bottom:0}
-.todo a{display:flex;align-items:center;gap:10px;padding:9px 0;font-size:1.02rem;line-height:1.3}
-.todo a:hover{color:var(--blue)}
-.todo .ic{font-family:var(--f-mono);color:var(--blue);font-size:12px}
-.todo .r{margin-left:auto;white-space:nowrap}
-
-/* tables */
-.tbl{width:100%;border-collapse:collapse;font-size:.98rem}
-.tbl th{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--fg);white-space:nowrap}
-.tbl th button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
-.tbl th button:hover,.tbl th.on button{color:var(--blue)}
-.tbl td{padding:10px 10px 10px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
-.tbl tr.rowlink{cursor:pointer}
-.tbl tr.rowlink:hover td{background:var(--blue-soft)}
-.tbl .num{font-family:var(--f-mono);font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
-.tbl .net{font:400 1.1rem/1 var(--f-pixel);color:var(--blue)}
-.tbl .t{font-weight:600}
-@media (max-width:760px){
-  .tbl.stack thead{display:none}
-  .tbl.stack tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:10px 0;border-bottom:1px dotted var(--muted)}
-  .tbl.stack td{border:0;padding:0}
-  .tbl.stack td.hide-m{display:none}
-  .tbl.stack td{width:auto!important}
-  .tbl.mk tr{grid-template-columns:minmax(0,1fr) auto}
-  .tbl.mk td:nth-child(2){grid-row:1/3;grid-column:1}
-  .tbl.mk td:nth-child(3),.tbl.mk td:nth-child(4){grid-column:2;text-align:right}
-  .tbl.mk td:nth-child(4):empty{display:none}
-  .tbl.stack.one tr{grid-template-columns:minmax(0,1fr);gap:6px}
-  .tbl.stack td.num{text-align:right}
-}
-.chip{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:0 5px;line-height:1.7;white-space:nowrap}
-.chip.g{border-color:var(--rule);color:var(--muted)}
-.chip.w{border:1px dashed var(--warn);color:var(--warn)}
-.st-prog{color:var(--warn);font-family:var(--f-mono);font-size:11px}
-.st-new{color:var(--muted);font-family:var(--f-mono);font-size:11px}
-.links{display:flex;flex-wrap:wrap;gap:6px}
-.links a{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);background:var(--paper);padding:2px 7px}
-.links a:hover{border-color:var(--blue);color:var(--blue)}
-.sec{margin:26px 0 8px;font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
-.sec:first-child{margin-top:0}
-.sec::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
-.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.filters button{border:1px solid var(--fg);background:var(--paper);padding:3px 10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
-.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
-.hidden{display:none!important}
+.chart .wait{font-family:var(--f-mono);font-size:9.5px;fill:var(--muted);letter-spacing:.06em}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:#fff;font-family:var(--f-mono);font-size:11px;line-height:1.5;padding:6px 9px;border-radius:2px;white-space:pre;transform:translate(-50%,calc(-100% - 10px));display:none;z-index:5}
+.brow{display:grid;grid-template-columns:minmax(0,1fr) 84px 3.6em;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--rule)}
+.brow:last-child{border-bottom:0}
+.brow:hover{background:var(--blue-soft)}
+.brow .lbl{min-width:0;overflow-wrap:anywhere;line-height:1.25}
+.brow .val{text-align:right}
+.empty{color:var(--muted);padding:12px 14px}
 </style>
 <body>
 <div class="app">
 
 <nav class="side" aria-label="Main">
 <div class="brand"><b>ASO HUB</b><span class="m">OPSC · Advt 15 / 2026-27</span></div>
-<ul class="navlist" id="navlist"></ul>
+<div class="navscroll" id="sidenav"></div>
 <div class="sidefoot"><div class="big" id="sideDays">--</div><span class="m">days to 17 Jan 2027</span><br>
 <button class="btn" id="saveall" type="button" style="margin-top:10px" hidden>Save offline</button><div class="m" id="savemsg" style="margin-top:6px"></div></div>
 </nav>
@@ -183,9 +271,9 @@ nav.tabs{display:none}
 <div class="main">
 <header class="bar" id="bar">
 <button class="btn hidden" id="back" type="button" aria-label="Back">&larr; Back</button>
-<h1 id="title">Dashboard</h1>
+<h1 id="title">Home</h1>
 <span class="sp"></span>
-<input id="q" type="search" placeholder="Search everything…" autocomplete="off" aria-label="Search">
+<input id="q" type="search" placeholder="Search pages and topics…" autocomplete="off" aria-label="Search">
 <button class="btn" id="sbtn" type="button" aria-label="Search">Search</button>
 <a class="btn hidden" id="full" href="#" target="_blank" rel="noopener"><span class="lbl">Full screen</span> &nearr;</a>
 <span class="days" id="days">--</span>
@@ -197,66 +285,89 @@ nav.tabs{display:none}
 </div>
 
 <script>
-/* ===== Data. Add a page = add one line. =====
-   t title · f file · s shelf (syllabus|pyq|mock|guide|archive) · p GA|EN|ALL · y chip
-   k saved-answers key (tests only) · g mock group · n questions · main = start here */
+/* ===== 1. PAGES. Add a page = add one line. =====
+   t title · f file · s kind (guide|mock|pyq|archive|syllabus) · p subject (GA|EN) · y short code or year
+   x one-line note · main = start here · tests only: k saved-answers key, n questions, g group,
+   topic = every question belongs to this one topic id (for single-topic sets) */
+var RM="ASO-GA-Reference-Manual.html", CA="ASO-Current-Affairs-2026-Manual.html", GEO="ASO-Geography-PYQs.html",
+    G21="pyq/OPSC-ASO-2021-GA-Paper-I.html", E25="pyq/OPSC-ASO-2025-English-Paper-III.html",
+    E21="pyq/OPSC-ASO-2021-English-Paper-III.html", E18="pyq/OPSC-ASO-2018-English-Paper-III.html";
 var R = [
- {t:"Official syllabus", f:"pyq/OPSC-ASO-2026-27-Official-Syllabus.html", s:"syllabus", p:"ALL", y:"2026-27", main:1},
+ {t:"Official scheme & syllabus", f:"pyq/OPSC-ASO-2026-27-Official-Syllabus.html", s:"syllabus", p:"ALL", y:"2026-27"},
 
- {t:"GA Paper I 2021 · sorted", f:"pyq/OPSC-ASO-2021-GA-Paper-I.html", s:"pyq", p:"GA", y:"2021", main:1, x:"100 Q · clean"},
- {t:"Geography PYQs", f:"ASO-Geography-PYQs.html", s:"pyq", p:"GA", y:"18–25", x:"60 Q · by topic"},
- {t:"GA Paper I 2025 · scan", f:"pyq/OPSC-ASO-2025-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2025", x:"raw text"},
- {t:"GA Paper I 2018 · scan", f:"pyq/OPSC-ASO-2018-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2018", x:"raw text"},
- {t:"English Paper III 2025", f:"pyq/OPSC-ASO-2025-English-Paper-III.html", s:"pyq", p:"EN", y:"2025", main:1, x:"100 Q · answers"},
- {t:"English Paper III 2021", f:"pyq/OPSC-ASO-2021-English-Paper-III.html", s:"pyq", p:"EN", y:"2021", x:"100 Q · answers"},
- {t:"English Paper III 2018", f:"pyq/OPSC-ASO-2018-English-Paper-III.html", s:"pyq", p:"EN", y:"2018", x:"100 Q · answers"},
- {t:"English 3-year trend", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"18–25", x:"analysis"},
+ {t:"GA Reference Manual", f:RM, s:"guide", p:"GA", y:"Main", main:1, x:"All 12 topics"},
+ {t:"Current Affairs 2026", f:CA, s:"guide", p:"GA", y:"2026", x:"News by topic"},
+ {t:"Vocabulary list", f:"ASO-Vocabulary.html", s:"guide", p:"EN", y:"EN", x:"Words + synonyms"},
 
- {t:"English Mock 01", f:"ASO-English-Mock-Test-2027-1.html", s:"mock", p:"EN", g:"English chain", k:"aso-english-mock-2027-1", n:100, y:"M01"},
- {t:"English Mock 02", f:"ASO-English-Mock-Test-2027-2.html", s:"mock", p:"EN", g:"English chain", k:"aso-english-mock-2027-2", n:100, y:"M02"},
- {t:"English Mock 03", f:"ASO-English-Mock-Test-2027-3.html", s:"mock", p:"EN", g:"English chain", k:"aso-english-mock-2027-3", n:100, y:"M03"},
- {t:"English Mock 04 · redo", f:"ASO-English-Mock-Test-2027-4.html", s:"mock", p:"EN", g:"English chain", k:"aso-english-mock-2027-4", n:100, y:"M04", main:1},
- {t:"GS Mock 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"GA / GS", k:"aso-gs-mock-2027-1", n:100, y:"GS01", main:1},
+ {t:"English Mock 01", f:"ASO-English-Mock-Test-2027-1.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-1", n:100, y:"M01"},
+ {t:"English Mock 02", f:"ASO-English-Mock-Test-2027-2.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-2", n:100, y:"M02"},
+ {t:"English Mock 03", f:"ASO-English-Mock-Test-2027-3.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-3", n:100, y:"M03"},
+ {t:"English Mock 04 · redo", f:"ASO-English-Mock-Test-2027-4.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-4", n:100, y:"M04", main:1},
+ {t:"GS Mock 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-1", n:100, y:"GS01", main:1},
+ {t:"Polity 30 · Set 1", f:"ASO-GA-Polity-30-MCQ.html", s:"mock", p:"GA", g:"Topic sets", k:"aso-polity30", n:30, y:"POL1", topic:"pol"},
+ {t:"Polity 30 · Set 2", f:"ASO-GA-Polity-30-MCQ-Set-2.html", s:"mock", p:"GA", g:"Topic sets", k:"aso-polity30-set2", n:30, y:"POL2", topic:"pol"},
+ {t:"Vocabulary Test", f:"ASO-Vocabulary-Test-65-MCQ.html", s:"mock", p:"EN", g:"Topic sets", n:65, y:"VOC"},
  {t:"GA Mock 1", f:"ASO-GA-Mock-Test-1.html", s:"mock", p:"GA", g:"Older sets", k:"aso-mock1", n:100, y:"GA1"},
  {t:"GS Full Test", f:"ASO-GA-Full-Test-100-MCQ.html", s:"mock", p:"GA", g:"Older sets", k:"aso-gs100-test1", n:100, y:"GSF"},
- {t:"Polity 30", f:"ASO-GA-Polity-30-MCQ.html", s:"mock", p:"GA", g:"Older sets", k:"aso-polity30", n:30, y:"POL1"},
- {t:"Polity 30 · Set 2", f:"ASO-GA-Polity-30-MCQ-Set-2.html", s:"mock", p:"GA", g:"Older sets", k:"aso-polity30-set2", n:30, y:"POL2"},
  {t:"English Full Test 1", f:"ASO-English-Full-Test-100-MCQ.html", s:"mock", p:"EN", g:"Older sets", k:"aso-eng100-test1", n:100, y:"ENF1"},
  {t:"English Full Test 2", f:"ASO-English-Full-Test-2-100-MCQ.html", s:"mock", p:"EN", g:"Older sets", k:"aso-eng100-test2", n:100, y:"ENF2"},
- {t:"Vocabulary Test", f:"ASO-Vocabulary-Test-65-MCQ.html", s:"mock", p:"EN", g:"Older sets", n:65, y:"VOC"},
 
- {t:"GA Reference Manual", f:"ASO-GA-Reference-Manual.html", s:"guide", p:"GA", y:"Main", main:1, x:"all 10 Paper I topics"},
- {t:"Current Affairs 2026 Manual", f:"ASO-Current-Affairs-2026-Manual.html", s:"guide", p:"GA", y:"2026", main:1, x:"news the way the paper asks"},
- {t:"Vocabulary list", f:"ASO-Vocabulary.html", s:"guide", p:"EN", y:"EN", x:"words + synonyms"},
+ {t:"GA Paper I · 2025", f:"pyq/OPSC-ASO-2025-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2025", x:"Raw scan text"},
+ {t:"GA Paper I · 2021", f:G21, s:"pyq", p:"GA", y:"2021", main:1, x:"Sorted by topic · answers"},
+ {t:"GA Paper I · 2018", f:"pyq/OPSC-ASO-2018-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2018", x:"Raw scan text"},
+ {t:"Geography questions · all 3 years", f:GEO, s:"pyq", p:"GA", y:"18–25", x:"60 Q by topic"},
+ {t:"English Paper III · 2025", f:E25, s:"pyq", p:"EN", y:"2025", main:1, x:"100 Q · answers"},
+ {t:"English Paper III · 2021", f:E21, s:"pyq", p:"EN", y:"2021", x:"100 Q · answers"},
+ {t:"English Paper III · 2018", f:E18, s:"pyq", p:"EN", y:"2018", x:"100 Q · answers"},
+ {t:"English 3-year trend", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"18–25", x:"What each year asked"},
 
- {t:"GA Easy Guide", f:"ASO-GA-Easy-Guide.html", s:"archive", p:"GA", y:"Old", x:"older look of the Manual"},
- {t:"GA Study Guide", f:"ASO-GA-Study-Guide.html", s:"archive", p:"GA", y:"Old", x:"first guide"},
- {t:"Current Affairs v1", f:"ASO-Current-Affairs-2026.html", s:"archive", p:"GA", y:"Old", x:"older look"},
- {t:"Polity Magazine", f:"ASO-GA-Polity-Magazine.html", s:"archive", p:"GA", y:"Old", x:"magazine layout"},
- {t:"Polity Woodblock", f:"ASO-GA-Polity-Woodblock.html", s:"archive", p:"GA", y:"Old", x:"flash cards"}
+ {t:"GA Easy Guide", f:"ASO-GA-Easy-Guide.html", s:"archive", p:"GA", y:"Old", x:"Older look of the Manual"},
+ {t:"GA Study Guide", f:"ASO-GA-Study-Guide.html", s:"archive", p:"GA", y:"Old", x:"First guide"},
+ {t:"Current Affairs v1", f:"ASO-Current-Affairs-2026.html", s:"archive", p:"GA", y:"Old", x:"Older look"},
+ {t:"Polity Magazine", f:"ASO-GA-Polity-Magazine.html", s:"archive", p:"GA", y:"Old", x:"Magazine layout"},
+ {t:"Polity Woodblock", f:"ASO-GA-Polity-Woodblock.html", s:"archive", p:"GA", y:"Old", x:"Flash cards"}
 ];
-var RM="ASO-GA-Reference-Manual.html", CA="ASO-Current-Affairs-2026-Manual.html", GEO="ASO-Geography-PYQs.html";
+
+/* ===== 2. SUBJECTS AND TOPICS (from the official syllabus). =====
+   Each topic: c syllabus code · n name · asked [2018, 2021, 2025] questions in the real papers
+   g guides · t topic tests · p past questions: lists of [label, link]
+   tags = the topic names the tests use, so scores land on the right row */
 var SYL=[
- {paper:"Paper I · General Awareness", short:"GA", rows:[
-  ["(a)","Current national events",[["Manual",RM+"#current"],["CA 2026",CA],["GS Mock","ASO-GS-Mock-Test-2027-1.html"]]],
-  ["(b)","Current international events",[["CA summits",CA+"#summits"],["CA world",CA+"#world"],["CA reports",CA+"#reports"]]],
-  ["(c)","British rule & freedom struggle",[["Manual",RM+"#history"],["2021 paper","pyq/OPSC-ASO-2021-GA-Paper-I.html"]]],
-  ["(d)","Indian Constitution",[["Manual",RM+"#polity"],["Polity 30","ASO-GA-Polity-30-MCQ.html"],["Polity 30 · 2","ASO-GA-Polity-30-MCQ-Set-2.html"]]],
-  ["(e)","World physical geography",[["Manual",RM+"#worldgeo"],["Geo PYQs",GEO+"#world-land"]]],
-  ["(f)","India & Odisha geography",[["Manual India",RM+"#indiageo"],["Manual Odisha",RM+"#odisha"],["Geo PYQs",GEO+"#odisha"]]],
-  ["(g)","Governance, economy, planning",[["Manual gov",RM+"#governance"],["Manual econ",RM+"#economy"],["CA budget",CA+"#economy"]]],
-  ["(h)","Defence & armed forces",[["Manual",RM+"#defence"],["CA defence",CA+"#defence"]]],
-  ["(i)","Science, environment, climate",[["Manual sci",RM+"#science"],["Manual env",RM+"#environment"],["CA env",CA+"#env"]]],
-  ["(j)","National & international institutions",[["Manual",RM+"#institutions"],["CA summits",CA+"#summits"]]]]},
- {paper:"Paper II (A) · Reasoning", short:"Reasoning", rows:[["A","Verbal: series, direction, coding, ranking, age",[]],["B","Non-verbal: mirror, cubes & dice, figures",[]]]},
- {paper:"Paper II (B) · Mathematics", short:"Maths", rows:[["—","Arithmetic, algebra, mensuration, statistics",[]]]},
- {paper:"Paper III (A) · English", short:"English", rows:[
-  ["(i)","Grammar: verb, preposition, adverb, agreement, tenses, articles, errors",[["Mock 04","ASO-English-Mock-Test-2027-4.html"],["Mock 03","ASO-English-Mock-Test-2027-3.html"],["2025 paper","pyq/OPSC-ASO-2025-English-Paper-III.html"]]],
-  ["(i)","Vocabulary, synonyms, antonyms",[["Word list","ASO-Vocabulary.html"],["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"],["2018 paper","pyq/OPSC-ASO-2018-English-Paper-III.html"]]],
-  ["(ii)","Comprehension",[["Mock 04","ASO-English-Mock-Test-2027-4.html"],["2025 paper","pyq/OPSC-ASO-2025-English-Paper-III.html"]]],
-  ["(iii)","Sentence rearrangement",[["Mock 01","ASO-English-Mock-Test-2027-1.html"],["2025 paper","pyq/OPSC-ASO-2025-English-Paper-III.html"]]]]},
- {paper:"Paper III (B) · Odia", short:"Odia", rows:[["—","Grammar, vocabulary, comprehension, rearrangement",[]]]},
- {paper:"Paper IV · Computer (qualifying)", short:"Computer", rows:[["—","Windows, Word, Excel, PowerPoint, Access, internet",[]]]}
+ {id:"ga", no:"I", paper:"Paper I", name:"General Awareness", short:"GA", q:100, mk:100, time:"1½ hrs", topics:[
+  {id:"cur", c:"a·b", n:"Current events, India and world", asked:[20,20,5], g:[["Manual",RM+"#current"],["News 2026",CA]], t:[], p:[["2021 Q1–20",G21+"#current-affairs-q1-20"]], tags:["General News","Days & CA","Current Affairs"]},
+  {id:"his", c:"c", n:"British rule and freedom struggle", asked:[14,10,16], g:[["Manual",RM+"#history"]], t:[], p:[["2021 Q21–30",G21+"#history-q21-30"]], tags:["Modern History"]},
+  {id:"pol", c:"d", n:"Indian Constitution", asked:[13,11,18], g:[["Manual",RM+"#polity"],["News",CA+"#polity"]], t:[["Set 1","ASO-GA-Polity-30-MCQ.html"],["Set 2","ASO-GA-Polity-30-MCQ-Set-2.html"]], p:[["2021 Q31–51",G21+"#polity-public-administration-planning-q31-51"]], tags:["Polity"]},
+  {id:"wge", c:"e", n:"World physical geography", asked:[7,10,6], g:[["Manual",RM+"#worldgeo"]], t:[], p:[["By topic",GEO+"#world-land"],["2021 Q61–80",G21+"#geography-world-india-odisha-q61-80"]], tags:["World Geography","Geography"]},
+  {id:"ige", c:"f", n:"Physical geography of India", asked:[8,7,3], g:[["Manual",RM+"#indiageo"]], t:[], p:[["By topic",GEO+"#india-phys"]], tags:["India Geography"]},
+  {id:"odi", c:"f", n:"Odisha", asked:[5,3,6], g:[["Manual",RM+"#odisha"],["News",CA+"#odisha"]], t:[], p:[["By topic",GEO+"#odisha"]], tags:["Odisha"]},
+  {id:"gov", c:"g", n:"Governance and civil service", asked:[2,6,6], g:[["Manual",RM+"#governance"]], t:[], p:[["2021 Q31–51",G21+"#polity-public-administration-planning-q31-51"]], tags:["Governance"]},
+  {id:"eco", c:"g", n:"Economy and planning", asked:[9,4,8], g:[["Manual",RM+"#economy"],["News",CA+"#economy"]], t:[], p:[], tags:["Economy"]},
+  {id:"def", c:"h", n:"Defence and armed forces", asked:[8,10,12], g:[["Manual",RM+"#defence"],["News",CA+"#defence"]], t:[], p:[["2021 Q81–90",G21+"#defence-q81-90"]], tags:["Defence"]},
+  {id:"sci", c:"i", n:"Science in everyday life", asked:[2,1,5], g:[["Manual",RM+"#science"],["News",CA+"#space"]], t:[], p:[["2021 Q91",G21+"#science-q91"]], tags:["Science & Tech","Science"]},
+  {id:"env", c:"i", n:"Environment and climate", asked:[7,9,10], g:[["Manual",RM+"#environment"],["News",CA+"#env"]], t:[], p:[["2021 Q92–100",G21+"#environment-ecology-q92-100"]], tags:["Environment"]},
+  {id:"ins", c:"j", n:"Institutions and organisations", asked:[5,9,5], g:[["Manual",RM+"#institutions"],["News",CA+"#summits"]], t:[], p:[["2021 Q52–60",G21+"#international-organisations-q52-60"]], tags:["Institutions"]}]},
+ {id:"re", no:"II", paper:"Paper II (A)", name:"Reasoning", short:"Reasoning", q:50, mk:50, time:"1½ hrs with Maths", topics:[
+  {c:"A", n:"Number series"},{c:"A", n:"Alphabet series"},{c:"A", n:"Direction sense"},{c:"A", n:"Coding and decoding"},{c:"A", n:"Number ranking"},{c:"A", n:"Arithmetic reasoning"},{c:"A", n:"Age problems"},
+  {c:"B", n:"Non-verbal series"},{c:"B", n:"Mirror images"},{c:"B", n:"Cubes and dice"},{c:"B", n:"Grouping identical figures"},{c:"B", n:"Embedded figures"}]},
+ {id:"ma", no:"II", paper:"Paper II (B)", name:"Maths", short:"Maths", q:50, mk:50, time:"1½ hrs with Reasoning", topics:[
+  {c:"a", n:"Arithmetic"},{c:"b", n:"Algebra"},{c:"c", n:"Mensuration, 2D and 3D"},{c:"d", n:"Statistics and probability"}]},
+ {id:"en", no:"III", paper:"Paper III (a)", name:"English", short:"English", q:100, mk:100, time:"2 hrs with Odia", topics:[
+  {id:"verb", c:"i", n:"Verb", asked:[5,11,3], g:[], t:[], p:[["2021 Q1–2",E21+"#q1"]], tags:["Verb","Infinitive & gerund","Voice & Narration"]},
+  {id:"prep", c:"i", n:"Preposition", asked:[9,15,6], g:[], t:[], p:[["2021 Q53–62",E21+"#q53"]], tags:["Preposition","Prepositions & phrasal verbs","Phrasal verbs"]},
+  {id:"adv", c:"i", n:"Adverb", asked:[2,0,15], g:[], t:[], p:[["2025 Q1–64",E25+"#fill-in-the-blanks-q1-64"]], tags:["Adverb","Adjective & adverb forms","Connectors & inversion"]},
+  {id:"sva", c:"i", n:"Subject–verb agreement", asked:[2,11,7], g:[], t:[], p:[["2021 Q83–92",E21+"#q83"]], tags:["Subject–verb agreement"]},
+  {id:"err", c:"i", n:"Error correction", asked:[7,12,6], g:[], t:[], p:[["2025 Q65–70",E25+"#spot-the-incorrect-segment-q65-70"],["2021 Q12–16",E21+"#q12"]], tags:["Error correction","Error spotting","Sentence improvement"]},
+  {id:"ten", c:"i", n:"Tenses", asked:[12,7,9], g:[], t:[], p:[["2021 Q73–76",E21+"#q73"]], tags:["Tenses","Tenses & conditionals"]},
+  {id:"art", c:"i", n:"Articles", asked:[5,10,3], g:[], t:[], p:[["2021 Q63–72",E21+"#q63"]], tags:["Articles"]},
+  {id:"voc", c:"i", n:"Vocabulary", asked:[25,3,21], g:[["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2025 Q1–64",E25+"#fill-in-the-blanks-q1-64"]], tags:["Vocabulary","Vocabulary in context","One-word","Spelling","Confusable words","Idioms","Idioms & proverbs"]},
+  {id:"syn", c:"i", n:"Synonyms", asked:[5,6,0], g:[["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2021 Q41–52",E21+"#q41"]], tags:["Synonyms"]},
+  {id:"ant", c:"i", n:"Antonyms", asked:[0,5,0], g:[["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2021 Q41–52",E21+"#q41"]], tags:["Antonyms"]},
+  {id:"com", c:"ii", n:"Comprehension", asked:[4,5,10], g:[], t:[], p:[["2025 Q91–100",E25+"#reading-comprehension"],["2021 Q93–97",E21+"#passage-q93-97"],["2018 Q67–70",E18+"#passage-q67-70"]], tags:["Comprehension"]},
+  {id:"rea", c:"iii", n:"Sentence rearrangement", asked:[1,5,20], g:[], t:[], p:[["2025 Q71–90",E25+"#rearrange-the-parts-into-a-sentence-q71-84"],["2021 Q77–81",E21+"#q77"]], tags:["Sentence rearrangement","Paragraph ordering","Para jumble"]}]},
+ {id:"od", no:"III", paper:"Paper III (b)", name:"Odia", short:"Odia", q:100, mk:100, time:"2 hrs with English", topics:[
+  {c:"i", n:"Grammar: verb, tense, adverb, agreement, error correction"},{c:"i", n:"Vocabulary: synonyms and antonyms"},{c:"ii", n:"Comprehension passage"},{c:"iii", n:"Sentence rearrangement"}]},
+ {id:"co", no:"IV", paper:"Paper IV", name:"Computer", short:"Computer", q:"5 tasks", mk:50, time:"1 hr · practical, qualifying only", topics:[
+  {c:"—", n:"Windows"},{c:"—", n:"MS Word"},{c:"—", n:"MS Excel"},{c:"—", n:"MS PowerPoint"},{c:"—", n:"MS Access"},{c:"—", n:"Internet services"}]}
 ];
 var EXAM=new Date(2027,0,17);
 
@@ -272,22 +383,14 @@ function fmt(x){return (Math.round(x*100)/100).toString()}
 function day(ms){return new Date(ms).toLocaleDateString("en-IN",{day:"numeric",month:"short"})}
 function openHref(f,t){return "#/open?f="+encodeURIComponent(f)+"&t="+encodeURIComponent(t||"")}
 function titleOf(f){var b=f.split("#")[0];for(var i=0;i<R.length;i++) if(R[i].f===b) return R[i].t; return b}
+function subOf(r){return r.p==="GA"?"ga":r.p==="EN"?"en":null}
+function subById(id){for(var i=0;i<SYL.length;i++) if(SYL[i].id===id) return SYL[i]; return null}
+function has(t){return !!((t.g&&t.g.length)||(t.t&&t.t.length)||(t.p&&t.p.length))}
+function norm(s){return String(s).replace(/^\d+\s+/,"").replace(/[–—]/g,"-").toLowerCase().trim()}
+function plural(n,w){return n+" "+w+(n===1?"":"s")}
+var TAG={}; SYL.forEach(function(S){TAG[S.id]={}; S.topics.forEach(function(t){(t.tags||[]).forEach(function(g){TAG[S.id][norm(g)]=t.id})})});
 var DAYS=(function(){var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate());return Math.max(0,Math.round((EXAM-t)/864e5))})();
 $("#days").textContent=DAYS+" days"; $("#sideDays").textContent=DAYS;
-
-/* ===== nav ===== */
-var ICON={
- home:'<path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/>',
- mocks:'<rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/>',
- papers:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 16h7"/>',
- syl:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
- guides:'<path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/>'
-};
-var NAV=[["dashboard","Dashboard","home"],["mocks","Mocks","mocks"],["papers","Past papers","papers"],["syllabus","Syllabus","syl"],["guides","Guides","guides"]];
-$("#navlist").innerHTML=NAV.map(function(n){
-  var c=n[0]==="mocks"?R.filter(function(r){return r.s==="mock"}).length:n[0]==="papers"?R.filter(function(r){return r.s==="pyq"}).length:n[0]==="guides"?R.filter(function(r){return r.s==="guide"||r.s==="archive"}).length:"";
-  return '<li><a href="#/'+n[0]+'" data-v="'+n[0]+'"><svg viewBox="0 0 24 24">'+ICON[n[2]]+'</svg>'+n[1]+(c?'<span class="c">'+c+'</span>':'')+'</a></li>'}).join("");
-$("#tabs").innerHTML=NAV.map(function(n){return '<a href="#/'+n[0]+'" data-v="'+n[0]+'"><svg viewBox="0 0 24 24">'+ICON[n[2]]+'</svg>'+(n[0]==="papers"?"Papers":n[1])+'</a>'}).join("");
 
 /* ===== scores =====
    Tests save answers in localStorage under their key. The hub opens a finished test in a hidden
@@ -327,162 +430,297 @@ function refreshScores(){
   (function step(){ if(!todo.length){busy=false; render(); return} var i=todo.shift();
     scoreInFrame(R[i],SC[i].q.st).then(function(sc){SC[i].sc=sc; step()}) })();
 }
-function status(i){var x=SC[i]; if(!x||!x.q) return "new"; return x.q.done?"done":"prog"}
+function status(i){var r=R[i]; if(!r.k) return "none"; var x=SC[i]; if(!x||!x.q) return "new"; return x.q.done?"done":"prog"}
+
+/* everything known about one subject */
+function subj(S){
+  var res=R.filter(function(r){return subOf(r)===S.id});
+  var o={guides:res.filter(function(r){return r.s==="guide"}), arch:res.filter(function(r){return r.s==="archive"}),
+         tests:res.filter(function(r){return r.s==="mock"}), papers:res.filter(function(r){return r.s==="pyq"}),
+         cov:S.topics.filter(has).length, done:0, best:null};
+  o.count=o.guides.length+o.tests.length+o.papers.length;
+  o.tests.forEach(function(r){var x=SC[R.indexOf(r)]; if(x&&x.q&&x.q.done){o.done++; if(x.sc&&x.sc.total===100) o.best=Math.max(o.best===null?-999:o.best,x.sc.net)}});
+  return o;
+}
+/* right / wrong / skipped per syllabus topic, across every finished test */
+function topicStats(){
+  var m={};
+  R.forEach(function(r,i){var x=SC[i], sid=subOf(r); if(!sid||!x||!x.sc||!x.sc.topics) return;
+    Object.keys(x.sc.topics).forEach(function(tag){var id=r.topic||TAG[sid][norm(tag)]; if(!id) return;
+      var v=x.sc.topics[tag], k=sid+"|"+id; m[k]=m[k]||[0,0,0]; m[k][0]+=v[0]; m[k][1]+=v[1]; m[k][2]+=v[2]})});
+  return m;
+}
+function weakList(){
+  var ts=topicStats(), L=[];
+  SYL.forEach(function(S){S.topics.forEach(function(t){var v=t.id&&ts[S.id+"|"+t.id]; if(!v) return; var all=v[0]+v[1]+v[2];
+    if(all<3||v[0]===all) return; L.push({S:S,t:t,right:v[0],all:all,acc:v[0]/all})})});
+  return L.sort(function(a,b){return a.acc-b.acc||b.all-a.all});
+}
+
+/* ===== building blocks ===== */
+var secN=0;
+function ph(eyebrow,title,sub,extra){return '<header class="ph"><div><div class="m">'+eyebrow+'</div><h2>'+title+'</h2>'+(sub?'<p>'+sub+'</p>':'')+'</div>'+(extra||'')+'</header>'}
+function sec(title,ct,extra){secN++; return '<div class="sec"><span class="no">'+("0"+secN).slice(-2)+'</span><h3>'+title+'</h3><span class="lead"></span>'+(extra||'')+(ct!=null?'<span class="ct">'+ct+'</span>':'')+'</div>'}
+function strip(cells){return '<div class="strip">'+cells.map(function(c){return '<div class="cell"><span class="m">'+c[0]+'</span><span class="v'+(c[3]?' txt':'')+'">'+c[1]+'</span><span class="m">'+c[2]+'</span></div>'}).join("")+'</div>'}
+/* one page = one row. Tests show a status dot and score, papers a year, guides a note. */
+function row(r,tagSub){
+  var i=R.indexOf(r), st=status(i), x=SC[i], sc=x&&x.sc, left="", right;
+  if(r.s==="mock"){
+    left='<span class="dot '+st+'"></span>';
+    right=st==="done"?(sc?'<span class="net">'+fmt(sc.net)+'</span><span class="m">/'+sc.total+'</span>':'<span class="m">Done</span>')
+         :st==="prog"?'<span class="st-prog">'+x.q.answered+'/'+x.q.total+'</span>':'<span class="m">'+r.n+' Q</span>';
+  } else { if(r.s==="pyq") left='<span class="chip">'+esc(r.y)+'</span>'; right='<span class="go">&rarr;</span>' }
+  var flag=r.main?(r.s==="mock"?(st==="done"?'':'<span class="chip fill">Next</span>'):'<span class="chip fill">Start here</span>'):'';
+  var S=tagSub&&subById(subOf(r)), note=[S?S.name:"",r.s==="mock"?(S?r.g:""):(r.x||"")].filter(Boolean).join(" · ");
+  return '<a class="row" href="'+openHref(r.f,r.t)+'">'+left+'<span class="t">'+esc(r.t)+flag+(note?'<span class="x m">'+esc(note)+'</span>':'')+'</span><span class="lead"></span><span class="r">'+right+'</span></a>';
+}
+function rows(list,tagSub){return list.map(function(r){return row(r,tagSub)}).join("")}
+function fold(label,list){return list.length?'<details><summary>'+label+' · '+list.length+'</summary>'+rows(list)+'</details>':''}
+function links(a){return (a&&a.length)?a.map(function(x){return '<a href="'+openHref(x[1],titleOf(x[1]))+'">'+esc(x[0])+'</a>'}).join(' <s>·</s> '):'<span class="none">—</span>'}
+
+/* the subjects board: the whole exam in six rows */
+function board(){
+  var h='<div class="panel"><table class="tbl stack bd"><thead><tr><th>Paper</th><th>Subject</th><th class="num">Guides</th><th class="num">Tests</th><th class="num">Past papers</th><th>Topics with material</th><th class="num">Best score</th></tr></thead><tbody>';
+  function c(n){return n?n:'<span class="none">—</span>'}
+  SYL.forEach(function(S){var o=subj(S), n=S.topics.length, pct=Math.round(o.cov/n*100);
+    h+='<tr class="rowlink'+(o.count?'':' off')+'" data-href="#/s/'+S.id+'"><td><span class="rn">'+S.no+'</span></td>'+
+      '<td><span class="t">'+S.name+'</span><span class="m sm">'+(o.count?plural(o.guides.length,"guide")+' · '+plural(o.tests.length,"test")+' · '+plural(o.papers.length,"paper"):'No material yet')+'</span></td>'+
+      '<td class="num hide-m">'+c(o.guides.length)+'</td><td class="num hide-m">'+c(o.tests.length)+'</td><td class="num hide-m">'+c(o.papers.length)+'</td>'+
+      '<td><span class="cov"><span class="trk"><span class="fil" style="width:'+pct+'%"></span></span><span class="val">'+o.cov+'/'+n+'</span></span></td>'+
+      '<td class="num">'+(o.best!==null?'<span class="net">'+fmt(o.best)+'</span>':'<span class="none">—</span>')+'</td></tr>'});
+  return h+'</tbody></table></div>';
+}
+
+/* score line for one subject. Empty slots show which tests are still to do. */
+function trend(sid,fig){
+  var S=subById(sid), slots=[], pts=[];
+  R.forEach(function(r,i){ if(subOf(r)!==sid||!r.k) return; slots.push(r); var x=SC[i]; if(x&&x.sc) pts.push({y:r.y,t:r.t,v:x.sc.net/x.sc.total*100,sc:x.sc,i:i}) });
+  var W=300,H=150,L=28,Rr=10,T=12,B=22, hi=100, lo=pts.length?Math.min(0,Math.floor(Math.min.apply(null,pts.map(function(d){return d.v}))/25)*25):0;
+  var n=pts.length||Math.min(slots.length,6);
+  function X(j){return n<2?L+(W-L-Rr)/2:L+10+j*(W-L-Rr-20)/(n-1)}
+  function Y(v){return T+(hi-v)/(hi-lo)*(H-T-B)}
+  var g=''; for(var v=lo;v<=hi;v+=25){g+='<line class="'+(v===0?'zero':'gl')+'" x1="'+L+'" x2="'+(W-Rr)+'" y1="'+Y(v)+'" y2="'+Y(v)+'"/><text class="ax" x="'+(L-6)+'" y="'+(Y(v)+3)+'" text-anchor="end">'+v+'</text>'}
+  var body;
+  if(!pts.length){
+    body=slots.slice(0,n).map(function(r,j){return '<text class="ax" x="'+X(j)+'" y="'+(H-6)+'" text-anchor="middle">'+esc(r.y)+'</text><circle class="pend" cx="'+X(j)+'" cy="'+Y(0)+'" r="3.5"/>'}).join('')+
+      '<text class="wait" x="'+((L+W-Rr)/2)+'" y="'+(Y(50)+3)+'" text-anchor="middle">NO FINISHED TEST YET</text>';
+  } else {
+    var d=pts.map(function(o,j){return (j?'L':'M')+X(j).toFixed(1)+' '+Y(o.v).toFixed(1)}).join(' ');
+    body=(pts.length>1?'<path class="ar" d="'+d+' L'+X(pts.length-1)+' '+Y(Math.max(lo,0))+' L'+X(0)+' '+Y(Math.max(lo,0))+'Z"/>':'')+'<path class="ln" d="'+d+'"/>'+
+      pts.map(function(o,j){var tip=esc(o.t)+'&#10;net '+fmt(o.sc.net)+' / '+o.sc.total+' · '+o.sc.right+'✓ '+o.sc.wrong+'✗ '+o.sc.skip+' skip';
+        return '<text class="ax" x="'+X(j)+'" y="'+(H-6)+'" text-anchor="middle">'+esc(o.y)+'</text><circle class="pt" cx="'+X(j)+'" cy="'+Y(o.v)+'" r="4"/>'+
+          (j===pts.length-1?'<text class="lab" x="'+X(j)+'" y="'+(Y(o.v)-9)+'" text-anchor="'+(pts.length>1?'end':'middle')+'">'+fmt(o.v)+'%</text>':'')+
+          '<circle class="hit" cx="'+X(j)+'" cy="'+Y(o.v)+'" r="14" data-tip="'+tip+'" data-href="'+openHref(R[o.i].f,R[o.i].t)+'"/>'}).join('');
+  }
+  return '<div class="fig"><span class="tag">FIG_00'+fig+'</span><span class="m cap">'+S.name+' · net score, %</span><div class="chart"><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+S.name+' test scores">'+g+body+'</svg><div class="tip"></div></div></div>';
+}
+
+/* what to do next, in order */
+function nextList(){
+  var L=[];
+  R.forEach(function(r,i){ if(r.k&&status(i)==="prog"&&L.length<2) L.push(["Finish "+r.t,openHref(r.f,r.t),SC[i].q.answered+"/"+SC[i].q.total]) });
+  R.forEach(function(r,i){ if(r.s==="mock"&&r.main&&status(i)==="new") L.push(["Take "+r.t,openHref(r.f,r.t),r.n+" Q"]) });
+  var en=R.filter(function(r){return r.g==="English mocks"}), last=en[en.length-1];
+  if(last&&status(R.indexOf(last))==="done") L.push(["Copy your "+last.t.replace(/ ·.*/,"")+" answers and paste them to Claude",openHref(last.f,last.t),"next mock"]);
+  var w=weakList()[0];
+  if(w) L.push(["Revise "+w.t.n,(w.t.g&&w.t.g[0])?openHref(w.t.g[0][1],titleOf(w.t.g[0][1])):"#/s/"+w.S.id,w.right+"/"+w.all+" right"]);
+  L.push(["Read one part of Current Affairs 2026",openHref(CA,titleOf(CA)),"daily"]);
+  return L.slice(0,4).map(function(x,i){return '<a class="row" href="'+x[1]+'"><span class="n">'+(i+1)+'</span><span class="t">'+esc(x[0])+'</span><span class="lead"></span><span class="r"><span class="m">'+esc(x[2])+'</span></span></a>'}).join("");
+}
 
 /* ===== views ===== */
 var V={};
-function card(cls,title,body,link){return '<section class="card '+cls+'"><h2>'+title+(link?'<a href="'+link[1]+'">'+link[0]+' &rarr;</a>':'')+'</h2>'+body+'</section>'}
-
-V.dashboard=function(){
-  var tests=R.filter(function(r){return r.k}), fin=[], be=null, bg=null;
-  R.forEach(function(r,i){var x=SC[i]; if(x&&x.q&&x.q.done){fin.push(i); if(x.sc&&x.sc.total===100){ if(r.p==="EN") be=Math.max(be===null?-99:be,x.sc.net); else bg=Math.max(bg===null?-99:bg,x.sc.net)}}});
-  var h='<div class="grid">';
-  h+=card("s3 kpi grid-bg","Days left",'<div class="v">'+DAYS+'</div><div class="m sub">to 17 Jan 2027 · tentative</div>');
-  h+=card("s3 kpi","Tests done",'<div class="v">'+fin.length+'<span style="font-size:.5em;color:var(--muted)">/'+tests.length+'</span></div><div class="m sub">finished on this device</div>');
-  h+=card("s3 kpi","Best English",'<div class="v">'+(be===null?"—":fmt(be))+'</div><div class="m sub">net out of 100</div>');
-  h+=card("s3 kpi","Best GA",'<div class="v">'+(bg===null?"—":fmt(bg))+'</div><div class="m sub">net out of 100</div>');
-  h+=card("s8","Score trend",'<div class="twocharts"><div><span class="m">English · net %</span>'+trend("EN")+'</div><div><span class="m">GA / GS · net %</span>'+trend("GA")+'</div></div>',["All mocks","#/mocks"]);
-  h+=card("s4","Next up",nextUp());
-  h+=card("s4","Syllabus coverage",coverage(),["Map","#/syllabus"]);
-  h+=card("s4","Weak topics",weak());
-  h+=card("s4","Recent",recent());
-  return h+'</div>';
+V.home=function(){
+  var scored=0, fin=0, be=subj(subById("en")).best, bg=subj(subById("ga")).best;
+  R.forEach(function(r,i){ if(!r.k) return; scored++; if(status(i)==="done") fin++ });
+  var h=ph("OPSC ASO · Advt 15 of 2026-27","Dashboard");
+  h+=strip([["Days left",DAYS,"to 17 Jan 2027 · tentative"],["Tests done",fin+'<small>/'+scored+'</small>',"on this device"],
+            ["Best English",be===null?"—":fmt(be),"net out of 100"],["Best GA",bg===null?"—":fmt(bg),"net out of 100"]]);
+  h+='<div class="two"><div>'+sec("Do next")+'<div class="panel rows">'+nextList()+'</div></div>'+
+     '<div>'+sec("Score trend",null,'<a class="more" href="#/tests">All tests &rarr;</a>')+'<div class="figs">'+trend("en",1)+trend("ga",2)+'</div></div></div>';
+  h+=sec("Subjects",SYL.length,'<a class="more" href="#/syllabus">Scheme &amp; syllabus &rarr;</a>')+board();
+  var w=weakList().slice(0,6), rec=[];
+  R.forEach(function(r,i){var x=SC[i]; if(x&&x.q) rec.push({r:r,when:x.sc?x.sc.when:0})});
+  rec.sort(function(a,b){return b.when-a.when});
+  if(w.length||rec.length){
+    h+='<div class="two"><div>'+sec("Weakest topics")+'<div class="panel">'+(w.length?w.map(function(a){var pct=Math.round(a.acc*100);
+        return '<a class="brow" href="#/s/'+a.S.id+'" title="'+a.right+' of '+a.all+' right"><span class="lbl">'+esc(a.t.n)+' <span class="m">'+a.S.short+'</span></span><span class="trk"><span class="fil" style="width:'+pct+'%"></span></span><span class="val">'+a.right+'/'+a.all+'</span></a>'}).join(""):'<div class="empty">No weak topic yet.</div>')+'</div><p class="note">Right answers out of all questions on that topic, lowest first.</p></div>'+
+       '<div>'+sec("Recent tests")+'<div class="panel rows">'+rows(rec.slice(0,5).map(function(o){return o.r}),true)+'</div></div></div>';
+  } else h+='<p class="note">Weak topics and recent tests show here after you finish a test on this site.</p>';
+  return h;
 };
 
-function trend(p){
-  var pts=[]; R.forEach(function(r,i){ if(r.p!==p||!r.k) return; var x=SC[i]; if(x&&x.sc) pts.push({y:r.y,t:r.t,v:x.sc.net/x.sc.total*100,sc:x.sc,i:i}) });
-  if(!pts.length) return '<div class="empty">Finish a '+(p==="EN"?"English":"GA")+' mock to start this line.</div>';
-  var W=300,H=150,L=28,Rr=10,T=12,B=22, lo=Math.min(0,Math.floor(Math.min.apply(null,pts.map(function(d){return d.v}))/25)*25), hi=100;
-  function X(j){return pts.length===1?L+(W-L-Rr)/2:L+j*(W-L-Rr)/(pts.length-1)}
-  function Y(v){return T+(hi-v)/(hi-lo)*(H-T-B)}
-  var g=''; for(var v=lo;v<=hi;v+=25){g+='<line class="'+(v===0?'zero':'gl')+'" x1="'+L+'" x2="'+(W-Rr)+'" y1="'+Y(v)+'" y2="'+Y(v)+'"/><text class="ax" x="'+(L-6)+'" y="'+(Y(v)+3)+'" text-anchor="end">'+v+'</text>'}
-  var d=pts.map(function(o,j){return (j?'L':'M')+X(j).toFixed(1)+' '+Y(o.v).toFixed(1)}).join(' ');
-  var area=pts.length>1?'<path class="ar" d="'+d+' L'+X(pts.length-1)+' '+Y(Math.max(lo,0))+' L'+X(0)+' '+Y(Math.max(lo,0))+'Z"/>':'';
-  var dots=pts.map(function(o,j){var tip=esc(o.t)+'&#10;net '+fmt(o.sc.net)+' / '+o.sc.total+' · '+o.sc.right+'✓ '+o.sc.wrong+'✗ '+o.sc.skip+' skip';
-    return '<text class="ax" x="'+X(j)+'" y="'+(H-6)+'" text-anchor="middle">'+esc(o.y)+'</text><circle class="pt" cx="'+X(j)+'" cy="'+Y(o.v)+'" r="4"/>'+
-      (j===pts.length-1?'<text class="lab" x="'+X(j)+'" y="'+(Y(o.v)-9)+'" text-anchor="'+(pts.length>1?'end':'middle')+'">'+fmt(o.v)+'%</text>':'')+
-      '<circle class="hit" cx="'+X(j)+'" cy="'+Y(o.v)+'" r="14" data-tip="'+tip+'" data-href="'+openHref(R[o.i].f,R[o.i].t)+'"/>'}).join('');
-  return '<div class="chart"><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(p==="EN"?"English":"GA")+' mock scores">'+g+area+'<path class="ln" d="'+d+'"/>'+dots+'</svg><div class="tip"></div></div>';
-}
-function nextUp(){
-  var L=[]; function add(ic,txt,href,r){L.push('<li><a href="'+href+'"><span class="ic">'+ic+'</span><span>'+txt+'</span>'+(r?'<span class="m r">'+r+'</span>':'')+'</a></li>')}
-  var en=R.map(function(r,i){return i}).filter(function(i){return R[i].g==="English chain"}), li=en[en.length-1], ls=status(li);
-  if(ls!=="done") add("▶",(ls==="prog"?"Finish ":"Take ")+esc(R[li].t),openHref(R[li].f,R[li].t),ls==="prog"?SC[li].q.answered+"/"+SC[li].q.total:"100 Q");
-  else add("⧉","Copy "+R[li].y+" answers → paste to Claude",openHref(R[li].f,R[li].t),"next mock");
-  var gi=R.findIndex(function(r){return r.k==="aso-gs-mock-2027-1"}), gs=status(gi);
-  if(gs!=="done") add("▶",(gs==="prog"?"Finish ":"Take ")+esc(R[gi].t),openHref(R[gi].f,R[gi].t),gs==="prog"?SC[gi].q.answered+"/"+SC[gi].q.total:"100 Q");
-  var w=weakList()[0]; if(w) add("↻","Revise "+esc(w.name),w.p==="EN"?openHref("pyq/OPSC-ASO-2025-English-Paper-III.html","English 2025"):openHref(RM,"GA Reference Manual"),w.miss+" missed");
-  add("◇","Read the Current Affairs Manual",openHref(CA,"Current Affairs 2026 Manual"),"daily");
-  add("✕","Reasoning, Maths, Odia: no material yet","#/syllabus","gap");
-  return '<ul class="todo">'+L.join("")+'</ul>';
-}
-function coverage(){
-  return '<div class="bars">'+SYL.map(function(P){var n=P.rows.length,c=P.rows.filter(function(r){return r[2].length}).length,pct=Math.round(c/n*100);
-    return '<div class="brow'+(c?'':' zero')+'"><span class="lbl">'+esc(P.short)+'</span><span class="trk"><span class="fil" style="width:'+pct+'%"></span></span><span class="val">'+(c?pct+'%':'none')+'</span></div>'}).join("")+'</div>';
-}
-function weakList(){
-  var agg={};
-  R.forEach(function(r,i){var x=SC[i]; if(!x||!x.sc||!x.sc.topics) return;
-    Object.keys(x.sc.topics).forEach(function(t){var v=x.sc.topics[t], key=r.p+"|"+t; agg[key]=agg[key]||{name:t,p:r.p,miss:0,all:0}; agg[key].miss+=v[1]+v[2]; agg[key].all+=v[0]+v[1]+v[2]})});
-  return Object.keys(agg).map(function(k){var a=agg[k]; a.rate=a.all?a.miss/a.all:0; return a}).filter(function(a){return a.miss>0})
-    .sort(function(a,b){return b.rate-a.rate||b.miss-a.miss}).slice(0,6);
-}
-function weak(){
-  var w=weakList(); if(!w.length) return '<div class="empty">Finish a mock and your weakest topics show here.</div>';
-  return '<div class="bars">'+w.map(function(a){var pct=Math.round(a.rate*100);
-    return '<div class="brow" title="'+a.miss+' of '+a.all+' wrong or skipped"><span class="lbl">'+esc(a.name)+'</span><span class="trk"><span class="fil" style="width:'+pct+'%"></span></span><span class="val">'+a.miss+'/'+a.all+'</span></div>'}).join("")+'</div><div class="m" style="margin-top:10px">wrong + skipped, all finished mocks</div>';
-}
-function recent(){
-  var L=[]; R.forEach(function(r,i){var x=SC[i]; if(!x||!x.q) return; L.push({i:i,when:x.sc?x.sc.when:0,x:x})});
-  if(!L.length) return '<div class="empty">Nothing yet. Your attempts will appear here.</div>';
-  L.sort(function(a,b){return b.when-a.when});
-  return '<ul class="todo">'+L.slice(0,5).map(function(o){var r=R[o.i],x=o.x;
-    var right=x.q.done?(x.sc?'<span class="net" style="font:400 1rem/1 var(--f-pixel);color:var(--blue)">'+fmt(x.sc.net)+'</span>':'<span class="m">done</span>'):'<span class="st-prog">'+x.q.answered+'/'+x.q.total+'</span>';
-    return '<li><a href="'+openHref(r.f,r.t)+'"><span class="chip">'+esc(r.y)+'</span><span>'+esc(r.t)+'</span><span class="r">'+right+(x.sc&&x.sc.when?' <span class="m">'+day(x.sc.when)+'</span>':'')+'</span></a></li>'}).join("")+'</ul>';
+V.subjects=function(){
+  return ph("The exam has six parts","Subjects","Pick a subject to see its guides, tests, past papers and topics.",'<a class="btn pri" href="#/syllabus">Scheme &amp; syllabus</a>')+board();
+};
+
+var topicSort="syl";
+function subjectView(S){
+  var o=subj(S), ts=topicStats(), n=S.topics.length;
+  var sw='<div class="filters sw">'+SYL.map(function(x){return '<a href="#/s/'+x.id+'"'+(x.id===S.id?' aria-current="page"':'')+'>'+x.short+'</a>'}).join("")+'</div>';
+  var h=sw+ph(S.paper+' · '+S.q+(typeof S.q==="number"?' questions':'')+' · '+S.mk+' marks · '+S.time,S.name);
+  if(!o.count){
+    h+='<p class="note" style="margin:0 0 4px"><b>No material yet.</b> There is no guide, test or past paper for this subject in the hub. The syllabus topics are listed below, ready to be filled.</p>';
+    h+=sec("Syllabus topics",n)+'<div class="panel"><div class="tlist">'+S.topics.map(function(t){return '<span><span class="dot none"></span>'+esc(t.n)+'</span>'}).join("")+'</div></div>';
+    return h;
+  }
+  var wk=weakList().filter(function(a){return a.S===S})[0], scored=o.tests.filter(function(r){return r.k}).length;
+  h+=strip([["Topics with material",o.cov+'<small>/'+n+'</small>',"of the syllabus"],["Tests done",o.done+'<small>/'+scored+'</small>',"on this device"],
+            ["Best score",o.best===null?"—":fmt(o.best),"net out of 100"],["Weakest topic",wk?esc(wk.t.n):"—",wk?wk.right+"/"+wk.all+" right":"after your first test",1]]);
+  var cur=o.tests.filter(function(r){return r.g!=="Older sets"}), old=o.tests.filter(function(r){return r.g==="Older sets"});
+  h+=sec("Library",o.count)+'<div class="three">'+
+     '<div class="panel rows"><div class="hd"><span class="m">Guides</span><span class="m">'+o.guides.length+'</span></div>'+(rows(o.guides)||'<div class="empty">No guide yet.</div>')+fold("Older versions",o.arch)+'</div>'+
+     '<div class="panel rows"><div class="hd"><span class="m">Tests</span><span class="m">'+o.tests.length+'</span></div>'+rows(cur)+fold("Older sets",old)+'</div>'+
+     '<div class="panel rows"><div class="hd"><span class="m">Past papers</span><span class="m">'+o.papers.length+'</span></div>'+rows(o.papers)+'</div></div>';
+  var any=S.topics.some(function(t){return ts[S.id+"|"+t.id]});
+  function acc(t){var v=ts[S.id+"|"+t.id]; return v?v[0]/(v[0]+v[1]+v[2]):2}
+  var list=S.topics.slice();
+  if(topicSort==="asked") list.sort(function(a,b){return b.asked[2]-a.asked[2]||(b.asked[0]+b.asked[1])-(a.asked[0]+a.asked[1])});
+  if(topicSort==="weak"&&any) list.sort(function(a,b){return acc(a)-acc(b)});
+  h+=sec("Topics",n)+'<div class="filters">'+[["syl","Syllabus order"],["asked","Most asked in 2025"]].concat(any?[["weak","My weakest"]]:[]).map(function(b){return '<button data-ts="'+b[0]+'" aria-pressed="'+(topicSort===b[0])+'">'+b[1]+'</button>'}).join("")+'</div>';
+  h+='<div class="panel mx"><div class="hd"><span></span><span>Topic</span><span class="ask" title="Questions asked in each paper"><span>2018</span><span>2021</span><span>2025</span></span><span>Guides</span><span>Topic tests</span><span>Past questions</span><span class="you">My score</span></div>'+
+    list.map(function(t){var v=ts[S.id+"|"+t.id], all=v?v[0]+v[1]+v[2]:0;
+      return '<div class="tr"><span class="code">('+t.c+')</span><span class="tn">'+esc(t.n)+'</span>'+
+        '<span class="ask" data-l="Asked"><span><i>’18</i>'+t.asked[0]+'</span><span><i>’21</i>'+t.asked[1]+'</span><span><b><i>’25</i>'+t.asked[2]+'</b></span></span>'+
+        '<span class="lk'+(t.g.length?'':' empty')+'" data-l="Guides">'+links(t.g)+'</span><span class="lk'+(t.t.length?'':' empty')+'" data-l="Tests">'+links(t.t)+'</span><span class="lk'+(t.p.length?'':' empty')+'" data-l="Past Qs">'+links(t.p)+'</span>'+
+        '<span class="you">'+(v?'<span class="yb"><span style="width:'+Math.round(v[0]/all*100)+'%"></span></span>'+v[0]+'/'+all:'<span class="none">—</span>')+'</span></div>'}).join("")+'</div>';
+  h+='<p class="note">2018, 2021, 2025 = how many questions each real paper asked on the topic. My score = right answers out of all questions on that topic in your finished tests.</p>';
+  if(o.done) h+=sec("Scores")+'<div class="figs">'+trend(S.id,1)+'</div>';
+  return h;
 }
 
-/* mocks table */
-var sortKey="order", sortDir=1, mockFilter="all";
-V.mocks=function(){
-  var rows=R.map(function(r,i){return i}).filter(function(i){var r=R[i]; return r.s==="mock"&&(mockFilter==="all"||r.p===mockFilter)});
+/* all tests, with scores */
+var sortKey="order", sortDir=1, testFilter="all";
+V.tests=function(){
+  var idx=R.map(function(r,i){return i}).filter(function(i){var r=R[i]; return r.s==="mock"&&(testFilter==="all"||subOf(r)===testFilter)});
   function val(i){var x=SC[i],sc=x&&x.sc; switch(sortKey){
     case "net": return sc?sc.net/sc.total:(x&&x.q?-998:-999); case "right": return sc?sc.right:-1; case "wrong": return sc?sc.wrong:-1;
     case "skip": return sc?sc.skip:-1; case "when": return sc?sc.when:0; case "title": return R[i].t; default: return i}}
-  rows.sort(function(a,b){var A=val(a),B=val(b); return (A>B?1:A<B?-1:0)*sortDir});
+  idx.sort(function(a,b){var A=val(a),B=val(b); return (A>B?1:A<B?-1:0)*sortDir});
   function th(k,l,cls){return '<th class="'+(cls||'')+(sortKey===k?' on':'')+'"><button data-sort="'+k+'">'+l+(sortKey===k?(sortDir>0?' ↑':' ↓'):'')+'</button></th>'}
-  var h='<div class="filters">'+[["all","All"],["EN","English"],["GA","GA / GS"]].map(function(f){return '<button data-mf="'+f[0]+'" aria-pressed="'+(mockFilter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div>';
-  h+='<table class="tbl stack mk"><thead><tr>'+th("order","#")+th("title","Test")+'<th>Status</th>'+th("net","Net","num")+th("right","✓","num")+th("wrong","✗","num")+th("skip","Skip","num")+th("when","Date")+'</tr></thead><tbody>';
-  h+=rows.map(function(i){var r=R[i],x=SC[i],sc=x&&x.sc,st=status(i);
-    var s=st==="done"?'<span class="chip">Done</span>':st==="prog"?'<span class="st-prog">'+x.q.answered+'/'+x.q.total+'</span>':(r.k?'<span class="st-new">Not started</span>':'<span class="st-new">No score saved</span>');
-    return '<tr class="rowlink" data-href="'+openHref(r.f,r.t)+'"><td class="hide-m"><span class="chip">'+esc(r.y)+'</span></td><td><span class="t">'+esc(r.t)+'</span><br><span class="m">'+esc(r.g)+' · '+(r.n||"")+' Q</span></td><td>'+s+'</td>'+
-      '<td class="num">'+(sc?'<span class="net">'+fmt(sc.net)+'</span>':'')+'</td><td class="num hide-m">'+(sc?sc.right:'')+'</td><td class="num hide-m">'+(sc?sc.wrong:'')+'</td><td class="num hide-m">'+(sc?sc.skip:'')+'</td><td class="hide-m"><span class="m">'+(sc&&sc.when?day(sc.when):'')+'</span></td></tr>'}).join("");
-  return h+'</tbody></table>';
+  var h=ph("Library","Tests","Every mock and topic set. A wrong answer costs 0.25, the same as the real exam.");
+  h+='<div class="filters">'+[["all","All"],["en","English"],["ga","General Awareness"]].map(function(f){return '<button data-tf="'+f[0]+'" aria-pressed="'+(testFilter===f[0])+'">'+f[1]+'</button>'}).join("")+(sortKey!=="order"?'<button data-sort="order">Group again</button>':'')+'</div>';
+  h+='<div class="panel"><table class="tbl stack tests"><thead><tr>'+th("title","Test")+'<th>Status</th>'+th("net","Net","num")+th("right","✓","num")+th("wrong","✗","num")+th("skip","Skip","num")+th("when","Date","num")+'</tr></thead><tbody>';
+  var g=null;
+  idx.forEach(function(i){var r=R[i],x=SC[i],sc=x&&x.sc,st=status(i);
+    if(sortKey==="order"&&r.g!==g){g=r.g; h+='<tr class="grp"><td colspan="7">'+esc(g)+'</td></tr>'}
+    var s=st==="done"?'<span class="chip">Done</span>':st==="prog"?'<span class="st-prog">'+x.q.answered+'/'+x.q.total+'</span>':'<span class="m">'+(st==="new"?'Not started':'No score saved')+'</span>';
+    h+='<tr class="rowlink" data-href="'+openHref(r.f,r.t)+'"><td><span class="t">'+esc(r.t)+'</span>'+(r.main&&st!=="done"?' <span class="chip fill">Next</span>':'')+'<br><span class="m">'+subById(subOf(r)).name+' · '+r.n+' Q</span></td><td>'+s+'</td>'+
+      '<td class="num">'+(sc?'<span class="net">'+fmt(sc.net)+'</span>':'')+'</td><td class="num hide-m">'+(sc?sc.right:'')+'</td><td class="num hide-m">'+(sc?sc.wrong:'')+'</td><td class="num hide-m">'+(sc?sc.skip:'')+'</td><td class="num hide-m">'+(sc&&sc.when?day(sc.when):'')+'</td></tr>'});
+  return h+'</tbody></table></div>';
 };
 
-function listTable(items){
-  return '<table class="tbl stack"><tbody>'+items.map(function(r){return '<tr class="rowlink" data-href="'+openHref(r.f,r.t)+'"><td style="width:5.5em" class="hide-m"><span class="chip">'+esc(r.y)+'</span></td><td><span class="t">'+esc(r.t)+'</span>'+(r.main?' <span class="chip">Start here</span>':'')+'</td><td class="hide-m"><span class="m">'+esc(r.x||"")+'</span></td><td class="num"><span class="btn pri">Open</span></td></tr>'}).join("")+'</tbody></table>';
-}
+/* past papers: a year × subject grid */
 V.papers=function(){
-  return '<div class="sec">General Awareness · Paper I</div>'+listTable(R.filter(function(r){return r.s==="pyq"&&r.p==="GA"}))+
-         '<div class="sec">English · Paper III</div>'+listTable(R.filter(function(r){return r.s==="pyq"&&r.p==="EN"}));
-};
-V.guides=function(){
-  return '<div class="sec">Guides</div>'+listTable(R.filter(function(r){return r.s==="guide"}))+
-         '<div class="sec">Archive · older versions</div>'+listTable(R.filter(function(r){return r.s==="archive"}));
-};
-V.syllabus=function(){
-  var h='<div class="grid" style="margin-bottom:18px">'+card("s8","Coverage by paper",coverage())+card("s4 kpi","Official notice",'<a class="btn pri" href="'+openHref(R[0].f,R[0].t)+'">Open full syllabus</a><div class="m sub" style="margin-top:10px">Advt 15 of 2026-27 · 5 Nov 2026</div>')+'</div>';
-  SYL.forEach(function(P){
-    h+='<div class="sec">'+esc(P.paper)+'</div><table class="tbl stack one"><tbody>'+P.rows.map(function(r){
-      var l=r[2].length?'<div class="links">'+r[2].map(function(x){return '<a href="'+openHref(x[1],titleOf(x[1]))+'">'+esc(x[0])+'</a>'}).join("")+'</div>':'<span class="chip w">No material yet</span>';
-      return '<tr><td style="width:3.5em" class="hide-m"><span class="m" style="color:var(--blue)">'+esc(r[0])+'</span></td><td style="width:45%">'+esc(r[1])+'</td><td>'+l+'</td></tr>'}).join("")+'</tbody></table>';
-  });
+  var subs=SYL.filter(function(S){return R.some(function(r){return r.s==="pyq"&&subOf(r)===S.id})}), years=[];
+  var all=R.filter(function(r){return r.s==="pyq"});
+  all.forEach(function(r){ if(/^\d{4}$/.test(r.y)&&years.indexOf(r.y)<0) years.push(r.y) }); years.sort().reverse();
+  var h=ph("Library","Past papers","The real question papers of 2018, 2021 and 2025.");
+  h+=sec("By year",years.length*subs.length)+'<div class="panel"><table class="tbl stack yr"><thead><tr><th style="width:6em">Year</th>'+subs.map(function(S){return '<th>'+S.paper+' · '+S.name+'</th>'}).join("")+'</tr></thead><tbody>'+
+    years.map(function(y){return '<tr><td><span class="chip">'+y+'</span></td>'+subs.map(function(S){var r=all.filter(function(r){return r.y===y&&subOf(r)===S.id})[0];
+      return '<td data-l="'+S.short+'">'+(r?'<span><a class="cl" href="'+openHref(r.f,r.t)+'">'+esc(r.x)+'</a>'+(r.main?' <span class="chip fill">Start here</span>':'')+'</span>':'<span class="none">—</span>')+'</td>'}).join("")+'</tr>'}).join("")+'</tbody></table></div>';
+  var extra=all.filter(function(r){return !/^\d{4}$/.test(r.y)});
+  h+=sec("Across the years",extra.length)+'<div class="panel rows">'+rows(extra,true)+'</div>';
+  var gaps=SYL.filter(function(S){return subs.indexOf(S)<0}).map(function(S){return S.name});
+  h+='<p class="note">No past papers in the hub for '+gaps.join(", ")+'.</p>';
   return h;
 };
-V.search=function(q){
-  var w=q.toLowerCase().split(/\s+/).filter(Boolean);
-  var hits=R.filter(function(r){var hay=(r.t+" "+r.y+" "+r.s+" "+(r.x||"")+" "+(r.g||"")+" "+(r.p==="EN"?"english":"ga gs general awareness")).toLowerCase();
-    return w.every(function(x){return hay.indexOf(x)>-1})});
-  return hits.length?listTable(hits):'<div class="empty">Nothing matches “'+esc(q)+'”.</div>';
+
+V.guides=function(){
+  var h=ph("Library","Guides","Notes to read, filed by subject.");
+  SYL.forEach(function(S){var o=subj(S); if(o.guides.length) h+=sec(S.name,o.guides.length)+'<div class="panel rows">'+rows(o.guides)+'</div>'});
+  var arch=R.filter(function(r){return r.s==="archive"});
+  h+=sec("Older versions",arch.length)+'<div class="panel rows">'+fold("Show the older guides",arch)+'</div>';
+  var gaps=SYL.filter(function(S){return !subj(S).guides.length}).map(function(S){return S.name});
+  h+='<p class="note">No guide yet for '+gaps.join(", ")+'. English has only the word list: there are no grammar notes yet.</p>';
+  return h;
 };
 
-/* ===== router ===== */
-var cur="dashboard";
+V.syllabus=function(){
+  var off=R[0];
+  var h=ph("Advt. No. 15 of 2026-27 · 5 Nov 2026","Scheme and syllabus","",'<a class="btn pri" href="'+openHref(off.f,off.t)+'">Open the official text</a>');
+  h+=sec("Exam scheme",SYL.length)+'<div class="panel"><table class="tbl stack bd"><thead><tr><th>Paper</th><th>Subject</th><th class="num">Questions</th><th class="num">Marks</th><th>Time</th><th></th><th></th></tr></thead><tbody>'+
+    SYL.map(function(S){return '<tr class="rowlink" data-href="#/s/'+S.id+'"><td><span class="rn">'+S.no+'</span></td><td><span class="t">'+S.name+'</span><span class="m sm">'+S.q+(typeof S.q==="number"?' Q':'')+' · '+S.mk+' marks</span></td><td class="num hide-m">'+S.q+'</td><td class="num hide-m">'+S.mk+'</td><td class="hide-m">'+S.time+'</td><td class="hide-m"></td><td class="num"><span class="m">Open &rarr;</span></td></tr>'}).join("")+'</tbody></table></div>';
+  h+='<p class="note">Every question carries 1 mark and a wrong answer costs 0.25. Paper IV is a practical test, held only for shortlisted candidates, and is only qualifying.</p>';
+  SYL.forEach(function(S){var c=S.topics.filter(has).length;
+    h+=sec(S.paper+' · '+S.name,c+'/'+S.topics.length,'<a class="more" href="#/s/'+S.id+'">Open &rarr;</a>')+'<div class="panel"><div class="tlist">'+S.topics.map(function(t){return '<span><span class="dot '+(has(t)?'done':'none')+'"></span>'+esc(t.n)+'</span>'}).join("")+'</div></div>'});
+  h+='<p class="note">A filled dot means the hub has a guide, a test or past questions for that topic.</p>';
+  return h;
+};
+
+V.search=function(q){
+  var w=q.toLowerCase().split(/\s+/).filter(Boolean);
+  function hit(s){s=s.toLowerCase(); return w.every(function(x){return s.indexOf(x)>-1})}
+  var pages=R.filter(function(r){var S=subById(subOf(r)); return hit(r.t+" "+r.y+" "+r.s+" "+(r.x||"")+" "+(r.g||"")+" "+(S?S.name+" "+S.short:"")+(r.s==="mock"?" test mock":r.s==="pyq"?" past paper pyq":""))});
+  var topics=[]; SYL.forEach(function(S){S.topics.forEach(function(t){ if(hit(t.n+" "+S.name+" "+(t.tags||[]).join(" "))) topics.push([S,t]) })});
+  var h=ph("Search",'“'+esc(q)+'”');
+  if(!pages.length&&!topics.length) return h+'<p class="note">Nothing matches.</p>';
+  if(pages.length) h+=sec("Pages",pages.length)+'<div class="panel rows">'+rows(pages,true)+'</div>';
+  if(topics.length) h+=sec("Topics",topics.length)+'<div class="panel rows">'+topics.map(function(x){return '<a class="row" href="#/s/'+x[0].id+'"><span class="t">'+esc(x[1].n)+'</span><span class="lead"></span><span class="r"><span class="m">'+x[0].name+'</span></span></a>'}).join("")+'</div>';
+  return h;
+};
+
+/* ===== navigation ===== */
+var ICON={
+ home:'<path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/>',
+ subjects:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
+ tests:'<rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+ papers:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 16h7"/>',
+ guides:'<path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/>',
+ syllabus:'<path d="M5 4h14v16H5z"/><path d="M9 4v16M12 9h4M12 13h4"/>'
+};
+function svg(k){return '<svg viewBox="0 0 24 24">'+ICON[k]+'</svg>'}
+function count(s){return R.filter(function(r){return r.s===s}).length}
+var LIB='<span class="bc">Library <i>›</i> </span>', NAMES={home:"Home",subjects:"Subjects",tests:LIB+"Tests",papers:LIB+"Past papers",guides:LIB+"Guides",syllabus:LIB+"Syllabus"};
+$("#sidenav").innerHTML='<a class="ni" href="#/home" data-v="home">'+svg("home")+'Home</a>'+
+  '<div class="ng m">Subjects</div>'+SYL.map(function(S){var o=subj(S); return '<a class="ni'+(o.count?'':' off')+'" href="#/s/'+S.id+'" data-v="s/'+S.id+'"><span class="rn">'+S.no+'</span>'+S.name+'<span class="c">'+(o.count||"—")+'</span></a>'}).join("")+
+  '<div class="ng m">Library</div>'+[["tests","Tests",count("mock")],["papers","Past papers",count("pyq")],["guides","Guides",count("guide")],["syllabus","Syllabus",""]].map(function(n){return '<a class="ni" href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'<span class="c">'+n[2]+'</span></a>'}).join("");
+$("#tabs").innerHTML=[["home","Home"],["subjects","Subjects"],["tests","Tests"],["papers","Papers"],["guides","Guides"]].map(function(n){return '<a href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'</a>'}).join("");
+
+var cur="home", ALIAS={"":"home",dashboard:"home",mocks:"tests"};
 function route(){
-  var h=location.hash.replace(/^#\/?/,"")||"dashboard", view=$("#view"), q=$("#q").value.trim();
+  var h=location.hash.replace(/^#\/?/,""), view=$("#view"), q=$("#q").value.trim();
   var parts=h.split("?"), name=parts[0], params=new URLSearchParams(parts[1]||"");
+  if(ALIAS[name]!==undefined) name=ALIAS[name];
   var isOpen=name==="open";
   $("#bar").classList.toggle("viewing",isOpen); $("#back").classList.toggle("hidden",!isOpen); $("#full").classList.toggle("hidden",!isOpen);
-  $("#days").classList.toggle("hidden",isOpen&&innerWidth<761);
+  $("#days").classList.toggle("hidden",isOpen);
   if(isOpen){
     var f=params.get("f")||"", t=params.get("t")||titleOf(f);
-    if(!/^[\w\-./#]+$/.test(f)||/^\/\/|:/.test(f)){location.hash="#/dashboard";return}
+    if(!/^[\w\-./#]+$/.test(f)||/^\/\/|:/.test(f)){location.hash="#/home";return}
     $("#title").textContent=t; $("#full").href=f; view.className="view frame";
     if(!view.querySelector("iframe")||view.dataset.f!==f){view.innerHTML='<iframe title="'+esc(t)+'" src="'+esc(f)+'"></iframe>'; view.dataset.f=f}
     mark(cur); return;
   }
   view.className="view"; view.dataset.f="";
-  if(!V[name]) name="dashboard";
-  cur=name; mark(name);
-  $("#title").textContent=q?"Search":NAV.filter(function(n){return n[0]===name})[0][1];
-  view.innerHTML=q?V.search(q):V[name]();
+  var S=/^s\//.test(name)?subById(name.slice(2)):null;
+  if(!S&&!V[name]) name="home";
+  cur=name; mark(name); secN=0;
+  $("#title").innerHTML=q?"Search":S?'<span class="bc">Subjects <i>›</i> </span>'+S.name:NAMES[name];
+  view.innerHTML='<div class="wrap">'+(q?V.search(q):S?subjectView(S):V[name]())+'</div>';
   view.scrollTop=0;
 }
 function render(){ if(!/^#\/?open/.test(location.hash)){var y=$("#view").scrollTop; route(); $("#view").scrollTop=y} }
-function mark(n){$$("[data-v]").forEach(function(a){a.toggleAttribute("aria-current",a.dataset.v===n); if(a.dataset.v===n) a.setAttribute("aria-current","page")})}
+function mark(n){
+  var tab=(/^s\//.test(n)||n==="syllabus")?"subjects":n;
+  $$("[data-v]").forEach(function(a){var on=a.dataset.v===n||(a.parentNode.id==="tabs"&&a.dataset.v===tab);
+    if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current")});
+}
 window.addEventListener("hashchange",route);
 $("#back").addEventListener("click",function(){ if(history.length>1) history.back(); else location.hash="#/"+cur });
 $("#q").addEventListener("input",function(){ if(/^#\/?open/.test(location.hash)) location.hash="#/"+cur; else route() });
 $("#sbtn").addEventListener("click",function(){var b=$("#bar"); b.classList.toggle("searching"); if(b.classList.contains("searching")) $("#q").focus(); else {$("#q").value=""; route()}});
 
-/* clicks: table rows, chart points, sort, filters */
+/* clicks: table rows, chart points, sort and filter buttons */
 document.addEventListener("click",function(e){
-  var s=e.target.closest("[data-sort]"); if(s){var k=s.dataset.sort; if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=(k==="title"||k==="order")?1:-1} render(); return}
-  var f=e.target.closest("[data-mf]"); if(f){mockFilter=f.dataset.mf; render(); return}
-  var row=e.target.closest("[data-href]"); if(row&&!e.target.closest("a")){location.hash=row.dataset.href; return}
+  var s=e.target.closest("[data-sort]"); if(s){var k=s.dataset.sort; if(k==="order"){sortKey="order";sortDir=1} else if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=k==="title"?1:-1} render(); return}
+  var f=e.target.closest("[data-tf]"); if(f){testFilter=f.dataset.tf; render(); return}
+  var t=e.target.closest("[data-ts]"); if(t){topicSort=t.dataset.ts; render(); return}
+  if(e.target.closest("a")&&$("#q").value){ $("#q").value=""; $("#bar").classList.remove("searching"); if(e.target.closest("a").getAttribute("href")==="#/"+cur) route() }
+  var row=e.target.closest("[data-href]"); if(row&&!e.target.closest("a")){ $("#q").value=""; $("#bar").classList.remove("searching"); if(location.hash===row.dataset.href) route(); else location.hash=row.dataset.href; return}
 });
 document.addEventListener("pointerover",function(e){var h=e.target.closest(".hit"); if(!h) return; var c=h.closest(".chart"),tip=$(".tip",c),b=c.getBoundingClientRect(),r=h.getBoundingClientRect();
-  tip.textContent=h.dataset.tip.replace(/&#10;/g,"\n"); tip.style.whiteSpace="pre"; tip.style.left=(r.left+r.width/2-b.left)+"px"; tip.style.top=(r.top+r.height/2-b.top)+"px"; tip.style.display="block"});
+  tip.textContent=h.dataset.tip.replace(/&#10;/g,"\n"); tip.style.left=(r.left+r.width/2-b.left)+"px"; tip.style.top=(r.top+r.height/2-b.top)+"px"; tip.style.display="block"});
 document.addEventListener("pointerout",function(e){var h=e.target.closest(".hit"); if(h) $(".tip",h.closest(".chart")).style.display="none"});
 
 /* live updates: a test finished inside the app writes localStorage -> rescore */
