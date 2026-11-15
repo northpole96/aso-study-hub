@@ -125,12 +125,12 @@ HEAD = """<!doctype html>
 <style>{css}</style>
 <body>
 <div class="page" id="top">
-<div class="util"><a href="../index.html">&larr; Study hub</a><span>OPSC ASO · {util}</span></div>
+<div class="util"><a href="../index.html" target="_top">&larr; Study hub</a><span>OPSC ASO · {util}</span></div>
 <header class="mast"><h1>{h1}</h1><p class="tag">{tag}</p></header>
 <div class="orn" aria-hidden="true">{dots}</div>
 """
 
-FOOT = """<footer>OPSC ASO study hub · built from <code>pyq/{src}</code> · <a href="../index.html">back to the hub</a></footer>
+FOOT = """<footer>OPSC ASO study hub · built from <code>pyq/{src}</code> · <a href="../index.html" target="_top">back to the hub</a></footer>
 </div>
 <a class="totop" href="#top">Top &uarr;</a>
 <script>
