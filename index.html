@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ASO Study Hub</title>
-<meta name="description" content="Every OPSC ASO 2027 study resource in one place: syllabus, previous year papers, mocks and guides.">
+<meta name="description" content="OPSC ASO 2027 dashboard: syllabus, past papers, mocks and guides.">
 <meta name="theme-color" content="#fbfbfb">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -12,10 +12,9 @@
 <meta name="apple-mobile-web-app-title" content="ASO Hub">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
 <style>
-/* The study hub: a reference-manual contents page for every ASO resource.
-   To add a resource, add one line to the R list in the script at the bottom. */
+/* ASO dashboard. To add a page, add one line to the R list in the script. */
 :root{
   --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
   --blue:#2b4cff; --blue-soft:#e0e6ff; --warn:#b4410b;
@@ -25,349 +24,203 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
-body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
-a:hover{color:var(--blue)}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.4 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 button,input{font:inherit;color:inherit}
-h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
-p{margin:0}
-b{font-weight:600}
-.page{max-width:1200px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 96px max(16px,env(safe-area-inset-left,0px))}
-.mono{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+.page{max-width:1280px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.m{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:20px 48px;align-items:end;margin-top:28px}
-.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.3rem,7vw,4.6rem);line-height:1;letter-spacing:.02em}
-.mast .tag{text-align:right;font-size:1.04rem;line-height:1.6}
-@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
-.orn{margin-block:22px 8px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;opacity:.7}
+/* top bar */
+.top{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;border-bottom:1px solid var(--fg);padding-bottom:14px}
+.top h1{margin:0;font:400 clamp(1.6rem,4.5vw,2.4rem)/1 var(--f-pixel);color:var(--blue);letter-spacing:.02em}
+.top .sp{flex:1}
+.top input{width:min(100%,260px);border:1px solid var(--fg);background:var(--paper);padding:6px 10px;font-family:var(--f-mono);font-size:12px;border-radius:3px}
+@media (max-width:560px){.top input{width:100%}}
 
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px 56px;align-items:start;padding-block:28px 8px}
-@media (max-width:900px){.hero{grid-template-columns:1fr}}
-.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0}
-@media (min-width:900px){.hero .lead{text-align:justify;hyphens:auto}}
-.lead+.lead{margin-top:14px}
+/* stat strip */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.6fr);border-bottom:1px dotted var(--muted)}
+@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis .next{grid-column:1/-1}}
+.kpi{padding:14px 14px 14px 0;min-width:0}
+.kpi .v{font:400 clamp(1.7rem,4vw,2.4rem)/1 var(--f-pixel);color:var(--blue);font-variant-numeric:tabular-nums}
+.kpi .m{margin-top:6px;display:block}
+.kpi.next{border-left:1px dotted var(--muted);padding-left:16px}
+@media (max-width:820px){.kpi.next{border-left:0;padding-left:0;border-top:1px dotted var(--muted)}}
+.kpi.next a{display:block;font-size:1.05rem;line-height:1.3;margin-top:6px;text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+.kpi.next a:hover{color:var(--blue)}
 
-.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:10px 10px;padding:26px 34px 22px}
-.fl,.fr{position:absolute;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;line-height:1}
-.fl{left:9px;top:12px;transform:rotate(180deg)}
-.fr{right:9px;top:12px}
-.fig svg{display:block;width:100%;height:auto}
-.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
-.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2}
-.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round}
-.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
-.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
-.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
-.fig svg .big{font-family:var(--f-pixel);font-size:40px;fill:var(--blue)}
+/* panels */
+.board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px 32px;margin-top:24px}
+.panel{grid-column:span 6;min-width:0}
+.panel.wide{grid-column:1/-1}
+@media (max-width:900px){.panel{grid-column:1/-1}}
+.ph{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ph h2{margin:0;font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.ph h2 b{color:var(--blue);font-weight:500;margin-right:6px}
+.ph .line{flex:1;border-bottom:1px dotted var(--muted)}
 
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));margin-top:18px;border-top:1px solid var(--fg)}
-.stats>div{padding:12px 14px 12px 0;border-bottom:1px dotted var(--muted);min-width:0}
-.stats .big{font-family:var(--f-pixel);font-size:1.9rem;color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
-.stats p{font-size:.9rem;margin-top:6px;color:var(--muted);line-height:1.4}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.wide .tiles{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+@media (max-width:420px){.tiles,.wide .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{position:relative;display:flex;flex-direction:column;gap:6px;min-height:104px;padding:10px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:2px;min-width:0;transition:border-color .12s,background .12s}
+.tile:hover{border-color:var(--blue);background:var(--blue-soft)}
+.tile .row{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.tile .yr{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.7;white-space:nowrap}
+.tile .t{font-size:1.05rem;font-weight:600;line-height:1.2;overflow-wrap:anywhere}
+.tile .s{margin-top:auto;font-family:var(--f-mono);font-size:10px;letter-spacing:.04em;color:var(--muted);font-variant-numeric:tabular-nums}
+.tile .s b{font:400 1.25rem/1 var(--f-pixel);color:var(--blue);margin-right:4px}
+.tile .s.prog{color:var(--warn)}
+.tile .s.new{color:var(--blue)}
+.tile.main{border-color:var(--fg)}
+.tile.main::after{content:"";position:absolute;right:-1px;top:-1px;width:10px;height:10px;background:var(--blue)}
+.tile.done{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.tile.off{display:none}
+.grp{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
+.ph+.grp{margin-top:0}
 
-.next{margin-top:22px;border:1px dashed var(--blue);background:var(--paper);padding:12px 16px}
-.next h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
-.next ol{margin:6px 0 0;padding-left:1.2em;font-size:1rem}
-.next li{margin:4px 0}
+/* syllabus grid */
+.syl{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+@media (max-width:420px){.syl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.topic{display:flex;flex-direction:column;gap:4px;padding:8px 10px;background:var(--paper);border:1px solid var(--rule);min-height:76px;min-width:0}
+a.topic:hover{border-color:var(--blue);background:var(--blue-soft)}
+.topic .k{font-family:var(--f-mono);font-size:10px;color:var(--blue)}
+.topic .n{font-size:.98rem;line-height:1.2;font-weight:500}
+.topic .c{margin-top:auto;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.topic.gap{border-style:dashed;border-color:var(--warn)}
+.topic.gap .c,.topic.gap .k{color:var(--warn)}
+.topic .dots{display:flex;gap:3px}
+.topic .dots i{width:6px;height:6px;background:var(--blue)}
 
-.toc{padding-block:48px 8px}
-.tochead{display:flex;align-items:center;gap:16px}
-.tochead h2{font-size:1.25rem;white-space:nowrap}
-.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
-.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.tochead .r span{color:var(--blue)}
-.toclist{list-style:none;margin:24px 0 0;padding:0;columns:2 300px;column-gap:56px}
-.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0}
-.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.2em}
-.toclist a{text-decoration:none}
-.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
-.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+details.arch summary{cursor:pointer;list-style:none}
+details.arch summary::-webkit-details-marker{display:none}
+details.arch summary h2::after{content:" +";color:var(--blue)}
+details.arch[open] summary h2::after{content:" −"}
 
-.bar{position:sticky;top:0;z-index:15;background:var(--bg);border-bottom:1px solid var(--rule);padding:10px 0;margin-top:28px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.bar input{flex:1 1 220px;min-width:0;border:1px solid var(--fg);background:var(--paper);padding:5px 10px;font-family:var(--f-mono);font-size:12px;border-radius:3px}
-.bar .grp{display:flex;flex-wrap:wrap;gap:4px}
-.btn{display:inline-block;border:1px solid var(--fg);background:var(--paper);padding:4px 12px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;text-decoration:none;color:var(--fg);white-space:nowrap;line-height:1.6}
-.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
-.btn.pri{border-color:var(--blue);color:var(--blue)}
-.btn:hover{background:var(--blue-soft)}
-
-section.spread{padding-block:56px 8px;scroll-margin-top:64px}
-.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.sectrule .line{flex:1;height:1px;background:var(--fg)}
-.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-@media (max-width:480px){.sectrule .eyebrow+.line+.eyebrow{white-space:normal;text-align:right}}
-.eyebrow b{color:var(--blue);font-weight:400}
-.spread h2{font-size:clamp(1.6rem,3vw,2.2rem)}
-.secintro{margin-top:10px;max-width:70ch}
-h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:36px 0 4px;display:flex;align-items:center;gap:12px}
-h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
-
-.list{margin-top:14px;border-top:1px solid var(--fg)}
-.it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:14px 0;border-bottom:1px dotted var(--muted);align-items:start}
-.it .top{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.it h4{margin:4px 0 0;font-size:1.12rem;font-weight:600;line-height:1.35}
-.it h4 a{text-decoration:none}
-.it h4 a:hover{text-decoration:underline dotted;text-decoration-color:var(--blue)}
-.it .d{font-size:.97rem;line-height:1.55;margin-top:4px;max-width:72ch}
-.it .side{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:0}
-@media (max-width:640px){.it{grid-template-columns:1fr}.it .side{align-items:center;flex-direction:row-reverse;justify-content:flex-end;flex-wrap:wrap;gap:12px}}
-.chip{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);background:var(--paper);padding:0 6px;line-height:1.8;color:var(--muted)}
-.yr{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.8;font-variant-numeric:tabular-nums}
-.chip.main{color:var(--blue);border-color:var(--blue);background:var(--blue-soft)}
-.st{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);text-align:right;line-height:1.5;font-variant-numeric:tabular-nums}
-@media (max-width:640px){.st{text-align:left}}
-.st b{font-family:var(--f-pixel);font-weight:400;font-size:1.25rem;color:var(--blue);letter-spacing:.02em}
-.st.prog{color:var(--warn)}
-.it.off{display:none}
-.empty{display:none;padding:14px 0;color:var(--muted);font-size:.97rem}
-
-.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.chain a{border:1px solid var(--blue);color:var(--blue);padding:1px 8px;text-decoration:none;background:var(--paper)}
-.chain a.done{background:var(--blue);color:#fff}
-
-.syl{margin-top:14px;border-top:1px solid var(--fg)}
-.sr{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:6px 28px;padding:12px 0;border-bottom:1px dotted var(--muted)}
-@media (max-width:720px){.sr{grid-template-columns:1fr}}
-.sr .k{font-family:var(--f-mono);font-size:11px;color:var(--blue);margin-right:6px}
-.sr .t{font-size:1rem;line-height:1.5}
-.sr .links{display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
-.sr .links a{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);background:var(--paper);padding:1px 7px;text-decoration:none;line-height:1.7}
-.sr .links a:hover{border-color:var(--blue);color:var(--blue)}
-.gap{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);border:1px dashed currentColor;padding:1px 7px;line-height:1.7}
-.paperhead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-top:30px}
-.paperhead h3{font-size:1.3rem}
-.paperhead .m{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-.tip{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:12px 16px;font-size:.97rem}
-.tip b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
-footer{padding-top:48px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.8}
-.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+.foot{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;border-top:1px solid var(--fg);padding-top:12px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:4px 10px;cursor:pointer;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <body>
-<div class="page" id="top">
-<div class="util"><span>OPSC ASO · Advt. No. 15 of 2026-27</span><span id="today"></span></div>
+<div class="page">
 
-<header class="mast"><h1>ASO Study Hub</h1>
-<p class="tag">The <b>syllabus, past papers, mocks and guides</b><br>for the OPSC Assistant Section Officer exam,<br>all on one shelf.</p></header>
-<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<header class="top">
+<h1>ASO HUB</h1>
+<span class="m" id="today"></span>
+<span class="sp"></span>
+<label class="sr-only" for="q">Search</label>
+<input id="q" type="search" placeholder="Search…" autocomplete="off">
+</header>
 
-<div class="hero">
-<div>
-<p class="lead dropcap">This page is the front door to everything made for the ASO exam. The written exam is planned for <b>17 January 2027</b> (the date is still tentative). Every page below opens on its own, works on a phone, and keeps your answers on this device.</p>
-<p class="lead">Start with the <a href="#syllabus">syllabus</a>: it shows each topic the commission lists and which notes or tests cover it, so the gaps are easy to see. Then read the <a href="#pyq">past papers</a>, practise with the <a href="#mocks">mocks</a> and revise from the <a href="#guides">guides</a>. Scores from finished mocks show up here on their own.</p>
-<div class="next" id="next"><h3>Do next</h3><ol id="nextlist"><li>Loading…</li></ol></div>
-</div>
-<div>
-<figure class="fig" aria-label="Days left to the exam">
-<span class="fl">FIG_001 · COUNTDOWN</span><span class="fr">17 JAN 2027</span>
-<svg viewBox="0 0 320 150" role="img" aria-labelledby="cdT"><title id="cdT">Days left until the written exam</title>
-<rect class="ln" x="20" y="22" width="120" height="110"/>
-<rect class="lt" x="20" y="22" width="120" height="24"/>
-<line class="nf" x1="48" y1="14" x2="48" y2="30"/><line class="nf" x1="112" y1="14" x2="112" y2="30"/>
-<text class="lb" x="80" y="38" text-anchor="middle">JAN · 2027</text>
-<text class="big" id="cdBig" x="80" y="104" text-anchor="middle">--</text>
-<text class="lbm" x="80" y="124" text-anchor="middle">DAYS LEFT</text>
-<line class="dt" x1="150" y1="77" x2="176" y2="77"/>
-<text class="lb" x="182" y="46">PAPER I · GA</text>
-<text class="lb" x="182" y="64">PAPER II · REASONING+MATHS</text>
-<text class="lb" x="182" y="82">PAPER III · ENGLISH+ODIA</text>
-<text class="lb" x="182" y="100">PAPER IV · COMPUTER</text>
-<text class="lbm" x="182" y="122">+1 RIGHT · −0.25 WRONG</text>
-</svg>
-</figure>
-<div class="stats" id="stats"></div>
-</div>
+<div class="kpis">
+<div class="kpi"><div class="v" id="kDays">--</div><span class="m">days to 17 Jan</span></div>
+<div class="kpi"><div class="v" id="kDone">0</div><span class="m">tests finished</span></div>
+<div class="kpi"><div class="v" id="kEn">—</div><span class="m">best English</span></div>
+<div class="kpi"><div class="v" id="kGa">—</div><span class="m">best GA</span></div>
+<div class="kpi next"><span class="m">Next up</span><a id="kNext" href="#">…</a></div>
 </div>
 
-<nav class="toc" aria-label="Contents">
-<div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span id="totalN">0</span> resources</span></div>
-<ol class="toclist">
-<li><span class="n">01</span><a href="#syllabus">Syllabus and what covers it</a><span class="dots"></span><span class="c" id="c-syllabus"></span></li>
-<li><span class="n">02</span><a href="#pyq">Previous year questions</a><span class="dots"></span><span class="c" id="c-pyq"></span></li>
-<li><span class="n">03</span><a href="#mocks">Mocks and practice tests</a><span class="dots"></span><span class="c" id="c-mock"></span></li>
-<li><span class="n">04</span><a href="#guides">Guides and notes</a><span class="dots"></span><span class="c" id="c-guide"></span></li>
-<li><span class="n">05</span><a href="#archive">Archive: older versions</a><span class="dots"></span><span class="c" id="c-archive"></span></li>
-</ol>
-</nav>
-
-<div class="bar" role="search">
-<label class="sr-only" for="q">Search the hub</label>
-<input id="q" type="search" placeholder="Search: polity, 2021, articles…" autocomplete="off">
-<div class="grp" role="group" aria-label="Paper">
-<button class="btn" data-p="all" aria-pressed="true">All</button>
-<button class="btn" data-p="GA" aria-pressed="false">GA</button>
-<button class="btn" data-p="EN" aria-pressed="false">English</button>
-</div>
-</div>
-
-<section class="spread" id="syllabus">
-<div class="sectrule"><span class="eyebrow">Part <b>01</b> · Syllabus</span><span class="line"></span><span class="eyebrow">Official, 5 Nov 2026</span></div>
-<h2>Syllabus and what covers it</h2>
-<p class="secintro">The commission lists the topics for each paper in the notice. Each topic is listed below with links to the notes and tests that cover it. A <span class="gap">No material yet</span> tag marks a topic with nothing made for it so far.</p>
-<div class="list" data-shelf="syllabus"></div>
-<div id="sylmap"></div>
+<main class="board">
+<section class="panel wide" data-sec>
+<div class="ph"><h2><b>01</b>Mocks</h2><span class="line"></span><span class="m">+1 · −0.25</span></div>
+<div class="grp">English chain</div><div class="tiles" data-g="en-chain"></div>
+<div class="grp">GA / GS</div><div class="tiles" data-g="gs"></div>
+<div class="grp">Older sets</div><div class="tiles" data-g="old"></div>
 </section>
 
-<section class="spread" id="pyq">
-<div class="sectrule"><span class="eyebrow">Part <b>02</b> · Past papers</span><span class="line"></span><span class="eyebrow">2018 · 2021 · 2025</span></div>
-<h2>Previous year questions</h2>
-<p class="secintro">The real ASO papers from 2018, 2021 and 2025. No official answer keys exist, so the answers come from standard textbooks, and doubtful ones carry a <span class="chip" style="color:var(--warn);border:1px dashed var(--warn)">Check</span> tag. The 2018 and 2025 GA papers are only raw scan text so far. Their questions are also sorted by topic in the Geography PYQs page and inside the guides.</p>
-<h3 class="sub">General Awareness · Paper I</h3>
-<div class="list" data-shelf="pyq" data-paper="GA"></div>
-<h3 class="sub">English · Paper III</h3>
-<div class="list" data-shelf="pyq" data-paper="EN"></div>
+<section class="panel" data-sec>
+<div class="ph"><h2><b>02</b>Past papers</h2><span class="line"></span><span class="m">2018 · 21 · 25</span></div>
+<div class="grp">GA · Paper I</div><div class="tiles" data-s="pyq" data-p="GA"></div>
+<div class="grp">English · Paper III</div><div class="tiles" data-s="pyq" data-p="EN"></div>
 </section>
 
-<section class="spread" id="mocks">
-<div class="sectrule"><span class="eyebrow">Part <b>03</b> · Practice</span><span class="line"></span><span class="eyebrow">Scores kept on this device</span></div>
-<h2>Mocks and practice tests</h2>
-<p class="secintro">Full 100-question mocks follow the real paper: 90 minutes for GA, +1 for a right answer and −0.25 for a wrong one. The English mocks form a chain. After each one, press <b>Copy answers</b> on the result screen and paste the report to Claude. The next mock then brings back every question you missed, plus new questions that test the same rules.</p>
-<h3 class="sub">English mock chain</h3>
-<div class="chain" id="chain"></div>
-<div class="list" data-shelf="mock" data-group="en-chain"></div>
-<h3 class="sub">General Studies mocks</h3>
-<div class="list" data-shelf="mock" data-group="gs"></div>
-<h3 class="sub">Earlier practice sets (older look)</h3>
-<div class="list" data-shelf="mock" data-group="old"></div>
+<section class="panel" data-sec>
+<div class="ph"><h2><b>03</b>Guides</h2><span class="line"></span></div>
+<div class="tiles" data-s="guide"></div>
+<div class="grp">Syllabus</div><div class="tiles" data-s="syllabus"></div>
 </section>
 
-<section class="spread" id="guides">
-<div class="sectrule"><span class="eyebrow">Part <b>04</b> · Notes</span><span class="line"></span><span class="eyebrow">Read and revise</span></div>
-<h2>Guides and notes</h2>
-<p class="secintro">The GA Reference Manual is the main book. It follows the ten Paper I topics, explains each in simple English, and ends every chapter with the questions most likely to come next. The Current Affairs Manual covers 2026 news in the way the paper asks about it.</p>
-<div class="list" data-shelf="guide"></div>
+<section class="panel wide" id="sylsec">
+<div class="ph"><h2><b>04</b>Syllabus map</h2><span class="line"></span><span class="m"><span style="color:var(--warn)">dashed</span> = nothing yet</span></div>
+<div class="syl" id="syl"></div>
 </section>
 
-<section class="spread" id="archive">
-<div class="sectrule"><span class="eyebrow">Part <b>05</b> · Archive</span><span class="line"></span><span class="eyebrow">Kept for reference</span></div>
-<h2>Archive: older versions</h2>
-<p class="secintro">Earlier drafts in older designs. Their content has moved into the guides above, so read those first. These are kept in case you want to look something up.</p>
-<div class="list" data-shelf="archive"></div>
+<section class="panel wide" data-sec>
+<details class="arch"><summary><div class="ph"><h2><b>05</b>Archive</h2><span class="line"></span><span class="m">older versions</span></div></summary>
+<div class="tiles" data-s="archive"></div></details>
 </section>
+</main>
 
-<p class="empty" id="noresults">Nothing matches that search. Try a shorter word, such as “polity” or “2025”.</p>
-
-<div class="tip" id="offline" hidden><b>Offline</b> Pages you open are saved on this device, so they still work without internet. <button class="btn pri" id="saveall" type="button">Save all pages now</button> <span id="savemsg" class="mono" style="font-size:11px;color:var(--muted)"></span><br>To put the hub on your home screen: in Chrome, open the ⋮ menu and choose <b>Add to Home screen</b>. In Safari, tap Share, then <b>Add to Home Screen</b>.</div>
-
-<footer>
-OPSC ASO study hub · Built for one learner, in simple English · Answers are not from an official key<br>
-Exam date 17 Jan 2027 is tentative; check opsc.gov.in for changes.
-</footer>
+<div class="foot">
+<span class="m">Exam date tentative · no official answer keys</span><span style="flex:1"></span>
+<span class="m" id="savemsg"></span><button class="btn" id="saveall" type="button" hidden>Save all offline</button>
 </div>
-<a class="totop" href="#top">Top &uarr;</a>
+</div>
 
 <script>
-/* ---------- The resource list. Add a new page by adding one line. ----------
-   t = title, f = file, s = shelf (syllabus|pyq|mock|guide|archive), p = paper (GA|EN|ALL),
-   y = year chip, d = one-line description, k = localStorage key of a test (for scores),
-   g = group inside the mocks shelf, n = number of questions, main = highlight, tags = extra search words */
+/* t = tile title, f = file, s = shelf, p = GA|EN|ALL, y = chip, x = small note, k = saved-answers key, g = mock group, n = questions, main = start here */
 var R = [
- {t:"Official scheme and syllabus", f:"pyq/OPSC-ASO-2026-27-Official-Syllabus.html", s:"syllabus", p:"ALL", y:"2026-27", main:1,
-  d:"All four papers, marks and timing, copied word for word from Advt. No. 15 of 2026-27."},
+ {t:"Official syllabus", f:"pyq/OPSC-ASO-2026-27-Official-Syllabus.html", s:"syllabus", p:"ALL", y:"2026-27", main:1, x:"all 4 papers"},
 
- {t:"GA Paper I · 2021 (clean, sorted by topic)", f:"pyq/OPSC-ASO-2021-GA-Paper-I.html", s:"pyq", p:"GA", y:"2021", main:1,
-  d:"All 100 questions typed out cleanly and grouped by topic, with a topic map."},
- {t:"Geography PYQs · all three years", f:"ASO-Geography-PYQs.html", s:"pyq", p:"GA", y:"2018–25",
-  d:"Every geography question from 2018, 2021 and 2025, grouped by topic, with answers and a hide-answers mode.", tags:"odisha india world"},
- {t:"GA Paper I · 2025 (raw scan text)", f:"pyq/OPSC-ASO-2025-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2025",
-  d:"The latest paper as read from the scan, page by page. Some option letters are garbled."},
- {t:"GA Paper I · 2018 (raw scan text)", f:"pyq/OPSC-ASO-2018-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2018",
-  d:"The 2018 paper as read from the scan, page by page. Some option letters are garbled."},
- {t:"English Paper III · 2025", f:"pyq/OPSC-ASO-2025-English-Paper-III.html", s:"pyq", p:"EN", y:"2025", main:1,
-  d:"64 fill-in-the-blanks, 6 error spotting, 20 rearrangement and 2 passages. Worked answers and a topic map."},
- {t:"English Paper III · 2021", f:"pyq/OPSC-ASO-2021-English-Paper-III.html", s:"pyq", p:"EN", y:"2021",
-  d:"Grammar drills: 10 articles, 10 agreement and 10 prepositions in a row. Worked answers."},
- {t:"English Paper III · 2018", f:"pyq/OPSC-ASO-2018-English-Paper-III.html", s:"pyq", p:"EN", y:"2018",
-  d:"Usage and meaning: idioms, synonyms, one-word substitution. Worked answers."},
- {t:"English trend: 2018 vs 2021 vs 2025", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"3 yrs",
-  d:"Every English question tagged to a syllabus item, so you can see what grew and what vanished."},
+ {t:"GA 2021 · sorted", f:"pyq/OPSC-ASO-2021-GA-Paper-I.html", s:"pyq", p:"GA", y:"2021", main:1, x:"100 Q"},
+ {t:"Geography PYQs", f:"ASO-Geography-PYQs.html", s:"pyq", p:"GA", y:"ALL", x:"60 Q"},
+ {t:"GA 2025 · scan", f:"pyq/OPSC-ASO-2025-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2025", x:"raw text"},
+ {t:"GA 2018 · scan", f:"pyq/OPSC-ASO-2018-GA-Paper-I-OCR.html", s:"pyq", p:"GA", y:"2018", x:"raw text"},
+ {t:"English 2025", f:"pyq/OPSC-ASO-2025-English-Paper-III.html", s:"pyq", p:"EN", y:"2025", main:1, x:"100 Q"},
+ {t:"English 2021", f:"pyq/OPSC-ASO-2021-English-Paper-III.html", s:"pyq", p:"EN", y:"2021", x:"100 Q"},
+ {t:"English 2018", f:"pyq/OPSC-ASO-2018-English-Paper-III.html", s:"pyq", p:"EN", y:"2018", x:"100 Q"},
+ {t:"3-year trend", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"18-25", x:"analysis"},
 
- {t:"English Mock 01", f:"ASO-English-Mock-Test-2027-1.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-1", n:100, y:"M01",
-  d:"First mock, in the 2025 section order: fill-in-the-blanks, error spotting, rearrangement, two passages."},
- {t:"English Mock 02", f:"ASO-English-Mock-Test-2027-2.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-2", n:100, y:"M02",
-  d:"Follows the 2021 paper block by block, kept strictly inside the official syllabus."},
- {t:"English Mock 03", f:"ASO-English-Mock-Test-2027-3.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-3", n:100, y:"M03",
-  d:"75 new questions and 25 repeats from Mock 02. Adds the Copy answers report."},
- {t:"English Mock 04 · redo set", f:"ASO-English-Mock-Test-2027-4.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-4", n:100, y:"M04", main:1,
-  d:"All 21 questions missed in Mock 03, 25 same-rule twins and 54 new questions."},
- {t:"GS Mock 2027 · 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"gs", k:"aso-gs-mock-2027-1", n:100, y:"2027", main:1,
-  d:"100 GA questions weighted on the 2025 paper, with exam mode and practice mode."},
- {t:"GA Mock 1", f:"ASO-GA-Mock-Test-1.html", s:"mock", p:"GA", g:"old", k:"aso-mock1", n:100, y:"Set",
-  d:"Built from the “likely next” questions in the first guide."},
- {t:"GS Full Test · 100 MCQ", f:"ASO-GA-Full-Test-100-MCQ.html", s:"mock", p:"GA", g:"old", k:"aso-gs100-test1", n:100, y:"Set",
-  d:"A full-length general studies test across all topics."},
- {t:"Polity · 30 MCQ", f:"ASO-GA-Polity-30-MCQ.html", s:"mock", p:"GA", g:"old", k:"aso-polity30", n:30, y:"Set 1", tags:"constitution",
-  d:"Chapter test on the Indian Constitution. 27 minutes."},
- {t:"Polity · 30 MCQ, Set 2", f:"ASO-GA-Polity-30-MCQ-Set-2.html", s:"mock", p:"GA", g:"old", k:"aso-polity30-set2", n:30, y:"Set 2", tags:"constitution",
-  d:"A second Constitution chapter test with new questions. 27 minutes."},
- {t:"English Full Test · 100 MCQ", f:"ASO-English-Full-Test-100-MCQ.html", s:"mock", p:"EN", g:"old", k:"aso-eng100-test1", n:100, y:"Set 1",
-  d:"An early English full test, from before the official syllabus was out."},
- {t:"English Full Test 2 · 100 MCQ", f:"ASO-English-Full-Test-2-100-MCQ.html", s:"mock", p:"EN", g:"old", k:"aso-eng100-test2", n:100, y:"Set 2",
-  d:"A second early English full test."},
- {t:"Vocabulary Test · 65 MCQ", f:"ASO-Vocabulary-Test-65-MCQ.html", s:"mock", p:"EN", g:"old", n:65, y:"Words", tags:"synonyms antonyms",
-  d:"Five questions on each word in the vocabulary list: meaning, synonym, odd one out, fill in the blank."},
+ {t:"English Mock 01", f:"ASO-English-Mock-Test-2027-1.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-1", n:100, y:"M01"},
+ {t:"English Mock 02", f:"ASO-English-Mock-Test-2027-2.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-2", n:100, y:"M02"},
+ {t:"English Mock 03", f:"ASO-English-Mock-Test-2027-3.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-3", n:100, y:"M03"},
+ {t:"English Mock 04 · redo", f:"ASO-English-Mock-Test-2027-4.html", s:"mock", p:"EN", g:"en-chain", k:"aso-english-mock-2027-4", n:100, y:"M04", main:1},
+ {t:"GS Mock 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"gs", k:"aso-gs-mock-2027-1", n:100, y:"2027", main:1},
+ {t:"GA Mock 1", f:"ASO-GA-Mock-Test-1.html", s:"mock", p:"GA", g:"old", k:"aso-mock1", n:100, y:"GA"},
+ {t:"GS Full Test", f:"ASO-GA-Full-Test-100-MCQ.html", s:"mock", p:"GA", g:"old", k:"aso-gs100-test1", n:100, y:"GA"},
+ {t:"Polity 30", f:"ASO-GA-Polity-30-MCQ.html", s:"mock", p:"GA", g:"old", k:"aso-polity30", n:30, y:"GA"},
+ {t:"Polity 30 · Set 2", f:"ASO-GA-Polity-30-MCQ-Set-2.html", s:"mock", p:"GA", g:"old", k:"aso-polity30-set2", n:30, y:"GA"},
+ {t:"English Full Test 1", f:"ASO-English-Full-Test-100-MCQ.html", s:"mock", p:"EN", g:"old", k:"aso-eng100-test1", n:100, y:"EN"},
+ {t:"English Full Test 2", f:"ASO-English-Full-Test-2-100-MCQ.html", s:"mock", p:"EN", g:"old", k:"aso-eng100-test2", n:100, y:"EN"},
+ {t:"Vocabulary Test", f:"ASO-Vocabulary-Test-65-MCQ.html", s:"mock", p:"EN", g:"old", n:65, y:"EN", x:"no saved score"},
 
- {t:"GA Reference Manual", f:"ASO-GA-Reference-Manual.html", s:"guide", p:"GA", y:"Main", main:1, tags:"polity history geography economy science defence",
-  d:"The main General Awareness book: all ten Paper I topics in simple English, with past questions and “likely next” cards."},
- {t:"Current Affairs 2026 Manual", f:"ASO-Current-Affairs-2026-Manual.html", s:"guide", p:"GA", y:"2026", main:1, tags:"news",
-  d:"2026 news sorted the way the paper asks: defence, schemes, Odisha, summits, reports, awards, sports."},
- {t:"Vocabulary word list", f:"ASO-Vocabulary.html", s:"guide", p:"EN", y:"Words", tags:"synonyms",
-  d:"Hard words with simple meanings and synonyms. New words go at the top."},
+ {t:"GA Reference Manual", f:"ASO-GA-Reference-Manual.html", s:"guide", p:"GA", y:"MAIN", main:1, x:"all 10 topics"},
+ {t:"Current Affairs 2026", f:"ASO-Current-Affairs-2026-Manual.html", s:"guide", p:"GA", y:"2026", main:1, x:"news"},
+ {t:"Vocabulary list", f:"ASO-Vocabulary.html", s:"guide", p:"EN", y:"EN", x:"words"},
 
- {t:"GA Easy Guide", f:"ASO-GA-Easy-Guide.html", s:"archive", p:"GA", y:"Old",
-  d:"The same chapters as the Reference Manual, in the earlier teal design."},
- {t:"GA Study Guide (first guide)", f:"ASO-GA-Study-Guide.html", s:"archive", p:"GA", y:"Old",
-  d:"The very first GA guide. The Easy Guide and the Reference Manual corrected and replaced it."},
- {t:"Current Affairs 2026 (first look)", f:"ASO-Current-Affairs-2026.html", s:"archive", p:"GA", y:"Old",
-  d:"The earlier design of the Current Affairs Manual."},
- {t:"Polity Magazine", f:"ASO-GA-Polity-Magazine.html", s:"archive", p:"GA", y:"Old", tags:"constitution",
-  d:"Constitution notes in a magazine layout."},
- {t:"Polity Woodblock Deck", f:"ASO-GA-Polity-Woodblock.html", s:"archive", p:"GA", y:"Old", tags:"constitution",
-  d:"Constitution flash cards in the old woodblock style."}
+ {t:"GA Easy Guide", f:"ASO-GA-Easy-Guide.html", s:"archive", p:"GA", y:"OLD"},
+ {t:"GA Study Guide", f:"ASO-GA-Study-Guide.html", s:"archive", p:"GA", y:"OLD"},
+ {t:"Current Affairs (v1)", f:"ASO-Current-Affairs-2026.html", s:"archive", p:"GA", y:"OLD"},
+ {t:"Polity Magazine", f:"ASO-GA-Polity-Magazine.html", s:"archive", p:"GA", y:"OLD"},
+ {t:"Polity Woodblock", f:"ASO-GA-Polity-Woodblock.html", s:"archive", p:"GA", y:"OLD"}
 ];
 
-/* Syllabus map: topic -> links. #anchors go straight to the chapter. */
-var RM="ASO-GA-Reference-Manual.html", CA="ASO-Current-Affairs-2026-Manual.html", GEO="ASO-Geography-PYQs.html", GS="ASO-GS-Mock-Test-2027-1.html";
-var SYL = [
- {paper:"Paper I · General Awareness", m:"100 Q · 100 marks · 1½ hours", p:"GA", rows:[
-  ["(a)","Current national events",[["Manual: current affairs",RM+"#current"],["CA 2026 Manual",CA],["GS Mock",GS]]],
-  ["(b)","Current international events",[["CA: summits",CA+"#summits"],["CA: world news",CA+"#world"],["CA: reports",CA+"#reports"]]],
-  ["(c)","British rule in India and the freedom struggle",[["Manual: history",RM+"#history"],["2021 paper",'pyq/OPSC-ASO-2021-GA-Paper-I.html']]],
-  ["(d)","Indian Constitution",[["Manual: polity",RM+"#polity"],["Polity 30 MCQ","ASO-GA-Polity-30-MCQ.html"],["Polity Set 2","ASO-GA-Polity-30-MCQ-Set-2.html"]]],
-  ["(e)","World physical geography",[["Manual: world geography",RM+"#worldgeo"],["Geography PYQs",GEO+"#world-land"]]],
-  ["(f)","Physical geography of India and Odisha",[["Manual: India",RM+"#indiageo"],["Manual: Odisha",RM+"#odisha"],["Geo PYQs: Odisha",GEO+"#odisha"]]],
-  ["(g)","Governance, civil service, economy, planning, poverty, inflation",[["Manual: governance",RM+"#governance"],["Manual: economy",RM+"#economy"],["CA: budget",CA+"#economy"]]],
-  ["(h)","Defence and the Indian armed forces",[["Manual: defence",RM+"#defence"],["CA: defence",CA+"#defence"]]],
-  ["(i)","Science in everyday life, environment, ecology, climate change",[["Manual: science",RM+"#science"],["Manual: environment",RM+"#environment"],["CA: environment",CA+"#env"]]],
-  ["(j)","National and international institutions",[["Manual: institutions",RM+"#institutions"],["CA: summits",CA+"#summits"]]]
- ]},
- {paper:"Paper II · Reasoning and Mathematics", m:"50 + 50 Q · 1½ hours", p:"ALL", rows:[
-  ["(a)","Reasoning: series, direction, coding, ranking, age; mirror images, cubes and dice, figures",[]],
-  ["(b)","Mathematics (Class 10): arithmetic, algebra, mensuration, statistics and probability",[]]
- ]},
- {paper:"Paper III · English", m:"100 Q · with Odia, 2 hours", p:"EN", rows:[
-  ["(i)","Grammar: verb, preposition, adverb, subject–verb agreement, error correction, tenses, articles",[["Mock 04","ASO-English-Mock-Test-2027-4.html"],["Mock 03","ASO-English-Mock-Test-2027-3.html"],["2025 paper","pyq/OPSC-ASO-2025-English-Paper-III.html"]]],
-  ["(i)","Vocabulary, synonyms, antonyms",[["Word list","ASO-Vocabulary.html"],["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"],["2018 paper","pyq/OPSC-ASO-2018-English-Paper-III.html"]]],
-  ["(ii)","Comprehension",[["Mock 04","ASO-English-Mock-Test-2027-4.html"],["2025 paper","pyq/OPSC-ASO-2025-English-Paper-III.html"]]],
-  ["(iii)","Sentence rearrangement",[["Mock 01","ASO-English-Mock-Test-2027-1.html"],["2025 paper","pyq/OPSC-ASO-2025-English-Paper-III.html"]]]
- ]},
- {paper:"Paper III · Odia", m:"100 Q · with English, 2 hours", p:"ALL", rows:[
-  ["(i)","Grammar, vocabulary, synonyms and antonyms (Odia)",[]],
-  ["(ii)–(iii)","Comprehension and sentence rearrangement (Odia)",[]]
- ]},
- {paper:"Paper IV · Computer skill test", m:"Practical · qualifying · 1 hour", p:"ALL", rows:[
-  ["—","Windows, MS Word, Excel, PowerPoint, Access, internet",[]]
- ]}
+/* Syllabus map: [code, short name, link, how many resources cover it] */
+var RM="ASO-GA-Reference-Manual.html";
+var SYL=[
+ ["I (a)","National events","ASO-Current-Affairs-2026-Manual.html",3],
+ ["I (b)","International events","ASO-Current-Affairs-2026-Manual.html#world",3],
+ ["I (c)","British rule & freedom",RM+"#history",2],
+ ["I (d)","Constitution",RM+"#polity",3],
+ ["I (e)","World geography",RM+"#worldgeo",2],
+ ["I (f)","India & Odisha geography",RM+"#indiageo",3],
+ ["I (g)","Governance & economy",RM+"#governance",3],
+ ["I (h)","Defence",RM+"#defence",2],
+ ["I (i)","Science & environment",RM+"#science",3],
+ ["I (j)","Institutions",RM+"#institutions",2],
+ ["II (a)","Reasoning","",0],
+ ["II (b)","Maths (Class 10)","",0],
+ ["III EN","Grammar","ASO-English-Mock-Test-2027-4.html",4],
+ ["III EN","Vocab · synonyms","ASO-Vocabulary.html",3],
+ ["III EN","Comprehension","pyq/OPSC-ASO-2025-English-Paper-III.html",2],
+ ["III EN","Rearrangement","pyq/OPSC-ASO-2025-English-Paper-III.html",2],
+ ["III OD","Odia","",0],
+ ["IV","Computer test","",0]
 ];
 
-var EXAM = new Date(2027,0,17);
+var EXAM=new Date(2027,0,17);
 function $(s,r){return (r||document).querySelector(s)}
 function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -377,155 +230,100 @@ function isAns(a){return a!==null&&a!==undefined&&a!==-1}
 function sig(st){var s=JSON.stringify(st.ans||[])+(st.done?"1":"0"),h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0}return h}
 function fmt(x){return (Math.round(x*100)/100).toString()}
 
-/* ---------- days left ---------- */
-(function(){
-  var now=new Date(); var t0=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-  var d=Math.round((EXAM-t0)/864e5);
-  $("#cdBig").textContent=d>0?d:0;
-  $("#today").textContent=now.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
-})();
+(function(){var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  $("#kDays").textContent=Math.max(0,Math.round((EXAM-t)/864e5));
+  $("#today").textContent=n.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});})();
 
-/* ---------- render shelves ---------- */
-function item(r,i){
-  var chips='<span class="yr">'+esc(r.y||"")+'</span>'+(r.main?'<span class="chip main">Start here</span>':'')+
-    '<span class="chip">'+(r.p==="GA"?"GA":r.p==="EN"?"English":"All papers")+'</span>'+(r.n?'<span class="chip">'+r.n+' Q</span>':'');
-  var side=(r.k?'<div class="st" id="st'+i+'">Not started</div>':'')+'<a class="btn pri" href="'+esc(r.f)+'">Open &rarr;</a>';
-  return '<article class="it" data-i="'+i+'" data-p="'+r.p+'"><div><div class="top">'+chips+'</div><h4><a href="'+esc(r.f)+'">'+esc(r.t)+'</a></h4><p class="d">'+esc(r.d)+'</p></div><div class="side">'+side+'</div></article>';
+/* tiles */
+function tile(r,i){
+  var s=r.k?'<span class="s" id="st'+i+'">Not started</span>':'<span class="s">'+esc(r.x||"Open")+'</span>';
+  return '<a class="tile'+(r.main?' main':'')+'" href="'+esc(r.f)+'" data-i="'+i+'"><span class="row"><span class="yr">'+esc(r.y)+'</span>'+(r.n?'<span class="m">'+r.n+' Q</span>':'')+'</span><span class="t">'+esc(r.t)+'</span>'+s+'</a>';
 }
-$$(".list").forEach(function(box){
-  var sh=box.dataset.shelf, pa=box.dataset.paper, gr=box.dataset.group, h="";
-  R.forEach(function(r,i){ if(r.s===sh&&(!pa||r.p===pa)&&(!gr||r.g===gr)) h+=item(r,i) });
-  box.innerHTML=h;
-});
-["syllabus","pyq","mock","guide","archive"].forEach(function(s){
-  var n=R.filter(function(r){return r.s===s}).length; $("#c-"+s).textContent=n+(n===1?" item":" items");
-});
-$("#totalN").textContent=R.length;
+$$(".tiles").forEach(function(b){var h="";
+  R.forEach(function(r,i){ if((b.dataset.g&&r.g===b.dataset.g)||(b.dataset.s&&r.s===b.dataset.s&&(!b.dataset.p||r.p===b.dataset.p))) h+=tile(r,i) });
+  b.innerHTML=h;});
+$("#syl").innerHTML=SYL.map(function(x){
+  var dots=""; for(var j=0;j<x[3];j++) dots+="<i></i>";
+  var inner='<span class="k">'+esc(x[0])+'</span><span class="n">'+esc(x[1])+'</span><span class="c">'+(x[3]?'<span class="dots">'+dots+'</span>':'Nothing yet')+'</span>';
+  return x[2]?'<a class="topic" href="'+esc(x[2])+'">'+inner+'</a>':'<div class="topic gap">'+inner+'</div>';
+}).join("");
 
-/* syllabus map */
-(function(){
-  var h="";
-  SYL.forEach(function(P){
-    h+='<div class="sylp" data-p="'+P.p+'"><div class="paperhead"><h3>'+esc(P.paper)+'</h3><span class="m">'+esc(P.m)+'</span></div><div class="syl">';
-    P.rows.forEach(function(r){
-      var links=r[2].length?r[2].map(function(l){return '<a href="'+esc(l[1])+'">'+esc(l[0])+'</a>'}).join(""):'<span class="gap">No material yet</span>';
-      h+='<div class="sr"><div class="t"><span class="k">'+esc(r[0])+'</span>'+esc(r[1])+'</div><div class="links">'+links+'</div></div>';
-    });
-    h+='</div></div>';
-  });
-  $("#sylmap").innerHTML=h;
-})();
-
-/* ---------- scores ----------
-   Each test saves its answers in localStorage under its key. To score a finished test
-   the hub opens it in a hidden frame (same site), reads its answer list Q, and caches the result. */
+/* scores: read each test's saved answers; score finished ones in a hidden frame and cache */
 var SC={};
-function quick(r){
-  var st=load(r.k); if(!st||!st.ans) return null;
-  var a=st.ans.filter(isAns).length;
-  return {st:st, answered:a, total:st.ans.length, done:!!st.done};
-}
+function quick(r){var st=load(r.k); if(!st||!st.ans) return null;
+  return {st:st,answered:st.ans.filter(isAns).length,total:st.ans.length,done:!!st.done};}
 function scoreInFrame(r,st){
   return new Promise(function(res){
     var c=load("hub-score:"+r.k), s=sig(st);
     if(c&&c.sig===s) return res(c);
     if(location.protocol==="file:") return res(null);
-    var f=document.createElement("iframe");
-    f.setAttribute("aria-hidden","true"); f.tabIndex=-1;
+    var f=document.createElement("iframe"); f.setAttribute("aria-hidden","true"); f.tabIndex=-1;
     f.style.cssText="position:absolute;width:1px;height:1px;left:-9999px;top:0;border:0;visibility:hidden";
-    var timer=setTimeout(function(){done(null)},15000);
-    function done(v){clearTimeout(timer); if(f.parentNode) f.parentNode.removeChild(f); res(v)}
-    f.onload=function(){
-      try{
-        var Q=f.contentWindow.Q; if(!Q||!Q.length) return done(null);
-        var r1=0,w=0,sk=0;
-        st.ans.forEach(function(a,i){ var q=Q[i]; if(!q) return; var key=(typeof q.ans==="number")?q.ans:q.a;
-          if(!isAns(a)) sk++; else if(a===key) r1++; else w++; });
-        var out={sig:s,right:r1,wrong:w,skip:sk,net:r1-w*0.25,total:st.ans.length,when:Date.now()};
-        keep("hub-score:"+r.k,out); done(out);
-      }catch(e){done(null)}
-    };
+    var tm=setTimeout(function(){fin(null)},15000);
+    function fin(v){clearTimeout(tm); if(f.parentNode) f.parentNode.removeChild(f); res(v)}
+    f.onload=function(){try{
+      var Q=f.contentWindow.Q; if(!Q||!Q.length) return fin(null);
+      var a=0,w=0,k=0;
+      st.ans.forEach(function(x,i){var q=Q[i]; if(!q) return; var key=(typeof q.ans==="number")?q.ans:q.a;
+        if(!isAns(x)) k++; else if(x===key) a++; else w++});
+      var o={sig:s,right:a,wrong:w,skip:k,net:a-w*0.25,total:st.ans.length}; keep("hub-score:"+r.k,o); fin(o);
+    }catch(e){fin(null)}};
     f.src=r.f; document.body.appendChild(f);
   });
 }
-function paint(i,r,q,sc){
-  var el=$("#st"+i); if(!el) return;
-  if(!q){el.textContent="Not started"; el.className="st"; return}
-  if(!q.done){el.className="st prog"; el.textContent="In progress · "+q.answered+"/"+q.total+" answered"; return}
-  if(sc){el.className="st"; el.innerHTML='<b>'+fmt(sc.net)+'</b> / '+sc.total+'<br>'+sc.right+' right · '+sc.wrong+' wrong · '+sc.skip+' skipped'}
-  else {el.className="st"; el.textContent="Finished · "+q.answered+"/"+q.total+" answered"}
+function paint(i){
+  var el=$("#st"+i); if(!el) return; var x=SC[i], q=x.q, sc=x.sc;
+  el.parentNode.classList.toggle("done",!!(q&&q.done));
+  if(!q){el.className="s new"; el.textContent="Not started"; return}
+  if(!q.done){el.className="s prog"; el.textContent="In progress "+q.answered+"/"+q.total; return}
+  el.className="s";
+  el.innerHTML=sc?'<b>'+fmt(sc.net)+'</b>'+sc.right+'✓ '+sc.wrong+'✗ '+sc.skip+' skip':"Finished";
 }
-function chain(){
-  var h=[]; R.forEach(function(r,i){ if(r.g!=="en-chain") return; var q=SC[i]&&SC[i].q;
-    h.push('<a href="'+esc(r.f)+'" class="'+(q&&q.done?"done":"")+'">'+esc(r.y)+'</a>') });
-  h.push('<span>M05: made from your M04 report</span>');
-  $("#chain").innerHTML=h.join('<span aria-hidden="true">&rarr;</span>');
-}
-function stats(){
-  var tests=R.filter(function(r){return r.k}), fin=0, prog=0, bestE=null, bestG=null;
-  R.forEach(function(r,i){ var x=SC[i]; if(!x||!x.q) return; if(x.q.done) fin++; else prog++;
-    if(x.sc&&x.q.done&&x.sc.total===100){ if(r.p==="EN") bestE=Math.max(bestE===null?-99:bestE,x.sc.net); else bestG=Math.max(bestG===null?-99:bestG,x.sc.net) } });
-  $("#stats").innerHTML=
-    '<div><div class="big">'+fin+'/'+tests.length+'</div><p>tests finished on this device</p></div>'+
-    '<div><div class="big">'+(bestE===null?"—":fmt(bestE))+'</div><p>best English mock (net / 100)</p></div>'+
-    '<div><div class="big">'+(bestG===null?"—":fmt(bestG))+'</div><p>best GA mock (net / 100)</p></div>';
-}
-function nextSteps(){
-  var L=[];
-  var en=R.map(function(r,i){return [r,i]}).filter(function(x){return x[0].g==="en-chain"});
-  var last=en[en.length-1], lq=SC[last[1]]&&SC[last[1]].q;
-  if(!lq) L.push('Take <a href="'+last[0].f+'">'+esc(last[0].t)+'</a>. It brings back every question you missed in Mock 03.');
-  else if(!lq.done) L.push('Finish <a href="'+last[0].f+'">'+esc(last[0].t)+'</a> ('+lq.answered+'/'+lq.total+' answered).');
-  else L.push('Open <a href="'+last[0].f+'">'+esc(last[0].t)+'</a>, press <b>Copy answers</b> and paste the report to Claude to get the next redo set.');
-  var gi=R.findIndex(function(r){return r.k==="aso-gs-mock-2027-1"}), gq=SC[gi]&&SC[gi].q;
-  if(!gq) L.push('Take the <a href="'+R[gi].f+'">GS Mock</a> once in exam mode to see where GA stands.');
-  else if(!gq.done) L.push('Finish the <a href="'+R[gi].f+'">GS Mock</a> ('+gq.answered+'/'+gq.total+' answered).');
-  L.push('Paper II (reasoning and maths), Odia and the computer test have no material yet. Ask for a set when you are ready.');
-  $("#nextlist").innerHTML=L.map(function(x){return "<li>"+x+"</li>"}).join("");
+function kpis(){
+  var fin=0,be=null,bg=null;
+  R.forEach(function(r,i){var x=SC[i]; if(!x||!x.q||!x.q.done) return; fin++;
+    if(x.sc&&x.sc.total===100){ if(r.p==="EN") be=Math.max(be===null?-99:be,x.sc.net); else bg=Math.max(bg===null?-99:bg,x.sc.net) }});
+  $("#kDone").textContent=fin+"/"+R.filter(function(r){return r.k}).length;
+  $("#kEn").textContent=be===null?"—":fmt(be);
+  $("#kGa").textContent=bg===null?"—":fmt(bg);
+  /* next up: the newest English mock, then the GS mock */
+  var en=R.map(function(r,i){return i}).filter(function(i){return R[i].g==="en-chain"}), li=en[en.length-1], lq=SC[li].q;
+  var gi=R.findIndex(function(r){return r.g==="gs"}), gq=SC[gi].q, a=$("#kNext");
+  if(!lq||!lq.done){a.href=R[li].f; a.textContent=(lq?"Finish ":"Take ")+R[li].t+(lq?" ("+lq.answered+"/"+lq.total+")":"")+" →"}
+  else if(!gq||!gq.done){a.href=R[gi].f; a.textContent=(gq?"Finish ":"Take ")+R[gi].t+" →"}
+  else {a.href=R[li].f; a.textContent="Copy "+R[li].y+" answers → paste to Claude for the next mock"}
 }
 function refresh(){
-  R.forEach(function(r,i){ if(!r.k) return; var q=quick(r); var c=q&&q.done?load("hub-score:"+r.k):null;
-    SC[i]={q:q, sc:(c&&q&&c.sig===sig(q.st))?c:null}; paint(i,r,q,SC[i].sc) });
-  chain(); stats(); nextSteps();
-  /* score finished tests one at a time, so the phone is not loading many pages at once */
-  var todo=R.map(function(r,i){return i}).filter(function(i){return SC[i]&&SC[i].q&&SC[i].q.done&&!SC[i].sc});
-  (function step(){ if(!todo.length){stats();return} var i=todo.shift();
-    scoreInFrame(R[i],SC[i].q.st).then(function(sc){ SC[i].sc=sc; paint(i,R[i],SC[i].q,sc); stats(); step() }) })();
+  R.forEach(function(r,i){ if(!r.k) return; var q=quick(r), c=q&&q.done?load("hub-score:"+r.k):null;
+    SC[i]={q:q,sc:(c&&c.sig===sig(q.st))?c:null}; paint(i) });
+  kpis();
+  var todo=Object.keys(SC).map(Number).filter(function(i){return SC[i].q&&SC[i].q.done&&!SC[i].sc});
+  (function step(){ if(!todo.length) return; var i=todo.shift();
+    scoreInFrame(R[i],SC[i].q.st).then(function(sc){SC[i].sc=sc; paint(i); kpis(); step()}) })();
 }
 refresh();
-window.addEventListener("pageshow",function(e){ if(e.persisted) refresh() });
-document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="visible") refresh() });
+window.addEventListener("pageshow",function(e){if(e.persisted) refresh()});
+document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible") refresh()});
 
-/* ---------- search and paper filter ---------- */
-var paper="all";
-function filter(){
-  var q=$("#q").value.trim().toLowerCase(), any=false;
-  $$(".it").forEach(function(el){ var r=R[+el.dataset.i];
-    var hay=(r.t+" "+r.d+" "+(r.y||"")+" "+(r.tags||"")+" "+r.s+" "+(r.p==="EN"?"english":"general awareness ga gs")).toLowerCase();
-    var ok=(paper==="all"||r.p===paper||r.p==="ALL")&&(!q||q.split(/\s+/).every(function(w){return hay.indexOf(w)>-1}));
-    el.classList.toggle("off",!ok); if(ok) any=true });
-  $$(".sylp").forEach(function(el){ el.style.display=(paper==="all"||el.dataset.p===paper)&&!q?"":"none" });
-  $$("section.spread").forEach(function(s){ var items=$$(".it",s); var vis=items.filter(function(x){return !x.classList.contains("off")}).length;
-    var syl=s.id==="syllabus"&&!q;
-    s.style.display=(vis||syl||(!q&&paper==="all"))?"":"none";
-    $$("h3.sub",s).forEach(function(h){ var box=h.nextElementSibling; while(box&&!box.classList.contains("list")) box=box.nextElementSibling;
-      var v=box?$$(".it",box).some(function(x){return !x.classList.contains("off")}):true; h.style.display=v?"":"none";
-      var ch=h.nextElementSibling; if(ch&&ch.id==="chain") ch.style.display=v?"":"none" }) });
-  $("#noresults").style.display=any||(!q&&paper==="all")?"none":"block";
-}
-$("#q").addEventListener("input",filter);
-$$(".bar [data-p]").forEach(function(b){ b.addEventListener("click",function(){ paper=b.dataset.p;
-  $$(".bar [data-p]").forEach(function(x){x.setAttribute("aria-pressed",x===b)}); filter() }) });
+/* search */
+$("#q").addEventListener("input",function(){
+  var q=this.value.trim().toLowerCase();
+  $$(".tile").forEach(function(el){var r=R[+el.dataset.i];
+    var hay=(r.t+" "+r.y+" "+r.s+" "+(r.x||"")+" "+(r.p==="EN"?"english":"ga gs general")).toLowerCase();
+    el.classList.toggle("off",!!q&&!q.split(/\s+/).every(function(w){return hay.indexOf(w)>-1}))});
+  $$("[data-sec]").forEach(function(s){ s.style.display=$$(".tile",s).some(function(t){return !t.classList.contains("off")})?"":"none";
+    $$(".grp",s).forEach(function(g){var b=g.nextElementSibling; g.style.display=b&&$$(".tile:not(.off)",b).length?"":"none"}) });
+  $("#sylsec").style.display=q?"none":"";
+  if(q) $$("details.arch").forEach(function(d){d.open=true});
+});
 
-/* ---------- offline / install ---------- */
-if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
-  navigator.serviceWorker.register("sw.js").then(function(){ $("#offline").hidden=false }).catch(function(){});
+/* offline */
+if("serviceWorker" in navigator&&location.protocol.indexOf("http")===0){
+  navigator.serviceWorker.register("sw.js").then(function(){$("#saveall").hidden=false}).catch(function(){});
   $("#saveall").addEventListener("click",function(){
-    var list=R.map(function(r){return r.f}), ok=0, b=this; b.disabled=true;
-    $("#savemsg").textContent="Saving 0/"+list.length+"…";
-    (function step(){ if(!list.length){ $("#savemsg").textContent="Saved "+ok+" pages for offline use."; b.disabled=false; return }
-      fetch(list.shift(),{cache:"reload"}).then(function(r){ if(r.ok) ok++ }).catch(function(){}).then(function(){
-        $("#savemsg").textContent="Saving "+ok+"/"+R.length+"…"; step() }) })();
+    var list=R.map(function(r){return r.f}),ok=0,b=this,n=list.length; b.disabled=true;
+    (function step(){ if(!list.length){$("#savemsg").textContent="Saved "+ok+" pages"; b.disabled=false; return}
+      fetch(list.shift(),{cache:"reload"}).then(function(r){if(r.ok) ok++}).catch(function(){}).then(function(){$("#savemsg").textContent="Saving "+ok+"/"+n; step()}) })();
   });
 }
 </script>
