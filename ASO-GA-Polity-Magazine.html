@@ -1,0 +1,1618 @@
+<title>ASO Polity Magazine</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a fixed left contents rail; each article is a magazine spread that uses the full width:
+   reading column + large drawing + margin notes (three columns on very wide screens). */
+:root{
+  --bg:#f4efe2; --paper:#fbf8ef; --ink:#1c2b2d; --soft:#5d6a68; --line:#d9d0bb;
+  --teal:#0e6b62; --teal-soft:#dcebe6; --on-teal:#f7f4ea; --head:#133c40;
+  --ochre:#9a6a0c; --ochre-soft:#f3e3bd; --brick:#a8452f; --brick-soft:#f5ddd5;
+  --f-display:"Zilla Slab",Rockwell,"Roboto Slab",Georgia,serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --rail:300px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121a1b; --paper:#1a2426; --ink:#e6e2d6; --soft:#a2b2af; --line:#2f3d3f;
+    --teal:#5cc2b1; --teal-soft:#1d3533; --on-teal:#0e1f1d; --head:#bfe4dc;
+    --ochre:#e3b456; --ochre-soft:#3a2f17; --brick:#e8907b; --brick-soft:#3b221c;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121a1b; --paper:#1a2426; --ink:#e6e2d6; --soft:#a2b2af; --line:#2f3d3f;
+  --teal:#5cc2b1; --teal-soft:#1d3533; --on-teal:#0e1f1d; --head:#bfe4dc;
+  --ochre:#e3b456; --ochre-soft:#3a2f17; --brick:#e8907b; --brick-soft:#3b221c;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:18px/1.7 var(--f-body);overflow-x:hidden}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);color:var(--head);text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+.mono{font-family:var(--f-mono)}
+
+/* ---------- contents rail ---------- */
+.rail{position:fixed;top:0;bottom:0;left:0;width:var(--rail);background:var(--paper);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;z-index:20;padding:calc(22px + env(safe-area-inset-top,0px)) 0 calc(16px + env(safe-area-inset-bottom,0px)) max(0px, env(safe-area-inset-left,0px))}
+.brand{padding:0 22px 16px;border-bottom:1px solid var(--line)}
+.brand small{display:block;font:600 11.5px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.brand b{display:block;font:700 26px/1.1 var(--f-display);color:var(--head);margin-top:6px}
+.brand span{display:block;font-size:14px;color:var(--soft);margin-top:4px}
+.toc{flex:1;overflow-y:auto;padding:12px 10px;display:flex;flex-direction:column;gap:2px}
+.toc a{display:grid;grid-template-columns:30px 1fr 16px;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:15.5px;line-height:1.3}
+.toc a .n{font:600 12.5px var(--f-mono);color:var(--soft)}
+.toc a .ok{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--line)}
+.toc a.read .ok{background:var(--teal);border-color:var(--teal)}
+.toc a:hover{background:var(--bg)}
+.toc a.on{background:var(--teal);color:var(--on-teal)}
+.toc a.on .n{color:var(--on-teal)}
+.toc a.on .ok{border-color:var(--on-teal)}
+.toc .sep{height:1px;background:var(--line);margin:8px 12px}
+.railfoot{padding:12px 22px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.prog{font-size:13.5px;color:var(--soft)}
+.prog i{display:block;height:5px;border-radius:9px;background:var(--line);margin-top:6px;overflow:hidden}
+.prog i b{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:2px;background:var(--bg);align-self:flex-start}
+.seg button{border:0;background:none;padding:5px 12px;border-radius:99px;font-size:13px;cursor:pointer;color:var(--soft)}
+.seg button[aria-pressed="true"]{background:var(--teal);color:var(--on-teal)}
+
+/* mobile top bar */
+.topbar{display:none}
+main{margin-left:var(--rail);min-width:0;padding-left:max(clamp(16px,4vw,72px), env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,72px), env(safe-area-inset-right,0px));padding-block:44px 80px}
+@media (max-width:899px){
+  .rail{transform:translateX(-102%);transition:transform .25s;box-shadow:0 0 40px rgba(0,0,0,.25);width:min(320px,88vw)}
+  .rail.open{transform:none}
+  .topbar{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:15;align-items:center;gap:12px;background:var(--paper);border-bottom:1px solid var(--line);
+    padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--paper)}
+  .topbar b{font:700 17px var(--f-display);color:var(--head)}
+  .topbar button{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer}
+  main{margin-left:0;padding-block:24px 60px}
+  body{font-size:17px}
+}
+.scrim{display:none}
+@media (max-width:899px){.scrim.on{display:block;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:18}}
+
+/* ---------- cover ---------- */
+.cover-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:center;padding-bottom:40px;border-bottom:2px solid var(--head)}
+.kick{font:600 12.5px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.cover-hero h1{font-size:clamp(44px,5.4vw,96px);font-weight:700;letter-spacing:-.01em;margin:14px 0 18px}
+.cover-hero .lede{font-size:clamp(18px,1.35vw,22px);color:var(--soft);max-width:40rem}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px;max-width:44rem}
+.stat{border-top:3px solid var(--teal);padding-top:8px}
+.stat b{display:block;font:700 clamp(26px,2.4vw,38px)/1.1 var(--f-display);color:var(--head);font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--soft)}
+.cover-art svg{width:100%;height:auto;display:block}
+.howto{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:34px 0 10px}
+.howto div{font-size:16px;color:var(--soft)}
+.howto b{display:block;font:700 18px var(--f-display);color:var(--head);margin-bottom:4px}
+.tiles-h{font-size:30px;margin:36px 0 16px}
+.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.tile{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;min-height:150px;transition:border-color .15s,transform .15s}
+.tile:hover{border-color:var(--teal);transform:translateY(-2px)}
+.tile .n{font:600 13px var(--f-mono);color:var(--teal)}
+.tile b{font:700 21px/1.2 var(--f-display);color:var(--head)}
+.tile span{font-size:14.5px;color:var(--soft);line-height:1.45}
+.tile em{margin-top:auto;font-style:normal;font-size:13px;color:var(--soft)}
+.tile.read em::after{content:" · read";color:var(--teal);font-weight:700}
+.tile.alt{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.tile.alt b,.tile.alt .n,.tile.alt span,.tile.alt em{color:var(--on-teal)}
+@media (max-width:1599px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1199px){.cover-hero{grid-template-columns:1fr}.cover-art{max-width:640px}}
+@media (max-width:899px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.howto{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.tiles{grid-template-columns:1fr}}
+
+/* ---------- article ---------- */
+.ahead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 40px;align-items:end;padding-bottom:26px;margin-bottom:34px;border-bottom:2px solid var(--head)}
+.ahead h1{font-size:clamp(36px,4vw,68px);font-weight:700;margin:10px 0 14px}
+.ahead .lede{font-size:clamp(18px,1.3vw,21px);color:var(--soft);max-width:48rem}
+.meta{display:flex;flex-direction:column;gap:6px;align-items:flex-end;text-align:right;font-size:14.5px;color:var(--soft)}
+.meta b{font:700 30px/1 var(--f-display);color:var(--head)}
+@media (max-width:899px){.ahead{grid-template-columns:1fr}.meta{align-items:flex-start;text-align:left;flex-direction:row;flex-wrap:wrap;gap:4px 14px}.meta b{font-size:20px}}
+
+.spread{display:grid;gap:clamp(28px,3vw,56px);grid-template-columns:minmax(0,1fr);grid-template-areas:"fig" "text" "notes"}
+.text{grid-area:text;min-width:0}
+.fig{grid-area:fig;min-width:0}
+.notes{grid-area:notes;min-width:0;display:flex;flex-direction:column;gap:18px}
+@media (min-width:1180px){
+  .spread{grid-template-columns:minmax(0,42rem) minmax(0,1fr);grid-template-areas:"text fig" "text notes";grid-template-rows:auto 1fr;align-items:start}
+  .notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+}
+@media (min-width:1180px) and (max-width:1499px){.notes{grid-template-columns:1fr}}
+@media (min-width:2200px){
+  .notes{display:flex}
+  .spread{grid-template-columns:minmax(0,46rem) minmax(0,1.3fr) minmax(16rem,22rem);grid-template-areas:"text fig notes";grid-template-rows:auto}
+  .fig,.notes{position:sticky;top:28px}
+}
+.text > * + *{margin-top:18px}
+.text h2{font-size:30px;margin-top:38px}
+.text h3{font-size:23px;margin-top:30px}
+.text ul,.text ol{padding-left:24px;margin-bottom:0}
+.text li + li{margin-top:6px}
+.text strong{color:var(--head)}
+.drop::first-letter{font:700 4.1em/.8 var(--f-display);float:left;margin:8px 10px 0 0;color:var(--teal)}
+
+.fig figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(14px,1.6vw,28px)}
+.fig figcaption{font-size:14.5px;color:var(--soft);margin-top:12px;line-height:1.5}
+.fig figcaption b{color:var(--head);font-family:var(--f-display);font-size:16px}
+.svgwrap{overflow-x:auto}
+.svgwrap svg{display:block;width:100%;height:auto;min-width:520px}
+@media (min-width:600px){.svgwrap svg{min-width:0}}
+
+/* svg styling via tokens */
+svg text{font-family:var(--f-body);fill:var(--ink)}
+svg .d{font-family:var(--f-display);font-weight:700;fill:var(--head)}
+svg .mn{font-family:var(--f-mono);font-weight:600}
+svg .sf{fill:var(--soft)}
+svg .tt{fill:var(--teal)}
+svg .ot{fill:var(--on-teal)}
+svg .oc{fill:var(--ochre)}
+svg .bt{fill:var(--brick)}
+svg .c{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+svg .cb{fill:var(--bg);stroke:var(--line);stroke-width:1.5}
+svg .tf{fill:var(--teal)}
+svg .ts{fill:var(--teal-soft);stroke:var(--teal);stroke-width:1.5}
+svg .os{fill:var(--ochre-soft);stroke:var(--ochre);stroke-width:1.5}
+svg .bs{fill:var(--brick-soft);stroke:var(--brick);stroke-width:1.5}
+svg .ln{fill:none;stroke:var(--soft);stroke-width:2}
+svg .lt{fill:none;stroke:var(--teal);stroke-width:3;stroke-linecap:round}
+svg .lb{fill:none;stroke:var(--brick);stroke-width:3;stroke-linecap:round}
+svg .ld{fill:none;stroke:var(--soft);stroke-width:1.5;stroke-dasharray:4 4}
+svg .ink{fill:var(--ink)}
+svg .bgf{fill:var(--bg)}
+svg .pf{fill:var(--paper)}
+
+/* callouts */
+.co{border-radius:12px;padding:16px 20px;font-size:17px;line-height:1.6}
+.co > b:first-child{display:block;font:600 12px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.co.trap{background:var(--brick-soft);border:1px solid var(--brick)}
+.co.trap > b:first-child{color:var(--brick)}
+.co.trick{background:var(--ochre-soft);border:1px solid var(--ochre)}
+.co.trick > b:first-child{color:var(--ochre)}
+.pull{font:600 clamp(24px,2vw,32px)/1.3 var(--f-display);color:var(--teal);border-left:4px solid var(--teal);padding:4px 0 4px 20px;margin:28px 0}
+.stamp{display:inline-block;font:600 12px/1 var(--f-mono);letter-spacing:.02em;color:var(--teal);border:1.5px solid var(--teal);border-radius:4px;padding:3px 6px 2px;margin:0 2px;white-space:nowrap;vertical-align:2px}
+.chk{display:inline-block;font:600 11.5px/1 var(--f-mono);color:var(--brick);background:var(--brick-soft);border-radius:4px;padding:3px 6px 2px;white-space:nowrap;vertical-align:2px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.45}
+th,td{padding:10px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font:600 12.5px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);background:var(--bg)}
+td:first-child{font-weight:700;color:var(--head);white-space:nowrap}
+td.wrap{white-space:normal}
+
+/* notes column */
+.nbox{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.nbox h4{margin:0 0 10px;font:600 12px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.glance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.glance div{border-left:3px solid var(--teal);padding-left:10px}
+.glance b{display:block;font:700 24px/1.1 var(--f-display);color:var(--head);font-variant-numeric:tabular-nums}
+.glance span{font-size:13.5px;color:var(--soft);line-height:1.35;display:block}
+.asked{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;font-size:14.5px;line-height:1.45}
+.asked li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}
+.asked .stamp{margin:0}
+
+/* recap + quiz + pager */
+.recap{margin-top:44px;background:var(--teal);color:var(--on-teal);border-radius:14px;padding:22px 26px}
+.recap h3{color:var(--on-teal);font-size:22px}
+.recap h3 small{font:600 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.85;display:block;margin-bottom:4px}
+.recap ul{margin:10px 0 0;padding-left:22px;font-size:16.5px}
+.recap li + li{margin-top:4px}
+.quiz{margin-top:28px}
+.quiz h3{font-size:22px}
+.qq{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.qq p{font-weight:700;color:var(--head)}
+.qo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+@media (max-width:640px){.qo{grid-template-columns:1fr}}
+.qo button{text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:9px 12px;font-size:15.5px;line-height:1.35;cursor:pointer}
+.qo button:hover:not(:disabled){border-color:var(--teal)}
+.qo button.right{border-color:var(--teal);background:var(--teal-soft);font-weight:700}
+.qo button.wrong{border-color:var(--brick);background:var(--brick-soft)}
+.qo button:disabled{cursor:default}
+.qe{margin-top:10px;font-size:15.5px;color:var(--soft)}
+.qe b{color:var(--head)}
+.done-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}
+.btn{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:11px 18px;font-size:16px;cursor:pointer;text-decoration:none;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.btn:hover{border-color:var(--teal)}
+.btn.pri{background:var(--teal);border-color:var(--teal);color:var(--on-teal);font-weight:700}
+.btn[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--teal);color:var(--head);font-weight:700}
+.pager{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:40px;padding-top:26px;border-top:2px solid var(--head)}
+.pager a{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.pager a:hover{border-color:var(--teal)}
+.pager a small{font:600 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.pager a b{font:700 20px/1.25 var(--f-display);color:var(--head)}
+.pager a.nx{text-align:right;grid-column:2}
+
+/* revision mode */
+.rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+@media (max-width:1499px){.rev-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:899px){.rev-grid{grid-template-columns:1fr}}
+.rcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.rcard h3{font-size:22px}
+.rcard h3 a{color:inherit;text-decoration:none}
+.rcard h3 small{display:block;font:600 12px var(--f-mono);color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.rcard .svgwrap svg{min-width:0}
+.rcard ul{margin:0;padding-left:20px;font-size:15.5px;line-height:1.55}
+.view[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="topbar"><button id="menuBtn" aria-controls="rail" aria-expanded="false">☰ Contents</button><b>Polity Magazine</b></div>
+<div class="scrim" id="scrim"></div>
+
+<aside class="rail" id="rail" aria-label="Contents">
+  <div class="brand">
+    <small>OPSC ASO 2027 · General Awareness</small>
+    <b>Polity Magazine</b>
+    <span>Issue 1 · Indian Constitution</span>
+  </div>
+  <nav class="toc" id="toc">
+    <a href="#cover" data-v="cover"><span class="n">00</span><span>Cover</span><span></span></a>
+  </nav>
+  <div class="railfoot">
+    <div class="prog" id="prog">0 of 13 articles read<i><b id="progBar"></b></i></div>
+    <div class="seg" role="group" aria-label="Theme">
+      <button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">Auto</button>
+    </div>
+  </div>
+</aside>
+
+<main id="main">
+
+<!-- ================= COVER ================= -->
+<section class="view" data-view="cover" data-title="Cover">
+  <div class="cover-hero">
+    <div>
+      <p class="kick">Issue 1 · Chapter 1 of the Easy Guide</p>
+      <h1>The Indian Constitution, one page at a time</h1>
+      <p class="lede">Polity is the safest chapter in the paper. The questions ask two things: <b>where</b> something is written (which Article, Schedule or Amendment) and <b>how</b> a body works (who appoints, who removes, who elects). Learn it like a map of a town, one street at a time.</p>
+      <div class="stats">
+        <div class="stat"><b>11–18</b><span>questions per paper</span></div>
+        <div class="stat"><b>13</b><span>short articles</span></div>
+        <div class="stat"><b>~55</b><span>minutes to read</span></div>
+        <div class="stat"><b>39</b><span>quick-check questions</span></div>
+      </div>
+    </div>
+    <div class="cover-art" aria-hidden="true">
+      <svg viewBox="0 0 560 420" role="img">
+        <rect x="70" y="20" width="420" height="380" rx="14" class="c"/>
+        <rect x="70" y="20" width="420" height="70" rx="14" class="tf"/>
+        <rect x="70" y="70" width="420" height="20" class="tf"/>
+        <text x="280" y="64" text-anchor="middle" class="d" style="fill:var(--on-teal);font-size:28px">THE CONSTITUTION OF INDIA</text>
+        <text x="280" y="128" text-anchor="middle" class="sf" style="font-size:15px;font-style:italic">WE, THE PEOPLE OF INDIA, having solemnly resolved…</text>
+        <g class="mn" style="font-size:14px">
+          <rect x="100" y="150" width="170" height="44" rx="8" class="ts"/><text x="185" y="177" text-anchor="middle" class="tt">395 Articles (original)</text>
+          <rect x="290" y="150" width="170" height="44" rx="8" class="ts"/><text x="375" y="177" text-anchor="middle" class="tt">12 Schedules</text>
+          <rect x="100" y="206" width="170" height="44" rx="8" class="os"/><text x="185" y="233" text-anchor="middle" class="oc">Part III · Rights</text>
+          <rect x="290" y="206" width="170" height="44" rx="8" class="os"/><text x="375" y="233" text-anchor="middle" class="oc">Part IV · Goals</text>
+          <rect x="100" y="262" width="170" height="44" rx="8" class="bs"/><text x="185" y="289" text-anchor="middle" class="bt">Art. 352 · 356 · 360</text>
+          <rect x="290" y="262" width="170" height="44" rx="8" class="bs"/><text x="375" y="289" text-anchor="middle" class="bt">106 Amendments</text>
+        </g>
+        <line x1="100" y1="334" x2="460" y2="334" class="ld"/>
+        <text x="280" y="364" text-anchor="middle" class="d" style="font-size:20px">Adopted 26 Nov 1949 · In force 26 Jan 1950</text>
+      </svg>
+    </div>
+  </div>
+  <div class="howto">
+    <div><b>Read one article a sitting</b>Each takes 3 to 5 minutes. The drawing on the right is the picture to remember; the notes show the numbers and the past questions.</div>
+    <div><b>Answer the 3 quick questions</b>Every article ends with a recap and three questions. Testing yourself straight after reading makes the facts stick.</div>
+    <div><b>Revise with one screen</b>The night before the exam, open <a href="#revision">Revision mode</a>: every drawing and recap on one page, about 10 minutes.</div>
+  </div>
+  <h2 class="tiles-h">In this issue</h2>
+  <div class="tiles" id="tiles"></div>
+</section>
+
+<!-- ================= 1 MAKING ================= -->
+<section class="view" data-view="making" data-title="How it was made" data-blurb="Five dates and four names" data-min="3" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 01 · How the Constitution was made</p>
+      <h1>Two years, eleven months, eighteen days</h1>
+      <p class="lede">A body called the Constituent Assembly wrote the Constitution. Learn five dates and four names and this topic is done.</p></div>
+    <div class="meta"><b>3 min</b><span>Asked: 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <p class="drop">The Constituent Assembly was set up under the <strong>Cabinet Mission Plan of 1946</strong>. It met for the first time on <strong>9 December 1946</strong>. Sachchidananda Sinha chaired that first meeting as the temporary chairman. <strong>Dr Rajendra Prasad</strong> was then elected the permanent President of the Assembly.</p>
+      <p>Four days later, on <strong>13 December 1946</strong>, Jawaharlal Nehru moved the <strong>Objectives Resolution</strong>. Its ideas later became the Preamble.</p>
+      <p>The <strong>Drafting Committee</strong> was formed on <strong>29 August 1947</strong>. Dr B.R. Ambedkar was its chairman, and B.N. Rau was the constitutional adviser.</p>
+      <h3>Adopted in November, alive in January</h3>
+      <p>The Assembly adopted the Constitution on <strong>26 November 1949</strong>. This is now Constitution Day. It came into force on <strong>26 January 1950</strong>.</p>
+      <p>Why 26 January? Because on 26 January 1930 the Congress had celebrated <strong>"Purna Swaraj Day"</strong>, the day it declared complete independence as its goal <span class="stamp">2025 Q54</span>.</p>
+      <div class="co trick"><b>Memory trick</b>November is for <em>N</em>ame on paper (adopted). January is for <em>J</em>oining life (in force). 26 Nov = Constitution Day, 26 Jan = Republic Day.</div>
+      <p>The whole job took <strong>2 years, 11 months and 18 days</strong>.</p>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 640 360" role="img" aria-label="Timeline from 1946 to 1950">
+        <line x1="40" y1="180" x2="610" y2="180" class="lt"/>
+        <g>
+          <circle cx="80" cy="180" r="11" class="tf"/><line x1="80" y1="168" x2="80" y2="120" class="ln"/>
+          <text x="80" y="66" text-anchor="middle" class="mn tt" style="font-size:14px">9 Dec 1946</text>
+          <text x="80" y="88" text-anchor="middle" class="d" style="font-size:17px">First meeting</text>
+          <text x="80" y="108" text-anchor="middle" class="sf" style="font-size:13px">Sinha (temporary)</text>
+        </g>
+        <g>
+          <circle cx="200" cy="180" r="11" class="tf"/><line x1="200" y1="192" x2="200" y2="232" class="ln"/>
+          <text x="200" y="256" text-anchor="middle" class="mn tt" style="font-size:14px">13 Dec 1946</text>
+          <text x="200" y="278" text-anchor="middle" class="d" style="font-size:17px">Objectives</text>
+          <text x="200" y="298" text-anchor="middle" class="sf" style="font-size:13px">Resolution · Nehru</text>
+        </g>
+        <g>
+          <circle cx="320" cy="180" r="11" class="tf"/><line x1="320" y1="168" x2="320" y2="120" class="ln"/>
+          <text x="320" y="66" text-anchor="middle" class="mn tt" style="font-size:14px">29 Aug 1947</text>
+          <text x="320" y="88" text-anchor="middle" class="d" style="font-size:17px">Drafting Committee</text>
+          <text x="320" y="108" text-anchor="middle" class="sf" style="font-size:13px">Ambedkar, chairman</text>
+        </g>
+        <g>
+          <circle cx="440" cy="180" r="11" class="tf"/><line x1="440" y1="192" x2="440" y2="232" class="ln"/>
+          <text x="440" y="256" text-anchor="middle" class="mn tt" style="font-size:14px">26 Nov 1949</text>
+          <text x="440" y="278" text-anchor="middle" class="d" style="font-size:17px">Adopted</text>
+          <text x="440" y="298" text-anchor="middle" class="sf" style="font-size:13px">Constitution Day</text>
+        </g>
+        <g>
+          <circle cx="565" cy="180" r="16" class="os"/><circle cx="565" cy="180" r="8" style="fill:var(--ochre)"/><line x1="565" y1="164" x2="565" y2="120" class="ln"/>
+          <text x="565" y="66" text-anchor="middle" class="mn oc" style="font-size:14px">26 Jan 1950</text>
+          <text x="565" y="88" text-anchor="middle" class="d" style="font-size:17px">In force</text>
+          <text x="565" y="108" text-anchor="middle" class="sf" style="font-size:13px">Republic Day</text>
+        </g>
+        <path d="M80 322 v10 h485 v-10" class="ln"/>
+        <text x="322" y="354" text-anchor="middle" class="d" style="font-size:16px">2 years · 11 months · 18 days</text>
+      </svg></div>
+      <figcaption><b>The road to 1950.</b> Dates above the line are the ones asked most. The orange point is the day the Constitution came alive.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>1946</b><span>Cabinet Mission Plan set up the Assembly</span></div>
+        <div><b>9 Dec</b><span>first meeting, 1946</span></div>
+        <div><b>Prasad</b><span>permanent President of the Assembly</span></div>
+        <div><b>Rau</b><span>constitutional adviser</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q54</span><span>Why 26 January? → Purna Swaraj Day, 1930</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>How it was made</h3><ul>
+    <li>Set up under the Cabinet Mission Plan, 1946. First met 9 Dec 1946 (Sinha temporary; Rajendra Prasad President).</li>
+    <li>Objectives Resolution: Nehru, 13 Dec 1946. It became the Preamble.</li>
+    <li>Drafting Committee: 29 Aug 1947, chairman Ambedkar, adviser B.N. Rau.</li>
+    <li>Adopted 26 Nov 1949; in force 26 Jan 1950 (Purna Swaraj Day link).</li>
+  </ul></div>
+  <div class="quiz" data-quiz="making"></div>
+</section>
+
+<!-- ================= 2 PREAMBLE ================= -->
+<section class="view" data-view="preamble" data-title="The Preamble" data-blurb="India's identity card, changed once" data-min="4" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 02 · The Preamble</p>
+      <h1>The opening page, and India's identity card</h1>
+      <p class="lede">The Preamble is the opening paragraph. It says what kind of country India is and what it promises to its people.</p></div>
+    <div class="meta"><b>4 min</b><span>Asked: 2018, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <p class="drop">India is a <strong>Sovereign, Socialist, Secular, Democratic Republic</strong>. The Preamble promises its people <strong>Justice</strong> (social, economic and political), <strong>Liberty</strong>, <strong>Equality</strong> and <strong>Fraternity</strong>.</p>
+      <h3>Changed only once</h3>
+      <p>The words <strong>Socialist</strong>, <strong>Secular</strong> and <strong>Integrity</strong> were added by the <strong>42nd Amendment in 1976</strong> <span class="stamp">2025 Q32</span>. That is the only time the Preamble has been changed.</p>
+      <h3>Is it part of the Constitution?</h3>
+      <p>The Supreme Court changed its mind. In the <strong>Berubari case (1960)</strong> it said no. In the <strong>Kesavananda Bharati case (1973)</strong> it said yes. So today three things are true:</p>
+      <ul>
+        <li>The Preamble <strong>is part</strong> of the Constitution.</li>
+        <li>It <strong>can be amended</strong>, as long as the basic structure is not damaged.</li>
+        <li>You <strong>cannot go to court</strong> to enforce it.</li>
+      </ul>
+      <div class="co trap"><b>Trap</b>The 2018 paper asked what is NOT correct about the Preamble <span class="stamp">2018 Q34</span> and gave two false options: "it cannot be amended" and "it is enforceable in a court". Both are false. It <em>can</em> be amended; it <em>cannot</em> be enforced.</div>
+      <h3>Who said what</h3>
+      <p>This is a favourite matching question.</p>
+      <div class="tw"><table>
+        <tr><th>Person</th><th>His words</th></tr>
+        <tr><td>Ernest Barker</td><td class="wrap">"Keynote of the Constitution" <span class="stamp">2025 Q35</span></td></tr>
+        <tr><td>K.M. Munshi</td><td class="wrap">"Political horoscope" of India</td></tr>
+        <tr><td>N.A. Palkhivala</td><td class="wrap">"Identity card of the Constitution"</td></tr>
+        <tr><td>Thakurdas Bhargava</td><td class="wrap">"Soul of the Constitution"</td></tr>
+        <tr><td>B.R. Ambedkar</td><td class="wrap">Called <em>Article 32</em> (not the Preamble) the "heart and soul"</td></tr>
+      </table></div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 420" role="img" aria-label="The Preamble drawn as an identity card with four quotes around it">
+        <rect x="220" y="40" width="280" height="250" rx="14" class="c"/>
+        <path d="M220 54 a14 14 0 0 1 14 -14 h252 a14 14 0 0 1 14 14 v34 h-280z" class="tf"/>
+        <text x="360" y="71" text-anchor="middle" class="mn ot" style="font-size:13.5px;letter-spacing:.12em">IDENTITY CARD · INDIA</text>
+        <circle cx="262" cy="128" r="24" class="ts"/><path d="M250 128 l8 8 l16 -16" class="lt" style="stroke-width:3"/>
+        <text x="300" y="122" class="sf" style="font-size:12px">KIND OF STATE</text>
+        <text x="300" y="142" class="d" style="font-size:15px">Sovereign · <tspan class="tt">Socialist</tspan></text>
+        <text x="245" y="172" class="d" style="font-size:15px"><tspan class="tt">Secular</tspan> · Democratic · Republic</text>
+        <line x1="240" y1="190" x2="480" y2="190" class="ld"/>
+        <text x="245" y="212" class="sf" style="font-size:12px">PROMISES</text>
+        <text x="245" y="234" class="d" style="font-size:15px">Justice · Liberty</text>
+        <text x="245" y="256" class="d" style="font-size:15px">Equality · Fraternity</text>
+        <text x="245" y="278" class="tt" style="font-size:12px">Teal words added in 1976 (42nd), with Integrity</text>
+        <g style="font-size:13px">
+          <rect x="10" y="50" width="185" height="62" rx="10" class="ts"/><text x="24" y="76" class="d" style="font-size:16px">"Keynote"</text><text x="24" y="98">Ernest Barker</text>
+          <rect x="10" y="200" width="185" height="62" rx="10" class="os"/><text x="24" y="226" class="d" style="font-size:16px">"Political horoscope"</text><text x="24" y="248">K.M. Munshi</text>
+          <rect x="525" y="50" width="185" height="62" rx="10" class="ts"/><text x="539" y="76" class="d" style="font-size:16px">"Identity card"</text><text x="539" y="98">N.A. Palkhivala</text>
+          <rect x="525" y="200" width="185" height="62" rx="10" class="os"/><text x="539" y="226" class="d" style="font-size:16px">"Soul"</text><text x="539" y="248">Thakurdas Bhargava</text>
+        </g>
+        <path d="M195 81 H220" class="ln"/><path d="M195 231 H220" class="ln"/><path d="M500 81 H525" class="ln"/><path d="M500 231 H525" class="ln"/>
+        <g style="font-size:13.5px">
+          <rect x="20" y="330" width="216" height="56" rx="10" class="ts"/><text x="128" y="354" text-anchor="middle" class="d" style="font-size:15px">Part of it</text><text x="128" y="374" text-anchor="middle">Kesavananda, 1973</text>
+          <rect x="252" y="330" width="216" height="56" rx="10" class="ts"/><text x="360" y="354" text-anchor="middle" class="d" style="font-size:15px">Can be amended</text><text x="360" y="374" text-anchor="middle">only once so far (1976)</text>
+          <rect x="484" y="330" width="216" height="56" rx="10" class="bs"/><text x="592" y="354" text-anchor="middle" class="d" style="font-size:15px;fill:var(--brick)">Cannot be enforced</text><text x="592" y="374" text-anchor="middle">in a court of law</text>
+        </g>
+      </svg></div>
+      <figcaption><b>Four names, four nicknames.</b> Teal callouts are the ones asked or most likely. The red box is the 2018 trap.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>1</b><span>time amended (42nd, 1976)</span></div>
+        <div><b>3</b><span>words added: Socialist, Secular, Integrity</span></div>
+        <div><b>1960</b><span>Berubari: not a part</span></div>
+        <div><b>1973</b><span>Kesavananda: a part</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q32</span><span>Which amendment added "Secular"? → 42nd</span></li>
+        <li><span class="stamp">2025 Q35</span><span>"Keynote" of the Constitution? → Ernest Barker</span></li>
+        <li><span class="stamp">2018 Q34</span><span>NOT correct about the Preamble → "cannot be amended", "enforceable"</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>The Preamble</h3><ul>
+    <li>Sovereign, Socialist, Secular, Democratic Republic; Justice, Liberty, Equality, Fraternity.</li>
+    <li>Amended once: 42nd (1976) added Socialist, Secular, Integrity.</li>
+    <li>Part of the Constitution (Kesavananda 1973), can be amended, cannot be enforced.</li>
+    <li>Barker = keynote · Munshi = horoscope · Palkhivala = identity card · Bhargava = soul.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="preamble"></div>
+</section>
+
+<!-- ================= 3 SCHEDULES ================= -->
+<section class="view" data-view="schedules" data-title="The 12 Schedules" data-blurb="Twelve drawers at the back" data-min="4" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 03 · The 12 Schedules</p>
+      <h1>Twelve drawers at the back of the book</h1>
+      <p class="lede">Schedules are lists kept at the end of the Constitution. The usual question is "which pair is wrong?"</p></div>
+    <div class="meta"><b>4 min</b><span>Asked: 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <p class="drop">Think of the Schedules as a cabinet with twelve labelled drawers. The exam gives you four drawer labels and asks which one is on the wrong drawer <span class="stamp">2025 Q77</span>. In 2025 the wrong pair was "Second Schedule: oaths". Oaths are in the <strong>Third</strong>.</p>
+      <div class="tw"><table>
+        <tr><th>Schedule</th><th>What is inside</th></tr>
+        <tr><td>1st</td><td class="wrap">Names of States and Union Territories</td></tr>
+        <tr><td>2nd</td><td class="wrap">Salaries of the President, Governors, judges, CAG and others</td></tr>
+        <tr><td>3rd</td><td class="wrap">Forms of oaths</td></tr>
+        <tr><td>4th</td><td class="wrap">Seats of each State in the Rajya Sabha</td></tr>
+        <tr><td>5th</td><td class="wrap">Scheduled Areas and Scheduled Tribes (Odisha has such areas)</td></tr>
+        <tr><td>6th</td><td class="wrap">Tribal areas of Assam, Meghalaya, Tripura, Mizoram</td></tr>
+        <tr><td>7th</td><td class="wrap">Three lists: Union, State, Concurrent</td></tr>
+        <tr><td>8th</td><td class="wrap">22 official languages (Odia is one)</td></tr>
+        <tr><td>9th</td><td class="wrap">Laws protected from court review (added by the 1st Amendment, 1951)</td></tr>
+        <tr><td>10th</td><td class="wrap">Anti-defection law (52nd Amendment, 1985)</td></tr>
+        <tr><td>11th</td><td class="wrap">Panchayats: 29 subjects (73rd Amendment)</td></tr>
+        <tr><td>12th</td><td class="wrap">Municipalities: 18 subjects (74th Amendment)</td></tr>
+      </table></div>
+      <div class="co trick"><b>Memory trick</b>2 = <strong>S</strong>alary, 3 = <strong>S</strong>wearing (oath), 4 = <strong>S</strong>eats. For the 6th Schedule say <strong>AMTM</strong>: Assam, Meghalaya, Tripura, Mizoram.</div>
+      <p>The last three drawers were added in time order: defection first (1985), then panchayats and municipalities together (1992).</p>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 420" role="img" aria-label="A cabinet with twelve drawers, one for each Schedule" id="cabinet"></svg></div>
+      <figcaption><b>The cabinet.</b> The three yellow drawers are the "S-S-S" trio the exam mixes up. The teal drawers came last, in time order.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>22</b><span>languages in the 8th</span></div>
+        <div><b>29</b><span>panchayat subjects (11th)</span></div>
+        <div><b>18</b><span>municipal subjects (12th)</span></div>
+        <div><b>4</b><span>NE states in the 6th (AMTM)</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q77</span><span>Wrong pair → "Second Schedule: oaths"</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>The 12 Schedules</h3><ul>
+    <li>2 Salary · 3 Swearing · 4 Seats. 7th = three lists. 8th = 22 languages.</li>
+    <li>5th = Scheduled Areas (Odisha). 6th = tribal areas of AMTM.</li>
+    <li>9th = 1st Amdt 1951. 10th = anti-defection, 52nd, 1985.</li>
+    <li>11th = Panchayats, 29 (73rd). 12th = Municipalities, 18 (74th).</li>
+  </ul></div>
+  <div class="quiz" data-quiz="schedules"></div>
+</section>
+
+<!-- ================= 4 RIGHTS ================= -->
+<section class="view" data-view="rights" data-title="Fundamental Rights" data-blurb="Six pillars you can take to court" data-min="5" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 04 · Fundamental Rights</p>
+      <h1>Six pillars you can take to court</h1>
+      <p class="lede">Fundamental Rights are in Part III, Articles 12 to 35. Unlike the Directive Principles, you can go to court to enforce them.</p></div>
+    <div class="meta"><b>5 min</b><span>Asked: 2018, 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <p class="drop">There are six groups of rights. The Article ranges are asked directly <span class="stamp">2025 Q82</span>, so learn the numbers as well as the names.</p>
+      <div class="tw"><table>
+        <tr><th>Right</th><th>Articles</th><th>Main points</th></tr>
+        <tr><td>Equality</td><td>14–18</td><td class="wrap">Equal before law (14), no discrimination (15), equal chance in government jobs (16), untouchability ended (17), titles ended (18)</td></tr>
+        <tr><td>Freedom</td><td>19–22</td><td class="wrap">Six freedoms (19), protection when accused (20), life and liberty (21), education for ages 6–14 (21A), protection on arrest (22)</td></tr>
+        <tr><td>Against exploitation</td><td>23–24</td><td class="wrap">No forced labour or trafficking (23), no child labour in factories and mines (24)</td></tr>
+        <tr><td>Religion</td><td>25–28</td><td class="wrap">Follow and spread religion, manage religious affairs, no tax for a religion, no religious teaching in government schools</td></tr>
+        <tr><td>Culture and education</td><td>29–30</td><td class="wrap">Minorities can protect their language and run their own schools</td></tr>
+        <tr><td>Remedies</td><td>32</td><td class="wrap">Go straight to the Supreme Court if a right is broken</td></tr>
+      </table></div>
+      <h3>Property is no longer a Fundamental Right</h3>
+      <p>The <strong>44th Amendment (1978)</strong> removed Article 19(1)(f) and Article 31 <span class="stamp">2021 Q39</span>. Property is now only a legal right under <strong>Article 300A</strong>.</p>
+      <h3>Who can limit the freedoms?</h3>
+      <p>Only the legislature, by making a law. In the exam the answer is <strong>Parliament</strong> <span class="stamp">2021 Q32</span>.</p>
+      <h3>Article 21 keeps growing</h3>
+      <p>Courts have read many rights into "life and liberty". In the <strong>Puttaswamy case (2017)</strong>, nine judges led by Chief Justice J.S. Khehar agreed that <strong>privacy</strong> is a Fundamental Right. It is not absolute; a fair law can limit it <span class="stamp">2018 Q16</span>. In 2025 the Supreme Court said <strong>maternity leave</strong> is part of a woman's reproductive rights under Article 21, even for a third child <span class="stamp">2025 Q6</span>.</p>
+      <p class="pull">Article 21A (education, ages 6 to 14) came with the 86th Amendment in 2002.</p>
+      <h3>Is voting a Fundamental Right?</h3>
+      <p>No. The right to vote comes from <strong>Article 326</strong> and election law <span class="stamp">2021 Q34</span>. It is definitely not Fundamental or Natural. Courts have called it a legal right and, more recently, a constitutional right. Answer keys differ, so don't lose sleep over this one.</p>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 420" role="img" aria-label="Six pillars, one for each group of Fundamental Rights">
+        <polygon points="20,112 360,26 700,112" class="tf"/>
+        <text x="360" y="86" text-anchor="middle" class="d ot" style="font-size:22px">Fundamental Rights · Part III</text>
+        <rect x="20" y="112" width="680" height="12" class="ts"/>
+        <g id="pillars"></g>
+        <rect x="20" y="332" width="680" height="34" class="ts"/>
+        <text x="360" y="355" text-anchor="middle" class="d" style="font-size:16px">Base: Article 32, go straight to the Supreme Court</text>
+        <text x="360" y="396" text-anchor="middle" class="bt" style="font-size:14px">Removed pillar: Property (Art. 31) → 44th Amendment, 1978 → now Art. 300A</text>
+      </svg></div>
+      <figcaption><b>The building of rights.</b> Each pillar carries its Article range. Without the base (Article 32), the building can't stand; that's why Ambedkar called it the "heart and soul".</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>12–35</b><span>Articles in Part III</span></div>
+        <div><b>6</b><span>groups of rights</span></div>
+        <div><b>300A</b><span>property, now a legal right</span></div>
+        <div><b>2017</b><span>privacy (Puttaswamy, 9 judges)</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q82</span><span>Right to religion → Articles 25 to 28</span></li>
+        <li><span class="stamp">2025 Q6</span><span>Maternity leave → part of Article 21</span></li>
+        <li><span class="stamp">2021 Q39</span><span>Property right removed by → 44th</span></li>
+        <li><span class="stamp">2021 Q32</span><span>Reasonable restrictions by → Parliament</span></li>
+        <li><span class="stamp">2021 Q33</span><span>Article 21A → education</span></li>
+        <li><span class="stamp">2018 Q16</span><span>Privacy is a right, but not absolute</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Fundamental Rights</h3><ul>
+    <li>Equality 14–18 · Freedom 19–22 · Exploitation 23–24 · Religion 25–28 · Culture 29–30 · Remedies 32.</li>
+    <li>Property removed by 44th (1978); now Art. 300A.</li>
+    <li>Only Parliament (by law) can put reasonable restrictions.</li>
+    <li>Privacy: Puttaswamy 2017. 21A education: 86th, 2002. Voting: Art. 326, not a Fundamental Right.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="rights"></div>
+</section>
+
+<!-- ================= 5 WRITS ================= -->
+<section class="view" data-view="writs" data-title="The five writs" data-blurb="Court orders with Latin names" data-min="3" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 05 · Writs</p>
+      <h1>Five court orders with Latin names</h1>
+      <p class="lede">A writ is a court order. The Supreme Court issues writs under Article 32 and the High Courts under Article 226.</p></div>
+    <div class="meta"><b>3 min</b><span>Asked: 2018</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <p class="drop">Each writ is named after its first Latin words. Learn the meaning of the name and you will know what the writ does.</p>
+      <div class="tw"><table>
+        <tr><th>Writ</th><th>Meaning</th><th>Use</th></tr>
+        <tr><td>Habeas corpus</td><td class="wrap">"Produce the body"</td><td class="wrap">Bring a detained person before the court</td></tr>
+        <tr><td>Mandamus</td><td class="wrap">"We command"</td><td class="wrap">Orders a public officer to do his duty <span class="stamp">2018 Q38</span></td></tr>
+        <tr><td>Prohibition</td><td class="wrap">"Stop"</td><td class="wrap">A higher court stops a lower court while the case is going on</td></tr>
+        <tr><td>Certiorari</td><td class="wrap">"Send us the file"</td><td class="wrap">A higher court cancels an order already passed</td></tr>
+        <tr><td>Quo warranto</td><td class="wrap">"By what authority?"</td><td class="wrap">Questions a person's right to hold a public post</td></tr>
+      </table></div>
+      <div class="co trap"><b>Trap</b>Prohibition and Certiorari both go from a higher court to a lower one. The difference is <strong>timing</strong>. Prohibition comes <em>before</em> the order (stop the case). Certiorari comes <em>after</em> the order (cancel it).</div>
+      <h3>Article 35A and Jammu and Kashmir</h3>
+      <p>Article 35A protected the special rights of permanent residents of Jammu and Kashmir <span class="stamp">2018 Q35</span>. It ended when Article 370 was removed on <strong>5 August 2019</strong>. Jammu and Kashmir, and Ladakh, became Union Territories on <strong>31 October 2019</strong>.</p>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 320" role="img" aria-label="Five icons, one for each writ">
+        <g style="font-size:12.5px">
+          <!-- habeas corpus -->
+          <rect x="6" y="10" width="132" height="250" rx="12" class="c"/>
+          <rect x="30" y="34" width="56" height="78" rx="4" class="cb"/>
+          <path d="M40 34 v78 M52 34 v78 M64 34 v78 M76 34 v78" class="ln"/>
+          <circle cx="104" cy="58" r="10" class="tf"/><path d="M104 70 v28 M104 98 l-10 16 M104 98 l10 16 M104 78 l-14 6 M104 78 l14 -6" class="lt"/>
+          <text x="72" y="150" text-anchor="middle" class="d" style="font-size:16px">Habeas corpus</text>
+          <text x="72" y="172" text-anchor="middle" class="sf" style="font-style:italic">"Produce the body"</text>
+          <text x="72" y="204" text-anchor="middle">Bring a detained</text><text x="72" y="222" text-anchor="middle">person to court</text>
+          <!-- mandamus -->
+          <rect x="150" y="10" width="132" height="250" rx="12" class="c"/>
+          <rect x="196" y="32" width="64" height="84" rx="6" class="cb"/>
+          <path d="M206 54 h40 M206 72 h40 M206 90 h28" class="ln"/>
+          <path d="M162 74 h26" class="lt"/><path d="M180 64 l12 10 l-12 10" class="lt"/>
+          <path d="M236 92 l8 8 l14 -16" class="lt"/>
+          <text x="216" y="150" text-anchor="middle" class="d" style="font-size:16px">Mandamus</text>
+          <text x="216" y="172" text-anchor="middle" class="sf" style="font-style:italic">"We command"</text>
+          <text x="216" y="204" text-anchor="middle">An officer must</text><text x="216" y="222" text-anchor="middle">do his duty</text>
+          <!-- prohibition -->
+          <rect x="294" y="10" width="132" height="250" rx="12" class="c"/>
+          <polygon points="343,28 377,28 401,52 401,86 377,110 343,110 319,86 319,52" class="bs"/>
+          <text x="360" y="76" text-anchor="middle" class="d bt" style="font-size:20px">STOP</text>
+          <text x="360" y="150" text-anchor="middle" class="d" style="font-size:16px">Prohibition</text>
+          <text x="360" y="172" text-anchor="middle" class="sf" style="font-style:italic">"Stop"</text>
+          <text x="360" y="204" text-anchor="middle">Halt a lower court</text><text x="360" y="222" text-anchor="middle">while case is on</text>
+          <!-- certiorari -->
+          <rect x="438" y="10" width="132" height="250" rx="12" class="c"/>
+          <path d="M466 48 h26 l8 10 h44 v54 h-78z" class="os"/>
+          <path d="M486 70 l28 28 M514 70 l-28 28" class="lb"/>
+          <path d="M530 44 v-14 M522 36 l8 -8 l8 8" class="lt"/>
+          <text x="504" y="150" text-anchor="middle" class="d" style="font-size:16px">Certiorari</text>
+          <text x="504" y="172" text-anchor="middle" class="sf" style="font-style:italic">"Send us the file"</text>
+          <text x="504" y="204" text-anchor="middle">Cancel an order</text><text x="504" y="222" text-anchor="middle">already passed</text>
+          <!-- quo warranto -->
+          <rect x="582" y="10" width="132" height="250" rx="12" class="c"/>
+          <path d="M624 50 v58 M624 82 h40 v26 M664 50 v58 M624 50 h40" class="lt"/>
+          <text x="690" y="72" text-anchor="middle" class="d tt" style="font-size:34px">?</text>
+          <text x="648" y="150" text-anchor="middle" class="d" style="font-size:16px">Quo warranto</text>
+          <text x="648" y="172" text-anchor="middle" class="sf" style="font-style:italic">"By what authority?"</text>
+          <text x="648" y="204" text-anchor="middle">Who allowed you</text><text x="648" y="222" text-anchor="middle">to hold this post?</text>
+        </g>
+        <path d="M360 268 v8" class="ln"/>
+        <text x="360" y="304" text-anchor="middle" class="d" style="font-size:16px">Supreme Court: Article 32 · High Courts: Article 226</text>
+      </svg></div>
+      <figcaption><b>One picture per writ.</b> Freed person, a command with a tick, a stop sign, a cancelled file, and an empty chair with a question mark.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>5</b><span>writs</span></div>
+        <div><b>32</b><span>Supreme Court's Article</span></div>
+        <div><b>226</b><span>High Courts' Article</span></div>
+        <div><b>2019</b><span>Article 370 and 35A ended</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2018 Q38</span><span>Make an officer do his duty → Mandamus</span></li>
+        <li><span class="stamp">2018 Q35</span><span>Article 35A → J&amp;K permanent residents</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Writs</h3><ul>
+    <li>SC: Art. 32 · HC: Art. 226.</li>
+    <li>Habeas corpus = produce the body · Mandamus = we command · Quo warranto = by what authority.</li>
+    <li>Prohibition = stop before the order · Certiorari = cancel after the order.</li>
+    <li>35A ended with Art. 370 (5 Aug 2019); J&amp;K and Ladakh became UTs on 31 Oct 2019.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="writs"></div>
+</section>
+
+<!-- ================= 6 DPSP ================= -->
+<section class="view" data-view="dpsp" data-title="Directive Principles and Duties" data-blurb="Goals for the government, duties for us" data-min="4" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 06 · Directive Principles and Duties</p>
+      <h1>Goals for the government, duties for us</h1>
+      <p class="lede">Directive Principles (Articles 36 to 51) tell the government where to go. Fundamental Duties (Article 51A) tell citizens what to do.</p></div>
+    <div class="meta"><b>4 min</b><span>Asked: 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <p class="drop">Directive Principles are <strong>goals</strong> for the government. You <strong>cannot go to court</strong> to enforce them. The idea came from <strong>Ireland</strong>. These are the ones to know:</p>
+      <div class="tw"><table>
+        <tr><th>Article</th><th>Goal</th></tr>
+        <tr><td>39A</td><td class="wrap">Equal justice and free legal aid</td></tr>
+        <tr><td>40</td><td class="wrap">Set up village panchayats</td></tr>
+        <tr><td>44</td><td class="wrap">Uniform Civil Code</td></tr>
+        <tr><td>45</td><td class="wrap">Early childhood care</td></tr>
+        <tr><td>48</td><td class="wrap">Organise farming; stop cow slaughter</td></tr>
+        <tr><td>48A</td><td class="wrap">Protect environment, forests and wildlife</td></tr>
+        <tr><td>50</td><td class="wrap">Separate the judiciary from the executive</td></tr>
+        <tr><td>51</td><td class="wrap">Promote international peace (the foreign policy Article) <span class="stamp">2025 Q78</span></td></tr>
+      </table></div>
+      <h3>Four added in 1976</h3>
+      <p>The <strong>42nd Amendment</strong> added free legal aid (39A), healthy growth of children (39(f)), workers' share in management (43A) and environment (48A) <span class="stamp">2025 Q98</span>.</p>
+      <h3>Fundamental Duties</h3>
+      <p>Fundamental Duties (<strong>Article 51A</strong>) were also added in <strong>1976</strong>, on the advice of the <strong>Swaran Singh Committee</strong>. The idea came from the <strong>USSR</strong>. There were 10. The <strong>86th Amendment (2002)</strong> added the 11th: parents must send children aged 6 to 14 to school.</p>
+      <div class="co trick"><b>Memory trick</b>The 86th Amendment gave education twice: a <em>right</em> for the child (21A) and a <em>duty</em> for the parent (11th duty).</div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 340" role="img" aria-label="Three panels comparing Rights, Directive Principles and Duties">
+        <g style="font-size:13.5px">
+          <rect x="10" y="10" width="220" height="310" rx="14" class="c"/>
+          <path d="M120 34 l46 16 v34 c0 30 -22 48 -46 58 c-24 -10 -46 -28 -46 -58 v-34z" class="ts"/>
+          <path d="M104 92 l12 12 l22 -24" class="lt"/>
+          <text x="120" y="176" text-anchor="middle" class="d" style="font-size:19px">Rights</text>
+          <text x="120" y="202" text-anchor="middle" class="mn sf">Part III · Art. 12–35</text>
+          <text x="120" y="236" text-anchor="middle">Court can enforce</text>
+          <text x="120" y="258" text-anchor="middle">Idea: USA</text>
+          <text x="120" y="296" text-anchor="middle" class="tt d" style="font-size:15px">Shield</text>
+
+          <rect x="250" y="10" width="220" height="310" rx="14" class="ts" style="stroke-width:2.5"/>
+          <circle cx="360" cy="88" r="52" class="pf" style="stroke:var(--teal);stroke-width:2"/>
+          <polygon points="360,46 370,88 360,130 350,88" class="ink"/>
+          <polygon points="360,46 370,88 350,88" class="tf"/>
+          <text x="360" y="42" text-anchor="middle" class="mn tt" style="font-size:11px">N</text>
+          <text x="360" y="176" text-anchor="middle" class="d" style="font-size:19px">Directive Principles</text>
+          <text x="360" y="202" text-anchor="middle" class="mn sf">Part IV · Art. 36–51</text>
+          <text x="360" y="236" text-anchor="middle">Goals; court cannot enforce</text>
+          <text x="360" y="258" text-anchor="middle">Idea: Ireland</text>
+          <text x="360" y="296" text-anchor="middle" class="tt d" style="font-size:15px">Compass</text>
+
+          <rect x="490" y="10" width="220" height="310" rx="14" class="c"/>
+          <rect x="548" y="44" width="104" height="92" rx="4" class="os"/>
+          <ellipse cx="548" cy="90" rx="10" ry="46" class="os"/><ellipse cx="652" cy="90" rx="10" ry="46" class="os"/>
+          <path d="M566 70 h68 M566 90 h68 M566 110 h44" class="ln"/>
+          <text x="600" y="176" text-anchor="middle" class="d" style="font-size:19px">Fundamental Duties</text>
+          <text x="600" y="202" text-anchor="middle" class="mn sf">Part IVA · Art. 51A</text>
+          <text x="600" y="236" text-anchor="middle">10 in 1976 · 11th in 2002</text>
+          <text x="600" y="258" text-anchor="middle">Idea: USSR</text>
+          <text x="600" y="296" text-anchor="middle" class="oc d" style="font-size:15px">Scroll</text>
+        </g>
+      </svg></div>
+      <figcaption><b>Shield, compass, scroll.</b> Rights protect you (court can act). Directive Principles point the way (court can't force them). Duties are the citizen's list.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>36–51</b><span>Directive Principles</span></div>
+        <div><b>51A</b><span>Fundamental Duties</span></div>
+        <div><b>11</b><span>duties today</span></div>
+        <div><b>1976</b><span>Swaran Singh Committee</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q78</span><span>Foreign policy Article → 51</span></li>
+        <li><span class="stamp">2025 Q98</span><span>Added in 1976 → free legal aid</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Directive Principles and Duties</h3><ul>
+    <li>DPSP: Art. 36–51, not enforceable, from Ireland.</li>
+    <li>40 panchayats · 44 UCC · 48A environment · 50 judiciary separate · 51 world peace.</li>
+    <li>42nd added 39A, 39(f), 43A, 48A.</li>
+    <li>Duties: 51A, 1976, Swaran Singh, from USSR; 11th duty by 86th (2002).</li>
+  </ul></div>
+  <div class="quiz" data-quiz="dpsp"></div>
+</section>
+
+<!-- ================= 7 SOURCES ================= -->
+<section class="view" data-view="sources" data-title="Borrowed features" data-blurb="What we took, and from where" data-min="3" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 07 · Sources of the Constitution</p>
+      <h1>What we borrowed, and from where</h1>
+      <p class="lede">The makers studied other constitutions and took what worked. The exam gives a feature and asks for the country.</p></div>
+    <div class="meta"><b>3 min</b><span>Asked: 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <div class="tw"><table>
+        <tr><th>Source</th><th>What we took</th></tr>
+        <tr><td>Britain</td><td class="wrap">Parliamentary system, single citizenship <span class="stamp">2021 Q31</span>, rule of law, cabinet, writs</td></tr>
+        <tr><td>USA</td><td class="wrap">Fundamental Rights, judicial review, independent courts, impeachment of President, Vice-President's post</td></tr>
+        <tr><td>Ireland</td><td class="wrap">Directive Principles, nominated members in Rajya Sabha <span class="stamp">2025 Q17</span>, way of electing the President</td></tr>
+        <tr><td>Canada</td><td class="wrap">Strong Centre, leftover powers with the Centre, Governors appointed by the Centre</td></tr>
+        <tr><td>Australia</td><td class="wrap">Concurrent List, joint sitting of two Houses, free trade between states</td></tr>
+        <tr><td>USSR</td><td class="wrap">Fundamental Duties</td></tr>
+        <tr><td>Germany (Weimar)</td><td class="wrap">Suspending rights during Emergency</td></tr>
+        <tr><td>South Africa</td><td class="wrap">How to amend the Constitution; election of Rajya Sabha members</td></tr>
+        <tr><td>France</td><td class="wrap">Republic; Liberty, Equality, Fraternity</td></tr>
+        <tr><td>Japan</td><td class="wrap">"Procedure established by law"</td></tr>
+        <tr><td>GoI Act 1935</td><td class="wrap">The biggest source: federal set-up, Governor, Public Service Commissions, emergency powers</td></tr>
+      </table></div>
+      <div class="co trick"><b>Memory trick</b>Ireland gave three things, all about the top: <strong>D</strong>irective Principles, <strong>R</strong>ajya Sabha nominees, <strong>P</strong>resident's election method. Say "<strong>DRP from Ireland</strong>".</div>
+      <div class="co trap"><b>Trap</b>Canada and Australia both sound "federal". Canada gave the <em>strong Centre</em>; Australia gave the <em>Concurrent List</em> and the <em>joint sitting</em>.</div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 760 450" role="img" aria-label="Ten countries with arrows pointing to India" id="sourcesSvg"></svg></div>
+      <figcaption><b>Everything flows to India.</b> The thick box at the bottom is the single biggest source, a British law of 1935.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>10</b><span>countries to remember</span></div>
+        <div><b>1935</b><span>GoI Act, biggest source</span></div>
+        <div><b>3</b><span>features from Ireland</span></div>
+        <div><b>1</b><span>from Japan: procedure by law</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q17</span><span>Nomination to Rajya Sabha → Ireland</span></li>
+        <li><span class="stamp">2021 Q31</span><span>Single citizenship → Britain</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Borrowed features</h3><ul>
+    <li>Britain: parliament, single citizenship. USA: rights, judicial review.</li>
+    <li>Ireland: DPSP, RS nominees, President's election. Canada: strong Centre.</li>
+    <li>Australia: Concurrent List, joint sitting. USSR: Duties. Germany: Emergency.</li>
+    <li>South Africa: amendment. France: Liberty-Equality-Fraternity. Japan: procedure by law. Biggest: GoI Act 1935.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="sources"></div>
+</section>
+
+<!-- ================= 8 EXECUTIVE ================= -->
+<section class="view" data-view="executive" data-title="President, VP and PM" data-blurb="Who elects whom" data-min="5" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 08 · President, Vice-President, Prime Minister</p>
+      <h1>Who elects whom at the top</h1>
+      <p class="lede">The exam loves one question here: who votes for the President, and who votes for the Vice-President. The drawing answers it.</p></div>
+    <div class="meta"><b>5 min</b><span>Asked: 2018, 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <h3 style="margin-top:0">President (Articles 52 to 62)</h3>
+      <ul>
+        <li>Minimum age <strong>35</strong>. Term <strong>5 years</strong>.</li>
+        <li>Elected by an electoral college: <strong>elected MPs</strong> of both Houses + <strong>elected MLAs</strong> of all states, Delhi and Puducherry (Article 54).</li>
+        <li>Method: proportional representation by single transferable vote, secret ballot. This is in <strong>Article 55(3)</strong> <span class="stamp">2021 Q36</span>.</li>
+        <li>Removed by <strong>impeachment</strong> (Article 61) for "violation of the Constitution".</li>
+        <li>Can <strong>pardon</strong> (Article 72) and issue <strong>ordinances</strong> when Parliament is not sitting (Article 123).</li>
+        <li>Addresses Parliament at the first session after each general election and at the first session of every year (<strong>Article 87</strong>) <span class="stamp">2018 Q66</span>.</li>
+      </ul>
+      <h3>Vice-President (Articles 63 to 71)</h3>
+      <ul>
+        <li>Elected by <strong>all members of both Houses</strong>, elected and nominated. MLAs do not vote <span class="stamp">2018 Q36</span>.</li>
+        <li>He is the <strong>Chairman of the Rajya Sabha</strong>.</li>
+        <li>The President is <strong>Droupadi Murmu</strong>. The Vice-President is <strong>C.P. Radhakrishnan</strong>, elected in September 2025 after Jagdeep Dhankhar resigned <span class="chk">check before exam</span></li>
+      </ul>
+      <div class="co trick"><b>Memory trick</b>President: <strong>MLAs in, nominated out</strong>. Vice-President: <strong>nominated in, MLAs out</strong>.</div>
+      <h3>Prime Minister and Council of Ministers (Articles 74 and 75)</h3>
+      <ul>
+        <li>The President appoints the PM. Other ministers are appointed on the PM's advice, and the PM gives them their departments.</li>
+        <li>The PM can be from <strong>either House</strong>. Indira Gandhi and Manmohan Singh were Rajya Sabha members <span class="stamp">2025 Q18</span>.</li>
+        <li>The Council of Ministers is collectively responsible to the <strong>Lok Sabha</strong>.</li>
+        <li>A non-MP can become minister or PM, but must become an MP within <strong>six months</strong>.</li>
+        <li>The <strong>91st Amendment (2003)</strong>: the Council of Ministers cannot be bigger than <strong>15%</strong> of the Lok Sabha <span class="stamp">2025 Q91</span>. Same 15% in states, minimum 12 ministers.</li>
+      </ul>
+      <div class="co trap"><b>Trap</b>The <strong>Attorney General</strong> is under <strong>Article 76</strong>, appointed by the President. He can speak in Parliament but cannot vote. The 2018 paper printed "Article 1976" as a trap option <span class="stamp">2018 Q90</span>.</div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 360" role="img" aria-label="Who votes for the President and for the Vice-President" id="electSvg"></svg></div>
+      <figcaption><b>Two ballot boxes.</b> Same voters, different rules. Only the MPs who were elected by the people vote for both.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>35</b><span>minimum age, President</span></div>
+        <div><b>55(3)</b><span>single transferable vote</span></div>
+        <div><b>15%</b><span>ministers cap (91st)</span></div>
+        <div><b>6</b><span>months for a non-MP minister</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q18</span><span>"PM must be from Lok Sabha" → false</span></li>
+        <li><span class="stamp">2025 Q91</span><span>91st → ministers ≤ 15% of Lok Sabha</span></li>
+        <li><span class="stamp">2021 Q36</span><span>Single transferable vote → Art. 55(3)</span></li>
+        <li><span class="stamp">2018 Q36</span><span>Who elects the VP → all members of both Houses</span></li>
+        <li><span class="stamp">2018 Q66</span><span>President's address → Art. 87</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>President, VP, PM</h3><ul>
+    <li>President: 35, 5 years, elected MPs + elected MLAs (incl. Delhi, Puducherry), Art. 55(3) STV.</li>
+    <li>Impeachment 61 · pardon 72 · ordinance 123 · address 87.</li>
+    <li>VP: all MPs incl. nominated, no MLAs; Chairman of Rajya Sabha.</li>
+    <li>PM from either House; 15% cap (91st); AG = Art. 76, speaks but can't vote.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="executive"></div>
+</section>
+
+<!-- ================= 9 PARLIAMENT ================= -->
+<section class="view" data-view="parliament" data-title="Parliament" data-blurb="Two Houses, three kinds of bills" data-min="6" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 09 · Parliament</p>
+      <h1>Two Houses and three kinds of bills</h1>
+      <p class="lede">The longest article in this issue, and one of the most asked. Read it in two sittings if you need to.</p></div>
+    <div class="meta"><b>6 min</b><span>Asked: 2018, 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <div class="tw"><table>
+        <tr><th></th><th>Lok Sabha</th><th>Rajya Sabha</th></tr>
+        <tr><td>Members now</td><td class="wrap">543</td><td class="wrap">245 (233 elected + 12 nominated)</td></tr>
+        <tr><td>Minimum age</td><td class="wrap">25</td><td class="wrap">30</td></tr>
+        <tr><td>Term</td><td class="wrap">5 years</td><td class="wrap">Permanent House. A member sits 6 years; one-third retire every 2 years</td></tr>
+        <tr><td>How elected</td><td class="wrap">Directly by people, First Past the Post <span class="stamp">2025 Q83</span></td><td class="wrap">By MLAs, single transferable vote</td></tr>
+        <tr><td>Presiding officer</td><td class="wrap">Speaker</td><td class="wrap">Vice-President (as Chairman)</td></tr>
+      </table></div>
+      <p><strong>First Past the Post</strong> means the candidate with the most votes wins, even without a majority. It is used for the Lok Sabha and State Assemblies. <strong>Single transferable vote</strong> is used for the President, Vice-President, Rajya Sabha and Legislative Councils.</p>
+      <p>The first Speaker of the Lok Sabha was <strong>G.V. Mavalankar</strong> <span class="stamp">2018 Q79</span>. The Speaker decides whether a bill is a Money Bill, chairs a joint sitting, and decides defection cases.</p>
+      <h3>Three kinds of bills</h3>
+      <div class="tw"><table>
+        <tr><th>Bill</th><th>Starts in</th><th>Rajya Sabha's power</th><th>Joint sitting?</th></tr>
+        <tr><td>Ordinary</td><td class="wrap">Either House</td><td class="wrap">Equal to Lok Sabha</td><td class="wrap">Yes (Art. 108)</td></tr>
+        <tr><td>Money (Art. 110)</td><td class="wrap">Only Lok Sabha</td><td class="wrap">Must return in 14 days; can only suggest. Lok Sabha may accept or reject <span class="stamp">2025 Q19</span></td><td class="wrap">No</td></tr>
+        <tr><td>Amendment (Art. 368)</td><td class="wrap">Either House</td><td class="wrap">Equal. Special majority in each House</td><td class="wrap">No</td></tr>
+      </table></div>
+      <p>There have been only <strong>three joint sittings</strong>: Dowry Prohibition (1961), Banking Service Commission (1978) and POTA (2002).</p>
+      <h3>Budget words</h3>
+      <ul>
+        <li>The Constitution calls the budget the <strong>Annual Financial Statement</strong> (Article 112).</li>
+        <li><strong>Vote on Account</strong>: money given in advance so the government can run for about two months until the full budget is passed <span class="stamp">2018 Q37</span>.</li>
+        <li><strong>Appropriation Bill</strong>: permission to take money out of the Consolidated Fund.</li>
+        <li><strong>Finance Bill</strong>: the tax proposals. <strong>Supplementary grant</strong>: extra money when the approved amount falls short.</li>
+      </ul>
+      <h3>Special powers of each House</h3>
+      <ul>
+        <li><strong>Only Rajya Sabha</strong> <span class="stamp">2025 Q59</span>: allow Parliament to make a law on a State List subject (Art. 249); allow a new All India Service (Art. 312). Both need a two-thirds vote.</li>
+        <li><strong>Only Lok Sabha</strong>: Money Bills and no-confidence motions.</li>
+        <li><strong>Both together</strong>: electing the Vice-President, creating or ending Legislative Councils, changing state boundaries.</li>
+      </ul>
+      <div class="co trap"><b>Trap</b>"How can a new All India Service be created?" <span class="stamp">2021 Q45</span> It takes two steps: a Rajya Sabha resolution, then a law by Parliament. The first step is what makes it special, so the usual answer is <strong>a resolution of the Rajya Sabha</strong>.</div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 760 470" role="img" aria-label="Seat charts of both Houses and the path of a Money Bill" id="parlSvg"></svg></div>
+      <figcaption><b>Every dot is one seat.</b> 543 in the Lok Sabha, 245 in the Rajya Sabha (the 12 yellow dots are nominated). Below: a Money Bill's journey, with the Rajya Sabha's 14-day clock.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>543</b><span>Lok Sabha seats</span></div>
+        <div><b>245</b><span>Rajya Sabha (233 + 12)</span></div>
+        <div><b>14</b><span>days to return a Money Bill</span></div>
+        <div><b>3</b><span>joint sittings ever</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q19</span><span>RS changes to Money Bill → LS may accept or reject</span></li>
+        <li><span class="stamp">2025 Q59</span><span>RS special power → All India Services</span></li>
+        <li><span class="stamp">2025 Q83</span><span>Lok Sabha method → First Past the Post</span></li>
+        <li><span class="stamp">2021 Q45</span><span>New AIS → RS resolution</span></li>
+        <li><span class="stamp">2018 Q37</span><span>Advance grant → Vote on Account</span></li>
+        <li><span class="stamp">2018 Q79</span><span>First Speaker → G.V. Mavalankar</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Parliament</h3><ul>
+    <li>LS 543, age 25, FPTP, Speaker. RS 245 (233 + 12), age 30, STV, 1/3 retire every 2 years.</li>
+    <li>Money Bill: LS only; RS returns in 14 days, suggestions only; no joint sitting.</li>
+    <li>Joint sittings: Dowry 1961, Banking 1978, POTA 2002. Speaker presides.</li>
+    <li>Budget = Annual Financial Statement (112). Vote on Account = advance money. RS only: Art. 249, 312.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="parliament"></div>
+</section>
+
+<!-- ================= 10 COURTS & STATES ================= -->
+<section class="view" data-view="courts" data-title="Courts and States" data-blurb="Judges, Governors, councils, panchayats" data-min="5" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 10 · Courts, States and local government</p>
+      <h1>Judges, Governors and village councils</h1>
+      <p class="lede">From the Supreme Court down to the village panchayat: the numbers and dates the exam keeps asking.</p></div>
+    <div class="meta"><b>5 min</b><span>Asked: 2018, 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <h3 style="margin-top:0">Courts</h3>
+      <ul>
+        <li>The Supreme Court has the Chief Justice + 33 judges = <strong>34</strong>. Supreme Court judges retire at <strong>65</strong>, High Court judges at <strong>62</strong>.</li>
+        <li>Judges are chosen through the <strong>collegium</strong> (a group of senior judges).</li>
+        <li>The <strong>99th Amendment</strong> tried to replace the collegium with a National Judicial Appointments Commission (NJAC). It came into force on <strong>13 April 2015</strong> <span class="stamp">2021 Q37</span> and was struck down in October 2015.</li>
+        <li>The present Chief Justice is <strong>Justice Surya Kant</strong> (53rd, since 24 November 2025). His term ends in February 2027 <span class="chk">check before exam</span></li>
+      </ul>
+      <h3>The States</h3>
+      <ul>
+        <li>The <strong>Governor</strong> is appointed by the President and stays "during the pleasure of the President". The <strong>Sarkaria Commission</strong> said Governors should be well-known people from outside the state who are not active in politics <span class="stamp">2025 Q89</span>.</li>
+        <li><strong>Legislative Council</strong>: only six states have one: Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra, Karnataka. <strong>Odisha has none.</strong></li>
+        <li>To create or abolish a Council, the State Assembly passes a resolution and then <strong>Parliament</strong> makes a law (Article 169) <span class="stamp">2021 Q35</span>. Minimum age for a member is <strong>30</strong> <span class="stamp">2025 Q33</span>.</li>
+        <li>Delhi became the National Capital Territory by the <strong>69th Amendment (1991)</strong> <span class="stamp">2018 Q75</span>.</li>
+      </ul>
+      <h3>Local government</h3>
+      <ul>
+        <li>The <strong>Balwant Rai Mehta Committee (1957)</strong> suggested three-level Panchayati Raj: village, block, district. <strong>Rajasthan</strong> started first (Nagaur, 2 October 1959). This committee is about panchayats, not civil services <span class="stamp">2025 Q41</span>.</li>
+        <li><strong>73rd Amendment</strong>: panchayats, 11th Schedule, in force <strong>24 April 1993</strong> (National Panchayati Raj Day).</li>
+        <li><strong>74th Amendment</strong>: municipalities, 12th Schedule, in force <strong>1 June 1993</strong> <span class="stamp">2018 Q40</span>.</li>
+        <li>Local body elections are run by the <strong>State Election Commission</strong>, not the Election Commission of India <span class="stamp">2025 Q34</span>.</li>
+      </ul>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 400" role="img" aria-label="Court pillars with retirement ages, and the three tiers of Panchayati Raj">
+        <g style="font-size:13.5px">
+          <rect x="10" y="10" width="320" height="380" rx="14" class="c"/>
+          <text x="170" y="42" text-anchor="middle" class="d" style="font-size:18px">Judges retire at</text>
+          <rect x="50" y="80" width="100" height="250" rx="6" class="tf"/>
+          <rect x="40" y="68" width="120" height="16" rx="4" class="tf"/>
+          <rect x="40" y="326" width="120" height="16" rx="4" class="tf"/>
+          <text x="100" y="190" text-anchor="middle" class="d ot" style="font-size:46px">65</text>
+          <text x="100" y="220" text-anchor="middle" class="ot" style="font-size:13px">years</text>
+          <text x="100" y="368" text-anchor="middle" class="d" style="font-size:15px">Supreme Court</text>
+          <rect x="200" y="140" width="90" height="190" rx="6" class="ts"/>
+          <rect x="190" y="128" width="110" height="16" rx="4" class="ts"/>
+          <rect x="190" y="326" width="110" height="16" rx="4" class="ts"/>
+          <text x="245" y="236" text-anchor="middle" class="d tt" style="font-size:40px">62</text>
+          <text x="245" y="262" text-anchor="middle" class="tt" style="font-size:13px">years</text>
+          <text x="245" y="368" text-anchor="middle" class="d" style="font-size:15px">High Courts</text>
+          <text x="100" y="60" text-anchor="middle" class="mn sf" style="font-size:12px">CJI + 33 = 34</text>
+
+          <rect x="350" y="10" width="360" height="380" rx="14" class="c"/>
+          <text x="530" y="42" text-anchor="middle" class="d" style="font-size:18px">Panchayati Raj: three tiers</text>
+          <polygon points="470,80 590,80 620,150 440,150" class="tf"/>
+          <text x="530" y="112" text-anchor="middle" class="d ot" style="font-size:16px">District</text>
+          <text x="530" y="134" text-anchor="middle" class="ot" style="font-size:12.5px">Zila Parishad</text>
+          <polygon points="436,160 624,160 654,230 406,230" class="ts"/>
+          <text x="530" y="192" text-anchor="middle" class="d" style="font-size:16px">Block</text>
+          <text x="530" y="214" text-anchor="middle" style="font-size:12.5px">Panchayat Samiti</text>
+          <polygon points="402,240 658,240 688,310 372,310" class="os"/>
+          <text x="530" y="272" text-anchor="middle" class="d" style="font-size:16px">Village</text>
+          <text x="530" y="294" text-anchor="middle" style="font-size:12.5px">Gram Panchayat</text>
+          <text x="530" y="340" text-anchor="middle">Balwant Rai Mehta, 1957</text>
+          <text x="530" y="362" text-anchor="middle" class="tt">First: Nagaur, Rajasthan, 2 Oct 1959</text>
+        </g>
+      </svg></div>
+      <figcaption><b>Two pictures, two numbers each.</b> Taller pillar, higher age (65 vs 62). The panchayat pyramid is upside down in power but right way up in number: many villages, fewer blocks, one district.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>34</b><span>Supreme Court judges</span></div>
+        <div><b>6</b><span>states with a Council</span></div>
+        <div><b>24 Apr</b><span>73rd in force, 1993</span></div>
+        <div><b>1 Jun</b><span>74th in force, 1993</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q89</span><span>Sarkaria on Governors → non-partisan</span></li>
+        <li><span class="stamp">2025 Q33</span><span>Council member age → 30</span></li>
+        <li><span class="stamp">2025 Q34</span><span>Local polls → State Election Commission</span></li>
+        <li><span class="stamp">2021 Q35</span><span>Abolish a Council → Parliament</span></li>
+        <li><span class="stamp">2021 Q37</span><span>99th Amendment in force → 2015</span></li>
+        <li><span class="stamp">2018 Q75</span><span>Delhi as NCT → 69th</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Courts and States</h3><ul>
+    <li>SC: 34 judges, retire 65. HC: retire 62. Collegium; NJAC (99th) struck down 2015.</li>
+    <li>Governor: appointed by President; Sarkaria: non-partisan outsider.</li>
+    <li>Councils in AP, Telangana, UP, Bihar, Maharashtra, Karnataka (not Odisha); Art. 169; age 30.</li>
+    <li>Balwant Rai Mehta 1957 → Nagaur 1959. 73rd: 24 Apr 1993. 74th: 1 Jun 1993. Local polls: SEC.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="courts"></div>
+</section>
+
+<!-- ================= 11 BODIES ================= -->
+<section class="view" data-view="bodies" data-title="Constitutional bodies and NHRC" data-blurb="Who appoints, who removes" data-min="6" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 11 · Constitutional and other bodies</p>
+      <h1>Who appoints, who removes</h1>
+      <p class="lede">A constitutional body is named in the Constitution itself. A statutory body is made by an ordinary law. The NHRC came in all three papers.</p></div>
+    <div class="meta"><b>6 min</b><span>Asked: 2018, 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <div class="tw"><table>
+        <tr><th>Body</th><th>Article</th><th>What to remember</th></tr>
+        <tr><td>Election Commission</td><td>324</td><td class="wrap">Runs elections to Parliament, State legislatures, President and Vice-President. Multi-member for good since October 1993. CEC removed only like a Supreme Court judge. National Voters' Day: 25 January</td></tr>
+        <tr><td>UPSC and State PSC</td><td>315–323</td><td class="wrap">UPSC: appointed by the President, 6 years or age 65. State PSC: appointed by the Governor (6 years or 62) but removed only by the President</td></tr>
+        <tr><td>Joint State PSC</td><td>315</td><td class="wrap">For two or more states. Made by an Act of Parliament at their request <span class="stamp">2025 Q56</span></td></tr>
+        <tr><td>CAG</td><td>148</td><td class="wrap">Appointed by the President <span class="stamp">2021 Q40</span>. 6 years or age 65. Audits Union and state accounts</td></tr>
+        <tr><td>Finance Commission</td><td>280</td><td class="wrap">Chairman + 4 members, every five years <span class="stamp">2021 Q43</span>. The 16th (Arvind Panagariya) covers 2026 to 2031</td></tr>
+        <tr><td>GST Council</td><td>279A</td><td class="wrap">Headed by the Union Finance Minister</td></tr>
+      </table></div>
+      <h3>Jobs after retirement (Article 319)</h3>
+      <p>Members should not hope for a reward from the government, so almost every later job is banned. Only moves "up the ladder" are allowed <span class="stamp">2021 Q38</span>.</p>
+      <div class="tw"><table>
+        <tr><th>Person</th><th>Can later become</th></tr>
+        <tr><td>UPSC Chairman</td><td class="wrap">Nothing under any government</td></tr>
+        <tr><td>UPSC member</td><td class="wrap">UPSC Chairman, or Chairman of a State PSC</td></tr>
+        <tr><td>State PSC Chairman</td><td class="wrap">UPSC Chairman or member, or Chairman of another State PSC</td></tr>
+        <tr><td>State PSC member</td><td class="wrap">UPSC Chairman or member, or Chairman of a State PSC. Nothing else</td></tr>
+      </table></div>
+      <h3>National Human Rights Commission</h3>
+      <ul>
+        <li>Law: <strong>Protection of Human Rights Act, 1993</strong>. A statutory body.</li>
+        <li>Chairperson: a former Chief Justice of India <span class="stamp">2018 Q65</span>. Since 2019, a former Supreme Court judge can also be chosen.</li>
+        <li>First chairperson: <strong>Justice Ranganath Mishra</strong>, from Odisha <span class="stamp">2021 Q51</span>.</li>
+        <li>Selection committee of six: PM (head), Lok Sabha Speaker, Rajya Sabha Deputy Chairman, Leaders of Opposition of both Houses, Home Minister. The Lok Sabha's <strong>Deputy Speaker is not in it</strong> <span class="stamp">2025 Q87</span>.</li>
+        <li>Term: <strong>3 years or age 70</strong>. It can inquire and recommend; its advice is not binding.</li>
+      </ul>
+      <h3>Bodies made by law or by order</h3>
+      <div class="tw"><table>
+        <tr><th>Body</th><th>How created</th></tr>
+        <tr><td>CVC</td><td class="wrap">1964, on the Santhanam Committee's advice. Legal status in 2003</td></tr>
+        <tr><td>CIC</td><td class="wrap">Right to Information Act, 2005</td></tr>
+        <tr><td>Lokpal</td><td class="wrap">Lokpal and Lokayuktas Act, 2013. First Lokpal: Justice P.C. Ghose (2019)</td></tr>
+        <tr><td>NITI Aayog</td><td class="wrap">A cabinet decision on 1 January 2015. Neither constitutional nor statutory</td></tr>
+      </table></div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 430" role="img" aria-label="Chart of who appoints and who removes each body" id="bodiesSvg"></svg></div>
+      <figcaption><b>Read each row left to right.</b> The red row is the one that breaks the pattern: the Governor appoints State PSC members, but only the President can remove them.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>1993</b><span>NHRC Act</span></div>
+        <div><b>3 / 70</b><span>NHRC term: years / age</span></div>
+        <div><b>6</b><span>on NHRC selection panel</span></div>
+        <div><b>1 + 4</b><span>Finance Commission</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q87</span><span>Not on NHRC panel → LS Deputy Speaker</span></li>
+        <li><span class="stamp">2025 Q56</span><span>Joint PSC → Act of Parliament</span></li>
+        <li><span class="stamp">2021 Q51</span><span>First NHRC chair → Ranganath Mishra</span></li>
+        <li><span class="stamp">2021 Q40</span><span>Who appoints the CAG → President</span></li>
+        <li><span class="stamp">2021 Q43</span><span>Finance Commission → chairman + 4</span></li>
+        <li><span class="stamp">2021 Q38</span><span>Jobs after retirement → Art. 319</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Bodies</h3><ul>
+    <li>EC 324 · UPSC/PSC 315–323 · CAG 148 · Finance Commission 280 · GST Council 279A.</li>
+    <li>State PSC: Governor appoints, President removes. UPSC Chairman: no later job.</li>
+    <li>NHRC: 1993 Act, first chair Ranganath Mishra, 3 yrs/70, panel of 6 (no LS Deputy Speaker).</li>
+    <li>CVC 1964 (Santhanam) · CIC RTI 2005 · Lokpal 2013 (Ghose) · NITI 2015 (cabinet decision).</li>
+  </ul></div>
+  <div class="quiz" data-quiz="bodies"></div>
+</section>
+
+<!-- ================= 12 AMENDMENTS ================= -->
+<section class="view" data-view="amendments" data-title="Amendments to know" data-blurb="Fourteen changes on one timeline" data-min="4" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 12 · Amendments</p>
+      <h1>The amendments you must know</h1>
+      <p class="lede">Learn them as a timeline. When you know the order, a wrong year in an option stands out.</p></div>
+    <div class="meta"><b>4 min</b><span>Asked: 2018, 2021, 2025</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <div class="tw"><table>
+        <tr><th>No.</th><th>Year</th><th>What it did</th></tr>
+        <tr><td>1st</td><td>1951</td><td class="wrap">Added the Ninth Schedule</td></tr>
+        <tr><td>7th</td><td>1956</td><td class="wrap">States reorganised on language lines</td></tr>
+        <tr><td>42nd</td><td>1976</td><td class="wrap">"Mini Constitution". Added Socialist, Secular, Integrity; Fundamental Duties; moved education, forests and three more subjects to the Concurrent List <span class="stamp">2018 Q39</span></td></tr>
+        <tr><td>44th</td><td>1978</td><td class="wrap">Property right removed from Fundamental Rights; "armed rebellion" replaced "internal disturbance"</td></tr>
+        <tr><td>52nd</td><td>1985</td><td class="wrap">Anti-defection law (10th Schedule)</td></tr>
+        <tr><td>61st</td><td>1989</td><td class="wrap">Voting age from 21 to 18</td></tr>
+        <tr><td>69th</td><td>1991</td><td class="wrap">Delhi made National Capital Territory</td></tr>
+        <tr><td>73rd, 74th</td><td>1992</td><td class="wrap">Panchayats and municipalities</td></tr>
+        <tr><td>86th</td><td>2002</td><td class="wrap">Article 21A: right to education</td></tr>
+        <tr><td>91st</td><td>2003</td><td class="wrap">Ministers limited to 15%</td></tr>
+        <tr><td>99th</td><td>2014</td><td class="wrap">NJAC (in force 2015, struck down 2015)</td></tr>
+        <tr><td>101st</td><td>2016</td><td class="wrap">GST</td></tr>
+        <tr><td>102nd</td><td>2018</td><td class="wrap">Backward Classes Commission made a constitutional body</td></tr>
+        <tr><td>103rd</td><td>2019</td><td class="wrap">10% reservation for the economically weaker section (EWS)</td></tr>
+        <tr><td>104th</td><td>2020</td><td class="wrap">SC/ST seats in legislatures extended to 2030; Anglo-Indian nomination ended</td></tr>
+        <tr><td>105th</td><td>2021</td><td class="wrap">States can again make their own backward-class lists</td></tr>
+        <tr><td>106th</td><td>2023</td><td class="wrap">One-third seats for women in Lok Sabha and Assemblies (after the next census and delimitation)</td></tr>
+      </table></div>
+      <div class="co trick"><b>Memory trick</b>The 42nd and the 44th are a pair. The 42nd (Emergency years) <em>added</em> a lot. The 44th (Janata government) <em>took back</em> some of it.</div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 800 420" role="img" aria-label="Timeline of fourteen key amendments" id="amdSvg"></svg></div>
+      <figcaption><b>Two rows of seven.</b> Top row: the first 40 years. Bottom row: from 1992 to today. Yellow points are the ones asked in past papers.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>42nd</b><span>"Mini Constitution", 1976</span></div>
+        <div><b>18</b><span>voting age (61st, 1989)</span></div>
+        <div><b>10%</b><span>EWS (103rd, 2019)</span></div>
+        <div><b>⅓</b><span>women's seats (106th, 2023)</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2025 Q91</span><span>91st → 15% ministers</span></li>
+        <li><span class="stamp">2021 Q39</span><span>Property removed → 44th</span></li>
+        <li><span class="stamp">2021 Q37</span><span>99th in force → 2015</span></li>
+        <li><span class="stamp">2018 Q39</span><span>Education to Concurrent → 42nd</span></li>
+        <li><span class="stamp">2018 Q75</span><span>Delhi NCT → 69th</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Amendments</h3><ul>
+    <li>1st 9th Schedule · 7th states · 42nd mini Constitution · 44th property out.</li>
+    <li>52nd defection · 61st vote at 18 · 69th Delhi · 73rd/74th local bodies.</li>
+    <li>86th education · 91st 15% · 99th NJAC · 101st GST.</li>
+    <li>102nd OBC commission · 103rd EWS · 104th Anglo-Indian end · 105th state OBC lists · 106th women.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="amendments"></div>
+</section>
+
+<!-- ================= 13 EMERGENCY ================= -->
+<section class="view" data-view="emergency" data-title="Emergencies" data-blurb="Three doors, one never opened" data-min="3" hidden>
+  <header class="ahead">
+    <div><p class="kick">Article 13 · Emergencies and confusing laws</p>
+      <h1>Three doors, and one was never opened</h1>
+      <p class="lede">The Constitution has three kinds of emergency. Learn the Article number on each door.</p></div>
+    <div class="meta"><b>3 min</b><span>Asked: 2018</span></div>
+  </header>
+  <div class="spread">
+    <div class="text">
+      <div class="tw"><table>
+        <tr><th>Emergency</th><th>Article</th><th>Key fact</th></tr>
+        <tr><td>National</td><td>352</td><td class="wrap">For war, external attack or armed rebellion. Declared three times: 1962, 1971, 1975</td></tr>
+        <tr><td>President's Rule</td><td>356</td><td class="wrap">When a state government cannot run by the Constitution. Up to 3 years</td></tr>
+        <tr><td>Financial</td><td>360</td><td class="wrap">Never declared</td></tr>
+      </table></div>
+      <p class="drop">The words for a National Emergency changed in 1978. The <strong>44th Amendment</strong> replaced "internal disturbance" with "<strong>armed rebellion</strong>". The 1975 Emergency had been declared on the ground of internal disturbance, so the change made a repeat harder.</p>
+      <h3>Central law or state law?</h3>
+      <p>The exam once asked which of these laws was made by a state <span class="stamp">2018 Q77</span>. <strong>MCOCA</strong> (Maharashtra Control of Organised Crime Act) is a <strong>state law</strong>. AFSPA, POTA and FEMA were made by Parliament.</p>
+      <div class="co trick"><b>Memory trick</b>The name gives it away: a law with a state's name in it (<strong>M</strong>aharashtra…) is a state law.</div>
+    </div>
+    <div class="fig"><figure>
+      <div class="svgwrap"><svg viewBox="0 0 720 330" role="img" aria-label="Three doors for Articles 352, 356 and 360">
+        <line x1="10" y1="290" x2="710" y2="290" class="ln"/>
+        <g style="font-size:13px">
+          <path d="M50 290 V80 a90 60 0 0 1 180 0 V290z" class="ts"/>
+          <rect x="85" y="56" width="110" height="38" rx="6" class="tf"/>
+          <text x="140" y="81" text-anchor="middle" class="mn ot" style="font-size:16px">Art. 352</text>
+          <text x="140" y="130" text-anchor="middle" class="d" style="font-size:18px">National</text>
+          <text x="140" y="160" text-anchor="middle">War, external attack,</text>
+          <text x="140" y="178" text-anchor="middle">armed rebellion</text>
+          <text x="140" y="218" text-anchor="middle" class="tt d" style="font-size:15px">Used 3 times</text>
+          <text x="140" y="240" text-anchor="middle" class="mn">1962 · 1971 · 1975</text>
+          <circle cx="210" cy="200" r="5" class="tf"/>
+
+          <path d="M270 290 V80 a90 60 0 0 1 180 0 V290z" class="ts"/>
+          <rect x="305" y="56" width="110" height="38" rx="6" class="tf"/>
+          <text x="360" y="81" text-anchor="middle" class="mn ot" style="font-size:16px">Art. 356</text>
+          <text x="360" y="130" text-anchor="middle" class="d" style="font-size:18px">President's Rule</text>
+          <text x="360" y="160" text-anchor="middle">State government</text>
+          <text x="360" y="178" text-anchor="middle">cannot run</text>
+          <text x="360" y="218" text-anchor="middle" class="tt d" style="font-size:15px">Up to 3 years</text>
+          <circle cx="430" cy="200" r="5" class="tf"/>
+
+          <path d="M490 290 V80 a90 60 0 0 1 180 0 V290z" class="bs"/>
+          <rect x="525" y="56" width="110" height="38" rx="6" style="fill:var(--brick)"/>
+          <text x="580" y="81" text-anchor="middle" class="mn" style="font-size:16px;fill:var(--paper)">Art. 360</text>
+          <text x="580" y="130" text-anchor="middle" class="d" style="font-size:18px">Financial</text>
+          <rect x="556" y="170" width="48" height="40" rx="6" style="fill:var(--brick)"/>
+          <path d="M566 170 v-12 a14 14 0 0 1 28 0 v12" style="fill:none;stroke:var(--brick);stroke-width:5"/>
+          <circle cx="580" cy="188" r="5" class="pf"/>
+          <text x="580" y="244" text-anchor="middle" class="bt d" style="font-size:15px">Never used</text>
+        </g>
+        <text x="360" y="318" text-anchor="middle" class="sf" style="font-size:13px">1978: the 44th Amendment changed "internal disturbance" to "armed rebellion" on door 352</text>
+      </svg></div>
+      <figcaption><b>Three doors.</b> Two have been opened many times. The red one, Financial Emergency, is still locked.</figcaption>
+    </figure></div>
+    <div class="notes">
+      <div class="nbox"><h4>At a glance</h4><div class="glance">
+        <div><b>3</b><span>National Emergencies</span></div>
+        <div><b>3 yrs</b><span>max President's Rule</span></div>
+        <div><b>0</b><span>Financial Emergencies</span></div>
+        <div><b>1978</b><span>44th: "armed rebellion"</span></div>
+      </div></div>
+      <div class="nbox"><h4>Asked before</h4><ul class="asked">
+        <li><span class="stamp">2018 Q77</span><span>State law among central laws → MCOCA</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="recap"><h3><small>1-minute recap</small>Emergencies</h3><ul>
+    <li>352 National: war, external attack, armed rebellion; 1962, 1971, 1975.</li>
+    <li>356 President's Rule: up to 3 years.</li>
+    <li>360 Financial: never declared.</li>
+    <li>MCOCA is a state law; AFSPA, POTA, FEMA are central.</li>
+  </ul></div>
+  <div class="quiz" data-quiz="emergency"></div>
+</section>
+
+<!-- ================= REVISION ================= -->
+<section class="view" data-view="revision" data-title="Revision mode" hidden>
+  <header class="ahead">
+    <div><p class="kick">Revision mode</p>
+      <h1>The whole chapter on one screen</h1>
+      <p class="lede">Every drawing and every recap, in reading order. Use this the night before the exam. Click a title to open the full article.</p></div>
+    <div class="meta"><b>~10 min</b><span>13 cards</span></div>
+  </header>
+  <div class="rev-grid" id="revGrid"></div>
+</section>
+
+</main>
+
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg";
+function el(tag,attrs,parent,text){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+
+/* ---------- drawing: schedules cabinet ---------- */
+(function(){
+  var s=document.getElementById("cabinet"); if(!s)return;
+  var D=[["1st","States and","Union Territories"],["2nd","Salaries",""],["3rd","Oaths",""],["4th","Rajya Sabha","seats"],
+         ["5th","Scheduled Areas","and Tribes"],["6th","Tribal areas:","AMTM"],["7th","Union, State,","Concurrent lists"],["8th","22 languages",""],
+         ["9th","Laws shielded","1st Amdt, 1951"],["10th","Anti-defection","52nd, 1985"],["11th","Panchayats: 29","73rd, 1992"],["12th","Municipalities: 18","74th, 1992"]];
+  el("rect",{x:6,y:6,width:708,height:408,rx:16,"class":"cb"},s);
+  D.forEach(function(d,i){
+    var c=i%4,r=Math.floor(i/4),x=20+c*172,y=20+r*130,w=162,h=120;
+    var cls=(i>=1&&i<=3)?"os":(i>=9?"ts":"c");
+    el("rect",{x:x,y:y,width:w,height:h,rx:10,"class":cls},s);
+    el("text",{x:x+14,y:y+36,"class":"d "+((i>=1&&i<=3)?"oc":(i>=9?"tt":"")),style:"font-size:26px"},s,d[0]);
+    el("text",{x:x+14,y:y+64,style:"font-size:14px;font-weight:700"},s,d[1]);
+    if(d[2])el("text",{x:x+14,y:y+84,"class":"sf",style:"font-size:13px"},s,d[2]);
+    el("rect",{x:x+w/2-22,y:y+h-18,width:44,height:7,rx:3.5,"class":"ink",opacity:.55},s);
+  });
+})();
+
+/* ---------- drawing: rights pillars ---------- */
+(function(){
+  var g=document.getElementById("pillars"); if(!g)return;
+  var P=[["Equality","","14–18"],["Freedom","","19–22"],["Against","exploitation","23–24"],["Religion","","25–28"],["Culture &","education","29–30"],["Remedies","","32"]];
+  P.forEach(function(p,i){
+    var x=38+i*110,w=92;
+    el("rect",{x:x,y:124,width:w,height:208,"class":i===5?"tf":"c"},g);
+    el("rect",{x:x-6,y:124,width:w+12,height:12,"class":"ts"},g);
+    el("rect",{x:x-6,y:320,width:w+12,height:12,"class":"ts"},g);
+    for(var k=1;k<4;k++)el("line",{x1:x+k*w/4,y1:146,x2:x+k*w/4,y2:312,"class":"ld",opacity:.6},g);
+    el("rect",{x:x+6,y:170,width:w-12,height:34,rx:6,"class":i===5?"pf":"tf"},g);
+    el("text",{x:x+w/2,y:194,"text-anchor":"middle","class":"mn "+(i===5?"tt":"ot"),style:"font-size:15px"},g,p[2]);
+    el("text",{x:x+w/2,y:244,"text-anchor":"middle","class":"d"+(i===5?" ot":""),style:"font-size:15px"},g,p[0]);
+    if(p[1])el("text",{x:x+w/2,y:264,"text-anchor":"middle","class":"d"+(i===5?" ot":""),style:"font-size:15px"},g,p[1]);
+  });
+})();
+
+/* ---------- drawing: sources ---------- */
+(function(){
+  var s=document.getElementById("sourcesSvg"); if(!s)return;
+  var defs=el("defs",{},s), m=el("marker",{id:"arr",viewBox:"0 0 10 10",refX:9,refY:5,markerWidth:7,markerHeight:7,orient:"auto-start-reverse"},defs);
+  el("path",{d:"M0 0 L10 5 L0 10z","class":"tf"},m);
+  var L=[["Britain","Parliament, single citizenship"],["USA","Rights, judicial review"],["Ireland","DPSP, RS nominees, Pres. poll"],["Canada","Strong Centre"],["Australia","Concurrent List, joint sitting"]];
+  var R=[["USSR","Fundamental Duties"],["Germany","Rights paused in Emergency"],["South Africa","Amendment method"],["France","Liberty, Equality, Fraternity"],["Japan","Procedure established by law"]];
+  function card(x,y,d,hi){
+    el("rect",{x:x,y:y,width:210,height:58,rx:10,"class":hi?"ts":"c"},s);
+    el("text",{x:x+14,y:y+24,"class":"d",style:"font-size:16px"},s,d[0]);
+    el("text",{x:x+14,y:y+45,"class":"sf",style:"font-size:12.5px"},s,d[1]);
+  }
+  L.forEach(function(d,i){var y=14+i*80;card(6,y,d,i===2);el("path",{d:"M216 "+(y+29)+" L304 "+(196+i*8),"class":"ln","marker-end":"url(#arr)"},s)});
+  R.forEach(function(d,i){var y=14+i*80;card(544,y,d,false);el("path",{d:"M544 "+(y+29)+" L456 "+(196+i*8),"class":"ln","marker-end":"url(#arr)"},s)});
+  el("rect",{x:306,y:176,width:148,height:72,rx:12,"class":"tf"},s);
+  el("text",{x:380,y:210,"text-anchor":"middle","class":"d ot",style:"font-size:24px"},s,"INDIA");
+  el("text",{x:380,y:232,"text-anchor":"middle","class":"mn ot",style:"font-size:12px"},s,"1950");
+  el("rect",{x:270,y:330,width:220,height:84,rx:12,"class":"os",style:"stroke-width:3"},s);
+  el("text",{x:380,y:362,"text-anchor":"middle","class":"d",style:"font-size:17px"},s,"Govt of India Act 1935");
+  el("text",{x:380,y:386,"text-anchor":"middle","class":"oc",style:"font-size:13px;font-weight:700"},s,"the biggest single source");
+  el("text",{x:380,y:404,"text-anchor":"middle","class":"sf",style:"font-size:12px"},s,"Governor, PSCs, federal set-up");
+  el("path",{d:"M380 330 L380 252","class":"lt","marker-end":"url(#arr)"},s);
+})();
+
+/* ---------- drawing: elections ---------- */
+(function(){
+  var s=document.getElementById("electSvg"); if(!s)return;
+  function people(x,y,cls){for(var i=0;i<3;i++){var cx=x+i*20;el("circle",{cx:cx,cy:y,r:6,"class":cls},s);el("path",{d:"M"+(cx-9)+" "+(y+20)+" a9 9 0 0 1 18 0z","class":cls},s)}}
+  function tick(x,y){el("circle",{cx:x,cy:y,r:16,"class":"tf"},s);el("path",{d:"M"+(x-7)+" "+y+" l5 6 l10 -12",style:"fill:none;stroke:var(--on-teal);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"},s)}
+  function cross(x,y){el("circle",{cx:x,cy:y,r:16,"class":"bs"},s);el("path",{d:"M"+(x-6)+" "+(y-6)+" l12 12 M"+(x+6)+" "+(y-6)+" l-12 12","class":"lb"},s)}
+  var rows=[["Elected MPs","both Houses","tf"],["Nominated MPs","both Houses","os"],["Elected MLAs","States, Delhi, Puducherry","ts"]];
+  [["President","MLAs in, nominated out",[1,0,1],10],["Vice-President","nominated in, MLAs out",[1,1,0],370]].forEach(function(p){
+    var x=p[3];
+    el("rect",{x:x,y:10,width:340,height:300,rx:14,"class":"c"},s);
+    el("text",{x:x+20,y:44,"class":"d",style:"font-size:22px"},s,p[0]);
+    el("text",{x:x+20,y:66,"class":"sf",style:"font-size:13.5px;font-style:italic"},s,p[1]);
+    rows.forEach(function(r,i){
+      var y=90+i*70;
+      el("rect",{x:x+14,y:y,width:312,height:58,rx:10,"class":"cb"},s);
+      people(x+38,y+22,r[2]==="ts"?"tf":(r[2]==="os"?"oc":"ink"));
+      el("text",{x:x+100,y:y+26,style:"font-size:15px;font-weight:700"},s,r[0]);
+      el("text",{x:x+100,y:y+45,"class":"sf",style:"font-size:12.5px"},s,r[1]);
+      if(p[2][i])tick(x+298,y+29);else cross(x+298,y+29);
+    });
+  });
+  el("text",{x:360,y:340,"text-anchor":"middle","class":"sf",style:"font-size:13.5px"},s,"Both: single transferable vote, secret ballot (Article 55(3) for the President)");
+})();
+
+/* ---------- drawing: parliament ---------- */
+(function(){
+  var s=document.getElementById("parlSvg"); if(!s)return;
+  function fan(cx,cy,r0,r1,rows,n,nom,dot){
+    var rs=[],sum=0;for(var i=0;i<rows;i++){var r=r0+i*(r1-r0)/(rows-1);rs.push(r);sum+=r}
+    var cnt=rs.map(function(r){return Math.round(n*r/sum)}),t=cnt.reduce(function(a,b){return a+b},0);cnt[rows-1]+=n-t;
+    var pts=[];rs.forEach(function(r,i){var c=cnt[i];for(var j=0;j<c;j++){var a=Math.PI-j*Math.PI/(c-1);pts.push([cx+r*Math.cos(a),cy-r*Math.sin(a),a])}});
+    pts.sort(function(a,b){return b[2]-a[2]});
+    pts.forEach(function(p,k){el("circle",{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:dot,"class":(k>=pts.length-nom)?"oc":"tf"},s)});
+  }
+  el("rect",{x:6,y:6,width:366,height:236,rx:14,"class":"c"},s);
+  el("rect",{x:388,y:6,width:366,height:236,rx:14,"class":"c"},s);
+  fan(189,170,52,140,10,543,0,2.6);
+  fan(571,170,52,140,7,245,12,3.6);
+  el("text",{x:189,y:200,"text-anchor":"middle","class":"d",style:"font-size:20px"},s,"Lok Sabha · 543");
+  el("text",{x:189,y:224,"text-anchor":"middle","class":"sf",style:"font-size:13px"},s,"age 25 · First Past the Post · Speaker");
+  el("text",{x:571,y:200,"text-anchor":"middle","class":"d",style:"font-size:20px"},s,"Rajya Sabha · 233 + 12");
+  el("text",{x:571,y:224,"text-anchor":"middle","class":"sf",style:"font-size:13px"},s,"age 30 · STV · 1/3 retire every 2 years");
+  el("text",{x:380,y:278,"text-anchor":"middle","class":"d",style:"font-size:17px"},s,"Path of a Money Bill (Article 110)");
+  var B=[["Lok Sabha","starts here only",""],["Rajya Sabha","14 days; can only","suggest changes"],["Lok Sabha","may accept or","reject suggestions"],["President","gives assent;","cannot return it"]];
+  B.forEach(function(b,i){
+    var x=6+i*190,y=296,w=170;
+    el("rect",{x:x,y:y,width:w,height:150,rx:12,"class":i===1?"os":"c"},s);
+    el("text",{x:x+w/2,y:y+30,"text-anchor":"middle","class":"d",style:"font-size:17px"},s,b[0]);
+    if(i===1){
+      el("circle",{cx:x+w/2,cy:y+70,r:24,"class":"pf",style:"stroke:var(--ochre);stroke-width:2.5"},s);
+      el("path",{d:"M"+(x+w/2)+" "+(y+70)+" v-15 M"+(x+w/2)+" "+(y+70)+" h11",style:"fill:none;stroke:var(--ochre);stroke-width:2.5;stroke-linecap:round"},s);
+      el("text",{x:x+w/2,y:y+116,"text-anchor":"middle",style:"font-size:13.5px"},s,b[1]);
+      el("text",{x:x+w/2,y:y+134,"text-anchor":"middle",style:"font-size:13.5px"},s,b[2]);
+    } else {
+      el("text",{x:x+w/2,y:y+76,"text-anchor":"middle","class":"mn tt",style:"font-size:30px"},s,String(i+1));
+      el("text",{x:x+w/2,y:y+116,"text-anchor":"middle",style:"font-size:13.5px"},s,b[1]);
+      if(b[2])el("text",{x:x+w/2,y:y+134,"text-anchor":"middle",style:"font-size:13.5px"},s,b[2]);
+    }
+    if(i<3)el("path",{d:"M"+(x+w+2)+" "+(y+75)+" h16 M"+(x+w+12)+" "+(y+69)+" l6 6 l-6 6",style:"fill:none;stroke:var(--soft);stroke-width:2"},s);
+  });
+})();
+
+/* ---------- drawing: bodies ---------- */
+(function(){
+  var s=document.getElementById("bodiesSvg"); if(!s)return;
+  var R=[["CAG","Art. 148","President","Like an SC judge",0],["UPSC","Art. 315","President","President",0],["State PSC","Art. 315","Governor","President only",1],["Election Commission","Art. 324","President","CEC: like an SC judge",0],["Finance Commission","Art. 280","President","1 + 4 members",0],["NHRC chair","1993 Act","President*","3 yrs or age 70",0]];
+  el("text",{x:110,y:28,"text-anchor":"middle","class":"mn sf",style:"font-size:12px;letter-spacing:.08em"},s,"APPOINTED BY");
+  el("text",{x:360,y:28,"text-anchor":"middle","class":"mn sf",style:"font-size:12px;letter-spacing:.08em"},s,"BODY");
+  el("text",{x:610,y:28,"text-anchor":"middle","class":"mn sf",style:"font-size:12px;letter-spacing:.08em"},s,"REMOVED BY / NOTE");
+  R.forEach(function(r,i){
+    var y=42+i*62, hi=r[4];
+    el("rect",{x:10,y:y,width:200,height:48,rx:24,"class":hi?"bs":"ts"},s);
+    el("text",{x:110,y:y+30,"text-anchor":"middle","class":"d"+(hi?" bt":""),style:"font-size:16px"},s,r[2]);
+    el("path",{d:"M214 "+(y+24)+" h40 M246 "+(y+18)+" l8 6 l-8 6",style:"fill:none;stroke:var(--soft);stroke-width:2"},s);
+    el("rect",{x:260,y:y,width:200,height:48,rx:8,"class":hi?"bs":"tf"},s);
+    el("text",{x:360,y:y+22,"text-anchor":"middle","class":"d "+(hi?"bt":"ot"),style:"font-size:16px"},s,r[0]);
+    el("text",{x:360,y:y+40,"text-anchor":"middle","class":"mn "+(hi?"bt":"ot"),style:"font-size:11.5px"},s,r[1]);
+    el("path",{d:"M464 "+(y+24)+" h40 M496 "+(y+18)+" l8 6 l-8 6",style:"fill:none;stroke:var(--soft);stroke-width:2"},s);
+    el("rect",{x:510,y:y,width:200,height:48,rx:24,"class":hi?"bs":"c"},s);
+    el("text",{x:610,y:y+30,"text-anchor":"middle","class":hi?"d bt":"",style:"font-size:14.5px"},s,r[3]);
+  });
+  el("text",{x:360,y:422,"text-anchor":"middle","class":"sf",style:"font-size:12.5px"},s,"* on the advice of a 6-member committee headed by the PM (no Lok Sabha Deputy Speaker)");
+})();
+
+/* ---------- drawing: amendments timeline ---------- */
+(function(){
+  var s=document.getElementById("amdSvg"); if(!s)return;
+  var A=[["1st","1951","Ninth Schedule",0],["7th","1956","Language states",0],["42nd","1976","Mini Constitution",1],["44th","1978","Property out",1],["52nd","1985","Anti-defection",0],["61st","1989","Vote at 18",0],["69th","1991","Delhi NCT",1],
+         ["73/74","1992","Local bodies",1],["86th","2002","Education right",1],["91st","2003","Ministers ≤ 15%",1],["99th","2014","NJAC, struck",1],["101st","2016","GST",0],["103rd","2019","10% EWS",0],["106th","2023","Women ⅓",0]];
+  [0,1].forEach(function(row){
+    var ly=row?300:110;
+    el("line",{x1:20,y1:ly,x2:780,y2:ly,"class":"lt"},s);
+    el("text",{x:20,y:row?222:32,"class":"mn sf",style:"font-size:12px;letter-spacing:.08em"},s,row?"1992 → 2023":"1951 → 1991");
+    for(var k=0;k<7;k++){
+      var a=A[row*7+k],x=64+k*112;
+      el("text",{x:x,y:ly-26,"text-anchor":"middle","class":"d "+(a[3]?"oc":"tt"),style:"font-size:20px"},s,a[0]);
+      el("circle",{cx:x,cy:ly,r:a[3]?10:8,"class":a[3]?"os":"tf"},s);
+      if(a[3])el("circle",{cx:x,cy:ly,r:4,style:"fill:var(--ochre)"},s);
+      el("text",{x:x,y:ly+30,"text-anchor":"middle","class":"mn",style:"font-size:13px"},s,a[1]);
+      el("text",{x:x,y:ly+50,"text-anchor":"middle","class":"sf",style:"font-size:12.5px"},s,a[2]);
+    }
+  });
+})();
+
+/* ---------- quiz data ---------- */
+var QZ={
+making:[
+ {q:"Who chaired the very first meeting of the Constituent Assembly as temporary chairman?",o:["Dr Rajendra Prasad","Sachchidananda Sinha","Dr B.R. Ambedkar","B.N. Rau"],a:1,e:"Sinha chaired the first meeting on 9 December 1946. Rajendra Prasad was then elected permanent President."},
+ {q:"Why was 26 January chosen for the Constitution to come into force?",o:["It was the day the Assembly first met","It was Ambedkar's birthday","Purna Swaraj Day had been celebrated on 26 January 1930","The Cabinet Mission arrived that day"],a:2,e:"The Congress celebrated Purna Swaraj Day on 26 January 1930 (asked in 2025)."},
+ {q:"Who was the constitutional adviser to the Constituent Assembly?",o:["B.N. Rau","K.M. Munshi","Jawaharlal Nehru","Sardar Patel"],a:0,e:"B.N. Rau was the constitutional adviser. Ambedkar chaired the Drafting Committee."}],
+preamble:[
+ {q:"Who called the Preamble the \"political horoscope\" of India?",o:["Ernest Barker","N.A. Palkhivala","K.M. Munshi","Thakurdas Bhargava"],a:2,e:"Munshi = horoscope. Barker = keynote, Palkhivala = identity card, Bhargava = soul."},
+ {q:"Which word was NOT added to the Preamble by the 42nd Amendment?",o:["Socialist","Secular","Integrity","Republic"],a:3,e:"\"Republic\" was there from 1950. The 42nd added Socialist, Secular and Integrity."},
+ {q:"In which case did the Supreme Court hold that the Preamble is a part of the Constitution?",o:["Berubari (1960)","Kesavananda Bharati (1973)","Puttaswamy (2017)","Golaknath (1967)"],a:1,e:"Berubari said no; Kesavananda Bharati (1973) said yes."}],
+schedules:[
+ {q:"The Fourth Schedule deals with:",o:["Forms of oaths","Salaries","Seats of States in the Rajya Sabha","Official languages"],a:2,e:"2 Salary, 3 Swearing, 4 Seats."},
+ {q:"The Ninth Schedule was added by:",o:["The 1st Amendment, 1951","The 42nd Amendment, 1976","The 52nd Amendment, 1985","The 7th Amendment, 1956"],a:0,e:"The 1st Amendment (1951) added the Ninth Schedule to protect laws from court review."},
+ {q:"How many subjects does the Eleventh Schedule give to Panchayats?",o:["18","22","12","29"],a:3,e:"29 for Panchayats (11th). 18 is for Municipalities (12th)."}],
+rights:[
+ {q:"Untouchability is ended by which Article?",o:["Article 14","Article 17","Article 21","Article 25"],a:1,e:"Article 17, inside the Right to Equality (14 to 18)."},
+ {q:"The right to vote comes from:",o:["Article 19","Article 21","Article 326 and election law","Article 32"],a:2,e:"Voting is not a Fundamental Right. It comes from Article 326 and election law."},
+ {q:"Property is now a legal right under which Article?",o:["Article 300A","Article 31","Article 19(1)(f)","Article 21A"],a:0,e:"The 44th Amendment removed 19(1)(f) and 31; property moved to Article 300A."}],
+writs:[
+ {q:"Which writ asks a person \"by what authority\" he holds a public post?",o:["Mandamus","Certiorari","Quo warranto","Habeas corpus"],a:2,e:"Quo warranto = by what authority?"},
+ {q:"High Courts issue writs under which Article?",o:["Article 32","Article 226","Article 136","Article 368"],a:1,e:"Supreme Court: Article 32. High Courts: Article 226."},
+ {q:"A higher court stops a lower court while the case is still going on. This writ is:",o:["Prohibition","Certiorari","Mandamus","Quo warranto"],a:0,e:"Prohibition comes before the order; Certiorari cancels an order already passed."}],
+dpsp:[
+ {q:"Which Directive Principle asks for separating the judiciary from the executive?",o:["Article 44","Article 48A","Article 50","Article 51"],a:2,e:"Article 50. Article 51 is international peace."},
+ {q:"Fundamental Duties were recommended by the:",o:["Sarkaria Commission","Swaran Singh Committee","Santhanam Committee","Balwant Rai Mehta Committee"],a:1,e:"Swaran Singh Committee, 1976. The idea came from the USSR."},
+ {q:"The idea of Directive Principles came from:",o:["USA","USSR","Ireland","Canada"],a:2,e:"Ireland. Duties came from the USSR."}],
+sources:[
+ {q:"\"Procedure established by law\" was borrowed from:",o:["Japan","USA","Britain","France"],a:0,e:"Japan. The USA gave Fundamental Rights and judicial review."},
+ {q:"The Concurrent List was borrowed from:",o:["Canada","Australia","Ireland","Germany"],a:1,e:"Australia, along with the joint sitting. Canada gave the strong Centre."},
+ {q:"Which is the biggest single source of the Constitution?",o:["The US Constitution","The Irish Constitution","The Government of India Act, 1935","The British Constitution"],a:2,e:"The GoI Act 1935 gave the federal set-up, Governor, PSCs and emergency powers."}],
+executive:[
+ {q:"The minimum age to become President is:",o:["25","30","35","40"],a:2,e:"35 years. Term: 5 years."},
+ {q:"The President issues ordinances under:",o:["Article 72","Article 123","Article 87","Article 61"],a:1,e:"123 = ordinance. 72 = pardon, 87 = address, 61 = impeachment."},
+ {q:"Who does NOT vote in the Vice-President's election?",o:["Elected members of the Lok Sabha","Nominated members of the Rajya Sabha","Elected members of the Rajya Sabha","Elected MLAs of the States"],a:3,e:"VP: all MPs (nominated too), no MLAs."}],
+parliament:[
+ {q:"Who presides over a joint sitting of the two Houses?",o:["The Vice-President","The President","The Speaker of the Lok Sabha","The Prime Minister"],a:2,e:"The Speaker presides over a joint sitting (Article 108)."},
+ {q:"A \"Vote on Account\" is:",o:["Money given in advance until the budget is passed","The tax proposals of the year","Extra money when the grant falls short","A vote of no confidence"],a:0,e:"Advance money for about two months (asked in 2018)."},
+ {q:"Which of these was passed at a joint sitting?",o:["The GST Bill","The Dowry Prohibition Bill, 1961","The RTI Bill, 2005","The 42nd Amendment Bill"],a:1,e:"Only three: Dowry (1961), Banking Service Commission (1978), POTA (2002). Amendment bills can't go to a joint sitting."}],
+courts:[
+ {q:"High Court judges retire at the age of:",o:["60","62","65","70"],a:1,e:"High Court 62; Supreme Court 65."},
+ {q:"Which one of these states has a Legislative Council?",o:["Odisha","West Bengal","Bihar","Gujarat"],a:2,e:"Only AP, Telangana, UP, Bihar, Maharashtra and Karnataka. Odisha has none."},
+ {q:"The 74th Amendment (municipalities) came into force on:",o:["24 April 1993","1 June 1993","2 October 1959","26 January 1993"],a:1,e:"74th: 1 June 1993 (asked in 2018). 73rd: 24 April 1993."}],
+bodies:[
+ {q:"The NHRC chairperson's term is:",o:["5 years or age 65","6 years or age 65","3 years or age 70","Till the age of 70"],a:2,e:"3 years or age 70, whichever is earlier."},
+ {q:"The Central Vigilance Commission was set up in 1964 on the advice of the:",o:["Santhanam Committee","Swaran Singh Committee","Sarkaria Commission","Balwant Rai Mehta Committee"],a:0,e:"Santhanam Committee. CVC got legal status in 2003."},
+ {q:"The Central Information Commission was created by:",o:["A cabinet decision","The Right to Information Act, 2005","The Lokpal Act, 2013","An amendment to the Constitution"],a:1,e:"RTI Act 2005. NITI Aayog is the one made by a cabinet decision."}],
+amendments:[
+ {q:"The anti-defection law came with which Amendment?",o:["42nd","44th","52nd","61st"],a:2,e:"52nd Amendment, 1985 (Tenth Schedule)."},
+ {q:"Which Amendment ended the nomination of Anglo-Indians to legislatures?",o:["103rd","104th","105th","106th"],a:1,e:"104th (2020); it also extended SC/ST seats to 2030."},
+ {q:"The National Commission for Backward Classes became a constitutional body by the:",o:["102nd Amendment","101st Amendment","103rd Amendment","105th Amendment"],a:0,e:"102nd (2018). 105th (2021) let states make their own backward-class lists again."}],
+emergency:[
+ {q:"President's Rule in a state (Article 356) can last at most:",o:["6 months","1 year","3 years","5 years"],a:2,e:"Up to 3 years."},
+ {q:"Which is NOT a ground for National Emergency today?",o:["War","External attack","Armed rebellion","Internal disturbance"],a:3,e:"The 44th Amendment (1978) replaced \"internal disturbance\" with \"armed rebellion\"."},
+ {q:"Which of these is a state law?",o:["AFSPA","POTA","MCOCA","FEMA"],a:2,e:"MCOCA (Maharashtra). The others were made by Parliament (asked in 2018)."}]
+};
+
+/* ---------- build quizzes ---------- */
+document.querySelectorAll("[data-quiz]").forEach(function(box){
+  var list=QZ[box.dataset.quiz]||[];
+  var h=document.createElement("h3");h.textContent="Check yourself: 3 quick questions";box.appendChild(h);
+  list.forEach(function(x,qi){
+    var d=document.createElement("div");d.className="qq";
+    var p=document.createElement("p");p.textContent=(qi+1)+". "+x.q;d.appendChild(p);
+    var o=document.createElement("div");o.className="qo";d.appendChild(o);
+    var e=document.createElement("div");e.className="qe";e.hidden=true;d.appendChild(e);
+    x.o.forEach(function(t,i){
+      var b=document.createElement("button");b.type="button";b.textContent="ABCD"[i]+".  "+t;
+      b.onclick=function(){
+        o.querySelectorAll("button").forEach(function(bb,j){bb.disabled=true;if(j===x.a)bb.classList.add("right")});
+        if(i!==x.a)b.classList.add("wrong");
+        e.innerHTML="<b>"+(i===x.a?"Right. ":"Answer: "+"ABCD"[x.a]+". ")+"</b>"+x.e;e.hidden=false;
+      };
+      o.appendChild(b);
+    });
+    box.appendChild(d);
+  });
+});
+
+/* ---------- navigation, tiles, progress ---------- */
+var views=[].slice.call(document.querySelectorAll(".view"));
+var arts=views.filter(function(v){return v.dataset.min});
+var READKEY="aso-polity-mag-read", read={};
+try{read=JSON.parse(localStorage.getItem(READKEY)||"{}")||{}}catch(e){read={}}
+function saveRead(){try{localStorage.setItem(READKEY,JSON.stringify(read))}catch(e){}}
+
+var toc=document.getElementById("toc");
+arts.forEach(function(v,i){
+  var a=document.createElement("a");a.href="#"+v.dataset.view;a.dataset.v=v.dataset.view;
+  a.innerHTML='<span class="n">'+String(i+1).padStart(2,"0")+'</span><span></span><span class="ok"></span>';
+  a.children[1].textContent=v.dataset.title;toc.appendChild(a);
+});
+var sep=document.createElement("div");sep.className="sep";toc.appendChild(sep);
+var ra=document.createElement("a");ra.href="#revision";ra.dataset.v="revision";ra.innerHTML='<span class="n">★</span><span>Revision mode</span><span></span>';toc.appendChild(ra);
+
+var tiles=document.getElementById("tiles");
+arts.forEach(function(v,i){
+  var a=document.createElement("a");a.className="tile";a.href="#"+v.dataset.view;a.dataset.v=v.dataset.view;
+  a.innerHTML='<span class="n">Article '+String(i+1).padStart(2,"0")+'</span><b></b><span></span><em>'+v.dataset.min+' min read</em>';
+  a.querySelector("b").textContent=v.dataset.title;a.querySelector("span:not(.n)").textContent=v.dataset.blurb;tiles.appendChild(a);
+});
+(function(){var a=document.createElement("a");a.className="tile alt";a.href="#revision";
+  a.innerHTML='<span class="n">The night before</span><b>Revision mode</b><span>All 13 drawings and recaps on one screen.</span><em>about 10 minutes</em>';tiles.appendChild(a);
+  var b=document.createElement("a");b.className="tile";b.href="#making";
+  b.innerHTML='<span class="n">Start here</span><b>Begin with Article 01</b><span>Read in order: each article builds on the one before.</span><em>3 min read</em>';tiles.appendChild(b);})();
+
+arts.forEach(function(v,i){
+  var row=document.createElement("div");row.className="done-row";
+  var btn=document.createElement("button");btn.type="button";btn.className="btn";btn.dataset.read=v.dataset.view;
+  row.appendChild(btn);
+  var p=document.createElement("span");p.style.cssText="font-size:15px;color:var(--soft)";p.textContent="Tick it when you can answer all three questions without looking.";row.appendChild(p);
+  v.appendChild(row);
+  btn.onclick=function(){read[v.dataset.view]=!read[v.dataset.view];saveRead();paintRead()};
+  var pg=document.createElement("nav");pg.className="pager";pg.setAttribute("aria-label","Article navigation");
+  var prev=arts[i-1],next=arts[i+1];
+  if(prev){var a=document.createElement("a");a.href="#"+prev.dataset.view;a.innerHTML="<small>← Previous</small><b></b>";a.querySelector("b").textContent=prev.dataset.title;pg.appendChild(a)}
+  if(next){var b=document.createElement("a");b.className="nx";b.href="#"+next.dataset.view;b.innerHTML="<small>Next →</small><b></b>";b.querySelector("b").textContent=next.dataset.title;pg.appendChild(b)}
+  else{var c=document.createElement("a");c.className="nx";c.href="#revision";c.innerHTML="<small>Finished →</small><b>Revision mode</b>";pg.appendChild(c)}
+  v.appendChild(pg);
+});
+
+function paintRead(){
+  var n=0;arts.forEach(function(v){if(read[v.dataset.view])n++});
+  document.querySelectorAll("[data-v]").forEach(function(a){a.classList.toggle("read",!!read[a.dataset.v])});
+  document.querySelectorAll("[data-read]").forEach(function(b){var r=!!read[b.dataset.read];b.setAttribute("aria-pressed",r?"true":"false");b.textContent=r?"✓ Marked as read":"Mark as read"});
+  document.getElementById("prog").firstChild.nodeValue=n+" of "+arts.length+" articles read";
+  document.getElementById("progBar").style.width=(100*n/arts.length)+"%";
+}
+
+/* revision grid */
+var rg=document.getElementById("revGrid");
+arts.forEach(function(v,i){
+  var c=document.createElement("div");c.className="rcard";
+  var h=document.createElement("h3");h.innerHTML='<a href="#'+v.dataset.view+'"><small>Article '+String(i+1).padStart(2,"0")+'</small></a>';
+  h.firstChild.appendChild(document.createTextNode(v.dataset.title));c.appendChild(h);
+  var svg=v.querySelector(".fig svg");if(svg){var w=document.createElement("div");w.className="svgwrap";var cl=svg.cloneNode(true);cl.removeAttribute("id");w.appendChild(cl);c.appendChild(w)}
+  var ul=v.querySelector(".recap ul");if(ul)c.appendChild(ul.cloneNode(true));
+  rg.appendChild(c);
+});
+
+var rail=document.getElementById("rail"),scrim=document.getElementById("scrim"),mb=document.getElementById("menuBtn");
+function closeMenu(){rail.classList.remove("open");scrim.classList.remove("on");mb.setAttribute("aria-expanded","false")}
+mb.onclick=function(){var o=rail.classList.toggle("open");scrim.classList.toggle("on",o);mb.setAttribute("aria-expanded",o?"true":"false")};
+scrim.onclick=closeMenu;
+
+function route(){
+  var id=(location.hash||"#cover").slice(1);
+  if(!views.some(function(v){return v.dataset.view===id}))id="cover";
+  views.forEach(function(v){v.hidden=v.dataset.view!==id});
+  toc.querySelectorAll("a").forEach(function(a){a.classList.toggle("on",a.dataset.v===id)});
+  closeMenu();window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+route();paintRead();
+
+/* theme */
+var root=document.documentElement,TK="aso-polity-mag-theme";
+function applyT(t){if(t==="light"||t==="dark")root.setAttribute("data-theme",t);else{root.removeAttribute("data-theme");t="system"}
+  document.querySelectorAll(".seg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.t===t?"true":"false")});
+  try{localStorage.setItem(TK,t)}catch(e){}}
+var st="system";try{st=localStorage.getItem(TK)||"system"}catch(e){}
+applyT(st);
+document.querySelectorAll(".seg button").forEach(function(b){b.onclick=function(){applyT(b.dataset.t)}});
+})();
+</script>

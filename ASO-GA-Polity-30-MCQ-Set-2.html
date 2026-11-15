@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polity 30 MCQ Set 2</title>
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --ink:#1d1d1b; --muted:#6b6a64; --line:#e3e1da;
+  --accent:#b4441c; --accent-soft:#fbeee7; --ok:#1f7a4d; --ok-soft:#eaf3ee; --bad:#b3261e; --bad-soft:#fbeaea;
+  --mark:#8a5a00; --mark-soft:#fff3c4; --next:#eef1fb; --next-line:#3b5bcc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+    --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+    --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+  --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+  --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header{padding:24px 0 8px}
+h1{margin:0 0 4px;font-size:26px;line-height:1.25}
+.sub{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.theme{float:right;display:inline-flex;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:2px;margin:0 0 8px 12px}
+.theme button{border:0;background:none;color:var(--muted);font:600 12px/1 inherit;padding:6px 10px;border-radius:99px;cursor:pointer}
+.theme button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn{font:600 15px/1 inherit;padding:11px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-top:8px;padding-bottom:8px}
+.timer{font:700 18px/1 ui-monospace,Menlo,monospace}
+.timer.low{color:var(--bad)}
+.pill{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:99px}
+.qnum{color:var(--muted);font-size:14px;margin:0 0 6px}
+.qtext{font:18px/1.6 Georgia,"Iowan Old Style",serif;white-space:pre-line;margin:0 0 14px;overflow-wrap:anywhere}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:16px/1.5 inherit;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.opt:hover{border-color:var(--accent)}
+.opt b{flex:none;width:22px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.exp{border-left:4px solid var(--next-line);background:var(--next);padding:10px 14px;border-radius:6px;margin:12px 0 0;font:15.5px/1.65 Georgia,"Iowan Old Style",serif;overflow-wrap:anywhere}
+.exp .lab{font:700 13px/1.4 -apple-system,sans-serif;color:var(--next-line);display:block;margin-bottom:2px}
+.check{color:var(--accent);font-weight:600;font-size:13px;font-family:-apple-system,sans-serif}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal button{font:600 13px/1 inherit;padding:9px 0;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.pal button.ans{background:var(--accent);border-color:var(--accent);color:#fff}
+.pal button.mk{box-shadow:inset 0 -4px 0 var(--mark)}
+.pal button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.pal button.r{background:var(--ok);border-color:var(--ok);color:#fff}
+.pal button.w{background:var(--bad);border-color:var(--bad);color:#fff}
+.legend{font-size:13px;color:var(--muted);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+#secTable th:not(:first-child),#secTable td:not(:first-child){white-space:nowrap;text-align:center;padding:7px 6px}
+.big{font-size:40px;font-weight:800;line-height:1.1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat span{display:block;color:var(--muted);font-size:13px}
+.stat b{font-size:22px}
+.rq{border-top:1px solid var(--line);padding:16px 0}
+.rq:first-child{border-top:0}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px}
+.tag.r{color:var(--ok);background:var(--ok-soft)} .tag.w{color:var(--bad);background:var(--bad-soft)} .tag.s{color:var(--muted);background:var(--line)}
+ul{padding-left:20px} li{margin:4px 0}
+.hide{display:none!important}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:16px 16px 40px}
+@media (max-width:600px){ .card{padding:16px} .qtext{font-size:17px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="theme" role="group" aria-label="Theme">
+    <button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">System</button>
+  </div>
+  <h1>OPSC ASO 2027 · Polity Practice Test, Set 2 (30 MCQs)</h1>
+  <p class="sub">30 questions · 27 minutes · +1 for a right answer, −0.25 for a wrong one, 0 for a skipped one. Every question comes only from Chapter 1, <b>Indian Constitution (Polity)</b>, of the Easy Guide.</p>
+</header>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="wrap">
+  <div class="card">
+    <h2 style="margin-top:0">How to take this test</h2>
+    <ul>
+      <li><b>Exam mode</b>: a 27-minute timer (the same speed as the real paper: 100 questions in 90 minutes). No answers are shown until you submit.</li>
+      <li><b>Practice mode</b>: no timer. The answer and a short explanation appear as soon as you choose, so you can use it to revise.</li>
+      <li>The questions follow the guide's order: Making and Preamble 3, Schedules 3, Fundamental Rights 4, Directive Principles and Duties 3, Sources 2, President and PM 3, Parliament 4, Courts and States 3, Bodies 3, Amendments and Emergency 2. None of these repeat Set 1.</li>
+      <li>Your progress is saved in this browser, so you can close the page and come back later.</li>
+    </ul>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="startExam">Start exam mode (27 min)</button>
+      <button class="btn" id="startPrac">Start practice mode</button>
+      <button class="btn hide" id="resume">Resume saved attempt</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="test" class="hide">
+  <div class="bar"><div class="wrap">
+    <span class="timer" id="timer">27:00</span>
+    <span class="pill" id="modeLbl">Exam mode</span>
+    <span id="progress" style="color:var(--muted);font-size:14px"></span>
+    <span style="flex:1"></span>
+    <button class="btn" id="submitBtn">Submit test</button>
+  </div></div>
+  <div class="wrap">
+    <div class="card" id="qcard">
+      <p class="qnum" id="qnum"></p>
+      <p class="qtext" id="qtext"></p>
+      <div id="opts"></div>
+      <div id="qexp"></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" id="prev">← Previous</button>
+        <button class="btn" id="clear">Clear answer</button>
+        <button class="btn" id="mark">Mark for review</button>
+        <span style="flex:1"></span>
+        <button class="btn primary" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pal" id="pal"></div>
+      <p class="legend">Filled = answered · yellow underline = marked for review · outlined = current question.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hide wrap">
+  <div class="card">
+    <h2 style="margin-top:0">Your result</h2>
+    <div class="big" id="score"></div>
+    <div class="stats" id="stats"></div>
+    <p id="verdict"></p>
+    <h3>By sub-topic</h3>
+    <table id="secTable"></table>
+    <p class="legend">Revise the sub-topic with the lowest net score first, using Chapter 1 of the Easy Guide and its "Test yourself" list.</p>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="retry">Start again</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="margin-top:0">Review every question</h2>
+    <div class="row" id="filters">
+      <button class="btn" data-f="all">All</button>
+      <button class="btn" data-f="w">Wrong</button>
+      <button class="btn" data-f="s">Skipped</button>
+      <button class="btn" data-f="r">Right</button>
+    </div>
+    <div id="review"></div>
+  </div>
+</div>
+
+<footer>Polity practice test · built only from Chapter 1 of <a href="ASO-GA-Easy-Guide.html#polity">OPSC ASO 2027: General Awareness, the Easy Guide</a>. Also try <a href="ASO-GA-Polity-30-MCQ.html">Set 1</a>.</footer>
+
+<script>
+/* Each question: s = section, q = text, o = options (correct option FIRST unless k=1),
+   e = explanation, k = 1 keeps the option order and uses a = correct index. */
+var Q = [
+/* ---------------- MAKING OF THE CONSTITUTION AND PREAMBLE (3) ---------------- */
+{s:"Making & Preamble",q:"Who was the chairman of the Drafting Committee of the Constituent Assembly?",
+o:["Dr B.R. Ambedkar","Dr Rajendra Prasad","B.N. Rau","Jawaharlal Nehru"],
+e:"The Drafting Committee was formed on 29 August 1947 with Dr B.R. Ambedkar as chairman. Dr Rajendra Prasad was the permanent President of the whole Constituent Assembly. B.N. Rau was the constitutional adviser. Sachchidananda Sinha was the temporary chairman at the first meeting on 9 December 1946."},
+{s:"Making & Preamble",q:"The Objectives Resolution, which later became the Preamble, was moved in the Constituent Assembly by:",
+o:["Jawaharlal Nehru, on 13 December 1946","Dr B.R. Ambedkar, on 26 November 1949","Dr Rajendra Prasad, on 9 December 1946","Sardar Patel, on 29 August 1947"],
+e:"Nehru moved the Objectives Resolution on 13 December 1946, four days after the Assembly first met. Its ideas became the Preamble. The Assembly itself was set up under the Cabinet Mission Plan of 1946."},
+{s:"Making & Preamble",q:"Who described the Preamble as the \"identity card of the Constitution\"?",
+o:["N.A. Palkhivala","Ernest Barker","K.M. Munshi","Thakurdas Bhargava"],
+e:"N.A. Palkhivala called it the \"identity card\". Ernest Barker called it the \"keynote\" (asked in 2025), K.M. Munshi the \"political horoscope\", and Thakurdas Bhargava the \"soul of the Constitution\". This is a favourite matching question, so learn all four."},
+
+/* ---------------- SCHEDULES (3) ---------------- */
+{s:"Schedules",q:"The anti-defection law is contained in which Schedule of the Constitution?",
+o:["Tenth Schedule","Ninth Schedule","Eighth Schedule","Eleventh Schedule"],
+e:"The Tenth Schedule has the anti-defection law. It was added by the 52nd Amendment in 1985. The Speaker decides defection cases in the Lok Sabha. The last three Schedules came in time order: defection (1985), then panchayats and municipalities (1992)."},
+{s:"Schedules",q:"The Ninth Schedule, which protects certain laws from court review, was added by which Amendment?",
+o:["1st Amendment, 1951","7th Amendment, 1956","42nd Amendment, 1976","44th Amendment, 1978"],
+e:"The 1st Amendment (1951) added the Ninth Schedule, mainly to protect land reform laws. The 7th Amendment (1956) reorganised States on language lines, and the 42nd (1976) is called the \"mini Constitution\"."},
+{s:"Schedules",q:"How many languages are listed in the Eighth Schedule of the Constitution?",
+o:["22","18","29","12"],
+e:"The Eighth Schedule lists 22 official languages, and Odia is one of them. The numbers 29 and 18 are the subjects in the Eleventh (Panchayats) and Twelfth (Municipalities) Schedules. There are 12 Schedules in all."},
+
+/* ---------------- FUNDAMENTAL RIGHTS (4) ---------------- */
+{s:"Fundamental Rights",q:"Dr B.R. Ambedkar called which Article the \"heart and soul\" of the Constitution?",
+o:["Article 32","Article 21","Article 14","Article 19"],
+e:"Article 32 lets a person go straight to the Supreme Court if a Fundamental Right is broken. Without it, the other rights could not be enforced, which is why Ambedkar called it the \"heart and soul\". Don't confuse this with \"soul of the Constitution\", which Thakurdas Bhargava used for the Preamble."},
+{s:"Fundamental Rights",q:"Untouchability is abolished by which Article of the Constitution?",
+o:["Article 17","Article 15","Article 18","Article 23"],
+e:"Article 17 ends untouchability. The Right to Equality runs from Article 14 to 18: equality before law (14), no discrimination (15), equal chance in government jobs (16), untouchability ended (17), titles ended (18). Article 23 bans forced labour and trafficking."},
+{s:"Fundamental Rights",q:"Which writ is used by a higher court to cancel an order that a lower court has already passed?",
+o:["Certiorari","Prohibition","Habeas corpus","Mandamus"],
+e:"Certiorari means \"send us the file\"; it cancels an order already passed. Prohibition stops a lower court while the case is still going on. The difference is timing: Prohibition before the order, Certiorari after it. Habeas corpus brings a detained person before the court, and Mandamus makes an officer do his duty."},
+{s:"Fundamental Rights",q:"Who can put \"reasonable restrictions\" on the freedoms given in Article 19?",
+o:["Parliament, by making a law","The President, by an executive order","The Supreme Court","The Election Commission"],
+e:"Only the legislature can limit these freedoms, and it must do so by making a law. In the exam the answer is Parliament (asked in 2021). The courts then check whether the restriction is reasonable."},
+
+/* ---------------- DIRECTIVE PRINCIPLES AND DUTIES (3) ---------------- */
+{s:"DPSP & Duties",q:"Which of the following statements about the Directive Principles of State Policy is correct?",
+o:["They cannot be enforced in a court of law","They are given in Part III of the Constitution","The idea was taken from the USSR","They were all added by the 42nd Amendment"],
+e:"Directive Principles (Articles 36 to 51, Part IV) are goals for the government; you cannot go to court to enforce them. The idea came from Ireland. Part III has the Fundamental Rights. The USSR gave us the Fundamental Duties. The 42nd Amendment added only a few Directive Principles, such as 39A, 43A and 48A."},
+{s:"DPSP & Duties",q:"Which Article of the Directive Principles asks the State to organise village panchayats?",
+o:["Article 40","Article 44","Article 48","Article 50"],
+e:"Article 40 is about village panchayats. The 73rd Amendment (1992) later gave panchayats constitutional status. Article 44 is the Uniform Civil Code, Article 48 is about organising farming and stopping cow slaughter, and Article 50 is about separating the judiciary from the executive."},
+{s:"DPSP & Duties",q:"The 11th Fundamental Duty, that parents must give their children aged 6 to 14 a chance to go to school, was added by:",
+o:["86th Amendment, 2002","42nd Amendment, 1976","44th Amendment, 1978","73rd Amendment, 1992"],
+e:"The 86th Amendment (2002) did two things: it added Article 21A (right to education) and the 11th Fundamental Duty in Article 51A. The first 10 duties came with the 42nd Amendment in 1976, on the Swaran Singh Committee's advice."},
+
+/* ---------------- SOURCES (2) ---------------- */
+{s:"Sources",q:"The provision for suspending Fundamental Rights during an Emergency was borrowed from:",
+o:["Germany (Weimar Constitution)","USSR","Australia","France"],
+e:"The Weimar Constitution of Germany gave us the suspension of rights during Emergency. The USSR gave Fundamental Duties, Australia the Concurrent List and joint sitting, and France the ideals of Republic, Liberty, Equality and Fraternity."},
+{s:"Sources",q:"Which is regarded as the biggest single source of the Indian Constitution?",
+o:["Government of India Act, 1935","Constitution of the USA","British Constitution","Constitution of Ireland"],
+e:"The Government of India Act, 1935 gave the federal set-up, the office of Governor, Public Service Commissions and emergency powers. That is why it is called the biggest source. Britain, the USA and Ireland each gave a few important features."},
+
+/* ---------------- PRESIDENT, VICE-PRESIDENT, PM (3) ---------------- */
+{s:"Executive",q:"Which of the following does NOT take part in the election of the President of India?",
+o:["Nominated members of the Rajya Sabha","Elected members of the Lok Sabha","Elected members of the State Legislative Assemblies","Elected members of the Delhi and Puducherry Assemblies"],
+e:"Under Article 54, the President is elected by elected MPs of both Houses and elected MLAs of all States, Delhi and Puducherry. Nominated members do not vote. The voting uses proportional representation by single transferable vote, by secret ballot (Article 55(3), asked in 2021)."},
+{s:"Executive",q:"Under which Article can the President grant pardons?",
+o:["Article 72","Article 61","Article 123","Article 87"],
+e:"Article 72 is the President's pardoning power. Article 61 is impeachment, Article 123 is the power to issue ordinances when Parliament is not sitting, and Article 87 is the President's special address to Parliament."},
+{s:"Executive",q:"Under Article 87, the President addresses both Houses of Parliament together:",
+o:["At the first session after each general election and at the first session of every year","At every session of Parliament","Only when a new government takes office","Only when Parliament is called to a joint sitting"],
+e:"Article 87 provides a special address at the first session after each general election and at the start of the first session each year (asked in 2018). The minimum age for the President is 35 and the term is 5 years."},
+
+/* ---------------- PARLIAMENT (4) ---------------- */
+{s:"Parliament",q:"Who was the first Speaker of the Lok Sabha?",
+o:["G.V. Mavalankar","M.A. Ayyangar","Sardar Hukam Singh","Neelam Sanjiva Reddy"],
+e:"G.V. Mavalankar was the first Speaker (asked in 2018). The Speaker decides whether a bill is a Money Bill, chairs a joint sitting of both Houses, and decides defection cases."},
+{s:"Parliament",q:"Which statement about the Rajya Sabha is correct?",
+o:["One-third of its members retire every two years","It has 250 elected members","Its members are directly elected by the people","It can be dissolved by the President"],
+e:"The Rajya Sabha is a permanent House and is never dissolved. A member sits for 6 years, and one-third retire every 2 years. It now has 245 members: 233 elected by MLAs through single transferable vote, and 12 nominated by the President. The minimum age is 30."},
+{s:"Parliament",q:"The \"First Past the Post\" system is used to elect members of the:",
+o:["Lok Sabha","Rajya Sabha","Office of the President","State Legislative Councils"],
+e:"In First Past the Post, the candidate with the most votes wins, even without a majority. It is used for the Lok Sabha and State Assemblies (asked in 2025). Single transferable vote is used for the President, Vice-President, Rajya Sabha and Legislative Councils."},
+{s:"Parliament",q:"What name does the Constitution give to the Union Budget, and in which Article?",
+o:["Annual Financial Statement, Article 112","Appropriation Bill, Article 114","Finance Bill, Article 110","Vote on Account, Article 116"],
+e:"The word \"budget\" does not appear in the Constitution; it is called the Annual Financial Statement (Article 112). The Appropriation Bill gives permission to take money out of the Consolidated Fund, the Finance Bill has the tax proposals, and the Vote on Account gives money in advance."},
+
+/* ---------------- COURTS AND STATES (3) ---------------- */
+{s:"Courts & States",q:"According to the Sarkaria Commission, the Governor of a State should be:",
+o:["A well-known person from outside the State who is not active in politics","An active politician of the ruling party of the State","A retired judge of the State's High Court","A senior civil servant of the State cadre"],
+e:"The Sarkaria Commission said Governors should be non-partisan: well-known people from outside the State, not active in politics (asked in 2025). The Governor is appointed by the President and holds office \"during the pleasure of the President\"."},
+{s:"Courts & States",q:"Which State was the first to start the three-level Panchayati Raj system suggested by the Balwant Rai Mehta Committee?",
+o:["Rajasthan (Nagaur, 1959)","Andhra Pradesh (1959)","Gujarat (1963)","Odisha (1961)"],
+e:"Rajasthan started first, at Nagaur on 2 October 1959. The Balwant Rai Mehta Committee (1957) had suggested three levels: village, block and district. Note: this committee is about panchayats, not civil services (a trap in 2025)."},
+{s:"Courts & States",q:"National Panchayati Raj Day is celebrated on 24 April because on that date:",
+o:["The 73rd Amendment came into force in 1993","The Balwant Rai Mehta Committee gave its report","The 74th Amendment came into force in 1993","The first panchayat was set up at Nagaur"],
+e:"The 73rd Amendment (panchayats, Eleventh Schedule) came into force on 24 April 1993. The 74th Amendment (municipalities, Twelfth Schedule) came into force on 1 June 1993 (asked in 2018). The Nagaur panchayat began on 2 October 1959."},
+
+/* ---------------- CONSTITUTIONAL AND OTHER BODIES (3) ---------------- */
+{s:"Bodies & NHRC",q:"Members of a State Public Service Commission are appointed by the ______ but can be removed only by the ______.",
+o:["Governor; President","President; Governor","Governor; Chief Minister","Chief Minister; Governor"],
+e:"The Governor appoints State PSC members (term 6 years or age 62), but only the President can remove them. UPSC members are appointed by the President for 6 years or until age 65. A Joint State PSC is made by an Act of Parliament (asked in 2025)."},
+{s:"Bodies & NHRC",q:"After retirement, the Chairman of the UPSC is eligible for:",
+o:["No further job under the Government of India or a State government","Appointment as Chairman of a State PSC","Appointment as a member of the UPSC","Appointment as Governor of a State"],
+e:"Under Article 319 (asked in 2021), the UPSC Chairman cannot take any later government job. The idea is that members should not hope for a reward from the government, so only moves \"up the ladder\" are allowed: for example, a UPSC member can become UPSC Chairman, and a State PSC Chairman can join the UPSC."},
+{s:"Bodies & NHRC",q:"NITI Aayog was set up on 1 January 2015 by:",
+o:["A decision of the Union Cabinet","An amendment to the Constitution","An Act of Parliament","An order of the Supreme Court"],
+e:"NITI Aayog came from a cabinet decision, so it is neither constitutional nor statutory. Compare: the Central Vigilance Commission (1964, Santhanam Committee) got legal status in 2003, the Central Information Commission comes from the RTI Act 2005, and the Lokpal from the Lokpal and Lokayuktas Act 2013."},
+
+/* ---------------- AMENDMENTS AND EMERGENCY (2) ---------------- */
+{s:"Amendments & Emergency",q:"Education was moved from the State List to the Concurrent List by which Amendment?",
+o:["42nd Amendment, 1976","44th Amendment, 1978","73rd Amendment, 1992","86th Amendment, 2002"],
+e:"The 42nd Amendment (1976), the \"mini Constitution\", moved education, forests and three more subjects to the Concurrent List (asked in 2018). It also added Socialist, Secular and Integrity to the Preamble and the Fundamental Duties."},
+{s:"Amendments & Emergency",q:"A National Emergency under Article 352 has been declared in which years?",
+o:["1962, 1971 and 1975","1962, 1965 and 1975","1971, 1975 and 1999","It has never been declared"],
+e:"A National Emergency was declared three times: 1962 (war with China), 1971 (war with Pakistan) and 1975 (internal disturbance). The grounds now are war, external attack or armed rebellion. President's Rule in a State is Article 356 (up to 3 years). Financial Emergency (Article 360) has never been declared."}
+];
+
+/* Each question: s = sub-topic, q = text, o = options (correct option FIRST; they are shuffled), e = explanation. */
+/* ---------- prepare options (seeded shuffle so answer letters vary) ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+Q.forEach(function(x,i){
+  if(x.k){x.opts=x.o.slice();x.ans=x.a;return}
+  var r=rng(i*97+34), idx=[0,1,2,3];
+  for(var j=3;j>0;j--){var m=Math.floor(r()*(j+1));var t=idx[j];idx[j]=idx[m];idx[m]=t}
+  x.opts=idx.map(function(n){return x.o[n]}); x.ans=idx.indexOf(0);
+});
+var L="ABCD", KEY="aso-polity30-set2", DUR=27*60, N=Q.length;
+var st=null, cur=0, tick=null;
+
+function $(id){return document.getElementById(id)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function show(id){["intro","test","result"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});window.scrollTo(0,0)}
+
+function start(mode){
+  st={mode:mode,ans:Q.map(function(){return null}),mk:Q.map(function(){return false}),start:Date.now(),done:false};
+  cur=0; save(); openTest();
+}
+function openTest(){
+  show("test");
+  $("modeLbl").textContent=st.mode==="exam"?"Exam mode":"Practice mode";
+  $("timer").classList.toggle("hide",st.mode!=="exam");
+  buildPal(); render();
+  clearInterval(tick);
+  if(st.mode==="exam"){tick=setInterval(updTimer,1000);updTimer()}
+}
+function left(){return Math.max(0,DUR-Math.floor((Date.now()-st.start)/1000))}
+function updTimer(){
+  var s=left(); $("timer").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+  $("timer").classList.toggle("low",s<300);
+  if(s<=0){clearInterval(tick);finish()}
+}
+function buildPal(){
+  var p=$("pal"); p.innerHTML="";
+  Q.forEach(function(_,i){var b=document.createElement("button");b.textContent=i+1;b.onclick=function(){cur=i;render()};p.appendChild(b)});
+}
+function updPal(){
+  var bs=$("pal").children, n=0;
+  for(var i=0;i<bs.length;i++){
+    var a=st.ans[i]; if(a!==null)n++;
+    bs[i].className="";
+    if(st.mode==="prac"&&a!==null) bs[i].classList.add(a===Q[i].ans?"r":"w");
+    else if(a!==null) bs[i].classList.add("ans");
+    if(st.mk[i])bs[i].classList.add("mk");
+    if(i===cur)bs[i].classList.add("cur");
+  }
+  $("progress").textContent=n+" of "+N+" answered";
+}
+function expHTML(x){return '<div class="exp"><span class="lab">Answer: '+L[x.ans]+'. '+esc(x.opts[x.ans])+'</span>'+x.e+'</div>'}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var x=Q[cur], a=st.ans[cur], reveal=st.mode==="prac"&&a!==null;
+  $("qnum").textContent="Question "+(cur+1)+" of "+N+" · "+x.s;
+  $("qtext").textContent=x.q;
+  var o=$("opts"); o.innerHTML="";
+  x.opts.forEach(function(t,i){
+    var b=document.createElement("button"); b.className="opt"; b.innerHTML="<b>"+L[i]+".</b><span>"+esc(t)+"</span>";
+    if(reveal){b.disabled=true; if(i===x.ans)b.classList.add("right"); else if(i===a)b.classList.add("wrong")}
+    else if(i===a)b.classList.add("sel");
+    b.onclick=function(){ if(st.mode==="prac"&&st.ans[cur]!==null)return; st.ans[cur]=i; save(); render() };
+    o.appendChild(b);
+  });
+  $("qexp").innerHTML=reveal?expHTML(x):"";
+  $("prev").disabled=cur===0; $("next").textContent=cur===N-1?"Finish →":"Next →";
+  $("clear").classList.toggle("hide",st.mode==="prac");
+  $("mark").textContent=st.mk[cur]?"Unmark":"Mark for review";
+  updPal();
+}
+$("prev").onclick=function(){if(cur>0){cur--;render()}};
+$("next").onclick=function(){if(cur<N-1){cur++;render()}else $("submitBtn").click()};
+$("clear").onclick=function(){st.ans[cur]=null;save();render()};
+$("mark").onclick=function(){st.mk[cur]=!st.mk[cur];save();render()};
+$("submitBtn").onclick=function(){
+  var un=st.ans.filter(function(a){return a===null}).length;
+  if(confirm("Submit the test?"+(un?" You have "+un+" unanswered question"+(un>1?"s":"")+".":"")))finish();
+};
+function finish(){
+  clearInterval(tick); st.done=true; save(); results("all");
+}
+function results(f){
+  show("result");
+  var c=0,w=0,s=0,sec={},order=[];
+  Q.forEach(function(x,i){
+    if(!sec[x.s]){sec[x.s]={n:0,c:0,w:0};order.push(x.s)}
+    var a=st.ans[i]; sec[x.s].n++;
+    if(a===null)s++; else if(a===x.ans){c++;sec[x.s].c++} else {w++;sec[x.s].w++}
+  });
+  var net=c-0.25*w;
+  $("score").textContent=net.toFixed(2)+" / "+N;
+  $("stats").innerHTML=[["Right",c],["Wrong",w],["Skipped",s],["Accuracy",(c+w?Math.round(100*c/(c+w)):0)+"%"]]
+    .map(function(p){return '<div class="stat"><span>'+p[0]+'</span><b>'+p[1]+'</b></div>'}).join("");
+  var acc=c+w?c/(c+w):0;
+  $("verdict").innerHTML = (w>0&&acc<0.6?"<b>Your accuracy is under 60%, so the negative marks are costing you.</b> Guess only when you can eliminate two options. ":"")+
+    (s>9?"<b>You skipped more than 9.</b> Most skips should become answers after one more revision of the guide's \"Asked before\" and \"Likely next\" boxes. ":"")+
+    (net>=24?"A net score of 24 or more out of 30 is a strong position in Polity.":net>=18?"A net score between 18 and 24 is close. The table shows which sub-topics to revise.":"Treat this as a starting point. Revise the two weakest sub-topics in the guide and take the test again.");
+  $("secTable").innerHTML="<tr><th>Sub-topic</th><th>Qs</th><th>Right</th><th>Wrong</th><th>Net</th></tr>"+
+    order.map(function(k){var v=sec[k];return "<tr><td>"+k+"</td><td>"+v.n+"</td><td>"+v.c+"</td><td>"+v.w+"</td><td><b>"+(v.c-0.25*v.w).toFixed(2)+"</b></td></tr>"}).join("");
+  drawReview(f);
+}
+function drawReview(f){
+  var h="";
+  Q.forEach(function(x,i){
+    var a=st.ans[i], k=a===null?"s":a===x.ans?"r":"w";
+    if(f!=="all"&&f!==k)return;
+    var tag={r:'<span class="tag r">Right</span>',w:'<span class="tag w">Wrong</span>',s:'<span class="tag s">Skipped</span>'}[k];
+    h+='<div class="rq"><p class="qnum">Q'+(i+1)+' · '+x.s+tag+'</p><p class="qtext">'+esc(x.q)+'</p>';
+    x.opts.forEach(function(t,j){
+      var cls=j===x.ans?" right":(j===a?" wrong":"");
+      h+='<div class="opt'+cls+'"><b>'+L[j]+'.</b><span>'+esc(t)+(j===a?" <i>(your answer)</i>":"")+'</span></div>';
+    });
+    h+=expHTML(x)+'</div>';
+  });
+  $("review").innerHTML=h||"<p>No questions in this group.</p>";
+  document.querySelectorAll("#filters .btn").forEach(function(b){b.classList.toggle("primary",b.dataset.f===f)});
+}
+document.querySelectorAll("#filters .btn").forEach(function(b){b.onclick=function(){drawReview(b.dataset.f)}});
+$("retry").onclick=function(){try{localStorage.removeItem(KEY)}catch(e){} st=null; $("resume").classList.add("hide"); show("intro")};
+$("startExam").onclick=function(){start("exam")};
+$("startPrac").onclick=function(){start("prac")};
+$("resume").onclick=function(){ if(st.done)results("all"); else openTest() };
+
+(function init(){
+  var s=load();
+  if(s&&s.ans&&s.ans.length===Q.length){
+    st=s; $("resume").classList.remove("hide");
+    $("resume").textContent=s.done?"See last result":"Resume saved attempt ("+(s.mode==="exam"?"exam":"practice")+")";
+    if(s.mode==="exam"&&!s.done&&left()<=0){st.done=true;save();$("resume").textContent="See last result"}
+  }
+})();
+
+/* theme switch */
+(function(){var root=document.documentElement, btns=document.querySelectorAll('.theme button');
+ function apply(t){ if(t==='system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',t);
+  btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)}); try{localStorage.setItem('aso-theme',t)}catch(e){} }
+ var saved='system'; try{saved=localStorage.getItem('aso-theme')||'system'}catch(e){}
+ apply(saved); btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});})();
+</script>
+</body>
+</html>

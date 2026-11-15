@@ -1,0 +1,504 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO English Mock 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.pass{margin-top:14px;border:1px dashed var(--rule);background:var(--paper);padding:12px 14px;max-height:46vh;overflow:auto}
+.pass b{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-bottom:6px}
+.pass p{font-size:1rem;line-height:1.65}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · Paper III (A) English · Mock 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>English Mock 2027</h1>
+<p class="tag">100 questions in the exact<br>section order of the <b>9 November 2025</b><br>ASO English paper.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">The 2025 English paper looked nothing like the 2018 and 2021 ones. There were no synonyms, idioms, voice or narration. Instead it had 64 fill-in-the-blanks, 6 error-spotting questions, 20 rearrangement questions and two reading passages. This mock follows that order and those counts exactly.</p>
+<p class="lead" style="margin-top:14px">Inside the 64 blanks, the mix copies 2025 too: about 21 test word meaning in context and the rest test grammar, mainly tenses, agreement, adverb forms, "No sooner / Seldom" inversion, prepositions, articles and -ing forms. Every answer comes with a one-line rule you can remember.</p>
+<div class="rules">
+<div><b>Paper</b><span>100 questions · 90 minutes · 100 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>Score</b><span>Your result is broken down by section, so you can see whether to work on vocabulary, grammar or rearrangement first.</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 90 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>100</span> questions</span></div>
+<ol class="bp"><li><span class="n">64</span><span>Fill in the blanks</span><span class="dots"></span><span class="c">Q1–64 · 64 in 2025</span></li><li><span class="n">06</span><span>Error spotting</span><span class="dots"></span><span class="c">Q65–70 · 6 in 2025</span></li><li><span class="n">14</span><span>Sentence rearrangement</span><span class="dots"></span><span class="c">Q71–84 · 14 in 2025</span></li><li><span class="n">06</span><span>Paragraph ordering</span><span class="dots"></span><span class="c">Q85–90 · 6 in 2025</span></li><li><span class="n">10</span><span>Comprehension</span><span class="dots"></span><span class="c">Q91–100 · two passages, as in 2025</span></li></ol>
+<p class="src" style="margin-top:14px">None of these questions repeats the past papers or your two earlier English tests. The first 64 are mixed, as in the real paper; the rest come in the 2025 order.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">90:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 100 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="pass" id="q-pass" hidden><b></b><p></p></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · English Mock 01 · built 14 Nov 2026 on the pattern of the 2025 Paper III (A) English.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Vocabulary in context", "q": "She remained ____ even when the crowd began to shout; nothing could shake her calm.", "o": ["frantic", "agitated", "composed", "restless"], "a": 2, "e": "The clue is 'nothing could shake her calm'. Composed = calm and in control.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The new clerk is ____ about his work; he checks every file twice.", "o": ["lazy", "indifferent", "conscientious", "careless"], "a": 2, "e": "Conscientious = careful to do one's work well. Checking every file twice shows it.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "Regular exercise can ____ the risk of heart disease.", "o": ["invite", "reduce", "double", "raise"], "a": 1, "e": "Exercise lowers the risk: reduce.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Prepositions & phrasal verbs", "q": "The two leaders could not agree ____ the terms of the treaty.", "o": ["on", "to", "at", "with"], "a": 0, "e": "agree on a matter; agree with a person; agree to a proposal.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The scientist was ____ by her failures; she simply tried again.", "o": ["discouraged", "undeterred", "crushed", "defeated"], "a": 1, "e": "Undeterred = not put off. She tried again, so failure did not stop her.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "Unless he ____ his ways, he will lose his job.", "o": ["mends", "mended", "will mend", "mend"], "a": 0, "e": "In an 'unless/if' clause about the future we use the simple present, not 'will'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "He worked very hard; ____, he could not clear the exam.", "o": ["nevertheless", "therefore", "hence", "moreover"], "a": 0, "e": "The result is unexpected, so a contrast word is needed: nevertheless.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Articles", "q": "Her parents go to ____ church every Sunday to pray.", "o": ["a", "the", "an", "no article"], "a": 3, "e": "When we go to a place for its main purpose (church to pray, school to study), no article is used.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "The work was done ____ well; the officer had no complaint.", "o": ["remarkably", "remarked", "remark", "remarkable"], "a": 0, "e": "An adverb (remarkably) is needed to modify another adverb (well).", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "This time next week, we ____ on the beach at Gopalpur.", "o": ["have relaxed", "will be relaxing", "relaxed", "relax"], "a": 1, "e": "An action in progress at a future moment takes the future continuous.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "Traffic jams are a ____ problem in Bhubaneswar; they happen every working day.", "o": ["sudden", "rare", "recurring", "solved"], "a": 2, "e": "'Every working day' means it happens again and again: recurring.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "Many rumours spread, but the facts were ____ only after the inquiry.", "o": ["hidden", "established", "ignored", "imagined"], "a": 1, "e": "An inquiry finds and proves the facts: established.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "Not only ____ the exam, but he also topped the district.", "o": ["he did pass", "he passed", "passed he", "did he pass"], "a": 3, "e": "'Not only' at the start of a clause causes inversion: did he pass.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The judge remained ____, listening to both sides without favouring either.", "o": ["prejudiced", "partisan", "biased", "impartial"], "a": 3, "e": "Impartial = fair to all sides. The other three mean taking one side.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "The jury ____ divided in their opinions.", "o": ["were", "was", "is", "has"], "a": 0, "e": "When members of a group act separately (divided opinions), the collective noun takes a plural verb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "The scissors ____ on the table.", "o": ["are", "is", "has", "was"], "a": 0, "e": "Words like scissors, trousers and spectacles are plural. ('A pair of scissors is…' would be singular.)", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The draft report was ____ with errors, so it had to be rewritten.", "o": ["adorned", "polished", "blessed", "riddled"], "a": 3, "e": "'Riddled with' = full of something bad, here errors.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Prepositions & phrasal verbs", "q": "She takes ____ her mother; both of them love music.", "o": ["after", "in", "over", "up"], "a": 0, "e": "Take after = resemble a parent.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "____ the heavy rain, the match went ahead as planned.", "o": ["Although", "Because", "Despite", "However"], "a": 2, "e": "'Despite' is followed by a noun phrase. 'Although' would need a clause (although it rained heavily).", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "His promise turned out to be ____; he never meant to keep it.", "o": ["sincere", "hollow", "genuine", "solemn"], "a": 1, "e": "A promise with nothing behind it is hollow (empty).", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "He drove so ____ that he was fined twice in one week.", "o": ["carelessness", "care", "carelessly", "careless"], "a": 2, "e": "An adverb describes how he drove: carelessly.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "After weeks of drought, the sudden rain brought ____ relief to the farmers of Kalahandi.", "o": ["doubtful", "unwanted", "needless", "much-needed"], "a": 3, "e": "After a drought, relief is something people badly need: much-needed.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The cyclone left a trail of ____ along the coast, with houses and trees flattened.", "o": ["devastation", "harmony", "celebration", "prosperity"], "a": 0, "e": "Flattened houses and trees show devastation = great damage.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "If you ____ the form carefully, you would not have made this mistake.", "o": ["had read", "have read", "would read", "read"], "a": 0, "e": "Third conditional: If + had + past participle, … would have + past participle.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "She speaks English ____.", "o": ["fluently", "fluent", "more fluent", "fluency"], "a": 0, "e": "An adverb describes how she speaks.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "____ he is rich, he lives a simple life.", "o": ["Because", "Unless", "Although", "Since"], "a": 2, "e": "The two ideas contrast (rich, yet simple), so 'Although'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "Either the teacher or the students ____ to blame.", "o": ["is", "has", "are", "was"], "a": 2, "e": "With 'either … or', the verb agrees with the nearer subject ('students').", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The fair drew a ____ crowd; there was hardly any room to stand.", "o": ["huge", "scattered", "sparse", "thin"], "a": 0, "e": "No room to stand means a huge crowd. Sparse and thin mean few people.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "If I ____ enough money, I would buy a house near the sea.", "o": ["had", "will have", "have", "had had"], "a": 0, "e": "Second conditional (an unreal present): If + past simple, … would + verb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "____ had she entered the room when the lights went out.", "o": ["No sooner", "Never", "Scarcely", "Rarely"], "a": 2, "e": "'Scarcely/Hardly … when'. 'No sooner' needs 'than', not 'when'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Articles", "q": "He became ____ MLA at the age of thirty.", "o": ["the", "no article", "an", "a"], "a": 2, "e": "'MLA' is said 'em-el-ay', which starts with a vowel sound, so 'an'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Infinitive & gerund", "q": "I clearly remember ____ the door before leaving, so don't worry.", "o": ["locked", "locking", "lock", "to lock"], "a": 1, "e": "remember + -ing = recall something already done. (remember + to = not forget a future task.)", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "Seldom ____ such a large crowd at the Rath Yatra.", "o": ["I saw", "saw I", "I have seen", "have I seen"], "a": 3, "e": "Negative adverbs such as seldom, never and rarely at the start cause inversion with an auxiliary verb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "Look at those dark clouds! It ____ rain.", "o": ["was", "went to", "has to", "is going to"], "a": 3, "e": "A prediction based on what we can see now uses 'be going to'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Infinitive & gerund", "q": "Would you mind ____ the window?", "o": ["close", "to close", "closed", "closing"], "a": 3, "e": "'Mind' is always followed by -ing.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "Ten kilometres ____ a long distance to walk in this heat.", "o": ["were", "is", "have been", "are"], "a": 1, "e": "A distance, amount or sum taken as one whole takes a singular verb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "She ____ in this office since 2019.", "o": ["has been working", "is working", "worked", "works"], "a": 0, "e": "'Since' + a point in time needs the present perfect (continuous), for an action still going on.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The village is so ____ that the nearest road is ten kilometres away.", "o": ["accessible", "crowded", "central", "remote"], "a": 3, "e": "Remote = far from towns and roads.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "The quality of the mangoes ____ not good this year.", "o": ["are", "is", "were", "have been"], "a": 1, "e": "The subject is 'quality' (singular), not 'mangoes'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The new scheme is meant to ____ small businesses, not to burden them.", "o": ["overload", "punish", "support", "hamper"], "a": 2, "e": "'Not to burden them' points to the opposite: support.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The speaker's ____ voice made it hard for the back rows to hear him.", "o": ["feeble", "resonant", "booming", "loud"], "a": 0, "e": "If people cannot hear, the voice was weak: feeble. The other three describe strong voices.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Connectors & inversion", "q": "Take an umbrella ____ it rains.", "o": ["unless", "otherwise", "in case", "until"], "a": 2, "e": "'In case' = as a precaution against something that may happen.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The officer was praised for his ____ handling of public money; not a single rupee was wasted.", "o": ["scrupulous", "wasteful", "casual", "negligent"], "a": 0, "e": "Scrupulous = very careful and honest. The clue is that nothing was wasted.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The lawyer's ____ argument convinced the judges within minutes.", "o": ["rambling", "hesitant", "feeble", "cogent"], "a": 3, "e": "Cogent = clear, logical and convincing. The rest describe weak or unclear arguments.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Prepositions & phrasal verbs", "q": "He is quite capable ____ handling the case alone.", "o": ["for", "to", "in", "of"], "a": 3, "e": "capable of + -ing (but able to + verb).", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "Of the three sisters, Mita is ____.", "o": ["the tallest", "taller", "tall", "more tall"], "a": 0, "e": "Comparing more than two needs the superlative with 'the'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "The patient is feeling ____ today than yesterday.", "o": ["best", "well", "better", "good"], "a": 2, "e": "'Than' needs a comparative: better.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "Instead of solving the problem, the new rule only ____ it.", "o": ["eased", "resolved", "settled", "aggravated"], "a": 3, "e": "'Instead of solving' tells us it made the problem worse: aggravated.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "The soup tastes ____.", "o": ["delicious", "more deliciously", "deliciously", "delicacy"], "a": 0, "e": "After linking verbs like taste, smell, look and seem, we use an adjective, not an adverb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Infinitive & gerund", "q": "The doctor advised him ____ smoking.", "o": ["give up", "gave up", "giving up", "to give up"], "a": 3, "e": "advise + person + to-infinitive.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Prepositions & phrasal verbs", "q": "The old market building will be ____ to make way for a metro station.", "o": ["pulled through", "pulled over", "pulled down", "pulled up"], "a": 2, "e": "Pull down = demolish. Pull over = stop a vehicle. Pull through = recover.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Prepositions & phrasal verbs", "q": "The minister laid the foundation stone ____ the new hospital.", "o": ["on", "of", "for", "at"], "a": 1, "e": "The fixed phrase is 'lay the foundation stone of'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "The meeting ____ by the time the chief guest reached the hall.", "o": ["had already begun", "already begins", "will already begin", "has already begun"], "a": 0, "e": "The meeting began before he reached, both in the past, so the earlier action takes the past perfect.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Articles", "q": "____ Mahanadi is the longest river of Odisha.", "o": ["The", "A", "An", "No article"], "a": 0, "e": "Names of rivers, seas and oceans take 'the'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Prepositions & phrasal verbs", "q": "The meeting has been ____ till next Monday because the chairman is ill.", "o": ["put up", "put off", "put on", "put out"], "a": 1, "e": "Put off = postpone.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The Sun Temple at Konark stands as a ____ reminder of Odisha's great past.", "o": ["fleeting", "lasting", "careless", "hollow"], "a": 1, "e": "A reminder that has survived for centuries is lasting. Fleeting means very short.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "The two reports gave ____ figures, so the committee ordered a fresh survey.", "o": ["accurate", "identical", "matching", "conflicting"], "a": 3, "e": "A fresh survey is needed only if the figures disagree: conflicting.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "Every boy and every girl ____ given a book at the function.", "o": ["was", "have been", "are", "were"], "a": 0, "e": "'Every … and every …' takes a singular verb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Vocabulary in context", "q": "His ____ remarks hurt many people, though he later apologised.", "o": ["kindly", "tactless", "tactful", "gracious"], "a": 1, "e": "Remarks that hurt people are tactless (without care for feelings). Tactful is the opposite.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "The children were ____ excited to sleep.", "o": ["enough", "too", "so", "very"], "a": 1, "e": "'Too + adjective + to-infinitive' means 'so much that they could not'.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "By the time the ambulance arrived, the injured man ____ consciousness.", "o": ["has lost", "will lose", "loses", "had lost"], "a": 3, "e": "Two past actions: the earlier one (losing consciousness) takes the past perfect.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Tenses & conditionals", "q": "I ____ to Puri three times this year.", "o": ["went", "had been", "am going", "have been"], "a": 3, "e": "'This year' is a period that is not over, so we use the present perfect.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Subject–verb agreement", "q": "Bread and butter ____ my usual breakfast.", "o": ["is", "were", "have", "are"], "a": 0, "e": "Two nouns that form one idea (one dish) take a singular verb.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Adjective & adverb forms", "q": "Of the two plans, this one is ____.", "o": ["the best", "the better", "good", "more better"], "a": 1, "e": "With two items we use the comparative: 'the better of the two'. 'More better' is a double comparative.", "k": "one", "n": false, "c": false, "p": 0}, {"s": "Error spotting", "q": "Identify the incorrect segment:\n[Each of the players] [have been given] [a new kit] [before the final match.]", "o": ["Each of the players", "have been given", "a new kit", "before the final match."], "a": 1, "e": "'Each of' takes a singular verb: 'has been given'.", "k": "err", "n": false, "c": false, "p": 0}, {"s": "Error spotting", "q": "Identify the incorrect segment:\n[We would have] [caught the train] [if he] [had came on time.]", "o": ["We would have", "caught the train", "if he", "had came on time."], "a": 3, "e": "The past participle of 'come' is 'come': 'had come'.", "k": "err", "n": false, "c": false, "p": 0}, {"s": "Error spotting", "q": "Identify the incorrect segment:\n[She is one of those officers] [who] [works] [late every day.]", "o": ["She is one of those officers", "who", "works", "late every day."], "a": 2, "e": "'Who' refers to 'officers' (plural), so 'work'.", "k": "err", "n": false, "c": false, "p": 0}, {"s": "Error spotting", "q": "Identify the incorrect segment:\n[The book] [that you gave me] [is very] [interested.]", "o": ["The book", "that you gave me", "is very", "interested."], "a": 3, "e": "Things are 'interesting'; people are 'interested'.", "k": "err", "n": false, "c": false, "p": 0}, {"s": "Error spotting", "q": "Identify the incorrect segment:\n[Neither of] [the two answers] [are] [correct, so please check again.]", "o": ["Neither of", "the two answers", "are", "correct, so please check again."], "a": 2, "e": "'Neither of' takes a singular verb: 'is'.", "k": "err", "n": false, "c": false, "p": 0}, {"s": "Error spotting", "q": "Identify the incorrect segment:\n[I have] [been knowing] [him] [for ten years.]", "o": ["I have", "been knowing", "him", "for ten years."], "a": 1, "e": "'Know' is a state verb and is not used in the continuous form: 'I have known him'.", "k": "err", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) over the Brahmani river.\n(Q) The Chief Minister\n(R) inaugurated\n(S) a new bridge", "o": ["SQPR", "QRSP", "SRPQ", "RSQP"], "a": 1, "e": "Correct order QRSP: “The Chief Minister inaugurated a new bridge over the Brahmani river.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) had not read\n(Q) the instructions\n(R) Most of the applicants\n(S) printed on the form.", "o": ["SQPR", "QPRS", "RPQS", "SPQR"], "a": 2, "e": "Correct order RPQS: “Most of the applicants had not read the instructions printed on the form.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) to the Section Officer.\n(Q) the pending files\n(R) The clerk was asked\n(S) to submit", "o": ["QRPS", "RSQP", "PQSR", "SPRQ"], "a": 1, "e": "Correct order RSQP: “The clerk was asked to submit the pending files to the Section Officer.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) is listed as\n(Q) Vulnerable\n(R) The Olive Ridley turtle\n(S) on the IUCN Red List.", "o": ["PQRS", "QRSP", "RPQS", "SPQR"], "a": 2, "e": "Correct order RPQS: “The Olive Ridley turtle is listed as Vulnerable on the IUCN Red List.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) ordered\n(Q) The Collector\n(R) an inquiry\n(S) into the accident.", "o": ["PQSR", "QPRS", "PSQR", "SPRQ"], "a": 1, "e": "Correct order QPRS: “The Collector ordered an inquiry into the accident.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) on all working days\n(Q) will remain open\n(R) The new library\n(S) from nine to five.", "o": ["PRSQ", "PQRS", "PQSR", "RQPS"], "a": 3, "e": "Correct order RQPS: “The new library will remain open on all working days from nine to five.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) was called\n(Q) for the interview.\n(R) who applied\n(S) Not everyone", "o": ["PRQS", "RPSQ", "RQSP", "SRPQ"], "a": 3, "e": "Correct order SRPQ: “Not everyone who applied was called for the interview.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) her teachers\n(Q) during the course.\n(R) She thanked\n(S) for their guidance", "o": ["SPQR", "QPRS", "RPSQ", "PRQS"], "a": 2, "e": "Correct order RPSQ: “She thanked her teachers for their guidance during the course.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) several cracks.\n(Q) has already developed\n(R) built last year\n(S) The bridge", "o": ["SRQP", "RSPQ", "RQSP", "RPQS"], "a": 0, "e": "Correct order SRQP: “The bridge built last year has already developed several cracks.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) mobile phones in the hall.\n(Q) not to use\n(R) The students\n(S) were told", "o": ["SPQR", "SPRQ", "RSQP", "QSRP"], "a": 2, "e": "Correct order RSQP: “The students were told not to use mobile phones in the hall.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) was placed\n(Q) submitted by the committee\n(R) The report\n(S) before the Assembly.", "o": ["QRPS", "RQPS", "PRSQ", "SQPR"], "a": 1, "e": "Correct order RQPS: “The report submitted by the committee was placed before the Assembly.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) Many tourists\n(Q) to watch\n(R) visit Chilika\n(S) the migratory birds.", "o": ["QPSR", "PRQS", "RQSP", "RQPS"], "a": 1, "e": "Correct order PRQS: “Many tourists visit Chilika to watch the migratory birds.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) with great care.\n(Q) He has been\n(R) this project\n(S) working on", "o": ["RSQP", "SRPQ", "QSRP", "SPRQ"], "a": 2, "e": "Correct order QSRP: “He has been working on this project with great care.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Sentence rearrangement", "q": "Rearrange the parts P, Q, R, S to make a correct sentence:\n(P) has joined his new post.\n(Q) who was transferred\n(R) last week\n(S) The officer", "o": ["SQRP", "QPSR", "PQSR", "QRSP"], "a": 0, "e": "Correct order SQRP: “The officer who was transferred last week has joined his new post.” Tip: find the subject first, then the verb that goes with it.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Paragraph ordering", "q": "Rearrange the sentences P, Q, R, S to make a coherent paragraph:\n(P) In 1999, a super cyclone killed nearly ten thousand people in the state.\n(Q) After that disaster, the state built hundreds of cyclone shelters and a strong early-warning system.\n(R) Odisha's coast is often hit by cyclones from the Bay of Bengal.\n(S) As a result, later cyclones such as Phailin in 2013 caused far fewer deaths.", "o": ["RPQS", "QPRS", "QRSP", "PSQR"], "a": 0, "e": "Correct order RPQS. General statement → the 1999 example → 'After that disaster' → 'As a result'.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Paragraph ordering", "q": "Rearrange the sentences P, Q, R, S to make a coherent paragraph:\n(P) Rina wanted to apply for the post of Assistant Section Officer.\n(Q) Finally, she downloaded the confirmation page for her records.\n(R) Then she filled in the online form and paid the fee.\n(S) First, she read the official notification carefully.", "o": ["SQPR", "SRPQ", "PSRQ", "RSPQ"], "a": 2, "e": "Correct order PSRQ. The order words First → Then → Finally give it away.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Paragraph ordering", "q": "Rearrange the sentences P, Q, R, S to make a coherent paragraph:\n(P) Plastic waste has become a serious problem in our towns.\n(Q) People are now being encouraged to carry cloth bags instead.\n(R) It blocks drains and causes water-logging during the rains.\n(S) To deal with this, many cities have banned single-use plastic bags.", "o": ["QSRP", "PRSQ", "QRSP", "RPSQ"], "a": 1, "e": "Correct order PRSQ. Problem → its effect ('It') → the solution ('To deal with this') → what people now do.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Paragraph ordering", "q": "Rearrange the sentences P, Q, R, S to make a coherent paragraph:\n(P) It gives every citizen the right to ask for information from public offices.\n(Q) An officer must usually reply within thirty days.\n(R) The Right to Information Act was passed in 2005.\n(S) If the reply is not satisfactory, the citizen can file an appeal.", "o": ["QSPR", "PRSQ", "SRQP", "RPQS"], "a": 3, "e": "Correct order RPQS. Introduce the Act → what it gives ('It') → the time limit → what happens next ('If the reply…').", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Paragraph ordering", "q": "Rearrange the sentences P, Q, R, S to make a coherent paragraph:\n(P) Ravi missed the morning bus to his office.\n(Q) So he called a colleague who lived nearby.\n(R) He tried to book a taxi, but none was available.\n(S) The colleague gave him a lift, and Ravi reached just in time.", "o": ["RPSQ", "RQPS", "SQRP", "PRQS"], "a": 3, "e": "Correct order PRQS. A story told in time order: problem → failed attempt → 'So' → result.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Paragraph ordering", "q": "Rearrange the sentences P, Q, R, S to make a coherent paragraph:\n(P) Chilika is Asia's largest brackish-water lagoon.\n(Q) Most of them gather at Nalabana island, which is a bird sanctuary.\n(R) Every winter, lakhs of migratory birds arrive there from places as far away as Siberia.\n(S) When summer begins, the birds fly back to their breeding grounds.", "o": ["SQRP", "PRQS", "SQPR", "SPRQ"], "a": 1, "e": "Correct order PRQS. Introduce Chilika → birds arrive in winter → where they gather ('Most of them') → they leave in summer.", "k": "order", "n": false, "c": false, "p": 0}, {"s": "Comprehension", "q": "Under the e-Office system, what happens to a letter as soon as it arrives?", "o": ["It is filed in a cupboard.", "It is scanned.", "It is sent to the senior officer by hand.", "It is returned to the sender."], "a": 1, "e": "The passage says: 'a letter is scanned as soon as it arrives'.", "k": "rc", "n": false, "c": false, "p": 1}, {"s": "Comprehension", "q": "Which of the following is NOT mentioned as a benefit of e-Office?", "o": ["It cuts delays.", "It reduces staff salaries.", "It makes it harder for files to go missing.", "It saves paper."], "a": 1, "e": "Delays, paper and missing files are all mentioned. Salaries are not.", "k": "rc", "n": false, "c": false, "p": 1}, {"s": "Comprehension", "q": "What problem can stop work in remote offices?", "o": ["A weak internet connection", "A shortage of paper", "Lost letters", "Too many senior officers"], "a": 0, "e": "'In remote offices a weak internet connection can stop work for hours.'", "k": "rc", "n": false, "c": false, "p": 1}, {"s": "Comprehension", "q": "“A digital file moves only as fast as the person who has to open it.” This means that:", "o": ["digital files are slower than paper files", "computers move files on their own", "the speed of work still depends on the people handling the file", "only one person can open a digital file"], "a": 2, "e": "The experts' point is that software alone is not enough; people decide the speed.", "k": "rc", "n": false, "c": false, "p": 1}, {"s": "Comprehension", "q": "Which is the most suitable title for the passage?", "o": ["From Paper to Screen: The Promise and Limits of e-Office", "How to Build a Computer Network", "Why Older Staff Should Retire", "The History of Government Letters"], "a": 0, "e": "The passage covers both the benefits and the problems of e-Office.", "k": "rc", "n": false, "c": false, "p": 1}, {"s": "Comprehension", "q": "Why did fewer farmers grow millets over the years?", "o": ["The government banned millets.", "Rice became cheaper and easier to get.", "Millets needed too much water.", "Millets were not nutritious."], "a": 1, "e": "'Over the years, rice became cheaper and easier to get, and fewer farmers grew millets.'", "k": "rc", "n": false, "c": false, "p": 2}, {"s": "Comprehension", "q": "Which of the following is NOT given to farmers under the Odisha Millet Mission, according to the passage?", "o": ["Seeds", "Free tractors", "Help in selling their crop", "Training"], "a": 1, "e": "Seeds, training and help in selling are listed. Tractors are not.", "k": "rc", "n": false, "c": false, "p": 2}, {"s": "Comprehension", "q": "Why do millets suit the uplands of western and southern Odisha?", "o": ["They grow only in cold places.", "They need little water and survive dry spells.", "They need flooded fields.", "They are cheaper than rice."], "a": 1, "e": "'Millets need far less water than paddy and can survive dry spells.'", "k": "rc", "n": false, "c": false, "p": 2}, {"s": "Comprehension", "q": "In the passage, “to reverse this trend” means:", "o": ["to bring back the growing of millets", "to stop farmers from growing rice altogether", "to export more ragi", "to close the anganwadi centres"], "a": 0, "e": "The trend was fewer farmers growing millets; reversing it means bringing millet farming back.", "k": "rc", "n": false, "c": false, "p": 2}, {"s": "Comprehension", "q": "What is the writer's overall view of the mission?", "o": ["Largely positive, with some concerns", "Angry about rice farming", "Completely negative", "Uninterested"], "a": 0, "e": "Critics want it to reach more farmers, 'but most agree that it has brought a forgotten grain back to the plate.'", "k": "rc", "n": false, "c": false, "p": 2}];
+var PASS = {"1": "Many government offices in India are moving from paper files to electronic files. Under the e-Office system, a letter is scanned as soon as it arrives, and the file then moves from desk to desk on a computer network instead of by hand. Officers can see at once where a file is waiting and for how long. Supporters say this cuts delays, saves paper and makes it harder for files to “go missing”. It also lets senior officers track how quickly each section works. However, the change has not been easy everywhere. Some older staff find the software difficult, and in remote offices a weak internet connection can stop work for hours. Experts therefore argue that training and reliable connectivity matter as much as the software itself. A digital file, they point out, moves only as fast as the person who has to open it.", "2": "Ragi, known in Odisha as mandia, was once the main food of many tribal families in districts such as Koraput and Rayagada. Over the years, rice became cheaper and easier to get, and fewer farmers grew millets. In 2017 the state started the Odisha Millet Mission to reverse this trend. Under the mission, farmers are given seeds, training and help in selling their crop, and the government buys ragi from them at a fixed price. Millets need far less water than paddy and can survive dry spells, so they suit the uplands of western and southern Odisha. They are also rich in fibre, iron and calcium. Mandia snacks are now served to children in some anganwadi centres. Critics say the mission must reach more farmers and build more processing units, but most agree that it has brought a forgotten grain back to the plate."};
+(function(){
+  var SK="aso-english-mock-2027-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=90*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind="";
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q; var pb=$("q-pass"); if(q.p){ pb.hidden=false; pb.querySelector("p").textContent=PASS[q.p]; pb.querySelector("b").textContent="Passage "+q.p+" · read it, then answer"; } else pb.hidden=true;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 100 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 100</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Vocabulary in context","Tenses & conditionals","Adjective & adverb forms","Subject–verb agreement","Connectors & inversion","Prepositions & phrasal verbs","Articles","Infinitive & gerund","Error spotting","Sentence rearrangement","Paragraph ordering","Comprehension"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    review("all"); show("s-result");
+  }
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+(q.p?'[Passage '+q.p+'] ':'')+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>

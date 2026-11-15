@@ -1,0 +1,1182 @@
+<title>ASO Current Affairs Manual</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1015; --paper:#14171f; --fg:#e9e9ec; --muted:#9a9ca6; --rule:#2b2f3a; --grid:#191d27;
+    --blue:#8196ff; --blue-soft:#1e2852; --on-blue:#0e1015; --warn:#fb923c; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1015; --paper:#14171f; --fg:#e9e9ec; --muted:#9a9ca6; --rule:#2b2f3a; --grid:#191d27;
+  --blue:#8196ff; --blue-soft:#1e2852; --on-blue:#0e1015; --warn:#fb923c; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+</style>
+
+<main>
+<div class="page">
+
+<div class="util"><span>OPSC ASO · General Awareness · Edition 13 Nov 2026</span>
+<div class="theme" role="group" aria-label="Colour theme"><button type="button" data-t="light" aria-pressed="false">Light</button><button type="button" data-t="system" aria-pressed="true">System</button><button type="button" data-t="dark" aria-pressed="false">Dark</button></div></div>
+<header class="mast"><h1>CURRENT AFFAIRS 2026</h1>
+<p class="tag">A reference manual for the news part of the ASO General Awareness paper.<br><b>Built from the 2018, 2021 and 2025 question papers.</b></p></header>
+<div class="orn" aria-hidden="true">※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ ※ </div>
+<div class="hero"><div><p class="lead dropcap">I read every current-affairs question in the 2018, 2021 and 2025 ASO General Awareness papers, grouped them into families, and then researched what happened in each family from late 2025 to November 2026. Each section shows what was asked before, explains the 2026 news in plain words, and ends with "likely next" cards you can flip.</p>
+<p class="lead">The paper does not ask all the news. It asks the same few kinds again and again: exercises and missiles, days and their themes, schemes, Odisha, summits, and India's rank in reports. If you know those kinds well, most of the other news can be skipped.</p>
+<div class="meta">
+      <span class="chip">Exam: 17 January 2027 (tentative)</span>
+      <span class="chip">News checked up to 13 November 2026</span>
+      <span class="chip">About 30 of 100 questions are news</span>
+    </div><div class="legend">
+      <span><span class="ok">✓</span> Plain facts: found in two or more sources, or an official one</span>
+      <span><span class="chk">check</span> Only one source, or sources disagree. Tick it in your monthly magazine</span>
+      <span><span class="yr">2025</span> Year of the past paper, with question number</span>
+    </div></div>
+<figure class="fig"><span class="fl">FIG_001</span><span class="fr">[ DESK CALENDAR ]</span><svg viewBox="0 0 380 290" role="img" aria-label="Line drawing of a desk calendar marking the exam date">
+<path class="lt" d="M70 210 L210 140 L350 210 L210 280Z"/>
+<path class="ln" d="M110 190 L110 70 L230 10 L230 130Z"/>
+<path class="ln" d="M230 130 L230 10 L330 60 L330 180Z"/>
+<path class="ln" d="M110 190 L230 130 L330 180 L210 240Z"/>
+<path class="bl" d="M110 70 L230 10 L230 30 L110 90Z"/>
+<g class="nf"><path d="M126 108 L214 64"/><path d="M126 126 L214 82"/><path d="M126 144 L214 100"/><path d="M126 162 L214 118"/>
+<path d="M148 97 L148 152"/><path d="M170 86 L170 141"/><path d="M192 75 L192 130"/></g>
+<path class="bl" d="M192 105 L214 94 L214 103 L192 114Z"/>
+<g class="nf"><path d="M246 48 L316 83"/><path d="M246 64 L316 99"/><path d="M246 80 L316 115"/><path d="M246 96 L300 123"/></g>
+<text class="big" x="250" y="160">2026</text>
+<path class="dt" d="M203 110 L203 250 L60 250"/><text class="lb" x="4" y="262">EXAM · 17 JAN 2027</text>
+<path class="dt" d="M150 50 L60 50"/><text class="lb" x="4" y="44">CUT-OFF ≈ AUG 2026</text>
+<path class="dt" d="M330 120 L372 120"/><text class="lb" x="300" y="112">REVISION</text>
+</svg><span class="fy">&#169; 2026</span></figure></div>
+<section class="toc" id="contents"><div class="tochead"><h2>Table of Contents.</h2><span class="v">V1.0</span><span class="line"></span><span class="r">Sections · <span>64 cards</span></span></div>
+<ol class="toclist"><li><span class="n">00.</span><a href="#how">How the ASO paper asks current affairs</a><span class="dots"></span><span class="c">LIST</span></li><li><span class="n">01.</span><a href="#defence">Defence: exercises, missiles, ships, chiefs</a><span class="dots"></span><span class="c">9 CARDS</span></li><li><span class="n">02.</span><a href="#days">Days and their themes</a><span class="dots"></span><span class="c">6 CARDS</span></li><li><span class="n">03.</span><a href="#economy">Budget, schemes and the economy</a><span class="dots"></span><span class="c">7 CARDS</span></li><li><span class="n">04.</span><a href="#polity">Polity in the news, and who holds which post</a><span class="dots"></span><span class="c">5 CARDS</span></li><li><span class="n">05.</span><a href="#odisha">Odisha in the news</a><span class="dots"></span><span class="c">6 CARDS</span></li><li><span class="n">06.</span><a href="#summits">Summits and world bodies</a><span class="dots"></span><span class="c">6 CARDS</span></li><li><span class="n">07.</span><a href="#world">World news and new leaders</a><span class="dots"></span><span class="c">5 CARDS</span></li><li><span class="n">08.</span><a href="#reports">Reports, indices and India's rank</a><span class="dots"></span><span class="c">4 CARDS</span></li><li><span class="n">09.</span><a href="#space">Space missions and science prizes</a><span class="dots"></span><span class="c">4 CARDS</span></li><li><span class="n">10.</span><a href="#env">Environment, wildlife and heritage</a><span class="dots"></span><span class="c">3 CARDS</span></li><li><span class="n">11.</span><a href="#awards">Awards, honours and books</a><span class="dots"></span><span class="c">5 CARDS</span></li><li><span class="n">12.</span><a href="#sports">Sports</a><span class="dots"></span><span class="c">4 CARDS</span></li><li><span class="n">13.</span><a href="#practice">Shuffled practice deck</a><span class="dots"></span><span class="c">1 CARDS</span></li><li><span class="n">14.</span><a href="#checklist">Still to happen before the exam</a><span class="dots"></span><span class="c">LIST</span></li></ol></section>
+
+<!-- ============ HOW ============ -->
+<section class="spread" id="how">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>00</b> · BEFORE YOU READ</span><span class="line"></span></div>
+      <h2>How the ASO paper asks current affairs</h2>
+      <div class="intro">
+        <p>In all three papers, about 30 of the 100 questions come from the news. They are not all in one block. In 2021 the first 20 questions were "current affairs", but news also appeared inside Defence (Sela tunnel, the Air Chief, the naval helicopter), International Organisations (the SCO and BIMSTEC hosts, the new UN Security Council member) and Environment (Jeypore rainforest). In 2025 the news questions were spread through the whole paper.</p>
+        <p>The most useful finding is about <b>timing</b>. The 2025 paper was written on 9 November 2025, but its newest news items are from May and June 2025: Operation Keller, the PSLV-C61 launch, the US "Golden Dome", Desert Flag-10 and Nomadic Elephant. Nothing from July to November 2025 was asked. So the paper is set about five months before the exam. For a 17 January 2027 exam, the most likely window is <b>roughly September 2025 to August 2026</b>. Learn September to December 2026 too, but lightly.</p>
+        <p>The paper also reaches back. The 2025 paper asked the theme of <b>Earth Day 2024</b>, not 2025. So for every "theme" question, learn the last two years, not just this one.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_002</span><span class="fr">[ NEWS WINDOW ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Timeline of the likely news window">
+<path class="nf" d="M14 110 L246 110"/>
+<g class="nf"><path d="M14.0 104 L14.0 116"/><path d="M30.5 104 L30.5 116"/><path d="M47.0 104 L47.0 116"/><path d="M63.5 104 L63.5 116"/><path d="M80.0 104 L80.0 116"/><path d="M96.5 104 L96.5 116"/><path d="M113.0 104 L113.0 116"/><path d="M129.5 104 L129.5 116"/><path d="M146.0 104 L146.0 116"/><path d="M162.5 104 L162.5 116"/><path d="M179.0 104 L179.0 116"/><path d="M195.5 104 L195.5 116"/><path d="M212.0 104 L212.0 116"/><path d="M228.5 104 L228.5 116"/><path d="M245.0 104 L245.0 116"/></g>
+<rect class="lt" x="30" y="92" width="182" height="36"/>
+<rect class="bl" x="230" y="96" width="8" height="28"/>
+<text class="lbm" x="10" y="140">SEP 25</text><text class="lbm" x="196" y="140">AUG 26</text><text class="lbm" x="214" y="156">JAN 27</text>
+<path class="dt" d="M120 92 L120 50"/><text class="lb" x="76" y="44">LIKELY WINDOW</text>
+<path class="dt" d="M234 96 L234 70 L190 70"/><text class="lb" x="126" y="74">EXAM</text>
+<path class="nf" d="M212 128 Q222 160 232 128"/><text class="lb" x="150" y="184">~5 MONTHS GAP</text>
+</svg><span class="fy">&#169; 2025</span></figure>
+  </div>
+
+  <div class="method">
+    <div class="m"><div class="big">~30</div><p>news questions in each paper (2018, 2021, 2025), spread across the paper.</p></div>
+    <div class="m"><div class="big">5 mo</div><p>gap between the newest news asked and the exam date in 2025. Expect a cut-off near August 2026.</p></div>
+    <div class="m"><div class="big">3×</div><p>Earth Day theme asked (2018, 2021, 2025). Dharma Guardian asked twice (2021, 2025). Olive Ridley asked twice (2018, 2025). Repeats are real.</p></div>
+    <div class="m"><div class="big">5</div><p>things to note for each news item: What? Who / which country? Where? Which number or edition? One odd detail (range, theme, first-ever).</p></div>
+  </div>
+
+  <h3 class="sub">The news families, from most to least asked</h3>
+  <div class="fam rows">
+    <div class="row head"><div>Family</div><div>What they asked before</div><div>2026 items to know (in this note)</div></div>
+    <div class="row"><div>Defence and security</div><div>Exercises (Dharma Guardian ×2, Gandiv Vijay, TROPEX, Sea Dragon, Desert Flag, Nomadic Elephant), missiles (Pralay, scramjet, S-400), operations (Keller, Jindagi, Sajag, Zero Line), chiefs</div><div>New CDS and all three new chiefs; 2026 exercises with partner and place; Pralay and AD-1 tests; INS Aridhaman; Operation Urja Suraksha</div></div>
+    <div class="row"><div>Days and themes</div><div>Earth Day ×3, Oceans Day, Statistics Day, Voters' Day, TB Day, Consumer Rights Day, Water Day date, e-governance conference theme</div><div>2025 and 2026 themes of every major day; UN international years of 2026</div></div>
+    <div class="row"><div>Schemes, budget, economy</div><div>"Virtual Digital Assets", Child Budget, BHASHINI, Deep Ocean Mission, POSHAN month, SANKALP, repo rate, GDP sector, MPI data source</div><div>Budget 2026-27, repo rate, new GDP and CPI base years, trade deals, Census 2027, new schemes</div></div>
+    <div class="row"><div>Odisha</div><div>Olive Ridley count (Rushikulya), Net Zero Bhubaneswar with UK, tribal queen, Hexadeltaic region, Hirakud</div><div>Odisha budget, new schemes, Gahirmatha skipping nesting, semiconductor units, SAREX off Paradip, Upper Indravati pumped storage</div></div>
+    <div class="row"><div>Summits and world bodies</div><div>CHOGM host, SCO host, BIMSTEC host, new UNSC member, NATO members and HQ, BIMSTEC Youth Summit, World Forestry Congress</div><div>BRICS 2026 in New Delhi, SCO Bishkek, G7 Évian, G20 Miami, COP31 Antalya, new UNSC members, UN Secretary-General race</div></div>
+    <div class="row"><div>World news</div><div>New PM of Italy, Saudi women driving, Myanmar ethnic-unity law, Ukraine facts, AI-abuse law (UK), SpaceX HQ, volcano in Indonesia</div><div>New leaders of Bangladesh, Nepal, Hungary, Brazil; the 2026 Iran war and Strait of Hormuz; Artemis II</div></div>
+    <div class="row"><div>Reports and ranks</div><div>Global Peace Index rank, World Giving Index, South Asia Economic Focus (World Bank), ISFR states, groundwater quality rank, WMO warmest year</div><div>India's 2026 ranks in Peace, Hunger, Innovation, Press Freedom, Happiness</div></div>
+    <div class="row"><div>Space and science</div><div>Chang'e-5, Chandrayaan-2 lander Vikram, PSLV-C61/EOS-09 orbit, Nobel Chemistry 2019</div><div>PSLV-C62 failure, Gaganyaan G1 status, Artemis II, Nobel Prizes 2026</div></div>
+    <div class="row"><div>Awards, books, sport</div><div>Magsaysay, Phalke, Miss India, Ranji, T20 runs record, book authors (mostly in 2018; few since)</div><div>Booker and International Booker 2026, Jnanpith, Phalke, Padma; T20 World Cup, FIFA, Asian Games, CWG</div></div>
+  </div>
+  <div class="trap"><b>How the questions look.</b> Since 2025 most news questions are "Consider the following statements… which is/are correct?" They test small details: TROPEX-25 "only Western Fleet" was false; Pralay "air-to-surface" was false; WMO "headquarters in Vienna" was false (it is Geneva). So for each item, also learn what it is <b>not</b>.</div>
+</section>
+
+<!-- ============ DEFENCE ============ -->
+<section class="spread" id="defence">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>01</b> · DEFENCE AND SECURITY</span><span class="line"></span></div>
+      <h2>Defence: exercises, missiles, ships, chiefs</h2>
+      <div class="intro">
+        <p>This is the biggest family. In 2025 alone there were nine defence questions with a news angle. The pattern is simple: a named exercise or operation, and you must know the partner country, the place, the edition number, and one feature.</p>
+        <p>2026 was an unusual year for the top of the armed forces. All four top posts changed hands. The Chief of Defence Staff and the Navy chief changed on 31 May, the Army chief on 30 June, and the Air chief on 31 October. A question on "the present Chief of ___" (asked in 2021, Q82) is very likely.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_003</span><span class="fr">[ QUASI-BALLISTIC MISSILE ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Line drawing of the Pralay missile on its launcher">
+<path class="lt" d="M40 150 L200 150 L220 168 L20 168Z"/>
+<path class="nf" d="M50 150 L210 70"/>
+<path class="ln" d="M70 140 L190 80 Q206 72 214 74 Q212 82 198 92 L78 152Z"/>
+<path class="bl" d="M190 80 Q206 72 214 74 Q212 82 198 92Z"/>
+<path class="nf" d="M110 120 L118 136"/><path class="nf" d="M150 100 L158 116"/>
+<path class="lt" d="M70 140 L56 136 L66 150 L78 152Z"/>
+<path class="dt" d="M206 78 L230 50"/><text class="lb" x="190" y="44">WARHEAD</text>
+<path class="dt" d="M134 112 L134 40"/><text class="lb" x="96" y="34">SOLID MOTOR</text>
+<path class="dt" d="M62 144 L30 120"/><text class="lb" x="4" y="114">FINS</text>
+<text class="lb" x="150" y="190">RANGE 150–500 KM</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2021 Q20</span><span class="yr">2025 Q90</span>Dharma Guardian → India and <b>Japan</b> (asked twice)</li>
+    <li><span class="yr">2025 Q36</span>Pralay: the statements "air-to-surface cruise missile" and "700–1500 km, naval" were both false. Pralay is a <b>surface-to-surface quasi-ballistic</b> missile</li>
+    <li><span class="yr">2025 Q4</span>TROPEX-25; <span class="yr">2025 Q7</span>Sea Dragon 2025 off Guam; <span class="yr">2025 Q73</span>Desert Flag-10 (UAE); <span class="yr">2025 Q55</span>Nomadic Elephant (Mongolia)</li>
+    <li><span class="yr">2025 Q50</span>Operation Keller (Shopian, May 2025); <span class="yr">2025 Q11</span>Operation Jindagi (Silkyara tunnel); <span class="yr">2025 Q20</span>Operation Zero Line (India–Bangladesh border)</li>
+    <li><span class="yr">2021 Q82</span>Present Chief of Air Staff; <span class="yr">2021 Q87</span>S-400 from Russia; <span class="yr">2025 Q9</span>"Golden Dome" → USA; <span class="yr">2025 Q51</span>scramjet</li>
+  </ul></div>
+
+  <h3 class="sub">Who leads the forces now (November 2026)</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Chief of Defence Staff: General N.S. Raja Subramani</div><div class="d">Took over on 31 May 2026 from General Anil Chauhan. He is India's 3rd CDS (after Bipin Rawat and Anil Chauhan). His main task is to set up theatre commands.</div></div>
+    <div class="slip hot"><div class="t">Army: General Dhiraj Seth</div><div class="d">Became Chief of the Army Staff on 30 June 2026, succeeding General Upendra Dwivedi. He was Vice Chief before this. Reported as the 31st Army chief.</div></div>
+    <div class="slip hot"><div class="t">Navy: Admiral Krishna Swaminathan</div><div class="d">Took over on 31 May 2026 from Admiral Dinesh K. Tripathi. He was earlier head of the Western Naval Command (Mumbai).</div></div>
+    <div class="slip hot"><div class="t">Air Force: Air Chief Marshal Ashutosh Dixit</div><div class="d">29th Chief of the Air Staff from 31 October 2026, succeeding Air Chief Marshal A.P. Singh. Term reported till 31 December 2028. New Vice Chief: Air Marshal Inderpal Singh Walia.</div></div>
+  </div>
+
+  <h3 class="sub">India's exercises in 2026</h3>
+  <div class="prose"><p>Learn these as pairs: exercise name → country → place. When the place is in India, examiners like to ask the state. The ones marked "check" came from exam-prep lists that disagree on dates.</p></div>
+  <div class="rows">
+    <div class="row"><div>Dharma Guardian (7th)</div><div>Japan · Army · held in Uttarakhand, late February to early March 2026 <span class="chk">check</span>. Already asked twice, so learn the edition and the place.</div></div>
+    <div class="row"><div>KHANJAR (13th)</div><div>Kyrgyzstan · Special forces · Misamari, Sonitpur district, Assam · began 4 February 2026 ✓</div></div>
+    <div class="row"><div>Yudh Abhyas (22nd)</div><div>USA · Army · Alaska, September 2026 · about 450 Indian troops ✓. India holds more exercises with the US than with any other country.</div></div>
+    <div class="row"><div>Vajra Prahar</div><div>USA · Special forces · Bakloh (Himachal Pradesh), early 2026 <span class="chk">check</span></div></div>
+    <div class="row"><div>Tiger Triumph 2026</div><div>USA · tri-service humanitarian and disaster-relief exercise · Visakhapatnam ✓</div></div>
+    <div class="row"><div>AUSTRAHIND (5th)</div><div>Australia · Army · Kerala, began 19 October 2026 ✓</div></div>
+    <div class="row"><div>INDRA 2026</div><div>Russia · land and naval phases · Vladivostok / Sea of Japan, October 2026 ✓</div></div>
+    <div class="row"><div>DUSTLIK 2026</div><div>Uzbekistan · Army · Aundh, Pune, April 2026 <span class="chk">check</span></div></div>
+    <div class="row"><div>KAZIND-2026 (9th)</div><div>Kazakhstan · Army · Oskemen, Kazakhstan, Sept–Oct 2026 <span class="chk">check</span></div></div>
+    <div class="row"><div>RAHAT MITRA (1st)</div><div>Myanmar · first India–Myanmar tri-service relief exercise, 2026 ✓</div></div>
+    <div class="row"><div>PRAGATI 2026 (1st)</div><div>Multilateral · armies of 12 Indian Ocean countries · Meghalaya, May 2026 <span class="chk">check</span></div></div>
+    <div class="row"><div>International Fleet Review + MILAN 2026</div><div>Indian Navy · off Visakhapatnam, February 2026 · navies of many countries took part <span class="chk">check</span></div></div>
+    <div class="row"><div>SAREX-2026 (12th)</div><div>Indian Coast Guard · National Maritime Search and Rescue Exercise · off <b>Paradip, Odisha</b>, October 2026 ✓</div></div>
+  </div>
+
+  <h3 class="sub">Missiles, ships and operations</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Pralay test, 5 November 2026</div><div class="d">DRDO flight-tested Pralay from Dr APJ Abdul Kalam Island, off Odisha, as a user trial. It is a surface-to-surface quasi-ballistic missile made by DRDO's Research Centre Imarat; Bharat Dynamics is the production partner. Reported range about 350–500 km depending on payload. This links directly to 2025 Q36.</div></div>
+    <div class="slip"><div class="t">AD-1 interceptor</div><div class="d">Tested around 12 November 2026 for Phase-II of India's ballistic missile defence. <span class="chk">check</span></div></div>
+    <div class="slip"><div class="t">LRAShM</div><div class="d">Long-Range Anti-Ship Missile, a hypersonic glide vehicle of DRDO. Two trials done by February 2026. <span class="chk">check</span></div></div>
+    <div class="slip hot"><div class="t">INS Aridhaman</div><div class="d">India's third nuclear-powered ballistic missile submarine (SSBN) of the Arihant class, commissioned in April 2026 <span class="chk">check date</span>. The first two are INS Arihant and INS Arighaat.</div></div>
+    <div class="slip"><div class="t">Other ships of 2026</div><div class="d">INS Anjadip and INS Amini (anti-submarine shallow-water craft), INS Mangrol (Mahe class), INS Nipun (diving support vessel, Mumbai), INS Samarthak (multi-purpose vessel, Karwar). <span class="chk">check</span></div></div>
+    <div class="slip hot"><div class="t">Operation Urja Suraksha</div><div class="d">Indian Navy operation of 2026 to escort Indian-flagged ships and India-bound tankers during the Strait of Hormuz crisis (see World news). "Urja" means energy, so the name tells you its purpose.</div></div>
+    <div class="slip"><div class="t">Operation Sindoor (7 May 2025)</div><div class="d">India's strikes on terror camps in Pakistan and Pakistan-occupied Kashmir after the Pahalgam attack of 22 April 2025. Still the most quoted operation of the period.</div></div>
+    <div class="slip"><div class="t">Operation Him Setu</div><div class="d">Army rescue of tourists stranded by a landslide in North Sikkim, April 2026. <span class="chk">check</span></div></div>
+  </div>
+
+  <div class="trap"><b>Trap.</b> Pralay is surface-to-surface, not air-to-surface. BrahMos is the cruise missile. Agni is the long-range ballistic family. Golden Dome is a US missile-shield plan, not Israel's (that is Iron Dome).</div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2021 · 2025</span><span class="n">Exercise</span><span class="q">Exercise Dharma Guardian is held between India and which country? Where was the 2026 edition held?</span></span><span class="b"><span class="a">Japan; Uttarakhand (7th edition)</span><span class="x">Asked in 2021 and 2025. Check the place in your magazine.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Chiefs</span><span class="q">Who became India's Chief of Defence Staff in May 2026?</span></span><span class="b"><span class="a">General N.S. Raja Subramani</span><span class="x">3rd CDS, after Bipin Rawat and Anil Chauhan.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2021</span><span class="n">Chiefs</span><span class="q">The present Chief of the Air Staff is…</span></span><span class="b"><span class="a">Air Chief Marshal Ashutosh Dixit</span><span class="x">29th CAS, from 31 October 2026, after A.P. Singh.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Exercise</span><span class="q">KHANJAR 2026, held at Misamari in Assam, is an exercise with…</span></span><span class="b"><span class="a">Kyrgyzstan (13th edition)</span><span class="x">Special forces exercise, February 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Exercise</span><span class="q">AUSTRAHIND is with which country, and where was the 2026 edition?</span></span><span class="b"><span class="a">Australia; Kerala</span><span class="x">5th edition, from 19 October 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2025</span><span class="n">Missile</span><span class="q">Pralay was tested again in November 2026. From where? What type of missile is it?</span></span><span class="b"><span class="a">Dr APJ Abdul Kalam Island, Odisha; surface-to-surface quasi-ballistic</span><span class="x">Developed by DRDO (RCI, Hyderabad).</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Navy</span><span class="q">INS Aridhaman is India's ___ nuclear ballistic-missile submarine.</span></span><span class="b"><span class="a">Third (Arihant class)</span><span class="x">Arihant → Arighaat → Aridhaman.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Operation</span><span class="q">"Operation Urja Suraksha" of the Indian Navy was linked to…</span></span><span class="b"><span class="a">Escorting ships through the Strait of Hormuz crisis (2026)</span><span class="x">To protect India's oil and gas supplies.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Odisha + Defence</span><span class="q">SAREX-2026, the 12th National Maritime Search and Rescue Exercise, was held off which port?</span></span><span class="b"><span class="a">Paradip, Odisha</span><span class="x">Organised by the Indian Coast Guard, October 2026.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ DAYS ============ -->
+<section class="spread" id="days">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>02</b> · DAYS AND THEMES</span><span class="line"></span></div>
+      <h2>Days and their themes</h2>
+      <div class="intro">
+        <p>Theme questions appear in every paper. Earth Day alone came three times. The 2025 paper asked the 2024 Earth Day theme, so the safe habit is: for each day, learn the date, the 2025 theme and the 2026 theme. The options often contain the themes of nearby years, so knowing two years helps you cut wrong options.</p>
+        <p>Themes of UN days are set by the UN body in charge (UNEP for Environment Day, UN-Water for Water Day, WHO for Health Day). Indian days are set by the ministry or body in charge (the Election Commission for Voters' Day).</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_004</span><span class="fr">[ WALL CALENDAR ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Calendar with circled days">
+<rect class="ln" x="40" y="30" width="180" height="150"/>
+<rect class="bl" x="40" y="30" width="180" height="22"/>
+<g class="nf"><path d="M40 77.6 L220 77.6"/><path d="M40 103.2 L220 103.2"/><path d="M40 128.8 L220 128.8"/><path d="M40 154.4 L220 154.4"/><path d="M65.7 52 L65.7 180"/><path d="M91.4 52 L91.4 180"/><path d="M117.1 52 L117.1 180"/><path d="M142.8 52 L142.8 180"/><path d="M168.5 52 L168.5 180"/><path d="M194.2 52 L194.2 180"/></g>
+<circle class="nf" cx="104" cy="90" r="10"/><circle class="nf" cx="181" cy="141" r="10"/>
+<rect class="lt" x="143" y="104" width="25" height="25"/>
+<path class="dt" d="M104 80 L104 14 L40 14"/><text class="lb" x="2" y="12">22 MAR</text>
+<path class="dt" d="M191 141 L246 141"/><text class="lb" x="208" y="134">22 APR</text>
+<path class="dt" d="M155 129 L155 196"/><text class="lb" x="160" y="196">5 JUN</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2018 Q61</span><span class="yr">2021 Q10</span><span class="yr">2025 Q2</span>Earth Day themes (2025 asked the 2024 theme → "Planet vs. Plastics")</li>
+    <li><span class="yr">2025 Q99</span>National Voters' Day 2025 → "Nothing Like Voting, I Vote for Sure"</li>
+    <li><span class="yr">2025 Q72</span>World TB Day 2025 → 24 March, Koch's discovery 1882, theme "Yes! We Can End TB: Commit, Invest, Deliver" (both statements correct)</li>
+    <li><span class="yr">2025 Q22</span>World Water Day date → 22 March; <span class="yr">2025 Q28</span>World Consumer Rights Day → 15 March</li>
+    <li><span class="yr">2018 Q9</span>World Oceans Day theme; <span class="yr">2018 Q4</span>Statistics Day theme; <span class="yr">2018 Q20</span>Nutrition Month → September</li>
+  </ul></div>
+
+  <h3 class="sub">Themes: 2025 and 2026 side by side</h3>
+  <div class="rows">
+    <div class="row"><div>Earth Day · 22 April</div><div>2024: "Planet vs. Plastics" (asked) · 2025: "Our Power, Our Planet" · 2026: reported as "Our Power, Our Planet" again <span class="chk">check</span>. Organised by EARTHDAY.ORG, not the UN.</div></div>
+    <div class="row"><div>World Environment Day · 5 June</div><div>2025: host Republic of Korea, theme on ending plastic pollution (#BeatPlasticPollution) · 2026: host <b>Azerbaijan</b> (Baku), focus on <b>climate action</b>, campaign #NowForClimate ✓; slogan "Inspired by Nature. For Climate. For Our Future." <span class="chk">check</span>. Led by UNEP.</div></div>
+    <div class="row"><div>World Water Day · 22 March</div><div>2025: Glacier preservation · 2026: <b>"Water and Gender"</b> ✓ (slogan "Where water flows, equality grows"). Set by UN-Water.</div></div>
+    <div class="row"><div>World Health Day · 7 April</div><div>2025: "Healthy beginnings, hopeful futures" · 2026: <b>"Together for health. Stand with science."</b> ✓ (WHO)</div></div>
+    <div class="row"><div>World TB Day · 24 March</div><div>2025: "Yes! We Can End TB: Commit, Invest, Deliver" (asked) · 2026: "Yes! We Can End TB: Led by countries, powered by people" <span class="chk">check</span></div></div>
+    <div class="row"><div>World Wetlands Day · 2 February</div><div>2025: "Protecting Wetlands for Our Common Future" · 2026: <b>"Wetlands and traditional knowledge: Celebrating cultural heritage"</b> ✓</div></div>
+    <div class="row"><div>Biodiversity Day · 22 May</div><div>2025: "Harmony with nature and sustainable development" · 2026: <b>"Acting Locally for Global Impact"</b> ✓</div></div>
+    <div class="row"><div>International Day of Yoga · 21 June</div><div>2025: "Yoga for One Earth, One Health" (main event at Visakhapatnam) · 2026 (12th): "Yoga for Healthy Ageing" <span class="chk">check</span></div></div>
+    <div class="row"><div>National Voters' Day · 25 January</div><div>2025 (15th): "Nothing Like Voting, I Vote for Sure" (asked) · 2026 (16th): "My India, My Vote" <span class="chk">check</span>. ECI was set up on 25 January 1950.</div></div>
+    <div class="row"><div>World Consumer Rights Day · 15 March</div><div>2025: "A Just Transition to Sustainable Lifestyles" · 2026: "Safe Products, Confident Consumers" <span class="chk">check</span></div></div>
+  </div>
+
+  <h3 class="sub">UN years and anniversaries</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">2026 UN international years</div><div class="d">International Year of the <b>Woman Farmer</b>; International Year of <b>Rangelands and Pastoralists</b>; International Year of <b>Volunteers</b> for Sustainable Development.</div></div>
+    <div class="slip"><div class="t">2025 UN international years</div><div class="d">International Year of Glaciers' Preservation; International Year of Cooperatives; International Year of Quantum Science and Technology.</div></div>
+    <div class="slip"><div class="t">"Vande Mataram" at 150</div><div class="d">A year-long celebration ran from 7 November 2025 to November 2026. In August 2026 Parliament amended the national-honour law to punish blocking or disturbing the singing of Vande Mataram (see Polity).</div></div>
+    <div class="slip"><div class="t">BRICS at 20, SCO at 25, UN at 80</div><div class="d">The 2026 BRICS summit marked 20 years of BRICS; the SCO summit theme marked 25 years of the SCO; the UN turned 80 in 2025.</div></div>
+  </div>
+  <div class="trap"><b>Trap pairs.</b> World Water Day is 22 March, but Earth Day is 22 April. World Consumer Rights Day is 15 March, National Consumer Day is 24 December. World Hindi Day is 10 January, Hindi Diwas is 14 September.</div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Environment Day</span><span class="q">Which country hosted World Environment Day 2026?</span></span><span class="b"><span class="a">Azerbaijan</span><span class="x">Theme focus: climate action. 2025 host was the Republic of Korea.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Water Day</span><span class="q">What was the theme of World Water Day 2026?</span></span><span class="b"><span class="a">Water and Gender</span><span class="x">2025 was glacier preservation.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2025</span><span class="n">Earth Day</span><span class="q">"Planet vs. Plastics" was the Earth Day theme of which year?</span></span><span class="b"><span class="a">2024</span><span class="x">2025: "Our Power, Our Planet".</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Health Day</span><span class="q">World Health Day 2026 theme?</span></span><span class="b"><span class="a">"Together for health. Stand with science."</span><span class="x">Observed 7 April (WHO founding day, 1948).</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">UN Year</span><span class="q">The UN declared 2026 the International Year of the…</span></span><span class="b"><span class="a">Woman Farmer (also Rangelands and Pastoralists; Volunteers)</span><span class="x">2025: Glaciers' Preservation; Cooperatives; Quantum Science.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Wetlands Day</span><span class="q">World Wetlands Day 2026 theme linked wetlands to…</span></span><span class="b"><span class="a">Traditional knowledge and cultural heritage</span><span class="x">2 February, the day the Ramsar Convention was signed (1971).</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ ECONOMY ============ -->
+<section class="spread" id="economy">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>03</b> · BUDGET, SCHEMES, ECONOMY</span><span class="line"></span></div>
+      <h2>Budget, schemes and the economy</h2>
+      <div class="intro">
+        <p>Past papers asked one unusual word from the budget ("Virtual Digital Assets"), which state made a child budget, the current repo rate, and which ministry or body runs a scheme. So for the 2026-27 budget, learn the headline numbers and any new names. For schemes, learn the ministry and the target group.</p>
+        <p>2026 also changed how India measures its economy. GDP now uses <b>2022-23</b> as its base year (in place of 2011-12), and retail inflation (CPI) uses <b>2024</b> (in place of 2012). A base year is the "reference year" whose prices are used to compare all later years, so changing it changes the growth numbers.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_005</span><span class="fr">[ REPO RATE STEPS ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Step chart of repo rate">
+<path class="nf" d="M30 170 L240 170"/><path class="nf" d="M30 170 L30 30"/>
+<g class="dt"><path d="M30 60 L240 60"/><path d="M30 100 L240 100"/><path d="M30 140 L240 140"/></g>
+<path class="nf" style="stroke-width:2" d="M30 60 L80 60 L80 80 L120 80 L120 100 L160 100 L160 120 L196 120 L196 100 L240 100"/>
+<circle class="bl" cx="196" cy="100" r="4"/>
+<rect class="lt" x="60" y="140" width="16" height="30"/><rect class="lt" x="100" y="132" width="16" height="38"/><rect class="lt" x="140" y="126" width="16" height="44"/><rect class="lt" x="180" y="120" width="16" height="50"/>
+<path class="dt" d="M196 96 L196 30 L150 30"/><text class="lb" x="96" y="34">HIKE · 5.50%</text>
+<text class="lbm" x="34" y="190">2025</text><text class="lbm" x="200" y="190">OCT 26</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2021 Q1</span>Budget 2022-23 term for crypto → "Virtual Digital Assets"; <span class="yr">2021 Q2</span>Child Budget → Madhya Pradesh</li>
+    <li><span class="yr">2018 Q76</span>Repo rate after an RBI review; <span class="yr">2025 Q21</span>Largest sector in GDP → Services; <span class="yr">2025 Q63</span>MPI uses National Family Health Survey data</li>
+    <li><span class="yr">2021 Q9</span>BHASHINI; <span class="yr">2021 Q8</span>Deep Ocean Mission; <span class="yr">2021 Q3</span>Villages of Excellence with Israel; <span class="yr">2018 Q54</span>SANKALP; <span class="yr">2025 Q3</span>"100 Din Beti Bachao Beti Padhao" campaign</li>
+  </ul></div>
+
+  <h3 class="sub">Union Budget 2026-27 (1 February 2026)</h3>
+  <div class="prose"><p>Presented by Nirmala Sitharaman. There was no change in income-tax rates. It is the first budget under the <b>16th Finance Commission</b> (chair Arvind Panagariya), whose award covers 2026-31. The states' share in central taxes stays at <b>41%</b>.</p></div>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Fiscal deficit target: 4.3% of GDP</div><div class="d">Down from 4.4% in 2025-26. Debt-to-GDP estimated at 55.6%. Revenue deficit 1.5% of GDP.</div></div>
+    <div class="slip"><div class="t">Size</div><div class="d">Total spending about ₹53.5 lakh crore. Record capital spending (about ₹11–12 lakh crore; sources differ on revised vs budget figure) <span class="chk">check</span></div></div>
+    <div class="slip"><div class="t">New names in the budget</div><div class="d">India Semiconductor Mission 2.0, high-speed rail corridors, a push for data centres in India, and "Bharat-VISTAAR" for farm advice <span class="chk">check names</span>.</div></div>
+    <div class="slip"><div class="t">Cabinet schemes later in 2026</div><div class="d">Semicon 2.0 (July); a unified GOBARdhan scheme (August); a revamped Khelo India and a Khelo India Sports Goods Manufacturing Scheme (October); PM-KISAN continued for 2026-27 <span class="chk">check</span>.</div></div>
+  </div>
+
+  <h3 class="sub">RBI and prices</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Repo rate: 5.50% (from 7 October 2026)</div><div class="d">The RBI <b>raised</b> the repo rate by 0.25% to 5.50%, its first hike in this cycle, and changed its stance from "neutral" to "calibrated tightening". Reasons given: higher food and fuel prices and tension in West Asia. It had been 5.25% before. SDF 5.25%, MSF and Bank Rate 5.75%. Governor: Sanjay Malhotra. Next review: 2–4 December 2026.</div></div>
+    <div class="slip"><div class="t">New GDP series (27 February 2026)</div><div class="d">Base year 2022-23. Growth for 2025-26 estimated at 7.6%. GDP growth in April–June 2026 (Q1 of 2026-27): 7.8%.</div></div>
+    <div class="slip"><div class="t">New CPI series (February 2026)</div><div class="d">Base year 2024 in place of 2012, with an updated basket of goods.</div></div>
+    <div class="slip"><div class="t">GST 2.0 (22 September 2025)</div><div class="d">Two main rates, 5% and 18%, plus a special 40% rate for luxury and "sin" goods.</div></div>
+  </div>
+
+  <h3 class="sub">Big laws and programmes from late 2025</h3>
+  <div class="slips">
+    <div class="slip"><div class="t">Four Labour Codes in force (21 November 2025)</div><div class="d">Wages; Industrial Relations; Social Security; Occupational Safety, Health and Working Conditions. They replaced 29 older labour laws.</div></div>
+    <div class="slip"><div class="t">New rural jobs law (December 2025)</div><div class="d">The Viksit Bharat – Guarantee for Rozgar and Ajeevika Mission (Gramin) Act replaced MGNREGA and promises <b>125 days</b> of work a year (MGNREGA promised 100).</div></div>
+    <div class="slip hot"><div class="t">Census 2027</div><div class="d">India's first <b>digital</b> census, and the first to count caste since 1931. Phase 1 (house listing) ran April to September 2026, with self-enumeration offered for the first time. Phase 2 (counting people) in February 2027. Reference date: 1 March 2027 (1 October 2026 for snow-bound areas).</div></div>
+  </div>
+
+  <h3 class="sub">Trade deals</h3>
+  <div class="rows">
+    <div class="row"><div>India–UK</div><div>Comprehensive Economic and Trade Agreement signed 24 July 2025.</div></div>
+    <div class="row"><div>India–Oman</div><div>CEPA signed in Muscat, 18 December 2025.</div></div>
+    <div class="row"><div>India–New Zealand</div><div>Talks finished 22 December 2025; signed 27 April 2026. All Indian exports enter New Zealand duty-free; India kept dairy protected.</div></div>
+    <div class="row"><div>India–European Union</div><div>Talks concluded 27 January 2026, called the "mother of all deals". The EU's two top leaders were Republic Day 2026 chief guests. Formal signing not confirmed <span class="chk">check</span>.</div></div>
+    <div class="row"><div>India–USA</div><div>Framework for an interim trade deal announced 2 February 2026 <span class="chk">check details</span>.</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018</span><span class="n">RBI</span><span class="q">After the October 2026 policy, the repo rate is…</span></span><span class="b"><span class="a">5.50%</span><span class="x">Raised by 25 basis points; stance "calibrated tightening". Re-check after the 4 December 2026 review.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Budget</span><span class="q">The fiscal deficit target in Budget 2026-27 is…</span></span><span class="b"><span class="a">4.3% of GDP</span><span class="x">2025-26 estimate was 4.4%.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Statistics</span><span class="q">The new GDP series released in February 2026 uses which base year?</span></span><span class="b"><span class="a">2022-23</span><span class="x">Old base 2011-12. CPI's new base is 2024.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Finance Commission</span><span class="q">Who chairs the 16th Finance Commission, and what share of taxes go to states?</span></span><span class="b"><span class="a">Arvind Panagariya; 41%</span><span class="x">Covers 2026-27 to 2030-31.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Law</span><span class="q">The law that replaced MGNREGA guarantees how many days of work?</span></span><span class="b"><span class="a">125 days</span><span class="x">VB–G RAM G Act, December 2025.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Census</span><span class="q">What is the reference date for Census 2027?</span></span><span class="b"><span class="a">1 March 2027 (00:00 hours)</span><span class="x">1 October 2026 for snow-bound areas of Ladakh, J&K, Himachal, Uttarakhand.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Trade</span><span class="q">India signed a free trade agreement with which country on 27 April 2026?</span></span><span class="b"><span class="a">New Zealand</span><span class="x">Oman CEPA: December 2025. UK: July 2025.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ POLITY ============ -->
+<section class="spread" id="polity">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>04</b> · POLITY, PARLIAMENT, COURTS</span><span class="line"></span></div>
+      <h2>Polity in the news, and who holds which post</h2>
+      <div class="intro">
+        <p>OPSC has asked Supreme Court rulings twice (Right to Privacy in 2018, maternity leave in 2025) and many "who is the present…" questions. 2026 brought five state elections with big changes, a state renamed in the Constitution, and a bigger Supreme Court.</p>
+        <p>The Constitution facts behind these news items are in your Polity chapter. Link them: the Kerala name change was done by a law of Parliament under Articles 3 and 4, and the number of Supreme Court judges is fixed by Parliament under Article 124(1).</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_006</span><span class="fr">[ PARLIAMENT HOUSE ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Isometric drawing of a pillared parliament">
+<path class="lt" d="M30 160 L130 110 L230 160 L130 210Z"/>
+<path class="ln" d="M60 150 L130 115 L200 150 L130 185Z"/>
+<path class="ln" d="M60 150 L60 110 L130 75 L200 110 L200 150 L130 185 L130 145Z"/>
+<path class="ln" d="M60 110 L130 145 L200 110"/>
+<g class="nf"><path d="M75 117 L75 157"/><path d="M90 124 L90 164"/><path d="M105 131 L105 171"/><path d="M120 138 L120 178"/>
+<path d="M140 140 L140 180"/><path d="M155 133 L155 173"/><path d="M170 126 L170 166"/><path d="M185 119 L185 159"/></g>
+<path class="lt" d="M100 92 Q130 40 160 92 L130 107Z"/>
+<path class="bl" d="M128 52 L132 52 L132 30 L128 30Z"/>
+<path class="dt" d="M160 80 L214 60"/><text class="lb" x="180" y="54">33 → 37 JUDGES</text>
+<path class="dt" d="M66 120 L22 96"/><text class="lb" x="2" y="90">KERALAM</text>
+</svg><span class="fy">&#169; 1927</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2018 Q16</span>Right to Privacy judgment; <span class="yr">2025 Q6</span>Maternity leave as part of Article 21</li>
+    <li><span class="yr">2018 Q7</span>New PM of Italy; <span class="yr">2021 Q82</span>present Air Chief; <span class="yr">2018 Q2</span>Sikkim brand ambassador</li>
+    <li><span class="yr">2025 Q34</span>Election Commission statements; <span class="yr">2025 Q87</span>NHRC selection committee</li>
+  </ul></div>
+
+  <h3 class="sub">Who is who (November 2026)</h3>
+  <div class="rows">
+    <div class="row"><div>President</div><div>Droupadi Murmu (from Odisha; 15th President)</div></div>
+    <div class="row"><div>Vice-President</div><div>C.P. Radhakrishnan (elected 9 September 2025 after Jagdeep Dhankhar resigned in July 2025)</div></div>
+    <div class="row"><div>Chief Justice of India</div><div>Justice Surya Kant, 53rd CJI, from 24 November 2025 to 9 February 2027</div></div>
+    <div class="row"><div>Chief Election Commissioner</div><div>Gyanesh Kumar</div></div>
+    <div class="row"><div>CAG</div><div>K. Sanjay Murthy</div></div>
+    <div class="row"><div>RBI Governor</div><div>Sanjay Malhotra</div></div>
+    <div class="row"><div>Odisha</div><div>Chief Minister Mohan Charan Majhi (also holds Finance); Governor Hari Babu Kambhampati</div></div>
+  </div>
+
+  <h3 class="sub">State elections of 2026 (results on 4 May 2026)</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">West Bengal → BJP, first time</div><div class="d">Ended Mamata Banerjee's 15-year rule; she lost her own seat, Bhabanipur. Chief Minister: <b>Suvendu Adhikari</b>.</div></div>
+    <div class="slip hot"><div class="t">Tamil Nadu → TVK</div><div class="d">Actor Vijay's party Tamilaga Vettri Kazhagam won; Vijay became Chief Minister. M.K. Stalin lost his seat.</div></div>
+    <div class="slip hot"><div class="t">Kerala → UDF (Congress-led)</div><div class="d"><b>V.D. Satheesan</b> sworn in on 18 May 2026, ending ten years of LDF rule.</div></div>
+    <div class="slip"><div class="t">Assam → BJP-led NDA again</div><div class="d">Himanta Biswa Sarma, second term.</div></div>
+    <div class="slip"><div class="t">Puducherry → NDA</div><div class="d">Check the Chief Minister's name in your magazine. <span class="chk">check</span></div></div>
+    <div class="slip"><div class="t">Bihar (November 2025)</div><div class="d">NDA won; Nitish Kumar stayed Chief Minister.</div></div>
+  </div>
+
+  <h3 class="sub">Parliament: Monsoon Session 2026 (20 July – 13 August)</h3>
+  <div class="prose"><p>Twelve Bills passed, most with little debate. Lok Sabha worked only about 19% of its time and Rajya Sabha about 39%.</p></div>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Kerala becomes "Keralam"</div><div class="d">The Kerala (Alteration of Name) Bill changes the state's name in the Constitution to Keralam.</div></div>
+    <div class="slip hot"><div class="t">Supreme Court: 33 → 37 judges</div><div class="d">Plus the Chief Justice, so 38 in all. It replaced an Ordinance of 2026.</div></div>
+    <div class="slip"><div class="t">Vande Mataram protected</div><div class="d">An amendment to the Prevention of Insults to National Honour Act punishes deliberately stopping or disturbing the singing of Vande Mataram.</div></div>
+    <div class="slip"><div class="t">Other Acts</div><div class="d">Public Examinations (Prevention of Unfair Means) Amendment (the only one debated); Registration of Births and Deaths Amendment (a birth registered after two years needs a magistrate's order); MMDR Amendment; MSME Development Amendment.</div></div>
+  </div>
+
+  <h3 class="sub">Supreme Court in 2026</h3>
+  <div class="slips">
+    <div class="slip"><div class="t">Menstrual health as a fundamental right</div><div class="d">January 2026 ruling linking menstrual health to the right to life (Article 21). <span class="chk">check</span></div></div>
+    <div class="slip"><div class="t">"Digital arrest" scams</div><div class="d">August 2026: standard procedures to prevent fake "digital arrest" frauds; also guidelines for dowry cases. <span class="chk">check</span></div></div>
+    <div class="slip"><div class="t">Section 498-A in live-in relationships</div><div class="d">August 2026: cruelty law held to apply in certain live-in relationships. <span class="chk">check</span></div></div>
+  </div>
+  <div class="trap"><b>Pattern.</b> Both past court questions turned on <b>Article 21</b> (privacy in 2018, maternity leave in 2025). If a 2026 ruling is asked, first ask yourself: is it being read into Article 21?</div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Parliament</span><span class="q">By the 2026 amendment, the Supreme Court can have how many judges besides the CJI?</span></span><span class="b"><span class="a">37 (so 38 in total)</span><span class="x">Was 33 + CJI. Parliament fixes this under Article 124(1).</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">States</span><span class="q">Which state's name was changed in the Constitution in August 2026?</span></span><span class="b"><span class="a">Kerala → Keralam</span><span class="x">Done by a law under Articles 3–4, not a constitutional amendment under Article 368.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Elections</span><span class="q">Who became Chief Minister of West Bengal in May 2026?</span></span><span class="b"><span class="a">Suvendu Adhikari (BJP)</span><span class="x">First BJP government in the state.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Elections</span><span class="q">V.D. Satheesan became Chief Minister of which state in 2026?</span></span><span class="b"><span class="a">Kerala</span><span class="x">Congress-led UDF, sworn in 18 May 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Posts</span><span class="q">Who is the present Chief Justice of India, and till when?</span></span><span class="b"><span class="a">Justice Surya Kant, till 9 February 2027</span><span class="x">53rd CJI.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ ODISHA ============ -->
+<section class="spread" id="odisha">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>05</b> · ODISHA 2026</span><span class="line"></span></div>
+      <h2>Odisha in the news</h2>
+      <div class="intro">
+        <p>Every paper has at least two Odisha news questions: the Olive Ridley count (2018, 2025), Bhubaneswar's "Net Zero Vision" with the UK (2025), the first tribal queen (2018). Odisha questions are worth extra care because fewer outside candidates know them.</p>
+        <p>For 2026 learn four kinds of Odisha news: the state budget and its schemes, big projects (power, semiconductors), wildlife (turtles, parks, wetlands) and anything tested or held on Odisha's coast (Pralay from Abdul Kalam Island, SAREX off Paradip).</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_007</span><span class="fr">[ ODISHA COAST ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Map line drawing of the Odisha coast with turtle nesting beaches">
+<path class="lt" d="M10 30 L120 30 Q150 60 168 90 Q190 120 210 140 Q228 160 250 178 L10 178Z"/>
+<path class="nf" d="M120 30 Q150 60 168 90 Q190 120 210 140 Q228 160 250 178"/>
+<g class="dt"><path d="M150 40 Q176 66 192 92 Q214 124 236 146"/><path d="M168 36 Q196 64 212 92 Q232 120 252 140"/></g>
+<circle class="bl" cx="168" cy="90" r="4"/><circle class="bl" cx="232" cy="162" r="4"/><circle class="ln" cx="150" cy="70" r="4"/>
+<path class="dt" d="M172 90 L230 70"/><text class="lb" x="186" y="64">GAHIRMATHA</text>
+<path class="dt" d="M232 166 L232 192 L160 192"/><text class="lb" x="96" y="195">RUSHIKULYA</text>
+<path class="dt" d="M146 70 L80 70"/><text class="lb" x="22" y="66">PARADIP</text>
+<ellipse class="ln" cx="70" cy="132" rx="22" ry="15"/><circle class="ln" cx="96" cy="128" r="6"/>
+<g class="nf"><path d="M56 120 L48 112"/><path d="M84 120 L90 112"/><path d="M56 144 L48 152"/><path d="M84 144 L90 152"/></g>
+<path class="nf" d="M58 132 L82 132 M70 120 L70 144"/>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2025 Q27</span>Operation Olivia: 6.98 lakh Olive Ridleys nested at the <b>Rushikulya</b> mouth (Feb 2025); <span class="yr">2018 Q62</span>Gahirmatha facts</li>
+    <li><span class="yr">2025 Q25</span>"Net Zero Vision" for Bhubaneswar with the <b>UK</b>; <span class="yr">2018 Q5</span>first Tribal Queen</li>
+    <li><span class="yr">2025 Q94</span>Hirakud and Mahanadi canal districts; <span class="yr">2025 Q79</span>Odisha minerals (Sunki → limestone)</li>
+  </ul></div>
+
+  <h3 class="sub">Money and schemes</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Odisha Budget 2026-27: ₹3.10 lakh crore</div><div class="d">Presented on 20 February 2026 by Chief Minister Mohan Charan Majhi, who holds Finance. About 7% bigger than last year. Fiscal deficit capped at 3.5% of GSDP. Target: 12% nominal GSDP growth, to about ₹11 lakh crore.</div></div>
+    <div class="slip hot"><div class="t">Mission PoWaR</div><div class="d">Power, Water and Roads: electricity, piped drinking water and all-weather roads for every revenue village.</div></div>
+    <div class="slip"><div class="t">Flagship schemes funded</div><div class="d">Subhadra (cash for women), Samrudha Krushaka (farmers), Gopabandhu Jan Arogya Yojana (health cover), CM-Kisan (5th instalment, Sept 2026, over ₹833 crore to about 41 lakh farmers).</div></div>
+    <div class="slip"><div class="t">New in mid-2026</div><div class="d">Gyanodaya (education, July); PMAY-U BANDHU, a state urban housing scheme (₹1,615 crore, August); MMJJM 2.0, the tribal livelihood mission for 2026-31 (₹2,995 crore, August). Offices to use hired electric vehicles (June).</div></div>
+  </div>
+
+  <h3 class="sub">Projects, firsts and events</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Semiconductors</div><div class="d">A 3D-glass chip-packaging unit at Info Valley, Bhubaneswar (called the first of its kind in India). In June 2026 the state signed an MoU with Intel and US-based 3D Glass Solutions for a substrate facility, about US$3.3 billion.</div></div>
+    <div class="slip hot"><div class="t">Upper Indravati Pumped Storage (600 MW)</div><div class="d">Approved by the state cabinet on 9 November 2026, at Ranibahal, Kalahandi district. A pumped-storage plant pumps water uphill when power is cheap and runs it down through turbines when power is needed.</div></div>
+    <div class="slip"><div class="t">First National Indoor Athletics Championships</div><div class="d">Kalinga Stadium, Bhubaneswar, 24–25 March 2026.</div></div>
+    <div class="slip"><div class="t">Gopabandhu Das's birthplace</div><div class="d">₹585 crore plan to develop Suando in Puri district, birthplace of Utkalmani Gopabandhu Das.</div></div>
+    <div class="slip"><div class="t">On Odisha's coast</div><div class="d">Pralay test from Dr APJ Abdul Kalam Island (5 November 2026); SAREX-2026 off Paradip (October 2026).</div></div>
+    <div class="slip"><div class="t">Courts and land</div><div class="d">The Orissa High Court rejected Vedanta's plea for cheaper bauxite under old agreements (October 2026).</div></div>
+  </div>
+
+  <h3 class="sub">Wildlife, wetlands and weather</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Olive Ridleys, 2026</div><div class="d">Gahirmatha, the biggest nesting beach, saw <b>no mass nesting</b> (arribada) in 2026, only scattered nesting. Rushikulya had mass nesting from mid-March (about 2 lakh turtles in the first days). This is a big change after the record 2024-25 season. <span class="chk">check final count</span></div></div>
+    <div class="slip"><div class="t">Six Ramsar sites in Odisha</div><div class="d">Chilika (1981), Bhitarkanika (2002), Satkosia, Tampara, Hirakud and Ansupa (all 2021 / 2022). India has 103 Ramsar sites as of October 2026.</div></div>
+    <div class="slip"><div class="t">Similipal National Park</div><div class="d">Odisha's second national park after Bhitarkanika (notified 2025).</div></div>
+    <div class="slip"><div class="t">Cyclone names</div><div class="d">Recent Bay of Bengal names: Montha (by Thailand, Oct 2025), Senyar (UAE, Nov 2025), Ditwah (Yemen, Sri Lanka 2025). Next on the list: Arnab (Bangladesh), then Murasu (India). A 2026 system was called Arnab in news; whether it became a full cyclone is disputed. <span class="chk">check</span></div></div>
+  </div>
+
+  <h3 class="sub">Odisha people and honours</h3>
+  <div class="slips">
+    <div class="slip"><div class="t">Padma Shri 2026: four from Odisha</div><div class="d">Includes Charan Hembram (literature and education). Find the other three names in your Odisha magazine. <span class="chk">check</span></div></div>
+    <div class="slip"><div class="t">Sahitya Akademi Award 2025 (Odia)</div><div class="d">Girijakumar Baliyar Singh for the poetry book <i>Padapurana</i> (announced 16 March 2026). Yuva Puraskar (Odia): Subrat Senapati for <i>Kadambana</i>.</div></div>
+    <div class="slip"><div class="t">Sahitya Akademi Fellowship</div><div class="d">Pratibha Ray, Odia novelist (<i>Yajnaseni</i>), September 2026.</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018 · 2025</span><span class="n">Turtles</span><span class="q">Which Odisha nesting beach did NOT see mass nesting of Olive Ridleys in 2026?</span></span><span class="b"><span class="a">Gahirmatha</span><span class="x">Rushikulya did have mass nesting from mid-March 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Budget</span><span class="q">Size of Odisha's 2026-27 budget?</span></span><span class="b"><span class="a">About ₹3.10 lakh crore</span><span class="x">Presented 20 February 2026 by CM Mohan Charan Majhi.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Scheme</span><span class="q">What do the letters in Odisha's "Mission PoWaR" stand for?</span></span><span class="b"><span class="a">Power, Water, Roads</span><span class="x">For every revenue village.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Energy</span><span class="q">The 600 MW Upper Indravati pumped-storage project is in which district?</span></span><span class="b"><span class="a">Kalahandi (Ranibahal)</span><span class="x">Approved 9 November 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Literature</span><span class="q">Who won the Sahitya Akademi Award 2025 for Odia, and for which book?</span></span><span class="b"><span class="a">Girijakumar Baliyar Singh, <i>Padapurana</i> (poetry)</span><span class="x">Announced March 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Industry</span><span class="q">Odisha signed a 2026 semiconductor MoU with Intel and which company?</span></span><span class="b"><span class="a">3D Glass Solutions (USA)</span><span class="x">About US$3.3 billion, glass substrate facility.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ SUMMITS ============ -->
+<section class="spread" id="summits">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>06</b> · SUMMITS AND WORLD BODIES</span><span class="line"></span></div>
+      <h2>Summits and world bodies</h2>
+      <div class="intro">
+        <p>The question is nearly always "where was it held" or "who hosted it", sometimes "which number summit" or "who is the new member". In 2021 OPSC asked who hosted the SCO and BIMSTEC summits and which country joined the UN Security Council. Learn the host and the number for every summit below.</p>
+        <p>India chaired BRICS in 2026, so the BRICS summit is the single most likely summit question.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_008</span><span class="fr">[ ROUND TABLE ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Top view of a round table with eleven seats">
+<ellipse class="lt" cx="130" cy="110" rx="90" ry="46"/>
+<ellipse class="ln" cx="130" cy="104" rx="90" ry="46"/>
+<g class="ln"><circle cx="238.0" cy="104.0" r="9"/><circle cx="220.9" cy="135.4" r="9"/><circle cx="174.9" cy="156.8" r="9"/><circle cx="114.6" cy="161.4" r="9"/><circle cx="59.3" cy="147.8" r="9"/><circle cx="26.4" cy="120.3" r="9"/><circle cx="26.4" cy="87.7" r="9"/><circle cx="59.3" cy="60.2" r="9"/><circle cx="114.6" cy="46.6" r="9"/><circle cx="174.9" cy="51.2" r="9"/><circle cx="220.9" cy="72.6" r="9"/></g>
+<circle class="bl" cx="238" cy="104" r="9"/>
+<text class="big" x="96" y="111">BRICS</text>
+<path class="dt" d="M238 114 L238 190 L170 190"/><text class="lb" x="100" y="194">CHAIR · INDIA</text>
+<text class="lbm" x="4" y="14">11 MEMBERS</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2021 Q53</span>Host of 20th SCO summit (virtual, 2021); <span class="yr">2021 Q56</span>Host of 5th BIMSTEC summit → Sri Lanka</li>
+    <li><span class="yr">2021 Q57</span>Elected to the UN Security Council in June 2022; <span class="yr">2021 Q54–55</span>NATO members and HQ (Brussels)</li>
+    <li><span class="yr">2018 Q23</span>CHOGM 2018 host → UK; <span class="yr">2025 Q44</span>BIMSTEC Youth Summit 2025 → India; <span class="yr">2021 Q14</span>World Forestry Congress</li>
+  </ul></div>
+
+  <h3 class="sub">Summits of 2026</h3>
+  <div class="rows">
+    <div class="row"><div>BRICS (18th)</div><div><b>New Delhi, 12–13 September 2026</b>, India in the chair. Theme spells BRICS: "Building for <b>R</b>esilience, <b>I</b>nnovation, <b>C</b>ooperation and <b>S</b>ustainability". Adopted the New Delhi Declaration, backing a bigger UN role for India and Brazil. Marked 20 years of BRICS. 11 members.</div></div>
+    <div class="row"><div>SCO (26th)</div><div><b>Bishkek, Kyrgyzstan</b>, 31 August – 1 September 2026. Theme on "25 Years of the SCO". Bishkek Declaration. Next chair reported as Pakistan <span class="chk">check</span>. (2025 summit: Tianjin, China.)</div></div>
+    <div class="row"><div>G7 (52nd)</div><div><b>Évian-les-Bains, France</b>, mid-June 2026.</div></div>
+    <div class="row"><div>G20</div><div>2026 presidency: <b>USA</b>. Summit planned at Trump National Doral, <b>Miami</b>, 14–15 December 2026. (2025: Johannesburg, the first G20 summit in Africa.)</div></div>
+    <div class="row"><div>COP31 (climate)</div><div><b>Antalya, Türkiye</b>, 9–20 November 2026, with the leaders' segment in Istanbul. COP President: Türkiye's Murat Kurum. Australia's Chris Bowen leads the negotiations, an unusual shared arrangement. (COP30: Belém, Brazil, 2025.)</div></div>
+    <div class="row"><div>AI Impact Summit</div><div><b>Bharat Mandapam, New Delhi</b>, February 2026. The New Delhi Declaration on AI Impact was backed by about 88 countries and bodies, including the US and China (counts vary).</div></div>
+    <div class="row"><div>UNESCO World Heritage Committee (48th)</div><div><b>Busan, South Korea</b>, July 2026. Added 25 sites, including India's <b>Sarnath</b> (see Environment and heritage).</div></div>
+    <div class="row"><div>Quad</div><div>India is due to host a Quad leaders' summit; date not fixed <span class="chk">check</span>.</div></div>
+  </div>
+
+  <h3 class="sub">The United Nations</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">New Security Council members (elected 3 June 2026)</div><div class="d">Austria, <b>Kyrgyzstan</b> (its first time), Portugal, Trinidad and Tobago, Zimbabwe. They serve 2027–28. Germany lost its bid. Kyrgyzstan beat the Philippines after four rounds.</div></div>
+    <div class="slip"><div class="t">Leaving at the end of 2026</div><div class="d">Denmark, Greece, Pakistan, Panama, Somalia. Staying till end-2027: Bahrain, Colombia, DR Congo, Latvia, Liberia.</div></div>
+    <div class="slip hot"><div class="t">Next Secretary-General</div><div class="d">António Guterres's term ends on 31 December 2026. The new Secretary-General starts on 1 January 2027. The Security Council recommends; the General Assembly appoints. Names in the race included Rafael Grossi and Rebeca Grynspan; Michelle Bachelet withdrew. Not decided as of 13 November 2026. <span class="chk">watch</span></div></div>
+    <div class="slip"><div class="t">ASEAN</div><div class="d">Timor-Leste became the 11th member in October 2025.</div></div>
+  </div>
+  <div class="trap"><b>Trap.</b> A non-permanent member serves two years (asked in 2021, Q58). Five are elected every year. The SCO summit of 2026 was in Bishkek; Kyrgyzstan also won a Security Council seat in 2026. Do not mix up the two Kyrgyz facts.</div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">BRICS</span><span class="q">Where and when was the 18th BRICS summit held?</span></span><span class="b"><span class="a">New Delhi, 12–13 September 2026</span><span class="x">Outcome: New Delhi Declaration.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2021</span><span class="n">SCO</span><span class="q">Which city hosted the 26th SCO summit in 2026?</span></span><span class="b"><span class="a">Bishkek, Kyrgyzstan</span><span class="x">25 years of the SCO.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Climate</span><span class="q">COP31 was held in which city and country?</span></span><span class="b"><span class="a">Antalya, Türkiye</span><span class="x">9–20 November 2026. COP32: Ethiopia (Addis Ababa) is the expected host — check.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2021</span><span class="n">UNSC</span><span class="q">Which Central Asian country won a UN Security Council seat for the first time in June 2026?</span></span><span class="b"><span class="a">Kyrgyzstan</span><span class="x">Term 2027–28.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">G20</span><span class="q">Which country holds the G20 presidency in 2026?</span></span><span class="b"><span class="a">USA</span><span class="x">Summit in Miami, December 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">BRICS</span><span class="q">What does the 2026 BRICS theme spell out?</span></span><span class="b"><span class="a">Building for Resilience, Innovation, Cooperation and Sustainability</span><span class="x">The capitals R-I-C-S follow "B" for Building.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ WORLD ============ -->
+<section class="spread" id="world">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>07</b> · WORLD NEWS</span><span class="line"></span></div>
+      <h2>World news and new leaders</h2>
+      <div class="intro">
+        <p>OPSC asks world news as "who became the new Prime Minister of X" (Italy in 2018) or as an odd fact about a country in the news (Ukraine's size and borders in 2021, a Myanmar law, an Indonesian volcano in 2025). 2026 had many changes of government, several in India's neighbourhood.</p>
+        <p>The largest world event of 2026 was the war involving Iran. It matters for India because a lot of India's oil and gas passes through the Strait of Hormuz, the narrow sea passage between Iran and Oman.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_009</span><span class="fr">[ WIREFRAME GLOBE ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Wireframe globe marking the Strait of Hormuz">
+<circle class="ln" cx="120" cy="100" r="76"/>
+<g class="nf"><ellipse cx="120" cy="100" rx="30" ry="76"/><ellipse cx="120" cy="100" rx="58" ry="76"/><path d="M120 24 L120 176"/>
+<ellipse cx="120" cy="100" rx="76" ry="24"/><path d="M50 70 Q120 58 190 70"/><path d="M50 130 Q120 142 190 130"/></g>
+<path class="lt" d="M150 74 Q166 70 172 84 Q160 92 150 86Z"/>
+<circle class="bl" cx="166" cy="84" r="3.5"/>
+<path class="dt" d="M169 84 L226 60"/><text class="lb" x="190" y="54">HORMUZ</text>
+<text class="lbm" x="186" y="188">IRAN · OMAN</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2018 Q7</span>New PM of Italy; <span class="yr">2018 Q22</span>Saudi Arabia lets women drive; <span class="yr">2021 Q12</span>"Ethnic unity" law; <span class="yr">2021 Q17</span>Ukraine facts</li>
+    <li><span class="yr">2025 Q43</span>Mount Lewotobi Laki-Laki → Indonesia; <span class="yr">2025 Q49</span>first country to criminalise AI-made child-abuse images → UK; <span class="yr">2025 Q8</span>SpaceX HQ → Hawthorne, California</li>
+  </ul></div>
+
+  <h3 class="sub">New leaders</h3>
+  <div class="rows">
+    <div class="row"><div>Bangladesh</div><div><b>Tarique Rahman</b> (BNP) became Prime Minister on 17 February 2026 after a landslide win in the 12 February election. It ended the long "two Begums" era (Sheikh Hasina and Khaleda Zia).</div></div>
+    <div class="row"><div>Nepal</div><div><b>Balendra Shah ("Balen")</b>, former rapper and Kathmandu mayor, sworn in on 27 March 2026. His Rastriya Swatantra Party won 182 of 275 seats on 5 March. Aged 35, Nepal's youngest PM in decades and the first Madhesi PM. Sushila Karki led the interim government before the election.</div></div>
+    <div class="row"><div>Hungary</div><div><b>Péter Magyar</b> (Tisza party) won on 12 April 2026 with a two-thirds majority, ending Viktor Orbán's 16 years in power.</div></div>
+    <div class="row"><div>Brazil</div><div><b>Lula da Silva</b> re-elected on 25 October 2026 (runoff, about 51.8%) over Flávio Bolsonaro. His fourth term.</div></div>
+    <div class="row"><div>Japan</div><div>Sanae Takaichi, Japan's first woman PM (October 2025), won a large election victory in February 2026.</div></div>
+    <div class="row"><div>Vatican</div><div>Pope Leo XIV (Robert Prevost), chosen May 2025, the first Pope from the USA.</div></div>
+    <div class="row"><div>USA</div><div>Donald Trump, President since January 2025.</div></div>
+  </div>
+
+  <h3 class="sub">The 2026 Iran war and the Strait of Hormuz</h3>
+  <div class="prose">
+    <p>On 28 February 2026 the US and Israel launched major strikes on Iran's military and nuclear sites. Iran closed the Strait of Hormuz to shipping. After about 40 days, <b>Pakistan</b> brokered a two-week ceasefire on 8 April 2026, but fighting and closures returned. The US then blockaded Iranian ports. On 14–15 June 2026 the US and Iran agreed a framework to end the war and reopen the strait in stages.</p>
+    <p>For India this meant high oil prices (one reason the RBI raised rates in October), the Navy's <b>Operation Urja Suraksha</b> to escort ships, and debate at the BRICS summit, where members disagreed about the war. Learn the outline; exact casualty or leadership claims vary between sources.</p>
+  </div>
+
+  <h3 class="sub">Other world events</h3>
+  <div class="slips">
+    <div class="slip"><div class="t">US Supreme Court on tariffs</div><div class="d">20 February 2026: ruled that the IEEPA emergency law does not let the President impose tariffs.</div></div>
+    <div class="slip"><div class="t">Artemis II (April 2026)</div><div class="d">First crewed flight around the Moon since 1972 (see Space).</div></div>
+    <div class="slip"><div class="t">UN Security Council</div><div class="d">Germany lost its bid; Kyrgyzstan won its first-ever seat (see Summits).</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018</span><span class="n">Leaders</span><span class="q">Who became Prime Minister of Nepal in March 2026?</span></span><span class="b"><span class="a">Balendra Shah</span><span class="x">Rastriya Swatantra Party; first Madhesi PM.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Leaders</span><span class="q">Tarique Rahman became Prime Minister of which country in 2026? Which party?</span></span><span class="b"><span class="a">Bangladesh; BNP</span><span class="x">Sworn in 17 February 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Leaders</span><span class="q">Viktor Orbán lost power in 2026 to whom?</span></span><span class="b"><span class="a">Péter Magyar (Tisza party), Hungary</span><span class="x">Election of 12 April 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Geography + news</span><span class="q">The Strait of Hormuz lies between which two countries?</span></span><span class="b"><span class="a">Iran and Oman</span><span class="x">Links the Persian Gulf to the Gulf of Oman.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Diplomacy</span><span class="q">Which country brokered the April 2026 US–Iran ceasefire?</span></span><span class="b"><span class="a">Pakistan</span><span class="x">Two-week truce from 8 April 2026.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ REPORTS ============ -->
+<section class="spread" id="reports">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>08</b> · REPORTS AND RANKS</span><span class="line"></span></div>
+      <h2>Reports, indices and India's rank</h2>
+      <div class="intro">
+        <p>OPSC asks two kinds of report question: "Who publishes report X?" (2021: South Asia Economic Focus → World Bank) and "What is India's rank / who is first?" (2018: Global Peace Index rank; 2021: World Giving Index topper). Learn the publisher, India's rank, the total number of countries, and the topper.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_010</span><span class="fr">[ RANK LEDGER ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Bar chart of India's 2026 ranks">
+<g class="nf"><path d="M30 30 L230 30"/><path d="M30 170 L230 170"/></g>
+<text class="lbm" x="30" y="52">PEACE</text><rect class="lt" x="100" y="44" width="100" height="10"/><rect class="bl" x="100" y="44" width="78" height="10"/><text class="lb" x="206" y="52">127</text>
+<text class="lbm" x="30" y="82">HUNGER</text><rect class="lt" x="100" y="74" width="100" height="10"/><rect class="bl" x="100" y="74" width="82" height="10"/><text class="lb" x="206" y="82">100</text>
+<text class="lbm" x="30" y="112">INNOV.</text><rect class="lt" x="100" y="104" width="100" height="10"/><rect class="bl" x="100" y="104" width="27" height="10"/><text class="lb" x="206" y="112">38</text>
+<text class="lbm" x="30" y="142">PRESS</text><rect class="lt" x="100" y="134" width="100" height="10"/><rect class="bl" x="100" y="134" width="87" height="10"/><text class="lb" x="206" y="142">157</text>
+<text class="lbm" x="30" y="190">BAR = RANK ÷ COUNTRIES</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2018 Q8</span>India's Global Peace Index rank; <span class="yr">2021 Q18</span>World Giving Index topper; <span class="yr">2021 Q15</span>South Asia Economic Focus → World Bank</li>
+    <li><span class="yr">2025 Q92</span>ISFR 2023 top states for forest increase; <span class="yr">2025 Q46</span>India's water-quality rank (120 of 122); <span class="yr">2025 Q5</span>WMO: 2024 warmest year</li>
+  </ul></div>
+
+  <div class="rows">
+    <div class="row"><div>Global Peace Index 2026</div><div>Institute for Economics and Peace (Sydney). India <b>127th of 163</b>. Iceland most peaceful again; Russia least peaceful. ✓</div></div>
+    <div class="row"><div>Global Hunger Index 2026</div><div>Concern Worldwide and Welthungerhilfe. India <b>100th of 122</b>, score 24.1, "serious". Behind Nepal, Bangladesh, Sri Lanka; ahead of Pakistan (106th). ✓</div></div>
+    <div class="row"><div>Global Innovation Index 2026</div><div>WIPO. India <b>38th of 139</b>, same as 2025. Switzerland first. India leads the lower-middle-income group and Central and Southern Asia. ✓</div></div>
+    <div class="row"><div>World Press Freedom Index 2026</div><div>Reporters Without Borders (RSF), released 30 April 2026. India <b>157th of 180</b>, down from 151st. ✓</div></div>
+    <div class="row"><div>World Happiness Report 2026</div><div>Released around 20 March by Oxford's Wellbeing Research Centre with Gallup and the UN SDSN. India about 116th of 147. <span class="chk">check</span></div></div>
+    <div class="row"><div>Global Gender Gap 2026</div><div>World Economic Forum. India reported 131st. <span class="chk">check</span></div></div>
+    <div class="row"><div>Human Development Report</div><div>UNDP. Latest is HDR 2025: India <b>130th of 193</b>, HDI 0.685 (medium). No 2026 report found.</div></div>
+    <div class="row"><div>India State of Forest Report</div><div>Forest Survey of India (Dehradun). Latest is ISFR 2023: forest and tree cover 25.17% of India. A newer edition had not appeared by November 2026.</div></div>
+  </div>
+  <div class="trap"><b>Trap.</b> The Hunger Index and the Happiness Report are not UN reports. The Peace Index is from an Australian think tank. The Human Development Report is from UNDP. Examiners like to swap publishers.</div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018</span><span class="n">Peace</span><span class="q">India's rank in the Global Peace Index 2026?</span></span><span class="b"><span class="a">127th of 163</span><span class="x">Iceland first.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Hunger</span><span class="q">India's rank in the Global Hunger Index 2026?</span></span><span class="b"><span class="a">100th of 122</span><span class="x">Score 24.1, "serious".</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Innovation</span><span class="q">Who publishes the Global Innovation Index, and India's 2026 rank?</span></span><span class="b"><span class="a">WIPO; 38th of 139</span><span class="x">Switzerland first.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Media</span><span class="q">India's rank in the 2026 World Press Freedom Index?</span></span><span class="b"><span class="a">157th of 180</span><span class="x">Published by RSF (Reporters Without Borders).</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ SPACE ============ -->
+<section class="spread" id="space">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>09</b> · SPACE AND SCIENCE</span><span class="line"></span></div>
+      <h2>Space missions and science prizes</h2>
+      <div class="intro">
+        <p>Space questions ask the mission name, the rocket, the orbit and what happened. 2025 asked which orbit EOS-09 was meant for on PSLV-C61 (a sun-synchronous polar orbit; that launch failed). In January 2026 the PSLV failed again, so a question linking the two failures is likely.</p>
+        <p>Nobel Prizes are asked about once per paper, often from an older year (2021 asked the 2019 Chemistry prize). Learn 2025 and 2026.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_011</span><span class="fr">[ FOUR-STAGE LAUNCHER ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Line drawing of a PSLV rocket with stage three marked">
+<path class="ln" d="M110 30 Q130 8 150 30 L150 50 L110 50Z"/>
+<rect class="ln" x="110" y="50" width="40" height="34"/>
+<rect class="lt" x="110" y="84" width="40" height="30"/>
+<rect class="ln" x="110" y="114" width="40" height="56"/>
+<rect class="ln" x="94" y="124" width="12" height="40"/><rect class="ln" x="154" y="124" width="12" height="40"/>
+<path class="bl" d="M110 170 L102 186 L158 186 L150 170Z"/>
+<path class="dt" d="M150 99 L214 99"/><text class="lb" x="172" y="92">STAGE 3</text><text class="lb" x="172" y="114">FAULT · C62</text>
+<path class="dt" d="M110 40 L50 40"/><text class="lb" x="6" y="34">PAYLOAD</text>
+<path class="dt" d="M94 144 L40 144"/><text class="lb" x="2" y="138">STRAP-ONS</text>
+</svg><span class="fy">&#169; 1993</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2025 Q48</span>EOS-09 on PSLV-C61 → sun-synchronous polar orbit; <span class="yr">2018 Q59</span>Chandrayaan-2 lander → Vikram; <span class="yr">2021 Q11</span>China's Chang'e-5</li>
+    <li><span class="yr">2021 Q91</span>Nobel Chemistry 2019 (lithium-ion batteries); <span class="yr">2021 Q19</span>Boltzmann Medal to Deepak Dhar</li>
+  </ul></div>
+
+  <h3 class="sub">India in space</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">PSLV-C62 failed (12 January 2026)</div><div class="d">Carried DRDO's <b>EOS-N1 "Anvesha"</b> (a maritime surveillance satellite) and 15 small satellites. A problem near the end of the <b>third stage</b> meant none reached orbit. It was the PSLV's second failure in a row after PSLV-C61 / EOS-09 (18 May 2025).</div></div>
+    <div class="slip hot"><div class="t">Gaganyaan</div><div class="d">The first uncrewed flight "G1" (carrying the robot Vyommitra) was moved to late 2026. The crew module passed an air-drop test on 10 April 2026. A second abort test, TV-D2, is also due. ISRO chairman: V. Narayanan.</div></div>
+    <div class="slip"><div class="t">Shubhanshu Shukla (2025)</div><div class="d">First Indian to visit the International Space Station, on Axiom-4, June–July 2025. Second Indian in space after Rakesh Sharma (1984).</div></div>
+    <div class="slip"><div class="t">NISAR (30 July 2025)</div><div class="d">NASA–ISRO radar satellite launched on GSLV-F16 from Sriharikota.</div></div>
+  </div>
+
+  <h3 class="sub">World space</h3>
+  <div class="slips">
+    <div class="slip hot"><div class="t">Artemis II (1–10 April 2026)</div><div class="d">NASA's first crewed flight around the Moon since Apollo 17 (1972). Crew: Reid Wiseman (commander), Victor Glover, Christina Koch and Jeremy Hansen of <b>Canada</b>. Launched on the SLS rocket in the Orion capsule; splashed down in the Pacific. Flew farther from Earth than any humans before, beating Apollo 13's record.</div></div>
+  </div>
+
+  <h3 class="sub">Nobel Prizes</h3>
+  <div class="rows">
+    <div class="row"><div>Physics 2026</div><div>Francis Halzen, for the IceCube Neutrino Observatory at the South Pole and detecting high-energy neutrinos from space.</div></div>
+    <div class="row"><div>Chemistry 2026</div><div>Henri B. Kagan and Kenso Soai, for asymmetric synthesis and autocatalysis.</div></div>
+    <div class="row"><div>Medicine 2026</div><div>Karl Deisseroth, Peter Hegemann and Georg Nagel, for <b>optogenetics</b> (controlling nerve cells with light).</div></div>
+    <div class="row"><div>Literature 2026</div><div>Anne Carson, Canadian poet and classicist.</div></div>
+    <div class="row"><div>Peace 2026</div><div>Navi Pillay, South African judge, former UN High Commissioner for Human Rights.</div></div>
+    <div class="row"><div>Economics 2026</div><div>Robert E. Hall and Michael Woodford.</div></div>
+    <div class="row"><div>2025, for comparison</div><div>Peace: María Corina Machado (Venezuela). Literature: László Krasznahorkai (Hungary). Physics: John Clarke, Michel Devoret, John Martinis (quantum effects in circuits). Chemistry: Kitagawa, Robson, Yaghi (metal-organic frameworks). Medicine: Brunkow, Ramsdell, Sakaguchi (regulatory T cells). Economics: Mokyr, Aghion, Howitt (innovation-led growth).</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2025</span><span class="n">ISRO</span><span class="q">Which satellite was lost when PSLV-C62 failed in January 2026?</span></span><span class="b"><span class="a">EOS-N1 "Anvesha" (DRDO)</span><span class="x">Plus 15 co-passenger satellites; third-stage problem.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Moon</span><span class="q">Which country's astronaut flew on Artemis II besides three Americans?</span></span><span class="b"><span class="a">Canada (Jeremy Hansen)</span><span class="x">April 2026, around the Moon.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2021</span><span class="n">Nobel</span><span class="q">Who won the 2026 Nobel Peace Prize?</span></span><span class="b"><span class="a">Navi Pillay (South Africa)</span><span class="x">2025: María Corina Machado.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Nobel</span><span class="q">The 2026 Nobel Prize in Medicine was for which technique?</span></span><span class="b"><span class="a">Optogenetics</span><span class="x">Deisseroth, Hegemann, Nagel.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ ENVIRONMENT ============ -->
+<section class="spread" id="env">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>10</b> · ENVIRONMENT, WILDLIFE, HERITAGE</span><span class="line"></span></div>
+      <h2>Environment, wildlife and heritage</h2>
+      <div class="intro">
+        <p>Environment news questions in past papers were about new protected areas (Jeypore rainforest, 2021), conventions (Minamata, Kyoto), the warmest year (WMO, 2025) and the first mammal lost to climate change (Bramble Cay melomys, 2025). For 2026, learn the counts (Ramsar, tiger reserves, World Heritage Sites), the newest additions, and COP31.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_012</span><span class="fr">[ WETLAND SECTION ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Cross-section of a wetland with reeds and a bird">
+<path class="lt" d="M10 120 Q60 112 130 120 T250 120 L250 160 L10 160Z"/>
+<g class="nf"><path d="M20 132 Q40 128 60 132"/><path d="M110 140 Q130 136 150 140"/><path d="M190 132 Q210 128 230 132"/></g>
+<path class="ln" d="M10 160 L250 160 L250 186 L10 186Z"/>
+<g class="nf"><path d="M60 120 L56 60"/><path d="M70 120 L74 50"/><path d="M80 120 L90 70"/><path d="M180 120 L176 66"/><path d="M190 120 L196 56"/></g>
+<path class="bl" d="M72 50 Q76 40 74 30 Q70 40 72 50Z"/><path class="bl" d="M194 56 Q198 46 196 36 Q192 46 194 56Z"/>
+<path class="ln" d="M120 90 Q128 80 140 86 L148 82 L146 92 Q134 100 120 90Z"/>
+<path class="dt" d="M140 120 L140 20 L210 20"/><text class="lb" x="150" y="14">RAMSAR · 103</text>
+<text class="lbm" x="14" y="178">SEDIMENT</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2021 Q92</span>Jeypore rainforest → "Save Dehing Patkai"; <span class="yr">2021 Q16</span>Minamata → mercury; <span class="yr">2025 Q69</span>Kyoto Protocol adopted 11 December 1997</li>
+    <li><span class="yr">2025 Q100</span>First mammal extinct from climate change → Bramble Cay melomys; <span class="yr">2025 Q86</span>UNESCO Memory of the World</li>
+  </ul></div>
+
+  <div class="slips">
+    <div class="slip hot"><div class="t">Sarnath: India's 45th World Heritage Site</div><div class="d">The "Ancient Buddhist Site of Sarnath" (near Varanasi, UP) was added on 25 July 2026 at the 48th session in Busan. It is where the Buddha gave his first sermon. Protected by the ASI. The world list now has about 1,273 sites.</div></div>
+    <div class="slip hot"><div class="t">Ramsar sites: 103</div><div class="d">India reached 103 in October 2026. The newest: <b>Sukhna wetland (Chandigarh)</b> and <b>Sauj Jheel (Uttar Pradesh)</b>, both 15 October 2026 <span class="chk">check</span>. Odisha has six.</div></div>
+    <div class="slip"><div class="t">Tiger reserves: 58</div><div class="d">Newest: Madhav (Madhya Pradesh), 58th, March 2025. Before it: Ratapani (MP, 57th) and Guru Ghasidas–Tamor Pingla (Chhattisgarh, 56th). The 6th All India Tiger Estimation is under way; report due in 2027. Last count (2022): 3,682 tigers.</div></div>
+    <div class="slip"><div class="t">National parks: about 107</div><div class="d">Similipal (Odisha) is among the newest.</div></div>
+    <div class="slip hot"><div class="t">COP31 (Antalya, November 2026)</div><div class="d">Türkiye hosts, Australia leads negotiations. Main fight: whether the final text includes a roadmap to move away from fossil fuels. The US did not send officials. Outcome due after 20 November. <span class="chk">watch</span></div></div>
+    <div class="slip"><div class="t">Deepavali on UNESCO's list</div><div class="d">Added to the Intangible Cultural Heritage list in December 2025, at a session hosted by India in New Delhi.</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Heritage</span><span class="q">Which site became India's 45th UNESCO World Heritage Site in 2026?</span></span><span class="b"><span class="a">Ancient Buddhist Site of Sarnath</span><span class="x">Busan session, July 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Wetlands</span><span class="q">How many Ramsar sites does India have (October 2026)?</span></span><span class="b"><span class="a">103</span><span class="x">Newest: Sukhna (Chandigarh), Sauj Jheel (UP).</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Tigers</span><span class="q">India's 58th tiger reserve is…</span></span><span class="b"><span class="a">Madhav, Madhya Pradesh</span><span class="x">MP now has 9 tiger reserves.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ AWARDS ============ -->
+<section class="spread" id="awards">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>11</b> · AWARDS AND BOOKS</span><span class="line"></span></div>
+      <h2>Awards, honours and books</h2>
+      <div class="intro">
+        <p>The 2018 paper had six award and book questions; 2025 had almost none. So spend less time here, but know the big ones: Bharat Ratna, Padma Vibhushan, Phalke, Jnanpith, Booker, Magsaysay and Nobel. No Bharat Ratna was announced in 2026.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_013</span><span class="fr">[ MEDAL ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Line drawing of a medal">
+<path class="lt" d="M100 20 L130 90 L160 20 L144 20 L130 54 L116 20Z"/>
+<circle class="ln" cx="130" cy="124" r="44"/><circle class="nf" cx="130" cy="124" r="32"/>
+<path class="bl" d="M130 102 L136 117 L152 117 L139 127 L144 142 L130 133 L116 142 L121 127 L108 117 L124 117Z"/>
+<path class="dt" d="M174 124 L230 124"/><text class="lb" x="182" y="116">131 PADMA</text>
+<path class="dt" d="M150 30 L216 30"/><text class="lb" x="176" y="24">RIBBON</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2018 Q19</span>Phalke 2017; <span class="yr">2018 Q21</span>Magsaysay 2018; <span class="yr">2018 Q11</span>DRDO lifetime award; <span class="yr">2018 Q1</span>Miss India</li>
+    <li><span class="yr">2018 Q25</span><span class="yr">2018 Q78</span><span class="yr">2018 Q93</span>Book → author; <span class="yr">2021 Q19</span>Boltzmann Medal</li>
+  </ul></div>
+
+  <div class="rows">
+    <div class="row"><div>Padma Awards 2026</div><div>Announced 25 January 2026: <b>131</b> awards (5 Padma Vibhushan, 13 Padma Bhushan, 113 Padma Shri). Padma Vibhushan includes actor <b>Dharmendra</b> and former Kerala CM <b>V.S. Achuthanandan</b> (both posthumous), and P. Narayanan. Other well-known awardees: Rohit Sharma, Mammootty, Alka Yagnik, Vijay Amritraj. Four Padma Shri for Odisha.</div></div>
+    <div class="row"><div>Dadasaheb Phalke Award</div><div>For 2024: Kannada actor <b>Anant Nag</b> (announced 16 September 2026; given at the 72nd National Film Awards, Kevadia, Gujarat). For 2023: Mohanlal.</div></div>
+    <div class="row"><div>Jnanpith Award</div><div>60th (for 2025): Tamil poet and lyricist <b>R. Vairamuthu</b>, the third Tamil winner. 59th: Vinod Kumar Shukla (Hindi, first from Chhattisgarh). 58th: Gulzar and Rambhadracharya.</div></div>
+    <div class="row"><div>Booker Prize 2026</div><div><b>M. John Harrison</b> (UK) for <i>The End of Everything</i>, 9 November 2026. At 81 the oldest winner, and the first science-fiction writer to win. (2025: David Szalay, <i>Flesh</i>.)</div></div>
+    <div class="row"><div>International Booker 2026</div><div><i>Taiwan Travelogue</i> by Yáng Shuāng-zǐ, translated by Lin King, 19 May 2026. First book translated from Mandarin to win. (2025: Banu Mushtaq, <i>Heart Lamp</i>, first in Kannada, translated by Deepa Bhasthi.)</div></div>
+    <div class="row"><div>Ramon Magsaysay 2026 (68th)</div><div>Tommy Koh (Singapore, diplomat and law of the sea), Runa Khan (Bangladesh, social work), Bo Kyi (Myanmar, rights of political prisoners). Ceremony 15 November 2026, Manila. No Indian this year.</div></div>
+    <div class="row"><div>Sahitya Akademi 2025</div><div>Odia: Girijakumar Baliyar Singh (<i>Padapurana</i>). Fellowship 2026: Pratibha Ray.</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018</span><span class="n">Cinema</span><span class="q">Who received the Dadasaheb Phalke Award announced in September 2026?</span></span><span class="b"><span class="a">Anant Nag</span><span class="x">Award for 2024; Kannada cinema.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Literature</span><span class="q">Who received the 60th Jnanpith Award?</span></span><span class="b"><span class="a">R. Vairamuthu (Tamil)</span><span class="x">59th: Vinod Kumar Shukla.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018</span><span class="n">Books</span><span class="q">"The End of Everything", winner of the Booker Prize 2026, was written by…</span></span><span class="b"><span class="a">M. John Harrison</span><span class="x">Oldest Booker winner, aged 81.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="seal">PYQ 2018</span><span class="n">Magsaysay</span><span class="q">Which countries do the 2026 Magsaysay awardees come from?</span></span><span class="b"><span class="a">Singapore, Bangladesh, Myanmar</span><span class="x">Tommy Koh, Runa Khan, Bo Kyi.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Padma</span><span class="q">How many Padma awards were announced for 2026?</span></span><span class="b"><span class="a">131</span><span class="x">5 PV, 13 PB, 113 PS.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ SPORTS ============ -->
+<section class="spread" id="sports">
+  <div class="sh">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>12</b> · SPORTS</span><span class="line"></span></div>
+      <h2>Sports</h2>
+      <div class="intro">
+        <p>Sport was asked in 2018 (Ranji Trophy, 2,000 T20 runs) and not since, so it is low priority. But 2026 was a huge sports year, with a T20 World Cup in India, a FIFA World Cup, the Asian Games and the Commonwealth Games. One question is possible; learn only winners, hosts and India's medal count.</p>
+      </div>
+    </div>
+    <figure class="fig"><span class="fl">FIG_014</span><span class="fr">[ CRICKET BALL ]</span><svg viewBox="0 0 260 200" role="img" aria-label="Line drawing of a cricket ball">
+<circle class="ln" cx="120" cy="104" r="64"/>
+<path class="nf" d="M86 50 Q130 104 86 158"/><path class="nf" d="M154 50 Q110 104 154 158"/>
+<g class="dt"><path d="M94 52 Q138 104 94 156"/><path d="M146 52 Q102 104 146 156"/></g>
+<path class="lt" d="M70 70 Q80 58 92 52 Q76 70 74 90Z"/>
+<path class="dt" d="M184 104 L236 104"/><text class="lb" x="190" y="96">T20 WC</text><text class="lb" x="190" y="118">INDIA · 3RD</text>
+<text class="lbm" x="10" y="190">SEAM · 6 ROWS</text>
+</svg><span class="fy">&#169; 2026</span></figure>
+  </div>
+
+  <div class="asked"><h3>Asked before</h3><ul>
+    <li><span class="yr">2018 Q18</span>Ranji Trophy 2017-18 → Vidarbha; <span class="yr">2018 Q100</span>first Indian with 2,000 T20I runs → Mithali Raj</li>
+  </ul></div>
+
+  <div class="rows">
+    <div class="row"><div>Men's T20 World Cup 2026</div><div>Hosted by India and Sri Lanka. <b>India beat New Zealand by 96 runs</b>, Ahmedabad, 8 March 2026. India's third T20 title, the first team to defend it, and the first to win at home. Player of the final: Jasprit Bumrah (4/15). Player of the tournament: Sanju Samson.</div></div>
+    <div class="row"><div>Women's ODI World Cup 2025</div><div>India's first title, beating South Africa in Navi Mumbai, 2 November 2025 (captain Harmanpreet Kaur).</div></div>
+    <div class="row"><div>Women's T20 World Cup 2026</div><div>England hosted. <b>Australia</b> beat England at Lord's, 5 July 2026, their seventh T20 title.</div></div>
+    <div class="row"><div>FIFA World Cup 2026</div><div>USA, Canada, Mexico; first with 48 teams. <b>Spain beat Argentina 1–0</b> after extra time, 19 July 2026, New Jersey. Golden Ball: Rodri. Golden Boot: Kylian Mbappé (10 goals). Golden Glove: Unai Simón.</div></div>
+    <div class="row"><div>Asian Games 2026</div><div>Aichi–Nagoya, Japan. India <b>4th with 85 medals</b> (21 gold, 27 silver, 37 bronze). China first. India's women's hockey team won gold after 44 years. Archery gave India the most golds (5).</div></div>
+    <div class="row"><div>Commonwealth Games 2026</div><div>Glasgow (a slimmed-down Games). India <b>39 medals</b> (13 gold, 17 silver, 9 bronze). Australia first. Mirabai Chanu won her third straight CWG gold. Next Games, 2030: <b>Ahmedabad</b>.</div></div>
+    <div class="row"><div>Men's Hockey World Cup 2026</div><div>Belgium and the Netherlands. <b>Germany beat Spain 1–0</b> (Germany's 4th title, second in a row).</div></div>
+    <div class="row"><div>Thomas and Uber Cup 2026</div><div>Horsens, Denmark. Thomas Cup: <b>China</b> (12th title, beat France). Uber Cup: <b>South Korea</b>.</div></div>
+    <div class="row"><div>IPL 2026</div><div><b>Royal Challengers Bengaluru</b>, second title in a row, beat Gujarat Titans. Final: Virat Kohli 75*. Orange Cap and MVP: Vaibhav Sooryavanshi (15 years old, 776 runs).</div></div>
+    <div class="row"><div>Wimbledon 2026</div><div>Men: Jannik Sinner. Women: Linda Nosková (Czech Republic), her first major.</div></div>
+    <div class="row"><div>Chess</div><div>R. Praggnanandhaa won the 2026 Grand Chess Tour and became India's top-rated player (September 2026) <span class="chk">check</span>. D. Gukesh became world champion in December 2024; check whether his title match has been played in 2026.</div></div>
+  </div>
+
+  <div class="likely"><h3>Likely next</h3><p class="hint">Tap a card to turn it over.</p>
+  <div class="deck">
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Cricket</span><span class="q">Whom did India beat in the 2026 T20 World Cup final, and where?</span></span><span class="b"><span class="a">New Zealand, Ahmedabad</span><span class="x">By 96 runs, 8 March 2026.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Football</span><span class="q">Who won the FIFA World Cup 2026?</span></span><span class="b"><span class="a">Spain</span><span class="x">Beat Argentina 1–0 (extra time).</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">Asian Games</span><span class="q">India's medal total and rank at the 2026 Asian Games?</span></span><span class="b"><span class="a">85 medals, 4th</span><span class="x">21 gold. Hosts: Aichi–Nagoya, Japan.</span></span></span></button>
+    <button class="card" type="button"><span class="in"><span class="f"><span class="n">CWG</span><span class="q">Which Indian city will host the 2030 Commonwealth Games?</span></span><span class="b"><span class="a">Ahmedabad</span><span class="x">2026 Games: Glasgow.</span></span></span></button>
+  </div></div>
+</section>
+
+<!-- ============ PRACTICE ============ -->
+<section class="spread" id="practice">
+  <div class="sh" style="grid-template-columns:1fr">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>13</b> · PRACTICE</span><span class="line"></span></div>
+      <h2>Shuffled practice deck</h2>
+      <div class="intro"><p>All the "likely next" cards from every section, shuffled. Say the answer aloud, turn the card, then mark yourself. Do one round a day in the last two weeks.</p></div>
+    </div>
+  </div>
+  <div class="practice">
+    <div>
+      <button class="card" type="button" id="pcard"><span class="in"><span class="f"><span class="n" id="pn">Card</span><span class="q" id="pq"></span></span><span class="b"><span class="a" id="pa"></span><span class="x" id="px"></span></span></span></button>
+      <div class="pbtns">
+        <button type="button" class="pri" id="pgot">I knew it</button>
+        <button type="button" id="pmiss">I missed it</button>
+        <button type="button" id="pshuf">Shuffle again</button>
+      </div>
+      <p class="score" id="pscore" aria-live="polite"></p>
+    </div>
+    <div class="prose">
+      <p><b>How to use the "check" tags.</b> A fact with a check tag came from one website only, or websites disagreed. Before the exam, compare it with your monthly magazine (or PIB). If your magazine differs, trust the magazine and write the correction on this page in your notebook.</p>
+      <p><b>What I did not cover.</b> Small news (state-level awards outside Odisha, minor appointments, bank mergers, film awards apart from Phalke). The past papers have not asked these since 2018.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section class="spread check" id="checklist">
+  <div class="sh" style="grid-template-columns:1fr">
+    <div>
+      <div class="sectrule"><span class="eyebrow">Section <b>14</b> · DECEMBER–JANUARY</span><span class="line"></span></div>
+      <h2>Still to happen before the exam</h2>
+      <div class="intro"><p>These events fall after this note was written. Write the answers on one page in the first week of January.</p></div>
+    </div>
+  </div>
+  <ul>
+    <li>COP31 final outcome (after 20 November) and the host of COP32.</li>
+    <li>Who is appointed UN Secretary-General from 1 January 2027.</li>
+    <li>RBI policy of 2–4 December 2026: repo rate and stance.</li>
+    <li>G20 summit in Miami (14–15 December 2026): any declaration, the 2027 host.</li>
+    <li>Gaganyaan G1 and TV-D2: did they fly in late 2026?</li>
+    <li>Any new missile test from Odisha's coast, and any ship commissioned in December.</li>
+    <li>Navy Day (4 December) theme and venue for the Operational Demonstration.</li>
+    <li>Winter Session of Parliament: Bills passed.</li>
+    <li>Odisha: winter session news, any new GI tag, Ramsar site or Olive Ridley forecast for 2027.</li>
+    <li>Next Chief Justice of India after 9 February 2027 (announced in January): learn the name.</li>
+    <li>Padma Awards 2027 (announced 25 January, after your exam): skip.</li>
+    <li>India's rank in any report released in December (e.g. the Henley Passport Index update).</li>
+  </ul>
+
+  <div class="src">
+    <h3 class="sub" style="font-size:1.05rem">Main sources checked (November 2026)</h3>
+    <ul>
+      <li><a href="https://www.aninews.in/news/world/asia/india-and-us-gear-up-for-upcoming-2026-edition-of-joint-military-exercise-yudh-abhyas20260901161255/" target="_blank" rel="noopener">ANI: Yudh Abhyas 2026</a></li>
+      <li><a href="https://www.newsonair.gov.in/india-kyrgyzstan-joint-military-exercise-khanjar-to-begin-today" target="_blank" rel="noopener">AIR: KHANJAR 2026</a></li>
+      <li><a href="https://www.nationpathindia.com/defence/india-australia-austrahind-military-exercise-2026" target="_blank" rel="noopener">AUSTRAHIND 2026</a></li>
+      <li><a href="https://pwonlyias.com/list-of-joint-military-exercises-of-india/" target="_blank" rel="noopener">PW: exercises list 2026</a></li>
+      <li><a href="https://www.drishtiias.com/state-pcs-current-affairs/india-us-exercise-tiger-triumph-2026-commences-in-visakhapatnam" target="_blank" rel="noopener">Drishti: Tiger Triumph 2026</a></li>
+      <li><a href="https://currentaffairs.adda247.com/drdo-successfully-tests-pralay-missile-range-features-and-strategic-significance" target="_blank" rel="noopener">Pralay test, Nov 2026</a></li>
+      <li><a href="https://www.theweek.in/news/defence/2026/05/09/lt-gen-ns-raja-subramani-named-new-cds-vice-admiral-krishna-swaminathan-appointed-navy-chief.html" target="_blank" rel="noopener">The Week: new CDS and Navy chief</a></li>
+      <li><a href="https://newsonair.gov.in/lt-gen-dhiraj-seth-appointed-as-chief-of-army-staff-with-effect-from-june-30-2026/" target="_blank" rel="noopener">AIR: new Army chief</a></li>
+      <li><a href="https://newsonair.gov.in/air-marshal-ashutosh-dixit-appointed-as-29th-chief-of-air-staff/" target="_blank" rel="noopener">AIR: new Air chief</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Operation_Urja_Suraksha" target="_blank" rel="noopener">Operation Urja Suraksha</a></li>
+      <li><a href="https://www.worldenvironmentday.global/2026/about/theme-and-host" target="_blank" rel="noopener">UNEP: Environment Day 2026</a></li>
+      <li><a href="https://www.unwater.org/our-work/world-water-day" target="_blank" rel="noopener">UN-Water: World Water Day</a></li>
+      <li><a href="https://www.who.int/campaigns/world-health-day/2026" target="_blank" rel="noopener">WHO: World Health Day 2026</a></li>
+      <li><a href="https://www.genevaenvironmentnetwork.org/events/international-day-for-biological-diversity-2026/" target="_blank" rel="noopener">Biodiversity Day 2026</a></li>
+      <li><a href="https://www.scconline.com/blog/post/2026/02/02/union-budget-2026-27-highlights-key-announcements/" target="_blank" rel="noopener">SCC: Budget 2026-27</a></li>
+      <li><a href="https://www.psuconnect.in/bank-news/rbi-hikes-repo-rate-by-25-bps-to-5-50-switches-stance-to-calibrated-tightening" target="_blank" rel="noopener">RBI hike to 5.50%</a></li>
+      <li><a href="https://www.india-briefing.com/news/indias-new-gdp-series-base-year-2022-23-explained-43112.html/" target="_blank" rel="noopener">New GDP series</a></li>
+      <li><a href="https://thewire.in/government/census-2027-house-listing-phase-scheduled-for-april-september-2026" target="_blank" rel="noopener">The Wire: Census 2027</a></li>
+      <li><a href="https://www.indiatvnews.com/news/india/assembly-election-results-2026-bjp-sweeps-bengal-retains-power-in-assam-tvk-stuns-tamil-nadu-udf-in-kerala-and-nda-in-puducherry-2026-05-04-1039928" target="_blank" rel="noopener">2026 state election results</a></li>
+      <li><a href="https://www.newsonair.gov.in/congress-leader-vd-satheesan-sworn-in-as-chief-minister-of-keralam/" target="_blank" rel="noopener">AIR: Kerala CM</a></li>
+      <li><a href="https://prsindia.org/sessiontrack/monsoon-session-2026/session-wrap" target="_blank" rel="noopener">PRS: Monsoon Session 2026</a></li>
+      <li><a href="https://www.scconline.com/blog/post/2026/09/09/supreme-court-august-2026-key-rulings-top-stories/" target="_blank" rel="noopener">SCC: Supreme Court Aug 2026</a></li>
+      <li><a href="https://prsindia.org/budgets/states/odisha-budget-analysis-2026-27" target="_blank" rel="noopener">PRS: Odisha Budget 2026-27</a></li>
+      <li><a href="https://www.gktoday.in/odisha-current-affairs-august-2026/" target="_blank" rel="noopener">GKToday: Odisha Aug 2026</a></li>
+      <li><a href="https://www.gktoday.in/odisha-current-affairs-october-2026/" target="_blank" rel="noopener">GKToday: Odisha Oct 2026</a></li>
+      <li><a href="https://www.drishtiias.com/statepcs/21-04-2026/odisha" target="_blank" rel="noopener">Drishti: Odisha daily</a></li>
+      <li><a href="https://odishabytes.com/olive-ridleys-skip-mass-nesting-at-odishas-gahirmatha-after-12-years/" target="_blank" rel="noopener">OdishaBytes: Gahirmatha 2026</a></li>
+      <li><a href="https://www.aljazeera.com/amp/news/2026/9/13/brics-summit-2026-what-are-the-key-takeaways" target="_blank" rel="noopener">Al Jazeera: BRICS 2026</a></li>
+      <li><a href="https://www.drishtiias.com/daily-updates/daily-news-editorials/26th-sco-summit-2026" target="_blank" rel="noopener">Drishti: SCO 2026</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/2026_G20_Miami_summit" target="_blank" rel="noopener">G20 Miami summit</a></li>
+      <li><a href="https://enb.iisd.org/antalya-un-climate-change-conference-cop31-daily-report-9nov2026" target="_blank" rel="noopener">ENB: COP31</a></li>
+      <li><a href="https://passblue.com/2026/06/03/five-new-countries-elected-to-the-un-security-councils-2027-28-term/" target="_blank" rel="noopener">PassBlue: UNSC 2027–28</a></li>
+      <li><a href="https://www.un.org/en/sg-selection-and-appointment" target="_blank" rel="noopener">UN: Secretary-General selection</a></li>
+      <li><a href="https://www.outlookbusiness.com/news/ai-impact-summit-2026-concludes-with-88-nations-organisations-adopting-new-delhi-declaration" target="_blank" rel="noopener">AI Impact Summit</a></li>
+      <li><a href="https://www.pbs.org/newshour/world/new-bangladesh-prime-minister-sworn-in-after-partys-landslide-win" target="_blank" rel="noopener">PBS: Bangladesh PM</a></li>
+      <li><a href="https://theprint.in/world/ex-rapper-shah-sworn-in-as-nepal-prime-minister-after-sweeping-election-win/2890024" target="_blank" rel="noopener">ThePrint: Nepal PM</a></li>
+      <li><a href="https://www.aljazeera.com/news/2026/4/12/hungary-election-early-results-show-magyars-tisza-ahead-of-orbans-fidesz" target="_blank" rel="noopener">Al Jazeera: Hungary</a></li>
+      <li><a href="https://aljazeera.com/news/2026/10/26/lula-holds-off-far-right-with-victory-in-brazil-presidential-election" target="_blank" rel="noopener">Al Jazeera: Brazil</a></li>
+      <li><a href="https://aa.com.tr/en/us-israel-iran-war/timeline-how-the-us-israel-war-with-iran-unfolded-over-108-days/3967739" target="_blank" rel="noopener">AA: Iran war timeline</a></li>
+      <li><a href="https://www.thenationalnews.com/news/mena/2026/06/15/us-and-iran-agree-peace-framework-and-set-plan-to-reopen-strait-of-hormuz/" target="_blank" rel="noopener">The National: June 2026 framework</a></li>
+      <li><a href="https://www.drishtiias.com/state-pcs-current-affairs/global-peace-index-2026/print_manually" target="_blank" rel="noopener">Drishti: Global Peace Index 2026</a></li>
+      <li><a href="https://www.studyiq.com/articles/global-hunger-index-2026/" target="_blank" rel="noopener">Global Hunger Index 2026</a></li>
+      <li><a href="https://www.wipo.int/gii-ranking/en/india" target="_blank" rel="noopener">WIPO: India in GII 2026</a></li>
+      <li><a href="https://scroll.in/latest/1092488/india-ranks-157-out-of-180-countries-in-2026-world-press-freedom-index" target="_blank" rel="noopener">Scroll: Press Freedom 2026</a></li>
+      <li><a href="https://spaceflightnow.com/2026/01/12/indias-pslv-suffers-second-consecutive-launch-failure-16-satellites-lost/" target="_blank" rel="noopener">Spaceflight Now: PSLV-C62</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Gaganyaan-1" target="_blank" rel="noopener">Gaganyaan-1</a></li>
+      <li><a href="https://www.satellitetoday.com/launch/2026/04/01/nasa-launches-artemis-ii-in-further-step-toward-a-moon-return" target="_blank" rel="noopener">Artemis II launch</a></li>
+      <li><a href="https://www.nobelprize.org/all-nobel-prizes-2026/" target="_blank" rel="noopener">NobelPrize.org: 2026</a></li>
+      <li><a href="https://www.drishtiias.com/state-pcs-current-affairs/sarnath-becomes-indias-45th-unesco-world-heritage-site/print_manually" target="_blank" rel="noopener">Drishti: Sarnath</a></li>
+      <li><a href="https://vajiramandravi.com/upsc-exam/ramsar-sites-in-india/" target="_blank" rel="noopener">Ramsar sites (103)</a></li>
+      <li><a href="https://www.outlooktraveller.com/News/madhav-national-park-declared-indias-58th-tiger-reserve" target="_blank" rel="noopener">Madhav tiger reserve</a></li>
+      <li><a href="https://www.manoramayearbook.in/current-affairs/india/2026/01/27/padma-awards-2026-full-list-of-winners.html" target="_blank" rel="noopener">Padma Awards 2026</a></li>
+      <li><a href="https://www.pmindia.gov.in/en/news_updates/pm-congratulates-anant-nag-ji-on-being-conferred-dadasaheb-phalke-award/" target="_blank" rel="noopener">PMO: Phalke to Anant Nag</a></li>
+      <li><a href="https://www.drishtiias.com/daily-updates/daily-news-analysis/r-vairamuthu-conferred-60th-jnanpith-award/print_manually" target="_blank" rel="noopener">Drishti: 60th Jnanpith</a></li>
+      <li><a href="https://www.theweek.in/wire-updates/international/2026/11/10/british-author-m-john-harrison-wins-booker-prize-for-the-end-of-everything.html" target="_blank" rel="noopener">Booker Prize 2026</a></li>
+      <li><a href="https://www.nhpr.org/2026-05-19/taiwan-travelogue-wins-the-2026-international-booker-prize" target="_blank" rel="noopener">International Booker 2026</a></li>
+      <li><a href="https://rmaward.asia/" target="_blank" rel="noopener">Magsaysay 2026</a></li>
+      <li><a href="https://www.newsonair.gov.in/sahitya-akademi-announces-winners-of-sahitya-akademi-awards-2025-in-24-indian-languages" target="_blank" rel="noopener">Sahitya Akademi 2025</a></li>
+      <li><a href="https://www.aljazeera.com/sports/2026/3/8/t20-world-cup-final-india-defeat-new-zealand-by-96-runs-for-third-title" target="_blank" rel="noopener">T20 World Cup 2026 final</a></li>
+      <li><a href="https://www.icc-cricket.com/tournaments/womens-t20-worldcup-2026/news/england-australia-final-womens-t20-world-cup-2026" target="_blank" rel="noopener">ICC: Women's T20 WC 2026</a></li>
+      <li><a href="https://gulfnews.com/amp/story/sport%2Ffootball%2Fworld-cup%2Frodri-beats-messi-to-golden-ball-know-the-world-cup-award-winners-1.500613481" target="_blank" rel="noopener">FIFA World Cup 2026 awards</a></li>
+      <li><a href="https://khelnow.com/asian-games/final-medal-tally-asian-games-202610" target="_blank" rel="noopener">Asian Games 2026 medal table</a></li>
+      <li><a href="https://www.brut.media/in/articles/commonwealth-games-2026-india-wins-39-medals-finishes-fourth" target="_blank" rel="noopener">CWG 2026: India 39 medals</a></li>
+      <li><a href="https://www.olympics.com/en/news/bwf-thomas-uber-cup-finals-2026-lee-zii-jia-malaysia-india-japan-results" target="_blank" rel="noopener">Thomas and Uber Cup 2026</a></li>
+      <li><a href="https://www.drishtiias.com/state-pcs-current-affairs/royal-challengers-bengaluru-win-ipl-2026/print_manually" target="_blank" rel="noopener">IPL 2026</a></li>
+      <li><a href="https://www.cbssports.com/tennis/news/wimbledon-2026-results-winners-jannik-sinner-linda-noskova/live/" target="_blank" rel="noopener">Wimbledon 2026</a></li>
+    </ul>
+  </div>
+  <footer>Built 13 November 2026 from the OPSC ASO General Awareness papers of 2018, 2021 and 2025. A companion to the ASO GA Easy Guide (chapter 12). Layout after the Making Software reference-manual style. Facts marked "check" need one more look before the exam.</footer>
+</section>
+
+</div>
+<a class="totop" href="#contents">&#8593; Contents</a>
+</main>
+
+<script>
+(function(){
+  // theme switch
+  var root=document.documentElement, btns=document.querySelectorAll('.theme button');
+  function setTheme(t){
+    if(t==='system'){root.removeAttribute('data-theme');}else{root.setAttribute('data-theme',t);}
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.t===t));});
+    try{localStorage.setItem('ca26ms-theme',t);}catch(e){}
+  }
+  var saved='system'; try{saved=localStorage.getItem('ca26ms-theme')||'system';}catch(e){}
+  setTheme(saved);
+  btns.forEach(function(b){b.addEventListener('click',function(){setTheme(b.dataset.t);});});
+  // flip cards in sections
+  document.querySelectorAll('.deck .card').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('flip');});});
+  // practice deck
+  var pool=[].map.call(document.querySelectorAll('.deck .card'),function(c){
+    var sec=c.closest('section'); var h=sec?sec.querySelector('h2'):null;
+    return {n:(c.querySelector('.f .n')||{}).textContent||'', q:c.querySelector('.f .q').innerHTML, a:c.querySelector('.b .a').innerHTML, x:(c.querySelector('.b .x')||{innerHTML:''}).innerHTML, s:h?h.textContent:''};
+  });
+  var order=[],i=0,got=0,miss=0, pc=document.getElementById('pcard');
+  function shuffle(){order=pool.map(function(_,k){return k;});for(var k=order.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=order[k];order[k]=order[j];order[j]=t;}i=0;got=0;miss=0;show();}
+  function show(){
+    var c=pool[order[i%order.length]]; pc.classList.remove('flip');
+    document.getElementById('pn').textContent=c.n+' · '+c.s;
+    document.getElementById('pq').innerHTML=c.q;
+    document.getElementById('pa').innerHTML=c.a;
+    document.getElementById('px').innerHTML=c.x;
+    document.getElementById('pscore').textContent='Card '+((i%order.length)+1)+' of '+order.length+' · knew '+got+' · missed '+miss;
+  }
+  pc.addEventListener('click',function(){pc.classList.toggle('flip');});
+  document.getElementById('pgot').addEventListener('click',function(){got++;i++;show();});
+  document.getElementById('pmiss').addEventListener('click',function(){miss++;i++;show();});
+  document.getElementById('pshuf').addEventListener('click',shuffle);
+  shuffle();
+})();
+</script>

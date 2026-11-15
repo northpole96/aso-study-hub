@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO GA Mock 1</title>
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --ink:#1d1d1b; --muted:#6b6a64; --line:#e3e1da;
+  --accent:#b4441c; --accent-soft:#fbeee7; --ok:#1f7a4d; --ok-soft:#eaf3ee; --bad:#b3261e; --bad-soft:#fbeaea;
+  --mark:#8a5a00; --mark-soft:#fff3c4; --next:#eef1fb; --next-line:#3b5bcc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+    --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+    --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+  --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+  --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header{padding:24px 0 8px}
+h1{margin:0 0 4px;font-size:26px;line-height:1.25}
+.sub{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.theme{float:right;display:inline-flex;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:2px;margin:0 0 8px 12px}
+.theme button{border:0;background:none;color:var(--muted);font:600 12px/1 inherit;padding:6px 10px;border-radius:99px;cursor:pointer}
+.theme button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn{font:600 15px/1 inherit;padding:11px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-top:8px;padding-bottom:8px}
+.timer{font:700 18px/1 ui-monospace,Menlo,monospace}
+.timer.low{color:var(--bad)}
+.pill{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:99px}
+.qnum{color:var(--muted);font-size:14px;margin:0 0 6px}
+.qtext{font:18px/1.6 Georgia,"Iowan Old Style",serif;white-space:pre-line;margin:0 0 14px;overflow-wrap:anywhere}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:16px/1.5 inherit;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.opt:hover{border-color:var(--accent)}
+.opt b{flex:none;width:22px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.exp{border-left:4px solid var(--next-line);background:var(--next);padding:10px 14px;border-radius:6px;margin:12px 0 0;font:15.5px/1.65 Georgia,"Iowan Old Style",serif;overflow-wrap:anywhere}
+.exp .lab{font:700 13px/1.4 -apple-system,sans-serif;color:var(--next-line);display:block;margin-bottom:2px}
+.check{color:var(--accent);font-weight:600;font-size:13px;font-family:-apple-system,sans-serif}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal button{font:600 13px/1 inherit;padding:9px 0;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.pal button.ans{background:var(--accent);border-color:var(--accent);color:#fff}
+.pal button.mk{box-shadow:inset 0 -4px 0 var(--mark)}
+.pal button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.pal button.r{background:var(--ok);border-color:var(--ok);color:#fff}
+.pal button.w{background:var(--bad);border-color:var(--bad);color:#fff}
+.legend{font-size:13px;color:var(--muted);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+#secTable th:not(:first-child),#secTable td:not(:first-child){white-space:nowrap;text-align:center;padding:7px 6px}
+.big{font-size:40px;font-weight:800;line-height:1.1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat span{display:block;color:var(--muted);font-size:13px}
+.stat b{font-size:22px}
+.rq{border-top:1px solid var(--line);padding:16px 0}
+.rq:first-child{border-top:0}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px}
+.tag.r{color:var(--ok);background:var(--ok-soft)} .tag.w{color:var(--bad);background:var(--bad-soft)} .tag.s{color:var(--muted);background:var(--line)}
+ul{padding-left:20px} li{margin:4px 0}
+.hide{display:none!important}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:16px 16px 40px}
+@media (max-width:600px){ .card{padding:16px} .qtext{font-size:17px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="theme" role="group" aria-label="Theme">
+    <button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">System</button>
+  </div>
+  <h1>OPSC ASO 2027 · General Awareness Mock Test 1</h1>
+  <p class="sub">100 questions · 90 minutes · +1 for a right answer, −0.25 for a wrong one, 0 for a skipped one. These are <b>predicted</b> questions, built from the "Likely next" topic families in the study guide, not questions copied from past papers.</p>
+</header>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="wrap">
+  <div class="card">
+    <h2 style="margin-top:0">How to take this mock</h2>
+    <ul>
+      <li><b>Exam mode</b>: a 90-minute timer, no answers until you submit, like the real paper. Use this to test your speed and your guessing discipline.</li>
+      <li><b>Practice mode</b>: no timer. Each answer is shown with its explanation as soon as you choose, so this works as a revision session.</li>
+      <li>The mix follows the real paper: Polity 13, Governance 7, Economy 8, Modern History 15, Geography 8, Odisha 12, Environment 10, Science 6, Defence 7, Institutions 7, Days &amp; current affairs 7.</li>
+      <li>Your progress is saved in this browser, so you can close the page and resume later.</li>
+      <li>Explanations marked <span class="check">check</span> contain facts that change over time. Re-verify them before the exam.</li>
+    </ul>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="startExam">Start exam mode (90 min)</button>
+      <button class="btn" id="startPrac">Start practice mode</button>
+      <button class="btn hide" id="resume">Resume saved attempt</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="test" class="hide">
+  <div class="bar"><div class="wrap">
+    <span class="timer" id="timer">90:00</span>
+    <span class="pill" id="modeLbl">Exam mode</span>
+    <span id="progress" style="color:var(--muted);font-size:14px"></span>
+    <span style="flex:1"></span>
+    <button class="btn" id="submitBtn">Submit test</button>
+  </div></div>
+  <div class="wrap">
+    <div class="card" id="qcard">
+      <p class="qnum" id="qnum"></p>
+      <p class="qtext" id="qtext"></p>
+      <div id="opts"></div>
+      <div id="qexp"></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" id="prev">← Previous</button>
+        <button class="btn" id="clear">Clear answer</button>
+        <button class="btn" id="mark">Mark for review</button>
+        <span style="flex:1"></span>
+        <button class="btn primary" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pal" id="pal"></div>
+      <p class="legend">Filled = answered · yellow underline = marked for review · outlined = current question.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hide wrap">
+  <div class="card">
+    <h2 style="margin-top:0">Your result</h2>
+    <div class="big" id="score"></div>
+    <div class="stats" id="stats"></div>
+    <p id="verdict"></p>
+    <h3>By section</h3>
+    <table id="secTable"></table>
+    <p class="legend">Spend your next study session on the section with the lowest net score, starting with its "Likely next" list in the guide.</p>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="retry">Start again</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="margin-top:0">Review every question</h2>
+    <div class="row" id="filters">
+      <button class="btn" data-f="all">All</button>
+      <button class="btn" data-f="w">Wrong</button>
+      <button class="btn" data-f="s">Skipped</button>
+      <button class="btn" data-f="r">Right</button>
+    </div>
+    <div id="review"></div>
+  </div>
+</div>
+
+<footer>Mock 1 · built from the OPSC ASO 2018, 2021 and 2025 papers and the study guide's topic families. Open <a href="ASO-GA-Study-Guide.html">the study guide</a> to revise the matching section.</footer>
+
+<script>
+/* Each question: s = section, q = text, o = options (correct option FIRST unless k=1),
+   e = explanation, k = 1 keeps the option order and uses a = correct index. */
+var Q = [
+/* ---------------- POLITY (13) ---------------- */
+{s:"Polity",q:"Under which Article of the Constitution is the State directed to protect and improve the environment and to safeguard forests and wildlife?",
+o:["Article 48A","Article 48","Article 49","Article 51"],
+e:"Article 48A is a Directive Principle added by the 42nd Amendment (1976). Its twin is the Fundamental Duty in Article 51A(g), which asks every citizen to protect the natural environment. Article 48 is about organising agriculture and animal husbandry, Article 49 about protecting monuments of national importance, and Article 51 (asked in 2025) about promoting international peace and security. Because the 2025 paper asked a DPSP Article by number, learn Articles 38–51 by number."},
+{s:"Polity",q:"The Chairperson of the National Human Rights Commission is appointed by the President on the recommendation of a committee. Who among the following is NOT a member of that committee?",
+o:["Chief Justice of India","Union Home Minister","Deputy Chairman of the Rajya Sabha","Leader of the Opposition in the Lok Sabha"],
+e:"Under the Protection of Human Rights Act, 1993, the committee is headed by the Prime Minister. Its other members are the Speaker of the Lok Sabha, the Deputy Chairman of the Rajya Sabha, the Leaders of the Opposition in both Houses, and the Union Home Minister. The Chief Justice is not a member. The NHRC appeared in all three past papers, so also know that the Chairperson must be a former Chief Justice of India or a former Supreme Court judge, and that the term is 3 years or until age 70."},
+{s:"Polity",k:1,a:2,q:"Consider the following statements about the 91st Constitutional Amendment Act, 2003:\n1. It limited the total number of ministers, including the Prime Minister, to 15% of the total strength of the Lok Sabha.\n2. It deleted the provision of the Tenth Schedule that protected a 'split' by one-third of a legislature party from disqualification.\nWhich of the statements given above is/are correct?",
+o:["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+e:"Both are correct. The 91st Amendment capped the Union Council of Ministers at 15% of the Lok Sabha (Article 75(1A)) and State councils at 15% of the Assembly, with a minimum of 12 in small states (Article 164(1A)). It also removed the 'split' exception, so only a merger involving two-thirds of a party is now protected. The 2025 paper asked about this amendment. Neighbouring amendments to know: 42nd (1976, 'mini-constitution'), 44th (1978, right to property removed from the Fundamental Rights), 52nd (1985, anti-defection), 61st (voting age 21 to 18), 73rd/74th (local bodies), 86th (Article 21A, education), 101st (GST), 103rd (EWS quota), 106th (women's reservation)."},
+{s:"Polity",q:"Which of the following statements about a Money Bill is NOT correct?",
+o:["The President can return a Money Bill to Parliament for reconsideration","It can be introduced only in the Lok Sabha","The Speaker's decision on whether a bill is a Money Bill is final","The Rajya Sabha can delay it for at most 14 days"],
+e:"The President can either give or withhold assent to a Money Bill but cannot return it for reconsideration, because it is introduced with the President's prior recommendation. A Money Bill is defined in Article 110 and its special procedure is in Article 109. Only the Lok Sabha can introduce it, the Speaker's certificate is final, and the Rajya Sabha can only make recommendations within 14 days. A Financial Bill under Article 117 is different: it needs the President's recommendation, but the Rajya Sabha has full powers over it."},
+{s:"Polity",q:"A Joint State Public Service Commission for two or more States is created by:",
+o:["Parliament, by law, on a request from the legislatures of the States concerned","The President, on the advice of the UPSC","The Governors of the States concerned, acting jointly","The UPSC, at the request of the State governments"],
+e:"Under Article 315, a JSPSC is a statutory body created by an Act of Parliament after the State legislatures concerned pass resolutions asking for it. Its Chairman and members are appointed by the President, and it reports to each Governor concerned. The UPSC and State PSCs, by contrast, are constitutional bodies. Asked in 2025. Next in this family: removal of PSC members (Article 317, by the President after a Supreme Court inquiry for misbehaviour) and the UPSC's annual report to the President (Article 323)."},
+{s:"Polity",q:"Which of the following pairs (constitutional feature – source country) is INCORRECTLY matched?",
+o:["Procedure established by law – USA","Concurrent List – Australia","Directive Principles of State Policy – Ireland","Suspension of Fundamental Rights during Emergency – Germany (Weimar)"],
+e:"'Procedure established by law' (Article 21) was borrowed from Japan. The USA gave India 'due process' in spirit, but its main contributions are Fundamental Rights, judicial review, impeachment of the President, removal of judges, and the post of Vice-President. Other sources: UK (parliamentary government, single citizenship, rule of law); Canada (federation with a strong centre, residuary powers with the Union); Australia (Concurrent List, joint sitting, freedom of trade); Ireland (DPSP, nomination to the Rajya Sabha); USSR (Fundamental Duties); France (Republic; liberty, equality, fraternity); South Africa (amendment procedure, election of Rajya Sabha members)."},
+{s:"Polity",q:"Which Schedule of the Constitution deals with disqualification on the ground of defection?",
+o:["Tenth Schedule","Eighth Schedule","Ninth Schedule","Eleventh Schedule"],
+e:"The Tenth Schedule was added by the 52nd Amendment (1985) and is called the anti-defection law. The Speaker or Chairman decides disqualification, subject to judicial review (Kihoto Hollohan, 1992). Learn all twelve Schedules: 1 States and UTs, 2 salaries, 3 oaths, 4 Rajya Sabha seats, 5 Scheduled Areas, 6 tribal areas of Assam, Meghalaya, Tripura and Mizoram, 7 the three Lists, 8 the 22 languages, 9 protected laws (1st Amendment, 1951), 10 anti-defection, 11 Panchayats (29 subjects), 12 Municipalities (18 subjects)."},
+{s:"Polity",q:"How many subjects are placed in the Eleventh Schedule for Panchayats?",
+o:["29","18","22","12"],
+e:"The Eleventh Schedule (73rd Amendment, 1992) lists 29 subjects for Panchayats. The Twelfth Schedule (74th Amendment) lists 18 for Municipalities, and the Eighth Schedule lists 22 languages. The 73rd Amendment came into force on 24 April 1993, which is why 24 April is National Panchayati Raj Day. Related: Balwant Rai Mehta (1957) recommended the three-tier system, first launched at Nagaur, Rajasthan, on 2 October 1959. Ashok Mehta (1977) recommended a two-tier system."},
+{s:"Polity",q:"Under the Chief Election Commissioner and Other Election Commissioners Act, 2023, the selection committee that recommends appointments consists of:",
+o:["The Prime Minister, the Leader of the Opposition in the Lok Sabha and a Union Cabinet Minister nominated by the PM","The Prime Minister, the Leader of the Opposition in the Lok Sabha and the Chief Justice of India","The President, the Prime Minister and the Chief Justice of India","The Prime Minister, the Speaker and the Leader of the Opposition in the Lok Sabha"],
+e:"In Anoop Baranwal (March 2023), the Supreme Court said that until Parliament made a law, the committee would include the CJI. The 2023 Act then replaced the CJI with a Cabinet Minister nominated by the PM. A search committee headed by the Law Minister shortlists the names. The Election Commission is under Article 324. It became multi-member in 1989, briefly, and again from 1993. The CEC can be removed only like a Supreme Court judge. The Election Commission was asked about in 2025."},
+{s:"Polity",q:"The Fundamental Duties were added to the Constitution on the recommendation of the:",
+o:["Swaran Singh Committee","Santhanam Committee","Balwant Rai Mehta Committee","Sarkaria Commission"],
+e:"The Swaran Singh Committee (1976) led to the 42nd Amendment, which inserted Part IVA (Article 51A) with 10 duties. The 11th duty, for parents to provide education to children aged 6–14, came with the 86th Amendment (2002). The idea came from the USSR constitution. Don't confuse the others: Santhanam led to the CVC, Balwant Rai Mehta to Panchayati Raj, and Sarkaria to Centre–State relations (1983). The Verma Committee (1999) worked on how to put the duties into practice."},
+{s:"Polity",q:"Which type of emergency has never been proclaimed in India so far?",
+o:["Financial Emergency (Article 360)","National Emergency (Article 352)","President's Rule in a State (Article 356)","None; all three have been used"],
+e:"A Financial Emergency has never been declared. A National Emergency was proclaimed three times: 1962 (China war), 1971 (Pakistan war) and 1975 (internal disturbance). The 44th Amendment (1978) replaced 'internal disturbance' with 'armed rebellion' and required the Cabinet's advice in writing. Article 356 has been used over 100 times; S.R. Bommai (1994) put limits on its misuse. Parliament must approve a National Emergency within one month and President's Rule within two months."},
+{s:"Polity",q:"Which of the following statements about the Attorney General of India is NOT correct?",
+o:["The Attorney General can vote in the proceedings of Parliament","The Attorney General is appointed by the President under Article 76","The Attorney General must be qualified to be appointed a judge of the Supreme Court","The Attorney General has the right of audience in all courts in India"],
+e:"Under Article 88, the Attorney General can speak in and take part in the proceedings of either House, but cannot vote. The AG is the highest law officer of the Union, has no fixed term, and holds office during the pleasure of the President. The State counterpart is the Advocate General (Article 165), and the Comptroller and Auditor General is under Article 148. Note the current AG <span class='check'>check</span>: R. Venkataramani has held the post since 2022."},
+{s:"Polity",q:"The words 'Socialist', 'Secular' and 'Integrity' were added to the Preamble by the:",
+o:["42nd Amendment, 1976","44th Amendment, 1978","24th Amendment, 1971","52nd Amendment, 1985"],
+e:"The Preamble has been amended only once, by the 42nd Amendment in 1976. In Berubari (1960) the Supreme Court said the Preamble was not part of the Constitution. Kesavananda Bharati (1973) reversed this, holding that it is part and can be amended, but not so as to destroy the basic structure. The Preamble's ideals came from Nehru's Objectives Resolution of 13 December 1946. The source of authority is 'We, the people of India'."},
+
+/* ---------------- GOVERNANCE (7) ---------------- */
+{s:"Governance",q:"The 'Citizen's Charter' concept, adopted in India in 1997, was first introduced in:",
+o:["The United Kingdom (1991)","The United States","Canada","Australia"],
+e:"John Major's government launched the Citizen's Charter in the UK in 1991. India adopted it at a Chief Ministers' conference in 1997. The 2nd Administrative Reforms Commission later recommended the Sevottam model, which was asked in 2025. Sevottam has three modules: the Citizen's Charter, a grievance-redress mechanism, and service-delivery capability. Related: CPGRAMS is the central online grievance portal, run by the DARPG."},
+{s:"Governance",q:"The First Administrative Reforms Commission (1966) was initially chaired by:",
+o:["Morarji Desai","K. Hanumanthaiya","Veerappa Moily","K. Santhanam"],
+e:"Morarji Desai chaired the First ARC until 1967, when he became Deputy Prime Minister. K. Hanumanthaiya then took over, and the Commission gave 20 reports. The Second ARC (2005) was chaired by Veerappa Moily, later by V. Ramachandran, and gave 15 reports, including 'Ethics in Governance', 'Right to Information' and 'Citizen-Centric Administration'. K. Santhanam headed the Committee on Prevention of Corruption (1962–64), which led to the CVC in 1964. Santhanam was asked in two papers."},
+{s:"Governance",q:"Under the RTI Act, 2005, information concerning the life or liberty of a person must be supplied within:",
+o:["48 hours","24 hours","7 days","30 days"],
+e:"Ordinary requests must be answered within 30 days, or 35 days if filed through an Assistant PIO. Life-or-liberty requests must be answered within 48 hours. A first appeal lies with a senior officer in the same department, and a second appeal with the Central or State Information Commission. Section 8 lists the exemptions, and Section 4 requires public authorities to publish information on their own. The 2019 amendment let the Centre fix the tenure and salaries of Information Commissioners. Inspiration: the MKSS movement in Rajasthan. The first state RTI law was Tamil Nadu's (1997)."},
+{s:"Governance",q:"Who was the first Chairperson of the Lokpal of India?",
+o:["Justice Pinaki Chandra Ghose","Justice A.M. Khanwilkar","Justice Ranjana Prakash Desai","Justice Dalveer Bhandari"],
+e:"Justice P.C. Ghose was appointed in March 2019 under the Lokpal and Lokayuktas Act, 2013. The Lokpal has a Chairperson and up to 8 members, half of them judicial. Justice A.M. Khanwilkar became Chairperson in 2024 <span class='check'>check</span>. The anti-corruption family: Santhanam Committee → CVC (1964, statutory in 2003); the 1st ARC recommended the Lokpal and Lokayukta in 1966; Maharashtra had the first Lokayukta (1971); Odisha passed an early Lokayukta law in 1970 (and a new one in 2014)."},
+{s:"Governance",q:"The period 1966–69, when three Annual Plans were run instead of a Five-Year Plan, is known as:",
+o:["Plan Holiday","Rolling Plan","Perspective Planning","Indicative Planning"],
+e:"The Plan Holiday followed the 1965 war, two droughts and the 1966 devaluation. Don't confuse it with the Rolling Plan (1978–80), which the Janata government introduced on Gunnar Myrdal's idea. The Rolling Plan was asked in ALL three past papers. Planning family: Planning Commission 1950 (executive resolution, PM chair); First Plan 1951–56 (Harrod–Domar, agriculture); Second Plan (Mahalanobis, heavy industry); two Annual Plans 1990–92; the 12th Plan (2012–17) was the last; NITI Aayog replaced the Commission on 1 January 2015."},
+{s:"Governance",k:1,a:3,q:"Consider the following statements about NITI Aayog:\n1. It was set up on 1 January 2015 by an executive resolution of the Union Cabinet.\n2. Its Governing Council includes the Chief Ministers of all States and of Union Territories with legislatures.\n3. The Prime Minister is its ex-officio Chairperson.\nWhich of the statements given above are correct?",
+o:["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
+e:"All three are correct. NITI Aayog is neither constitutional nor statutory. The Governing Council also includes the Lieutenant Governors of other UTs. NITI Aayog has a Vice-Chairperson, full-time members, ex-officio Union Ministers and a CEO <span class='check'>check the current Vice-Chairperson and CEO</span>. Its known outputs include the SDG India Index, the National Multidimensional Poverty Index, the Aspirational Districts and Blocks programmes, and the Atal Innovation Mission. It works on 'cooperative federalism' and has no power to allocate funds, which the Planning Commission had."},
+{s:"Governance",q:"A new All-India Service can be created by Parliament if the Rajya Sabha passes a resolution supported by:",
+o:["Two-thirds of the members present and voting","A simple majority of members present and voting","A majority of its total membership","Three-fourths of the members present and voting"],
+e:"Under Article 312, the Rajya Sabha represents the States, so its two-thirds resolution is required. The existing All-India Services are the IAS and IPS (recognised in 1951) and the Indian Forest Service (1966). History: the Lee Commission (1924) led to the first Public Service Commission in 1926. Sardar Patel called the services the 'steel frame', and his address to probationers on 21 April 1947 is why Civil Services Day falls on that date. Mission Karmayogi (2020) is the capacity-building programme for civil servants."},
+
+/* ---------------- ECONOMY (8) ---------------- */
+{s:"Economy",q:"Primary deficit is equal to:",
+o:["Fiscal deficit minus interest payments","Revenue deficit minus grants for creation of capital assets","Fiscal deficit minus revenue deficit","Total expenditure minus total receipts"],
+e:"Fiscal deficit = total expenditure − (revenue receipts + non-debt capital receipts such as loan recoveries and disinvestment). It shows how much the government must borrow. Remove interest payments and you get the primary deficit, which shows borrowing for current needs. Revenue deficit = revenue expenditure − revenue receipts. Effective revenue deficit = revenue deficit − grants for creation of capital assets (the second option). The 2025 paper asked about the components of the fiscal deficit. Related: the FRBM Act (2003) and its targets."},
+{s:"Economy",q:"Since April 2022, the floor of the RBI's Liquidity Adjustment Facility (LAF) corridor is the:",
+o:["Standing Deposit Facility (SDF) rate","Reverse repo rate","Marginal Standing Facility (MSF) rate","Bank rate"],
+e:"The SDF lets banks park surplus money with the RBI without the RBI giving securities as collateral, and it replaced the fixed reverse repo as the floor. The repo rate is the policy rate. The MSF is the ceiling, and the bank rate is aligned with the MSF. CRR is kept as cash with the RBI; SLR is kept as liquid assets by the bank itself. The repo rate was asked in 2018, and the RBI in 2025. <span class='check'>check</span> Know the current repo rate and the RBI Governor (Sanjay Malhotra since December 2024)."},
+{s:"Economy",k:1,a:3,q:"Consider the following statements about the Monetary Policy Committee (MPC) of the RBI:\n1. It has six members, three of whom are from the RBI.\n2. In case of a tie, the RBI Governor has a casting vote.\n3. The inflation target is 4% (CPI) with a tolerance band of ±2%.\nWhich of the statements given above are correct?",
+o:["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
+e:"All three are correct. The MPC was created by the 2016 amendment to the RBI Act. The three RBI members are the Governor, a Deputy Governor and an Executive Director. The three external members are appointed by the Centre for four years. The Centre sets the inflation target, measured by CPI-Combined, for five years at a time. Retail inflation is measured by CPI (MoSPI) and wholesale inflation by WPI (Office of the Economic Adviser, DPIIT). New base years were introduced in 2026 <span class='check'>check</span>."},
+{s:"Economy",q:"Which of the following bodies is chaired by the Union Finance Minister?",
+o:["GST Council","Finance Commission","NITI Aayog","Monetary Policy Committee"],
+e:"The GST Council (Article 279A, 101st Amendment 2016) is chaired by the Union Finance Minister. State Finance Ministers are its members. Decisions need a three-fourths weighted majority, with the Centre holding one-third of the weight and the States two-thirds. GST began on 1 July 2017. 'GST 2.0' (September 2025) moved most goods into 5% and 18% slabs, with a higher rate for 'sin' goods <span class='check'>check</span>. The Finance Commission has its own appointed chairman, NITI Aayog is chaired by the PM, and the MPC by the RBI Governor."},
+{s:"Economy",q:"The Securities and Exchange Board of India (SEBI) was given statutory powers in:",
+o:["1992","1988","1956","2000"],
+e:"SEBI was set up in 1988 by a government resolution and got statutory status through the SEBI Act, 1992, which was also the year of the Harshad Mehta scam. Its headquarters are in Mumbai. The NSE was set up in 1992 on the Pherwani Committee's recommendation; this was asked in 2025. The BSE (1875) is Asia's oldest stock exchange. The Sensex has 30 stocks and the Nifty 50. Other regulators: IRDAI (Hyderabad), PFRDA for pensions, and IBBI for insolvency."},
+{s:"Economy",q:"The global Multidimensional Poverty Index (MPI) is published jointly by:",
+o:["UNDP and the Oxford Poverty and Human Development Initiative (OPHI)","The World Bank and the IMF","NITI Aayog and UNICEF","UNDP and the World Bank"],
+e:"The global MPI has three dimensions (health, education and standard of living) and 10 indicators. India's National MPI is prepared by NITI Aayog from NFHS data. It uses 12 indicators, adding maternal health and bank accounts; this was asked in 2025. NITI Aayog reported that about 24.8 crore people escaped multidimensional poverty between 2013–14 and 2022–23. Related publishers: UNDP (HDI, Human Development Report) and the World Bank (poverty line of $3.00 a day at 2021 PPP, revised in 2025 <span class='check'>check</span>)."},
+{s:"Economy",q:"NABARD was set up in 1982 on the recommendation of the committee (CRAFICARD) headed by:",
+o:["B. Sivaraman","M. Narasimham","Raja Chelliah","Y.V. Reddy"],
+e:"The Committee to Review Arrangements for Institutional Credit for Agriculture and Rural Development (CRAFICARD) was headed by B. Sivaraman. NABARD (Mumbai) is the apex body for rural credit and refinances cooperative banks and RRBs. Don't confuse it with the Narasimham Committees (1991 and 1998, banking reforms) or Raja Chelliah (tax reforms, 1991). Banking family: 14 banks nationalised in 1969 and 6 in 1980; RRBs from 1975; SIDBI 1990; the Kisan Credit Card 1998."},
+{s:"Economy",q:"Which Finance Commission covers the period 2026–31, and who chairs it?",
+o:["16th Finance Commission – Arvind Panagariya","15th Finance Commission – N.K. Singh","16th Finance Commission – N.K. Singh","17th Finance Commission – Arvind Panagariya"],
+e:"The Finance Commission is set up under Article 280 every five years to recommend how taxes are shared between the Centre and the States (vertical devolution) and among the States (horizontal devolution). The 15th Commission, chaired by N.K. Singh, covered 2021–26 and recommended a 41% share for States. The 16th, chaired by Arvind Panagariya, submitted its report in 2025 <span class='check'>check its devolution share and criteria</span>. State Finance Commissions under Article 243-I advise on local bodies' finances."},
+
+/* ---------------- MODERN HISTORY (15) ---------------- */
+{s:"Modern History",q:"The Vernacular Press Act (1878) was passed under ____ and repealed under ____.",
+o:["Lord Lytton; Lord Ripon","Lord Ripon; Lord Curzon","Lord Lytton; Lord Curzon","Lord Dufferin; Lord Ripon"],
+e:"Lytton's 'Gagging Act' targeted Indian-language newspapers. The Amrita Bazar Patrika switched to English overnight to escape it. Ripon (1880–84) repealed it in 1882. Ripon's other measures, all exam favourites: the Ilbert Bill (1883, asked twice), the resolution on local self-government (1882, which earned him the title 'father of local self-government'), the Hunter Commission (1882), the first Factory Act (1881), and the first regular synchronous census (1881)."},
+{s:"Modern History",q:"Which Governor-General is known as the 'Liberator of the Indian Press'?",
+o:["Charles Metcalfe","Lord Wellesley","Lord William Bentinck","Lord Ripon"],
+e:"Metcalfe (acting Governor-General, 1835–36) repealed the 1823 licensing regulations of John Adams. Press chronology: Wellesley's Censorship of Press Act, 1799 (asked in 2025); Adams' Licensing Regulations, 1823; Metcalfe's Act, 1835; Canning's Licensing Act, 1857; the Registration Act, 1867; the Vernacular Press Act, 1878; the Newspapers (Incitement to Offences) Act, 1908; the Indian Press Act, 1910."},
+{s:"Modern History",q:"The 'Purna Swaraj' resolution was adopted at the Congress session of:",
+o:["Lahore, 1929, presided over by Jawaharlal Nehru","Karachi, 1931, presided over by Vallabhbhai Patel","Calcutta, 1928, presided over by Motilal Nehru","Haripura, 1938, presided over by Subhas Chandra Bose"],
+e:"At Lahore (December 1929) the Congress declared complete independence its goal, and 26 January 1930 was celebrated as Independence Day. This is why the Constitution came into force on 26 January. Karachi (1931) adopted the resolution on Fundamental Rights and Economic Policy (asked in 2025). Other sessions to know: Bombay 1885 (W.C. Bonnerjee), Surat 1907 (the split), Lucknow 1916 (Congress–League pact), Belgaum 1924 (the only session Gandhi presided over, asked in 2018), Haripura 1938 and Tripuri 1939 (Bose)."},
+{s:"Modern History",q:"Who was the first Indian woman to preside over the Indian National Congress?",
+o:["Sarojini Naidu (Kanpur, 1925)","Annie Besant (Calcutta, 1917)","Nellie Sengupta (Calcutta, 1933)","Vijaya Lakshmi Pandit"],
+e:"Annie Besant was the first woman President (1917), but she was Irish-born. Sarojini Naidu, 'the Nightingale of India', was the first Indian woman President (1925). Nellie Sengupta (1933) was the third woman. Sarojini Naidu later became India's first woman Governor, of the United Provinces. Besant and Tilak led the two Home Rule Leagues of 1916."},
+{s:"Modern History",k:1,a:0,q:"Arrange the following in chronological order:\n1. Hunter Commission\n2. Wood's Despatch\n3. Sadler Commission\n4. Raleigh Commission",
+o:["2, 1, 4, 3","1, 2, 4, 3","2, 4, 1, 3","2, 1, 3, 4"],
+e:"Wood's Despatch (1854) is called the 'Magna Carta of English education in India' and led to the universities of Calcutta, Bombay and Madras in 1857. The Hunter Commission (1882) focused on primary and secondary education. The Raleigh Commission (1902) led to the Indian Universities Act, 1904. The Sadler Commission (1917) was on Calcutta University. After these: the Hartog Committee (1929), the Wardha scheme of basic education (1937), the Sergeant Plan (1944), the Radhakrishnan Commission (1948), and the Kothari Commission (1964–66). The 2025 paper asked a sequence question from this family."},
+{s:"Modern History",q:"Which of the following pairs (centre of the 1857 revolt – leader) is INCORRECTLY matched?",
+o:["Kanpur – Begum Hazrat Mahal","Jagdishpur (Bihar) – Kunwar Singh","Jhansi – Rani Lakshmibai","Faizabad – Maulvi Ahmadullah"],
+e:"The leader at Kanpur was Nana Saheb, assisted by Tantia Tope and Azimullah Khan. Begum Hazrat Mahal led at Lucknow. Others: Delhi, Bahadur Shah Zafar with Bakht Khan; Bareilly, Khan Bahadur Khan. In Odisha, Veer Surendra Sai fought in Sambalpur. British commanders: Nicholson and Hudson at Delhi, Colin Campbell at Lucknow and Kanpur, and Hugh Rose at Jhansi. The revolt began at Meerut on 10 May 1857. Mangal Pandey's outbreak was at Barrackpore on 29 March 1857. 1857 was asked in 2025."},
+{s:"Modern History",q:"The Swaraj Party (1923) was founded by:",
+o:["C.R. Das and Motilal Nehru","M.K. Gandhi and Vallabhbhai Patel","B.G. Tilak and Annie Besant","Muzaffar Ahmed and Kazi Nazrul Islam"],
+e:"After Non-Cooperation was withdrawn following Chauri Chaura (1922), the 'pro-changers' wanted to enter the councils and wreck them from within. The 'no-changers' (Rajagopalachari, Patel, Rajendra Prasad) stayed with Gandhi's constructive programme. The last option is a trap: Kazi Nazrul Islam and Muzaffar Ahmed were linked to the Labour Swaraj Party (Bengal, 1925), which was asked in 2025. It became the Peasants' and Workers' Party. The CPI was formed in Tashkent in 1920 (M.N. Roy), and the Kanpur conference followed in 1925."},
+{s:"Modern History",q:"The Ghadar Party was founded in 1913 at:",
+o:["San Francisco (USA)","London","Berlin","Vancouver (Canada)"],
+e:"Lala Har Dayal and Sohan Singh Bhakna, its first president, founded the party among Punjabi migrants on the US Pacific coast. It published the weekly Ghadar. It was asked in 2018. Revolutionaries abroad: India House, London (Shyamji Krishna Varma, 1905); the Berlin Committee (1915); the Provisional Government of India in Kabul (Raja Mahendra Pratap, 1915); the Komagata Maru incident (1914). At home: the Anushilan Samiti, Jugantar, the HRA (1924) and the HSRA (1928)."},
+{s:"Modern History",q:"Which of the following pairs (land-revenue system – associated with) is INCORRECTLY matched?",
+o:["Mahalwari system – Thomas Munro","Permanent Settlement – Lord Cornwallis (1793)","Ryotwari system – Madras and Bombay Presidencies","Mahalwari system – North-Western Provinces and Punjab"],
+e:"Thomas Munro, with Alexander Read, is linked to the Ryotwari system, in which revenue was settled directly with the cultivator. Mahalwari was devised by Holt Mackenzie (1822) and revised under Bentinck (1833). Revenue was settled with the village or 'mahal' as a whole. The Permanent Settlement (Bengal, Bihar and Odisha, 1793) fixed revenue in perpetuity with zamindars. It covered about 19% of British India, Ryotwari about 51% and Mahalwari about 30%."},
+{s:"Modern History",q:"Who was the first Governor-General of India, as distinct from the Governor-General of Bengal?",
+o:["Lord William Bentinck","Warren Hastings","Lord Canning","Lord Cornwallis"],
+e:"The Charter Act of 1833 made the Governor-General of Bengal the Governor-General of India, and Bentinck held that title first. Warren Hastings was the first Governor-General of Bengal (Regulating Act, 1773). Canning became the first Viceroy under the Government of India Act, 1858. Mountbatten was the last Viceroy and the first Governor-General of free India. C. Rajagopalachari was the first and only Indian Governor-General. Bentinck is linked to the abolition of sati (1829) and the English Education Act (1835, Macaulay)."},
+{s:"Modern History",q:"Which was the first Indian state to accept Lord Wellesley's Subsidiary Alliance?",
+o:["Hyderabad (1798)","Mysore","Awadh","Gwalior"],
+e:"The Nizam of Hyderabad signed first (1798). Mysore was brought in after Tipu's death in 1799, Awadh in 1801, and the Peshwa through the Treaty of Bassein (1802). Dalhousie's Doctrine of Lapse is a related policy. Annexations under it: Satara (1848, the first), Jaitpur and Sambalpur (1849, the Odisha link), Baghat, Udaipur, Jhansi (1853) and Nagpur (1854). Awadh was annexed in 1856 on grounds of 'misgovernance', not lapse."},
+{s:"Modern History",q:"Separate electorates for Muslims were first introduced by the:",
+o:["Indian Councils Act, 1909","Indian Councils Act, 1892","Government of India Act, 1919","Government of India Act, 1935"],
+e:"The Morley–Minto Reforms (1909) introduced separate electorates; Minto is called the 'father of communal electorate'. The 1919 Act (Montagu–Chelmsford) extended them to Sikhs, Indian Christians, Anglo-Indians and Europeans, and introduced dyarchy in the provinces. The 1935 Act gave provincial autonomy, proposed dyarchy at the Centre (never implemented), and set up the Federal Court (1937) and a federal list structure. The Communal Award (1932) led to the Poona Pact between Gandhi and Ambedkar."},
+{s:"Modern History",q:"Which of the following was NOT a member of the Cabinet Mission (1946)?",
+o:["Lord Wavell","Lord Pethick-Lawrence","Sir Stafford Cripps","A.V. Alexander"],
+e:"The Cabinet Mission had three British Cabinet ministers: Pethick-Lawrence (Secretary of State), Cripps and A.V. Alexander. Wavell was Viceroy at the time but not a member. The Mission proposed a Constituent Assembly elected indirectly by the provincial assemblies, and groupings of provinces. The League's 'Direct Action Day' followed on 16 August 1946. Sequence: Cripps Mission 1942 (the 'post-dated cheque') → Wavell Plan and Simla Conference 1945 → Cabinet Mission 1946 → Mountbatten Plan, 3 June 1947 → Indian Independence Act, July 1947."},
+{s:"Modern History",q:"The first newspaper published in India was:",
+o:["Hicky's Bengal Gazette (1780)","Bombay Samachar","Sambad Kaumudi","The Hindu"],
+e:"James Augustus Hicky started it in Calcutta in 1780. Bombay Samachar (1822) is the oldest Indian newspaper still published. Newspaper–founder pairs are a favourite: Sambad Kaumudi (Ram Mohan Roy), Kesari and Mahratta (Tilak), Young India and Harijan (Gandhi), Al-Hilal (Maulana Azad), Bande Mataram (Aurobindo), Comrade (Mohammad Ali). Odisha: Utkal Dipika (1866, Gourishankar Ray) and The Samaja (1919, Gopabandhu Das). The 2025 paper had a press question."},
+{s:"Modern History",q:"The Servants of India Society (1905) was founded by:",
+o:["Gopal Krishna Gokhale","Bal Gangadhar Tilak","Dadabhai Naoroji","Mahadev Govind Ranade"],
+e:"Gokhale, Gandhi's political guru, founded it in Poona to train selfless national workers. Related organisations: Poona Sarvajanik Sabha (1870, Ranade); Deccan Education Society (1884, Tilak, Agarkar and Chiplunkar); Satyashodhak Samaj (1873, Jyotiba Phule); East India Association (1866, London, Naoroji); Indian Association (1876, Surendranath Banerjea); Muslim League (1906, Dhaka). The 2025 paper asked about early organisations."},
+
+/* ---------------- GEOGRAPHY (8) ---------------- */
+{s:"Geography",q:"Which is the third most abundant gas in dry air near the Earth's surface?",
+o:["Argon","Carbon dioxide","Oxygen","Neon"],
+e:"By volume, dry air is about 78% nitrogen, 21% oxygen, 0.93% argon and 0.04% carbon dioxide. Neon, helium, methane and others are traces. Water vapour varies from 0 to 4% and is the most important natural greenhouse gas. The composition of the atmosphere was asked in two papers. Next, expect the layers of the atmosphere, or which gas absorbs ultraviolet light (ozone)."},
+{s:"Geography",q:"Most of the atmosphere's ozone is found in the:",
+o:["Stratosphere","Troposphere","Mesosphere","Thermosphere"],
+e:"The ozone layer lies roughly 15–35 km up, in the stratosphere. The stratosphere is calm, which is why jet aircraft fly in its lower part. The troposphere is where weather happens; the tropopause is about 18 km high at the equator and about 8 km at the poles. The mesosphere is the coldest layer, and meteors burn up there. The ionosphere, within the thermosphere, reflects radio waves. The ozone hole was first reported over Antarctica in 1985, and World Ozone Day is 16 September."},
+{s:"Geography",q:"The Tropic of Cancer does NOT pass through which of the following States?",
+o:["Odisha","Jharkhand","Chhattisgarh","Tripura"],
+e:"The Tropic of Cancer (23.5°N) passes through 8 states, west to east: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram. Odisha lies entirely south of it, between roughly 17.8°N and 22.6°N. Neighbouring facts: the Standard Meridian (82.5°E) passes near Mirzapur and through five states, Odisha among them. Arunachal Pradesh gets the first sunrise in India, at Dong."},
+{s:"Geography",q:"Which pair of rivers flows westward through rift valleys into the Arabian Sea?",
+o:["Narmada and Tapi","Godavari and Krishna","Mahanadi and Brahmani","Kaveri and Pennar"],
+e:"The Narmada rises at Amarkantak and flows between the Vindhyas and Satpuras. The Tapi rises at Multai and flows south of the Satpuras. Both form estuaries rather than deltas. The large peninsular rivers that flow east (Mahanadi, Godavari, Krishna, Kaveri) form deltas on the Bay of Bengal coast. The Godavari is the longest peninsular river and is called the 'Dakshin Ganga'. Odisha's link: the Mahanadi–Brahmani–Baitarani delta, and the six-river delta asked in 2025."},
+{s:"Geography",q:"The pre-monsoon thunderstorms ('Nor'westers') of West Bengal are locally called:",
+o:["Kalbaisakhi","Mango showers","Loo","Cherry blossoms"],
+e:"Kalbaisakhi ('calamity of Baisakh') storms hit West Bengal, Odisha and Assam in April–May. In Assam they are called 'tea showers'. Mango showers are pre-monsoon rain in Kerala and coastal Karnataka that helps mangoes ripen. 'Cherry blossoms' or coffee showers fall in Karnataka. The Loo is a hot, dry wind over the northern plains. Western disturbances bring winter rain to north-west India, which helps the rabi crop."},
+{s:"Geography",q:"Which water body separates India from Sri Lanka?",
+o:["Palk Strait","Ten Degree Channel","Strait of Malacca","Eight Degree Channel"],
+e:"The Palk Strait and the Gulf of Mannar separate India from Sri Lanka; Adam's Bridge (Rama Setu) lies between them. The Ten Degree Channel separates the Andaman and Nicobar groups. The Nine Degree Channel separates the main Lakshadweep islands from Minicoy, and the Eight Degree Channel separates Minicoy from the Maldives. Duncan Passage lies between South and Little Andaman. World straits: Malacca (Malaysia–Sumatra), Hormuz (Iran–Oman), Bab-el-Mandeb (Red Sea–Gulf of Aden), Gibraltar (Spain–Morocco)."},
+{s:"Geography",q:"Which is the highest peak of peninsular India?",
+o:["Anamudi","Doddabetta","Dhupgarh","Mahendragiri"],
+e:"Anamudi (about 2,695 m) is in the Anaimalai hills of Kerala. Doddabetta (about 2,637 m) is the highest point of the Nilgiris. Dhupgarh (about 1,350 m) is the highest point of the Satpuras, near Pachmarhi. Mahendragiri is a well-known Eastern Ghats peak in Odisha's Gajapati district, but Odisha's highest peak is Deomali in Koraput. In the Western Ghats, Anamudi is the highest; in the Eastern Ghats, Jindhagada (Andhra Pradesh) is generally considered the highest."},
+{s:"Geography",q:"Black (regur) soil of India is formed mainly from the weathering of:",
+o:["Basaltic lava of the Deccan Traps","Granite and gneiss","River-borne alluvium","Laterite crusts"],
+e:"Black soil covers much of Maharashtra, Gujarat, Madhya Pradesh and parts of Telangana and Karnataka. It is rich in iron, lime and magnesia, holds moisture, and cracks when dry ('self-ploughing'). Cotton is its typical crop. Red soil forms on ancient crystalline rocks such as granite and gneiss, and is red because of iron. Laterite forms by leaching under heavy rain and high temperature. Alluvium is the most widespread soil. Odisha has red, laterite and coastal alluvial soils."},
+
+/* ---------------- ODISHA (12) ---------------- */
+{s:"Odisha",k:1,a:3,q:"Consider the following statements about the Hirakud Dam:\n1. It is built across the Mahanadi near Sambalpur.\n2. It is one of the longest earthen dams in the world.\n3. Its reservoir has been designated a Ramsar site.\nWhich of the statements given above are correct?",
+o:["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
+e:"All three are correct. Hirakud's foundation stone was laid in 1946 and it was inaugurated by Nehru in 1957. The reservoir became a Ramsar site in 2021. Odisha's Ramsar sites: Chilika (1981, India's first, together with Keoladeo), Bhitarkanika (2002), and Satkosia Gorge, Tampara Lake, Hirakud Reservoir and Ansupa Lake (all 2021). Hirakud was asked in 2025. Next, expect the other dams (Rengali on the Brahmani, Indravati, Upper Kolab, Balimela) and Odisha's Ramsar list."},
+{s:"Odisha",q:"Nalabana Bird Sanctuary is located in:",
+o:["Chilika Lake","Bhitarkanika","Hirakud reservoir","Similipal"],
+e:"Nalabana is an island in Chilika that becomes a major wintering ground for migratory birds. Chilika is India's largest brackish-water lagoon and spreads over Puri, Khordha and Ganjam districts. Irrawaddy dolphins are seen near Satapada. Kalijai is its island temple. Chilika was placed on the Montreux Record in 1993 and removed in 2002 after its mouth was reopened. Chilika and olive ridleys were asked in 2018."},
+{s:"Odisha",q:"Which of the following is NOT a mass-nesting (arribada) site of olive ridley turtles in Odisha?",
+o:["Chandipur","Gahirmatha","Rushikulya","Devi river mouth"],
+e:"Gahirmatha (Kendrapara, part of the Bhitarkanika area) is one of the world's largest olive ridley rookeries. The other mass-nesting sites are the Rushikulya mouth (Ganjam), which had record nesting in 2025, and the Devi river mouth (Puri). Chandipur (Balasore) is known for its receding-sea beach and DRDO's Integrated Test Range, not for turtles. The Coast Guard's Operation Olivia protects the turtles every season; this was asked in 2025. Olive ridleys are Schedule I under the Wildlife Protection Act and 'Vulnerable' on the IUCN Red List."},
+{s:"Odisha",q:"Odisha's major chromite deposits are found in:",
+o:["Sukinda Valley (Jajpur)","Panchpatmali (Koraput)","Talcher (Angul)","Gandhamardan (Bargarh–Balangir)"],
+e:"Sukinda Valley holds almost all of India's chromite reserves. Panchpatmali in Koraput is NALCO's bauxite mine, and Gandhamardan is also a bauxite-bearing hill. Talcher and Ib Valley are coalfields. Iron ore comes from Keonjhar and Sundargarh (the Joda–Barbil belt). Odisha's beach sand minerals come from Chhatrapur, Ganjam (IREL OSCOM). Manganese is also found in Keonjhar and Sundargarh. 'Mineral – place' matching was asked in 2025."},
+{s:"Odisha",q:"Odisha became a separate province on 1 April 1936. Who was the first Premier of the province, in April 1937?",
+o:["Krishna Chandra Gajapati Narayan Deo","Biswanath Das","Harekrushna Mahatab","Madhusudan Das"],
+e:"The Maharaja of Paralakhemundi, Krishna Chandra Gajapati, headed a short non-Congress ministry from April 1937. When the Congress agreed to take office in July 1937, Biswanath Das became the first Congress Premier. Harekrushna Mahatab was Premier from 1946 and became the first Chief Minister after independence. Sir John Hubback was the first Governor. 1 April is Utkal Divas (Odisha Day). Madhusudan Das did not live to see the province; he died in 1934."},
+{s:"Odisha",q:"The Utkal Sammilani (Utkal Union Conference) was founded in 1903 under the leadership of:",
+o:["Madhusudan Das","Gopabandhu Das","Fakir Mohan Senapati","Radhanath Ray"],
+e:"Madhusudan Das, 'Utkal Gourab' and 'Kulabruddha', founded the Sammilani to unite Odia-speaking areas scattered across Bengal, Madras and the Central Provinces. He was the first Odia graduate and lawyer, and a minister under dyarchy. Gopabandhu Das, 'Utkalmani', founded the Satyabadi school (1909) and The Samaja (1919). Fakir Mohan Senapati is the father of modern Odia prose (Chha Mana Atha Guntha). Radhanath Ray was the leading poet of the modern period."},
+{s:"Odisha",q:"The Paika Rebellion of 1817 was led by:",
+o:["Bakshi Jagabandhu","Veer Surendra Sai","Chakra Bisoi","Laxman Naik"],
+e:"Bakshi Jagabandhu Bidyadhar, the military chief of the Raja of Khurda, led the Paikas (traditional militia) against the British. Their grievances were the loss of service land, high salt prices and revenue pressure. Its bicentenary was marked in 2017. Other Odisha resistance leaders: Veer Surendra Sai (Sambalpur, 1827–62, including 1857); Chakra Bisoi (Khond resistance to the suppression of the Meriah sacrifice, 1830s–50s); Laxman Naik (Koraput, Quit India, hanged in 1943); and Dora Bisoi of the Ghumsar uprising (1830s)."},
+{s:"Odisha",q:"In Odisha, the Salt Satyagraha of 1930 was centred at:",
+o:["Inchudi (Balasore)","Paradip (Jagatsinghpur)","Gopalpur (Ganjam)","Konark (Puri)"],
+e:"Inchudi in Balasore district was the main centre of salt-making in 1930. It was led by Acharya Harihar Das and Gopabandhu Choudhury, with women such as Rama Devi and Malati Choudhury taking part. Odisha in the national movement: Gandhi's first visit was to Cuttack on 23 March 1921 (asked in 2018); the Non-Cooperation period saw Gopabandhu's Satyabadi group; Quit India saw the Eram massacre (Balasore, 1942, the 'Second Jallianwala') and Laxman Naik."},
+{s:"Odisha",q:"Which is the highest peak of Odisha?",
+o:["Deomali","Mahendragiri","Malayagiri","Gandhamardan"],
+e:"Deomali (about 1,672 m) is in the Chandragiri–Pottangi range of the Eastern Ghats in Koraput district. Mahendragiri is in Gajapati district, Malayagiri in Angul, and Gandhamardan in Bargarh–Balangir. Odisha's physical divisions are the coastal plains, the central plateau, the northern plateau and the Eastern Ghats. The 2025 paper asked for the north-to-south order of ranges, so also know the hill ranges by district."},
+{s:"Odisha",q:"Odia was declared a Classical Language of India in:",
+o:["2014","2004","2008","2024"],
+e:"Odia became the sixth classical language in 2014. The order: Tamil (2004), Sanskrit (2005), Telugu and Kannada (2008), Malayalam (2013), Odia (2014). In October 2024, five more were added: Marathi, Pali, Prakrit, Assamese and Bengali, making 11 in all. Odia is also one of the 22 languages in the Eighth Schedule. Odisha's Official Language Act dates from 1954."},
+{s:"Odisha",q:"The Konark Sun Temple was built by:",
+o:["Narasimhadeva I of the Eastern Ganga dynasty","Anantavarman Chodagangadeva","Kharavela","Kapilendra Deva"],
+e:"Narasimhadeva I built Konark around 1250 CE as a giant chariot of the Sun god, with 24 wheels and 7 horses. Sailors called it the 'Black Pagoda'. It became a UNESCO World Heritage Site in 1984, Odisha's only one. Anantavarman Chodagangadeva of the same dynasty began the Jagannath Temple at Puri. Kharavela was the Chedi king of the Hathigumpha inscription. Kapilendra Deva founded the Suryavamsi Gajapati dynasty in 1435. The Lingaraja Temple in Bhubaneswar (11th century) predates Konark and Puri."},
+{s:"Odisha",q:"The Hathigumpha inscription, which records the achievements of King Kharavela, is located at:",
+o:["Udayagiri hills, Bhubaneswar","Dhauli","Jaugada","Ratnagiri"],
+e:"Hathigumpha ('elephant cave') is on the Udayagiri hill near Bhubaneswar, facing Khandagiri. It records Kharavela of the Mahameghavahana (Chedi) line, a Jain patron, around the 1st century BCE. Dhauli (near Bhubaneswar) and Jaugada (Ganjam) carry Ashoka's Separate Kalinga Edicts, written after the Kalinga war of about 261 BCE. Ratnagiri, Udayagiri and Lalitgiri in Jajpur form the Buddhist 'Diamond Triangle'. Don't mix up the two Udayagiris."},
+
+/* ---------------- ENVIRONMENT (10) ---------------- */
+{s:"Environment",q:"Which of the following is NOT among the greenhouse gases listed in Annex A of the Kyoto Protocol?",
+o:["Chlorofluorocarbons (CFCs)","Methane","Nitrous oxide","Sulphur hexafluoride"],
+e:"The Kyoto Protocol (1997, in force 2005) covers six gases: CO₂, methane, nitrous oxide, HFCs, PFCs and SF₆. Nitrogen trifluoride was added in the Doha Amendment (2012). CFCs are left out because they are controlled by the Montreal Protocol on ozone. Kyoto and greenhouse gases have appeared in all three past papers, so also know: binding targets only for developed (Annex I) countries; the flexibility mechanisms (Clean Development Mechanism, Joint Implementation, emissions trading); and the Paris Agreement (2015) that followed."},
+{s:"Environment",q:"The Kigali Amendment (2016) to the Montreal Protocol aims to phase down:",
+o:["Hydrofluorocarbons (HFCs)","Chlorofluorocarbons (CFCs)","Carbon dioxide","Methane"],
+e:"HFCs replaced CFCs because they do not harm ozone, but they are powerful greenhouse gases. The Kigali Amendment (Rwanda) therefore phases them down. India's schedule starts with a freeze in 2028. The Montreal Protocol (1987) is often called the most successful environmental treaty, and the ozone hole is expected to recover by about 2066 over Antarctica. The Vienna Convention (1985) was its framework, and World Ozone Day is 16 September."},
+{s:"Environment",q:"India's target year for achieving net-zero emissions, announced at COP26 in Glasgow (2021), is:",
+o:["2070","2050","2060","2047"],
+e:"At Glasgow, India announced the 'Panchamrit' (five commitments), including net zero by 2070 and 500 GW of non-fossil capacity by 2030. China's target is 2060; the EU, UK and USA target 2050. Climate milestones: UNFCCC (Rio, 1992); Kyoto (COP3, 1997); Paris (COP21, 2015; well below 2°C, aiming for 1.5°C); COP28 Dubai (first global stocktake, 'transition away from fossil fuels'); COP29 Baku (finance goal); COP30 Belém, Brazil (2025). India's Mission LiFE was launched in 2022."},
+{s:"Environment",q:"The Ramsar Convention on wetlands was signed in 1971 in:",
+o:["Iran","Brazil","Switzerland","Japan"],
+e:"Ramsar is a city on the Caspian coast of Iran. The convention was signed on 2 February 1971, which is World Wetlands Day. India joined in 1982. It has well over 80 Ramsar sites, and Tamil Nadu has the most <span class='check'>check the latest count</span>. The Montreux Record lists Ramsar sites under threat; Keoladeo and Loktak are on it, and Chilika was removed in 2002. Other treaties by place: CITES (Washington, 1973), CBD (Rio, 1992), the Bonn Convention on migratory species (1979), and the Basel Convention on hazardous waste (1989)."},
+{s:"Environment",q:"Which of the following is NOT one of the four global biodiversity hotspots that cover parts of India?",
+o:["Eastern Ghats","Himalaya","Indo-Burma","Sundaland"],
+e:"India has parts of four of the world's 36 hotspots: the Himalaya, Indo-Burma (the North-East), the Western Ghats and Sri Lanka, and Sundaland (the Nicobar Islands). The Eastern Ghats are biologically rich but are not a listed hotspot. Norman Myers coined the hotspot idea in 1988. A hotspot needs at least 1,500 endemic plant species and must have lost 70% or more of its original habitat. The 2025 paper asked about India's 10 biogeographic zones, a related classification by Rodgers and Panwar."},
+{s:"Environment",q:"The India State of Forest Report (ISFR) is published every two years by:",
+o:["Forest Survey of India, Dehradun","Wildlife Institute of India","Botanical Survey of India, Kolkata","Indian Council of Forestry Research and Education"],
+e:"The Forest Survey of India, under the Ministry of Environment, has published the report every two years since 1987. ISFR 2023 (released in December 2024, asked in 2025) put total forest and tree cover at about 25% of India's area. Madhya Pradesh has the largest forest area. Learn three things from each edition: the national percentage, the top states by area and by increase, and Odisha's figures. Related: the National Forest Policy (1988) targets 33% cover."},
+{s:"Environment",q:"The 'EDGE of Existence' programme, which identifies Evolutionarily Distinct and Globally Endangered species, is run by the:",
+o:["Zoological Society of London","IUCN","WWF","UNEP"],
+e:"The Zoological Society of London started the EDGE programme in 2007 to highlight species that have few close relatives and are threatened. EDGE species were asked in 2025. The IUCN (headquarters Gland, Switzerland) publishes the Red List. Its categories run Extinct → Extinct in the Wild → Critically Endangered → Endangered → Vulnerable → Near Threatened → Least Concern. The Bramble Cay melomys (asked in 2025) was the first mammal declared extinct because of climate change."},
+{s:"Environment",q:"The Intergovernmental Panel on Climate Change (IPCC) was set up in 1988 by:",
+o:["WMO and UNEP","UNFCCC and UNDP","The World Bank and UNEP","WMO and UNESCO"],
+e:"The World Meteorological Organization (Geneva, asked in 2025) and the UN Environment Programme (Nairobi) set up the IPCC. It does not do research itself; it assesses research. Its Sixth Assessment Report was completed in 2023. It shared the 2007 Nobel Peace Prize with Al Gore. Don't confuse it with the UNFCCC, the treaty signed at Rio in 1992 whose parties meet at the annual COPs."},
+{s:"Environment",q:"Project Tiger was launched in:",
+o:["1973","1972","1982","1992"],
+e:"Project Tiger began in 1973 with nine reserves, the first being Jim Corbett. Similipal in Odisha was one of the original nine. The Wildlife (Protection) Act came a year earlier, in 1972. The National Tiger Conservation Authority was created in 2006. Project Elephant began in 1992. Odisha has two tiger reserves, Similipal and Satkosia. Similipal is also a biosphere reserve (1994) in UNESCO's network (2009) and is known for its melanistic ('black') tigers. The 2022 tiger estimate was about 3,682 <span class='check'>check for any newer estimate</span>."},
+{s:"Environment",q:"The first Earth Day was observed in:",
+o:["1970","1972","1987","1992"],
+e:"Earth Day (22 April) began in the USA in 1970, started by Senator Gaylord Nelson. Earth Day was asked in every past paper, usually its theme: 'Planet vs. Plastics' (2024) and 'Our Power, Our Planet' (2025) <span class='check'>check the 2026 and 2027 themes</span>. Don't confuse it with World Environment Day (5 June), which comes from the Stockholm Conference of 1972 and has a host country each year. In 2025 the host was the Republic of Korea, with a theme on plastic pollution."},
+
+/* ---------------- SCIENCE (6) ---------------- */
+{s:"Science",q:"Scurvy is caused by a deficiency of:",
+o:["Vitamin C","Vitamin A","Vitamin D","Vitamin B1"],
+e:"Vitamin C (ascorbic acid) is needed for collagen, so a lack of it causes bleeding gums and poor wound healing. Other deficiency diseases: Vitamin A causes night blindness; Vitamin D, rickets in children and osteomalacia in adults; B1 (thiamine), beriberi; B3 (niacin), pellagra; B12, pernicious anaemia; Vitamin K, poor blood clotting. A and D are fat-soluble (with E and K); B and C are water-soluble. Iodine deficiency causes goitre, and protein deficiency causes kwashiorkor."},
+{s:"Science",q:"Which blood group is called the 'universal donor'?",
+o:["O negative","AB positive","A negative","B positive"],
+e:"O-negative red cells have no A, B or Rh(D) antigens, so most people can receive them. AB-positive people are 'universal recipients' because they have no anti-A or anti-B antibodies. Karl Landsteiner discovered the ABO groups (1901) and, with Wiener, the Rh factor (1940). Related facts: red blood cells live about 120 days, haemoglobin carries oxygen, and platelets help clotting."},
+{s:"Science",q:"Chandrayaan-3's Vikram lander touched down near the lunar south pole on 23 August 2023. That date is now observed in India as:",
+o:["National Space Day","National Science Day","National Technology Day","ISRO Foundation Day"],
+e:"The landing site was named 'Shiv Shakti point', and the Pragyan rover explored near it. India became the first country to land near the lunar south pole and the fourth to soft-land on the Moon. Other national days: Science Day, 28 February (Raman effect); Technology Day, 11 May (Pokhran-II, 1998). ISRO family: founded 1969, headquarters Bengaluru; Aditya-L1 (2023) studies the Sun from the L1 point; Shubhanshu Shukla became the first Indian on the ISS (Axiom-4, 2025); NISAR (with NASA) was launched in 2025."},
+{s:"Science",q:"Malaria is caused by:",
+o:["A protozoan (Plasmodium)","A virus","A bacterium","A fungus"],
+e:"Plasmodium is carried by the female Anopheles mosquito and attacks the liver and red blood cells. Disease families: viral (dengue, chikungunya and Zika, carried by Aedes; also polio, measles, rabies, AIDS, COVID-19); bacterial (TB, cholera, typhoid, leprosy, tetanus, diphtheria); protozoan (malaria, kala-azar, amoebic dysentery, sleeping sickness). Days: World TB Day 24 March (Koch, 1882); World Malaria Day 25 April; World AIDS Day 1 December."},
+{s:"Science",q:"Baking soda is chemically:",
+o:["Sodium bicarbonate (NaHCO₃)","Sodium carbonate (Na₂CO₃)","Calcium carbonate (CaCO₃)","Calcium oxychloride (CaOCl₂)"],
+e:"Baking soda releases CO₂ when heated or mixed with acid, so dough rises. Common names: washing soda is Na₂CO₃·10H₂O; bleaching powder is CaOCl₂; plaster of Paris is CaSO₄·½H₂O; gypsum is CaSO₄·2H₂O; quicklime is CaO; slaked lime is Ca(OH)₂; limestone and marble are CaCO₃; common salt is NaCl. Other commonly asked facts: the pH of pure water is 7, and an antacid neutralises excess stomach acid (HCl)."},
+{s:"Science",q:"Sound travels fastest in:",
+o:["Steel","Water","Air","A vacuum"],
+e:"Sound needs a medium and travels faster through denser, more elastic media: about 5,000+ m/s in steel, about 1,500 m/s in water and about 343 m/s in air at 20°C. It cannot travel through a vacuum. Light, by contrast, travels fastest in a vacuum (about 3 × 10⁸ m/s). Related: the speed of sound in air rises with temperature; humans hear 20 Hz–20 kHz; above that is ultrasound (used in sonography and SONAR); below it is infrasound."},
+
+/* ---------------- DEFENCE (7) ---------------- */
+{s:"Defence",q:"Which military exercise is INCORRECTLY paired with India's partner country?",
+o:["Yudh Abhyas – Japan","Mitra Shakti – Sri Lanka","Surya Kiran – Nepal","Garuda – France"],
+e:"Yudh Abhyas is India's army exercise with the USA. With Japan, the army exercise is Dharma Guardian, which was asked twice. More pairs: Nomadic Elephant (Mongolia, asked in 2025), Shakti (France, army), Varuna (France, navy), Garuda (France, air force), Malabar (USA, Japan and Australia, naval), Ekuverin (Maldives), Sampriti (Bangladesh), Maitree (Thailand), Ajeya Warrior (UK, army), Konkan (UK, navy), Indra (Russia), Harimau Shakti (Malaysia), Desert Flag (UAE-hosted multinational air exercise, asked in 2025). Keep a list of every exercise held in the 12 months before your exam."},
+{s:"Defence",q:"TROPEX, the Indian Navy's largest exercise, stands for:",
+o:["Theatre-level Operational Readiness Exercise","Tropical Operations Exercise","Tri-service Operational Exercise","Trans-Oceanic Patrol Exercise"],
+e:"TROPEX is held every two years and involves the Navy's Eastern and Western fleets along with assets of the Army, Air Force and Coast Guard. TROPEX-25 was asked in 2025. Naval facts that come up: the Navy has three commands (Western, Mumbai; Eastern, Visakhapatnam; Southern, Kochi); Navy Day is 4 December (Operation Trident, 1971); the Andaman and Nicobar Command is the only tri-service command. Sea Dragon (asked in 2025) is a US-led anti-submarine exercise."},
+{s:"Defence",q:"BrahMos is a:",
+o:["Supersonic cruise missile developed jointly by India and Russia","Subsonic cruise missile developed with France","Intercontinental ballistic missile","Anti-tank guided missile developed with Israel"],
+e:"BrahMos is named after the Brahmaputra and Moskva rivers and flies at about Mach 2.8–3. It can be launched from land, sea, air and submarines. Missile family: Agni (ballistic; Agni-V tested with MIRV in Mission Divyastra, 2024); Prithvi (short-range ballistic); Pralay (quasi-ballistic surface-to-surface, asked in 2025); Akash (surface-to-air); Astra (air-to-air); Nag (anti-tank); Nirbhay (subsonic cruise); K-series (submarine-launched). The Integrated Guided Missile Development Programme (1983) was led by A.P.J. Abdul Kalam. Hypersonic and scramjet tests were asked in 2025."},
+{s:"Defence",q:"Which rank in the Indian Air Force is equivalent to a Major in the Army?",
+o:["Squadron Leader","Flight Lieutenant","Wing Commander","Group Captain"],
+e:"Equivalent ranks: Army Captain = Navy Lieutenant = Air Force Flight Lieutenant. Major = Lieutenant Commander = Squadron Leader. Lieutenant Colonel = Commander = Wing Commander. Colonel = Captain (Navy) = Group Captain. Brigadier = Commodore = Air Commodore. Major General = Rear Admiral = Air Vice Marshal. Lieutenant General = Vice Admiral = Air Marshal. General = Admiral = Air Chief Marshal. Field Marshal (Manekshaw, Cariappa) and Marshal of the Air Force (Arjan Singh) are honorary five-star ranks."},
+{s:"Defence",q:"The Sashastra Seema Bal (SSB) guards India's borders with:",
+o:["Nepal and Bhutan","China","Pakistan and Bangladesh","Myanmar"],
+e:"Border guarding forces: BSF guards the Pakistan and Bangladesh borders; ITBP guards the China border (asked in 2025); SSB guards Nepal and Bhutan; Assam Rifles guards Myanmar. Assam Rifles is the oldest paramilitary force (1835) and is administered by the Home Ministry but operationally controlled by the Army. The CRPF is the largest CAPF; the CISF guards industry, airports and Parliament; the NSG ('Black Cats') is the counter-terror force. All of them are under the Ministry of Home Affairs."},
+{s:"Defence",q:"INS Vikrant, India's first indigenously built aircraft carrier, was commissioned in:",
+o:["2022","2013","2019","2024"],
+e:"INS Vikrant was built by Cochin Shipyard and commissioned on 2 September 2022, when the Navy also adopted a new ensign inspired by Shivaji's seal. It shares its name with India's first carrier (ex-HMS Hercules, 1961), which served in the 1971 war. INS Vikramaditya is a converted Russian carrier (2013). INS Arihant and INS Arighaat are nuclear ballistic-missile submarines. Other milestones: the first Chief of Defence Staff, Gen. Bipin Rawat (2020); the Agnipath scheme (2022)."},
+{s:"Defence",q:"Operation Sindoor (May 2025) was launched by India in response to:",
+o:["The terrorist attack at Pahalgam in April 2025","The Pulwama attack of 2019","The Uri attack of 2016","The Galwan clash of 2020"],
+e:"After 26 people were killed at Baisaran near Pahalgam on 22 April 2025, India struck terror bases in Pakistan and Pakistan-occupied Kashmir on 7 May 2025, and put the Indus Waters Treaty (1960, World Bank-brokered) in abeyance. Earlier responses: Uri (2016) led to the surgical strikes; Pulwama (2019) led to the Balakot air strike. Operation Keller (asked in 2025) was a counter-terror operation in Shopian. Learn operation names with their purpose: Ganga (Ukraine evacuation), Kaveri (Sudan), Ajay (Israel), Sindhu (Iran/Israel, 2025)."},
+
+/* ---------------- INSTITUTIONS (7) ---------------- */
+{s:"Institutions",q:"Which of the following pairs (organisation – headquarters) is INCORRECTLY matched?",
+o:["ICAO – Geneva","UNEP – Nairobi","FAO – Rome","IAEA – Vienna"],
+e:"The International Civil Aviation Organization is in Montreal, Canada. Geneva is home to the WHO, ILO, WMO (asked in 2025), WIPO, ITU, UNHCR and WTO, as well as the ICRC, which is not a UN agency (asked in 2018). Rome has the FAO, IFAD and WFP. Vienna has the IAEA, UNIDO and UNODC. Paris has UNESCO and the OECD. Washington has the IMF and World Bank; New York has UNICEF and UNDP; London has the IMO; Bern has the UPU; and Madrid has UN Tourism."},
+{s:"Institutions",k:1,a:0,q:"Consider the following statements about the UN Security Council:\n1. It has 15 members, five of them permanent.\n2. Non-permanent members are elected by the General Assembly for two-year terms.\n3. A retiring non-permanent member is eligible for immediate re-election.\nWhich of the statements given above is/are correct?",
+o:["1 and 2 only","2 and 3 only","1 only","1, 2 and 3"],
+e:"Statement 3 is wrong: Article 23 of the UN Charter says a retiring non-permanent member is NOT eligible for immediate re-election. Five of the ten non-permanent seats are elected each year by a two-thirds vote of the General Assembly. India has served eight terms, the latest in 2021–22. The 2021 paper asked about UNSC terms. The five permanent members with a veto are the USA, UK, France, Russia and China. Also note who became UN Secretary-General from January 2027 <span class='check'>check</span>."},
+{s:"Institutions",q:"Which of the following countries is NOT a member of BIMSTEC?",
+o:["Maldives","Myanmar","Thailand","Bhutan"],
+e:"BIMSTEC (1997, secretariat in Dhaka) has seven members: Bangladesh, Bhutan, India, Myanmar, Nepal, Sri Lanka and Thailand. The Maldives is in SAARC but not BIMSTEC; Myanmar and Thailand are in BIMSTEC but not SAARC. This comparison is a classic trick. The 6th summit was in Bangkok (April 2025), and India hosted the BIMSTEC Youth Summit (asked in 2025). BIMSTEC was also asked in 2021, so learn its charter (2022), its sectors (India leads security) and the next summit host."},
+{s:"Institutions",q:"Which country became a full member of BRICS in January 2025?",
+o:["Indonesia","Saudi Arabia","Turkey","Argentina"],
+e:"BRICS began as BRIC (2009); South Africa joined in 2010. In 2024 Egypt, Ethiopia, Iran and the UAE joined. Saudi Arabia was invited but has not formally confirmed, and Argentina declined. Indonesia joined in January 2025. BRICS also has 'partner countries'. Its bank is the New Development Bank (Shanghai). The 2025 summit was held in Rio de Janeiro, and India holds the chairship in 2026 <span class='check'>check the summit city and outcomes</span>, so it is a strong candidate for the 2027 paper."},
+{s:"Institutions",q:"Which of the following pairs (report – publisher) is INCORRECTLY matched?",
+o:["World Economic Outlook – World Bank","Global Gender Gap Report – World Economic Forum","Human Development Report – UNDP","World Giving Index – Charities Aid Foundation"],
+e:"The World Economic Outlook is an IMF report, as is the Global Financial Stability Report. The World Bank publishes the World Development Report, Global Economic Prospects and South Asia Economic Focus (asked in 2021). The WEF publishes the Global Gender Gap, Global Risks and Future of Jobs reports. The Institute for Economics and Peace publishes the Global Peace Index (asked in 2018). The World Giving Index was asked in 2021. Also learn the World Happiness Report (UN-SDSN), the Global Innovation Index (WIPO) and the Press Freedom Index (RSF)."},
+{s:"Institutions",q:"Which is the only UNESCO World Heritage Site in Odisha?",
+o:["Sun Temple, Konark","Chilika Lake","Jagannath Temple, Puri","Similipal National Park"],
+e:"Konark was inscribed in 1984. Similipal is in UNESCO's Man and the Biosphere network (2009), which is a separate programme, and Chilika is a Ramsar site. India has more than 40 World Heritage Sites; recent additions are the Moidams of Assam (2024) and the Maratha Military Landscapes (2025) <span class='check'>check for 2026 additions</span>. Keep the UNESCO lists apart: World Heritage (sites), Intangible Cultural Heritage (living traditions, such as Chhau), and Memory of the World (documents; asked in 2025)."},
+{s:"Institutions",q:"The first summit of the Non-Aligned Movement was held in 1961 at:",
+o:["Belgrade","Bandung","Cairo","New Delhi"],
+e:"The founding summit was held at Belgrade (then Yugoslavia). The founders were Nehru (India), Tito (Yugoslavia), Nasser (Egypt), Sukarno (Indonesia) and Nkrumah (Ghana). The Bandung Afro-Asian Conference (1955) came before it and laid its foundation. NAM is credited mainly to Nehru, which was asked in 2018. It has 120 members, making it the largest grouping after the UN. India hosted the 7th summit in New Delhi in 1983."},
+
+/* ---------------- DAYS & CURRENT AFFAIRS (7) ---------------- */
+{s:"Days & CA",q:"National Voters' Day (25 January) marks the foundation day of:",
+o:["The Election Commission of India (1950)","The adoption of the Constitution","The first general election","The Model Code of Conduct"],
+e:"The Election Commission was set up on 25 January 1950, a day before the Republic. Voters' Day has been observed since 2011. The 2025 paper asked its theme ('Nothing Like Voting, I Vote for Sure'). The first general election ran from October 1951 to February 1952 under the first CEC, Sukumar Sen. The Constitution was adopted on 26 November 1949 (Constitution Day) and came into force on 26 January 1950. The voting age was cut from 21 to 18 by the 61st Amendment (1988)."},
+{s:"Days & CA",q:"National Statistics Day (29 June) is observed on the birth anniversary of:",
+o:["P.C. Mahalanobis","C.R. Rao","Srinivasa Ramanujan","V.K.R.V. Rao"],
+e:"Prasanta Chandra Mahalanobis founded the Indian Statistical Institute (Kolkata, 1931), designed the Second Five-Year Plan model, and gave the 'Mahalanobis distance'. Statistics Day was asked in 2018. Neighbours: Ramanujan's birthday (22 December) is National Mathematics Day; C.R. Rao won the International Prize in Statistics (2023). The National Sample Survey began in 1950, and MoSPI now merges the NSSO and CSO into the NSO."},
+{s:"Days & CA",q:"Civil Services Day (21 April) commemorates:",
+o:["Sardar Patel's address to the first batch of administrative service probationers in 1947","The founding of the UPSC","The first Indian Civil Services examination held in India","The birth anniversary of Lal Bahadur Shastri"],
+e:"On 21 April 1947, Patel addressed the first probationers at Metcalfe House, Delhi, and called the services the 'steel frame of India'. On this day the PM gives the Awards for Excellence in Public Administration. Related: the UPSC traces back to 1926 (Lee Commission); the ICS exam began in India in 1922 (in Allahabad, alongside London); Satyendranath Tagore was the first Indian in the ICS (1864). National Unity Day (31 October) marks Patel's birthday."},
+{s:"Days & CA",q:"National Science Day (28 February) marks the announcement of the:",
+o:["Raman Effect (1928)","First Indian satellite launch","Pokhran nuclear test","Founding of ISRO"],
+e:"C.V. Raman announced the scattering of light named after him on 28 February 1928 and won the Physics Nobel in 1930, the first Asian to win it in science. Each Science Day has a theme. Related days: National Technology Day, 11 May (Pokhran-II, 1998); National Space Day, 23 August; National Mathematics Day, 22 December; Engineers' Day, 15 September (Visvesvaraya). India's first satellite, Aryabhata, was launched on 19 April 1975 from the USSR."},
+{s:"Days & CA",q:"Census 2027, with a reference date of 1 March 2027 for most of India, is notable because it will be India's:",
+o:["First digital Census, which will also enumerate caste","First Census after Independence","First Census to count Scheduled Tribes","First Census to be done only by sample survey"],
+e:"The 2021 Census was postponed because of COVID-19. The next Census has two phases: house-listing first, then population enumeration. For snow-bound areas such as Ladakh and parts of Jammu & Kashmir, Himachal and Uttarakhand, the reference date is 1 October 2026. Data will be collected digitally through mobile apps, and caste will be counted for the first time since 1931 (apart from SC/ST counts). The Census is run by the Registrar General and Census Commissioner under the Home Ministry, under the Census Act, 1948. The 2011 Census counted about 121 crore people <span class='check'>check the latest Census updates</span>."},
+{s:"Days & CA",q:"World Water Day is observed on:",
+o:["22 March","22 April","5 June","2 February"],
+e:"World Water Day (since 1993) was asked in 2025. Learn the environment calendar together: 2 February, World Wetlands Day; 3 March, World Wildlife Day; 21 March, International Day of Forests; 22 March, World Water Day; 23 March, World Meteorological Day; 22 April, Earth Day; 22 May, Biodiversity Day; 5 June, World Environment Day; 8 June, World Oceans Day; 29 July, International Tiger Day; 16 September, World Ozone Day. Each has a yearly theme, and the theme is what gets asked."},
+{s:"Days & CA",q:"Which country won the ICC Women's ODI World Cup held in 2025?",
+o:["India","Australia","England","South Africa"],
+e:"India beat South Africa in the final at Navi Mumbai in November 2025, winning its first women's World Cup <span class='check'>check</span>. In men's cricket, India won the T20 World Cup (2024) and the Champions Trophy (March 2025, beating New Zealand in Dubai). Sports questions have been rarer since 2018, but titles won by India, venues of major events (Commonwealth Games 2030 in Ahmedabad <span class='check'>check</span>) and Odisha's hockey links (Bhubaneswar and Rourkela hosted the 2023 Men's Hockey World Cup) are the safest areas to prepare."}
+];
+
+/* ---------- prepare options (seeded shuffle so answer letters vary) ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+Q.forEach(function(x,i){
+  if(x.k){x.opts=x.o.slice();x.ans=x.a;return}
+  var r=rng(i*97+13), idx=[0,1,2,3];
+  for(var j=3;j>0;j--){var m=Math.floor(r()*(j+1));var t=idx[j];idx[j]=idx[m];idx[m]=t}
+  x.opts=idx.map(function(n){return x.o[n]}); x.ans=idx.indexOf(0);
+});
+var L="ABCD", KEY="aso-mock1", DUR=90*60;
+var st=null, cur=0, tick=null;
+
+function $(id){return document.getElementById(id)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function show(id){["intro","test","result"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});window.scrollTo(0,0)}
+
+function start(mode){
+  st={mode:mode,ans:Q.map(function(){return null}),mk:Q.map(function(){return false}),start:Date.now(),done:false};
+  cur=0; save(); openTest();
+}
+function openTest(){
+  show("test");
+  $("modeLbl").textContent=st.mode==="exam"?"Exam mode":"Practice mode";
+  $("timer").classList.toggle("hide",st.mode!=="exam");
+  buildPal(); render();
+  clearInterval(tick);
+  if(st.mode==="exam"){tick=setInterval(updTimer,1000);updTimer()}
+}
+function left(){return Math.max(0,DUR-Math.floor((Date.now()-st.start)/1000))}
+function updTimer(){
+  var s=left(); $("timer").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+  $("timer").classList.toggle("low",s<300);
+  if(s<=0){clearInterval(tick);finish()}
+}
+function buildPal(){
+  var p=$("pal"); p.innerHTML="";
+  Q.forEach(function(_,i){var b=document.createElement("button");b.textContent=i+1;b.onclick=function(){cur=i;render()};p.appendChild(b)});
+}
+function updPal(){
+  var bs=$("pal").children, n=0;
+  for(var i=0;i<bs.length;i++){
+    var a=st.ans[i]; if(a!==null)n++;
+    bs[i].className="";
+    if(st.mode==="prac"&&a!==null) bs[i].classList.add(a===Q[i].ans?"r":"w");
+    else if(a!==null) bs[i].classList.add("ans");
+    if(st.mk[i])bs[i].classList.add("mk");
+    if(i===cur)bs[i].classList.add("cur");
+  }
+  $("progress").textContent=n+" of 100 answered";
+}
+function expHTML(x){return '<div class="exp"><span class="lab">Answer: '+L[x.ans]+'. '+esc(x.opts[x.ans])+'</span>'+x.e+'</div>'}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var x=Q[cur], a=st.ans[cur], reveal=st.mode==="prac"&&a!==null;
+  $("qnum").textContent="Question "+(cur+1)+" of 100 · "+x.s;
+  $("qtext").textContent=x.q;
+  var o=$("opts"); o.innerHTML="";
+  x.opts.forEach(function(t,i){
+    var b=document.createElement("button"); b.className="opt"; b.innerHTML="<b>"+L[i]+".</b><span>"+esc(t)+"</span>";
+    if(reveal){b.disabled=true; if(i===x.ans)b.classList.add("right"); else if(i===a)b.classList.add("wrong")}
+    else if(i===a)b.classList.add("sel");
+    b.onclick=function(){ if(st.mode==="prac"&&st.ans[cur]!==null)return; st.ans[cur]=i; save(); render() };
+    o.appendChild(b);
+  });
+  $("qexp").innerHTML=reveal?expHTML(x):"";
+  $("prev").disabled=cur===0; $("next").textContent=cur===99?"Finish →":"Next →";
+  $("clear").classList.toggle("hide",st.mode==="prac");
+  $("mark").textContent=st.mk[cur]?"Unmark":"Mark for review";
+  updPal();
+}
+$("prev").onclick=function(){if(cur>0){cur--;render()}};
+$("next").onclick=function(){if(cur<99){cur++;render()}else $("submitBtn").click()};
+$("clear").onclick=function(){st.ans[cur]=null;save();render()};
+$("mark").onclick=function(){st.mk[cur]=!st.mk[cur];save();render()};
+$("submitBtn").onclick=function(){
+  var un=st.ans.filter(function(a){return a===null}).length;
+  if(confirm("Submit the test?"+(un?" You have "+un+" unanswered question"+(un>1?"s":"")+".":"")))finish();
+};
+function finish(){
+  clearInterval(tick); st.done=true; save(); results("all");
+}
+function results(f){
+  show("result");
+  var c=0,w=0,s=0,sec={},order=[];
+  Q.forEach(function(x,i){
+    if(!sec[x.s]){sec[x.s]={n:0,c:0,w:0};order.push(x.s)}
+    var a=st.ans[i]; sec[x.s].n++;
+    if(a===null)s++; else if(a===x.ans){c++;sec[x.s].c++} else {w++;sec[x.s].w++}
+  });
+  var net=c-0.25*w;
+  $("score").textContent=net.toFixed(2)+" / 100";
+  $("stats").innerHTML=[["Right",c],["Wrong",w],["Skipped",s],["Accuracy",(c+w?Math.round(100*c/(c+w)):0)+"%"]]
+    .map(function(p){return '<div class="stat"><span>'+p[0]+'</span><b>'+p[1]+'</b></div>'}).join("");
+  var acc=c+w?c/(c+w):0;
+  $("verdict").innerHTML = (w>0&&acc<0.6?"<b>Your accuracy is under 60%, so the negative marks are costing you.</b> Guess only when you can eliminate two options. ":"")+
+    (s>30?"<b>You skipped more than 30.</b> Most skips should become answers after one more revision of the guide's \"Asked before\" and \"Likely next\" boxes. ":"")+
+    (net>=60?"A net score of 60 or more on predicted questions is a strong position.":net>=45?"A net score in the 45–60 range is close. The section table shows where to gain.":"Treat this as a baseline. Re-take the mock after revising your weakest two sections.");
+  $("secTable").innerHTML="<tr><th>Section</th><th>Qs</th><th>Right</th><th>Wrong</th><th>Net</th></tr>"+
+    order.map(function(k){var v=sec[k];return "<tr><td>"+k+"</td><td>"+v.n+"</td><td>"+v.c+"</td><td>"+v.w+"</td><td><b>"+(v.c-0.25*v.w).toFixed(2)+"</b></td></tr>"}).join("");
+  drawReview(f);
+}
+function drawReview(f){
+  var h="";
+  Q.forEach(function(x,i){
+    var a=st.ans[i], k=a===null?"s":a===x.ans?"r":"w";
+    if(f!=="all"&&f!==k)return;
+    var tag={r:'<span class="tag r">Right</span>',w:'<span class="tag w">Wrong</span>',s:'<span class="tag s">Skipped</span>'}[k];
+    h+='<div class="rq"><p class="qnum">Q'+(i+1)+' · '+x.s+tag+'</p><p class="qtext">'+esc(x.q)+'</p>';
+    x.opts.forEach(function(t,j){
+      var cls=j===x.ans?" right":(j===a?" wrong":"");
+      h+='<div class="opt'+cls+'"><b>'+L[j]+'.</b><span>'+esc(t)+(j===a?" <i>(your answer)</i>":"")+'</span></div>';
+    });
+    h+=expHTML(x)+'</div>';
+  });
+  $("review").innerHTML=h||"<p>No questions in this group.</p>";
+  document.querySelectorAll("#filters .btn").forEach(function(b){b.classList.toggle("primary",b.dataset.f===f)});
+}
+document.querySelectorAll("#filters .btn").forEach(function(b){b.onclick=function(){drawReview(b.dataset.f)}});
+$("retry").onclick=function(){try{localStorage.removeItem(KEY)}catch(e){} st=null; $("resume").classList.add("hide"); show("intro")};
+$("startExam").onclick=function(){start("exam")};
+$("startPrac").onclick=function(){start("prac")};
+$("resume").onclick=function(){ if(st.done)results("all"); else openTest() };
+
+(function init(){
+  var s=load();
+  if(s&&s.ans&&s.ans.length===Q.length){
+    st=s; $("resume").classList.remove("hide");
+    $("resume").textContent=s.done?"See last result":"Resume saved attempt ("+(s.mode==="exam"?"exam":"practice")+")";
+    if(s.mode==="exam"&&!s.done&&left()<=0){st.done=true;save();$("resume").textContent="See last result"}
+  }
+})();
+
+/* theme switch */
+(function(){var root=document.documentElement, btns=document.querySelectorAll('.theme button');
+ function apply(t){ if(t==='system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',t);
+  btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)}); try{localStorage.setItem('aso-theme',t)}catch(e){} }
+ var saved='system'; try{saved=localStorage.getItem('aso-theme')||'system'}catch(e){}
+ apply(saved); btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});})();
+</script>
+</body>
+</html>

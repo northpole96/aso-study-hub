@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Full Test 2 100 MCQ</title>
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --ink:#1d1d1b; --muted:#6b6a64; --line:#e3e1da;
+  --accent:#b4441c; --accent-soft:#fbeee7; --ok:#1f7a4d; --ok-soft:#eaf3ee; --bad:#b3261e; --bad-soft:#fbeaea;
+  --mark:#8a5a00; --mark-soft:#fff3c4; --next:#eef1fb; --next-line:#3b5bcc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+    --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+    --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+  --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+  --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header{padding:24px 0 8px}
+h1{margin:0 0 4px;font-size:26px;line-height:1.25}
+.sub{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.theme{float:right;display:inline-flex;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:2px;margin:0 0 8px 12px}
+.theme button{border:0;background:none;color:var(--muted);font:600 12px/1 inherit;padding:6px 10px;border-radius:99px;cursor:pointer}
+.theme button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn{font:600 15px/1 inherit;padding:11px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-top:8px;padding-bottom:8px}
+.timer{font:700 18px/1 ui-monospace,Menlo,monospace}
+.timer.low{color:var(--bad)}
+.pill{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:99px}
+.qnum{color:var(--muted);font-size:14px;margin:0 0 6px}
+.qtext{font:18px/1.6 Georgia,"Iowan Old Style",serif;white-space:pre-line;margin:0 0 14px;overflow-wrap:anywhere}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:16px/1.5 inherit;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.opt:hover{border-color:var(--accent)}
+.opt b{flex:none;width:22px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.exp{border-left:4px solid var(--next-line);background:var(--next);padding:10px 14px;border-radius:6px;margin:12px 0 0;font:15.5px/1.65 Georgia,"Iowan Old Style",serif;overflow-wrap:anywhere}
+.exp .lab{font:700 13px/1.4 -apple-system,sans-serif;color:var(--next-line);display:block;margin-bottom:2px}
+.check{color:var(--accent);font-weight:600;font-size:13px;font-family:-apple-system,sans-serif}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal button{font:600 13px/1 inherit;padding:9px 0;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.pal button.ans{background:var(--accent);border-color:var(--accent);color:#fff}
+.pal button.mk{box-shadow:inset 0 -4px 0 var(--mark)}
+.pal button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.pal button.r{background:var(--ok);border-color:var(--ok);color:#fff}
+.pal button.w{background:var(--bad);border-color:var(--bad);color:#fff}
+.legend{font-size:13px;color:var(--muted);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+#secTable th:not(:first-child),#secTable td:not(:first-child){white-space:nowrap;text-align:center;padding:7px 6px}
+.big{font-size:40px;font-weight:800;line-height:1.1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat span{display:block;color:var(--muted);font-size:13px}
+.stat b{font-size:22px}
+.rq{border-top:1px solid var(--line);padding:16px 0}
+.rq:first-child{border-top:0}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px}
+.tag.r{color:var(--ok);background:var(--ok-soft)} .tag.w{color:var(--bad);background:var(--bad-soft)} .tag.s{color:var(--muted);background:var(--line)}
+ul{padding-left:20px} li{margin:4px 0}
+.hide{display:none!important}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:16px 16px 40px}
+@media (max-width:600px){ .card{padding:16px} .qtext{font-size:17px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="theme" role="group" aria-label="Theme">
+    <button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">System</button>
+  </div>
+  <h1>OPSC ASO 2027 · English Practice Test 2 (100 MCQs)</h1>
+  <p class="sub">100 questions · 90 minutes · +1 for a right answer, −0.25 for a wrong one, 0 for a skipped one. Grammar, vocabulary, idioms, phrasal verbs, confusable words, voice and narration, and reading comprehension. None of these repeat Test 1.</p>
+</header>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="wrap">
+  <div class="card">
+    <h2 style="margin-top:0">How to take this test</h2>
+    <ul>
+      <li><b>Exam mode</b>: a 90-minute timer (the real paper: 100 questions in 90 minutes). No answers are shown until you submit.</li>
+      <li><b>Practice mode</b>: no timer. The answer and a short explanation appear as soon as you choose, so you can use it to revise.</li>
+      <li>Sections: Grammar 14, Fill in the blanks 12, Synonyms 10, Antonyms 10, Idioms and proverbs 10, Phrasal verbs 8, Confusable words 8, Voice and Narration 6, Sentence improvement 4, One-word substitution 3, Comprehension 12 (two passages), Para jumble 3.</li>
+      <li>Your progress is saved in this browser, so you can close the page and come back later.</li>
+    </ul>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="startExam">Start exam mode (90 min)</button>
+      <button class="btn" id="startPrac">Start practice mode</button>
+      <button class="btn hide" id="resume">Resume saved attempt</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="test" class="hide">
+  <div class="bar"><div class="wrap">
+    <span class="timer" id="timer">90:00</span>
+    <span class="pill" id="modeLbl">Exam mode</span>
+    <span id="progress" style="color:var(--muted);font-size:14px"></span>
+    <span style="flex:1"></span>
+    <button class="btn" id="submitBtn">Submit test</button>
+  </div></div>
+  <div class="wrap">
+    <div class="card" id="qcard">
+      <p class="qnum" id="qnum"></p>
+      <p class="qtext" id="qtext"></p>
+      <div id="opts"></div>
+      <div id="qexp"></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" id="prev">← Previous</button>
+        <button class="btn" id="clear">Clear answer</button>
+        <button class="btn" id="mark">Mark for review</button>
+        <span style="flex:1"></span>
+        <button class="btn primary" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pal" id="pal"></div>
+      <p class="legend">Filled = answered · yellow underline = marked for review · outlined = current question.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hide wrap">
+  <div class="card">
+    <h2 style="margin-top:0">Your result</h2>
+    <div class="big" id="score"></div>
+    <div class="stats" id="stats"></div>
+    <p id="verdict"></p>
+    <h3>By section</h3>
+    <table id="secTable"></table>
+    <p class="legend">Revise the section with the lowest net score first.</p>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="retry">Start again</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="margin-top:0">Review every question</h2>
+    <div class="row" id="filters">
+      <button class="btn" data-f="all">All</button>
+      <button class="btn" data-f="w">Wrong</button>
+      <button class="btn" data-f="s">Skipped</button>
+      <button class="btn" data-f="r">Right</button>
+    </div>
+    <div id="review"></div>
+  </div>
+</div>
+
+<footer>English practice test for OPSC ASO 2027. Also see <a href="ASO-English-Full-Test-100-MCQ.html">English Test 1</a> and the <a href="ASO-GA-Full-Test-100-MCQ.html">GS full test</a>.</footer>
+
+<script>
+/* Each question: s = section, q = text, o = options (correct option FIRST unless k=1),
+   e = explanation, k = 1 keeps the option order and uses a = correct index. */
+function t(s,q,o,e){return {s:s,q:q,o:o,e:e}}
+function t(s,q,o,e){return {s:s,q:q,o:o,e:e}}
+var G="1 Grammar", B="2 Fill in the blanks", Sy="3 Synonyms", An="4 Antonyms", Id="5 Idioms", Ow="6 One-word", Sp="7 Spelling", Vo="8 Voice & Narration", Si="9 Sentence improvement", Co="10 Comprehension", Pj="11 Para jumble";
+var P1="Passage 1\n\nReading is one of the best habits a person can develop. A book does not just give facts; it takes the reader into another mind and another world. Those who read regularly find that they write better, speak with more confidence and understand people more easily. Yet many young people today spend more time on screens than on books. Teachers say this has reduced their ability to concentrate for long periods. A few minutes of reading each day, they suggest, is enough to rebuild the habit.\n\n";
+var P2="Passage 2\n\nWater seems endless to people who live near rivers, but only a tiny part of the world's water is fresh and fit to drink. Most of it is in the oceans, and much of the fresh water is locked in ice. As cities grow, they draw more water from rivers and from under the ground, often faster than rain can refill it. Experts warn that unless water is saved and used carefully, many regions will face serious shortages within a few decades. Simple steps such as repairing leaking pipes and collecting rainwater can make a real difference.\n\n";
+function t(s,q,o,e){return {s:s,q:q,o:o,e:e}}
+var G="1 Grammar", B="2 Fill in the blanks", Sy="3 Synonyms", An="4 Antonyms", Id="5 Idioms & proverbs", Ph="6 Phrasal verbs", Cf="7 Confusable words", Vo="8 Voice & Narration", Si="9 Sentence improvement", Ow="10 One-word", Co="11 Comprehension", Pj="12 Para jumble";
+var P1="Passage 1\n\nTime is the one resource that every person receives in equal measure. A day has twenty-four hours for the rich and the poor alike, and nobody can buy an extra minute. What separates a successful person from the rest is not how much time they have but how they use it. Those who plan their day, set small goals and avoid distractions usually finish more work in less time. Those who delay tasks until the last moment feel pressure and often make mistakes. Wise use of time, therefore, is a skill that can be learned by anyone willing to try.\n\n";
+var P2="Passage 2\n\nMangrove forests grow along coasts where rivers meet the sea. Their roots stand above the muddy water and hold the soil in place. This protects the shore from waves and storms. During a cyclone, villages behind thick mangroves suffer much less damage than those without them. Mangroves are also nurseries for fish and crabs, so many fishing families depend on them. Yet in many places the trees are cut for farms, shrimp ponds and buildings. Scientists argue that planting and guarding mangroves is one of the cheapest ways to protect coastal people.\n\n";
+var Q = [
+/* ===== 1 GRAMMAR (14) ===== */
+t(G,"Choose the correct sentence.",["She has lived in Cuttack since she was a child.","She has lived in Cuttack since she is a child.","She has lived in Cuttack for she was a child.","She has lived in Cuttack from she was a child."],"'Since' is followed by a past-tense clause that names a point in time: since she was a child."),
+t(G,"Choose the correct sentence.",["The books on the table belong to me.","The books on the table belongs to me.","The books on the table belong for me.","The books on the table are belonging to me."],"The subject 'books' is plural, so the verb is 'belong'. 'Belong' is followed by 'to' and is not used in the continuous form."),
+t(G,"Choose the correct sentence.",["He hardly ever visits us.","He hardly never visits us.","He doesn't hardly ever visit us.","He hardly ever not visits us."],"'Hardly' already has a negative sense, so it is not used with another negative word."),
+t(G,"Choose the correct sentence.",["I wish I were taller.","I wish I am taller.","I wish I will be taller.","I wish I would taller."],"After 'wish' for an unreal present we use the past form, and 'were' is used for all persons."),
+t(G,"Choose the correct sentence.",["Neither Ravi nor his friends were present.","Neither Ravi nor his friends was present.","Neither Ravi nor his friends is present.","Neither Ravi nor his friends has been present."],"With 'neither ... nor' the verb agrees with the noun nearest to it. Here that is 'friends' (plural), so 'were'."),
+t(G,"Choose the correct sentence.",["The number of students is increasing.","The number of students are increasing.","The number of student are increasing.","The numbers of student is increasing."],"'The number of' takes a singular verb. (But 'A number of students are' takes a plural verb.)"),
+t(G,"Choose the correct sentence.",["He is too weak to walk.","He is too weak for walk.","He is too weak that he cannot walk.","He is very weak to walk."],"The pattern is 'too + adjective + to + verb'."),
+t(G,"Choose the correct sentence.",["She asked me whether I had finished the work.","She asked me if had I finished the work.","She asked me that I had finished the work.","She asked me whether had I finished the work."],"A yes/no question is reported with 'if' or 'whether' and in statement word order."),
+t(G,"Choose the correct sentence.",["Please lend me your pen.","Please borrow me your pen.","Please lent me your pen.","Please lend for me your pen."],"You 'lend' something to someone and you 'borrow' something from someone. 'Borrow me' is wrong."),
+t(G,"Choose the correct sentence.",["The police are investigating the case.","The police is investigating the case.","The police has investigated the case.","The police are investigate the case."],"'Police' is always plural in meaning and takes a plural verb."),
+t(G,"Choose the correct sentence.",["I did not see him yesterday.","I did not saw him yesterday.","I have not seen him yesterday.","I was not see him yesterday."],"After 'did not' the verb stays in its base form. The present perfect cannot be used with 'yesterday'."),
+t(G,"Choose the correct sentence.",["Not only the teacher but also the students were happy.","Not only the teacher but also the students was happy.","Not only the teacher but also the students is happy.","Not only the teacher but also the students has been happy."],"With 'not only ... but also' the verb agrees with the nearer subject, 'students'."),
+t(G,"Choose the correct sentence.",["The sun rises in the east.","The sun rise in the east.","The sun rising in the east.","The sun is rise in the east."],"A general truth is in the simple present, and 'sun' is singular, so 'rises'."),
+t(G,"Choose the correct sentence.",["Either of the two roads leads to the village.","Either of the two roads lead to the village.","Either of the two roads are leading to the village.","Either of the two roads have led to the village."],"'Either' means 'one of the two' and takes a singular verb."),
+
+/* ===== 2 FILL IN THE BLANKS (12) ===== */
+t(B,"The Ganga ___ in the Himalayas.",["rises","is rising","rose","has rised"],"A permanent fact is in the simple present."),
+t(B,"He divided the sweets ___ the two children.",["between","among","amid","within"],"'Between' is used for two; 'among' is used for more than two."),
+t(B,"He is married ___ a doctor.",["to","with","by","for"],"The correct phrase is 'married to'."),
+t(B,"Rani is fond ___ music.",["of","for","at","with"],"The correct phrase is 'fond of'."),
+t(B,"He has two sons, ___ are doctors.",["both of whom","all of whom","each of whom","either of whom"],"For exactly two people we use 'both'. 'All' is for three or more."),
+t(B,"You ___ smoke here; it is prohibited.",["must not","need not","ought","dare"],"'Must not' shows a ban. 'Need not' means it is not necessary."),
+t(B,"I would rather ___ at home than go out.",["stay","to stay","staying","stayed"],"'Would rather' is followed by the base verb without 'to'."),
+t(B,"___ hard I tried, I could not open the door.",["However","Although","Because","Unless"],"'However + adjective/adverb' means 'no matter how'."),
+t(B,"He is ___ best player in our team.",["the","a","an","no article"],"Superlatives take 'the'."),
+t(B,"Unless you ___ hard, you will fail.",["work","do not work","will work","worked"],"'Unless' already means 'if not', so the verb after it is positive. The present tense is used for a future condition."),
+t(B,"She suggested ___ for a walk.",["going","to go","go","went"],"'Suggest' is followed by the -ing form (suggested going)."),
+t(B,"The teacher, along with his students, ___ visiting the museum.",["is","are","were","have"],"'Along with' does not make the subject plural. The subject is 'teacher', so 'is'."),
+
+/* ===== 3 SYNONYMS (10) ===== */
+t(Sy,"Choose the word closest in meaning to VIVID.",["Lively","Dull","Faint","Silent"],"Vivid means bright, clear and full of life."),
+t(Sy,"Choose the word closest in meaning to ARDENT.",["Passionate","Cold","Weak","Calm"],"Ardent means very eager and full of feeling."),
+t(Sy,"Choose the word closest in meaning to ELOQUENT.",["Fluent and expressive","Silent","Rude","Slow"],"An eloquent speaker speaks clearly and powerfully."),
+t(Sy,"Choose the word closest in meaning to LUCID.",["Clear","Confusing","Dark","Heavy"],"Lucid means easy to understand."),
+t(Sy,"Choose the word closest in meaning to SCRUTINISE.",["Examine closely","Ignore","Praise","Copy"],"To scrutinise is to look at something very carefully."),
+t(Sy,"Choose the word closest in meaning to MITIGATE.",["Reduce","Increase","Spread","Create"],"To mitigate is to make something less severe."),
+t(Sy,"Choose the word closest in meaning to FORTUITOUS.",["Accidental","Planned","Costly","Foolish"],"Fortuitous means happening by chance, often with a happy result."),
+t(Sy,"Choose the word closest in meaning to GREGARIOUS.",["Sociable","Greedy","Lonely","Shy"],"A gregarious person enjoys being with others."),
+t(Sy,"Choose the word closest in meaning to TENACIOUS.",["Persistent","Weak","Lazy","Gentle"],"Tenacious means holding firmly on and not giving up."),
+t(Sy,"Choose the word closest in meaning to VENERABLE.",["Respected","Ancient and useless","Fearful","Foolish"],"Venerable means deserving great respect because of age or wisdom."),
+
+/* ===== 4 ANTONYMS (10) ===== */
+t(An,"Choose the word opposite in meaning to PRUDENT.",["Reckless","Careful","Wise","Thrifty"],"Prudent means careful and sensible; reckless means acting without thought."),
+t(An,"Choose the word opposite in meaning to VERBOSE.",["Concise","Wordy","Talkative","Lengthy"],"Verbose means using too many words; concise means brief and to the point."),
+t(An,"Choose the word opposite in meaning to FUTILE.",["Fruitful","Useless","Empty","Vain"],"Futile means without result; fruitful means productive."),
+t(An,"Choose the word opposite in meaning to INEVITABLE.",["Avoidable","Certain","Sure","Fixed"],"Inevitable means impossible to avoid; avoidable is the opposite."),
+t(An,"Choose the word opposite in meaning to BARREN.",["Fertile","Dry","Empty","Rocky"],"Barren land produces nothing; fertile land produces crops."),
+t(An,"Choose the word opposite in meaning to SPORADIC.",["Frequent","Rare","Occasional","Scattered"],"Sporadic means happening now and then; frequent is the opposite."),
+t(An,"Choose the word opposite in meaning to SUPERFICIAL.",["Profound","Shallow","Surface","Slight"],"Superficial means shallow; profound means deep."),
+t(An,"Choose the word opposite in meaning to COMMENCE.",["Conclude","Begin","Start","Open"],"Commence means to begin; conclude means to end."),
+t(An,"Choose the word opposite in meaning to DIMINISH.",["Increase","Reduce","Fade","Shrink"],"Diminish means to become less; increase is the opposite."),
+t(An,"Choose the word opposite in meaning to GLOOMY.",["Cheerful","Dark","Sad","Dull"],"Gloomy means sad or dark; cheerful means happy and bright."),
+
+/* ===== 5 IDIOMS & PROVERBS (10) ===== */
+t(Id,"'The ball is in your court' means:",["It is now your turn to act","You are playing well","You have lost the game","You must wait"],"It means the next move or decision is yours."),
+t(Id,"'Under the weather' means:",["Slightly ill","Very rich","In a hurry","Happy"],"If you are under the weather, you feel a little unwell."),
+t(Id,"'Don't cry over spilt milk' means:",["Do not regret what cannot be undone","Do not waste milk","Do not cry in public","Do not spill things"],"It advises not to worry about past mistakes that cannot be changed."),
+t(Id,"'To call it a day' means:",["To stop working for the day","To name a day","To make a phone call","To start early"],"It means to decide to stop what you are doing."),
+t(Id,"'To add fuel to the fire' means:",["To make a bad situation worse","To cook food","To help someone","To end a quarrel"],"It means to make an argument or problem worse."),
+t(Id,"'In a nutshell' means:",["In a few words","Inside a hard shell","Very slowly","In secret"],"It means the matter is put briefly."),
+t(Id,"A 'dark horse' is:",["A person with hidden talent who may win unexpectedly","A black animal","A dangerous person","A very old person"],"A dark horse is a surprise winner or a little-known competitor."),
+t(Id,"'Out of the blue' means:",["Suddenly and unexpectedly","Very sad","Under the sky","Far away"],"It describes something that happens with no warning."),
+t(Id,"'To face the music' means:",["To accept the punishment for what you did","To enjoy a concert","To sing aloud","To run away"],"It means to take the consequences of your actions."),
+t(Id,"The proverb 'A stitch in time saves nine' means:",["Acting early prevents bigger trouble later","Sewing is useful","Nine is a lucky number","Work slowly"],"A small timely repair avoids a much bigger job later."),
+
+/* ===== 6 PHRASAL VERBS (8) ===== */
+t(Ph,"'The match was CALLED OFF because of rain.' Here 'called off' means:",["Cancelled","Started","Watched","Postponed by a day"],"Call off means to cancel."),
+t(Ph,"'I cannot PUT UP WITH this noise.' Here 'put up with' means:",["Tolerate","Create","Repair","Report"],"Put up with means to bear something unpleasant."),
+t(Ph,"'Never GIVE UP your dreams.' Here 'give up' means:",["Stop trying","Give away","Surrender a seat","Share"],"Give up means to stop doing or trying something."),
+t(Ph,"'The bank TURNED DOWN his request.' Here 'turned down' means:",["Rejected","Accepted","Lowered","Printed"],"Turn down means to refuse."),
+t(Ph,"'The police are LOOKING INTO the matter.' Here 'looking into' means:",["Investigating","Ignoring","Looking inside","Hiding"],"Look into means to examine or inquire."),
+t(Ph,"'The workers CARRIED OUT the order.' Here 'carried out' means:",["Performed","Carried outside","Cancelled","Repeated"],"Carry out means to do or complete a task."),
+t(Ph,"'We have RUN OUT OF sugar.' This means:",["We have no sugar left","We ran away from sugar","We bought sugar","We have a lot of sugar"],"Run out of means to have none left."),
+t(Ph,"'She was BROUGHT UP by her grandmother.' Here 'brought up' means:",["Raised and cared for","Taken upstairs","Spoken about","Punished"],"Bring up means to raise a child."),
+
+/* ===== 7 CONFUSABLE WORDS (8) ===== */
+t(Cf,"The new rule will ___ everyone in the office.",["affect","effect","afflict","infect"],"'Affect' is usually a verb meaning to influence. 'Effect' is usually a noun meaning result."),
+t(Cf,"Everyone ___ Ravi came to the party.",["except","accept","expect","exempt"],"'Except' means 'not including'. 'Accept' means to receive."),
+t(Cf,"The ___ of the school gave a speech.",["principal","principle","principally","principals' rule"],"'Principal' is the head of a school. 'Principle' is a rule or belief."),
+t(Cf,"She bought some ___ for her classroom.",["stationery","stationary","stationer","station"],"'Stationery' means paper, pens etc. 'Stationary' means not moving."),
+t(Cf,"He paid her a nice ___.",["compliment","complement","implement","complaint"],"A compliment is praise. A complement completes something."),
+t(Cf,"Do not ___ your keys.",["lose","loose","lost","loss"],"'Lose' is a verb (to misplace). 'Loose' is an adjective meaning not tight."),
+t(Cf,"Of the two options, I prefer the ___.",["latter","later","last","latest"],"'Latter' is the second of two things mentioned. 'Later' refers to time."),
+t(Cf,"Please ___ me what to do.",["advise","advice","advices","advisor"],"'Advise' is a verb. 'Advice' is a noun."),
+
+/* ===== 8 VOICE AND NARRATION (6) ===== */
+t(Vo,"Change to passive voice: 'They are building a bridge.'",["A bridge is being built by them.","A bridge is built by them.","A bridge was being built by them.","A bridge has been built by them."],"Present continuous becomes 'is/are being + past participle'."),
+t(Vo,"Change to passive voice: 'Who wrote this book?'",["By whom was this book written?","Who was this book written?","By whom is this book written?","Whom wrote this book?"],"A 'Who' question becomes 'By whom' in the passive, with the tense kept (past)."),
+t(Vo,"Change to passive voice: 'He will finish the work.'",["The work will be finished by him.","The work will finish by him.","The work was finished by him.","The work would be finished by him."],"Simple future becomes 'will be + past participle'."),
+t(Vo,"Change to indirect speech: She said, \"I will help you.\"",["She said that she would help me.","She said that she will help you.","She said that I would help her.","She said that she helped me."],"'Will' becomes 'would'; 'I' becomes 'she' and 'you' becomes 'me'."),
+t(Vo,"Change to indirect speech: He said to her, \"Please sit down.\"",["He requested her to sit down.","He said that please sit down.","He told her that she sits down.","He asked her that sit down."],"A polite request is reported with 'requested' + object + 'to' + verb."),
+t(Vo,"Change to indirect speech: Rohan said, \"I went to Puri yesterday.\"",["Rohan said that he had gone to Puri the previous day.","Rohan said that he went to Puri yesterday.","Rohan said that I had gone to Puri the day before.","Rohan said that he has gone to Puri the previous day."],"The simple past becomes the past perfect, and 'yesterday' becomes 'the previous day'."),
+
+/* ===== 9 SENTENCE IMPROVEMENT (4) ===== */
+t(Si,"Replace the capitalised part: 'She CAN SINGS very well.'",["can sing","can sang","could sings","is sing"],"After a modal verb like 'can' the base form is used: can sing."),
+t(Si,"Replace the capitalised part: 'He is looking forward TO MEET you.'",["to meeting","to meet","for meet","at meeting"],"'Look forward to' takes the -ing form because 'to' is a preposition."),
+t(Si,"Replace the capitalised part: 'The two brothers love EACH OTHERS.'",["each other","each others'","one others","every other"],"'Each other' is fixed and has no plural s."),
+t(Si,"Replace the capitalised part: 'I DID NOT WENT to school yesterday.'",["did not go","did not gone","not went","do not go"],"After 'did not' the base form is used: did not go."),
+
+/* ===== 10 ONE-WORD (3) ===== */
+t(Ow,"A person who loves books:",["Bibliophile","Philatelist","Numismatist","Bibliographer"],"A bibliophile loves books. A philatelist collects stamps and a numismatist collects coins."),
+t(Ow,"A place where birds are kept:",["Aviary","Apiary","Aquarium","Menagerie"],"An aviary is for birds. An apiary is for bees."),
+t(Ow,"One who is present everywhere:",["Omnipresent","Omniscient","Omnipotent","Ubiquitously"],"Omnipresent means present everywhere. Omniscient means all-knowing and omnipotent means all-powerful."),
+
+/* ===== 11 COMPREHENSION (12) ===== */
+t(Co,P1+"Which title best suits the passage?",["The Value of Using Time Wisely","How the Rich Spend Money","The Mistakes of Students","Why Days Are Short"],"The whole passage is about using time well, not about wealth or mistakes."),
+t(Co,P1+"According to the passage, what separates a successful person from the rest?",["How they use their time","How much time they have","How rich they are","How many tasks they delay"],"The passage says it is 'not how much time they have but how they use it'."),
+t(Co,P1+"What happens to people who delay tasks until the last moment?",["They feel pressure and often make mistakes","They finish early","They become rich","They plan better"],"The passage says they 'feel pressure and often make mistakes'."),
+t(Co,P1+"The word 'distractions' in the passage is closest in meaning to:",["Things that take attention away","Goals","Rewards","Lessons"],"Distractions are things that pull your mind away from your work."),
+t(Co,P1+"Which statement is TRUE according to the passage?",["Every person gets 24 hours a day","The rich get more hours in a day","Time can be bought","Planning wastes time"],"The first two sentences say the day is the same for everyone and nobody can buy an extra minute."),
+t(Co,P1+"What can be inferred from the last sentence?",["Anyone can learn to use time well","Only the clever can manage time","Time management cannot be taught","Time skills are inborn"],"The writer calls it 'a skill that can be learned by anyone willing to try'."),
+t(Co,P2+"What is the main idea of the passage?",["Mangroves protect coasts and people, and should be saved","Fishing is a dying trade","Cyclones cannot be stopped","Shrimp farming is profitable"],"The passage shows how mangroves protect and support coastal people and warns of their loss."),
+t(Co,P2+"How do mangrove roots help the shore?",["They hold the soil in place","They stop the rain","They create waves","They dry the mud"],"The roots 'hold the soil in place', which protects the shore from waves and storms."),
+t(Co,P2+"What happens to villages behind thick mangroves during a cyclone?",["They suffer much less damage","They are completely destroyed","They are always evacuated","They get more rain"],"The passage says they 'suffer much less damage than those without them'."),
+t(Co,P2+"The word 'nurseries' in the passage means:",["Places where young fish and crabs grow","Schools for children","Shops that sell plants","Fishing boats"],"Here nurseries are safe places where young fish and crabs grow."),
+t(Co,P2+"Which of the following is NOT given as a reason why mangroves are cut?",["To build roads and ports","To make farms","To make shrimp ponds","To put up buildings"],"The passage names farms, shrimp ponds and buildings. Roads and ports are not mentioned."),
+t(Co,P2+"According to scientists, planting and guarding mangroves is:",["One of the cheapest ways to protect coastal people","Too costly for villages","Useless against storms","Possible only for rich countries"],"The last sentence says it is 'one of the cheapest ways to protect coastal people'."),
+
+/* ===== 12 PARA JUMBLE (3) ===== */
+t(Pj,"Arrange the sentences in the correct order.\n\nP. The doctor examined him carefully.\nQ. Meena's father felt a sharp pain in his chest.\nR. They rushed him to the nearest hospital.\nS. Fortunately, it was only gas, not a heart problem.",["QRPS","QPRS","RQPS","QRSP"],"Q is the beginning (the pain). R is what the family did. P is the doctor's work and S is the result: Q-R-P-S."),
+t(Pj,"Arrange the sentences in the correct order.\n\nP. Many farmers have therefore started drip irrigation.\nQ. Rainfall in the region has become unpredictable.\nR. This method gives each plant just the water it needs.\nS. Fields often stay dry for weeks.",["QSPR","QPSR","SQPR","QSRP"],"Q gives the problem, S shows its effect, P is the response ('therefore') and R explains the response: Q-S-P-R."),
+t(Pj,"Arrange the sentences in the correct order.\n\nP. At the end, the coach thanked everyone.\nQ. The team trained hard for three months.\nR. They finally won the district title.\nS. Early mornings were spent on running and drills.",["QSRP","QRSP","SQRP","QSPR"],"Q introduces the training, S gives the detail, R the result and P the closing: Q-S-R-P.")
+];
+
+/* Each question: s = sub-topic, q = text, o = options (correct option FIRST; they are shuffled), e = explanation. */
+/* ---------- prepare options (seeded shuffle so answer letters vary) ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+Q.forEach(function(x,i){
+  if(x.k){x.opts=x.o.slice();x.ans=x.a;return}
+  var r=rng(i*97+34), idx=[0,1,2,3];
+  for(var j=3;j>0;j--){var m=Math.floor(r()*(j+1));var t=idx[j];idx[j]=idx[m];idx[m]=t}
+  x.opts=idx.map(function(n){return x.o[n]}); x.ans=idx.indexOf(0);
+});
+var L="ABCD", KEY="aso-eng100-test2", DUR=90*60, N=Q.length;
+var st=null, cur=0, tick=null;
+
+function $(id){return document.getElementById(id)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function show(id){["intro","test","result"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});window.scrollTo(0,0)}
+
+function start(mode){
+  st={mode:mode,ans:Q.map(function(){return null}),mk:Q.map(function(){return false}),start:Date.now(),done:false};
+  cur=0; save(); openTest();
+}
+function openTest(){
+  show("test");
+  $("modeLbl").textContent=st.mode==="exam"?"Exam mode":"Practice mode";
+  $("timer").classList.toggle("hide",st.mode!=="exam");
+  buildPal(); render();
+  clearInterval(tick);
+  if(st.mode==="exam"){tick=setInterval(updTimer,1000);updTimer()}
+}
+function left(){return Math.max(0,DUR-Math.floor((Date.now()-st.start)/1000))}
+function updTimer(){
+  var s=left(); $("timer").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+  $("timer").classList.toggle("low",s<300);
+  if(s<=0){clearInterval(tick);finish()}
+}
+function buildPal(){
+  var p=$("pal"); p.innerHTML="";
+  Q.forEach(function(_,i){var b=document.createElement("button");b.textContent=i+1;b.onclick=function(){cur=i;render()};p.appendChild(b)});
+}
+function updPal(){
+  var bs=$("pal").children, n=0;
+  for(var i=0;i<bs.length;i++){
+    var a=st.ans[i]; if(a!==null)n++;
+    bs[i].className="";
+    if(st.mode==="prac"&&a!==null) bs[i].classList.add(a===Q[i].ans?"r":"w");
+    else if(a!==null) bs[i].classList.add("ans");
+    if(st.mk[i])bs[i].classList.add("mk");
+    if(i===cur)bs[i].classList.add("cur");
+  }
+  $("progress").textContent=n+" of "+N+" answered";
+}
+function expHTML(x){return '<div class="exp"><span class="lab">Answer: '+L[x.ans]+'. '+esc(x.opts[x.ans])+'</span>'+x.e+'</div>'}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var x=Q[cur], a=st.ans[cur], reveal=st.mode==="prac"&&a!==null;
+  $("qnum").textContent="Question "+(cur+1)+" of "+N+" · "+x.s;
+  $("qtext").textContent=x.q;
+  var o=$("opts"); o.innerHTML="";
+  x.opts.forEach(function(t,i){
+    var b=document.createElement("button"); b.className="opt"; b.innerHTML="<b>"+L[i]+".</b><span>"+esc(t)+"</span>";
+    if(reveal){b.disabled=true; if(i===x.ans)b.classList.add("right"); else if(i===a)b.classList.add("wrong")}
+    else if(i===a)b.classList.add("sel");
+    b.onclick=function(){ if(st.mode==="prac"&&st.ans[cur]!==null)return; st.ans[cur]=i; save(); render() };
+    o.appendChild(b);
+  });
+  $("qexp").innerHTML=reveal?expHTML(x):"";
+  $("prev").disabled=cur===0; $("next").textContent=cur===N-1?"Finish →":"Next →";
+  $("clear").classList.toggle("hide",st.mode==="prac");
+  $("mark").textContent=st.mk[cur]?"Unmark":"Mark for review";
+  updPal();
+}
+$("prev").onclick=function(){if(cur>0){cur--;render()}};
+$("next").onclick=function(){if(cur<N-1){cur++;render()}else $("submitBtn").click()};
+$("clear").onclick=function(){st.ans[cur]=null;save();render()};
+$("mark").onclick=function(){st.mk[cur]=!st.mk[cur];save();render()};
+$("submitBtn").onclick=function(){
+  var un=st.ans.filter(function(a){return a===null}).length;
+  if(confirm("Submit the test?"+(un?" You have "+un+" unanswered question"+(un>1?"s":"")+".":"")))finish();
+};
+function finish(){
+  clearInterval(tick); st.done=true; save(); results("all");
+}
+function results(f){
+  show("result");
+  var c=0,w=0,s=0,sec={},order=[];
+  Q.forEach(function(x,i){
+    if(!sec[x.s]){sec[x.s]={n:0,c:0,w:0};order.push(x.s)}
+    var a=st.ans[i]; sec[x.s].n++;
+    if(a===null)s++; else if(a===x.ans){c++;sec[x.s].c++} else {w++;sec[x.s].w++}
+  });
+  var net=c-0.25*w;
+  $("score").textContent=net.toFixed(2)+" / "+N;
+  $("stats").innerHTML=[["Right",c],["Wrong",w],["Skipped",s],["Accuracy",(c+w?Math.round(100*c/(c+w)):0)+"%"]]
+    .map(function(p){return '<div class="stat"><span>'+p[0]+'</span><b>'+p[1]+'</b></div>'}).join("");
+  var acc=c+w?c/(c+w):0;
+  $("verdict").innerHTML = (w>0&&acc<0.6?"<b>Your accuracy is under 60%, so the negative marks are costing you.</b> Guess only when you can eliminate two options. ":"")+
+    (s>25?"<b>You skipped more than 25.</b> Most skips should become answers after one more revision of the guide's \"Asked before\" and \"Likely next\" boxes. ":"")+
+    (net>=75?"A net score of 75 or more out of 100 is a strong English score.":net>=55?"A net score between 55 and 75 is close. The table shows which sections to revise.":"Treat this as a starting point. Revise the two weakest sections in the guide and take the test again.");
+  $("secTable").innerHTML="<tr><th>Section</th><th>Qs</th><th>Right</th><th>Wrong</th><th>Net</th></tr>"+
+    order.map(function(k){var v=sec[k];return "<tr><td>"+k+"</td><td>"+v.n+"</td><td>"+v.c+"</td><td>"+v.w+"</td><td><b>"+(v.c-0.25*v.w).toFixed(2)+"</b></td></tr>"}).join("");
+  drawReview(f);
+}
+function drawReview(f){
+  var h="";
+  Q.forEach(function(x,i){
+    var a=st.ans[i], k=a===null?"s":a===x.ans?"r":"w";
+    if(f!=="all"&&f!==k)return;
+    var tag={r:'<span class="tag r">Right</span>',w:'<span class="tag w">Wrong</span>',s:'<span class="tag s">Skipped</span>'}[k];
+    h+='<div class="rq"><p class="qnum">Q'+(i+1)+' · '+x.s+tag+'</p><p class="qtext">'+esc(x.q)+'</p>';
+    x.opts.forEach(function(t,j){
+      var cls=j===x.ans?" right":(j===a?" wrong":"");
+      h+='<div class="opt'+cls+'"><b>'+L[j]+'.</b><span>'+esc(t)+(j===a?" <i>(your answer)</i>":"")+'</span></div>';
+    });
+    h+=expHTML(x)+'</div>';
+  });
+  $("review").innerHTML=h||"<p>No questions in this group.</p>";
+  document.querySelectorAll("#filters .btn").forEach(function(b){b.classList.toggle("primary",b.dataset.f===f)});
+}
+document.querySelectorAll("#filters .btn").forEach(function(b){b.onclick=function(){drawReview(b.dataset.f)}});
+$("retry").onclick=function(){try{localStorage.removeItem(KEY)}catch(e){} st=null; $("resume").classList.add("hide"); show("intro")};
+$("startExam").onclick=function(){start("exam")};
+$("startPrac").onclick=function(){start("prac")};
+$("resume").onclick=function(){ if(st.done)results("all"); else openTest() };
+
+(function init(){
+  var s=load();
+  if(s&&s.ans&&s.ans.length===Q.length){
+    st=s; $("resume").classList.remove("hide");
+    $("resume").textContent=s.done?"See last result":"Resume saved attempt ("+(s.mode==="exam"?"exam":"practice")+")";
+    if(s.mode==="exam"&&!s.done&&left()<=0){st.done=true;save();$("resume").textContent="See last result"}
+  }
+})();
+
+/* theme switch */
+(function(){var root=document.documentElement, btns=document.querySelectorAll('.theme button');
+ function apply(t){ if(t==='system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',t);
+  btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)}); try{localStorage.setItem('aso-theme',t)}catch(e){} }
+ var saved='system'; try{saved=localStorage.getItem('aso-theme')||'system'}catch(e){}
+ apply(saved); btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});})();
+</script>
+</body>
+</html>

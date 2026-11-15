@@ -1,0 +1,1364 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO GA Paper I 2025</title>
+<meta name="theme-color" content="#fbfbfb">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+:root{--bg:#fbfbfb;--paper:#ffffff;--fg:#111111;--muted:#6e6e73;--rule:#d7d7da;--grid:#eef0f6;--blue:#2b4cff;--blue-soft:#e0e6ff;--warn:#b4410b;
+--f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;--f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;--f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+h1,h2,h3,h4{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+b,strong{font-weight:600}
+code{font-family:var(--f-mono);font-size:.82em;background:var(--grid);padding:0 4px;overflow-wrap:anywhere}
+.page{max-width:1100px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 96px max(16px,env(safe-area-inset-left,0px))}
+.util{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.util a{color:var(--blue);text-decoration:none}
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:20px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(1.9rem,5.4vw,3.8rem);line-height:1.05;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;opacity:.7}
+.doc{max-width:76ch}
+.doc>p,.doc li{overflow-wrap:break-word}
+.doc>p{margin:14px 0}
+.doc>p.first::first-letter{float:left;font-size:3.8em;line-height:.82;padding:6px 8px 0 0}
+.doc h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:64px 0 14px;padding-top:14px;border-top:1px solid var(--fg);scroll-margin-top:60px}
+.doc h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:40px 0 10px;display:flex;align-items:center;gap:12px;scroll-margin-top:60px}
+.doc h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.doc h4{font-weight:600;margin:24px 0 6px}
+.doc ul,.doc ol{padding-left:1.2em}
+.doc li{margin:4px 0}
+.doc blockquote{margin:18px 0;border:1px dashed var(--blue);background:var(--paper);padding:12px 16px}
+.doc hr{border:0;border-top:1px dotted var(--muted);margin:32px 0}
+.tbl{margin:16px 0;border-top:1px solid var(--fg)}
+.tbl table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.45;table-layout:auto}
+.tbl th{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--rule)}
+.tbl td{padding:8px 10px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;overflow-wrap:anywhere}
+@media (max-width:640px){
+  .tbl thead{display:none}
+  .tbl tr{display:block;padding:8px 0;border-bottom:1px dotted var(--muted)}
+  .tbl td{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr);gap:10px;border:0;padding:2px 0}
+  .tbl td::before{content:attr(data-h);font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  .tbl td:empty{display:none}
+}
+.qq{scroll-margin-top:70px;margin:0;padding:14px 0;border-bottom:1px dotted var(--muted)}
+.qq .qt{margin:0;font-size:1.04rem;line-height:1.55}
+.qq .qn{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--blue);border:1px solid var(--blue);padding:0 6px;margin-right:8px;vertical-align:2px}
+.qq .op{margin:6px 0 0;font-size:.98rem;line-height:1.55;color:#222}
+.qq .op span{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.an{margin-top:8px;border-left:2px solid var(--blue);padding:2px 0 2px 12px;font-size:.97rem}
+.an .ab{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-right:6px}
+body.hide .an{cursor:pointer;background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 6px,var(--grid) 6px,var(--grid) 12px)}
+body.hide .an .av{display:none}
+body.hide .an::after{content:"Tap to show";font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+body.hide .an.show{background:none}
+body.hide .an.show .av{display:inline}
+body.hide .an.show::after{content:none}
+.chk{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin:0 3px;vertical-align:2px;line-height:1.7}
+.toc{padding-block:40px 8px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:24px 0 0;padding:0;columns:2 320px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:1rem;min-width:0}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.2em}
+.toclist a{text-decoration:none;min-width:0;overflow-wrap:anywhere}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.bar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--rule);padding:10px 0;margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-block;border:1px solid var(--fg);background:var(--paper);padding:4px 12px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;text-decoration:none;color:var(--fg)}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.btn.pri{border-color:var(--blue);color:var(--blue)}
+.scan{border:1px dashed var(--rule);background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px;padding:18px 18px;margin:12px 0 28px;position:relative}
+.scan pre{margin:0;font-family:var(--f-mono);font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.scan .fl{position:absolute;right:6px;top:10px;writing-mode:vertical-rl;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted)}
+footer{padding-top:48px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+</style>
+<body>
+<div class="page" id="top">
+<div class="util"><a href="../index.html">&larr; Study hub</a><span>OPSC ASO · Previous year paper · raw scan text</span></div>
+<header class="mast"><h1>GA Paper I · 2025</h1><p class="tag">The 2025 General Awareness paper as <b>raw scan text</b>.<br>Some option letters are garbled.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · </div>
+<nav class="toc" aria-label="Contents"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>15</span> pages</span></div><ol class="toclist"><li><span class="n">01</span><a href="#p1">Page 1</a><span class="dots"></span></li><li><span class="n">02</span><a href="#p2">Page 2</a><span class="dots"></span></li><li><span class="n">03</span><a href="#p3">Page 3</a><span class="dots"></span></li><li><span class="n">04</span><a href="#p4">Page 4</a><span class="dots"></span></li><li><span class="n">05</span><a href="#p5">Page 5</a><span class="dots"></span></li><li><span class="n">06</span><a href="#p6">Page 6</a><span class="dots"></span></li><li><span class="n">07</span><a href="#p7">Page 7</a><span class="dots"></span></li><li><span class="n">08</span><a href="#p8">Page 8</a><span class="dots"></span></li><li><span class="n">09</span><a href="#p9">Page 9</a><span class="dots"></span></li><li><span class="n">10</span><a href="#p10">Page 10</a><span class="dots"></span></li><li><span class="n">11</span><a href="#p11">Page 11</a><span class="dots"></span></li><li><span class="n">12</span><a href="#p12">Page 12</a><span class="dots"></span></li><li><span class="n">13</span><a href="#p13">Page 13</a><span class="dots"></span></li><li><span class="n">14</span><a href="#p14">Page 14</a><span class="dots"></span></li><li><span class="n">15</span><a href="#p15">Page 15</a><span class="dots"></span></li></ol></nav><main class="doc"><p class="first">OPSC ASO 2025 General Awareness Paper-I: raw OCR (macOS Vision) of the Adda247 scan. Two-column pages: left column first, then '--- right column'. Advert pages removed. Some option letters are garbled by OCR. Use the clean topic-wise pages on the hub (for example Geography PYQs) where you can; this page is for checking the original wording.</p>
+<h3 id="p1">Page 1</h3><div class="scan"><span class="fl">SCAN_P01</span><pre>Adda 247
+OPSC ASO Question Paper 1 Held on 09 Nov 2025
+1. SEVOTTAM is a
+(A) Quality Management System
+(B) Qualified Management System
+(C) Performance Management System
+(D) Quantity Management System
+2. What is the theme of World Earth
+Day - 2024?
+(A) Planet vs. Plastic
+(B) Caring for Soils : Measure,
+Monitor, Manage
+(C) Land Restoration, Desertification
+and Drought Resilience
+(D) Our Power, Our Planet
+3. The &#x27;100 Din Beti Bachao, Beti Padhao&#x27;
+campaign was launched in which of
+the following district?
+(A) Palamu district, Jharkhand
+(B) Ganjam district, Odisha
+(C) Dhenkanal district, Odisha
+(D) Ranchi, Jharkhand
+4. Consider the following statements
+about the Indian Navy&#x27;s TROPEX-25
+exercise :
+1. TROPEX-25 focuses exclusively
+on Western Fleet operations and
+excludes carrier-based air power.
+2. One of its core aims is to support
+India&#x27;s Indo-Pacific strategy by
+countering regional threats.
+Which of the above statements is/are
+correct ?
+(A) Only 1
+(B) Both 1 and 2
+(C) Only 2
+(D) Neither 1 nor 2
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+ASG(AG) - 1/25
+5. Consider the following statements
+regarding the World Meteorological
+Organization (WMO) :
+1. It is a specialized agency of
+the United Nations focusing
+on meteorology, operational
+hydrology and related
+geophysical sciences.
+2. WMO has declared 2024 as the
+warmest year on record, based
+on six international datasets.
+3. Its Headquarters are located in
+Vienna, Austria.
+Which of the above statements is/are
+correct ?
+(A) Only 1 and 2
+(B) Only 2 and 3
+(C) Only 1 and 3
+(D) 1, 2 and 3
+6. Which of the following statements
+regarding maternity leave in India
+as interpreted by the Supreme Court
+recently is/are INCORRECT?
+1. The Supreme Court held that
+maternity leave is a constitutional
+right under Article 21 - Right to life.
+2. Maternity leave benefits are
+applicable only up to two
+children, beyond which no
+benefits will be provided.
+3. Maternity leave is a form of paid
+leave guaranteed under Article 19
+of the Constitution.
+(A) 2 and 3
+(B) 1 and 2
+(C) 1 and 3
+(D) 1, 2 and 3
+7. Which of the following countries NOT
+participated in the anti-submarine
+warfare exercise Sea Dragon, 2025,
+held off the Coast of Guam, USA?
+(A) India
+(B) Japan
+(C) South Korea
+(D) France
+Conta.
+-2-</pre></div>
+<h3 id="p2">Page 2</h3><div class="scan"><span class="fl">SCAN_P02</span><pre></pre></div>
+<h3 id="p3">Page 3</h3><div class="scan"><span class="fl">SCAN_P03</span><pre>Adda247
+8. Where is SpaceX&#x27;s headquarters
+located ?
+(A) Seattle, Washington
+(B) Palo Alto, California
+(C) Hawthorne, California
+(D) Austin, Texas
+9. Which country announced the &#x27;Golden
+Dome&#x27; missile defence system ?
+(A) Russia
+(B) Israel
+(C) United States
+(D) China
+10. The &#x27;Ilbert Bill Controversy&#x27; took place
+during the tenure of which Viceroy of
+British India ?
+(A) Lord Lytton
+(B) Lord Ripon
+(C) Lord Curzon
+(D) Lord Dufferin
+11. &#x27;Operation Jindagi&#x27; is related to
+(A) Joshimath land subsidence
+(B) Varunavat landslide
+(C) Silkyara tunnel collapse
+(D) Mizoram landslide
+12. The hills situated closer to
+Kanyakumari are
+(A) Cardamom hills
+(B) Nilgiri hills
+(C) Anamalai hills.
+(D) Shevaroy hills
+13. Which ministry launched the Bharat
+Ranbhoomi Darshan initiative ?
+(A) Ministry of Culture
+(B) Ministry of Home Affairs
+(C) Ministry of Tourism
+(D) Ministry of Defence
+SM - C/25
+-3-
+--- right column
+GET IT ON
+Google Play
+ASGI
+14. Which of the following historical
+structures and their new names are
+wrongly paired?
+- Nehru Durg
+1. Fort William
+- Manekshaw
+2. Kitchener
+House
+House
+3. Fort St. David - Vijay Durg
+- Shivaji Gate
+4. St. George&#x27;s
+Gate
+(A) 1 and 4
+(B) 2 and 3
+(C) 1 and 3
+(D) 2 and 4
+15. The National Institute of Rural
+Development and Panchayati Raj
+(NIRDPR) is located in which of the
+following cities?
+(A) Cuttack
+New Delhi
+(B)
+Pune
+(C)
+Hyderabad
+(D)
+16. In Odisha State, &#x27;Hexadeltaic region&#x27;
+is named after
+(A) Six deltaic districts of the State
+(B) Six coastal districts of the State
+(e) Six rivers of the State
+(D) Hexagonal shape of the region
+in the State
+17. From which of the following countries,
+the provision of the nomination of
+Rajya Sabha members was borrowed ?
+(A) Australia
+(B) United Kingdom
+(C) USA
+(D) Ireland
+(Turn over)</pre></div>
+<h3 id="p4">Page 4</h3><div class="scan"><span class="fl">SCAN_P04</span><pre>Adda 247
+18. Consider the following statements
+about the Prime Minister and Union
+Council of Ministers in India:
+1. The Prime Minister must always
+be a member of the Lok Sabha.
+2. The Council of Ministers is
+collectively responsible to the
+Lok Sabha.
+3. The Prime Minister can allocate
+portfolios to Ministers.
+4. If someone becomes a Minister
+or Prime Minister without being
+an MP, such a person has to get
+elected to the Parliament within
+six months.
+Which of the statements given above
+is/are correct?
+(A) Only 2, 3 and 4
+(B) Only 1, 2 and 3
+(C) Only 1, 3 and 4
+(D) Only 1, 2 and 4
+19. What happens if the Rajya Sabha
+bill gests Amendments to a money
+(A) The Lok Sabha is bound to
+accept them
+B) The Lok Sabha may or may not
+accept them
+The bill is sent to a Joint
+Session of both the Houses
+The bill is automatically rejected
+D
+20. What is &quot;operation zero lines&quot;?
+(A) Border between Bhutan and India
+(B) Border between Bangladesh and
+India
+Border between Nepal and India
+C)
+Border between Myanmar and India
+D)
+21. Which sector contributes the most to
+India&#x27;s GDP as of 2024 ?
+(A) Agriculture
+B) Services
+C) Manufacturing
+(D) Mining
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+22. World Water Day is celebrated every
+year on
+(A) 23rd March
+(B) 22nd March
+(C) 22nd April
+(D) 21st March
+23. Plant and animal species that exist
+only in a specific geographic region
+are called as
+(A) Endangered species
+(B) Endemic species
+(C) Epidemic species
+(D) Vulnerable species
+24. Mumps is an
+(A) Contagious waterborne viral disease
+(B) Contagious airborne viral disease
+(C) Contagious waterborne bacterial
+disease
+(D) Contagious airborne bacterial
+disease
+25. Which country partnered with the
+Government of Odisha to launch the
+&#x27;Net Zero Vision&#x27; for Bhubaneswar ?
+(A) USA
+(B) UK
+(C) France
+(D) Thailand
+26. Central Pollution Control Board (CPCB)
+has developed &quot;The Comprehensive
+Environmental Pollution Index (CEPIỊạ
+in collaboration with
+(A) Council of Scientific and
+Industrial Research
+(B) Indian Institute of Technology,
+Delhi
+› Indian Institute of Science,
+(C)
+Bengaluru
+(D) National Environmental
+Engineering Research Institute,
+Nagpur
+Contd
+-4-</pre></div>
+<h3 id="p5">Page 5</h3><div class="scan"><span class="fl">SCAN_P05</span><pre>Adda247
+27. Which river in Odisha witnessed the
+nesting of over 6.98 lakh Olive Ridley
+turtles during &#x27;Operation Olivia&#x27; in
+February, 2025 ?
+(A) Mahanadi
+(B) Brahmani
+Rushikulya
+(0)
+Subarnarekha
+(D)
+28. World Consumer Rights Day is
+celebrated on
+(A) March 15
+(B) March 3
+(C) February 15
+(D) April 15
+29. Consider the following statements about
+the Indo-Tibetan Border Police (ITBP) :
+1. The ITBP recently opened a new
+Company Operating Base (COB)
+in Kutul, Rajasthan, to counter
+cross-border terrorism.
+2. The ITBP was established after the
+1962 Sino-Indian War and plays
+a key role in both high-altitude
+border security and internal
+counter-insurgency.
+3. Apart from its security duties, the
+ITBP has been actively involved
+in disaster relief operations,
+including rescue efforts during
+the 2013 Uttarakhand floods.
+Which of the above statements is/are
+correct?
+(A) Only 1 and 2
+(B) Only 2 and 3
+(C) Only 1 and 3
+(D) 1, 2 and 3
+SM - C/25
+-5-
+--- right column
+GET IT ON
+Google Play
+ASG
+30. Who introduced the &#x27;Censorship of the
+Press Act&#x27; in 1799 ?
+(A) Lord Wellesley
+(B) Lord William Bentinck
+(C) Lord Cranbrook
+(D) Lord Curzon
+31. Which of the following statements are
+true regarding the Karachi Session of
+the Indian National Congress (1931) ?
+i. The Session held under the
+Presidentship of Motilal Nehru.
+ii. The socialist radicalism found
+reflection in the Congress.
+iii. Passed resolution on
+Fundamental Rights and Duties
+and Economic Programme.
+iv. A resolution was passed to
+drew up an All-India Agrarian
+Programme.
+(A) i and ii
+(B) ii and iii
+(C) i and iii
+(D) ii and iv
+32. The word &#x27;Secular&#x27; was inserted in the
+Preamble of the Indian Constitution by
+which Constitutional Amendment?
+(A) 25th Amendment
+42nd Amendment
+(B)
+44th Amendment
+(C)
+52nd Amendment
+(D)
+33. What is the minimum age limit
+prescribed for the membership of the
+State Legislative Council?
+(A) 21 years
+(B) 25 years
+(C) 30 years
+(D) 35 years
+(Turn over)</pre></div>
+<h3 id="p6">Page 6</h3><div class="scan"><span class="fl">SCAN_P06</span><pre>Adda 247
+34. Consider the following statements with
+respect to the Election Commission of
+India :
+1. Article 324 of the Indian
+Constitution grants the
+Election Commission the power
+to supervise and control the
+conduct of elections.
+2. The Election Commission
+of India is responsible for
+conducting local body elections.
+3. The Election Commission was a
+single-member body until 1993
+and thereafter it became a
+multi-member body permanently.
+4. The Chief Election
+Commissioner shall not be
+removed from his office except
+in like manner and on the
+like grounds as a judge of the
+Supreme Court of India.
+Which of the statements given above
+is/are correct ?
+(A) Only 1 and 4
+(B) Only 1, 3 and 4
+(C) Only 1 and 3
+(D) Only 2 and 4
+35.
+Who among the following said that the
+Preamble of the Indian Constitution is
+&quot;The Keynote of the Constitutions&quot; ?
+(A) Morris Jones
+(B) K. T. Shah
+(C) Granville Austin
+(D) Ernest Barker
+36. Consider the following statements
+about the Pralay Missile :
+1. Pralay is an air-to-surface cruise
+missile developed by DRDO.
+2. It has a range of 700 - 1500 km
+and is designed for naval warfare.
+Which of the above statements is/are
+correct ?
+(A) Only 1
+(B) Only 2
+(C) Both 1 and 2
+(D) Neither 1 nor 2
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+ASUi (AG) - 1/25
+37. Which of the following statements
+about the Sardar Vallabhbhai
+Patel National Police Academy is
+INCORRECT?
+(A) It is located in Hyderabad,
+Telangana
+(B) It trains officers of the Indian
+Police Service (IPS)
+(C) It was established in 1978
+(D) It is named after India&#x27;s first
+Deputy Prime Minister
+38. Which of the following Act aimed to
+introduce provincial autonomy and the
+establishment of a federal court?
+(A) The Indian Council Act, 1909
+(B) The Government of India Act, 1919
+(C) The Government of India Act, 1935
+(D) The Indian Independence Act, 1947
+39. Consider the following statements
+with reference to climate :
+I. Indian ocean dipole is also
+known as &#x27;Indian NinoẾ
+II. It is similar to the El nino
+phenomenon.
+Select the correct answer from the code
+given below:
+Code :
+(A) Only I
+(B) Both I and II
+(C) Only II
+(D) Neither I nor II
+40. Which Five Year Plan introduced the
+concept of &#x27;Rolling Plan&#x27; in India?
+(A) First Plan
+(B)
+Second Plan
+(C) Third Plan
+(D) None of the above
+- 6-
+Contd.</pre></div>
+<h3 id="p7">Page 7</h3><div class="scan"><span class="fl">SCAN_P07</span><pre>Adda 247
+41. Which of the following Committee is
+NOT associated with Civil Services in
+any manner?
+(A) B. R. Mehta Committee
+(B) Yugandhar Committee
+(C) Yoginder K. Alagh Committee
+(D) Hota Committee
+42. Which Union Ministry hosted the Purple
+Fest, 2025 at Rashtrapati Bhavan ?
+(A) Ministry of Health and Family
+Welfare
+(B) Ministry of Social Justice and
+Empowerment
+Ministry of Women and Child
+(C)
+Development
+(D) Ministry of Home Affairs
+43. Mount Lewotobi Laki-Laki, an
+active volcano, is located in which
+country?
+(A) Philippines
+(B) Indonesia
+(C) Japan
+(D) Malaysia
+44. BIMSTEC Youth Summit, 2025 was
+held in
+Add
+(A) Myanmar
+(B) Bangladesh
+(C) Thailand
+(D) India
+45. Which one of the following is NOT
+correct?
+(A) First Governor-General of Fort
+William was Warren Hastings
+(B) First Chief Justice of the
+Supreme Court in British India
+was Elijah Impey
+(C) First Law Member of the
+Governor-General&#x27;s Council was
+Lord Amherst
+(D) First Viceroy as well as the
+Governor-General of India was
+Lord Canning
+SM - C/25
+- 7-
+--- right column
+GET IT ON
+Google Play
+ASGI
+46. Consider the following statements
+with reference to ground water:
+I. India is largest ground water
+user in the world.
+II. India&#x27;s rank is 120 among
+122 countries in the water
+quality Index.
+Select the correct answer from the
+code given below :
+Code :
+(A) Only 1
+(B) Both I and II
+(C) Only II
+(D) Neither I nor II
+47. The Santhanam Committee on
+prevention of corruption was
+appointed in the year
+(A) 1961
+(B) 1964
+(C) 1963
+(D) 1962
+48. What type of orbit was the satellite
+EOS-09 intended to be placed into by
+ISRO&#x27;s PSLV-C61 Mission ?
+(A) Geostationary Orbit
+(B) Low Earth Orbit
+(C) Sun-Synchronous Polar Orbit
+(D) Medium Earth Orbit
+49. Which is the first country to criminalize
+Al-generated Child Sexual Abuse
+Material (CSAM) ?
+(A) USA
+(B) Canada
+(C) UK
+(D) Australia
+50. Which of the following statements
+regarding Operation Keller is/are
+correct?
+1. Operation Keller waş conducted
+by the Indian Army in Jammu
+and Kashmir&#x27;s Shopian district.
+2. The operation led to the
+neutralisation of three Hizbul
+Mujahideen terrorists.
+(A) Only 1
+(B) Only 2
+(C) Both 1 and 2
+(D) Neither 1 nor 2
+(Turn over)</pre></div>
+<h3 id="p8">Page 8</h3><div class="scan"><span class="fl">SCAN_P08</span><pre>Adda 247
+51. Consider the following statements
+about the scramjet engine technology
+tested by DRDO recently :
+1. Scramjet engines have moving
+parts that compress incoming
+air before combustion.
+2. Scramjet engines are ideal for
+subsonic missile systems due to
+their fuel efficiency.
+3. Scramjets combust fuel in
+supersonic airtlow, enabling
+efficient operation at hypersonic
+speeds.
+Which of the above statements is/are
+correct?
+(A) Only 1 and 2
+(B) Only 1 and 3
+(C) Only 2 and 3
+(D) Only 3
+Consider the following statements
+52.
+about the NITI Aayog :
+1. The aim of NITI Aayog is to
+achieve Sustainable Development
+Goals and to enhance cooperative
+federalism in the country.
+2. The Prite Chair of frit ine
+NITI Aayog•
+3. There are 8 full-time members
+in the NITI Aayog.
+Which of the above statements is/are
+correct?
+JUa
+(A) 2 and 3
+(B) 2
+(C) 1
+(D) 1 and 2
+53. Savannas are
+(A) Temperate Grasslands
+(B) Coniferous Forest
+(C) Temperate Deciduous Forest
+(D) Tropical Grasslands
+54. On which date &#x27;Poorna Swaraj&#x27;
+declared as the goal of the Indian
+National Congress?
+(A) 26 January 1930
+(B) 12 March 1930
+(C) 9 August 1942
+(D) 15 August 1947
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+55. What is the name of the 17th Edition
+of the India-Mongolia Joint Military
+Exercise ?
+(A) Exercise Desert Knight
+(B) Exercise Nomadic Elephant
+(C) Exercise Khan Quest
+(D) Exercise Yudh Abhyas
+56. A Joint State Public Service
+Commission can be created by
+(A) An act of Parliament
+(B) A resolution of the Rajya Sabha
+(C) An order of the President
+(D) Acts of the concerned State
+Legislature
+57. Who founded the &#x27;Central National
+Mohammedan Association (1877 - 78) ?
+(A) Abdul Latif Khan
+(B) Sayyid Ahmed Khan
+(C) Sayyid Amir Ali
+(D) Muhammad Ali
+58. Match the following :
+List - I1
+List - I
+a. N. M. Joshi
+i. Communist
+Party of India
+b. Qazi Nazrul
+ii. Servants
+Islam
+of the People
+Society
+c. Lala Lajpat
+iii. Indian Trade
+Rai
+Union Congress
+d. M. N. Roy
+iv. Labour Swaraj
+Party
+(A) i - c, ii - d, iii - b, iv - a
+(B) i- a, ii -b, iii - c, iv - d
+(C) i-d, ii - c, iii - a, iv - b
+(D) i -c, ii - d, iii - a, iv - b
+59. Which of the following is an exclusive
+function of the Rajya Sabha in relation
+to the Lok Sabha?
+(A) Electing the Vice-President
+(B) Creation of All India Services
+(C) Altering Boundary of States
+(D) Creation of new Legislative
+Council in States
+Contd.
+- 8-</pre></div>
+<h3 id="p9">Page 9</h3><div class="scan"><span class="fl">SCAN_P09</span><pre>Adda 247
+60. Arrange the mountain ranges from
+North to South.
+I. Devagiri
+II. Gandhamardan
+III. Mahendragiri
+IV. Malyagiri
+(A) 1, II, III, IV
+(B) II, IV, III, 1
+(C) IV, II, 1, III
+(D) I, II, TV, .II
+61. Which of the following Committees
+recommended the establishment of
+the National Stock Exchange (NSE)
+in India ?
+(A) Narasimham Committee
+(B) Rangarajan Committee
+(C) Abid Hussain Committee
+(D) Pherwani Committee
+62. Which tax reform in India aimed to
+unify multiple indirect taxes into a
+single tax ?
+(A) GST
+(B) VAT
+(C) Excise Duty
+(D) Customs Duty
+63. Which data is used to measure
+Multidimensional Poverty Index in
+India ?
+(A) Human Development Index
+(B) National Family Health Survey
+(C) Gini Coefficient
+(D) Poverty Gap Index
+64. Which one of the following statements
+is INCORRECT?
+(A) &#x27;Hindu&#x27; was founded by
+G. Subramania Iyer
+(B) &#x27;Young India&#x27; was published by
+Mahatma Gandhi
+(C) &#x27;Bombay Times&#x27; was founded by
+Sanjibani
+(D) &#x27;Amrita Bazar Patrika&#x27; was
+founded by Sisir Kumar Ghosh
+SM - C/25
+-9-
+--- right column
+GET IT ON
+Google Play
+ASC
+65. Which of the following is NOT a
+component of India&#x27;s fiscal deficit ?
+(A) Revenue Deficit
+(B) Primary Deficit
+(C) Monetary Deficit
+(D) Effective Revenue Deficit
+66. Match the following : Significance
+evidence of Global Warming.
+1. At 400 feet
+a. The edge
+of the West
+every year
+Antarctic
+ice sheet is
+shrinking
+2. Andes Mountain
+b. Glacial
+of Peru from
+retreat
+1978 to 1995
+increased
+seven fold
+in the
+3. Nearly 25 percent
+c. Glacial ice
+over the last
+has shrunk
+60 years in
+the Tien Shan
+Mountain, China
+4. Russian Caucasus
+d. Almost half
+Mountain in the
+of all glacial
+past four decades
+ice melted
+away in the
+d
+b
+c
+a
+4
+2
+(A) 1
+3
+2
+4
+(B) 1
+4
+2
+C)
+4
+3
+1
+(D)
+67. Match the following Indian States on
+the International Boundaries.
+1. Bhutan and
+a. Gujarat
+Bangladesh
+2. China and
+b. Himachal
+Nepal
+Pradesh
+3. China
+c. Uttarakhand
+4. Pakistan
+d. West Bengal
+d
+c
+b
+a
+4
+(A)
+1
+2
+4
+(B)
+2
+1
+2
+1
+(C) 3
+4
+1
+2
+3
+4
+(D)
+(Turn over)</pre></div>
+<h3 id="p10">Page 10</h3><div class="scan"><span class="fl">SCAN_P10</span><pre>Adda 247
+68. Which of the following is NOT a function
+of the Reserve Bank of India?
+(A) Monetary Policy Regulation
+(B) Currency Issuance
+(C) Regulation of Stock Exchanges
+(D) Lender of the Last Resort
+69. The Kyoto Protocol was adopted on
+(A) 11th December 1997
+(B) 21st December 2004
+(C) 10tẠỊỊDecember 1987
+(D) Ogth December 2003
+70. Which is the deepest part of the ocean
+in the world?
+(A) The Challenger Deep in the
+Mariana Trench
+(B) The Horizon Deep in the Tonga
+Trench
+(C) South Sandwich Trench in the
+South Atlantic Ocean
+(D) Oceanic Trench in the Indian
+Ocean
+71. The Indian Institution of Public
+Administration was established in
+(A) 1954
+ddal
+(B)
+1953
+(C)
+1952
+(D) 1955
+72. Which of the following statements
+regarding World Tuberculosis (TB)
+Day, 2025 is/are correct?
+1. It is observed on March 24 to
+commemorate Dr. Robert Koch&#x27;s
+discovery of the TB bacteria in
+1882.
+2. The 2025 theme isẠỊYes! We
+Can End TB.&quot;
+(A) Only 1
+(B) Only 2
+(C) Both 1 and 2
+(D) Neither 1 nor 2
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+AST (AG) - 1/25
+73. Consider the following statements
+regarding Exercise Desert Flag-10
+1. The Indian Air Force is
+participating in the exercise
+with Tejas and Rafale aircraft.
+2. The exercise is being held at
+Al Dhafra Air Base, hosted by the
+United Arab Emirates Air Force.
+3. One of the key objectives of
+the exercise is to enhance
+interoperability through
+complex aerial combat scenarios
+involving multiple nations.
+Which of the above statements is/
+are correct ?
+(A) Only 1 and 2
+(B) Only 2 and 3
+(C) Only 1 and 3
+(D) 1, 2 and 3
+74. The title &#x27;Goodwill Ambassador&#x27; is
+most commonly associated with which
+of the following ?
+(A) Regional trade organizations
+(B) Space exploration programs
+(C) Military alliances
+(D) United Nations and its
+specialized agencies
+75. Which one of the following
+storm-centres of the Revolt of 1857
+is wrongly matched ?
+(A) Revolt at Kanpur - Nana Sahib
+(B) Revolt at
+- Kunwar
+Jagdishpur
+Singh
+(C) Revolt at
+- Hazrat
+Faizabad
+Mahal
+(D) Revolt at Jhansi - Rani
+Lakshmibal
+Contd.
+-10-</pre></div>
+<h3 id="p11">Page 11</h3><div class="scan"><span class="fl">SCAN_P11</span><pre>Adda 247
+76. Which one of the following Acts is
+wrongly matched?
+(A) The First Factory Act - 1881
+(B) The Royal Titles Act
+- 1876
+(C) Repeal of the
+Vernacular Press Act -
+1878
+(D) Calcutta Corporation
+- 1899
+Act
+77. Which one of the following pairs is
+NOT correctly matched ?
+(A) First Schedule - Contains the name
+of States and Union Territories
+(B) Second Schedule - Forms of
+Oath and affirmation
+(C) Fourth Schedule - Allocation of
+seats in the Rajya Sabha
+(D) Fifth Schedule - Provisions
+related to Scheduled Areas and
+Scheduled Tribes
+78. Which one of the following Articles
+of the Constitution deals with Indian
+Foreign Policy?
+(A) Article 49
+Article 50
+(B)
+ddi
+(C) Article 51
+Article 52
+D)
+79. Find out the correct match.
+Place
+Mineral
+a. Baula-Nuasahi
+i. Monazite
+(Keonjhar)
+b. Kesarpur
+ii. Chromite
+(Mayurbhanj)
+c. Chhatrapur
+iii. Limestone
+(Ganjam)
+d. Sunki
+iv. Copper
+(Koraput)
+(A) i-b, ii - c, iii - a, iv- d
+(B) i- c, ii - a, iii - d, iv - b
+(C) i- a, ii - d, iii - b, iv-c
+(D) i-c, ii- a, iii -b, iv - d
+- 11-
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+ASG{--
+80. Which river crosses the equator twice?
+(A) Amazon
+(B) Nile
+(C) Congo
+(D) Niger
+81. What is the correct sequence of the
+following?
+i. The Hartog Committee
+ii. The Hunter Education
+Commission
+iii. The Sadler University
+Commission
+Kothari Education Commission
+iv.
+(A) i, ii, iii, iv
+(B) iii, iv, i1, 1
+(C) ii, ill, iV, 1
+(D) ii, iii, i, iv
+82. Which of the following Articles are
+related to the Right to Religion?
+(A) Articles 14 to 18
+(B) Articles 19 to 22
+C) Articles 25 to 28
+(D) Articles 29 and 30
+83. Which election method is used for
+Lok Sabha elections in India?
+(A) Proportional Representation
+(B) First Past The Post (FPTP)
+(C) Single Transferable Vote (STV)
+(D) Mixed Electoral System
+84. What is edge species ?
+(A) The species which occur
+abundantly in the ecotone
+(B) Species on the verge of
+extinction
+(C) Rare species
+(D) Endemic species
+(Turn over)</pre></div>
+<h3 id="p12">Page 12</h3><div class="scan"><span class="fl">SCAN_P12</span><pre>Adda 247
+85. Match the following: Composition of
+Atmosphere.
+a. Oxygen
+1. Is one of the
+most variable
+gaseous
+substance
+present in
+atmosphere,
+constituting
+between 0.2 to 4
+percent.
+b. Nitrogen
+2. Constitutes
+only 21 percent
+of the total
+volume of
+atmosphere.
+c. Ozone
+3. Among gases
+accounts for
+78 percent
+of total
+atmospheric
+volume.
+d. Water vapour 4. It forms less
+than 0.00005
+percent by
+volume of the
+atmosphere
+and is unevenly
+distributed.
+b
+d
+c
+a
+2
+(A) 1
+4
+1
+(B) 2
+1
+4
+(C) 2
+3
+2
+1
+(D) 4
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+ADli(AG) - 1125
+86. The UNESCO Memory of the World
+(MoW) Register primarily aims to
+preserve which of the following?
+(A) Endangered monuments and
+archaeological sites of historical
+value
+(B) Oral traditions, folk songs,
+and other intangible cultural
+practices
+Ancient scripts, historical
+(C)
+documents, and other forms of
+documentary heritage
+Traditional knowledge
+systems passed down through
+generations
+87. Who among the following is NOT
+a member of the Committee that
+recommends to the President of India
+the appointments of the Chairperson
+and members of the National Human
+Rights Commission ?
+(A) Prime Minister of India
+(B) Home Minister
+(C) Deputy Speaker of the Lok Sabha
+(D) Leader of the Opposition in the
+Rajya Sabha
+88. In which region was the &#x27;Ryotwari
+System&#x27; primarily implemented?
+(A) Bengal Presidency
+(B) Central Provinces
+(C) Madras and Bombay Presidency
+(D) North-Western Provinces and
+Oudh
+89. Which among the following
+Committees/Commissions
+recommended that the appointment
+of Governors should be non-partisan?
+(A) Sarkaria Commission
+(B) Vohra Committee
+(C) 2nd Administrative Reforms
+Commission
+(D) Gadgil Committee
+Contd.
+- 12-</pre></div>
+<h3 id="p13">Page 13</h3><div class="scan"><span class="fl">SCAN_P13</span><pre>Adda 247
+90. Between India and which country
+did Exercise Dharma Guardian&#x27; take
+place ?
+(A) Japan
+(B) Nepal
+(C) Sri Lanka
+(D) Indonesia
+91. What should be the maximum size
+of the Council of Ministers as per the
+91st Constitution Amendment Act
+(2003) ?
+(A) 10% of the Lok Sabha&#x27;s total
+members
+(B) 15% of the Lok Sabha&#x27;s total
+members
+(C) 20% of the Lok Sabha&#x27;s total
+members
+(D) No fixed limit
+92. Which one of the following options
+is correctly matched with respect
+to top four States with maximum
+increase in forest and tree cover
+(as per ISFR 2023) ?
+(A) Chhattisgarh, Uttar Pradesh,
+Odisha and Rajasthan
+(B) Madhya Pradesh, Mizoram,
+Chhattisgarh and Assam
+(C) Odisha, Rajasthan, Assam and
+Mizoram
+(D) Uttar Pradesh, Uttarakhand,
+Himachal Pradesh and Tripura
+SM - C/25
+- 13-
+--- right column
+GET IT ON
+Google Play
+ASG(AG) - 1/40
+93. Match the following : Biogeographical
+Regions of India.
+a. Trans-Himalayan 1. This region
+has one of
+Region
+the highest
+mountain
+ranges in
+the world
+and is rich
+in species
+biodiversity.
+2. With a
+b. Himalayan
+sparse
+Region
+vegetation
+region has
+the richest
+world sheep
+and goat
+communities
+found
+anywhere in
+the world.
+The dense
+c. Semi-Arid Region 3.
+forests of
+a247
+the region
+harbour
+a number
+of species
+diverse in
+nature.
+4. Located
+d. The Western
+adjoining
+Ghats
+the desert,
+the region
+has rich
+species
+diversity.
+d
+b
+c
+a
+3
+2
+4
+(A) 1
+4
+(B) 2
+1
+(C) 2
+4
+1
+2
+(D) 1
+4
+(Turn over)</pre></div>
+<h3 id="p14">Page 14</h3><div class="scan"><span class="fl">SCAN_P14</span><pre></pre></div>
+<h3 id="p15">Page 15</h3><div class="scan"><span class="fl">SCAN_P15</span><pre>Adda 247
+94. The famous Hirakud Project and
+Mahanadi Canal are supplying ample
+irrigation water to
+1. Puri District
+2. Cuttack District
+3. Sambalpur District
+4. Keonjhar District
+Select the correct combination:
+(A) 1, 2, 3, 4
+(B) Only 1, 2 and 3
+(C) Only 1, 2
+(D) Only 3
+95. The Royal Commission on Superior Civil
+Service in India is popularly known as
+(A) Lee Commission
+(B) Islington Commission
+British Commission
+C)
+Civil Service Commission
+D)
+96. Which of the following statements
+about Lala Lajpat Rai are true?
+i. He was reverentially remembered
+by Indian as &#x27;Uncrowned King of
+India&#x27;.
+11. He was a fearless journalist and
+founded and edited &#x27;The Punjabee.
+iii. He was also edited the Quarterly
+Journal of the &#x27;Poona Sarvajanik
+Sabha&#x27;.
+iv. Hehadthefightingspiritand pride
+in his Motherland characteristic
+of a true Arya Samajist.
+(A) i and ii
+(B) ii and iii
+(C) ii and iv
+(D) i and iv
+SM - C/25
+--- right column
+GET IT ON
+Google Play
+ASG(AG) - 1/25
+97. Who among the following was NOT
+associated with the Labour Swaraj
+Party (1925) ?
+(A) Muzaffar Ahmed
+(B) Qazi Nazrul Islam
+(C) Hemanta Kumar Sarkar
+(D) S. A. Dange
+98. Which of the following Directive
+Principles of State Policy was added to
+the Indian Constitution in 1976?
+(A) Organization of Village Panchayats
+(B) Prohibition of Cow Slaughter
+(C) Uniform Civil Code
+(D) Free Legal Aid to the Poor
+99. What is the theme of National Voters&#x27;
+Day, 2025 ?
+(A) Nothing Like Voting, I Vote for Sure
+(B) Making Elections Inclusive,
+Accessible, and Participative
+Making Our Voters Empowered,
+Vigilant, Safe, and Informed
+(D) Electoral Literacy for Stronger
+Democracy
+100. What was the first mammal species
+reported as extinct due to human-
+induced climate change?
+(A) Hydrodamalis gigas (Steller&#x27;s
+sea cow)
+(B) Balaenoptera musculus (Blue
+whale)
+(C) Bramble Cay melomys (Bramble
+Cay mosaic-tailed rat)
+) Capra pyrenaica pyrenaica (The
+Pyrenean ibex)
+Contd.
+-14-</pre></div></main><footer>OPSC ASO study hub · built from <code>pyq/OPSC-ASO-2025-GA-Paper-I-OCR.txt</code> · <a href="../index.html">back to the hub</a></footer>
+</div>
+<a class="totop" href="#top">Top &uarr;</a>
+<script>
+(function(){var b=document.getElementById('hide');if(!b)return;
+b.addEventListener('click',function(){var on=document.body.classList.toggle('hide');b.setAttribute('aria-pressed',on);
+document.querySelectorAll('.an.show').forEach(function(a){a.classList.remove('show')})});
+document.addEventListener('click',function(e){var a=e.target.closest('.an');if(a&&document.body.classList.contains('hide'))a.classList.add('show')});})();
+</script>

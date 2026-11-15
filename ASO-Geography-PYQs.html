@@ -1,0 +1,704 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO Geography PYQs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1015; --paper:#14171f; --fg:#e9e9ec; --muted:#9a9ca6; --rule:#2b2f3a; --grid:#191d27;
+    --blue:#8196ff; --blue-soft:#1e2852; --on-blue:#0e1015; --warn:#fb923c; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1015; --paper:#14171f; --fg:#e9e9ec; --muted:#9a9ca6; --rule:#2b2f3a; --grid:#191d27;
+  --blue:#8196ff; --blue-soft:#1e2852; --on-blue:#0e1015; --warn:#fb923c; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+.secintro{margin-top:12px;max-width:70ch}
+.spread h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+section.spread{padding-block:56px 8px}
+.qs{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:0;border-top:1px solid var(--fg)}
+.qq{padding:18px 20px 18px 0;border-bottom:1px dotted var(--muted);min-width:0}
+@media (min-width:980px){.qq:nth-child(odd){padding-right:28px;border-right:1px dotted var(--rule)}.qq:nth-child(even){padding-left:28px;padding-right:0}}
+.qh{display:flex;align-items:center;gap:6px}
+.qn{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.qt{margin-top:8px;font-size:1.05rem;line-height:1.5;font-weight:500}
+.op{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:2px 18px;font-size:.98rem;line-height:1.45}
+.op li{min-width:0;overflow-wrap:anywhere}
+.op span{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.mt{margin:10px 0 0;padding:8px 12px;list-style:none;border:1px dashed var(--rule);background:var(--paper);font-size:.95rem;line-height:1.5;display:grid;gap:2px}
+.mt li{overflow-wrap:anywhere}
+.an{margin-top:12px;border-left:2px solid var(--blue);padding:4px 0 4px 12px}
+.an>b{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+.an .av{font-weight:600}
+.an p{font-size:.97rem;line-height:1.6;margin-top:4px}
+body.hide-ans .an{cursor:pointer;background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 6px,var(--grid) 6px,var(--grid) 12px)}
+body.hide-ans .an .av,body.hide-ans .an p{visibility:hidden}
+body.hide-ans .an::after{content:"Tap to show";font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+body.hide-ans .an.show{background:none;cursor:default}
+body.hide-ans .an.show .av,body.hide-ans .an.show p{visibility:visible}
+body.hide-ans .an.show::after{content:none}
+.bar{position:sticky;top:0;z-index:15;background:var(--bg);border-bottom:1px solid var(--rule);padding:10px 0;margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar button{border:1px solid var(--fg);background:var(--paper);padding:4px 12px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.bar button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.bar .lbl{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.bar .sp{flex:1}
+.qq.off{display:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:24px;border-top:1px solid var(--fg)}
+.stats div{padding:14px 16px 14px 0;border-bottom:1px dotted var(--muted)}
+.stats .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.stats p{font-size:.92rem;margin-top:6px;color:var(--muted)}
+</style>
+
+<body>
+<div class="page">
+<div class="util"><span>OPSC ASO · General Awareness Paper I · PYQ file</span>
+<div class="theme" role="group" aria-label="Theme"><button data-t="light">Light</button><button data-t="system">System</button><button data-t="dark">Dark</button></div></div>
+
+<header class="mast"><h1>Geography PYQs</h1>
+<p class="tag">Every <b>India and world geography</b> question from the<br>2018, 2021 and 2025 ASO General Awareness papers,<br>with answers explained in plain English.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+
+<div class="hero">
+<div>
+<p class="lead dropcap">Geography is one of the steadiest parts of the ASO General Awareness paper. In 2021 a full block of twenty questions (Q61–80) was geography. In 2018 and 2025 it was spread out, but still about one question in six. Odisha's own geography appears in every paper.</p>
+<p class="lead">The questions are grouped by topic, not by year, so you can see the families that repeat. Each one shows the year and question number, the options as printed, the answer, and a short reason. Use <b>Hide answers</b> to test yourself first.</p>
+</div>
+<div>
+<div class="legend">
+<div><span class="yr">2021</span> year of the paper, then the question number</div>
+<div><span class="chk">Check</span> answer keys differ, or the scan was unclear; confirm before relying on it</div>
+<div>Spellings are lightly cleaned up from the scans. Where option letters were lost in the scan, the correct match is given in words.</div>
+</div>
+<div class="stats">
+<div><div class="big">60</div><p>geography questions in all</p></div>
+<div><div class="big">20</div><p>in 2018 (18 pure + 2 mixed)</p></div>
+<div><div class="big">23</div><p>in 2021 (20 pure + 3 mixed)</p></div>
+<div><div class="big">17</div><p>in 2025 (all pure)</p></div>
+</div>
+</div>
+</div>
+
+<nav class="toc" aria-label="Contents">
+<div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>60</span> questions</span></div>
+<ol class="toclist"><li><span class="n">01</span><a href="#world-land">Earth, rocks and landforms</a><span class="dots"></span><span class="c">7 Q</span></li><li><span class="n">02</span><a href="#climate">Atmosphere, climate and winds</a><span class="dots"></span><span class="c">8 Q</span></li><li><span class="n">03</span><a href="#world-water">Oceans, seas, rivers, lakes and grasslands</a><span class="dots"></span><span class="c">9 Q</span></li><li><span class="n">04</span><a href="#india-phys">India: rocks, relief, rivers and climate</a><span class="dots"></span><span class="c">11 Q</span></li><li><span class="n">05</span><a href="#india-map">India map: states, coasts, borders and passes</a><span class="dots"></span><span class="c">10 Q</span></li><li><span class="n">06</span><a href="#odisha">Odisha geography</a><span class="dots"></span><span class="c">10 Q</span></li><li><span class="n">07</span><a href="#border">Geography inside other questions</a><span class="dots"></span><span class="c">5 Q</span></li></ol>
+</nav>
+
+<div class="bar" role="toolbar" aria-label="Filters">
+<span class="lbl">Year</span>
+<button data-y="all" aria-pressed="true">All</button><button data-y="2018" aria-pressed="false">2018</button><button data-y="2021" aria-pressed="false">2021</button><button data-y="2025" aria-pressed="false">2025</button>
+<span class="sp"></span>
+<button id="hide" aria-pressed="false">Hide answers</button>
+</div>
+
+<section class="spread" id="world-land">
+<div class="sectrule"><span class="eyebrow">Part <b>01</b> · 7 questions</span><span class="line"></span><span class="eyebrow">2018: 2 · 2021: 4 · 2025: 1</span></div>
+<h2>Earth, rocks and landforms</h2>
+<p class="secintro">These questions test how the Earth's crust moves and what that movement builds: plates, mountains, volcanoes, earthquakes and deltas. Most of them are textbook basics from Class 11 physical geography (NCERT <i>Fundamentals of Physical Geography</i>).</p>
+<div class="qs">
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q42</span></div>
+<p class="qt">Which type of rock is granite?</p>
+<ol class="op"><li><span>(A)</span> Sedimentary</li><li><span>(B)</span> Igneous</li><li><span>(C)</span> Metamorphic</li><li><span>(D)</span> Organic</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Igneous</span><p>Granite forms when hot magma cools slowly deep under the ground. Rocks made from cooled magma are igneous. Basalt is also igneous, but it cools fast on the surface.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q43</span></div>
+<p class="qt">What is not correct with regard to earthquake?</p>
+<ol class="op"><li><span>(A)</span> It is caused by endogenetic forces of earth.</li><li><span>(B)</span> The magnitude of energy released by it is measured by Richter Scale.</li><li><span>(C)</span> The damage caused by it is measured by Mercalli Intensity Scale.</li><li><span>(D)</span> Epicenter is the point deep under the ground where it actually begins.</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D</span><p>The point deep underground where the quake begins is the <b>focus</b> (hypocentre). The <b>epicentre</b> is the point on the surface right above it. Richter = energy (magnitude); Mercalli = damage (intensity).</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q61</span></div>
+<p class="qt">Which option is not correctly matched with respect to the plates and the type of plate boundary?</p>
+<ol class="op"><li><span>(A)</span> North American plate and Eurasian plate are diverging plates</li><li><span>(B)</span> Nazca plate and South American plate are diverging plates</li><li><span>(C)</span> Nazca plate and Pacific plate show a diverging plate boundary</li><li><span>(D)</span> Indian-Australian plate and Eurasian plate are converging plates</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B</span><p>The Nazca plate slides <i>under</i> South America, so they <b>converge</b>; that push built the Andes. North America and Eurasia move apart at the Mid-Atlantic Ridge. Nazca and Pacific move apart at the East Pacific Rise. India pushing into Eurasia built the Himalayas.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q64</span></div>
+<p class="qt">Match the type of mountain with the example.</p>
+<ul class="mt"><li>(a) Block mountain — (i) Himalayas</li><li>(b) Old folded mountain — (ii) Black Forest</li><li>(c) Relict mountain — (iii) Scottish Highlands</li><li>(d) Young folded mountain — (iv) Appalachian</li><li>Codes: (A) iii i ii iv · (B) iii i iv ii · (C) ii iv iii i · (D) ii iv i iii</li></ul>
+<div class="an"><b>Answer</b> <span class="av">C · a-ii, b-iv, c-iii, d-i</span><p>Block mountain = Black Forest (Germany), lifted between faults. Old fold = Appalachians. Relict (worn-down) = Scottish Highlands. Young fold = Himalayas.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q65</span><span class="chk">Check</span></div>
+<p class="qt">Which region has the largest number of active volcanoes?</p>
+<ol class="op"><li><span>(A)</span> Alaska</li><li><span>(B)</span> Aleutian Islands</li><li><span>(C)</span> Hawaii Islands</li><li><span>(D)</span> Iceland</li></ol>
+<div class="an"><b>Answer</b> <span class="av">Keys differ: B (Aleutian Islands) or A (Alaska)</span><p>The Aleutian Islands are a long volcanic island arc on the Pacific 'Ring of Fire'. Most of Alaska's active volcanoes sit on this arc, so Alaska as a whole holds even more. Coaching keys are split between the two. Hawaii and Iceland have only a few active volcanoes each.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q66</span></div>
+<p class="qt">Which river has a 'bird-foot' delta?</p>
+<ol class="op"><li><span>(A)</span> Danube</li><li><span>(B)</span> Mississippi</li><li><span>(C)</span> Niger</li><li><span>(D)</span> Nile</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Mississippi</span><p>A bird-foot delta has long fingers of land that push into the sea, like a bird's toes. The Mississippi brings very fine mud and the Gulf of Mexico has weak waves, so the fingers survive. The Nile has an arc-shaped (arcuate) delta.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q43</span></div>
+<p class="qt">Mount Lewotobi Laki-Laki, an active volcano, is located in which country?</p>
+<ol class="op"><li><span>(A)</span> Philippines</li><li><span>(B)</span> Indonesia</li><li><span>(C)</span> Japan</li><li><span>(D)</span> Malaysia</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Indonesia</span><p>It is on Flores island in Indonesia and erupted strongly in November 2024 and again in 2025. Indonesia has more active volcanoes than any other country.</p></div>
+</article>
+</div>
+</section><section class="spread" id="climate">
+<div class="sectrule"><span class="eyebrow">Part <b>02</b> · 8 questions</span><span class="line"></span><span class="eyebrow">2018: 2 · 2021: 3 · 2025: 3</span></div>
+<h2>Atmosphere, climate and winds</h2>
+<p class="secintro">This family covers what air is made of, how seasons work, local winds, cyclones and climate codes. Köppen codes and local-wind names are the favourite 'match the following' material.</p>
+<div class="qs">
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q41</span></div>
+<p class="qt">Which is the largest constituent of atmosphere?</p>
+<ol class="op"><li><span>(A)</span> Methane</li><li><span>(B)</span> Oxygen</li><li><span>(C)</span> Carbon dioxide</li><li><span>(D)</span> Nitrogen</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D · Nitrogen</span><p>Dry air is about 78% nitrogen, 21% oxygen, 0.93% argon and about 0.04% carbon dioxide.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q85</span></div>
+<p class="qt">Match the gas with its description (composition of atmosphere).</p>
+<ul class="mt"><li>a. Oxygen</li><li>b. Nitrogen</li><li>c. Ozone</li><li>d. Water vapour</li><li>1. Most variable gas, 0.2 to 4 percent</li><li>2. Only 21 percent of the volume</li><li>3. 78 percent of the volume</li><li>4. Less than 0.00005 percent, unevenly spread</li></ul>
+<div class="an"><b>Answer</b> <span class="av">a-2, b-3, c-4, d-1</span><p>Oxygen is 21%. Nitrogen is 78%. Ozone is a tiny trace (under 0.00005%). Water vapour changes the most from place to place (0.2% to 4%). The option letters were unreadable in the scan, so pick the option that gives this match.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q81</span></div>
+<p class="qt">Which would be the longest day in Australia?</p>
+<ol class="op"><li><span>(A)</span> June 21</li><li><span>(B)</span> September 22</li><li><span>(C)</span> December 22</li><li><span>(D)</span> March 23</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · December 22</span><p>Australia is in the Southern Hemisphere. Around 21–22 December the Sun is over the Tropic of Capricorn, so the south gets its longest day. On 21 June it is the north's longest day and Australia's shortest.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q67</span></div>
+<p class="qt">Which local wind is not correctly matched?</p>
+<ol class="op"><li><span>(A)</span> Khamsin → North Africa and Arabia</li><li><span>(B)</span> Bora → Adriatic coast</li><li><span>(C)</span> Mistral → France</li><li><span>(D)</span> Samoon → America</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D</span><p>Samoon is a hot, dry wind of Iran (Kurdistan region), not America. Khamsin is a hot dusty wind of Egypt. Bora is a cold wind on the Adriatic. Mistral is a cold wind down the Rhône valley in France.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q68</span></div>
+<p class="qt">Match the name of the tropical cyclone with the region.</p>
+<ul class="mt"><li>(a) Baguio — (i) China</li><li>(b) Cyclone — (ii) Philippines</li><li>(c) Hurricane — (iii) Madagascar</li><li>(d) Typhoon — (iv) USA</li><li>Codes: (A) ii iii i iv · (B) ii iii iv i · (C) iii iv i ii · (D) iii iv ii i</li></ul>
+<div class="an"><b>Answer</b> <span class="av">B · a-ii, b-iii, c-iv, d-i</span><p>Baguio = Philippines. Cyclone = Indian Ocean (here Madagascar). Hurricane = USA / Caribbean. Typhoon = China and the West Pacific. Also remember Willy-willy = Australia.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q69</span></div>
+<p class="qt">Match the Köppen symbol with the climate.</p>
+<ul class="mt"><li>(a) BWk — (i) Cold mid-latitude steppe</li><li>(b) BWh — (ii) Hot mid-latitude steppe</li><li>(c) BSh — (iii) Hot low latitude desert</li><li>(d) BSk — (iv) Cold low latitude desert</li><li>Codes: (A) iv iii ii i · (B) iv ii iii i · (C) i iii ii iv · (D) i ii iii iv</li></ul>
+<div class="an"><b>Answer</b> <span class="av">A · a-iv, b-iii, c-ii, d-i</span><p>B = dry. W = desert, S = steppe (semi-dry grassland). h = hot (low latitude), k = cold (mid latitude). So BWk = cold desert, BWh = hot desert, BSh = hot steppe, BSk = cold steppe.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q39</span></div>
+<p class="qt">Statements on climate: I. Indian Ocean Dipole is also known as 'Indian Niño'. II. It is similar to the El Niño phenomenon.</p>
+<ol class="op"><li><span>(A)</span> Only I</li><li><span>(B)</span> Both I and II</li><li><span>(C)</span> Only II</li><li><span>(D)</span> Neither I nor II</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Both</span><p>The Indian Ocean Dipole is a see-saw of sea temperature between the west and east Indian Ocean, just as El Niño is a warming in the Pacific. A positive IOD usually helps India's monsoon.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q66</span></div>
+<p class="qt">Match the evidence of global warming (glaciers and ice).</p>
+<ul class="mt"><li>1. 400 feet every year</li><li>2. Andes of Peru, 1978 to 1995</li><li>3. Nearly 25 percent over the last 60 years</li><li>4. Russian Caucasus, past four decades</li><li>a. Edge of the West Antarctic ice sheet is shrinking</li><li>b. Glacial retreat increased seven fold</li><li>c. Glacial ice has shrunk in the Tien Shan, China</li><li>d. Almost half of all glacial ice melted away</li></ul>
+<div class="an"><b>Answer</b> <span class="av">1-a, 2-b, 3-c, 4-d</span><p>West Antarctic ice edge shrinks about 400 feet a year. Glacier retreat in Peru's Andes became seven times faster from 1978 to 1995. China's Tien Shan lost about 25% of its glacier ice in 60 years. Russia's Caucasus lost about half its glacier ice in four decades. Option letters were garbled in the scan.</p></div>
+</article>
+</div>
+</section><section class="spread" id="world-water">
+<div class="sectrule"><span class="eyebrow">Part <b>03</b> · 9 questions</span><span class="line"></span><span class="eyebrow">2018: 3 · 2021: 3 · 2025: 3</span></div>
+<h2>Oceans, seas, rivers, lakes and grasslands</h2>
+<p class="secintro">World 'records and odd facts' questions: the deepest point, the widest shelf, the river that crosses the equator twice, the sea with no coast. Every one of these has a short list of rivals worth learning together.</p>
+<div class="qs">
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q70</span></div>
+<p class="qt">Which is the deepest part of the ocean in the world?</p>
+<ol class="op"><li><span>(A)</span> Challenger Deep in the Mariana Trench</li><li><span>(B)</span> Horizon Deep in the Tonga Trench</li><li><span>(C)</span> South Sandwich Trench, South Atlantic</li><li><span>(D)</span> Oceanic trench in the Indian Ocean</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Challenger Deep</span><p>About 10,900 m deep, in the Pacific near Guam. The deepest point of the Indian Ocean is the Java (Sunda) Trench; of the Atlantic, the Puerto Rico Trench.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q70</span></div>
+<p class="qt">The widest continental shelf is found in the:</p>
+<ol class="op"><li><span>(A)</span> Arctic Ocean</li><li><span>(B)</span> Atlantic Ocean</li><li><span>(C)</span> Indian Ocean</li><li><span>(D)</span> Pacific Ocean</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Arctic Ocean</span><p>The Siberian Shelf in the Arctic Ocean is the widest in the world, over 1,000 km. The Pacific has the narrowest shelves because its edges are lined with trenches.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q62</span></div>
+<p class="qt">Which ocean current is found in the southern hemisphere?</p>
+<ol class="op"><li><span>(A)</span> Oyashio Current</li><li><span>(B)</span> West Wind Drift</li><li><span>(C)</span> Gulf Stream</li><li><span>(D)</span> Canaries Current</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · West Wind Drift</span><p>The West Wind Drift (Antarctic Circumpolar Current) circles Antarctica. Oyashio (near Japan), Gulf Stream (USA to Europe) and Canaries (off North-west Africa) are all northern.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q80</span></div>
+<p class="qt">The 'Ninety East Ridge' is a submarine volcanic ridge located in:</p>
+<ol class="op"><li><span>(A)</span> Pacific Ocean</li><li><span>(B)</span> Atlantic Ocean</li><li><span>(C)</span> Indian Ocean</li><li><span>(D)</span> Arctic Ocean</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Indian Ocean</span><p>It runs north–south along the 90°E line in the Indian Ocean, for about 5,000 km. It was made as the Indian plate moved north over a hotspot.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q83</span></div>
+<p class="qt">Which sea has no coastline?</p>
+<ol class="op"><li><span>(A)</span> White Sea</li><li><span>(B)</span> Tasman Sea</li><li><span>(C)</span> Sargasso Sea</li><li><span>(D)</span> Japan Sea</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Sargasso Sea</span><p>The Sargasso Sea is in the North Atlantic and is bounded only by ocean currents (Gulf Stream, North Atlantic, Canaries, North Equatorial). It is famous for floating sargassum seaweed and eel breeding.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q84</span></div>
+<p class="qt">Which is the largest tropical lake in the world?</p>
+<ol class="op"><li><span>(A)</span> Lake Victoria</li><li><span>(B)</span> Lake Malawi</li><li><span>(C)</span> Lake Kivu</li><li><span>(D)</span> Lake Turkana</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Lake Victoria</span><p>Lake Victoria (Uganda, Kenya, Tanzania) is Africa's largest lake and the source of the White Nile. The largest lake of all is the Caspian Sea; the largest freshwater lake by area is Lake Superior.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q80</span></div>
+<p class="qt">Which river crosses the equator twice?</p>
+<ol class="op"><li><span>(A)</span> Amazon</li><li><span>(B)</span> Nile</li><li><span>(C)</span> Congo</li><li><span>(D)</span> Niger</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Congo</span><p>The Congo flows north across the equator and then bends back south across it again before reaching the Atlantic. The Congo is also the world's deepest river.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q63</span></div>
+<p class="qt">Which grassland is not correctly matched?</p>
+<ol class="op"><li><span>(A)</span> Prairies → North America</li><li><span>(B)</span> Pampas → North America</li><li><span>(C)</span> Veldt → South Africa</li><li><span>(D)</span> Steppes → European Russia</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B</span><p>The Pampas are in South America (Argentina). Other temperate grasslands: Downs (Australia), Canterbury (New Zealand), Puszta (Hungary).</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q53</span></div>
+<p class="qt">Savannas are:</p>
+<ol class="op"><li><span>(A)</span> Temperate grasslands</li><li><span>(B)</span> Coniferous forest</li><li><span>(C)</span> Temperate deciduous forest</li><li><span>(D)</span> Tropical grasslands</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D · Tropical grasslands</span><p>Savannas are tall-grass lands with scattered trees, between the equatorial forest and the desert. Local names: Llanos (Venezuela), Campos (Brazil), the African savanna of Kenya and Tanzania.</p></div>
+</article>
+</div>
+</section><section class="spread" id="india-phys">
+<div class="sectrule"><span class="eyebrow">Part <b>04</b> · 11 questions</span><span class="line"></span><span class="eyebrow">2018: 3 · 2021: 6 · 2025: 2</span></div>
+<h2>India: rocks, relief, rivers and climate</h2>
+<p class="secintro">Questions on how India's land was built and how its monsoon behaves. The oldest rocks, the dividing ranges and the river sources come up again and again.</p>
+<div class="qs">
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q47</span></div>
+<p class="qt">Where are the oldest rocks found?</p>
+<ol class="op"><li><span>(A)</span> Himalayas</li><li><span>(B)</span> Aravallis</li><li><span>(C)</span> Siwaliks</li><li><span>(D)</span> Indo-Gangetic Plain</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Aravallis</span><p>The Aravallis are the oldest fold mountains in India, made of very old rocks. The Siwaliks are the youngest Himalayan range, and the Indo-Gangetic plain is the youngest land (river mud).</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q71</span></div>
+<p class="qt">Which one of the following geosynclines is the oldest?</p>
+<ol class="op"><li><span>(A)</span> Delhi geosyncline</li><li><span>(B)</span> Dharwar geosyncline</li><li><span>(C)</span> Eastern Ghat geosyncline</li><li><span>(D)</span> Satpura geosyncline</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Dharwar</span><p>The Dharwar system (Karnataka) is among the oldest rock systems of India, and it holds much of India's iron ore, gold and manganese.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q73</span></div>
+<p class="qt">Which range forms a dividing line between the Ganges Plain and the Deccan Plateau?</p>
+<ol class="op"><li><span>(A)</span> Aravalli</li><li><span>(B)</span> Vindhya</li><li><span>(C)</span> Satpura</li><li><span>(D)</span> Ajanta</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Vindhya</span><p>The Vindhyas run east–west just south of the Ganga plain and are the traditional line between North and South India. The Narmada flows between the Vindhyas and the Satpuras.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q72</span></div>
+<p class="qt">Which river does not originate from the Maikal Range?</p>
+<ol class="op"><li><span>(A)</span> Tapi</li><li><span>(B)</span> Son</li><li><span>(C)</span> Narmada</li><li><span>(D)</span> Mahanadi</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Tapi</span><p>Narmada and Son both rise at Amarkantak in the Maikal hills. The Tapi rises at Multai in Betul (Satpura range). Careful: the Mahanadi rises near Sihawa in Dhamtari, Chhattisgarh, close to but not strictly in the Maikal. The exam's intended answer is Tapi.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q74</span><span class="chk">Check</span></div>
+<p class="qt">(i) The Gujarat Plain was formed by the depositional work of parallel consequent rivers. (ii) The Gujarat Plain contains the Cretaceous lava formations.</p>
+<ol class="op"><li><span>(A)</span> Only (i) is correct</li><li><span>(B)</span> Only (ii) is correct</li><li><span>(C)</span> Both are correct</li><li><span>(D)</span> Neither is correct</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Only (i), most likely</span><p>The plain was built from silt laid down by the Sabarmati, Mahi, Narmada and Tapi. The old lava (Deccan Trap) is found in Kathiawar and the plateau, not in the alluvial plain itself.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q79</span></div>
+<p class="qt">Which factor is responsible for fluctuation in Monsoon in India?</p>
+<ol class="op"><li><span>(A)</span> If the 2nd equatorial trough does not merge with ITCZ</li><li><span>(B)</span> Southern branch of the South-West Tropical Jet re-establishes over Northern India</li><li><span>(C)</span> Late disappearance of the southern branch of the Subtropical Westerly Jet from Northern India</li><li><span>(D)</span> Development of a strong low-pressure cell over the Tibetan landmass</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C</span><p>The monsoon can only burst after the westerly jet stream moves north of the Himalayas. If it stays over North India for too long, the monsoon is delayed or weak. A strong low over Tibet actually helps the monsoon.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q75</span><span class="chk">Check</span></div>
+<p class="qt">Who among the following scholars did not delineate 'the climatic regions of India'?</p>
+<ol class="op"><li><span>(A)</span> Blanford, H. F.</li><li><span>(B)</span> Coppack, J.</li><li><span>(C)</span> Spate, O. H. K.</li><li><span>(D)</span> Singh, R. L.</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Coppack, most likely</span><p>Blanford, Spate and R. L. Singh all drew climatic-region maps of India. Coppock was a British land-use geographer, not a scholar of India's climate. Other names for India's climatic regions: Köppen, Thornthwaite, Stamp, Trewartha, Kendrew.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q73</span></div>
+<p class="qt">Which category of forests occupies the largest percentage in India?</p>
+<ol class="op"><li><span>(A)</span> Conifers and pines</li><li><span>(B)</span> Equatorial evergreen</li><li><span>(C)</span> Tropical deciduous</li><li><span>(D)</span> Desert vegetation</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Tropical deciduous</span><p>Tropical deciduous (monsoon) forests, which drop leaves in the dry season, cover most of India's forest area. Teak and sal are the main trees.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q68</span></div>
+<p class="qt">82½° E longitude is geographically significant to India because:</p>
+<ol class="op"><li><span>(A)</span> It determines the Indian Standard Time</li><li><span>(B)</span> It has a bearing on the tropical climate of India</li><li><span>(C)</span> It divides India into eastern and western zones</li><li><span>(D)</span> It enables determining local time in eastern India</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Indian Standard Time</span><p>IST is the local time at 82°30′E, which passes near Mirzapur (Uttar Pradesh). IST is 5 hours 30 minutes ahead of GMT. The line also touches Odisha (near Koraput / Nabarangpur).</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q12</span></div>
+<p class="qt">The hills situated closest to Kanyakumari are:</p>
+<ol class="op"><li><span>(A)</span> Cardamom hills</li><li><span>(B)</span> Nilgiri hills</li><li><span>(C)</span> Anamalai hills</li><li><span>(D)</span> Shevaroy hills</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Cardamom hills</span><p>From north to south along the Western Ghats: Nilgiri → Anamalai → Palani → Cardamom. The Cardamom hills (with Agasthyamalai at the tip) are the last range before Kanyakumari. Shevaroy hills are in the Eastern Ghats near Salem.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q46</span></div>
+<p class="qt">Ground water: I. India is the largest ground water user in the world. II. India's rank is 120 among 122 countries in the water quality index.</p>
+<ol class="op"><li><span>(A)</span> Only I</li><li><span>(B)</span> Both I and II</li><li><span>(C)</span> Only II</li><li><span>(D)</span> Neither</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Both</span><p>India pumps more groundwater than the USA and China put together. The rank of 120 out of 122 is from NITI Aayog's Composite Water Management Index report (2018).</p></div>
+</article>
+</div>
+</section><section class="spread" id="india-map">
+<div class="sectrule"><span class="eyebrow">Part <b>05</b> · 10 questions</span><span class="line"></span><span class="eyebrow">2018: 6 · 2021: 1 · 2025: 3</span></div>
+<h2>India map: states, coasts, borders and passes</h2>
+<p class="secintro">This is the 'look at the map' family. If you can picture India's outline, its borders and the Tropic of Cancer, most of these become free marks.</p>
+<div class="qs">
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q44</span></div>
+<p class="qt">Which state is not bisected by the Tropic of Cancer?</p>
+<ol class="op"><li><span>(A)</span> Gujarat</li><li><span>(B)</span> Odisha</li><li><span>(C)</span> West Bengal</li><li><span>(D)</span> Rajasthan</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Odisha</span><p>The Tropic of Cancer (23½°N) passes through 8 states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram. Odisha lies fully south of it.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q46</span></div>
+<p class="qt">Which state has the longest coastline?</p>
+<ol class="op"><li><span>(A)</span> Gujarat</li><li><span>(B)</span> Andhra Pradesh</li><li><span>(C)</span> Maharashtra</li><li><span>(D)</span> Odisha</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Gujarat</span><p>Gujarat has the longest coastline (about 1,600 km by the old count; about 2,340 km in the 2024 re-measurement). Andhra Pradesh is second among states on the old count; Tamil Nadu is second on the new one. Odisha's coast is about 480 km (575 km in the new count).</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q72</span></div>
+<p class="qt">In India, how many states share the coastline?</p>
+<ol class="op"><li><span>(A)</span> 7</li><li><span>(B)</span> 8</li><li><span>(C)</span> 9</li><li><span>(D)</span> 10</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · 9</span><p>Gujarat, Maharashtra, Goa, Karnataka, Kerala, Tamil Nadu, Andhra Pradesh, Odisha, West Bengal. Plus 4 coastal UTs: Daman &amp; Diu (with DNH), Puducherry, Lakshadweep, Andaman &amp; Nicobar. (Options B and C were lost in the scan; the numbers shown are a reconstruction.)</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q67</span></div>
+<p class="qt">Match the Indian states with the international boundaries they touch.</p>
+<ul class="mt"><li>1. Bhutan and Bangladesh</li><li>2. China and Nepal</li><li>3. China</li><li>4. Pakistan</li><li>a. Gujarat</li><li>b. Himachal Pradesh</li><li>c. Uttarakhand</li><li>d. West Bengal</li></ul>
+<div class="an"><b>Answer</b> <span class="av">1-d, 2-c, 3-b, 4-a</span><p>West Bengal touches Bhutan, Bangladesh and Nepal. Uttarakhand touches China and Nepal. Himachal Pradesh touches China (Tibet). Gujarat touches Pakistan. Option letters were garbled in the scan.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q80</span></div>
+<p class="qt">Which mountain pass does not belong to the state given?</p>
+<ol class="op"><li><span>(A)</span> Bara Lacha La → Himachal Pradesh</li><li><span>(B)</span> Mana Pass → Uttarakhand</li><li><span>(C)</span> Jelep La → Arunachal Pradesh</li><li><span>(D)</span> Nathu La → Sikkim</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C</span><p>Jelep La is in Sikkim, close to Nathu La, on the road to Tibet's Chumbi valley. Arunachal's well-known passes are Bomdi La, Bum La and Dihang (Diphu).</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q48</span></div>
+<p class="qt">Which state has the highest percentage of its geographical area under forest, as per the 2018 government report?</p>
+<ol class="op"><li><span>(A)</span> Madhya Pradesh</li><li><span>(B)</span> Arunachal Pradesh</li><li><span>(C)</span> Nagaland</li><li><span>(D)</span> Mizoram</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D · Mizoram</span><p>By percentage, Mizoram leads (over 85%). By total area, Madhya Pradesh has the most forest. Among UTs, Lakshadweep has the highest percentage.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q92</span></div>
+<p class="qt">Which option correctly gives the top four states with the maximum increase in forest and tree cover (ISFR 2023)?</p>
+<ol class="op"><li><span>(A)</span> Chhattisgarh, Uttar Pradesh, Odisha and Rajasthan</li><li><span>(B)</span> Madhya Pradesh, Mizoram, Chhattisgarh and Assam</li><li><span>(C)</span> Odisha, Rajasthan, Assam and Mizoram</li><li><span>(D)</span> Uttar Pradesh, Uttarakhand, Himachal Pradesh and Tripura</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A</span><p>ISFR 2023 (released Dec 2024): Chhattisgarh gained the most forest and tree cover, then Uttar Pradesh, Odisha and Rajasthan. For forest cover alone, Mizoram led the increase.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q93</span></div>
+<p class="qt">Match the biogeographical regions of India with the description.</p>
+<ul class="mt"><li>a. Trans-Himalayan</li><li>b. Himalayan</li><li>c. Semi-Arid</li><li>d. Western Ghats</li><li>1. Highest mountain ranges, rich in species</li><li>2. Sparse vegetation, richest wild sheep and goat communities</li><li>3. Dense forests with many diverse species</li><li>4. Located next to the desert</li></ul>
+<div class="an"><b>Answer</b> <span class="av">a-2, b-1, c-4, d-3</span><p>Trans-Himalaya (Ladakh): sparse plants, rich wild sheep and goats. Himalaya: among the highest mountains, rich in species. Semi-arid: next to the Thar desert. Western Ghats: dense forests with many species.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q74</span></div>
+<p class="qt">The ADB-supported Integrated Kashang and Sainj Hydroelectric Projects are located in which state?</p>
+<ol class="op"><li><span>(A)</span> Jammu &amp; Kashmir</li><li><span>(B)</span> Himachal Pradesh</li><li><span>(C)</span> Uttarakhand</li><li><span>(D)</span> Punjab</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Himachal Pradesh</span><p>Kashang is in Kinnaur district and Sainj is in Kullu district, both in Himachal Pradesh.</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q70</span><span class="chk">Check</span></div>
+<p class="qt">For what is the Manas Sanctuary in Assam known?</p>
+<ol class="op"><li><span>(A)</span> Bears</li><li><span>(B)</span> Rhinos</li><li><span>(C)</span> Elephants</li><li><span>(D)</span> Bisons</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Elephants (usual key)</span><p>Manas is a tiger reserve, elephant reserve and UNESCO World Heritage Site on the Bhutan border. It is also famous for the pygmy hog, golden langur and wild buffalo. For rhinos, think Kaziranga.</p></div>
+</article>
+</div>
+</section><section class="spread" id="odisha">
+<div class="sectrule"><span class="eyebrow">Part <b>06</b> · 10 questions</span><span class="line"></span><span class="eyebrow">2018: 2 · 2021: 3 · 2025: 5</span></div>
+<h2>Odisha geography</h2>
+<p class="secintro">Every paper now has two to five questions on Odisha's own land: its deltas, hills, soils, minerals, rivers and turtles. These are the questions outsiders miss, so they are worth the most time.</p>
+<div class="qs">
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q45</span></div>
+<p class="qt">Why is Chilika Lake called a lagoon?</p>
+<ol class="op"><li><span>(A)</span> It is formed by damming of sections of river channels</li><li><span>(B)</span> It is formed by rain water flowing into local depressions</li><li><span>(C)</span> It is produced by erosional and depositional action of waves in the coastal region</li><li><span>(D)</span> It is formed by remnants of ancient ocean and sea areas</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C</span><p>A lagoon is a shallow body of salty water cut off from the sea by a sandbar built by waves. Chilika is Asia's largest brackish-water lagoon and India's first Ramsar site (1981, with Keoladeo).</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q62</span></div>
+<p class="qt">What is not correct with respect to Olive Ridley sea turtles?</p>
+<ol class="op"><li><span>(A)</span> Gahirmatha is the world's largest known nesting ground of these turtles</li><li><span>(B)</span> Two other mass nesting beaches in Odisha are at the mouths of the Rushikulya and Daya</li><li><span>(C)</span> The eggs hatch at night and the hatchlings are highly sensitive to light</li><li><span>(D)</span> They are listed as Vulnerable in the IUCN Red List</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B</span><p>The three mass-nesting (arribada) sites in Odisha are Gahirmatha (Kendrapara), Rushikulya (Ganjam) and the mouth of the <b>Devi</b> river (Puri), not the Daya.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q27</span></div>
+<p class="qt">Which river in Odisha saw nesting of over 6.98 lakh Olive Ridley turtles during 'Operation Olivia' in February 2025?</p>
+<ol class="op"><li><span>(A)</span> Mahanadi</li><li><span>(B)</span> Brahmani</li><li><span>(C)</span> Rushikulya</li><li><span>(D)</span> Subarnarekha</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Rushikulya</span><p>Rushikulya rookery in Ganjam had a record mass nesting in Feb 2025. Operation Olivia is the Indian Coast Guard's yearly turtle-protection drive.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q16</span></div>
+<p class="qt">In Odisha, the 'Hexadeltaic region' is named after:</p>
+<ol class="op"><li><span>(A)</span> Six deltaic districts</li><li><span>(B)</span> Six coastal districts</li><li><span>(C)</span> Six rivers of the State</li><li><span>(D)</span> Hexagonal shape of the region</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · Six rivers</span><p>The coastal plain is built by the deltas of six rivers: Subarnarekha, Budhabalanga, Baitarani, Brahmani, Mahanadi and Rushikulya.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q76</span><span class="chk">Check</span></div>
+<p class="qt">Arrange the rivers by their contribution to the formation of Odisha's coastal plains.</p>
+<ol class="op"><li><span>(A)</span> Mahanadi > Brahmani > Baitarani > Rushikulya > Subarnarekha</li><li><span>(B)</span> Mahanadi > Baitarani > Brahmani > Subarnarekha > Rushikulya</li><li><span>(C)</span> Mahanadi > Rushikulya > Brahmani > Baitarani > Subarnarekha</li><li><span>(D)</span> Mahanadi > Brahmani > Baitarani > Subarnarekha > Rushikulya</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D</span><p>The bigger the river and its silt load, the bigger its share of the plain: Mahanadi first, then Brahmani, Baitarani, Subarnarekha, and the small Rushikulya last. (The question says 'ascending' but all options are written largest first.)</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q77</span></div>
+<p class="qt">Match the rolling-upland units with the river basin.</p>
+<ul class="mt"><li>(a) Rajgangpur–Panposh Uplands — (i) Ib Basin</li><li>(b) Jharsuguda Uplands — (ii) Northern Tel Basin</li><li>(c) Balangir–Titlagarh–Patnagarh Uplands — (iii) Sabari Basin</li><li>(d) Malkangiri Uplands — (iv) Koel and Sankh rivers</li><li>Codes: (A) iv i ii iii · (B) i ii iii iv · (C) iii ii i iv · (D) ii iii i iv</li></ul>
+<div class="an"><b>Answer</b> <span class="av">A · a-iv, b-i, c-ii, d-iii</span><p>Rajgangpur–Panposh (Sundargarh) lies on the Koel and Sankh, which join at Rourkela to form the Brahmani. Jharsuguda is in the Ib basin. Balangir–Titlagarh–Patnagarh is in the northern Tel basin. Malkangiri is in the Sabari basin.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q78</span><span class="chk">Check</span></div>
+<p class="qt">Ranga Mati and Rugidia soil belong to which primary soil group in Odisha?</p>
+<ol class="op"><li><span>(A)</span> Regur soil</li><li><span>(B)</span> Laterite soil</li><li><span>(C)</span> Brown forest earth</li><li><span>(D)</span> Yellow earth</li></ol>
+<div class="an"><b>Answer</b> <span class="av">Not verified: B (Laterite) or D</span><p>Both local names describe red, gravelly, iron-rich soil, which points to the red–laterite family rather than black regur or brown forest earth. Check this one in an Odisha geography book before relying on it.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q60</span></div>
+<p class="qt">Arrange the mountain ranges from north to south: I. Devagiri II. Gandhamardan III. Mahendragiri IV. Malayagiri</p>
+<ol class="op"><li><span>(A)</span> I, II, III, IV</li><li><span>(B)</span> II, IV, III, I</li><li><span>(C)</span> IV, II, I, III</li><li><span>(D)</span> I, II, IV, III</li></ol>
+<div class="an"><b>Answer</b> <span class="av">C · IV, II, I, III</span><p>Malayagiri (Deogarh–Angul) is furthest north. Gandhamardan (Bargarh–Balangir) comes next. Devagiri (Rayagada) is further south. Mahendragiri (Gajapati, near Andhra) is the southernmost.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q79</span></div>
+<p class="qt">Match the place with the mineral (Odisha).</p>
+<ul class="mt"><li>a. Baula–Nuasahi (Keonjhar)</li><li>b. Kesarpur (Mayurbhanj)</li><li>c. Chhatrapur (Ganjam)</li><li>d. Sunki (Koraput)</li><li>i. Monazite</li><li>ii. Chromite</li><li>iii. Limestone</li><li>iv. Copper</li><li>Codes: (A) i-b, ii-c, iii-a, iv-d · (B) i-c, ii-a, iii-d, iv-b · (C) i-a, ii-d, iii-b, iv-c · (D) i-c, ii-a, iii-b, iv-d</li></ul>
+<div class="an"><b>Answer</b> <span class="av">B · i-c, ii-a, iii-d, iv-b</span><p>Chhatrapur beach sands (Ganjam) give monazite. Baula–Nuasahi (Keonjhar) gives chromite. Sunki (Koraput) gives limestone. Kesarpur (Mayurbhanj) gives copper.</p></div>
+</article>
+<article class="qq" data-y="2025">
+<div class="qh"><span class="yr">2025</span><span class="qn">Q94</span></div>
+<p class="qt">The Hirakud Project and Mahanadi Canal supply irrigation water to: 1. Puri 2. Cuttack 3. Sambalpur 4. Keonjhar</p>
+<ol class="op"><li><span>(A)</span> 1, 2, 3, 4</li><li><span>(B)</span> Only 1, 2 and 3</li><li><span>(C)</span> Only 1, 2</li><li><span>(D)</span> Only 3</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · 1, 2 and 3</span><p>Hirakud's canals water Sambalpur, Bargarh, Subarnapur and Balangir. Water released downstream feeds the Mahanadi delta canals in Cuttack and Puri. Keonjhar is in the Baitarani basin, not served by Hirakud.</p></div>
+</article>
+</div>
+</section><section class="spread" id="border">
+<div class="sectrule"><span class="eyebrow">Part <b>07</b> · 5 questions</span><span class="line"></span><span class="eyebrow">2018: 2 · 2021: 3</span></div>
+<h2>Geography inside other questions</h2>
+<p class="secintro">These sit in current-affairs or mixed questions, but you need geography to answer them.</p>
+<div class="qs">
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q24</span><span class="chk">Check</span></div>
+<p class="qt">Which city is projected by the UN Population Division to be the most populous city of the world in 2028?</p>
+<ol class="op"><li><span>(A)</span> Tokyo</li><li><span>(B)</span> Delhi</li><li><span>(C)</span> Beijing</li><li><span>(D)</span> Mumbai</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B · Delhi</span><p>The UN's World Urbanization Prospects 2018 said Delhi would overtake Tokyo around 2028. (The 2025 UN update now ranks Jakarta first, then Dhaka and Tokyo.)</p></div>
+</article>
+<article class="qq" data-y="2018">
+<div class="qh"><span class="yr">2018</span><span class="qn">Q90</span></div>
+<p class="qt">Pick the only incorrect statement.</p>
+<ol class="op"><li><span>(A)</span> Kaveri is the longest river of Tamil Nadu</li><li><span>(B)</span> India is the second largest producer of chillies after China</li><li><span>(C)</span> Regulating Act 1773 established a Supreme Court in India</li><li><span>(D)</span> Attorney General of India is appointed under Article 76</li></ol>
+<div class="an"><b>Answer</b> <span class="av">B</span><p>India is the world's <b>largest</b> producer, consumer and exporter of chillies. (The printed paper says 'Article 1976', a misprint for Article 76.)</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q5</span></div>
+<p class="qt">The GSI has approved setting up the country's first Geological Park at:</p>
+<ol class="op"><li><span>(A)</span> Lamheta, Jabalpur</li><li><span>(B)</span> Kodagu, Karnataka</li><li><span>(C)</span> Idukki, Kerala</li><li><span>(D)</span> Talala Gir, Gujarat</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A · Lamheta, Jabalpur</span><p>Lamheta, on the Narmada near Jabalpur (Madhya Pradesh), is famous for dinosaur fossils and the 'Lameta' rock formation.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q17</span></div>
+<p class="qt">Which statement about Ukraine is not correct?</p>
+<ol class="op"><li><span>(A)</span> Ukraine is the fourth largest country in Europe after Russia</li><li><span>(B)</span> Kyiv is the largest city in Ukraine</li><li><span>(C)</span> It shares borders with Russia to the east and north-east</li><li><span>(D)</span> It has a coastline along the Sea of Azov</li></ol>
+<div class="an"><b>Answer</b> <span class="av">A</span><p>Ukraine is the <b>second</b> largest country in Europe, after Russia. It has coasts on the Black Sea and the Sea of Azov.</p></div>
+</article>
+<article class="qq" data-y="2021">
+<div class="qh"><span class="yr">2021</span><span class="qn">Q89</span></div>
+<p class="qt">In January 2022, BRO carried out the final blast on the Sela Tunnel. The tunnel is located in:</p>
+<ol class="op"><li><span>(A)</span> Meghalaya</li><li><span>(B)</span> Manipur</li><li><span>(C)</span> Ladakh</li><li><span>(D)</span> Arunachal Pradesh</li></ol>
+<div class="an"><b>Answer</b> <span class="av">D · Arunachal Pradesh</span><p>Sela Tunnel is on the road to Tawang in Arunachal Pradesh, at about 13,000 feet. It opened in March 2024 and is the world's longest twin-lane tunnel at that height.</p></div>
+</article>
+</div>
+</section>
+
+<footer>Source: OPSC ASO GA Paper I, 2018 (ASG-1/18), 2021 (ASG-1/21, held 2022) and 2025 (held 9 Nov 2025), Adda247 scans. Answers are worked out from standard textbooks; no official key was available. · Made 14 Nov 2026</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+(function(){
+  var root=document.documentElement, KEY="aso-theme";
+  function apply(t){ if(t==="system") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",t);
+    document.querySelectorAll(".theme button").forEach(function(b){b.setAttribute("aria-pressed", String(b.dataset.t===t));}); }
+  var saved="system"; try{saved=localStorage.getItem(KEY)||"system";}catch(e){}
+  apply(saved);
+  document.querySelectorAll(".theme button").forEach(function(b){b.addEventListener("click",function(){apply(b.dataset.t);try{localStorage.setItem(KEY,b.dataset.t);}catch(e){}});});
+
+  var yb=document.querySelectorAll(".bar button[data-y]");
+  yb.forEach(function(b){b.addEventListener("click",function(){
+    var y=b.dataset.y; yb.forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});
+    document.querySelectorAll(".qq").forEach(function(q){q.classList.toggle("off", y!=="all" && q.dataset.y!==y);});
+    document.querySelectorAll("section.spread").forEach(function(s){s.hidden = !s.querySelector(".qq:not(.off)");});
+  });});
+  var hb=document.getElementById("hide");
+  hb.addEventListener("click",function(){
+    var on=!document.body.classList.contains("hide-ans");
+    document.body.classList.toggle("hide-ans",on); hb.setAttribute("aria-pressed",String(on));
+    document.querySelectorAll(".an.show").forEach(function(a){a.classList.remove("show");});
+  });
+  document.addEventListener("click",function(e){
+    var a=e.target.closest(".an"); if(a && document.body.classList.contains("hide-ans")) a.classList.add("show");
+  });
+})();
+</script>
+</body>

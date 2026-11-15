@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+CLAUDE.md
+Solar-System-Orrery/
+ASO-GA-Image-Prompts.md
+# sources stay on this computer; only the built pages are published
+pyq/*.md
+pyq/*.txt

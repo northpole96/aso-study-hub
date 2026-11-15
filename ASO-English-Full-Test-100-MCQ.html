@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Full Test 100 MCQ</title>
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --ink:#1d1d1b; --muted:#6b6a64; --line:#e3e1da;
+  --accent:#b4441c; --accent-soft:#fbeee7; --ok:#1f7a4d; --ok-soft:#eaf3ee; --bad:#b3261e; --bad-soft:#fbeaea;
+  --mark:#8a5a00; --mark-soft:#fff3c4; --next:#eef1fb; --next-line:#3b5bcc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+    --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+    --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+  --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+  --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header{padding:24px 0 8px}
+h1{margin:0 0 4px;font-size:26px;line-height:1.25}
+.sub{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.theme{float:right;display:inline-flex;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:2px;margin:0 0 8px 12px}
+.theme button{border:0;background:none;color:var(--muted);font:600 12px/1 inherit;padding:6px 10px;border-radius:99px;cursor:pointer}
+.theme button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn{font:600 15px/1 inherit;padding:11px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-top:8px;padding-bottom:8px}
+.timer{font:700 18px/1 ui-monospace,Menlo,monospace}
+.timer.low{color:var(--bad)}
+.pill{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:99px}
+.qnum{color:var(--muted);font-size:14px;margin:0 0 6px}
+.qtext{font:18px/1.6 Georgia,"Iowan Old Style",serif;white-space:pre-line;margin:0 0 14px;overflow-wrap:anywhere}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:16px/1.5 inherit;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.opt:hover{border-color:var(--accent)}
+.opt b{flex:none;width:22px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.exp{border-left:4px solid var(--next-line);background:var(--next);padding:10px 14px;border-radius:6px;margin:12px 0 0;font:15.5px/1.65 Georgia,"Iowan Old Style",serif;overflow-wrap:anywhere}
+.exp .lab{font:700 13px/1.4 -apple-system,sans-serif;color:var(--next-line);display:block;margin-bottom:2px}
+.check{color:var(--accent);font-weight:600;font-size:13px;font-family:-apple-system,sans-serif}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal button{font:600 13px/1 inherit;padding:9px 0;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.pal button.ans{background:var(--accent);border-color:var(--accent);color:#fff}
+.pal button.mk{box-shadow:inset 0 -4px 0 var(--mark)}
+.pal button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.pal button.r{background:var(--ok);border-color:var(--ok);color:#fff}
+.pal button.w{background:var(--bad);border-color:var(--bad);color:#fff}
+.legend{font-size:13px;color:var(--muted);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+#secTable th:not(:first-child),#secTable td:not(:first-child){white-space:nowrap;text-align:center;padding:7px 6px}
+.big{font-size:40px;font-weight:800;line-height:1.1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat span{display:block;color:var(--muted);font-size:13px}
+.stat b{font-size:22px}
+.rq{border-top:1px solid var(--line);padding:16px 0}
+.rq:first-child{border-top:0}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px}
+.tag.r{color:var(--ok);background:var(--ok-soft)} .tag.w{color:var(--bad);background:var(--bad-soft)} .tag.s{color:var(--muted);background:var(--line)}
+ul{padding-left:20px} li{margin:4px 0}
+.hide{display:none!important}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:16px 16px 40px}
+@media (max-width:600px){ .card{padding:16px} .qtext{font-size:17px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="theme" role="group" aria-label="Theme">
+    <button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">System</button>
+  </div>
+  <h1>OPSC ASO 2027 · English Practice Test (100 MCQs)</h1>
+  <p class="sub">100 questions · 90 minutes · +1 for a right answer, −0.25 for a wrong one, 0 for a skipped one. Grammar, vocabulary, idioms, voice and narration, and reading comprehension.</p>
+</header>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="wrap">
+  <div class="card">
+    <h2 style="margin-top:0">How to take this test</h2>
+    <ul>
+      <li><b>Exam mode</b>: a 90-minute timer (the real paper: 100 questions in 90 minutes). No answers are shown until you submit.</li>
+      <li><b>Practice mode</b>: no timer. The answer and a short explanation appear as soon as you choose, so you can use it to revise.</li>
+      <li>Sections: Grammar 15, Fill in the blanks 15, Synonyms 10, Antonyms 10, Idioms 10, One-word substitution 8, Spelling 6, Voice and Narration 8, Sentence improvement 6, Comprehension 10 (two passages), Para jumble 2.</li>
+      <li>Your progress is saved in this browser, so you can close the page and come back later.</li>
+    </ul>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="startExam">Start exam mode (90 min)</button>
+      <button class="btn" id="startPrac">Start practice mode</button>
+      <button class="btn hide" id="resume">Resume saved attempt</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="test" class="hide">
+  <div class="bar"><div class="wrap">
+    <span class="timer" id="timer">90:00</span>
+    <span class="pill" id="modeLbl">Exam mode</span>
+    <span id="progress" style="color:var(--muted);font-size:14px"></span>
+    <span style="flex:1"></span>
+    <button class="btn" id="submitBtn">Submit test</button>
+  </div></div>
+  <div class="wrap">
+    <div class="card" id="qcard">
+      <p class="qnum" id="qnum"></p>
+      <p class="qtext" id="qtext"></p>
+      <div id="opts"></div>
+      <div id="qexp"></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" id="prev">← Previous</button>
+        <button class="btn" id="clear">Clear answer</button>
+        <button class="btn" id="mark">Mark for review</button>
+        <span style="flex:1"></span>
+        <button class="btn primary" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pal" id="pal"></div>
+      <p class="legend">Filled = answered · yellow underline = marked for review · outlined = current question.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hide wrap">
+  <div class="card">
+    <h2 style="margin-top:0">Your result</h2>
+    <div class="big" id="score"></div>
+    <div class="stats" id="stats"></div>
+    <p id="verdict"></p>
+    <h3>By section</h3>
+    <table id="secTable"></table>
+    <p class="legend">Revise the section with the lowest net score first.</p>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="retry">Start again</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="margin-top:0">Review every question</h2>
+    <div class="row" id="filters">
+      <button class="btn" data-f="all">All</button>
+      <button class="btn" data-f="w">Wrong</button>
+      <button class="btn" data-f="s">Skipped</button>
+      <button class="btn" data-f="r">Right</button>
+    </div>
+    <div id="review"></div>
+  </div>
+</div>
+
+<footer>English practice test for OPSC ASO 2027. Also see the <a href="ASO-GA-Full-Test-100-MCQ.html">GS full test</a>.</footer>
+
+<script>
+/* Each question: s = section, q = text, o = options (correct option FIRST unless k=1),
+   e = explanation, k = 1 keeps the option order and uses a = correct index. */
+function t(s,q,o,e){return {s:s,q:q,o:o,e:e}}
+function t(s,q,o,e){return {s:s,q:q,o:o,e:e}}
+var G="1 Grammar", B="2 Fill in the blanks", Sy="3 Synonyms", An="4 Antonyms", Id="5 Idioms", Ow="6 One-word", Sp="7 Spelling", Vo="8 Voice & Narration", Si="9 Sentence improvement", Co="10 Comprehension", Pj="11 Para jumble";
+var P1="Passage 1\n\nReading is one of the best habits a person can develop. A book does not just give facts; it takes the reader into another mind and another world. Those who read regularly find that they write better, speak with more confidence and understand people more easily. Yet many young people today spend more time on screens than on books. Teachers say this has reduced their ability to concentrate for long periods. A few minutes of reading each day, they suggest, is enough to rebuild the habit.\n\n";
+var P2="Passage 2\n\nWater seems endless to people who live near rivers, but only a tiny part of the world's water is fresh and fit to drink. Most of it is in the oceans, and much of the fresh water is locked in ice. As cities grow, they draw more water from rivers and from under the ground, often faster than rain can refill it. Experts warn that unless water is saved and used carefully, many regions will face serious shortages within a few decades. Simple steps such as repairing leaking pipes and collecting rainwater can make a real difference.\n\n";
+var Q = [
+/* ===== 1 GRAMMAR (15) ===== */
+t(G,"Choose the grammatically correct sentence.",["The news is good.","The news are good.","The news were good.","The newses are good."],"'News' looks plural but is uncountable and takes a singular verb: 'The news is good.'"),
+t(G,"Choose the correct sentence.",["She is senior to me.","She is senior than me.","She is more senior than me.","She is senior from me."],"Words like senior, junior, superior, inferior and prefer take 'to', not 'than'."),
+t(G,"Choose the correct sentence.",["He prefers tea to coffee.","He prefers tea than coffee.","He prefers tea from coffee.","He prefers tea over to coffee."],"'Prefer' is followed by 'to': prefer A to B."),
+t(G,"Choose the correct sentence.",["I have been living here since 2010.","I have been living here for 2010.","I have been living here from 2010.","I am living here since 2010."],"'Since' is used with a point of time (2010, Monday). 'For' is used with a period (five years). The present perfect continuous is needed with 'since'."),
+t(G,"Choose the correct sentence.",["Hardly had he reached the station when the train left.","Hardly had he reached the station than the train left.","Hardly he had reached the station when the train left.","Hardly had he reached the station that the train left."],"'Hardly ... when' and 'No sooner ... than' are the correct pairs. With 'hardly' the verb comes before the subject (had he)."),
+t(G,"Choose the correct sentence.",["One of my friends has won the prize.","One of my friends have won the prize.","One of my friend has won the prize.","One of my friends are won the prize."],"'One of' is followed by a plural noun (friends) but the verb agrees with 'one', so it is singular: has won."),
+t(G,"Choose the correct sentence.",["The furniture in the room is old.","The furniture in the room are old.","The furnitures in the room are old.","The furniture in the room were old."],"'Furniture' is uncountable: no plural and a singular verb."),
+t(G,"Choose the correct sentence.",["He suggested that I should see a doctor.","He suggested that I to see a doctor.","He suggested me to see a doctor.","He suggested that me see a doctor."],"After 'suggest' we use 'that + subject + should + verb' (or the simple verb). We never say 'suggest someone to do'."),
+t(G,"Choose the correct sentence.",["Many a student has failed in the test.","Many a student have failed in the test.","Many a students has failed in the test.","Many a students have failed in the test."],"'Many a' is followed by a singular noun and a singular verb."),
+t(G,"Choose the correct sentence.",["She did not know where he lived.","She did not know where did he live.","She did not know where he does lived.","She did not know where does he live."],"In an indirect question the word order is the same as in a statement: where he lived (no 'did')."),
+t(G,"Choose the correct sentence.",["If I were you, I would accept the offer.","If I was you, I will accept the offer.","If I am you, I would accept the offer.","If I would be you, I accept the offer."],"An imaginary condition uses 'were' for all persons, with 'would' in the result clause."),
+t(G,"Choose the correct sentence.",["Let him and me go.","Let he and I go.","Let he and me go.","Let him and I go."],"After 'let' we use the object forms: him and me."),
+t(G,"Choose the correct sentence.",["The committee has submitted its report.","The committee have submitted its report.","The committee has submitted their report.","The committee are submitted its report."],"A collective noun acting as one body takes a singular verb and 'its'."),
+t(G,"Choose the correct sentence.",["He is the taller of the two brothers.","He is the tallest of the two brothers.","He is the more taller of the two brothers.","He is the most tall of the two brothers."],"For two persons we use the comparative with 'the': the taller of the two. The superlative is for three or more."),
+t(G,"Choose the correct sentence.",["Mathematics is a difficult subject.","Mathematics are a difficult subject.","Mathematics were a difficult subject.","Mathematic is a difficult subject."],"Names of subjects ending in -ics (mathematics, physics, economics) take a singular verb."),
+
+/* ===== 2 FILL IN THE BLANKS (15) ===== */
+t(B,"He is ___ honest man.",["an","a","the","no article"],"'Honest' begins with a vowel sound (the h is silent), so we use 'an'."),
+t(B,"She is ___ university student.",["a","an","the","no article"],"'University' begins with a 'yoo' (consonant) sound, so we use 'a'."),
+t(B,"The train leaves ___ 6 pm.",["at","on","in","by"],"'At' is used with exact clock times."),
+t(B,"He was born ___ 5 March.",["on","at","in","by"],"'On' is used with dates and days."),
+t(B,"He has been absent ___ Monday.",["since","for","from","in"],"'Since' goes with a point of time such as Monday."),
+t(B,"The thief was caught ___ the police.",["by","with","from","through"],"In passive voice the doer is introduced by 'by'."),
+t(B,"I congratulate you ___ your success.",["on","for","at","with"],"We congratulate someone 'on' something."),
+t(B,"He is good ___ mathematics.",["at","in","on","with"],"The correct phrase is 'good at'."),
+t(B,"She is afraid ___ snakes.",["of","from","at","with"],"The correct phrase is 'afraid of'."),
+t(B,"If it rains tomorrow, we ___ cancel the trip.",["will","would","had","shall have"],"In a first conditional the 'if' clause is in the present tense and the main clause uses 'will'."),
+t(B,"By the time we reached the hall, the film ___.",["had started","has started","starts","was starting"],"Two past actions: the earlier one (film started) uses the past perfect."),
+t(B,"He ___ for the exam for the last two months.",["has been preparing","is preparing","prepared","was prepared"],"'For the last two months' shows an action continuing up to now, so the present perfect continuous is used."),
+t(B,"Each of the girls ___ a prize.",["has received","have received","are receiving","were received"],"'Each' is singular and takes a singular verb."),
+t(B,"I look forward to ___ you.",["meeting","meet","met","have met"],"Here 'to' is a preposition, so it is followed by the -ing form."),
+t(B,"He insisted ___ paying the bill.",["on","for","to","at"],"The correct phrase is 'insist on'."),
+
+/* ===== 3 SYNONYMS (10) ===== */
+t(Sy,"Choose the word closest in meaning to ABUNDANT.",["Plentiful","Scarce","Tiny","Rare"],"Abundant means present in large quantity, the same as plentiful."),
+t(Sy,"Choose the word closest in meaning to CANDID.",["Frank","Secretive","Polite","Shy"],"Candid means honest and open, so frank."),
+t(Sy,"Choose the word closest in meaning to DILIGENT.",["Hardworking","Lazy","Clever","Careless"],"Diligent means showing steady, careful effort."),
+t(Sy,"Choose the word closest in meaning to OBSOLETE.",["Outdated","Modern","Useful","Expensive"],"Obsolete means no longer in use or out of date."),
+t(Sy,"Choose the word closest in meaning to PRAGMATIC.",["Practical","Dreamy","Stubborn","Emotional"],"A pragmatic person deals with things in a sensible, realistic way."),
+t(Sy,"Choose the word closest in meaning to BENEVOLENT.",["Kind","Cruel","Proud","Wealthy"],"Benevolent means well-meaning and kind."),
+t(Sy,"Choose the word closest in meaning to METICULOUS.",["Careful about details","Quick","Noisy","Casual"],"Meticulous means very careful and precise."),
+t(Sy,"Choose the word closest in meaning to RELUCTANT.",["Unwilling","Eager","Angry","Tired"],"Reluctant means unwilling or hesitant."),
+t(Sy,"Choose the word closest in meaning to EPHEMERAL.",["Short-lived","Eternal","Important","Colourful"],"Ephemeral means lasting for a very short time."),
+t(Sy,"Choose the word closest in meaning to AMBIGUOUS.",["Unclear","Certain","Simple","Honest"],"Ambiguous means open to more than one meaning, so unclear."),
+
+/* ===== 4 ANTONYMS (10) ===== */
+t(An,"Choose the word opposite in meaning to TRANSPARENT.",["Opaque","Clear","Thin","Bright"],"Transparent lets light through; opaque does not."),
+t(An,"Choose the word opposite in meaning to ZENITH.",["Nadir","Summit","Peak","Crown"],"Zenith is the highest point; nadir is the lowest point."),
+t(An,"Choose the word opposite in meaning to VAGUE.",["Precise","Unclear","Hazy","Dim"],"Vague means not clear; precise means exact and clear."),
+t(An,"Choose the word opposite in meaning to FRUGAL.",["Extravagant","Thrifty","Careful","Poor"],"Frugal means careful with money; extravagant means spending too freely."),
+t(An,"Choose the word opposite in meaning to ARROGANT.",["Humble","Proud","Haughty","Rude"],"Arrogant means too proud; humble means modest."),
+t(An,"Choose the word opposite in meaning to HOSTILE.",["Friendly","Angry","Fierce","Distant"],"Hostile means unfriendly or opposed; friendly is the opposite."),
+t(An,"Choose the word opposite in meaning to TEMPORARY.",["Permanent","Brief","Short","Passing"],"Temporary lasts for a short time; permanent lasts for ever."),
+t(An,"Choose the word opposite in meaning to LENIENT.",["Strict","Gentle","Kind","Soft"],"Lenient means not strict in punishing; strict is the opposite."),
+t(An,"Choose the word opposite in meaning to EXPAND.",["Contract","Grow","Spread","Increase"],"Expand means to become larger; contract means to become smaller."),
+t(An,"Choose the word opposite in meaning to OBSCURE.",["Clear","Hidden","Dark","Unknown"],"Obscure means not clear or not well known; clear is the opposite."),
+
+/* ===== 5 IDIOMS (10) ===== */
+t(Id,"'A blessing in disguise' means:",["Something that seems bad but turns out good","A hidden gift","A religious prayer","A false friend"],"It is a misfortune that later brings a benefit."),
+t(Id,"'Once in a blue moon' means:",["Very rarely","Every month","At night","Very often"],"A blue moon is rare, so the idiom means something happens very seldom."),
+t(Id,"'To beat about the bush' means:",["To avoid coming to the main point","To hunt animals","To hit someone","To work in a garden"],"It means to talk around a subject without saying the main thing."),
+t(Id,"'A piece of cake' means:",["Something very easy","A small gift","A sweet dish","A difficult task"],"If a job is a piece of cake, it is very easy."),
+t(Id,"'To break the ice' means:",["To start a conversation in an awkward situation","To break a rule","To feel very cold","To end a friendship"],"It means to make people feel relaxed at the start of a meeting."),
+t(Id,"'To spill the beans' means:",["To reveal a secret","To waste food","To make a mistake","To cook a meal"],"It means to let out a secret by accident."),
+t(Id,"'To hit the nail on the head' means:",["To say exactly the right thing","To cause trouble","To work with tools","To be angry"],"It means to describe a situation exactly."),
+t(Id,"'To bite the bullet' means:",["To face a hard situation bravely","To be hurt","To argue","To eat quickly"],"It means to accept something unpleasant and get on with it."),
+t(Id,"'To cost an arm and a leg' means:",["To be very expensive","To cause an injury","To be cheap","To be free"],"It means something costs a huge amount of money."),
+t(Id,"'To burn the midnight oil' means:",["To work late into the night","To waste fuel","To start a fire","To get up early"],"It means to study or work until very late."),
+
+/* ===== 6 ONE-WORD SUBSTITUTION (8) ===== */
+t(Ow,"A person who can speak many languages:",["Polyglot","Linguist","Orator","Bilingual"],"A polyglot knows many languages. Bilingual means two languages only."),
+t(Ow,"The scientific study of birds:",["Ornithology","Etymology","Entomology","Ecology"],"Ornithology is the study of birds. Entomology is the study of insects."),
+t(Ow,"Government by a small group of people:",["Oligarchy","Democracy","Autocracy","Monarchy"],"Oligarchy means rule by a few. Autocracy is rule by one person."),
+t(Ow,"A person who walks in his sleep:",["Somnambulist","Insomniac","Pedestrian","Narcoleptic"],"A somnambulist is a sleepwalker. An insomniac cannot sleep."),
+t(Ow,"Fear of closed or small spaces:",["Claustrophobia","Acrophobia","Agoraphobia","Hydrophobia"],"Claustrophobia is fear of closed spaces. Acrophobia is fear of heights."),
+t(Ow,"A person who does something for pleasure and not as a profession:",["Amateur","Novice","Veteran","Expert"],"An amateur does something for love, not money."),
+t(Ow,"The killing of a king:",["Regicide","Homicide","Suicide","Genocide"],"Regicide is the killing of a king. Genocide is the killing of a whole group of people."),
+t(Ow,"A medicine that cures all diseases:",["Panacea","Antidote","Vaccine","Tonic"],"A panacea is a cure-all. An antidote works against a poison."),
+
+/* ===== 7 SPELLING (6) ===== */
+t(Sp,"Choose the correctly spelt word.",["Necessary","Neccessary","Necesary","Neccesary"],"Necessary has one c and two s."),
+t(Sp,"Choose the correctly spelt word.",["Accommodation","Acommodation","Accomodation","Acomodation"],"Accommodation has double c and double m."),
+t(Sp,"Choose the correctly spelt word.",["Occurrence","Occurence","Ocurrence","Occurance"],"Occurrence has double c and double r."),
+t(Sp,"Choose the correctly spelt word.",["Embarrass","Embarass","Embaress","Emberrass"],"Embarrass has double r and double s."),
+t(Sp,"Choose the correctly spelt word.",["Separate","Seperate","Separete","Seprate"],"Separate has 'par' in the middle. Remember: there is 'a rat' in sep-a-rat-e."),
+t(Sp,"Choose the correctly spelt word.",["Conscience","Concience","Consience","Conscients"],"Conscience is spelt c-o-n-s-c-i-e-n-c-e."),
+
+/* ===== 8 VOICE AND NARRATION (8) ===== */
+t(Vo,"Change to passive voice: 'She writes a letter.'",["A letter is written by her.","A letter was written by her.","A letter is being written by her.","A letter has been written by her."],"Simple present active becomes 'is/are + past participle' in the passive."),
+t(Vo,"Change to passive voice: 'The teacher praised the boy.'",["The boy was praised by the teacher.","The boy is praised by the teacher.","The boy has been praised by the teacher.","The boy praised the teacher."],"Simple past becomes 'was/were + past participle'."),
+t(Vo,"Change to passive voice: 'Someone has stolen my pen.'",["My pen has been stolen.","My pen was stolen by someone.","My pen is stolen.","My pen had been stolen."],"Present perfect becomes 'has/have been + past participle'. The vague doer 'someone' is usually dropped."),
+t(Vo,"Change to passive voice: 'Open the door.'",["Let the door be opened.","The door is opened.","The door should open.","The door was opened."],"An order or request in the passive uses 'Let + object + be + past participle'."),
+t(Vo,"Change to indirect speech: He said, \"I am tired.\"",["He said that he was tired.","He said that he is tired.","He said that I was tired.","He said that he had tired."],"In reported speech the present tense moves one step back (am becomes was) and 'I' becomes 'he'."),
+t(Vo,"Change to indirect speech: She said to me, \"Where do you live?\"",["She asked me where I lived.","She told me where I live.","She asked me where did I live.","She said me where I lived."],"A question is reported with 'asked', in statement word order, with no question mark."),
+t(Vo,"Change to indirect speech: He said, \"Alas! I am ruined.\"",["He exclaimed sadly that he was ruined.","He said that alas he was ruined.","He asked sadly that he was ruined.","He told that he is ruined."],"An exclamation is reported with 'exclaimed' (and the feeling, here sadly)."),
+t(Vo,"Change to indirect speech: The teacher said, \"The earth moves round the sun.\"",["The teacher said that the earth moves round the sun.","The teacher said that the earth moved round the sun.","The teacher said that the earth is moving round the sun.","The teacher asked that the earth moves round the sun."],"A universal truth does not change tense in reported speech."),
+
+/* ===== 9 SENTENCE IMPROVEMENT (6) ===== */
+t(Si,"Replace the capitalised part: 'He DON'T LIKES coffee.'",["doesn't like","don't like","didn't liked","not likes"],"With 'he' we use 'does not' and the base verb: doesn't like."),
+t(Si,"Replace the capitalised part: 'He is ABLE OF doing this work.'",["able to do","able for do","able of do","able in doing"],"The correct pattern is 'able to + verb'."),
+t(Si,"Replace the capitalised part: 'He asked me THAT WHERE I WAS GOING.'",["where I was going","that where was I going","where was I going","where I am going"],"No 'that' is used with a reported question, and the order is subject then verb."),
+t(Si,"Replace the capitalised part: 'Though he is poor, BUT HE IS honest.'",["he is","but he was","yet but he is","and he is"],"'Though' and 'but' must not be used together. Say 'Though he is poor, he is honest.'"),
+t(Si,"Replace the capitalised part: 'She is MORE CLEVERER than her sister.'",["cleverer","much clever","most clever","more cleverest"],"A double comparative (more + -er) is wrong. The short adjective clever takes -er: cleverer."),
+t(Si,"Replace the capitalised part: 'I have not met him SINCE TWO YEARS.'",["for two years","from two years","since the two years","before two years"],"'For' is used with a period of time. 'Since' needs a point in time."),
+
+/* ===== 10 COMPREHENSION (10) ===== */
+t(Co,P1+"What is the main idea of the passage?",["Regular reading brings many benefits and the habit should be rebuilt","Screens are better than books","Teachers dislike young people","Facts are more useful than stories"],"The writer praises reading, notes that screens have taken its place, and suggests a few minutes a day to restart the habit."),
+t(Co,P1+"According to the passage, those who read regularly:",["Write better and speak with more confidence","Spend more time on screens","Cannot concentrate for long","Dislike facts"],"The passage says regular readers write better, speak with more confidence and understand people more easily."),
+t(Co,P1+"What have teachers noticed about young people who spend a lot of time on screens?",["Their ability to concentrate has gone down","They read more books","They speak with more confidence","They write better"],"The passage states that screens have 'reduced their ability to concentrate for long periods'."),
+t(Co,P1+"Which of the following is NOT mentioned as a benefit of reading?",["Earning a higher salary","Writing better","Speaking with confidence","Understanding people"],"Higher salary is not mentioned anywhere in the passage."),
+t(Co,P1+"The word 'rebuild' in the passage is closest in meaning to:",["Restore","Destroy","Ignore","Forget"],"To rebuild a habit is to make it strong again, that is, to restore it."),
+t(Co,P2+"What is the main message of the passage?",["Fresh water is limited and must be saved","Rivers never run dry","Oceans are drinkable","Cities should stop growing"],"The passage says only a tiny part of the world's water is fresh and that it needs to be used carefully."),
+t(Co,P2+"According to the passage, where is most of the world's water found?",["In the oceans","In rivers","Under the ground","In the clouds"],"The passage says 'Most of it is in the oceans'."),
+t(Co,P2+"Why do growing cities face a water problem?",["They draw water faster than rain can refill it","They have no rivers","Rain has stopped completely","They waste ice"],"The passage says cities draw water 'often faster than rain can refill it'."),
+t(Co,P2+"Which step is suggested in the passage to save water?",["Repairing leaking pipes","Building new oceans","Drinking less water","Moving away from cities"],"Repairing leaking pipes and collecting rainwater are the two steps named."),
+t(Co,P2+"The word 'endless' in the passage is closest in meaning to:",["Limitless","Narrow","Clean","Heavy"],"Endless means without an end, so limitless."),
+
+/* ===== 11 PARA JUMBLE (2) ===== */
+t(Pj,"Arrange the sentences in the correct order.\n\nP. He ran to the station but the train had already left.\nQ. Rahul woke up late on Monday.\nR. Sadly, he had to wait for the next one.\nS. He realised that his alarm had not rung.",["QSPR","QPSR","SQPR","QSRP"],"Q starts the story. S explains why he woke up late. P is what he did next, and R ends with the result: Q-S-P-R."),
+t(Pj,"Arrange the sentences in the correct order.\n\nP. Then the first drops began to fall.\nQ. By noon, dark clouds covered the sky.\nR. The match was finally called off.\nS. The crowd had come early to watch the final.",["SQPR","QSPR","SPQR","SQRP"],"S gives the setting, Q shows the weather turning, P is the rain starting and R is the result: S-Q-P-R.")
+];
+
+/* Each question: s = sub-topic, q = text, o = options (correct option FIRST; they are shuffled), e = explanation. */
+/* ---------- prepare options (seeded shuffle so answer letters vary) ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+Q.forEach(function(x,i){
+  if(x.k){x.opts=x.o.slice();x.ans=x.a;return}
+  var r=rng(i*97+34), idx=[0,1,2,3];
+  for(var j=3;j>0;j--){var m=Math.floor(r()*(j+1));var t=idx[j];idx[j]=idx[m];idx[m]=t}
+  x.opts=idx.map(function(n){return x.o[n]}); x.ans=idx.indexOf(0);
+});
+var L="ABCD", KEY="aso-eng100-test1", DUR=90*60, N=Q.length;
+var st=null, cur=0, tick=null;
+
+function $(id){return document.getElementById(id)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function show(id){["intro","test","result"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});window.scrollTo(0,0)}
+
+function start(mode){
+  st={mode:mode,ans:Q.map(function(){return null}),mk:Q.map(function(){return false}),start:Date.now(),done:false};
+  cur=0; save(); openTest();
+}
+function openTest(){
+  show("test");
+  $("modeLbl").textContent=st.mode==="exam"?"Exam mode":"Practice mode";
+  $("timer").classList.toggle("hide",st.mode!=="exam");
+  buildPal(); render();
+  clearInterval(tick);
+  if(st.mode==="exam"){tick=setInterval(updTimer,1000);updTimer()}
+}
+function left(){return Math.max(0,DUR-Math.floor((Date.now()-st.start)/1000))}
+function updTimer(){
+  var s=left(); $("timer").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+  $("timer").classList.toggle("low",s<300);
+  if(s<=0){clearInterval(tick);finish()}
+}
+function buildPal(){
+  var p=$("pal"); p.innerHTML="";
+  Q.forEach(function(_,i){var b=document.createElement("button");b.textContent=i+1;b.onclick=function(){cur=i;render()};p.appendChild(b)});
+}
+function updPal(){
+  var bs=$("pal").children, n=0;
+  for(var i=0;i<bs.length;i++){
+    var a=st.ans[i]; if(a!==null)n++;
+    bs[i].className="";
+    if(st.mode==="prac"&&a!==null) bs[i].classList.add(a===Q[i].ans?"r":"w");
+    else if(a!==null) bs[i].classList.add("ans");
+    if(st.mk[i])bs[i].classList.add("mk");
+    if(i===cur)bs[i].classList.add("cur");
+  }
+  $("progress").textContent=n+" of "+N+" answered";
+}
+function expHTML(x){return '<div class="exp"><span class="lab">Answer: '+L[x.ans]+'. '+esc(x.opts[x.ans])+'</span>'+x.e+'</div>'}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var x=Q[cur], a=st.ans[cur], reveal=st.mode==="prac"&&a!==null;
+  $("qnum").textContent="Question "+(cur+1)+" of "+N+" · "+x.s;
+  $("qtext").textContent=x.q;
+  var o=$("opts"); o.innerHTML="";
+  x.opts.forEach(function(t,i){
+    var b=document.createElement("button"); b.className="opt"; b.innerHTML="<b>"+L[i]+".</b><span>"+esc(t)+"</span>";
+    if(reveal){b.disabled=true; if(i===x.ans)b.classList.add("right"); else if(i===a)b.classList.add("wrong")}
+    else if(i===a)b.classList.add("sel");
+    b.onclick=function(){ if(st.mode==="prac"&&st.ans[cur]!==null)return; st.ans[cur]=i; save(); render() };
+    o.appendChild(b);
+  });
+  $("qexp").innerHTML=reveal?expHTML(x):"";
+  $("prev").disabled=cur===0; $("next").textContent=cur===N-1?"Finish →":"Next →";
+  $("clear").classList.toggle("hide",st.mode==="prac");
+  $("mark").textContent=st.mk[cur]?"Unmark":"Mark for review";
+  updPal();
+}
+$("prev").onclick=function(){if(cur>0){cur--;render()}};
+$("next").onclick=function(){if(cur<N-1){cur++;render()}else $("submitBtn").click()};
+$("clear").onclick=function(){st.ans[cur]=null;save();render()};
+$("mark").onclick=function(){st.mk[cur]=!st.mk[cur];save();render()};
+$("submitBtn").onclick=function(){
+  var un=st.ans.filter(function(a){return a===null}).length;
+  if(confirm("Submit the test?"+(un?" You have "+un+" unanswered question"+(un>1?"s":"")+".":"")))finish();
+};
+function finish(){
+  clearInterval(tick); st.done=true; save(); results("all");
+}
+function results(f){
+  show("result");
+  var c=0,w=0,s=0,sec={},order=[];
+  Q.forEach(function(x,i){
+    if(!sec[x.s]){sec[x.s]={n:0,c:0,w:0};order.push(x.s)}
+    var a=st.ans[i]; sec[x.s].n++;
+    if(a===null)s++; else if(a===x.ans){c++;sec[x.s].c++} else {w++;sec[x.s].w++}
+  });
+  var net=c-0.25*w;
+  $("score").textContent=net.toFixed(2)+" / "+N;
+  $("stats").innerHTML=[["Right",c],["Wrong",w],["Skipped",s],["Accuracy",(c+w?Math.round(100*c/(c+w)):0)+"%"]]
+    .map(function(p){return '<div class="stat"><span>'+p[0]+'</span><b>'+p[1]+'</b></div>'}).join("");
+  var acc=c+w?c/(c+w):0;
+  $("verdict").innerHTML = (w>0&&acc<0.6?"<b>Your accuracy is under 60%, so the negative marks are costing you.</b> Guess only when you can eliminate two options. ":"")+
+    (s>25?"<b>You skipped more than 25.</b> Most skips should become answers after one more revision of the guide's \"Asked before\" and \"Likely next\" boxes. ":"")+
+    (net>=75?"A net score of 75 or more out of 100 is a strong English score.":net>=55?"A net score between 55 and 75 is close. The table shows which sections to revise.":"Treat this as a starting point. Revise the two weakest sections in the guide and take the test again.");
+  $("secTable").innerHTML="<tr><th>Section</th><th>Qs</th><th>Right</th><th>Wrong</th><th>Net</th></tr>"+
+    order.map(function(k){var v=sec[k];return "<tr><td>"+k+"</td><td>"+v.n+"</td><td>"+v.c+"</td><td>"+v.w+"</td><td><b>"+(v.c-0.25*v.w).toFixed(2)+"</b></td></tr>"}).join("");
+  drawReview(f);
+}
+function drawReview(f){
+  var h="";
+  Q.forEach(function(x,i){
+    var a=st.ans[i], k=a===null?"s":a===x.ans?"r":"w";
+    if(f!=="all"&&f!==k)return;
+    var tag={r:'<span class="tag r">Right</span>',w:'<span class="tag w">Wrong</span>',s:'<span class="tag s">Skipped</span>'}[k];
+    h+='<div class="rq"><p class="qnum">Q'+(i+1)+' · '+x.s+tag+'</p><p class="qtext">'+esc(x.q)+'</p>';
+    x.opts.forEach(function(t,j){
+      var cls=j===x.ans?" right":(j===a?" wrong":"");
+      h+='<div class="opt'+cls+'"><b>'+L[j]+'.</b><span>'+esc(t)+(j===a?" <i>(your answer)</i>":"")+'</span></div>';
+    });
+    h+=expHTML(x)+'</div>';
+  });
+  $("review").innerHTML=h||"<p>No questions in this group.</p>";
+  document.querySelectorAll("#filters .btn").forEach(function(b){b.classList.toggle("primary",b.dataset.f===f)});
+}
+document.querySelectorAll("#filters .btn").forEach(function(b){b.onclick=function(){drawReview(b.dataset.f)}});
+$("retry").onclick=function(){try{localStorage.removeItem(KEY)}catch(e){} st=null; $("resume").classList.add("hide"); show("intro")};
+$("startExam").onclick=function(){start("exam")};
+$("startPrac").onclick=function(){start("prac")};
+$("resume").onclick=function(){ if(st.done)results("all"); else openTest() };
+
+(function init(){
+  var s=load();
+  if(s&&s.ans&&s.ans.length===Q.length){
+    st=s; $("resume").classList.remove("hide");
+    $("resume").textContent=s.done?"See last result":"Resume saved attempt ("+(s.mode==="exam"?"exam":"practice")+")";
+    if(s.mode==="exam"&&!s.done&&left()<=0){st.done=true;save();$("resume").textContent="See last result"}
+  }
+})();
+
+/* theme switch */
+(function(){var root=document.documentElement, btns=document.querySelectorAll('.theme button');
+ function apply(t){ if(t==='system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',t);
+  btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)}); try{localStorage.setItem('aso-theme',t)}catch(e){} }
+ var saved='system'; try{saved=localStorage.getItem('aso-theme')||'system'}catch(e){}
+ apply(saved); btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});})();
+</script>
+</body>
+</html>

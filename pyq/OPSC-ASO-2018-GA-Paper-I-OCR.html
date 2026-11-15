@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO GA Paper I 2018</title>
+<meta name="theme-color" content="#fbfbfb">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+:root{--bg:#fbfbfb;--paper:#ffffff;--fg:#111111;--muted:#6e6e73;--rule:#d7d7da;--grid:#eef0f6;--blue:#2b4cff;--blue-soft:#e0e6ff;--warn:#b4410b;
+--f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;--f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;--f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+h1,h2,h3,h4{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+b,strong{font-weight:600}
+code{font-family:var(--f-mono);font-size:.82em;background:var(--grid);padding:0 4px;overflow-wrap:anywhere}
+.page{max-width:1100px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right,0px)) 96px max(16px,env(safe-area-inset-left,0px))}
+.util{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.util a{color:var(--blue);text-decoration:none}
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:20px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(1.9rem,5.4vw,3.8rem);line-height:1.05;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;opacity:.7}
+.doc{max-width:76ch}
+.doc>p,.doc li{overflow-wrap:break-word}
+.doc>p{margin:14px 0}
+.doc>p.first::first-letter{float:left;font-size:3.8em;line-height:.82;padding:6px 8px 0 0}
+.doc h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:64px 0 14px;padding-top:14px;border-top:1px solid var(--fg);scroll-margin-top:60px}
+.doc h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:40px 0 10px;display:flex;align-items:center;gap:12px;scroll-margin-top:60px}
+.doc h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.doc h4{font-weight:600;margin:24px 0 6px}
+.doc ul,.doc ol{padding-left:1.2em}
+.doc li{margin:4px 0}
+.doc blockquote{margin:18px 0;border:1px dashed var(--blue);background:var(--paper);padding:12px 16px}
+.doc hr{border:0;border-top:1px dotted var(--muted);margin:32px 0}
+.tbl{margin:16px 0;border-top:1px solid var(--fg)}
+.tbl table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.45;table-layout:auto}
+.tbl th{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--rule)}
+.tbl td{padding:8px 10px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;overflow-wrap:anywhere}
+@media (max-width:640px){
+  .tbl thead{display:none}
+  .tbl tr{display:block;padding:8px 0;border-bottom:1px dotted var(--muted)}
+  .tbl td{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr);gap:10px;border:0;padding:2px 0}
+  .tbl td::before{content:attr(data-h);font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  .tbl td:empty{display:none}
+}
+.qq{scroll-margin-top:70px;margin:0;padding:14px 0;border-bottom:1px dotted var(--muted)}
+.qq .qt{margin:0;font-size:1.04rem;line-height:1.55}
+.qq .qn{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--blue);border:1px solid var(--blue);padding:0 6px;margin-right:8px;vertical-align:2px}
+.qq .op{margin:6px 0 0;font-size:.98rem;line-height:1.55;color:#222}
+.qq .op span{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.an{margin-top:8px;border-left:2px solid var(--blue);padding:2px 0 2px 12px;font-size:.97rem}
+.an .ab{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-right:6px}
+body.hide .an{cursor:pointer;background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 6px,var(--grid) 6px,var(--grid) 12px)}
+body.hide .an .av{display:none}
+body.hide .an::after{content:"Tap to show";font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+body.hide .an.show{background:none}
+body.hide .an.show .av{display:inline}
+body.hide .an.show::after{content:none}
+.chk{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin:0 3px;vertical-align:2px;line-height:1.7}
+.toc{padding-block:40px 8px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:24px 0 0;padding:0;columns:2 320px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:1rem;min-width:0}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.2em}
+.toclist a{text-decoration:none;min-width:0;overflow-wrap:anywhere}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.bar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--rule);padding:10px 0;margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-block;border:1px solid var(--fg);background:var(--paper);padding:4px 12px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;text-decoration:none;color:var(--fg)}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.btn.pri{border-color:var(--blue);color:var(--blue)}
+.scan{border:1px dashed var(--rule);background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px;padding:18px 18px;margin:12px 0 28px;position:relative}
+.scan pre{margin:0;font-family:var(--f-mono);font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.scan .fl{position:absolute;right:6px;top:10px;writing-mode:vertical-rl;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted)}
+footer{padding-top:48px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+</style>
+<body>
+<div class="page" id="top">
+<div class="util"><a href="../index.html">&larr; Study hub</a><span>OPSC ASO · Previous year paper · raw scan text</span></div>
+<header class="mast"><h1>GA Paper I · 2018</h1><p class="tag">The 2018 General Awareness paper as <b>raw scan text</b>.<br>Some option letters are garbled.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · </div>
+<nav class="toc" aria-label="Contents"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>16</span> pages</span></div><ol class="toclist"><li><span class="n">01</span><a href="#p1">Page 1</a><span class="dots"></span></li><li><span class="n">02</span><a href="#p2">Page 2</a><span class="dots"></span></li><li><span class="n">03</span><a href="#p3">Page 3</a><span class="dots"></span></li><li><span class="n">04</span><a href="#p4">Page 4</a><span class="dots"></span></li><li><span class="n">05</span><a href="#p5">Page 5</a><span class="dots"></span></li><li><span class="n">06</span><a href="#p6">Page 6</a><span class="dots"></span></li><li><span class="n">07</span><a href="#p7">Page 7</a><span class="dots"></span></li><li><span class="n">08</span><a href="#p8">Page 8</a><span class="dots"></span></li><li><span class="n">09</span><a href="#p9">Page 9</a><span class="dots"></span></li><li><span class="n">10</span><a href="#p10">Page 10</a><span class="dots"></span></li><li><span class="n">11</span><a href="#p11">Page 11</a><span class="dots"></span></li><li><span class="n">12</span><a href="#p12">Page 12</a><span class="dots"></span></li><li><span class="n">13</span><a href="#p13">Page 13</a><span class="dots"></span></li><li><span class="n">14</span><a href="#p14">Page 14</a><span class="dots"></span></li><li><span class="n">15</span><a href="#p15">Page 15</a><span class="dots"></span></li><li><span class="n">16</span><a href="#p16">Page 16</a><span class="dots"></span></li></ol></nav><main class="doc"><p class="first">OPSC ASO 2018 General Awareness Paper-I: raw OCR (macOS Vision) of the Adda247 scan. Two-column pages: left column first, then '--- right column'. Advert pages removed. Some option letters are garbled by OCR. Use the clean topic-wise pages on the hub (for example Geography PYQs) where you can; this page is for checking the original wording.</p>
+<h3 id="p1">Page 1</h3><div class="scan"><span class="fl">SCAN_P01</span><pre>Adda 247
+DO NOT OPEN THIS TEST BOOKLET UNTIL YOU ARE ASKED TO DO SO
+Test Booklet Series
+TEST BOOKLET
+RECRUITMENT OF A. S. O.
+GENERAL AWARENESS
+Time Allowed : 1½ Hours
+: INSTRUCTIONS TO CANDIDATES :
+BOOKLET OF THE SAME SERIES ISSUED TO YOU.
+2.
+You have to enter your Roll No. on the Test Booklet
+in the Box provided alongside. DO NOT write
+anything else on the Test Booklet.
+4_
+REJECTION AT THE RISK OF THE CANDIDATE.
+5.
+6.
+Sheet.
+7.
+by you in the Answer Sheet.
+(П)
+deducted as negative marking for every response (answer).
+item (question).
+8.
+Answer Sheet as per the instructions sent to you with your Admission Certificate.
+9.
+10. Sheets for rough work are appended in the Test Booklet at the end
+--- right column
+GET IT ON
+Google Play
+T. B. Code: ASG - 1/18
+066902
+SI. No.
+Maximum Marks: 100
+IMMEDIATELY AFTER THE COMMENCEMENT OF THE EXAMINATION, YOU SHOULD
+CHECK THAT THIS TEST BOOKLET DOES NOT HAVE ANY UNPRINTED OR TORN OR MISSING
+PAGES OR ITEMS ETC. IF SO, GET IT REPLACED BY A COMPLETE TEST
+ENCODE CLEARLY THE TEST BOOKLET SERIES A, B, CORD, AS THE CASE MAY BE, IN THE
+APPROPRIATE PLACE IN THE ANSWER SHEET USING BALL POINT PEN (BLUE OR BLACK).
+YOU ARE REQUIRED TO FILL UP &amp; DARKEN ROLL NO., TEST BOOKLET / QUESTION
+BOOKLET SERIES IN THE ANSWER SHEET AS WELL AS FILL UP TEST BOOKLET I
+QUESTION BOOKLET SERIES AND SERIAL NO. AND ANSWER SHEET SERIAL NO. IN THE
+ATTENDANCE SHEET CAREFULLY. WRONGLY FILLED UP ANSWER SHEETS ARE LIABLE FOR
+This Test Booklet contains 100 items (questions). Each item (question) comprises four
+responses (answers). You have to select the correct response (answer) which you want
+to mark (darken) on the Answer Sheet. In case, you feel that there is more than one correct
+response (answer), you should mark (darken) the response (answer) which you consider
+the best. In any case, choose ONLY ONE response (answer) for each item (question).
+You have to mark (darken) all your responses (answers) ONLY on the separate Answer
+Sheet provided by using BALL POINT PEN (BLUE OR BLACK). See instructions in the Answer
+All items (questions) carry equal marks. All items (questions) are compulsory. Your
+total marks will depend only on the number of correct responses (answers) marked
+There will be negative markings for wrong responses (answers). 25(twenty
+five) percentage of marks allotted to a particular item (question) will be
+If candidates give more than one response (answer), it will be treated as a
+wrong response (answer) even if one of the given responses (answers)
+happens to be correct and there will be same penalty as above to that
+Before you proceed to mark (darken) in the Answer Sheet the responses (answers) to
+various items (questions) in the Test Booklet, you have to fill in some particulars in the
+After you have completed filling in all your responses (answers) on the Answer Sheet and after
+condusion of the examination, you should hand over to the Invigilator the Answer Sheetissued
+to you. You are allowed to take with you the candidate&#x27;s copy / second page of the Answer
+Sheet along with the Test Booklet, after completion of the examination, for your reference
+DO NOT OPEN THIS TEST BOOKLET UNTIL YOU ARE ASKED TO DO SO</pre></div>
+<h3 id="p2">Page 2</h3><div class="scan"><span class="fl">SCAN_P02</span><pre></pre></div>
+<h3 id="p3">Page 3</h3><div class="scan"><span class="fl">SCAN_P03</span><pre>Adda 247
+Who has been crowned Femina
+1.
+Miss India World 2018 ?
+(A)
+Shreya Rao
+B
+(B)
+Anukreethy Vas
+/ (C) Meenakshi Chaudhary
+(D) Neelam Khurana
+Which renowned personality has
+2.
+been appointed as the Brand
+Ambassador of the Sikkim Govern-
+ment?
+(A) Akshay Kumar
+(B) A. R. Rahman
+(C) Virat Kohli
+(D) Sachin Tendulkar
+The first biannual Indian Air Force
+Commanders&#x27; Conference 2018
+was held in which city?
+(A) New Delhi
+(B)
+Guwahati
+(C) Pune
+(D) Mumbai
+4.
+What was the theme of National
+Statistics Day 2018 ?
+(A) Statistics for Common Man
+Quality Assurance in Official
+/(B)
+B
+Statistics
+(C) Statistics for New India
+(D) Statistics for Development
+5,
+Who has been crowned as the
+India&#x27;s first Tribal Queen?
+(A) Panchami Majhi
+(B) Rashmirekha Hansdah
+NC - 1B/43
+(2)
+--- right column
+GET IT ON
+Google Play
+Tulasi Munda
+(C)
+(D) Pallavi Durua
+6
+Under India Smart Cities Award
+2018, which Smart City has been
+selected for &#x27;City Award&#x27; for showing
+great momentum in implementation
+of projects ?
+(A) Jabalpur
+(B) Visakhapatnam
+(C) Surat
+(D) Pune
+Who has been sworn in as the new
+Prime Minister of Italy?
+(A) Matteo Salvini
+(B) Sergio Mattarella
+(C) Giuseppe Conte
+(D) Luigi Di Maio
+What is India&#x27;s rank in the Global
+Peace Index 2018 ?
+(A)
+138th
+C
+(B)
+129th
+(C)
+136th
+(D) 128th
+What is the theme of 2018 World
+9.
+Oceans Day (WOD) ?
+(A)
+Prevent oceans from plastic
+pollution
+Our Oceans, Our Future
+(B)
+Healthy Oceans, Healthy Planet
+(C)
+Preventing plastic pollution and
+&lt; (D)
+encouraging solutions for a
+healthy ocean
+Contd.</pre></div>
+<h3 id="p4">Page 4</h3><div class="scan"><span class="fl">SCAN_P04</span><pre>Adda 247
+10. Which Indian Armed Force is
+observing the year 2018 as &#x27;Year of
+Disabled Soldiers in Line of Duty&#x27;?
+(A) Indian Army
+-(B)
+Indian Air Force
+Indian Navy
+(C)
+(D) Indian Coast Guard
+11. Who has been honoured with the
+DRDO Lifetime Achievement Award
+2017 ?
+(A) Vasudev Kalkunte Aatre
+D
+(B) G. Satheesh Reddy
+(C) S. Christopher
+(D) V. K. Saraswat
+12.
+The military exercise of Indian Army
+Gandiv Vijay 2018&quot; was concluded
+in which state?
+(A) Odisha
+B
+Rajasthan
+(B)
+da
+(C) Himachal Pradesh
+(D) Uttar Pradesh
+Upper part of sea/aquatic ecosystem
+13.
+contains :
+(A) Plankton
+(B) Nekton
+A
+(C) Plankton and Nekton
+(D) Benthos
+14. Green house effect is warming due
+to
+c
+(A) Infra-red rays reaching earth
+(3)
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+Moisture layer in atmosphere
+(B)
+Increase in temperature due to
+(C)
+increase in carbon dioxide
+concentration of atmosphere
+(D) Ozone layer of atmosphere
+Study of inter-relationships between
+15.
+organisms and their environment is:
+(A), Ecology
+Ecosystem
+(B)
+(C) Phytogeography
+(D) Ethology
+16. Which is not correct about the Right
+to Privacy as per the judgement
+delivered by the Supreme Court of
+India ?
+(A) It is a fundamental right of the
+citizens.
+(B) It is an intrinsic part of Article
+21 of the Constitution of India
+It is absolute unlike the Right to
+Life and Personal Liberty
+It is a unanimous decision by a
+nine judge bench of the
+Supreme Court headed by
+Hon&#x27;ble Chief Justice J. S.
+Khehar
+17. Which places shall be the terminals
+for the first Bullet Train of India?
+(A) Ahmedabad and Delhi
+C
+(B) Ghoga and Dahey
+(C) Mumbai and Ahmedabad
+(D) Mumbai and Karnali
+(Tum over )</pre></div>
+<h3 id="p5">Page 5</h3><div class="scan"><span class="fl">SCAN_P05</span><pre>Adda 247
+18. Which team did win the Ranji Trophy
+2017-18?
+Delhi
+(A)
+Gujarat
+(B)
+(C) Mumbai
+,(D) Vidarbha
+Who is the recipient of Dada Saheb
+9
+Phalke Award 2017 ?
+Satrughna Sinha
+(A)
+(B)
+Vinod Khanna
+(C) Reema Lagoo
+(D) Sri Devi
+Which month shall be celebrated
+20
+every year as the National Nutrition
+Month under POSHAN Abhiyan?
+March
+(A)
+D
+May
+(B)
+dda
+August
+September
+21. Who have won the 2018 Raman
+Magsaysay Award ?
+(A) M. S. Swaminathan and Sanjay
+Rajaram
+(B) Bharat Bhatwani and Sonam
+B
+Wangchuk
+(C) Gauri Lankesh and Rajendra
+Singh
+(D) Medha Patkar and Kailash
+Satyarthi
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+22. Which country has allowed women to
+drive with effect from June 2018 ?
+(A) Iran
+(B) Saudi Arabia
+B
+(C) Iraq
+(D) Jordan
+Which country did host the Common-
+23
+wealth Heads of Government
+Meeting 2018 ?
+(A) India
+D
+Australia
+(B)
+(C) Denmark
+(D) England
+Which city has been projected by the
+Population Division of the UN
+Department of Economic and Social
+Affairs to be the most populous city
+of the world in 2028?
+(A) Tokyo
+(B)
+Delhi
+(C) Beijing
+(D) Mumbai
+25.
+Who is the author of the book
+&quot;Gandhi: The Years That Changed
+The World (1914-1948)&quot;?
+B (A) Bipan Chandra
+(B) Ramachandra Guha
+(C) Romila Thapar
+(D) Fatima Meer
+Contd
+(4)</pre></div>
+<h3 id="p6">Page 6</h3><div class="scan"><span class="fl">SCAN_P06</span><pre>Adda 247
+26. Which battle did put an end to the
+French Challenge to British
+Supremacy in India ?
+(A) Battle of Seringapatam
+(B) Battle of Plassey
+Battle of Buxar
+(C)
+(D) Battle of Wandiwash
+Which is not correct?
+27.
+Odisha was conquered by the
+(A)
+British in 1803.
+Odisha was ruled by the
+(B)
+Marathas at the time of
+conquest.
+(C) Odisha was ceded to the East
+India Company by the Treaty of
+Argaon.
+Odisha&#x27;s conquest was
+(D)
+effected by Richard Wellesley.
+28. Which Act did introduce the principles
+of elections?
+(A) Indian Councils Act 1892
+(B) Indian Councils Act 1909
+(C) Government of India Act 1919
+(D) Government of India Act 1935
+29. Where was the Revolt of 1857
+kindled ?
+(A) Delhi
+(B) Meerut
+-(C) Barrackpore
+(D) Lucknow
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+30. Where was the headquarters of
+Ghadar Party established?
+(A) Vancouver
+(B) San Francisco
+B
+(C) Portland
+(D) Berlin
+31. When did Gandhiji address a public
+meeting at Cuttack during the Non-
+cooperation Movement?
+B (A)
+January 24, 1921
+March 23, 1921
+(B)
+(C) March 27, 1921
+(D) August 3, 1921
+32. When did Gandhiji break the salt law
+at Dandi ?
+(A) March 12, 1930
+March 16, 1930
+(B)
+(C) April 5, 1930
+(D) April 6, 1930
+33. Where did Subhas Chandra Bose
+establish the Provisional Govern-
+ment of Free India?
+B
+(A) Tokyo
+(B) Singapore
+(C) Bangkok
+(D) Berlin
+(Turh over )
+(5)</pre></div>
+<h3 id="p7">Page 7</h3><div class="scan"><span class="fl">SCAN_P07</span><pre>Adda 247
+34. What is not correct regarding the
+Preamble of the Indian Constitution?
+(A) It embodies the ideals of the
+Constitution.
+(B) It is an integral part of the
+Constitution.
+(C) It can not be amended.
+(D) It is enforceable in a Court of
+Law.
+35. What does Article 35(A) of the Indian
+Constitution provide for ?
+Inapplicability of declaration of
+(A)
+National Emergency in Jammu
+C
+and Kashmir without con-
+currence by the Goverment of
+the State
+Limitation of fundamental rights
+(B)
+of the armed forces personnel
+deployed in insurgency areas
+Saving of laws with respect to
+(C)
+permanent residents of Jammu
+and Kashmir and their rights
+(D) Restriction to citizen&#x27;s rights in
+the area under force of martial
+law
+36. Who are the electors for the Office of
+the Vice President of India?
+(A) Elected members of Lok
+D
+Sabha and Rajya Sabha
+(B)
+Elected members of Lok
+Sabha, Rajya Sabha and State
+Legislative Assemblies
+NC - 1B/43
+(6)
+--- right column
+GET IT ON
+Google Play
+(C) Elected Members of only Rajya
+Sabha
+(D) Elected and nominated
+members of Lok Sabha and
+Rajya Sabha
+37.
+What is an advance grant made by
+the Parliament pending regular
+passage of the budget called?
+(A) Appropriation Bill
+B (B) Vote on Account
+(C) Vote on Credit
+(D) Supplementary Grant
+38.
+Which writ is issued by the Supreme
+Court or a High Court to command a
+public authority to perform a public
+statutory duty that is a part of their
+B official duty but fail to perform?
+(A) Habeas Corpus
+(B)
+Mandamus
+(C) Certiorary
+• (D) Quo Warranto
+39. Which subject has been transferred
+from the State List to the Concurrent
+List by a Constitutional Amendment?
+• (A) Public Health and Sanitation
+B
+,(B) Education
+(C) Agriculture
+(D) Road Transport
+Contd</pre></div>
+<h3 id="p8">Page 8</h3><div class="scan"><span class="fl">SCAN_P08</span><pre>Adda 247
+40. When was the amendment providing
+Constitutional Status to Munici-
+palities made effective ?
+I(A) 1991
+(B) 1992
+C
+(C) 1993
+(D) 1994
+Which is the largest constituent of
+41.
+Atmosphere ?
+(A) Methane
+(B) Oxygen
+(C) Carbon dioxide
+(D) Nitrogen
+42. Which type of rock is granite ?
+(A) Sedimentary
+\ (B) Igneous
+(C) Metamorphic
+(D) Organic
+43. What is not correct with regard to
+earthquake ?
+(A) It is caused by endogenetic.
+forces of earth.
+(B) The magnitude of energy
+released by it is measured by
+D:
+Richter Scale.
+\(C) The damage caused by it is
+measured by Mercally Intensity
+Scale.
+(D) Epicenter is the point deep
+under the ground where it
+actually begins.
+(7)
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+44. Which state is not bisected by the
+Tropic of Cancer?
+(A) Gujarat
+B 1B) Odisha
+(C) Bengal
+(D) Rajasthan
+45. Why is Chilika Lake called a
+Lagoon?
+(A) It is formed due to damming of
+sections of river channels.
+(B) It is formed due to flowing in of
+rain water into local depre-
+ssions.
+(C) It is produced due to erosional
+and depositional action of
+waves in the coastal regions.
+(D) It is formed by remnants of
+ancient ocean and sea areas.
+46. Which state has the longest
+coastline ?
+(A) Gujarat
+(B) Andhra Pradesh
+(C) Maharashtra
+(D) Odisha
+47. Where are the oldest rocks found?
+(A) Himalayas
+B 1B) Aravallis
+(C) Siwaliks
+(D) Indo-Gangetic Plain
+(Tum over)</pre></div>
+<h3 id="p9">Page 9</h3><div class="scan"><span class="fl">SCAN_P09</span><pre>Adda 247
+48. Which state has the highest
+percentage of its geographical
+area covered by forests as per the
+Government Report of 2018 ?
+Madhya Pradesh
+(A)
+Arunachal Pradesh
+(B)
+(C) Nagaland
+(D) Mizoram
+49. Which is a tool of executive control
+to enforce administrative accoun-
+tability ?
+I(A) Audit
+(B) Pressure Groups
+(C) Writs
+(D) Appointment and Removal
+50. What was the theme of the 21st
+National Conference on
+e-
+governance in 2018 ?
+(A) Artificial intelligence and e-
+governance
+Transparency
+(B)
+and e-
+governance
+(C) Technology
+and good
+governance
+(D) Technology for Accelerating
+Development
+51. What is called a Rolling Plan?
+(A) A plan that changes its target
+every year
+(B) A plan that changes its
+allocation every year
+NC - 1B/43
+(8)
+--- right column
+GET IT ON
+Google Play
+(C) A plan that does not change its
+target every year
+(D) A plan that changes its target
+and allocation every year
+52. Which is the most appropriate
+measure of the country&#x27;s economic
+growth?
+(A)
+Gross Domestic Product
+(B) Net Domestic Product
+Gross National Product
+(C)
+Per Capita Real Income
+53. Which is the first open defecation free
+state ?
+(A) Rajasthan
+(B) Kerala
+(C) Sikkim
+(D) Himachal Pradesh
+54. Which Scheme is intended to
+provide market-relevant skill
+development training to the youth?
+(A) Sampada
+(B) Swayam
+(C) Saksham
+(D) Sankalp
+55. What is the product &#x27;Ulta Chaata&#x27;
+used for ?
+(A) Retaliating attack
+(B) Recycling plastic
+Tracking absconded criminal
+(C)
+(D) Conserving and harvesting rain
+water
+Contd.</pre></div>
+<h3 id="p10">Page 10</h3><div class="scan"><span class="fl">SCAN_P10</span><pre>Adda 247
+56. Which is the first indigenous Battle
+Tank of Indian Army?
+(A) Ajeya
+/(B) Arjun
+(C) Bhishma
+(D) Vijayanta
+57. Where was the Rafale aircraft
+acquired from ?
+(A) England
+B
+1B) France
+(C) Italy
+(D) Switzerland
+58.
+Where is the Indian National Defence
+University under construction?
+(A) Amethi
+(B) Pune
+(C) Binola
+(D) Dehradun
+What is the lander of Chandrayana-
+59.
+2 named as ?
+(A) Raman
+,(B)
+D
+Kalam
+(C) Homi
+(D) Vikram
+60. What are the non-stick cooking
+utensils coated with ?
+(A) Anodized Aluminium
+(B) Enameled Cast Iron
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+Teflon
+(C)
+(D) Copper
+What was the theme of World Earth
+61
+Day observed worldwide to demons-
+trate support for environment
+protection?
+Clean Earth-Green Earth
+(A)
+Environmental and Climate
+(B)
+D
+Literacy
+(C) Trees for the Earth
+(D) End Plastic Pollution
+62. What is not correct with respect to
+Olive Ridley Sea Turtles?
+(A) Gahirmatha is world&#x27;s largest
+known nesting and breeding
+ground of such type of turtles.
+Two other mass nesting
+(B)
+B
+beaches for such turtles in
+Odisha are located on the
+mouth of rivers Rushikulya and
+Daya.
+(C) The eggs of such turtles hatch
+at night and the hatchlings are
+highly sensitive to light.
+These species are recognised
+(D)
+as Vulnerable in the Red List of
+IUCN
+(Turn over)
+(9)</pre></div>
+<h3 id="p11">Page 11</h3><div class="scan"><span class="fl">SCAN_P11</span><pre>Adda 247
+63. Which is not mentioned as a green
+house gas in the Kyoto Protocol to
+the United Nations Framework
+Convention on climatic change ?
+(A) Carbon dioxide
+(B) Carbon monoxide
+(C) Methane
+(D) Nitrous oxide
+Whose concept was Non-Aligned
+Movement ?
+(A) Marshall Josip Broz Tito
+(B) Sukarno
+(C) Gamal Abdel Nasser
+(D) Jawaharlal Nehru
+65. Who is eligible to be the Chairman
+of Human Rights Commission of
+India ?
+*(A) The sitting Chief Justice of India
+B
+(B) A former Chief Justice of India
+(C) A former Judge of Supreme
+Court
+(D) A former Chief Justice of a
+High Court
+66. Which of the following statements is
+correct about the President of India?
+A JA) Addresses first session of
+Parliament after each General
+Election.
+(10 )
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+(B) Addresses first session of
+Parliament at the beginning of
+each year.
+(C) Addresses every session of
+Parliament.
+(D) Never addresses Parliament.
+Who of the following founded the
+67
+Ahmedabad Textile Labour Associa-
+tion ?
+(A) Mahatma Gandhi
+(B) J. B. Kripalani
+(C) N. M. Joshi
+(D) Sardar Vallabhbhai Patel
+68. 82 and 1/2 degree E longitude is
+geographically significant to India
+because:
+(A) It determines the Indian
+Standard Time
+A
+(B)
+It was a bearing on the tropical
+climate of India
+It divides India into eastern and
+(C)
+western zones
+It enables determining local
+(D)
+time in eastern India
+69.
+For regulation of the Insurance Trade
+in the country, the Government has
+formed :
+(A) SEBI
+C (B) Reserve Bank of India
+(C)
+Insurance Regulatory and
+Development Authority
+(D) General Insurance Corporation
+Conta.</pre></div>
+<h3 id="p12">Page 12</h3><div class="scan"><span class="fl">SCAN_P12</span><pre>Adda 247
+70. For what is the Manas Sanctuary in
+Assam known ?
+(A) Bears
+(B) Rhinos
+(C) Elephants
+(D) Bisons
+71. Historians are of the view that the
+British signed the Treaty of Bassein
+(1802) with a &#x27;Cypher&#x27;. Who was this
+&#x27;Cypher&#x27;?
+(A) Raghunath Rao
+(B) Daulat Rao Sindhia
+/(C) Baji Rao lI
+(D) Nana Fadnavis
+72. In India, how many states share the
+coastline?
+(A). 7
+Adda
+C
+(C)
+(D) 10
+73. Which of the following mountain
+ranges form a dividing line between
+the Ganges Plain and the Deccan
+Plateau ?
+(A) Aravalli
+(B) Vindhya
+(C) Satpura
+(D) Ajanta
+NC - 1B/43
+--- right column
+GET IT ON
+Google Play
+74. Integrated Kashang Hydroelectric
+Project and Sainj Hydroelectric
+Project which are being supported by
+Asian Development Bank are
+located in which of the following
+states ?
+B
+(A) Jammu &amp; Kashmir
+(B) Himachal Pradesh
+(C) Uttarakhand
+(D) Punjab
+75. Via which among the following
+amendments of the Constitution of
+India, Delhi was designated as
+National Capital Territory (NCT) ?
+(A) 63rd Amendment Act
+B
+69th Amendment Act
+(B)
+(C)
+74th Amendment Act
+(D) 76th Amendment Act
+What is the current repo rate in the
+second bi-monthly monetary policy
+review of RBI for FY 19 ?
+(A) 6.50%
+6.25%
+(B)
+6.00%
+(C)
+(D) 6.75%
+47.
+Which among the following acts has
+not been enacted by Parliament of
+India ?
+(A) AFSPA
+(B) POTA
+(C) MCOCA
+(D) FEMA
+(Turn over)
+( 11)</pre></div>
+<h3 id="p13">Page 13</h3><div class="scan"><span class="fl">SCAN_P13</span><pre>Adda 247
+78. Who among the following has written
+the book titled &#x27;The Perils of
+Democracy&#x27;?
+(A) P. S. Ramamohan Rao
+B
+(B) P. C. Alexander
+Gurudas Kamat
+(C)
+Shankar Dayal Sharma
+79.
+Who among the following was the first
+Speaker of the Lok Sabha?
+(A) Ganesh Vasudev Mavalankar
+M. A. Ayyangar
+(B)
+(C)
+Sardar Hukam Singh
+N. Sanjiva Reddy
+(D)
+The &quot;Ninety East Ridge&quot; is a
+80
+submarine volcanic ridge located
+in :
+(A)
+Pacific Ocean
+C
+(B)
+Atlantic Ocean
+Indian Ocean
+(C)
+(D) Arctic Ocean
+Which among the following would be
+81.
+the longest day in Australia?
+(A) June 21
+(B) September 22
+December 22
+(C)
+(D) March 23
+82. The Hindu and Jain mythology refer
+to which among the following as the
+centre of the universe?
+*(A) Mount Kailash
+NC - 1B/43
+(12)
+--- right column
+GET IT ON
+Google Play
+Ujjain
+(B)
+(C) Mount Meru
+(D) Pushkar Lake
+83. Bring out the sea which has no
+coastline ?
+(A) White Sea
+Tasmanian Sea
+C
+(C) Sargasso Sea
+(D) Japan Sea
+84. Which among the following is the
+largest tropical lake in the world?
+(A) Lake Victoria
+(B) Lake Malawi
+•(C) Lake Kivu
+(D) Lake Turkana
+On which among the following dates,
+85.
+World Hindi Day is celebrated?
+(A) January 10
+- A
+(B) January 15
+(C) January 17
+(D) December 17
+86. Which among the following Viceroys
+was associated with the &#x27;Ilbert Bill
+Controversy&#x27;?
+(A) Lord Curzon
+C (B) Lord Lytton
+(C) Lord Ripon
+(D) Lord Hardinge
+Contd.</pre></div>
+<h3 id="p14">Page 14</h3><div class="scan"><span class="fl">SCAN_P14</span><pre>Adda 247
+87. Arrange the following events/
+movements in the correct order of
+their chronology :
+Rowlatt Act Satyagraha
+(ії)
+Civil Disobedience Movement
+(III) Boycott of Simon Commission
+(iv) Quit India Movement
+(A) (1), (I1), (it), (iv)
+(1), (It), (ii), (iv)
+(B)
+(C)
+(il), (iii), (iv), (i)
+(D) None of the above
+The only session of Indian National
+88.
+Congress which was presided by
+Mahatma Gandhi was held at :
+(A)
+Belgaum
+Faizpur
+(B)
+(C) Allahabad
+(D) Karachi
+89. At which among the following places,
+National Flag was hoisted for the first
+time in India ?
+Lucknow
+(A)
+(B) Nagpur
+(C) Kolkata
+(D) Delhi
+90. Bring out the only incorrect state-
+ment :
+(A) Kaveri is the longest river of
+Tamil Nadu.
+B/D
+(B) India is the second largest
+producer of Chillies after China.
+NC - 1B/4ął
+--- right column
+GET IT ON
+Google Play
+Regulating Act 1773 estab-
+(C)
+lished a Supreme Court in India
+Attorney General of India is
+(D)
+appointed as per Article 1976:
+UDYAMI helpline is for :
+Large capital Industries
+(A)
+Female entrepreneur
+(B)
+Farmers introducing techno-
+(C)
+logy in Farming
+(D) Micro, small and medium size
+enterprises
+92. What is the upper limit of RTGS
+transaction in India?
+(A) Rs. 5 Lakhs
+D
+(B) Rs. 10 Lakhs
+(C) Rs. 15 Lakhs
+_(D) No limit
+93. Who among the following has written
+the book &quot;Growth and Finance&quot;?
+(A) Bimal Jalan
+(B) K. Subba Rao
+(C) C. Rangrajan
+(D) Amartya Sen
+94. Which among the following is
+popularly known as mercantile law of
+India ?
+(A) Contract Law
+А
+(B) Law of Torts
+(C) Labour Law
+(D) Property Law
+(Tum over )
+(13)</pre></div>
+<h3 id="p15">Page 15</h3><div class="scan"><span class="fl">SCAN_P15</span><pre></pre></div>
+<h3 id="p16">Page 16</h3><div class="scan"><span class="fl">SCAN_P16</span><pre>Adda 247
+95. Mutual Funds are regulated in India
+by which among the following?
+/(A) RBI
+SEBI
+(B)
+Stock Exchanges
+(C)
+(D) RBI and SEBI both
+In which year Mission Olympics in
+96.
+Army Programme was launched?
+(A) 1999
+2000
+(B)
+(C) _ 2001
+(D) 2002
+97. Check which is not an agency of
+U. N. ?
+(A) International Committee of Red
+Cross
+- (B) FAO
+Adda
+(C) IMF
+(D) ILO
+NC - 1B/43
+(14)
+--- right column
+GET IT ON
+Google Play
+98. An Indian who become President of
+International Court of Justice is :
+(A) Dr. Nagendra Singh
+(B) Justice R. N. Thakur
+- (0
+Justice P. L. Bhagawati
+Justice H. R. Reddy
+(D)
+99. Which of the following country is not
+a permanent member of UN Security
+Council?
+(A) China
+B
+(B)
+Japan
+(C) Russia
+(D) France
+100. Who has become the first Indian
+cricketer to score 2,000 runs in T20
+International Cricket?
+(A) Mithali Raj
+(B) Virat Kohli
+(C) Rohit Sharma
+(D) Harmanpreet Kaur
+.......
+Contd</pre></div></main><footer>OPSC ASO study hub · built from <code>pyq/OPSC-ASO-2018-GA-Paper-I-OCR.txt</code> · <a href="../index.html">back to the hub</a></footer>
+</div>
+<a class="totop" href="#top">Top &uarr;</a>
+<script>
+(function(){var b=document.getElementById('hide');if(!b)return;
+b.addEventListener('click',function(){var on=document.body.classList.toggle('hide');b.setAttribute('aria-pressed',on);
+document.querySelectorAll('.an.show').forEach(function(a){a.classList.remove('show')})});
+document.addEventListener('click',function(e){var a=e.target.closest('.an');if(a&&document.body.classList.contains('hide'))a.classList.add('show')});})();
+</script>

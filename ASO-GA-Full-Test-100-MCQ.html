@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GS Full Test 100 MCQ</title>
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --ink:#1d1d1b; --muted:#6b6a64; --line:#e3e1da;
+  --accent:#b4441c; --accent-soft:#fbeee7; --ok:#1f7a4d; --ok-soft:#eaf3ee; --bad:#b3261e; --bad-soft:#fbeaea;
+  --mark:#8a5a00; --mark-soft:#fff3c4; --next:#eef1fb; --next-line:#3b5bcc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+    --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+    --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --card:#1f1f1c; --ink:#ecebe6; --muted:#a3a29b; --line:#33332e;
+  --accent:#f08a5d; --accent-soft:#2c211b; --ok:#5fc795; --ok-soft:#1a2a22; --bad:#ff8a80; --bad-soft:#3a1d1b;
+  --mark:#f2c94c; --mark-soft:#3a3420; --next:#1c2133; --next-line:#8ea6ff;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header{padding:24px 0 8px}
+h1{margin:0 0 4px;font-size:26px;line-height:1.25}
+.sub{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.theme{float:right;display:inline-flex;border:1px solid var(--line);border-radius:99px;background:var(--card);padding:2px;margin:0 0 8px 12px}
+.theme button{border:0;background:none;color:var(--muted);font:600 12px/1 inherit;padding:6px 10px;border-radius:99px;cursor:pointer}
+.theme button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn{font:600 15px/1 inherit;padding:11px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-top:8px;padding-bottom:8px}
+.timer{font:700 18px/1 ui-monospace,Menlo,monospace}
+.timer.low{color:var(--bad)}
+.pill{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:99px}
+.qnum{color:var(--muted);font-size:14px;margin:0 0 6px}
+.qtext{font:18px/1.6 Georgia,"Iowan Old Style",serif;white-space:pre-line;margin:0 0 14px;overflow-wrap:anywhere}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:16px/1.5 inherit;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer;overflow-wrap:anywhere}
+.opt:hover{border-color:var(--accent)}
+.opt b{flex:none;width:22px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.exp{border-left:4px solid var(--next-line);background:var(--next);padding:10px 14px;border-radius:6px;margin:12px 0 0;font:15.5px/1.65 Georgia,"Iowan Old Style",serif;overflow-wrap:anywhere}
+.exp .lab{font:700 13px/1.4 -apple-system,sans-serif;color:var(--next-line);display:block;margin-bottom:2px}
+.check{color:var(--accent);font-weight:600;font-size:13px;font-family:-apple-system,sans-serif}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.pal button{font:600 13px/1 inherit;padding:9px 0;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.pal button.ans{background:var(--accent);border-color:var(--accent);color:#fff}
+.pal button.mk{box-shadow:inset 0 -4px 0 var(--mark)}
+.pal button.cur{outline:2px solid var(--ink);outline-offset:1px}
+.pal button.r{background:var(--ok);border-color:var(--ok);color:#fff}
+.pal button.w{background:var(--bad);border-color:var(--bad);color:#fff}
+.legend{font-size:13px;color:var(--muted);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+#secTable th:not(:first-child),#secTable td:not(:first-child){white-space:nowrap;text-align:center;padding:7px 6px}
+.big{font-size:40px;font-weight:800;line-height:1.1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat span{display:block;color:var(--muted);font-size:13px}
+.stat b{font-size:22px}
+.rq{border-top:1px solid var(--line);padding:16px 0}
+.rq:first-child{border-top:0}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px}
+.tag.r{color:var(--ok);background:var(--ok-soft)} .tag.w{color:var(--bad);background:var(--bad-soft)} .tag.s{color:var(--muted);background:var(--line)}
+ul{padding-left:20px} li{margin:4px 0}
+.hide{display:none!important}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:16px 16px 40px}
+@media (max-width:600px){ .card{padding:16px} .qtext{font-size:17px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="theme" role="group" aria-label="Theme">
+    <button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">System</button>
+  </div>
+  <h1>OPSC ASO 2027 · General Awareness Full Test (100 MCQs)</h1>
+  <p class="sub">100 questions · 90 minutes · +1 for a right answer, −0.25 for a wrong one, 0 for a skipped one. Questions cover all 12 subjects of the Easy Guide: Polity, Governance, Economy, History, Geography, Odisha, Environment, Science, Defence, Institutions and Current Affairs.</p>
+</header>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="wrap">
+  <div class="card">
+    <h2 style="margin-top:0">How to take this test</h2>
+    <ul>
+      <li><b>Exam mode</b>: a 90-minute timer (the real paper: 100 questions in 90 minutes). No answers are shown until you submit.</li>
+      <li><b>Practice mode</b>: no timer. The answer and a short explanation appear as soon as you choose, so you can use it to revise.</li>
+      <li>The questions follow the guide's order: Polity 14, Governance 6, Economy 10, Modern History 10, World Geography 6, India Geography 8, Odisha 14, Environment 8, Science and Technology 10, Defence 5, Institutions 4, Current Affairs 5.</li>
+      <li>Your progress is saved in this browser, so you can close the page and come back later.</li>
+    </ul>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="startExam">Start exam mode (90 min)</button>
+      <button class="btn" id="startPrac">Start practice mode</button>
+      <button class="btn hide" id="resume">Resume saved attempt</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="test" class="hide">
+  <div class="bar"><div class="wrap">
+    <span class="timer" id="timer">90:00</span>
+    <span class="pill" id="modeLbl">Exam mode</span>
+    <span id="progress" style="color:var(--muted);font-size:14px"></span>
+    <span style="flex:1"></span>
+    <button class="btn" id="submitBtn">Submit test</button>
+  </div></div>
+  <div class="wrap">
+    <div class="card" id="qcard">
+      <p class="qnum" id="qnum"></p>
+      <p class="qtext" id="qtext"></p>
+      <div id="opts"></div>
+      <div id="qexp"></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" id="prev">← Previous</button>
+        <button class="btn" id="clear">Clear answer</button>
+        <button class="btn" id="mark">Mark for review</button>
+        <span style="flex:1"></span>
+        <button class="btn primary" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="pal" id="pal"></div>
+      <p class="legend">Filled = answered · yellow underline = marked for review · outlined = current question.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hide wrap">
+  <div class="card">
+    <h2 style="margin-top:0">Your result</h2>
+    <div class="big" id="score"></div>
+    <div class="stats" id="stats"></div>
+    <p id="verdict"></p>
+    <h3>By subject</h3>
+    <table id="secTable"></table>
+    <p class="legend">Revise the subject with the lowest net score first, using its chapter in the Easy Guide.</p>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="retry">Start again</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2 style="margin-top:0">Review every question</h2>
+    <div class="row" id="filters">
+      <button class="btn" data-f="all">All</button>
+      <button class="btn" data-f="w">Wrong</button>
+      <button class="btn" data-f="s">Skipped</button>
+      <button class="btn" data-f="r">Right</button>
+    </div>
+    <div id="review"></div>
+  </div>
+</div>
+
+<footer>GS full test · built from the chapters of <a href="ASO-GA-Easy-Guide.html#polity">OPSC ASO 2027: General Awareness, the Easy Guide</a>.</footer>
+
+<script>
+/* Each question: s = section, q = text, o = options (correct option FIRST unless k=1),
+   e = explanation, k = 1 keeps the option order and uses a = correct index. */
+function t(s,q,o,e){return {s:s,q:q,o:o,e:e}}
+var Q = [
+/* ===== 1 POLITY (14) ===== */
+t("1 Polity","Fundamental Rights are given in which Part of the Indian Constitution?",["Part III","Part IV","Part II","Part V"],"Part III (Articles 12 to 35) has the Fundamental Rights. Part IV has the Directive Principles. Part II is about citizenship. Part V is about the Union."),
+t("1 Polity","The Right to Education for children aged 6 to 14 years became a Fundamental Right (Article 21A) through which Constitutional Amendment?",["86th Amendment, 2002","42nd Amendment, 1976","44th Amendment, 1978","73rd Amendment, 1992"],"The 86th Amendment Act, 2002 added Article 21A. The 42nd added the Fundamental Duties. The 44th removed the Right to Property from Part III. The 73rd is about Panchayati Raj."),
+t("1 Polity","What is the minimum age to become a member of the Rajya Sabha?",["30 years","25 years","35 years","21 years"],"Rajya Sabha: 30 years. Lok Sabha and State Legislative Assembly: 25 years. President: 35 years. Right to vote: 18 years."),
+t("1 Polity","Which writ is issued to free a person who has been illegally detained?",["Habeas Corpus","Mandamus","Certiorari","Quo Warranto"],"Habeas Corpus means 'to have the body'. The court orders the detaining authority to produce the person before it. Mandamus is a command to do a public duty. Certiorari quashes a lower court's order. Quo Warranto asks 'by what authority' someone holds a public office."),
+t("1 Polity","The idea of the Directive Principles of State Policy was taken from the Constitution of:",["Ireland","USA","United Kingdom","Canada"],"Directive Principles came from Ireland. The USA gave Fundamental Rights and judicial review. The UK gave the parliamentary system. Canada gave a federation with a strong Centre."),
+t("1 Polity","Who presides over a joint sitting of the two Houses of Parliament?",["Speaker of the Lok Sabha","Chairman of the Rajya Sabha","President of India","Prime Minister"],"Under Article 108 the Speaker of the Lok Sabha presides over a joint sitting. If the Speaker is absent, the Deputy Speaker does. The Chairman of Rajya Sabha never presides."),
+t("1 Polity","The 'Basic Structure' doctrine of the Constitution was laid down by the Supreme Court in which case?",["Kesavananda Bharati v. State of Kerala (1973)","Golaknath v. State of Punjab (1967)","Maneka Gandhi v. Union of India (1978)","A.K. Gopalan v. State of Madras (1950)"],"In Kesavananda Bharati (1973) a 13-judge bench held that Parliament can amend the Constitution but cannot destroy its basic structure. Golaknath said Fundamental Rights cannot be amended, which Kesavananda later overruled."),
+t("1 Polity","In the Seventh Schedule, 'Education' is placed in which list?",["Concurrent List","Union List","State List","Residuary List"],"Education was a State subject. The 42nd Amendment (1976) moved it to the Concurrent List. The Seventh Schedule has three lists: Union, State and Concurrent. There is no 'Residuary List'."),
+t("1 Polity","The Goods and Services Tax (GST) was introduced by which Constitutional Amendment?",["101st Amendment, 2016","91st Amendment, 2003","97th Amendment, 2011","103rd Amendment, 2019"],"The 101st Amendment Act, 2016 inserted Article 279A (GST Council). GST started on 1 July 2017. The 103rd Amendment gave 10% EWS reservation."),
+t("1 Polity","The anti-defection law is contained in which Schedule of the Constitution?",["Tenth Schedule","Eighth Schedule","Ninth Schedule","Eleventh Schedule"],"The Tenth Schedule was added by the 52nd Amendment, 1985. The Eighth lists languages, the Ninth protects certain laws, and the Eleventh lists Panchayat subjects."),
+t("1 Polity","The Eleventh Schedule, added by the 73rd Amendment, lists the subjects of:",["Panchayats (29 subjects)","Municipalities (18 subjects)","Union Territories","Tribal areas"],"The 73rd Amendment (1992) gave Panchayati Raj Institutions constitutional status (Part IX) and the Eleventh Schedule has 29 subjects. The Twelfth Schedule, added by the 74th Amendment, has 18 subjects for Municipalities."),
+t("1 Polity","Fundamental Duties were added to the Constitution on the recommendation of which committee?",["Swaran Singh Committee","Sarkaria Commission","Balwant Rai Mehta Committee","Ashok Mehta Committee"],"The Swaran Singh Committee (1976) led to the Fundamental Duties (Article 51A) by the 42nd Amendment. Sarkaria looked at Centre–State relations. Balwant Rai Mehta and Ashok Mehta looked at Panchayati Raj."),
+t("1 Polity","President's Rule in a State is imposed under which Article?",["Article 356","Article 352","Article 360","Article 370"],"Article 356: State Emergency (President's Rule). Article 352: National Emergency. Article 360: Financial Emergency, never used so far. Article 370 gave special status to Jammu and Kashmir (made ineffective in 2019)."),
+t("1 Polity","Dr B.R. Ambedkar described which Article as the 'heart and soul' of the Constitution?",["Article 32 (Right to Constitutional Remedies)","Article 14 (Equality)","Article 21 (Life and Liberty)","Article 19 (Freedoms)"],"Article 32 lets a person go straight to the Supreme Court if a Fundamental Right is violated. Ambedkar called it the heart and soul of the Constitution."),
+
+/* ===== 2 GOVERNANCE (6) ===== */
+t("2 Governance","The Right to Information Act was passed in the year:",["2005","2002","2009","2013"],"The RTI Act, 2005 came fully into force on 12 October 2005. It lets citizens ask for information from public authorities, normally within 30 days."),
+t("2 Governance","The Lokpal and Lokayuktas Act was passed in:",["2013","2005","2011","2016"],"The Lokpal and Lokayuktas Act, 2013 created the Lokpal at the Centre and Lokayuktas in States to inquire into corruption complaints against public servants."),
+t("2 Governance","The Central Vigilance Commission (CVC) was set up on the recommendation of which committee?",["Santhanam Committee","Administrative Reforms Commission","Kothari Committee","Hota Committee"],"The Santhanam Committee (1962–64) recommended the CVC. It was set up in 1964 and got statutory status in 2003."),
+t("2 Governance","The Lal Bahadur Shastri National Academy of Administration, which trains IAS officers, is located at:",["Mussoorie","Hyderabad","New Delhi","Dehradun"],"LBSNAA is at Mussoorie, Uttarakhand. The Sardar Vallabhbhai Patel National Police Academy, which trains IPS officers, is at Hyderabad."),
+t("2 Governance","Civil Services Day in India is celebrated every year on:",["21 April","24 January","15 August","31 October"],"21 April, because on that day in 1947 Sardar Patel addressed the first batch of administrative service probationers. 24 January is National Girl Child Day and 31 October is National Unity Day."),
+t("2 Governance","The Digital India programme was launched in:",["2015","2009","2012","2019"],"Digital India was launched on 1 July 2015 to bring government services online, to build digital infrastructure and to spread digital literacy."),
+
+/* ===== 3 ECONOMY (10) ===== */
+t("3 Economy","NITI Aayog replaced the Planning Commission on:",["1 January 2015","15 August 2014","26 January 2016","2 October 2015"],"NITI Aayog (National Institution for Transforming India) started on 1 January 2015. It is a think tank; the Prime Minister is its Chairperson."),
+t("3 Economy","The First Five Year Plan (1951–56) was based on which model?",["Harrod–Domar model","Mahalanobis model","Gandhian model","Rolling plan model"],"The First Plan used the Harrod–Domar model and stressed agriculture, irrigation and power. The Second Plan (1956–61) followed the Mahalanobis model and stressed heavy industry."),
+t("3 Economy","The Reserve Bank of India was nationalised in:",["1949","1935","1969","1991"],"RBI began on 1 April 1935 as a private shareholders' bank and was nationalised on 1 January 1949. 1969 is the year of the first big bank nationalisation (14 banks)."),
+t("3 Economy","The 'repo rate' is the rate at which:",["The RBI lends short-term money to commercial banks","Commercial banks lend to the RBI","Banks lend to farmers","The RBI lends to the Government"],"Repo rate is the RBI's lending rate to banks against securities. The reverse repo rate is the rate at which the RBI borrows from banks. A higher repo rate makes loans costlier and reduces inflation."),
+t("3 Economy","The Union Budget (Annual Financial Statement) is laid before Parliament under which Article?",["Article 112","Article 110","Article 266","Article 280"],"Article 112 requires the annual financial statement. Article 110 defines a Money Bill. Article 266 creates the Consolidated Fund. Article 280 is the Finance Commission."),
+t("3 Economy","Who is known as the 'Father of the Green Revolution in India'?",["M.S. Swaminathan","Verghese Kurien","Homi J. Bhabha","Sam Pitroda"],"M.S. Swaminathan led the Green Revolution (high-yielding wheat and rice, mainly from the 1960s). Verghese Kurien led the White Revolution (milk, Operation Flood)."),
+t("3 Economy","The economic reforms of 1991 were introduced when who was the Union Finance Minister?",["Manmohan Singh","P. Chidambaram","Yashwant Sinha","Pranab Mukherjee"],"Manmohan Singh was Finance Minister under Prime Minister P.V. Narasimha Rao. The reforms are called LPG: Liberalisation, Privatisation, Globalisation."),
+t("3 Economy","Who chairs the GST Council?",["Union Finance Minister","Prime Minister","Union Commerce Minister","Governor of the RBI"],"The GST Council (Article 279A) is chaired by the Union Finance Minister. Its members are the Union Minister of State for Finance and the State Finance Ministers."),
+t("3 Economy","The Pradhan Mantri Jan Dhan Yojana (PMJDY) was launched in 2014 mainly for:",["Financial inclusion through bank accounts","Crop insurance","Rural housing","Skill training"],"PMJDY (28 August 2014) aims to give every household a bank account with RuPay debit card and accident insurance. Crop insurance is PMFBY, rural housing is PMAY-G."),
+t("3 Economy","India's central bank, the RBI, has its headquarters at:",["Mumbai","New Delhi","Kolkata","Chennai"],"The RBI was first at Calcutta and moved to Mumbai in 1937. Its Central Office is in Mumbai."),
+
+/* ===== 4 MODERN HISTORY (10) ===== */
+t("4 Modern History","The Battle of Plassey (1757) was fought between the British East India Company and:",["Siraj-ud-Daulah, Nawab of Bengal","Tipu Sultan","Mir Qasim","Shuja-ud-Daulah"],"Robert Clive defeated Siraj-ud-Daulah on 23 June 1757, helped by the betrayal of Mir Jafar. This began British political power in India. Mir Qasim and Shuja-ud-Daulah fought at Buxar (1764)."),
+t("4 Modern History","The Revolt of 1857 started at:",["Meerut","Delhi","Kanpur","Jhansi"],"The revolt began at Meerut on 10 May 1857. The sepoys then marched to Delhi and declared Bahadur Shah Zafar their leader."),
+t("4 Modern History","Who was the first President of the Indian National Congress (1885)?",["W.C. Bonnerjee","A.O. Hume","Dadabhai Naoroji","Surendranath Banerjee"],"W.C. Bonnerjee presided over the first session at Bombay in 1885. A.O. Hume, a retired British officer, was the founder and first General Secretary. Dadabhai Naoroji was President three times."),
+t("4 Modern History","The Partition of Bengal in 1905 was carried out by:",["Lord Curzon","Lord Minto","Lord Ripon","Lord Dalhousie"],"Lord Curzon divided Bengal in 1905, which led to the Swadeshi and Boycott movement. The partition was annulled in 1911."),
+t("4 Modern History","The Hunter Committee (1919) was appointed to inquire into:",["The Jallianwala Bagh massacre","The Rowlatt Satyagraha","The Chauri Chaura incident","The Kakori conspiracy"],"After General Dyer's firing at Jallianwala Bagh, Amritsar on 13 April 1919, the Disorders Inquiry Committee under Lord Hunter was set up."),
+t("4 Modern History","Mahatma Gandhi withdrew the Non-Cooperation Movement after which incident?",["Chauri Chaura (1922)","Jallianwala Bagh (1919)","Kakori (1925)","Bardoli (1928)"],"On 5 February 1922 a mob burned a police station at Chauri Chaura (Uttar Pradesh) and killed policemen. Gandhi, committed to non-violence, called off the movement."),
+t("4 Modern History","The Dandi March (Salt Satyagraha) started in 1930 from:",["Sabarmati Ashram","Sevagram Ashram","Champaran","Bardoli"],"On 12 March 1930 Gandhi left Sabarmati Ashram with 78 followers and reached Dandi on 6 April to break the salt law."),
+t("4 Modern History","The Quit India Movement was launched at which place on 8 August 1942?",["Gowalia Tank, Bombay","Wardha","Lahore","Allahabad"],"The Quit India resolution was passed at Gowalia Tank Maidan, Bombay. Gandhi gave the slogan 'Do or Die'."),
+t("4 Modern History","The Cabinet Mission of 1946 was headed by:",["Lord Pethick-Lawrence","Sir Stafford Cripps","Lord Wavell","Clement Attlee"],"The Cabinet Mission had three members: Pethick-Lawrence (Secretary of State for India, chairman), Stafford Cripps and A.V. Alexander. Lord Wavell was the Viceroy."),
+t("4 Modern History","The 'Poorna Swaraj' (complete independence) resolution was passed at the Lahore session of the Congress in 1929 under the presidency of:",["Jawaharlal Nehru","Mahatma Gandhi","Subhas Chandra Bose","Motilal Nehru"],"Jawaharlal Nehru presided at Lahore (December 1929). Independence Day was first observed on 26 January 1930."),
+
+/* ===== 5 WORLD GEOGRAPHY (6) ===== */
+t("5 World Geography","The deepest point of the oceans, the Challenger Deep, lies in the:",["Mariana Trench, Pacific Ocean","Java Trench, Indian Ocean","Puerto Rico Trench, Atlantic Ocean","Sunda Trench"],"The Challenger Deep in the Mariana Trench (western Pacific) is about 11,000 m deep, the deepest known place on Earth."),
+t("5 World Geography","Which is the largest hot desert in the world?",["Sahara","Arabian Desert","Gobi","Kalahari"],"The Sahara in North Africa is the largest hot desert. The largest desert overall is Antarctica, which is a cold desert."),
+t("5 World Geography","The Bering Strait separates:",["Asia and North America","Asia and Africa","Europe and Africa","Europe and Asia"],"The Bering Strait lies between Russia (Chukotka) and Alaska (USA). The Strait of Gibraltar separates Europe and Africa."),
+t("5 World Geography","Which of the following countries is crossed by the Equator?",["Kenya","Egypt","Nigeria","Algeria"],"The Equator crosses Kenya, Ecuador, Brazil, Indonesia, Gabon, Uganda, Somalia, Colombia and a few others. It does not touch Egypt, Nigeria or Algeria."),
+t("5 World Geography","Which continent has the largest number of countries?",["Africa","Asia","Europe","South America"],"Africa has 54 countries recognised by the UN. Asia has about 48 and Europe about 44."),
+t("5 World Geography","Mount Everest, the highest peak in the world (about 8,849 m), lies on the border of Nepal and:",["China (Tibet)","India","Bhutan","Pakistan"],"Mount Everest (Sagarmatha in Nepali, Chomolungma in Tibetan) is on the Nepal–China border in the Mahalangur range of the Himalayas."),
+
+/* ===== 6 INDIA GEOGRAPHY (8) ===== */
+t("6 India Geography","Which is the highest peak located wholly within India?",["Kangchenjunga","K2","Nanda Devi","Mount Everest"],"Kangchenjunga (8,586 m, Sikkim) is the highest peak in India and third highest in the world. K2 is in the Pakistan-administered area, and Everest is in Nepal–China. Nanda Devi (7,816 m, Uttarakhand) is the highest peak that is not on a border."),
+t("6 India Geography","Which is the longest river of Peninsular India?",["Godavari","Krishna","Mahanadi","Kaveri"],"The Godavari (about 1,465 km) is the longest peninsular river and is called 'Dakshin Ganga'."),
+t("6 India Geography","Through which of the following States does the Tropic of Cancer NOT pass?",["Odisha","Jharkhand","Chhattisgarh","Gujarat"],"The Tropic of Cancer passes through 8 States: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram. Odisha lies south of it."),
+t("6 India Geography","Black (regur) soil, formed from the lava of the Deccan Plateau, is best for growing:",["Cotton","Jute","Tea","Apples"],"Black soil keeps moisture well and suits cotton, so it is also called 'black cotton soil'. Jute needs alluvial soil, tea needs acidic hilly soil."),
+t("6 India Geography","The highest peak of the Western Ghats, Anamudi, is in which State?",["Kerala","Karnataka","Tamil Nadu","Maharashtra"],"Anamudi (2,695 m) is in the Idukki district of Kerala and is the highest peak in India south of the Himalayas."),
+t("6 India Geography","The Luni, the main river of the Thar Desert, flows in which State?",["Rajasthan","Gujarat","Punjab","Haryana"],"The Luni rises in the Aravallis near Ajmer, flows through Rajasthan and ends in the Rann of Kutch. It is a seasonal river with salty water in its lower part."),
+t("6 India Geography","The onset of the south-west monsoon in India is normally first seen over:",["Kerala (about 1 June)","Odisha (about 10 June)","Mumbai (about 15 June)","Delhi (about 29 June)"],"The monsoon normally arrives in Kerala around 1 June and covers the whole country by about 8 July."),
+t("6 India Geography","The Indian Standard Time is based on 82°30′ E longitude, which passes near:",["Mirzapur (Uttar Pradesh)","Ujjain","Nagpur","Bhubaneswar"],"IST is 5 hours 30 minutes ahead of GMT and is taken from the 82°30′E meridian passing near Mirzapur, Uttar Pradesh."),
+
+/* ===== 7 ODISHA (14) ===== */
+t("7 Odisha","Odisha became a separate province, on a linguistic basis, on:",["1 April 1936","1 November 1912","15 August 1947","26 January 1950"],"Orissa became a separate province on 1 April 1936, now celebrated as Utkal Dibas. John Austin Hubback was its first Governor and Krushna Chandra Gajapati its first Prime Minister."),
+t("7 Odisha","The Sun Temple at Konark was built in the 13th century by:",["Narasimhadeva I of the Eastern Ganga dynasty","Anantavarman Chodaganga Deva","Kharavela","Yayati Keshari"],"Narasimhadeva I built it around 1250 CE in the shape of a chariot. It became a UNESCO World Heritage Site in 1984. Anantavarman Chodaganga Deva built the Jagannath Temple at Puri."),
+t("7 Odisha","Ashoka's Major Rock Edicts in Odisha are found at Dhauli and:",["Jaugada","Udayagiri","Sisupalgarh","Lalitgiri"],"Ashoka's Kalinga Rock Edicts are at Dhauli (near Bhubaneswar) and Jaugada (Ganjam district). The Kalinga War was fought in about 261 BCE."),
+t("7 Odisha","Irrawaddy dolphins are found in large numbers in which Odisha water body?",["Chilika Lake","Hirakud Reservoir","Anshupa Lake","Kolleru"],"Chilika, the largest brackish water lagoon in India, is home to Irrawaddy dolphins. Kolleru is in Andhra Pradesh."),
+t("7 Odisha","Gahirmatha Marine Sanctuary in Odisha is world famous for the mass nesting of:",["Olive Ridley turtles","Leatherback turtles","Green turtles","Hawksbill turtles"],"Gahirmatha beach in Kendrapara district, off Bhitarkanika, is the world's largest nesting site of Olive Ridley turtles."),
+t("7 Odisha","The Hirakud Dam in Odisha is built across which river?",["Mahanadi","Brahmani","Baitarani","Rushikulya"],"Hirakud Dam, near Sambalpur, is on the Mahanadi. It was among the first major multipurpose river valley projects after independence."),
+t("7 Odisha","Who is regarded as the great maestro who revived and popularised Odissi dance?",["Guru Kelucharan Mohapatra","Birju Maharaj","Ustad Bismillah Khan","Pt. Ravi Shankar"],"Guru Kelucharan Mohapatra (Padma Vibhushan) was the leading figure in the revival of Odissi. Birju Maharaj is a Kathak master."),
+t("7 Odisha","The Jagannath Temple at Puri was built in the 12th century by:",["Anantavarman Chodaganga Deva","Narasimhadeva I","Mukunda Deva","Ashoka"],"Chodaganga Deva of the Eastern Ganga dynasty started the temple. The Rath Yatra is the famous annual car festival."),
+t("7 Odisha","Deomali, the highest peak of Odisha (about 1,672 m), is in which district?",["Koraput","Mayurbhanj","Kandhamal","Sundargarh"],"Deomali in the Eastern Ghats, Koraput district, is the highest peak in Odisha. It is among the highest points of the Eastern Ghats."),
+t("7 Odisha","The Similipal Biosphere Reserve is located in which district of Odisha?",["Mayurbhanj","Sambalpur","Keonjhar","Ganjam"],"Similipal in Mayurbhanj district is a Tiger Reserve and a Biosphere Reserve known for its tiger, elephant and melanistic (black) tigers."),
+t("7 Odisha","Who was the first woman Chief Minister of Odisha?",["Nandini Satpathy","Rama Devi","Sarojini Naidu","Mamata Mohanta"],"Nandini Satpathy was Chief Minister of Odisha in 1972–73 and 1974–76."),
+t("7 Odisha","The planned city of Bhubaneswar, which became the capital of Odisha in 1948, was designed by:",["Otto Koenigsberger","Le Corbusier","Edwin Lutyens","Laurie Baker"],"The German architect Otto Koenigsberger prepared the master plan. Le Corbusier planned Chandigarh and Lutyens planned New Delhi."),
+t("7 Odisha","The Paika Rebellion of 1817 in Odisha was led by:",["Bakshi Jagabandhu Bidyadhar","Veer Surendra Sai","Madhusudan Das","Gopabandhu Das"],"Bakshi Jagabandhu led the Paikas of Khurda against the British in 1817. Veer Surendra Sai fought from Sambalpur in the 1850s."),
+t("7 Odisha","The title 'Utkal Gaurav' is given to:",["Madhusudan Das","Gopabandhu Das","Fakir Mohan Senapati","Harekrushna Mahtab"],"Madhusudan Das, the first Odia graduate and a founder of the Utkal Sammilani, is called Utkal Gaurav. Gopabandhu Das is called Utkalmani and Fakir Mohan Senapati is Vyasakabi."),
+
+/* ===== 8 ENVIRONMENT (8) ===== */
+t("8 Environment","The Montreal Protocol (1987) is an international agreement to protect:",["The ozone layer","Wetlands","Tropical forests","Endangered animals"],"The Montreal Protocol phases out gases like CFCs that destroy the ozone layer in the stratosphere."),
+t("8 Environment","The Paris Agreement (2015) aims to keep the global temperature rise:",["Well below 2°C, and try for 1.5°C","Below 3°C","Below 4°C","Exactly at 0.5°C"],"The Paris Agreement, adopted at COP21 in 2015, aims to limit warming to well below 2°C above pre-industrial levels and to pursue efforts for 1.5°C."),
+t("8 Environment","Project Tiger was launched in India in:",["1973","1952","1980","1992"],"Project Tiger started on 1 April 1973 with 9 reserves, the first being Jim Corbett National Park. The Wildlife (Protection) Act was passed in 1972."),
+t("8 Environment","The Ramsar Convention is related to the conservation of:",["Wetlands","Forests","Deserts","Glaciers"],"The Ramsar Convention on wetlands was signed in 1971 at Ramsar, Iran. Chilika and Bhitarkanika are Ramsar sites in Odisha."),
+t("8 Environment","How many biodiversity hotspots are there in India?",["4","2","6","8"],"India has 4: the Himalaya, the Indo-Burma region, the Western Ghats and Sri Lanka, and Sundaland (the Nicobar Islands)."),
+t("8 Environment","The Environment (Protection) Act was passed in:",["1986","1974","1981","1972"],"The Environment (Protection) Act, 1986 came after the Bhopal gas tragedy of 1984. The Water Act is 1974 and the Air Act is 1981."),
+t("8 Environment","Which of the following is NOT a greenhouse gas?",["Nitrogen (N₂)","Carbon dioxide","Methane","Nitrous oxide"],"Greenhouse gases trap heat: CO₂, methane, nitrous oxide, water vapour and CFCs. Nitrogen, which is about 78% of air, does not."),
+t("8 Environment","The National Green Tribunal (NGT) was established in:",["2010","1986","1995","2002"],"The NGT Act was passed in 2010 to decide environmental cases quickly. Its principal bench is in New Delhi."),
+
+/* ===== 9 SCIENCE AND TECHNOLOGY (10) ===== */
+t("9 Science & Tech","The headquarters of the Indian Space Research Organisation (ISRO) is at:",["Bengaluru","Thiruvananthapuram","Sriharikota","Hyderabad"],"ISRO was set up in 1969 and is headquartered at Bengaluru. Sriharikota (Andhra Pradesh) is the launch site."),
+t("9 Science & Tech","The lander of Chandrayaan-3, which touched down near the Moon's south pole on 23 August 2023, was named:",["Vikram","Pragyan","Aditya","Mangal"],"The lander was Vikram and the rover was Pragyan. India became the fourth country to soft-land on the Moon and the first near the south pole."),
+t("9 Science & Tech","Aditya-L1, launched by ISRO in September 2023, is a mission to study the:",["Sun","Moon","Mars","Venus"],"Aditya-L1 is India's first solar observatory, placed at the Lagrange point L1 about 1.5 million km from Earth."),
+t("9 Science & Tech","India's Mars Orbiter Mission (Mangalyaan) entered Mars orbit in:",["2014","2008","2017","2020"],"MOM was launched on 5 November 2013 and entered the orbit of Mars on 24 September 2014. India became the first country to do so in its first attempt."),
+t("9 Science & Tech","Deficiency of which vitamin causes scurvy?",["Vitamin C","Vitamin A","Vitamin D","Vitamin B12"],"Vitamin C deficiency causes scurvy. Vitamin A deficiency causes night blindness, Vitamin D causes rickets, and Vitamin B12 causes pernicious anaemia."),
+t("9 Science & Tech","The SI unit of force is:",["Newton","Joule","Pascal","Watt"],"Force is measured in newton (N). Joule is for work and energy, Pascal for pressure and Watt for power."),
+t("9 Science & Tech","The ABO blood groups were discovered by:",["Karl Landsteiner","Louis Pasteur","Robert Koch","Edward Jenner"],"Karl Landsteiner discovered the ABO groups in 1901. Edward Jenner developed the smallpox vaccine and Pasteur worked on germ theory."),
+t("9 Science & Tech","The hardest natural substance known is:",["Diamond","Graphite","Quartz","Steel"],"Diamond, a form of pure carbon, is the hardest natural substance. Graphite is also carbon but is soft."),
+t("9 Science & Tech","Gaganyaan is India's programme for:",["Human spaceflight","A Moon rover","Navigation satellites","A solar mission"],"Gaganyaan aims to send Indian astronauts to low Earth orbit. Chandrayaan is for the Moon and NavIC is the navigation system."),
+t("9 Science & Tech","Malaria is spread by the bite of:",["Female Anopheles mosquito","Female Aedes mosquito","Tsetse fly","Housefly"],"Malaria is caused by the Plasmodium parasite, carried by the female Anopheles mosquito. Aedes spreads dengue and chikungunya."),
+
+/* ===== 10 DEFENCE (5) ===== */
+t("10 Defence","Who was India's first Chief of Defence Staff (CDS)?",["General Bipin Rawat","General Manoj Naravane","General Anil Chauhan","Admiral Karambir Singh"],"The post was created in December 2019 and General Bipin Rawat took charge on 1 January 2020. General Anil Chauhan became CDS in September 2022."),
+t("10 Defence","India's first indigenously built aircraft carrier, commissioned in 2022, is:",["INS Vikrant","INS Vikramaditya","INS Viraat","INS Arihant"],"INS Vikrant was built at Cochin Shipyard and commissioned on 2 September 2022. INS Vikramaditya was bought from Russia and INS Arihant is a nuclear submarine."),
+t("10 Defence","The Integrated Guided Missile Development Programme (IGMDP), which produced the Agni and Prithvi missiles, was led by:",["Dr A.P.J. Abdul Kalam","Dr Vikram Sarabhai","Dr Homi Bhabha","Dr Satish Dhawan"],"Dr Kalam led IGMDP under the DRDO. It produced Agni, Prithvi, Akash, Trishul and Nag."),
+t("10 Defence","Indian Air Force Day is celebrated on:",["8 October","15 January","4 December","1 November"],"The IAF was formed on 8 October 1932. Army Day is 15 January and Navy Day is 4 December."),
+t("10 Defence","Operation Sindoor, carried out by the Indian armed forces in May 2025, came after the terror attack at:",["Pahalgam","Pulwama","Uri","Mumbai"],"Operation Sindoor (7 May 2025) was India's response to the Pahalgam terror attack of 22 April 2025. Pulwama (2019) was followed by the Balakot strike, and Uri (2016) by the surgical strikes."),
+
+/* ===== 11 INSTITUTIONS (4) ===== */
+t("11 Institutions","Which one of these is NOT a permanent member of the UN Security Council?",["India","France","China","Russia"],"The five permanent members (P5) with veto are the USA, UK, France, Russia and China. India is a frequent non-permanent member and wants a permanent seat."),
+t("11 Institutions","The headquarters of the International Monetary Fund (IMF) is at:",["Washington, D.C.","Geneva","New York","Paris"],"The IMF and the World Bank are both in Washington, D.C. WHO and WTO are in Geneva. The UN is in New York."),
+t("11 Institutions","The headquarters of SAARC is at:",["Kathmandu","New Delhi","Dhaka","Colombo"],"The SAARC Secretariat is in Kathmandu, Nepal. SAARC was founded in 1985 at Dhaka."),
+t("11 Institutions","The International Court of Justice (ICJ) has its seat at:",["The Hague, Netherlands","Geneva","Brussels","Vienna"],"The ICJ, the main judicial organ of the UN, sits at The Hague. It settles disputes between countries."),
+
+/* ===== 12 CURRENT AFFAIRS (5) ===== */
+t("12 Current Affairs","At the 2023 G20 Summit in New Delhi, which group was admitted as a permanent member of the G20?",["African Union","European Union","ASEAN","BRICS"],"India held the G20 presidency in 2023 and the New Delhi Summit (September 2023) made the African Union a permanent member."),
+t("12 Current Affairs","The Nari Shakti Vandan Adhiniyam, 2023 provides what reservation for women in the Lok Sabha and State Assemblies?",["One-third (33%)","50%","25%","10%"],"It is the 106th Constitutional Amendment and reserves one-third of seats for women. It will take effect after the next census and delimitation."),
+t("12 Current Affairs","Who became the Chief Minister of Odisha in June 2024, leading the first BJP government in the State?",["Mohan Charan Majhi","Naveen Patnaik","Manmohan Samal","Pravati Parida"],"Mohan Charan Majhi took oath on 12 June 2024 after the BJP won the Assembly election, ending Naveen Patnaik's 24 years in office."),
+t("12 Current Affairs","The Bharatiya Nyaya Sanhita (BNS), which replaced the Indian Penal Code, came into force on:",["1 July 2024","1 January 2024","26 January 2024","15 August 2023"],"The BNS, the Bharatiya Nagarik Suraksha Sanhita (replacing CrPC) and the Bharatiya Sakshya Adhiniyam (replacing the Evidence Act) came into force on 1 July 2024."),
+t("12 Current Affairs","Which Indian athlete won the silver medal in javelin throw at the Paris Olympics 2024?",["Neeraj Chopra","Arshad Nadeem","Sumit Antil","Devendra Jhajharia"],"Neeraj Chopra won silver with 89.45 m. Pakistan's Arshad Nadeem won gold with an Olympic record throw of 92.97 m.")
+];
+
+/* Each question: s = sub-topic, q = text, o = options (correct option FIRST; they are shuffled), e = explanation. */
+/* ---------- prepare options (seeded shuffle so answer letters vary) ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+Q.forEach(function(x,i){
+  if(x.k){x.opts=x.o.slice();x.ans=x.a;return}
+  var r=rng(i*97+34), idx=[0,1,2,3];
+  for(var j=3;j>0;j--){var m=Math.floor(r()*(j+1));var t=idx[j];idx[j]=idx[m];idx[m]=t}
+  x.opts=idx.map(function(n){return x.o[n]}); x.ans=idx.indexOf(0);
+});
+var L="ABCD", KEY="aso-gs100-test1", DUR=90*60, N=Q.length;
+var st=null, cur=0, tick=null;
+
+function $(id){return document.getElementById(id)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function show(id){["intro","test","result"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});window.scrollTo(0,0)}
+
+function start(mode){
+  st={mode:mode,ans:Q.map(function(){return null}),mk:Q.map(function(){return false}),start:Date.now(),done:false};
+  cur=0; save(); openTest();
+}
+function openTest(){
+  show("test");
+  $("modeLbl").textContent=st.mode==="exam"?"Exam mode":"Practice mode";
+  $("timer").classList.toggle("hide",st.mode!=="exam");
+  buildPal(); render();
+  clearInterval(tick);
+  if(st.mode==="exam"){tick=setInterval(updTimer,1000);updTimer()}
+}
+function left(){return Math.max(0,DUR-Math.floor((Date.now()-st.start)/1000))}
+function updTimer(){
+  var s=left(); $("timer").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+  $("timer").classList.toggle("low",s<300);
+  if(s<=0){clearInterval(tick);finish()}
+}
+function buildPal(){
+  var p=$("pal"); p.innerHTML="";
+  Q.forEach(function(_,i){var b=document.createElement("button");b.textContent=i+1;b.onclick=function(){cur=i;render()};p.appendChild(b)});
+}
+function updPal(){
+  var bs=$("pal").children, n=0;
+  for(var i=0;i<bs.length;i++){
+    var a=st.ans[i]; if(a!==null)n++;
+    bs[i].className="";
+    if(st.mode==="prac"&&a!==null) bs[i].classList.add(a===Q[i].ans?"r":"w");
+    else if(a!==null) bs[i].classList.add("ans");
+    if(st.mk[i])bs[i].classList.add("mk");
+    if(i===cur)bs[i].classList.add("cur");
+  }
+  $("progress").textContent=n+" of "+N+" answered";
+}
+function expHTML(x){return '<div class="exp"><span class="lab">Answer: '+L[x.ans]+'. '+esc(x.opts[x.ans])+'</span>'+x.e+'</div>'}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var x=Q[cur], a=st.ans[cur], reveal=st.mode==="prac"&&a!==null;
+  $("qnum").textContent="Question "+(cur+1)+" of "+N+" · "+x.s;
+  $("qtext").textContent=x.q;
+  var o=$("opts"); o.innerHTML="";
+  x.opts.forEach(function(t,i){
+    var b=document.createElement("button"); b.className="opt"; b.innerHTML="<b>"+L[i]+".</b><span>"+esc(t)+"</span>";
+    if(reveal){b.disabled=true; if(i===x.ans)b.classList.add("right"); else if(i===a)b.classList.add("wrong")}
+    else if(i===a)b.classList.add("sel");
+    b.onclick=function(){ if(st.mode==="prac"&&st.ans[cur]!==null)return; st.ans[cur]=i; save(); render() };
+    o.appendChild(b);
+  });
+  $("qexp").innerHTML=reveal?expHTML(x):"";
+  $("prev").disabled=cur===0; $("next").textContent=cur===N-1?"Finish →":"Next →";
+  $("clear").classList.toggle("hide",st.mode==="prac");
+  $("mark").textContent=st.mk[cur]?"Unmark":"Mark for review";
+  updPal();
+}
+$("prev").onclick=function(){if(cur>0){cur--;render()}};
+$("next").onclick=function(){if(cur<N-1){cur++;render()}else $("submitBtn").click()};
+$("clear").onclick=function(){st.ans[cur]=null;save();render()};
+$("mark").onclick=function(){st.mk[cur]=!st.mk[cur];save();render()};
+$("submitBtn").onclick=function(){
+  var un=st.ans.filter(function(a){return a===null}).length;
+  if(confirm("Submit the test?"+(un?" You have "+un+" unanswered question"+(un>1?"s":"")+".":"")))finish();
+};
+function finish(){
+  clearInterval(tick); st.done=true; save(); results("all");
+}
+function results(f){
+  show("result");
+  var c=0,w=0,s=0,sec={},order=[];
+  Q.forEach(function(x,i){
+    if(!sec[x.s]){sec[x.s]={n:0,c:0,w:0};order.push(x.s)}
+    var a=st.ans[i]; sec[x.s].n++;
+    if(a===null)s++; else if(a===x.ans){c++;sec[x.s].c++} else {w++;sec[x.s].w++}
+  });
+  var net=c-0.25*w;
+  $("score").textContent=net.toFixed(2)+" / "+N;
+  $("stats").innerHTML=[["Right",c],["Wrong",w],["Skipped",s],["Accuracy",(c+w?Math.round(100*c/(c+w)):0)+"%"]]
+    .map(function(p){return '<div class="stat"><span>'+p[0]+'</span><b>'+p[1]+'</b></div>'}).join("");
+  var acc=c+w?c/(c+w):0;
+  $("verdict").innerHTML = (w>0&&acc<0.6?"<b>Your accuracy is under 60%, so the negative marks are costing you.</b> Guess only when you can eliminate two options. ":"")+
+    (s>25?"<b>You skipped more than 25.</b> Most skips should become answers after one more revision of the guide's \"Asked before\" and \"Likely next\" boxes. ":"")+
+    (net>=75?"A net score of 75 or more out of 100 is a strong General Awareness score.":net>=55?"A net score between 55 and 75 is close. The table shows which subjects to revise.":"Treat this as a starting point. Revise the two weakest subjects in the guide and take the test again.");
+  $("secTable").innerHTML="<tr><th>Subject</th><th>Qs</th><th>Right</th><th>Wrong</th><th>Net</th></tr>"+
+    order.map(function(k){var v=sec[k];return "<tr><td>"+k+"</td><td>"+v.n+"</td><td>"+v.c+"</td><td>"+v.w+"</td><td><b>"+(v.c-0.25*v.w).toFixed(2)+"</b></td></tr>"}).join("");
+  drawReview(f);
+}
+function drawReview(f){
+  var h="";
+  Q.forEach(function(x,i){
+    var a=st.ans[i], k=a===null?"s":a===x.ans?"r":"w";
+    if(f!=="all"&&f!==k)return;
+    var tag={r:'<span class="tag r">Right</span>',w:'<span class="tag w">Wrong</span>',s:'<span class="tag s">Skipped</span>'}[k];
+    h+='<div class="rq"><p class="qnum">Q'+(i+1)+' · '+x.s+tag+'</p><p class="qtext">'+esc(x.q)+'</p>';
+    x.opts.forEach(function(t,j){
+      var cls=j===x.ans?" right":(j===a?" wrong":"");
+      h+='<div class="opt'+cls+'"><b>'+L[j]+'.</b><span>'+esc(t)+(j===a?" <i>(your answer)</i>":"")+'</span></div>';
+    });
+    h+=expHTML(x)+'</div>';
+  });
+  $("review").innerHTML=h||"<p>No questions in this group.</p>";
+  document.querySelectorAll("#filters .btn").forEach(function(b){b.classList.toggle("primary",b.dataset.f===f)});
+}
+document.querySelectorAll("#filters .btn").forEach(function(b){b.onclick=function(){drawReview(b.dataset.f)}});
+$("retry").onclick=function(){try{localStorage.removeItem(KEY)}catch(e){} st=null; $("resume").classList.add("hide"); show("intro")};
+$("startExam").onclick=function(){start("exam")};
+$("startPrac").onclick=function(){start("prac")};
+$("resume").onclick=function(){ if(st.done)results("all"); else openTest() };
+
+(function init(){
+  var s=load();
+  if(s&&s.ans&&s.ans.length===Q.length){
+    st=s; $("resume").classList.remove("hide");
+    $("resume").textContent=s.done?"See last result":"Resume saved attempt ("+(s.mode==="exam"?"exam":"practice")+")";
+    if(s.mode==="exam"&&!s.done&&left()<=0){st.done=true;save();$("resume").textContent="See last result"}
+  }
+})();
+
+/* theme switch */
+(function(){var root=document.documentElement, btns=document.querySelectorAll('.theme button');
+ function apply(t){ if(t==='system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',t);
+  btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.t===t)}); try{localStorage.setItem('aso-theme',t)}catch(e){} }
+ var saved='system'; try{saved=localStorage.getItem('aso-theme')||'system'}catch(e){}
+ apply(saved); btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t)})});})();
+</script>
+</body>
+</html>

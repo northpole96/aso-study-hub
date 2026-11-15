@@ -1,0 +1,801 @@
+<title>Polity Woodblock Deck</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: slim hanging-scroll rail on the left; each topic is a full-width spread:
+   a large woodblock print beside a short reading column, then a wide deck of hanafuda flip cards. */
+:root{
+  /* page (follows theme) */
+  --bg:#efe5cf; --surface:#f7f0df; --fg:#22201d; --muted:#6b6255; --rule:#d6c7a7;
+  --accent:#b93e27; --accent2:#1f3b63; --on-accent:#f7f0df;
+  /* print colours: the artwork and cards are physical prints, so they stay the same in both themes */
+  --pp:#f6eedb; --ps:#22201d; --pm:#6f665a; --pa:#1f3b63; --pa2:#4f78a0; --pas:#c9d6df;
+  --pv:#c4432b; --pvs:#f0cdbf; --pk:#d4a22c; --pks:#f1deaa; --pg:#4b6a3c; --pw:#7a4f2e;
+  --f-display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --rail:264px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141d; --surface:#171e2a; --fg:#ebe3d0; --muted:#a39b8c; --rule:#2a3445;
+    --accent:#e4694f; --accent2:#9cbadf; --on-accent:#14110e; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f141d; --surface:#171e2a; --fg:#ebe3d0; --muted:#a39b8c; --rule:#2a3445;
+  --accent:#e4694f; --accent2:#9cbadf; --on-accent:#14110e; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:17.5px/1.75 var(--f-body);overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;margin:0;text-wrap:balance;line-height:1.2}
+p{margin:0}
+b,strong{font-weight:700}
+
+/* ---------- rail ---------- */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--rail);background:var(--surface);border-right:1px solid var(--rule);z-index:30;display:flex;flex-direction:column;
+  padding:calc(20px + env(safe-area-inset-top,0px)) 0 calc(14px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+.rail::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--accent2)}
+.logo{display:flex;gap:12px;align-items:center;padding:0 20px 16px 24px;text-decoration:none;color:var(--fg)}
+.logo .hk{width:48px;height:48px;border-radius:6px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font:800 26px/1 var(--f-display);transform:rotate(-4deg);box-shadow:inset 0 0 0 3px var(--accent),inset 0 0 0 4.5px var(--on-accent)}
+.logo b{display:block;font:800 22px/1.1 var(--f-display)}
+.logo small{display:block;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.nav{flex:1;overflow-y:auto;padding:6px 10px 6px 16px;display:flex;flex-direction:column;gap:1px;border-top:1px solid var(--rule)}
+.nav a{display:grid;grid-template-columns:42px 1fr;align-items:center;gap:6px;padding:7px 10px;border-radius:8px;text-decoration:none;color:var(--fg);font-size:15px;line-height:1.3}
+.nav a .k{font:800 17px/1 var(--f-display);color:var(--accent);text-align:center}
+.nav a:hover{background:var(--bg)}
+.nav a.on{background:var(--accent2);color:var(--surface)}
+.nav a.on .k{color:var(--surface)}
+.nav .gap{height:1px;background:var(--rule);margin:8px 8px}
+.railfoot{border-top:1px solid var(--rule);padding:12px 20px 0 24px;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--muted)}
+.meter{height:6px;border-radius:9px;background:var(--rule);overflow:hidden;margin-top:5px}
+.meter i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:99px;padding:2px;align-self:flex-start;background:var(--bg)}
+.seg button{border:0;background:none;padding:4px 12px;border-radius:99px;font-size:12.5px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--accent2);color:var(--surface)}
+.topbar{display:none}
+main{margin-left:var(--rail);min-width:0;padding-left:max(clamp(16px,3.4vw,64px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,3.4vw,64px),env(safe-area-inset-right,0px));padding-block:36px 90px}
+@media (max-width:899px){
+  .rail{transform:translateX(-104%);transition:transform .25s;width:min(300px,86vw);box-shadow:0 0 40px rgba(0,0,0,.3)}
+  .rail.open{transform:none}
+  .topbar{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;gap:12px;align-items:center;background:var(--surface);border-bottom:1px solid var(--rule);
+    padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--surface)}
+  .topbar button{border:1px solid var(--rule);background:var(--bg);border-radius:8px;padding:5px 12px;font-size:14px;cursor:pointer}
+  .topbar b{font:800 18px var(--f-display)}
+  main{margin-left:0;padding-block:22px 60px}
+  .scrim.on{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:25}
+}
+
+/* ---------- prints (svg) ---------- */
+.print{background:var(--pp);border-radius:6px;padding:10px;box-shadow:0 1px 0 var(--rule),0 18px 40px -24px rgba(0,0,0,.45);position:relative}
+.print::after{content:"";position:absolute;inset:10px;border:1.5px solid var(--ps);border-radius:2px;pointer-events:none;opacity:.85}
+.print svg{display:block;width:100%;height:auto}
+.art text{font-family:var(--f-body);fill:var(--ps)}
+.art .tj{font-family:var(--f-display);font-weight:800}
+.art .tb{font-weight:700}
+.art .tm{fill:var(--pm)} .art .tp{fill:var(--pp)} .art .tv{fill:var(--pv)} .art .ta{fill:var(--pa)}
+.f-pp{fill:var(--pp)} .f-ink{fill:var(--ps)} .f-ai{fill:var(--pa)} .f-ai2{fill:var(--pa2)} .f-ais{fill:var(--pas)}
+.f-shu{fill:var(--pv)} .f-shus{fill:var(--pvs)} .f-kin{fill:var(--pk)} .f-kins{fill:var(--pks)} .f-pine{fill:var(--pg)} .f-wood{fill:var(--pw)} .f-mute{fill:var(--pm)}
+.nf{fill:none}
+.o{stroke:var(--ps);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.o2{stroke:var(--ps);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+.s-pp{stroke:var(--pp)} .s-kin{stroke:var(--pk)} .s-kins{stroke:var(--pks)} .s-shu{stroke:var(--pv)} .s-ai{stroke:var(--pa)} .s-ais{stroke:var(--pas)}
+.s-wood{stroke:var(--pw)} .s-pine{stroke:var(--pg)} .s-ink{stroke:var(--ps)}
+.dash{stroke-dasharray:5 5}
+
+/* ---------- home ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,72px);align-items:center}
+.kick{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.hero h1{font-size:clamp(64px,8vw,150px);line-height:.95;margin:12px 0 6px;color:var(--fg)}
+.hero h1 span{display:inline-block;font-size:.42em;vertical-align:top;margin-left:.15em;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.1em;line-height:1}
+.hero .lede{font-size:clamp(18px,1.25vw,21px);color:var(--muted);max-width:36rem;margin-top:14px}
+.stats{display:flex;flex-wrap:wrap;gap:12px 30px;margin:26px 0}
+.stats div{display:flex;flex-direction:column}
+.stats b{font:800 clamp(30px,2.6vw,44px)/1 var(--f-display);color:var(--accent2);font-variant-numeric:tabular-nums}
+.stats span{font-size:13.5px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{border:1.5px solid var(--fg);background:transparent;border-radius:6px;padding:10px 18px;font-size:15.5px;font-weight:700;cursor:pointer;text-decoration:none;color:var(--fg);display:inline-flex;gap:8px;align-items:center}
+.btn:hover{background:var(--surface)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.pri:hover{filter:brightness(1.06)}
+.h2row{display:flex;align-items:baseline;gap:16px;margin:56px 0 18px;border-bottom:2px solid var(--fg);padding-bottom:10px}
+.h2row h2{font-size:30px}
+.h2row span{color:var(--muted);font-size:15px}
+.tiles{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:18px}
+@media (max-width:1699px){.tiles{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (max-width:1199px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr}}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{display:flex;flex-direction:column;text-decoration:none;color:var(--ps);background:var(--pp);border-radius:8px;border:5px solid var(--suit);overflow:hidden;transition:transform .18s, box-shadow .18s;box-shadow:0 12px 26px -20px rgba(0,0,0,.6)}
+.tile:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 20px 30px -18px rgba(0,0,0,.6)}
+.tile .th svg{display:block;width:100%;height:auto;border-bottom:2px solid var(--ps)}
+.tile .tlb{padding:10px 12px 12px;display:flex;gap:10px;align-items:flex-start}
+.tile .tk{font:800 22px/1 var(--f-display);color:var(--suit);min-width:1.4em;text-align:center}
+.tile b{display:block;font:800 16.5px/1.25 var(--f-display)}
+.tile small{display:block;font-size:12.5px;color:var(--pm);margin-top:3px}
+.tile.alt{background:var(--pa);border-color:var(--pa);color:var(--pp)}
+.tile.alt small{color:var(--pas)}
+.tile.alt .alt-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1;justify-content:center}
+.tile.alt .alt-body i{font:800 54px/1 var(--f-display);font-style:normal;color:var(--pk)}
+
+/* ---------- topic spread ---------- */
+.shead{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px 30px;align-items:end;border-bottom:2px solid var(--fg);padding-bottom:20px;margin-bottom:30px}
+.shead .num{width:clamp(84px,7vw,124px);aspect-ratio:1;display:grid;place-items:center;background:var(--pv);color:var(--pp);border-radius:8px;transform:rotate(-4deg);font:800 clamp(34px,3.2vw,58px)/1 var(--f-display);box-shadow:inset 0 0 0 5px var(--pv),inset 0 0 0 7px var(--pp);align-self:center}
+.shead h1{font-size:clamp(36px,3.6vw,64px)}
+.shead .lede{font-size:clamp(17px,1.2vw,20px);color:var(--muted);margin-top:8px;max-width:46rem}
+.shead .seals{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;max-width:22rem}
+@media (max-width:899px){.shead{grid-template-columns:auto 1fr}.shead .seals{grid-column:1/-1;justify-content:flex-start}}
+.spread{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(24px,3vw,56px);align-items:start}
+@media (max-width:1199px){.spread{grid-template-columns:1fr}}
+.reading{display:flex;flex-direction:column;gap:18px;max-width:40rem}
+.reading p{font-size:18px}
+.slip{border-radius:6px;padding:16px 18px 16px 70px;position:relative;font-size:16.5px;line-height:1.65}
+.slip::before{position:absolute;left:14px;top:14px;width:42px;height:42px;display:grid;place-items:center;border-radius:5px;font:800 15px/1.05 var(--f-display);text-align:center;transform:rotate(-5deg)}
+.slip.trap{background:var(--pvs);color:var(--ps);border:1.5px solid var(--pv)}
+.slip.trap::before{content:"注意";background:var(--pv);color:var(--pp);writing-mode:vertical-rl;letter-spacing:.05em}
+.slip.trick{background:var(--pks);color:var(--ps);border:1.5px solid var(--pk)}
+.slip.trick::before{content:"コツ";background:var(--pk);color:var(--ps);writing-mode:vertical-rl}
+.slip small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px;opacity:.75}
+.seal{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;background:var(--pv);color:var(--pp);border-radius:4px;padding:4px 6px 3px;font:700 11px/1.1 var(--f-body);letter-spacing:.02em;transform:rotate(-4deg);box-shadow:inset 0 0 0 1.5px var(--pv),inset 0 0 0 2.6px var(--pp);white-space:nowrap}
+.seal.lg{font-size:12.5px;padding:6px 8px 5px}
+.rd .seal{vertical-align:2px;margin:0 3px}
+
+/* ---------- deck ---------- */
+.deckbar{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 18px;margin:52px 0 18px;border-bottom:2px solid var(--fg);padding-bottom:10px}
+.deckbar h2{font-size:28px}
+.deckbar span{color:var(--muted);font-size:15px;flex:1}
+.deckbar .btn{padding:7px 14px;font-size:14px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:20px}
+.hc{--suit:var(--pa);display:block;width:100%;height:300px;border:0;padding:0;background:none;cursor:pointer;perspective:1100px;text-align:left}
+.hc .in{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.7,.2,1)}
+.hc.on .in{transform:rotateY(180deg)}
+.hc .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:9px;border:6px solid var(--suit);background:var(--pp);color:var(--ps);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 14px 26px -18px rgba(0,0,0,.7)}
+.hc .bk{transform:rotateY(180deg)}
+.hc .band{height:78px;flex:none;background-color:var(--suit);position:relative;display:flex;align-items:center;justify-content:space-between;padding:0 12px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.32' stroke-width='1.3'%3E%3Cpath d='M0 20a20 20 0 0 1 40 0M5 20a15 15 0 0 1 30 0M10 20a10 10 0 0 1 20 0M15 20a5 5 0 0 1 10 0'/%3E%3Cpath d='M-20 10a20 20 0 0 1 40 0M-15 10a15 15 0 0 1 30 0M-10 10a10 10 0 0 1 20 0M-5 10a5 5 0 0 1 10 0M20 10a20 20 0 0 1 40 0M25 10a15 15 0 0 1 30 0M30 10a10 10 0 0 1 20 0M35 10a5 5 0 0 1 10 0'/%3E%3C/g%3E%3C/svg%3E")}
+.hc .em{width:46px;height:46px;border-radius:50%;background:var(--pp);color:var(--suit);display:grid;place-items:center;font:800 20px/1 var(--f-display);box-shadow:0 0 0 2px var(--ps)}
+.hc .no{font:700 12px/1 var(--f-body);color:var(--pp);letter-spacing:.08em;opacity:.9}
+.hc .pr{flex:1;display:flex;align-items:center;padding:14px 16px;font:600 18.5px/1.4 var(--f-display)}
+.hc .tap{font-size:12px;color:var(--pm);padding:0 16px 12px;display:flex;justify-content:space-between}
+.hc .bk{padding:16px 16px 14px;gap:8px;background:var(--pp);background-image:linear-gradient(var(--pp),var(--pp))}
+.hc .bk::before{content:"";position:absolute;inset:6px;border:1.5px solid var(--suit);border-radius:4px;opacity:.45;pointer-events:none}
+.hc .ans{font:800 21px/1.25 var(--f-display);color:var(--suit)}
+.hc .det{font-size:14.5px;line-height:1.55;color:var(--ps)}
+.hc .bk .seal{position:absolute;right:12px;bottom:12px}
+.hc .chk{display:inline-block;font-size:11px;font-weight:700;color:var(--pv);border:1px solid var(--pv);border-radius:3px;padding:0 5px;margin-top:2px}
+.hc:hover .face{box-shadow:0 18px 30px -16px rgba(0,0,0,.75)}
+.hc.s1{--suit:var(--pv)} .hc.s2{--suit:var(--pg)} .hc.s3{--suit:#9a6f12}
+.tile.s0{--suit:var(--pa)} .tile.s1{--suit:var(--pv)} .tile.s2{--suit:var(--pg)} .tile.s3{--suit:#9a6f12}
+@media (prefers-reduced-motion:reduce){.hc .in{transition:none}*{transition:none!important}}
+
+.pager{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:56px}
+.pager a{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--fg);border:1.5px solid var(--rule);border-radius:8px;padding:14px 18px;background:var(--surface)}
+.pager a:hover{border-color:var(--fg)}
+.pager a i{font:800 34px/1 var(--f-display);font-style:normal;color:var(--accent)}
+.pager a small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pager a b{font:800 19px/1.25 var(--f-display)}
+.pager a.nx{grid-column:2;justify-content:flex-end;text-align:right}
+
+/* ---------- practice ---------- */
+.prac{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:clamp(24px,4vw,64px);align-items:start;margin-top:10px}
+@media (max-width:999px){.prac{grid-template-columns:1fr}}
+.stage{display:flex;flex-direction:column;align-items:center;gap:18px;padding:28px 0}
+#slot{width:100%;display:flex;justify-content:center}
+.stage .hc{width:min(400px,100%);height:520px;flex:none}
+.stage .hc .band{height:120px}
+.stage .hc .em{width:64px;height:64px;font-size:28px}
+.stage .hc .pr{font-size:27px;padding:22px 26px}
+.stage .hc .ans{font-size:32px}
+.stage .hc .det{font-size:17px}
+.stage .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.side{display:flex;flex-direction:column;gap:16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:20px}
+.side label{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.side select{font:inherit;font-size:15px;padding:8px 10px;border-radius:6px;border:1px solid var(--rule);background:var(--bg);color:var(--fg)}
+.bigs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.bigs div{border-top:3px solid var(--accent2);padding-top:6px}
+.bigs b{display:block;font:800 30px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.bigs span{font-size:12.5px;color:var(--muted)}
+.side p{font-size:14.5px;color:var(--muted);line-height:1.6}
+.view[hidden]{display:none!important}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="bk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pas)"/><stop offset="1" style="stop-color:var(--pp)"/></linearGradient>
+    <linearGradient id="bkS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pvs)"/><stop offset="1" style="stop-color:var(--pp)"/></linearGradient>
+    <pattern id="sei" width="40" height="20" patternUnits="userSpaceOnUse">
+      <rect width="40" height="20" class="f-ai"/>
+      <g class="f-ai s-ais" stroke-width="1.3">
+        <g><circle cx="0" cy="0" r="19"/><circle cx="0" cy="0" r="14"/><circle cx="0" cy="0" r="9"/><circle cx="0" cy="0" r="4"/></g>
+        <g><circle cx="40" cy="0" r="19"/><circle cx="40" cy="0" r="14"/><circle cx="40" cy="0" r="9"/><circle cx="40" cy="0" r="4"/></g>
+        <g><circle cx="20" cy="10" r="19"/><circle cx="20" cy="10" r="14"/><circle cx="20" cy="10" r="9"/><circle cx="20" cy="10" r="4"/></g>
+        <g><circle cx="0" cy="20" r="19"/><circle cx="0" cy="20" r="14"/><circle cx="0" cy="20" r="9"/><circle cx="0" cy="20" r="4"/></g>
+        <g><circle cx="40" cy="20" r="19"/><circle cx="40" cy="20" r="14"/><circle cx="40" cy="20" r="9"/><circle cx="40" cy="20" r="4"/></g>
+      </g>
+    </pattern>
+    <symbol id="kumo" viewBox="0 0 200 50">
+      <path d="M4 44 Q10 24 34 30 Q40 10 66 18 Q80 2 104 14 Q122 4 138 20 Q160 12 172 28 Q194 26 196 44 Z" class="f-kins o2"/>
+      <path d="M30 44 Q58 34 88 44 M104 44 Q134 34 166 44" class="nf o2"/>
+    </symbol>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="f-ink"/></marker>
+  </defs>
+</svg>
+
+<div class="topbar"><button id="menuBtn" aria-controls="rail" aria-expanded="false">☰ Topics</button><b>憲法 · Polity</b></div>
+<div class="scrim" id="scrim"></div>
+
+<aside class="rail" id="rail" aria-label="Topics">
+  <a class="logo" href="#home"><span class="hk">憲</span><span><b>Polity</b><small>OPSC ASO 2027 · GA</small></span></a>
+  <nav class="nav" id="nav"></nav>
+  <div class="railfoot">
+    <div id="known">0 cards learned<div class="meter"><i id="knownBar"></i></div></div>
+    <div class="seg" role="group" aria-label="Theme"><button data-t="light">Light</button><button data-t="dark">Dark</button><button data-t="system">Auto</button></div>
+  </div>
+</aside>
+
+<main id="main"></main>
+
+<script>
+(function(){
+"use strict";
+/* ================= helpers for drawing ================= */
+var esc=function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")};
+function tx(x,y,s,size,cls,anchor,extra){return '<text x="'+x+'" y="'+y+'" font-size="'+size+'" text-anchor="'+(anchor||"middle")+'" class="'+(cls||"")+'" '+(extra||"")+'>'+esc(s)+'</text>'}
+function plate(cx,cy,w,lines,fill){
+  var h=12;lines.forEach(function(l){h+=l[1]*1.3});
+  var top=cy-h/2+6, out='<rect x="'+(cx-w/2)+'" y="'+(cy-h/2)+'" width="'+w+'" height="'+h+'" rx="5" class="'+(fill||"f-pp")+' o2"/>';
+  lines.forEach(function(l){out+=tx(cx,(top+l[1]*1.02).toFixed(1),l[0],l[1],l[2]||"");top+=l[1]*1.3});
+  return out;
+}
+function kumo(x,y,w){return '<use href="#kumo" x="'+x+'" y="'+y+'" width="'+w+'" height="'+(w/4)+'"/>'}
+function seal(cx,cy,a,b,s){s=s||46;return '<g transform="rotate(-6 '+cx+' '+cy+')"><rect x="'+(cx-s/2)+'" y="'+(cy-s/2)+'" width="'+s+'" height="'+s+'" rx="5" class="f-shu"/><rect x="'+(cx-s/2+3.5)+'" y="'+(cy-s/2+3.5)+'" width="'+(s-7)+'" height="'+(s-7)+'" rx="3" class="nf s-pp" stroke-width="1.3"/>'+tx(cx,(cy-1).toFixed(1),a,(s*.27).toFixed(1),"tp tj")+tx(cx,(cy+s*.29).toFixed(1),b,(s*.22).toFixed(1),"tp tj")+'</g>'}
+function roof(cx,y,W,h){h=h||30;var L=cx-W/2,R=cx+W/2;return '<path d="M'+L+' '+(y-6)+' Q'+(L+22)+' '+(y+4)+' '+(L+48)+' '+(y+2)+' L'+(R-48)+' '+(y+2)+' Q'+(R-22)+' '+(y+4)+' '+R+' '+(y-6)+' Q'+(R-28)+' '+(y-h*.45)+' '+(R-56)+' '+(y-h)+' L'+(L+56)+' '+(y-h)+' Q'+(L+28)+' '+(y-h*.45)+' '+L+' '+(y-6)+'Z" class="f-ai o"/><path d="M'+(L+10)+' '+(y-2)+' Q'+(L+30)+' '+(y+1)+' '+(L+50)+' '+y+' L'+(R-50)+' '+y+' Q'+(R-30)+' '+(y+1)+' '+(R-10)+' '+(y-2)+'" class="nf s-pp" stroke-width="1.4"/>'}
+function svg(w,h,inner,label){return '<svg viewBox="0 0 '+w+' '+h+'" class="art" role="img" aria-label="'+esc(label)+'">'+inner+'</svg>'}
+function bg(w,h,sky,grad){return '<rect width="'+w+'" height="'+h+'" class="f-pp"/><rect width="'+w+'" height="'+sky+'" fill="url(#'+(grad||"bk")+')"/>'}
+
+/* ================= the prints ================= */
+function artHero(){
+  var s=bg(900,440,330,"bkS");
+  s+='<circle cx="560" cy="200" r="150" class="f-shu"/>';
+  s+='<circle cx="560" cy="200" r="78" class="nf s-pp" stroke-width="6"/><circle cx="560" cy="200" r="12" class="f-pp"/>';
+  for(var i=0;i<24;i++){var a=i*Math.PI/12;s+='<line x1="'+(560+12*Math.cos(a)).toFixed(1)+'" y1="'+(200+12*Math.sin(a)).toFixed(1)+'" x2="'+(560+76*Math.cos(a)).toFixed(1)+'" y2="'+(200+76*Math.sin(a)).toFixed(1)+'" class="s-pp" stroke-width="2.6"/>'}
+  s+=kumo(330,236,360)+kumo(620,96,220)+kumo(40,70,230);
+  s+='<path d="M0 320 L130 250 L230 290 L360 230 L470 300 L600 262 L720 300 L820 270 L900 290 L900 330 L0 330Z" class="f-ais o2"/>';
+  s+='<rect y="326" width="900" height="114" fill="url(#sei)"/>';
+  var crest="M0 330";for(var x=0;x<=900;x+=45){crest+=" Q"+(x+22)+" 300 "+(x+45)+" 330"}
+  s+='<path d="'+crest+' L900 344 L0 344Z" class="f-pp o"/>';
+  for(var x2=0;x2<900;x2+=45){s+='<path d="M'+(x2+12)+' 330 q10 -18 22 -10" class="nf o2"/>'}
+  s+='<path d="M0 40 Q90 30 170 70 Q220 95 280 92" class="nf s-wood" stroke-width="9" stroke-linecap="round"/>';
+  [[40,32],[110,44],[180,74],[250,90]].forEach(function(p){for(var k=-3;k<=3;k++){s+='<ellipse cx="'+(p[0]+k*6)+'" cy="'+(p[1]+20)+'" rx="2.2" ry="20" transform="rotate('+(k*14)+' '+p[0]+' '+p[1]+')" class="f-pine"/>'}});
+  s+=seal(830,394,"憲法","1950",62);
+  return svg(900,440,s,"A vermilion sun with the 24-spoke wheel over indigo waves");
+}
+
+function artMaking(){
+  var s=bg(800,460,310);
+  s+='<circle cx="712" cy="92" r="58" class="f-shu"/>'+kumo(30,46,250)+kumo(420,140,170);
+  s+='<path d="M0 302 L90 248 L170 280 L280 214 L390 282 L500 240 L620 286 L720 252 L800 276 L800 302Z" class="f-ais o2"/>';
+  s+='<rect y="300" width="800" height="160" fill="url(#sei)"/>';
+  function P(t){return [40*(1-t)*(1-t)+800*t*(1-t)+760*t*t, 302-312*t*(1-t)]}
+  var T=[.1,.3,.5,.7,.9];
+  T.forEach(function(t){var p=P(t);s+='<rect x="'+(p[0]-7).toFixed(1)+'" y="'+(p[1]+16).toFixed(1)+'" width="14" height="'+(430-p[1]-16).toFixed(1)+'" class="f-ink"/>'});
+  s+='<path d="M40 302 Q400 146 760 302 L760 322 Q400 166 40 322Z" class="f-shu o"/>';
+  for(var t=0.03;t<0.99;t+=0.05){var p=P(t);s+='<line x1="'+p[0].toFixed(1)+'" y1="'+p[1].toFixed(1)+'" x2="'+p[0].toFixed(1)+'" y2="'+(p[1]-26).toFixed(1)+'" class="o"/>'}
+  s+='<path d="M40 276 Q400 120 760 276" class="nf o" stroke-width="5"/>';
+  var D=[["9 Dec 1946","First meeting"],["13 Dec 1946","Objectives Resolution"],["29 Aug 1947","Drafting Committee"],["26 Nov 1949","Adopted"],["26 Jan 1950","In force"]];
+  T.forEach(function(t,i){var p=P(t),x=p[0].toFixed(1),y=p[1]-26,last=i===4;
+    s+='<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y-20)+'" class="o"/>';
+    s+='<rect x="'+(p[0]-9)+'" y="'+(y-62)+'" width="18" height="5" rx="2" class="f-ink"/>';
+    s+='<ellipse cx="'+x+'" cy="'+(y-40)+'" rx="15" ry="19" class="'+(last?"f-shu":"f-kin")+' o2"/>';
+    s+='<path d="M'+(p[0]-14)+' '+(y-47)+' Q'+x+' '+(y-43)+' '+(p[0]+14)+' '+(y-47)+' M'+(p[0]-14)+' '+(y-33)+' Q'+x+' '+(y-29)+' '+(p[0]+14)+' '+(y-33)+'" class="nf o2"/>';
+    s+='<rect x="'+(p[0]-9)+'" y="'+(y-22)+'" width="18" height="5" rx="2" class="f-ink"/>';
+    s+=plate(p[0],y-94,138,[[D[i][0],14.5,"tj"+(last?" tv":"")],[D[i][1],12,""]]);
+  });
+  s+=plate(400,428,340,[["2 years · 11 months · 18 days",17,"tj"]]);
+  return svg(800,460,s,"An arched bridge from 1946 to 1950 with a lantern for each date");
+}
+
+function artPreamble(){
+  var s=bg(800,460,460)+kumo(250,16,190);
+  s+='<rect x="30" y="64" width="24" height="316" rx="8" class="f-wood o"/><rect x="470" y="64" width="24" height="316" rx="8" class="f-wood o"/>';
+  [[42,58],[42,386],[482,58],[482,386]].forEach(function(k){s+='<circle cx="'+k[0]+'" cy="'+k[1]+'" r="7" class="f-shu o2"/>'});
+  s+='<rect x="54" y="78" width="416" height="288" class="f-pp o"/><rect x="66" y="90" width="392" height="264" class="nf s-kin" stroke-width="1.6"/>';
+  s+=tx(262,124,"WE, THE PEOPLE OF INDIA",14,"tm tj","middle",'letter-spacing="2"');
+  s+='<text x="262" y="168" font-size="21" text-anchor="middle" class="tj">SOVEREIGN · <tspan class="tv">SOCIALIST</tspan></text>';
+  s+='<text x="262" y="200" font-size="21" text-anchor="middle" class="tj"><tspan class="tv">SECULAR</tspan> · DEMOCRATIC</text>';
+  s+=tx(262,232,"REPUBLIC",21,"tj");
+  s+='<line x1="100" y1="254" x2="424" y2="254" class="o2"/>';
+  s+=tx(262,286,"JUSTICE · LIBERTY",17,"tj")+tx(262,312,"EQUALITY · FRATERNITY",17,"tj");
+  s+=tx(262,344,"Red words added in 1976, together with “Integrity”",12,"tm");
+  s+=seal(424,300,"42nd","1976",50);
+  for(var y=-12;y<460;y+=74){s+='<rect x="512" y="'+y+'" width="20" height="70" rx="5" class="f-pine o2"/><line x1="508" y1="'+(y+70)+'" x2="536" y2="'+(y+70)+'" class="o"/>'}
+  [[548,24,-28],[540,388,-22],[566,430,14]].forEach(function(l){s+='<ellipse cx="'+l[0]+'" cy="'+l[1]+'" rx="34" ry="8" transform="rotate('+l[2]+' '+l[0]+' '+l[1]+')" class="f-pine o2"/>'});
+  s+='<path d="M532 62 Q660 50 798 58" class="nf s-pine" stroke-width="5" stroke-linecap="round"/>';
+  var X=[548,610,672,734],TOP=[94,126,102,138],C=[["f-shu","tp"],["f-ai","tp"],["f-kin",""],["f-ais",""]],L=[["“Keynote”","Ernest Barker"],["“Political horoscope”","K.M. Munshi"],["“Identity card”","N.A. Palkhivala"],["“Soul”","Thakurdas Bhargava"]];
+  X.forEach(function(x,i){var t=TOP[i];
+    s+='<line x1="'+(x+28)+'" y1="'+(58+i)+'" x2="'+(x+28)+'" y2="'+t+'" class="o2"/>';
+    s+='<rect x="'+x+'" y="'+t+'" width="56" height="180" rx="2" class="'+C[i][0]+' o2"/><circle cx="'+(x+28)+'" cy="'+(t+9)+'" r="3" class="f-pp o2"/>';
+    s+='<text transform="translate('+(x+24)+' '+(t+22)+') rotate(90)" font-size="15" class="tj '+C[i][1]+'">'+esc(L[i][0])+'</text>';
+    s+='<text transform="translate('+(x+42)+' '+(t+22)+') rotate(90)" font-size="11.5" class="tb '+C[i][1]+'">'+esc(L[i][1])+'</text>';
+  });
+  s+=plate(120,414,132,[["Part of it",13,"tj"],["Kesavananda, 1973",11,"tm"]]);
+  s+=plate(262,414,132,[["Can be amended",13,"tj"],["only once so far",11,"tm"]]);
+  s+=plate(404,414,132,[["Not enforceable",13,"tj tv"],["in any court",11,"tm"]],"f-shus");
+  return svg(800,460,s,"The Preamble as a scroll, with four paper strips on bamboo for its four nicknames");
+}
+
+function artSchedules(){
+  var s=bg(800,480,446)+'<circle cx="122" cy="168" r="76" class="f-shu"/>'+kumo(6,262,230)+kumo(36,62,160);
+  s+='<rect y="446" width="800" height="34" class="f-kins"/><line x1="0" y1="446" x2="800" y2="446" class="o"/>';
+  var N=[1,2,4,5],D=[["States and","Union Territories"],["Salaries","President, judges, CAG"],["Oaths","forms of oath"],["Rajya Sabha","seats per State"],["Scheduled","Areas and Tribes"],["Tribal areas","Assam, Megh., Trip., Miz."],["Three lists","Union, State, Concurrent"],["22 languages","Odia is one"],["Laws shielded","1st Amdt · 1951"],["Anti-defection","52nd Amdt · 1985"],["Panchayats","29 subjects · 73rd"],["Municipalities","18 subjects · 74th"]];
+  var n=0;
+  N.forEach(function(cnt,c){var x=236+c*138,FT=440-cnt*82;
+    s+='<rect x="'+x+'" y="'+(FT-4)+'" width="134" height="'+(cnt*82+10)+'" rx="3" class="f-wood o"/>';
+    for(var j=0;j<cnt;j++){var y=FT+j*82+1,k=n++,cls=(k>=1&&k<=3)?"f-kins":(k>=9?"f-ai":"f-pp"),tc=k>=9?"tp":"";
+      s+='<rect x="'+(x+5)+'" y="'+y+'" width="124" height="76" rx="2" class="'+cls+' o2"/>';
+      s+=tx(x+14,y+27,(k+1)+(k===0?"st":k===1?"nd":k===2?"rd":"th"),21,"tj "+(tc|| (k>=1&&k<=3?"tv":"")),"start");
+      s+='<path d="M'+(x+94)+' '+(y+13)+' a10 10 0 0 0 20 0" class="nf '+(k>=9?"s-pp":"s-ink")+'" stroke-width="3"/><rect x="'+(x+91)+'" y="'+(y+10)+'" width="26" height="5" rx="2" class="'+(k>=9?"f-pp":"f-ink")+'"/>';
+      s+=tx(x+14,y+50,D[k][0],12.5,"tb "+tc,"start")+tx(x+14,y+66,D[k][1],10.5,(tc||"tm"),"start");
+    }
+  });
+  s+=plate(118,410,170,[["2 · 3 · 4 =",13,"tj"],["Salary · Swearing · Seats",11,"tm"]],"f-kins");
+  return svg(800,480,s,"A Japanese step chest with twelve drawers, one for each Schedule");
+}
+
+function artRights(){
+  var s=bg(800,540,470)+'<circle cx="660" cy="104" r="56" class="f-shu"/>'+kumo(520,150,190)+kumo(30,40,180);
+  s+='<line x1="400" y1="112" x2="400" y2="26" class="s-ink" stroke-width="4"/>';
+  for(var r=0;r<5;r++){s+='<ellipse cx="400" cy="'+(98-r*13)+'" rx="'+(12-r)+'" ry="3.5" class="f-kin o2"/>'}
+  s+='<circle cx="400" cy="24" r="7" class="f-shu o2"/>';
+  var NM=[["Equality","Art. 14–18","17: untouchability ends"],["Freedom","Art. 19–22","21: life · 21A: school"],["Against exploitation","Art. 23–24","no forced or child labour"],["Religion","Art. 25–28","asked 2025"],["Culture & education","Art. 29–30","minorities' schools"]];
+  for(var i=4;i>=0;i--){
+    var W=300-i*46,yb=470-i*72,yt=yb-44;
+    s+='<rect x="'+(400-W/2)+'" y="'+yt+'" width="'+W+'" height="44" class="f-pp o"/>';
+    s+='<rect x="'+(400-W/2+4)+'" y="'+yt+'" width="8" height="44" class="f-shu"/><rect x="'+(400+W/2-12)+'" y="'+yt+'" width="8" height="44" class="f-shu"/>';
+    s+=tx(400,yt+28,NM[i][1],15,"tj");
+    s+=roof(400,yt,W+110,30);
+    var left=i%2===0, cy=yt+22, px=left?120:680;
+    s+='<line x1="'+(left?210:590)+'" y1="'+cy+'" x2="'+(left?400-W/2:400+W/2)+'" y2="'+cy+'" class="o2 dash"/>';
+    s+=plate(px,cy,180,[[NM[i][0],14,"tj"],[NM[i][2],11.5,"tm"]]);
+  }
+  s+='<rect x="205" y="470" width="390" height="44" class="f-ais o"/>'+tx(400,498,"Base · Article 32 · go straight to the Supreme Court",14,"tj");
+  s+='<g transform="rotate(-14 690 446)">'+roof(690,452,150,24)+'</g>';
+  s+=tx(690,490,"Property (Art. 31)",12.5,"tb tv")+tx(690,506,"removed 1978 → now Art. 300A",11,"tm");
+  s+=plate(118,500,170,[["Part III",13,"tj"],["Articles 12 to 35",11,"tm"]]);
+  return svg(800,540,s,"A five-storey pagoda: each storey is a group of Fundamental Rights, the base is Article 32");
+}
+
+function artWrits(){
+  var s=bg(800,430,360);
+  var NM=[["Habeas corpus","“Produce the body”","Bring a detained","person to court"],["Mandamus","“We command”","An officer must","do his duty"],["Prohibition","“Stop”","Halt a lower court","while the case is on"],["Certiorari","“Send us the file”","Cancel an order","already passed"],["Quo warranto","“By what authority?”","By what right do","you hold this post?"]];
+  NM.forEach(function(n,i){var cx=88+i*156,cy=132,red=(i===2||i===3);
+    s+='<circle cx="'+cx+'" cy="'+cy+'" r="64" class="'+(red?"f-shu":"f-ai")+' o" stroke-width="3"/><circle cx="'+cx+'" cy="'+cy+'" r="55" class="nf s-pp" stroke-width="2"/>';
+    if(i===0){[-34,-24,-14].forEach(function(d){s+='<rect x="'+(cx+d)+'" y="'+(cy-30)+'" width="5" height="60" class="f-pp"/>'});s+='<rect x="'+(cx-38)+'" y="'+(cy-34)+'" width="34" height="5" class="f-pp"/><circle cx="'+(cx+18)+'" cy="'+(cy-18)+'" r="8" class="f-pp"/><path d="M'+(cx+18)+' '+(cy-8)+' v24 M'+(cx+18)+' '+(cy+16)+' l-10 16 M'+(cx+18)+' '+(cy+16)+' l12 14 M'+(cx+18)+' '+(cy)+' l-14 4 M'+(cx+18)+' '+cy+' l14 -8" class="nf s-pp" stroke-width="5" stroke-linecap="round"/>'}
+    if(i===1){s+='<path d="M'+(cx-30)+' '+(cy+30)+' L'+(cx+8)+' '+(cy-12)+'" class="s-pp" stroke-width="8" stroke-linecap="round"/><path d="M'+(cx+5)+' '+(cy-9)+' L'+(cx+22)+' '+(cy-30)+' L'+(cx+14)+' '+(cy-4)+'Z" class="f-pp"/><path d="M'+(cx-6)+' '+(cy+16)+' l10 10 l24 -28" class="nf s-kin" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'+seal(cx+52,cy-54,"2018","Q38",34)}
+    if(i===2){s+='<rect x="'+(cx-36)+'" y="'+(cy-14)+'" width="7" height="44" class="f-pp"/><rect x="'+(cx+29)+'" y="'+(cy-14)+'" width="7" height="44" class="f-pp"/><rect x="'+(cx-42)+'" y="'+(cy-24)+'" width="84" height="13" rx="2" class="f-pp"/>';[-28,-8,12].forEach(function(d){s+='<path d="M'+(cx+d)+' '+(cy-11)+' l10 -13" class="s-shu" stroke-width="5"/>'});s+=tx(cx,cy+28,"止",22,"tj tp")}
+    if(i===3){s+='<rect x="'+(cx-32)+'" y="'+(cy-22)+'" width="64" height="44" class="f-pp"/><rect x="'+(cx-38)+'" y="'+(cy-26)+'" width="7" height="52" rx="3" class="f-kin"/><rect x="'+(cx+31)+'" y="'+(cy-26)+'" width="7" height="52" rx="3" class="f-kin"/><path d="M'+(cx-16)+' '+(cy-12)+' l32 24 M'+(cx+16)+' '+(cy-12)+' l-32 24" class="s-shu" stroke-width="6" stroke-linecap="round"/>'}
+    if(i===4){s+='<path d="M'+(cx-34)+' '+(cy+22)+' L'+cx+' '+(cy+8)+' L'+(cx+34)+' '+(cy+22)+' L'+cx+' '+(cy+36)+'Z" class="f-pp"/>'+tx(cx,cy+2,"?",44,"tj","middle",'style="fill:var(--pk)"')}
+    s+=tx(cx,cy+94,n[0],17,"tj")+tx(cx,cy+114,n[1],12.5,"tm","middle",'font-style="italic"')+tx(cx,cy+136,n[2],12)+tx(cx,cy+152,n[3],12);
+  });
+  s+='<path d="M344 300 v8 h268 v-8" class="nf o2"/>'+tx(478,326,"Same direction, different timing: before vs after the order",12,"tb tv");
+  s+='<rect y="345" width="800" height="85" fill="url(#sei)"/>';
+  s+=plate(400,388,470,[["Supreme Court: Article 32  ·  High Courts: Article 226",15,"tj"]]);
+  return svg(800,430,s,"Five family crests, one for each writ");
+}
+
+function artGoals(){
+  var s=bg(800,480,350,"bkS")+'<circle cx="560" cy="172" r="80" class="f-shu"/>'+kumo(40,52,230)+kumo(620,36,170);
+  s+='<path d="M330 342 L540 92 L790 342Z" class="f-ai o"/>';
+  s+='<path d="M494 146 L540 92 L588 148 L571 140 L556 160 L540 142 L524 162 L509 142Z" class="f-pp o2"/>';
+  s+='<path d="M0 352 Q150 312 300 346 Q450 382 560 342 Q680 302 800 342 L800 480 L0 480Z" class="f-pine o"/>';
+  s+='<path d="M24 474 C160 452 240 404 360 398 S520 362 560 340" class="nf s-ink" stroke-width="30" stroke-linecap="round"/><path d="M24 474 C160 452 240 404 360 398 S520 362 560 340" class="nf s-kins" stroke-width="25" stroke-linecap="round"/>';
+  var PT=[[90,456],[190,428],[285,404],[375,396],[462,376],[535,352]],LB=[["Art. 39A","free legal aid"],["Art. 40","village panchayats"],["Art. 44","Uniform Civil Code"],["Art. 48A","environment"],["Art. 50","courts apart from govt"],["Art. 51","world peace · 2025"]],OFF=[80,130,180];
+  PT.forEach(function(p,i){var x=p[0],y=p[1];
+    var pb=y-OFF[i%3];
+    s+='<line x1="'+x+'" y1="'+(pb)+'" x2="'+x+'" y2="'+(y-66)+'" class="o2 dash"/>';
+    s+=plate(x,pb-19,128,[[LB[i][0],13.5,"tj"+(i===5?" tv":"")],[LB[i][1],11.2,"tm"]],i===5?"f-shus":"f-pp");
+    s+='<rect x="'+(x-13)+'" y="'+(y-7)+'" width="26" height="7" class="f-ais o2"/><rect x="'+(x-4)+'" y="'+(y-27)+'" width="8" height="20" class="f-ais o2"/><rect x="'+(x-13)+'" y="'+(y-33)+'" width="26" height="6" class="f-ais o2"/><rect x="'+(x-10)+'" y="'+(y-50)+'" width="20" height="17" class="f-kin o2"/><rect x="'+(x-4)+'" y="'+(y-46)+'" width="8" height="9" class="f-pp"/><path d="M'+(x-17)+' '+(y-50)+' L'+x+' '+(y-64)+' L'+(x+17)+' '+(y-50)+'Z" class="f-ais o2"/><circle cx="'+x+'" cy="'+(y-66)+'" r="3" class="f-ink"/>';
+  });
+  s+=plate(700,116,176,[["Goals · Part IV",14,"tj"],["Articles 36 to 51",11.5,"tm"],["no court can force the climb",11,"tm"]]);
+  s+=plate(690,430,200,[["Art. 51A · Fundamental Duties",13,"tj"],["11 duties · idea from the USSR",11,"tm"],["Swaran Singh Committee, 1976",11,"tm"]],"f-kins");
+  return svg(800,480,s,"A path of stone lanterns climbing towards Mount Fuji, one lantern for each Directive Principle");
+}
+
+function artSources(){
+  var s=bg(820,500,170)+'<circle cx="560" cy="70" r="40" class="f-shu"/>'+kumo(40,28,190)+kumo(300,60,150);
+  s+='<rect y="166" width="820" height="334" fill="url(#sei)"/>';
+  s+='<path d="M652 150 Q720 136 820 126 L820 500 L656 500 Q632 330 652 150Z" class="f-pine o"/>';
+  s+='<rect x="704" y="246" width="11" height="96" class="f-shu o2"/><rect x="760" y="246" width="11" height="96" class="f-shu o2"/><rect x="694" y="256" width="88" height="9" class="f-shu o2"/><path d="M680 232 Q737 244 796 232 L792 242 Q737 254 684 242Z" class="f-ink"/>';
+  s+=plate(737,388,132,[["INDIA",22,"tj"],["26 January 1950",11.5,"tm"]]);
+  function boat(x,y,w,c,l1,l2,hl,sealY){
+    s+='<line x1="'+(x+w/2)+'" y1="'+(y-12)+'" x2="'+(x+w/2)+'" y2="'+(y+66)+'" class="o"/><path d="M'+(x+w/2)+' '+(y-12)+' l16 5 l-16 5Z" class="f-shu"/>';
+    s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="60" rx="3" class="'+(hl||"f-pp")+' o2"/>';
+    s+=tx(x+w/2,y+18,c,13,"tj")+tx(x+w/2,y+35,l1,10.5)+tx(x+w/2,y+50,l2,10.5);
+    s+='<path d="M'+(x-6)+' '+(y+66)+' L'+(x+w+6)+' '+(y+66)+' L'+(x+w-12)+' '+(y+84)+' L'+(x+12)+' '+(y+84)+'Z" class="f-ai2 o2"/>';
+    s+='<path d="M'+(x+4)+' '+(y+92)+' q12 -8 24 0 q12 8 24 0 M'+(x+w-50)+' '+(y+92)+' q12 -8 24 0 q12 8 24 0" class="nf s-pp" stroke-width="2"/>';
+    if(sealY)s+=seal(x+w-6,y+4,sealY[0],sealY[1],30);
+  }
+  var R1=[["Britain","Parliament, single","citizenship, writs",["2021","Q31"]],["USA","Rights, judicial","review, impeachment"],["Ireland","Directive Principles,","RS nominees, Pres. poll",["2025","Q17"]],["Canada","Strong Centre,","Governors by Centre"],["Australia","Concurrent List,","joint sitting"]];
+  var R2=[["USSR","Fundamental","Duties"],["Germany","Rights paused","in Emergency"],["South Africa","Amendment method,","RS election"],["France","Republic; Liberty,","Equality, Fraternity"],["Japan","Procedure","established by law"]];
+  R1.forEach(function(b,i){boat(14+i*126,96,120,b[0],b[1],b[2],null,b[3])});
+  R2.forEach(function(b,i){boat(14+i*126,264,120,b[0],b[1],b[2])});
+  boat(190,404,270,"Government of India Act, 1935","the biggest single source:","Governor · PSCs · federal plan · emergencies","f-kins");
+  return svg(820,500,s,"Boats from ten countries and one big ship, the 1935 Act, sailing to India");
+}
+
+function artLeaders(){
+  var s=bg(800,470,470);
+  function doll(x,y,c,op){return '<g opacity="'+op+'"><rect x="'+(x-9)+'" y="'+y+'" width="18" height="30" rx="8" class="'+c+' o2"/><circle cx="'+x+'" cy="'+(y+13)+'" r="3.5" class="f-pp"/><circle cx="'+x+'" cy="'+(y-9)+'" r="10" class="f-pp o2"/><path d="M'+(x-10)+' '+(y-9)+' A10 10 0 0 1 '+(x+10)+' '+(y-9)+'Z" class="f-ink"/></g>'}
+  function grp(x,y,c,op){return doll(x-22,y,c,op)+doll(x,y-6,c,op)+doll(x+22,y,c,op)}
+  var G=[["Elected MPs","both Houses","f-ai"],["Nominated MPs","both Houses","f-kin"],["Elected MLAs","States, Delhi, Puducherry","f-shu"]];
+  [["President",[1,0,1],"Art. 54 voters · Art. 55(3) single transferable vote"],["Vice-President",[1,1,0],"all MPs, even nominated · Chairman of Rajya Sabha"]].forEach(function(P,pi){
+    var px=pi*402;
+    s+='<rect x="'+(px+8)+'" y="10" width="384" height="450" rx="12" class="f-pp o2"/>';
+    s+='<rect x="'+(px+100)+'" y="24" width="200" height="38" rx="4" class="f-ai o2"/>'+tx(px+200,50,P[0],19,"tj tp");
+    var pos=[[px+78,124],[px+200,104],[px+322,124]];
+    G.forEach(function(g,gi){var v=P[1][gi],x=pos[gi][0],y=pos[gi][1];
+      s+=grp(x,y,g[2],v?1:.3);
+      s+=tx(x,y+56,g[0],12.5,"tb")+tx(x,y+72,g[1],10.5,"tm");
+      if(v)s+='<path d="M'+x+' '+(y+82)+' Q'+((x+px+200)/2)+' '+(y+150)+' '+(px+200+(x-px-200)*.25)+' 296" class="nf o2 dash" marker-end="url(#ah)"/>';
+      else s+='<g transform="rotate(-5 '+x+' '+(y+102)+')"><rect x="'+(x-52)+'" y="'+(y+90)+'" width="104" height="24" rx="3" class="f-shu"/>'+tx(x,y+107,"does not vote",12,"tp tb")+'</g>';
+    });
+    s+='<rect x="'+(px+132)+'" y="300" width="136" height="14" rx="2" class="f-wood o2"/><rect x="'+(px+140)+'" y="312" width="120" height="76" rx="3" class="f-wood o2"/><rect x="'+(px+176)+'" y="304" width="48" height="5" class="f-ink"/>'+tx(px+200,356,"BALLOT",14,"tj tp");
+    s+=tx(px+200,420,P[2].split(" · ")[0],12.5,"tb")+tx(px+200,438,P[2].split(" · ")[1],12,"tm");
+  });
+  return svg(800,470,s,"Kokeshi dolls showing who votes for the President and who votes for the Vice-President");
+}
+
+function fan(cx,cy,n,rows,nom,paper,dot,nomc,dr){
+  var s='';
+  for(var k=0;k<=14;k++){var a=Math.PI*k/14;s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx-186*Math.cos(a)).toFixed(1)+'" y2="'+(cy-186*Math.sin(a)).toFixed(1)+'" class="s-wood" stroke-width="3"/>'}
+  s+='<path d="M'+(cx-178)+' '+cy+' A178 178 0 0 1 '+(cx+178)+' '+cy+' L'+(cx+72)+' '+cy+' A72 72 0 0 0 '+(cx-72)+' '+cy+'Z" class="'+paper+' o"/>';
+  for(var k2=1;k2<14;k2++){var b=Math.PI*k2/14;s+='<line x1="'+(cx-72*Math.cos(b)).toFixed(1)+'" y1="'+(cy-72*Math.sin(b)).toFixed(1)+'" x2="'+(cx-178*Math.cos(b)).toFixed(1)+'" y2="'+(cy-178*Math.sin(b)).toFixed(1)+'" class="s-wood" stroke-width="1" opacity=".35"/>'}
+  var rs=[],sum=0;for(var i=0;i<rows;i++){var r=84+i*(168-84)/(rows-1);rs.push(r);sum+=r}
+  var cnt=rs.map(function(r){return Math.round(n*r/sum)}),t=cnt.reduce(function(a,b){return a+b},0);cnt[rows-1]+=n-t;
+  var pts=[];rs.forEach(function(r,i){var c=cnt[i];for(var j=0;j<c;j++){var a=Math.PI-j*Math.PI/(c-1);pts.push([cx+r*Math.cos(a),cy-r*Math.sin(a),a])}});
+  pts.sort(function(p,q){return q[2]-p[2]});
+  pts.forEach(function(p,k){s+='<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="'+dr+'" class="'+((k>=pts.length-nom)?nomc:dot)+'"/>'});
+  s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx-190)+'" y2="'+cy+'" class="s-wood" stroke-width="7" stroke-linecap="round"/><line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+190)+'" y2="'+cy+'" class="s-wood" stroke-width="7" stroke-linecap="round"/>';
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="9" class="f-ink"/><circle cx="'+cx+'" cy="'+cy+'" r="3.5" class="f-pp"/>';
+  return s;
+}
+function artParliament(){
+  var s=bg(820,560,340);
+  s+=fan(210,236,543,10,0,"f-ais","f-ai","f-ai",2.4);
+  s+=fan(610,236,245,7,12,"f-kins","f-shu","f-ai",3.4);
+  s+=plate(210,280,300,[["Lok Sabha · 543 seats",18,"tj"],["age 25 · First Past the Post · Speaker",12,"tm"]]);
+  s+=plate(610,280,300,[["Rajya Sabha · 233 + 12",18,"tj"],["age 30 · STV · indigo dots = 12 nominated",12,"tm"]]);
+  s+='<rect x="18" y="372" width="784" height="176" rx="26" fill="url(#sei)" class="o"/>';
+  s+=plate(410,372,330,[["Path of a Money Bill · Article 110",15,"tj"]]);
+  var ST=[["Lok Sabha","starts here only",""],["Rajya Sabha","14 days · suggest only","f-kins"],["Lok Sabha","may accept or reject",""],["President","assent; cannot return it",""]];
+  ST.forEach(function(st,i){var x=116+i*196,y=468;
+    if(i<3)s+='<path d="M'+(x+76)+' '+(y-22)+' Q'+(x+98)+' '+(y-58)+' '+(x+120)+' '+(y-22)+'" class="nf s-pp dash" stroke-width="2.5" marker-end="url(#ah)"/>';
+    s+='<ellipse cx="'+x+'" cy="'+(y+6)+'" rx="88" ry="36" class="'+(st[2]||"f-ais")+' o"/>';
+    s+='<circle cx="'+(x-66)+'" cy="'+(y-18)+'" r="13" class="f-ink"/>'+tx(x-66,y-13,String(i+1),14,"tj tp");
+    s+=tx(x,y+2,st[0],15,"tj")+tx(x,y+21,st[1],11.5,"tb");
+  });
+  return svg(820,560,s,"Two folding fans with one dot per seat, and stepping stones for the path of a Money Bill");
+}
+
+function artCourts(){
+  var s=bg(800,480,440)+'<circle cx="400" cy="96" r="52" class="f-shu"/>'+kumo(250,150,170)+kumo(520,40,160);
+  function toro(x,base,H,num,cls){
+    var o='';
+    o+='<rect x="'+(x-38)+'" y="'+(base-16)+'" width="76" height="16" class="f-ais o"/>';
+    o+='<rect x="'+(x-12)+'" y="'+(base-H+124)+'" width="24" height="'+(H-140)+'" class="f-ais o"/>';
+    o+='<rect x="'+(x-32)+'" y="'+(base-H+110)+'" width="64" height="14" class="f-ais o"/>';
+    o+='<rect x="'+(x-28)+'" y="'+(base-H+48)+'" width="56" height="62" class="'+cls+' o"/>';
+    o+='<rect x="'+(x-18)+'" y="'+(base-H+58)+'" width="36" height="42" class="f-pp o2"/>'+tx(x,base-H+88,num,24,"tj");
+    o+='<path d="M'+(x-50)+' '+(base-H+50)+' Q'+(x-30)+' '+(base-H+40)+' '+x+' '+(base-H+16)+' Q'+(x+30)+' '+(base-H+40)+' '+(x+50)+' '+(base-H+50)+'Z" class="f-ais o"/>';
+    o+='<circle cx="'+x+'" cy="'+(base-H+10)+'" r="8" class="f-ais o"/>';
+    return o;
+  }
+  s+='<rect y="430" width="800" height="50" class="f-kins"/><line x1="0" y1="430" x2="800" y2="430" class="o"/>';
+  s+=toro(110,430,330,"65","f-kin")+toro(270,430,262,"62","f-kins");
+  s+=tx(110,456,"Supreme Court",14,"tj")+tx(110,472,"retire 65 · CJI + 33",11,"tm");
+  s+=tx(270,456,"High Courts",14,"tj")+tx(270,472,"retire 62",11,"tm");
+  s+='<path d="M456 430 L744 430 L722 380 L478 380Z" class="f-ais o"/>';
+  [[480,330,220,"Village","Gram Panchayat"],[510,276,160,"Block","Panchayat Samiti"],[540,222,100,"District","Zila Parishad"]].forEach(function(t){
+    s+='<rect x="'+t[0]+'" y="'+t[1]+'" width="'+t[2]+'" height="50" class="f-pp o"/>';
+    s+=tx(t[0]+t[2]/2,t[1]+22,t[3],14,"tj")+tx(t[0]+t[2]/2,t[1]+39,t[4],10.5,"tm");
+  });
+  s+=roof(590,330,280,28)+roof(590,276,220,26)+roof(590,222,160,26);
+  s+='<path d="M576 196 q14 -16 28 0" class="nf s-kin" stroke-width="5"/>';
+  s+=plate(725,150,130,[["73rd in force",12.5,"tj"],["24 Apr 1993",11,"tm"]])+plate(725,204,130,[["74th in force",12.5,"tj"],["1 Jun 1993",11,"tm"]]);
+  s+=tx(600,456,"Balwant Rai Mehta Committee, 1957",12.5,"tb")+tx(600,472,"first: Nagaur, Rajasthan, 2 Oct 1959",11,"tm");
+  return svg(800,480,s,"Two stone lanterns for the retirement ages of judges, and a three-tier castle for Panchayati Raj");
+}
+
+function artBodies(){
+  var s='<rect width="800" height="500" class="f-pp"/><rect x="10" y="10" width="780" height="480" rx="10" class="f-wood o"/>';
+  for(var g=0;g<9;g++){s+='<path d="M20 '+(40+g*52)+' Q300 '+(30+g*52)+' 520 '+(46+g*52)+' T790 '+(38+g*52)+'" class="nf s-kins" stroke-width="1.2" opacity=".28"/>'}
+  s+='<rect x="250" y="22" width="300" height="36" rx="4" class="f-pp o2"/>'+tx(400,46,"Who appoints · Who removes",16,"tj");
+  s+=tx(135,82,"APPOINTED BY",11,"tp tb","middle",'letter-spacing="1.5"')+tx(400,82,"BODY",11,"tp tb","middle",'letter-spacing="1.5"')+tx(665,82,"REMOVED BY / NOTE",11,"tp tb","middle",'letter-spacing="1.5"');
+  var R=[["President","CAG","Art. 148","like an SC judge",0],["President","UPSC","Art. 315","President",0],["Governor","State PSC","Art. 315","President only",1],["President","Election Commission","Art. 324","CEC: like an SC judge",0],["President","Finance Commission","Art. 280","chairman + 4 members",0],["President*","NHRC chair","1993 Act","3 years or age 70",0]];
+  R.forEach(function(r,i){var y=96+i*62,hi=r[4];
+    s+='<line x1="230" y1="'+(y+22)+'" x2="296" y2="'+(y+22)+'" class="s-pp" stroke-width="2" marker-end="url(#ah)"/><line x1="504" y1="'+(y+22)+'" x2="566" y2="'+(y+22)+'" class="s-pp" stroke-width="2" marker-end="url(#ah)"/>';
+    [[40,190,hi?"f-shus":"f-ais",r[0],"tj"],[300,200,hi?"f-shu":"f-ai",null,null],[570,190,hi?"f-shus":"f-pp",r[3],hi?"tj tv":"tb"]].forEach(function(p){
+      s+='<circle cx="'+(p[0]+p[1]/2)+'" cy="'+(y-6)+'" r="3" class="f-ink"/><line x1="'+(p[0]+p[1]/2)+'" y1="'+(y-6)+'" x2="'+(p[0]+p[1]/2)+'" y2="'+y+'" class="o2"/>';
+      s+='<rect x="'+p[0]+'" y="'+y+'" width="'+p[1]+'" height="44" rx="3" class="'+p[2]+' o2"/>';
+      if(p[3])s+=tx(p[0]+p[1]/2,y+28,p[3],p[4]==="tb"?13.5:15,p[4]);
+    });
+    s+=tx(400,y+21,r[1],15,"tj tp")+tx(400,y+37,r[2],11,"tp");
+  });
+  s+=tx(400,482,"* NHRC: on the advice of a 6-member panel headed by the PM (no Lok Sabha Deputy Speaker)",11.5,"tp");
+  return svg(800,500,s,"Wooden name plaques showing who appoints and who removes each body");
+}
+
+function artAmend(){
+  var s=bg(820,440,440);
+  s+='<rect x="40" y="26" width="740" height="388" class="f-pp o"/><rect x="14" y="16" width="28" height="408" rx="9" class="f-wood o"/><rect x="778" y="16" width="28" height="408" rx="9" class="f-wood o"/>';
+  var A=[["1st","1951","Ninth Schedule",0],["7th","1956","States by language",0],["42nd","1976","Mini Constitution",1],["44th","1978","Property out",1],["52nd","1985","Anti-defection",0],["61st","1989","Vote at 18",0],["69th","1991","Delhi NCT",1],["73/74","1992","Local bodies",1],["86th","2002","Education right",1],["91st","2003","Ministers ≤ 15%",1],["99th","2014","NJAC, struck",1],["101st","2016","GST",0],["103rd","2019","10% EWS",0],["106th","2023","Women ⅓",0]];
+  [0,1].forEach(function(row){var y=row?314:136;
+    var d="M56 "+y;for(var x=56;x<764;x+=104){d+=" Q"+(x+26)+" "+(y-16)+" "+(x+52)+" "+y+" T"+(x+104)+" "+y}
+    s+='<path d="'+d+'" class="nf s-ais" stroke-width="22" stroke-linecap="round"/><path d="'+d+'" class="nf s-ai dash" stroke-width="1.5"/>';
+    s+=tx(62,y-58,row?"1992 → 2023":"1951 → 1991",12,"tm tb","start");
+    for(var k=0;k<7;k++){var a=A[row*7+k],x2=98+k*104;
+      s+='<circle cx="'+x2+'" cy="'+y+'" r="21" class="'+(a[3]?"f-shu":"f-pp")+' o2"/>'+(a[3]?'':'<circle cx="'+x2+'" cy="'+y+'" r="17" class="nf s-ai" stroke-width="1.5"/>');
+      s+=tx(x2,y+4.5,a[0],a[0].length>4?11:12.5,"tj "+(a[3]?"tp":"ta"));
+      s+=tx(x2,y+40,a[1],12.5,"tb")+tx(x2,y+56,a[2],11,"tm");
+    }
+  });
+  s+='<circle cx="660" cy="398" r="9" class="f-shu o2"/>'+tx(674,402,"= asked in a past paper",11.5,"tm","start");
+  return svg(820,440,s,"A hand scroll with a river of fourteen amendments, stamped in order");
+}
+
+function artEmergency(){
+  var s=bg(800,440,440);
+  s+='<rect x="90" y="28" width="620" height="12" class="f-ink"/><path d="M20 112 Q60 102 92 90 L708 90 Q740 102 780 112 L704 40 L96 40Z" class="f-ai o"/>';
+  s+='<rect x="54" y="112" width="692" height="16" class="f-shu o2"/>';
+  [40,280,520,760].forEach(function(x){s+='<rect x="'+(x-7)+'" y="128" width="14" height="232" class="f-shu o2"/>'});
+  var bays=[54,294,534],NM=[["352 · National",1],["356 · President's Rule",2],["360 · Financial",3]];
+  bays.forEach(function(bx,i){var cx=bx+113;
+    s+='<rect x="'+(cx-80)+'" y="134" width="160" height="26" rx="2" class="f-pp o2"/>'+tx(cx,152,NM[i][0],13,"tj"+(i===2?" tv":""));
+    if(i<2){s+='<rect x="'+(bx+16)+'" y="166" width="194" height="194" class="f-ink"/>';
+      s+='<path d="M'+cx+' 200 L'+(cx-70)+' 360 L'+(cx+70)+' 360Z" class="f-kin" opacity=".5"/><circle cx="'+cx+'" cy="196" r="10" class="f-kin"/>';}
+    if(i===0){s+='<path d="M'+(bx+16)+' 166 L'+(bx+34)+' 176 L'+(bx+34)+' 352 L'+(bx+16)+' 360Z" class="f-wood o2"/><path d="M'+(bx+210)+' 166 L'+(bx+192)+' 176 L'+(bx+192)+' 352 L'+(bx+210)+' 360Z" class="f-wood o2"/>'}
+    if(i===1){s+='<rect x="'+(bx+16)+'" y="166" width="97" height="194" class="f-wood o2"/><path d="M'+(bx+210)+' 166 L'+(bx+168)+' 182 L'+(bx+168)+' 346 L'+(bx+210)+' 360Z" class="f-wood o2"/>';for(var k=0;k<4;k++)s+='<line x1="'+(bx+16)+'" y1="'+(196+k*42)+'" x2="'+(bx+113)+'" y2="'+(196+k*42)+'" class="o2"/>'}
+    if(i===2){s+='<rect x="'+(bx+16)+'" y="166" width="97" height="194" class="f-wood o2"/><rect x="'+(bx+113)+'" y="166" width="97" height="194" class="f-wood o2"/>';
+      for(var r=0;r<4;r++)for(var c=0;c<3;c++){s+='<circle cx="'+(bx+38+c*28)+'" cy="'+(200+r*42)+'" r="3.5" class="f-kin"/><circle cx="'+(bx+136+c*28)+'" cy="'+(200+r*42)+'" r="3.5" class="f-kin"/>'}
+      s+='<path d="M'+(bx+10)+' 180 Q'+cx+' 214 '+(bx+216)+' 180" class="nf s-ink" stroke-width="15" stroke-linecap="round"/><path d="M'+(bx+10)+' 180 Q'+cx+' 214 '+(bx+216)+' 180" class="nf s-kins" stroke-width="11" stroke-linecap="round"/>';
+      for(var z=0;z<9;z++){var zx=bx+28+z*21;s+='<line x1="'+zx+'" y1="'+(186+Math.sin(z/8*Math.PI)*24)+'" x2="'+(zx+8)+'" y2="'+(178+Math.sin(z/8*Math.PI)*24)+'" class="o2"/>'}
+      [bx+60,cx,bx+166].forEach(function(sx){var sy=196+(sx===cx?14:6);s+='<path d="M'+sx+' '+sy+' l8 0 l-8 12 l8 0 l-8 12 l8 0 l-8 12" class="nf s-ink" stroke-width="5"/><path d="M'+sx+' '+sy+' l8 0 l-8 12 l8 0 l-8 12 l8 0 l-8 12" class="nf s-pp" stroke-width="3"/>'});
+      s+='<rect x="'+(cx-22)+'" y="268" width="44" height="36" rx="5" class="f-kin o"/><path d="M'+(cx-13)+' 268 v-10 a13 13 0 0 1 26 0 v10" class="nf s-ink" stroke-width="5"/><circle cx="'+cx+'" cy="284" r="5" class="f-ink"/>';
+    }
+  });
+  s+='<rect x="30" y="360" width="740" height="14" class="f-ais o2"/><rect x="18" y="374" width="764" height="14" class="f-ais o2"/>';
+  var NT=[["War · external attack · armed rebellion","used 1962 · 1971 · 1975"],["State machinery fails","up to 3 years"],["Financial Emergency","never used"]];
+  bays.forEach(function(bx,i){var cx=bx+113;s+=tx(cx,412,NT[i][0],12.5,"tb")+tx(cx,430,NT[i][1],12.5,i===2?"tj tv":"tj")});
+  return svg(800,440,s,"Three temple doors: 352 open, 356 ajar, and 360 tied shut with a rope and lock");
+}
+
+/* ================= content ================= */
+var K=["一","二","三","四","五","六","七","八","九","十","十一","十二","十三"];
+var S=[
+{id:"making",t:"How it was made",lede:"Five dates, four names, and a long bridge to 1950.",art:artMaking,
+ intro:'<p>A body called the <b>Constituent Assembly</b> wrote the Constitution. It was set up under the <b>Cabinet Mission Plan of 1946</b> and met first on <b>9 December 1946</b>.</p><p>Nehru\'s <b>Objectives Resolution</b> (13 December 1946) later became the Preamble. Ambedkar\'s <b>Drafting Committee</b> (29 August 1947) shaped the text. The Assembly adopted it on <b>26 November 1949</b> and it came alive on <b>26 January 1950</b>, the anniversary of Purna Swaraj Day <span class="seal">2025 Q54</span>.</p>',
+ trick:"November is when it was <b>N</b>amed on paper (adopted). January is when it <b>J</b>oined life (in force).",
+ trap:"Three different people: <b>Sinha</b> chaired the first meeting for a day, <b>Rajendra Prasad</b> was the Assembly's President, and <b>Ambedkar</b> chaired only the Drafting Committee.",
+ cards:[["When did the Constituent Assembly first meet?","9 December 1946","Sachchidananda Sinha chaired it as temporary chairman."],
+ ["Under which plan was the Assembly set up?","Cabinet Mission Plan, 1946",""],
+ ["Who was the permanent President of the Assembly?","Dr Rajendra Prasad","Elected after Sinha's temporary chair."],
+ ["Who moved the Objectives Resolution, and when?","Nehru, 13 Dec 1946","Its ideas became the Preamble."],
+ ["Who chaired the Drafting Committee?","Dr B.R. Ambedkar","Formed 29 August 1947. B.N. Rau was the constitutional adviser."],
+ ["On which date was the Constitution adopted?","26 November 1949","Now celebrated as Constitution Day."],
+ ["Why did it start on 26 January 1950?","Purna Swaraj Day","The Congress celebrated it on 26 January 1930.","2025 Q54"],
+ ["How long did the work take?","2 years, 11 months, 18 days",""]]},
+{id:"preamble",t:"The Preamble",lede:"The opening page: what India is, and what it promises.",art:artPreamble,
+ intro:'<p>India is a <b>Sovereign, Socialist, Secular, Democratic Republic</b>. It promises <b>Justice</b> (social, economic, political), <b>Liberty</b>, <b>Equality</b> and <b>Fraternity</b>.</p><p>The <b>42nd Amendment (1976)</b> added Socialist, Secular and Integrity <span class="seal">2025 Q32</span>. That is the only change ever made. After <b>Kesavananda Bharati (1973)</b> the Preamble counts as part of the Constitution; it can be amended, but no court can enforce it.</p>',
+ trap:'The 2018 paper asked what is NOT correct <span class="seal">2018 Q34</span> and gave two false options: "it cannot be amended" and "it is enforceable". Both are false.',
+ trick:"Ambedkar's \"heart and soul\" is <b>Article 32</b>, not the Preamble. Bhargava's word for the Preamble is just \"soul\".",
+ cards:[["Which amendment changed the Preamble?","42nd Amendment, 1976","The only change. Added Socialist, Secular, Integrity.","2025 Q32"],
+ ["Who called it the \"keynote\" of the Constitution?","Ernest Barker","","2025 Q35"],
+ ["Who called it India's \"political horoscope\"?","K.M. Munshi",""],
+ ["Who called it the \"identity card\" of the Constitution?","N.A. Palkhivala",""],
+ ["Who called it the \"soul\" of the Constitution?","Thakurdas Bhargava",""],
+ ["Is the Preamble part of the Constitution?","Yes: Kesavananda, 1973","Berubari (1960) had said no."],
+ ["Can a court enforce the Preamble?","No","But Parliament can amend it, without harming the basic structure.","2018 Q34"],
+ ["What four things does it promise?","Justice, Liberty, Equality, Fraternity","Justice is social, economic and political."]]},
+{id:"schedules",t:"The 12 Schedules",lede:"Twelve drawers at the back of the book.",art:artSchedules,
+ intro:'<p>Schedules are lists kept at the end of the Constitution. The exam shows four drawer labels and asks which one is on the wrong drawer <span class="seal">2025 Q77</span>.</p><p>Turn every card below until you can name all twelve without looking.</p>',
+ trick:"2 = <b>S</b>alary, 3 = <b>S</b>wearing, 4 = <b>S</b>eats. For the 6th Schedule say <b>AMTM</b>: Assam, Meghalaya, Tripura, Mizoram.",
+ trap:"In 2025 the wrong pair was \"Second Schedule: oaths\". Oaths are in the <b>Third</b>.",
+ cards:[["1st Schedule","States and Union Territories",""],["2nd Schedule","Salaries","President, Governors, judges, CAG and others."],["3rd Schedule","Forms of oaths","","2025 Q77"],["4th Schedule","Rajya Sabha seats","How many seats each State gets."],["5th Schedule","Scheduled Areas and Tribes","Odisha has such areas."],["6th Schedule","Tribal areas of AMTM","Assam, Meghalaya, Tripura, Mizoram."],["7th Schedule","Union, State, Concurrent Lists",""],["8th Schedule","22 official languages","Odia is one of them."],["9th Schedule","Laws shielded from courts","Added by the 1st Amendment, 1951."],["10th Schedule","Anti-defection law","52nd Amendment, 1985."],["11th Schedule","Panchayats: 29 subjects","73rd Amendment, 1992."],["12th Schedule","Municipalities: 18 subjects","74th Amendment, 1992."]]},
+{id:"rights",t:"Fundamental Rights",lede:"A five-storey pagoda standing on Article 32.",art:artRights,
+ intro:'<p>Fundamental Rights are in <b>Part III, Articles 12 to 35</b>. Unlike the Directive Principles, you can go to court to enforce them, straight to the Supreme Court under <b>Article 32</b>.</p><p>The Article ranges are asked directly <span class="seal">2025 Q82</span>. Article 21 keeps growing: privacy (2017) and maternity leave (2025) are both read into it.</p>',
+ trap:'Voting is <b>not</b> a Fundamental Right. It comes from Article 326 and election law <span class="seal">2021 Q34</span>. Answer keys differ between "legal" and "constitutional", so don\'t lose sleep over it.',
+ trick:"Property left the pagoda in 1978: the <b>44th</b> took it out, and it now lives at <b>300A</b> as a legal right.",
+ cards:[["Right to Equality","Articles 14 to 18","14 equal before law · 15 no discrimination · 16 jobs · 17 untouchability · 18 titles."],
+ ["Right to Freedom","Articles 19 to 22","19 six freedoms · 20 accused · 21 life · 21A school · 22 arrest."],
+ ["Right against Exploitation","Articles 23 and 24","No forced labour, trafficking or child labour in factories and mines."],
+ ["Freedom of Religion","Articles 25 to 28","","2025 Q82"],
+ ["Cultural and Educational Rights","Articles 29 and 30","Minorities protect their language and run their own schools."],
+ ["Right to Constitutional Remedies","Article 32","Ambedkar called it the \"heart and soul\"."],
+ ["Which Article ends untouchability?","Article 17",""],
+ ["Right to education (6 to 14)?","Article 21A","Added by the 86th Amendment, 2002.","2021 Q33"],
+ ["Who removed property from Fundamental Rights?","44th Amendment, 1978","Now a legal right under Article 300A.","2021 Q39"],
+ ["Who can put \"reasonable restrictions\" on freedoms?","Parliament, by law","Only the legislature, never an order.","2021 Q32"],
+ ["Which case made privacy a Fundamental Right?","Puttaswamy, 2017","Nine judges under CJI J.S. Khehar. Not absolute.","2018 Q16"],
+ ["Maternity leave is part of which right?","Article 21","Supreme Court, 2025; even for a third child.","2025 Q6"],
+ ["Is voting a Fundamental Right?","No: Article 326","A legal or constitutional right.","2021 Q34"]]},
+{id:"writs",t:"The five writs",lede:"Five court orders, five family crests.",art:artWrits,
+ intro:'<p>A writ is a court order. The <b>Supreme Court</b> issues writs under <b>Article 32</b> and the <b>High Courts</b> under <b>Article 226</b>.</p><p>Each writ is named after its Latin words. Learn what the name means and you know what the writ does.</p>',
+ trap:"<b>Prohibition</b> and <b>Certiorari</b> both go from a higher court to a lower one. Prohibition comes <i>before</i> the order (stop the case). Certiorari comes <i>after</i> it (cancel the order).",
+ trick:"Article 35A (special rights in Jammu and Kashmir) ended with Article 370 on <b>5 August 2019</b>. J&K and Ladakh became UTs on <b>31 October 2019</b>.",
+ cards:[["Habeas corpus","\"Produce the body\"","Bring a detained person before the court."],
+ ["Mandamus","\"We command\"","Orders a public officer to do his duty.","2018 Q38"],
+ ["Prohibition","\"Stop\"","Stops a lower court while the case is going on."],
+ ["Certiorari","\"Send us the file\"","Cancels an order a lower court has already passed."],
+ ["Quo warranto","\"By what authority?\"","Questions a person's right to hold a public post."],
+ ["Supreme Court issues writs under?","Article 32",""],
+ ["High Courts issue writs under?","Article 226",""],
+ ["What did Article 35A protect?","J&K permanent residents","It ended when Article 370 went, 5 Aug 2019.","2018 Q35"]]},
+{id:"goals",t:"Directive Principles and Duties",lede:"Lanterns on the road to the mountain.",art:artGoals,
+ intro:'<p>Directive Principles (<b>Articles 36 to 51</b>, Part IV) are goals for the government. No court can force them. The idea came from <b>Ireland</b>.</p><p>The 42nd Amendment (1976) added four <span class="seal">2025 Q98</span>. Fundamental Duties (<b>Article 51A</b>) came the same year, on the advice of the <b>Swaran Singh Committee</b>, with the idea taken from the <b>USSR</b>.</p>',
+ trick:"The <b>86th Amendment (2002)</b> gave education twice: a <i>right</i> for the child (21A) and a <i>duty</i> for the parent (the 11th duty).",
+ trap:"Directive Principles came from <b>Ireland</b>; Fundamental Duties from the <b>USSR</b>. Don't swap them.",
+ cards:[["Where are the Directive Principles?","Articles 36 to 51","Part IV. Not enforceable. Idea from Ireland."],
+ ["Article 39A","Equal justice, free legal aid","Added in 1976.","2025 Q98"],["Article 40","Village panchayats",""],["Article 44","Uniform Civil Code",""],["Article 45","Early childhood care",""],["Article 48","Organise farming; stop cow slaughter",""],["Article 48A","Protect environment, forests, wildlife","Added in 1976."],["Article 50","Judiciary separate from executive",""],
+ ["Article 51","International peace","The foreign policy Article.","2025 Q78"],
+ ["Which four did the 42nd add?","39A, 39(f), 43A, 48A","Legal aid, children, workers in management, environment."],
+ ["Fundamental Duties: where and when?","Article 51A, 1976","Swaran Singh Committee. Idea from the USSR. 10 duties at first."],
+ ["Who added the 11th duty?","86th Amendment, 2002","Parents must send children aged 6 to 14 to school."]]},
+{id:"sources",t:"Borrowed features",lede:"Ten boats and one big ship sailing to India.",art:artSources,
+ intro:'<p>The makers studied other constitutions and took what worked. The exam names a feature and asks for the country.</p><p>The biggest single source was a British law: the <b>Government of India Act, 1935</b>.</p>',
+ trick:"Ireland gave three things about the top: <b>D</b>irective Principles, <b>R</b>ajya Sabha nominees, <b>P</b>resident's election. Say \"DRP from Ireland\".",
+ trap:"Canada gave the <b>strong Centre</b>. Australia gave the <b>Concurrent List</b> and the <b>joint sitting</b>.",
+ cards:[["Britain","Parliament, single citizenship","Also rule of law, cabinet, writs.","2021 Q31"],["USA","Rights, judicial review","Also independent courts, impeachment, the Vice-President's post."],["Ireland","Directive Principles","Also Rajya Sabha nominees and the President's election method.","2025 Q17"],["Canada","Strong Centre","Leftover powers with the Centre; Governors appointed by the Centre."],["Australia","Concurrent List","Also joint sitting and free trade between states."],["USSR","Fundamental Duties",""],["Germany (Weimar)","Rights paused in Emergency",""],["South Africa","How to amend","Also how Rajya Sabha members are elected."],["France","Republic; Liberty, Equality, Fraternity",""],["Japan","\"Procedure established by law\"",""],["Government of India Act, 1935","The biggest source","Federal set-up, Governor, PSCs, emergency powers."]]},
+{id:"leaders",t:"President, VP and PM",lede:"Who votes for whom at the top.",art:artLeaders,
+ intro:'<p>The <b>President</b> is elected by elected MPs and elected MLAs (including Delhi and Puducherry) using the single transferable vote, <b>Article 55(3)</b> <span class="seal">2021 Q36</span>. The <b>Vice-President</b> is elected by all MPs, nominated ones too, and no MLAs <span class="seal">2018 Q36</span>.</p><p>The PM can come from <b>either House</b> <span class="seal">2025 Q18</span>, and the whole Council of Ministers is capped at <b>15%</b> of the Lok Sabha by the 91st Amendment <span class="seal">2025 Q91</span>.</p>',
+ trick:"President: <b>MLAs in, nominated out</b>. Vice-President: <b>nominated in, MLAs out</b>.",
+ trap:'The <b>Attorney General</b> is Article <b>76</b>. The 2018 paper printed "Article 1976" as a trap option <span class="seal">2018 Q90</span>.',
+ cards:[["President: minimum age and term?","35 years · 5 years",""],["Who elects the President?","Elected MPs + elected MLAs","Including Delhi and Puducherry (Article 54). Nominated members don't vote."],["Which Article has the voting method?","Article 55(3)","Proportional representation, single transferable vote, secret ballot.","2021 Q36"],["Impeachment of the President?","Article 61","For \"violation of the Constitution\"."],["Pardoning power?","Article 72",""],["Ordinances?","Article 123","Only when Parliament is not sitting."],["Special address to Parliament?","Article 87","First session after an election, and first session each year.","2018 Q66"],["Who elects the Vice-President?","All MPs, elected and nominated","MLAs do not vote.","2018 Q36"],["The Vice-President is also…","Chairman of the Rajya Sabha",""],["Must the PM be from the Lok Sabha?","No: either House","Indira Gandhi and Manmohan Singh were Rajya Sabha members.","2025 Q18"],["The Council of Ministers answers to…","The Lok Sabha","Collective responsibility."],["Cap on the Council of Ministers?","15% of the Lok Sabha","91st Amendment, 2003. States: 15%, minimum 12.","2025 Q91"],["A non-MP minister must become an MP within…","Six months",""],["Attorney General: which Article?","Article 76","Can speak in Parliament, cannot vote.","2018 Q90"],["President and Vice-President now?","Droupadi Murmu · C.P. Radhakrishnan","VP elected Sept 2025 after Dhankhar resigned.","",1]]},
+{id:"parliament",t:"Parliament",lede:"Two folding fans, one dot for every seat.",art:artParliament,
+ intro:'<p>The <b>Lok Sabha</b> has 543 members elected by <b>First Past the Post</b> <span class="seal">2025 Q83</span>. The <b>Rajya Sabha</b> has 245 (233 elected by MLAs + 12 nominated) and is never dissolved.</p><p>A <b>Money Bill</b> starts only in the Lok Sabha. The Rajya Sabha must return it in 14 days and can only suggest changes, which the Lok Sabha may accept or reject <span class="seal">2025 Q19</span>.</p>',
+ trap:'"How is a new All India Service created?" <span class="seal">2021 Q45</span> First a <b>Rajya Sabha resolution</b> (two-thirds), then a law. The resolution is the special step, so it is the usual answer.',
+ trick:"Only three joint sittings ever: <b>D</b>owry 1961, <b>B</b>anking 1978, <b>P</b>OTA 2002. \"D-B-P\", in date order.",
+ cards:[["Lok Sabha: seats and minimum age?","543 · 25 years",""],["Rajya Sabha: seats and minimum age?","245 · 30 years","233 elected + 12 nominated."],["Rajya Sabha term?","6 years; one-third retire every 2","A permanent House, never dissolved."],["How is the Lok Sabha elected?","First Past the Post","Most votes wins, even without a majority.","2025 Q83"],["Where is the single transferable vote used?","President, VP, Rajya Sabha, Councils",""],["First Speaker of the Lok Sabha?","G.V. Mavalankar","","2018 Q79"],["Money Bill: which Article, which House?","Article 110 · Lok Sabha only",""],["What can the Rajya Sabha do to a Money Bill?","Suggest changes within 14 days","The Lok Sabha may accept or reject them.","2025 Q19"],["Who decides if a bill is a Money Bill?","The Speaker",""],["Joint sitting: Article and chair?","Article 108 · the Speaker","Not for Money Bills or Amendment Bills."],["The three joint sittings?","Dowry 1961, Banking 1978, POTA 2002",""],["The budget's name in the Constitution?","Annual Financial Statement","Article 112."],["Vote on Account?","Money in advance","Keeps the government running for about two months until the budget passes.","2018 Q37"],["Special powers of the Rajya Sabha?","Art. 249 and Art. 312","State List law; new All India Service. Both need two-thirds.","2025 Q59"],["Powers only the Lok Sabha has?","Money Bills, no-confidence motions",""]]},
+{id:"courts",t:"Courts and States",lede:"Stone lanterns for judges, a castle for village councils.",art:artCourts,
+ intro:'<p>The Supreme Court has the Chief Justice and 33 judges (<b>34</b>); they retire at <b>65</b>, High Court judges at <b>62</b>. The <b>99th Amendment</b> (NJAC) came into force on 13 April 2015 and was struck down that October <span class="seal">2021 Q37</span>.</p><p>Only six States have a <b>Legislative Council</b>; Odisha has none. The <b>Balwant Rai Mehta Committee (1957)</b> gave India three-tier Panchayati Raj <span class="seal">2025 Q41</span>.</p>',
+ trap:'Local body elections are run by the <b>State Election Commission</b>, not the Election Commission of India <span class="seal">2025 Q34</span>.',
+ trick:"Taller lantern, higher age: Supreme Court <b>65</b>, High Courts <b>62</b>.",
+ cards:[["Supreme Court strength?","34 judges","Chief Justice + 33."],["Retirement ages?","SC 65 · HC 62",""],["How are judges chosen?","The collegium","A group of senior judges."],["NJAC (99th Amendment)?","In force 13 Apr 2015, struck down Oct 2015","","2021 Q37"],["Chief Justice now?","Justice Surya Kant","53rd CJI since 24 Nov 2025; term ends Feb 2027.","",1],["Who appoints a Governor?","The President","Holds office \"during the pleasure of the President\"."],["Sarkaria Commission on Governors?","Non-partisan outsiders","Well-known, from outside the State, not in active politics.","2025 Q89"],["Which States have a Legislative Council?","AP, Telangana, UP, Bihar, Maharashtra, Karnataka","Odisha has none."],["Who creates or abolishes a Council?","Parliament, after an Assembly resolution","Article 169.","2021 Q35"],["Minimum age for a Council member?","30 years","","2025 Q33"],["Delhi became the NCT by…","69th Amendment, 1991","","2018 Q75"],["Balwant Rai Mehta Committee?","1957: three-tier Panchayati Raj","Village, block, district. About panchayats, not civil services.","2025 Q41"],["Where did Panchayati Raj start?","Nagaur, Rajasthan","2 October 1959."],["73rd Amendment came into force on…","24 April 1993","National Panchayati Raj Day."],["74th Amendment came into force on…","1 June 1993","Municipalities, 12th Schedule.","2018 Q40"],["Who runs local body elections?","State Election Commission","Not the ECI.","2025 Q34"]]},
+{id:"bodies",t:"Bodies and the NHRC",lede:"Wooden name plates: who appoints, who removes.",art:artBodies,
+ intro:'<p>A <b>constitutional body</b> is named in the Constitution itself. A <b>statutory body</b> is made by an ordinary law. The NHRC is statutory, and it came up in all three papers.</p><p>Article 319 bans almost every later government job for PSC members <span class="seal">2021 Q38</span>. Only moves "up the ladder" are allowed.</p>',
+ trap:"State PSC members are appointed by the <b>Governor</b> but can be removed only by the <b>President</b>.",
+ trick:'NHRC panel: the Lok Sabha sends its <b>Speaker</b>, the Rajya Sabha its <b>Deputy Chairman</b>. The Lok Sabha Deputy Speaker is <b>not</b> on it <span class="seal">2025 Q87</span>.',
+ cards:[["Election Commission","Article 324","Multi-member since Oct 1993. CEC removed only like an SC judge. Voters' Day 25 Jan."],["UPSC","Articles 315 to 323","Appointed by the President; 6 years or age 65."],["State PSC","Governor appoints, President removes","6 years or age 62."],["Joint State PSC","Act of Parliament","At the request of the States concerned.","2025 Q56"],["CAG","Article 148 · President appoints","6 years or age 65.","2021 Q40"],["Finance Commission","Article 280 · chairman + 4","Every five years. The 16th (Arvind Panagariya) covers 2026 to 2031.","2021 Q43"],["GST Council","Article 279A","Headed by the Union Finance Minister."],["UPSC Chairman after retiring?","No further government job","Article 319.","2021 Q38"],["State PSC member after retiring?","UPSC Chairman or member, or a State PSC Chairman","Nothing else."],["NHRC: which law?","Protection of Human Rights Act, 1993","A statutory body."],["NHRC Chairperson must be…","A former Chief Justice","Since 2019 a former SC judge also qualifies.","2018 Q65"],["First NHRC Chairperson?","Justice Ranganath Mishra","From Odisha.","2021 Q51"],["Who is NOT on the NHRC panel?","Lok Sabha Deputy Speaker","PM, Speaker, RS Deputy Chairman, both LoPs, Home Minister.","2025 Q87"],["NHRC term?","3 years or age 70","Its advice is not binding."],["Central Vigilance Commission?","1964, Santhanam Committee","Statutory since 2003."],["Central Information Commission?","RTI Act, 2005",""],["Lokpal?","Act of 2013 · first: P.C. Ghose","Appointed 2019."],["NITI Aayog?","Cabinet decision, 1 Jan 2015","Neither constitutional nor statutory."]]},
+{id:"amendments",t:"Amendments to know",lede:"A river of fourteen stamps on a hand scroll.",art:artAmend,
+ intro:'<p>Learn the amendments in order, like stops on a river. Once you know the order, a wrong year in an option stands out.</p><p>The red stamps on the scroll are the ones asked in past papers.</p>',
+ trick:"The <b>42nd</b> (1976, Emergency years) <i>added</i> a lot. The <b>44th</b> (1978, Janata government) <i>took some back</i>.",
+ trap:"The <b>99th</b> was passed in 2014, came into force on 13 April 2015, and was struck down in October 2015. Watch which date the question asks for.",
+ cards:[["1st Amendment, 1951","Added the Ninth Schedule",""],["7th Amendment, 1956","States on language lines",""],["42nd Amendment, 1976","The \"Mini Constitution\"","Socialist, Secular, Integrity; Duties; education and forests to the Concurrent List.","2018 Q39"],["44th Amendment, 1978","Property out of Fundamental Rights","\"Armed rebellion\" replaced \"internal disturbance\".","2021 Q39"],["52nd Amendment, 1985","Anti-defection law","Tenth Schedule."],["61st Amendment, 1989","Voting age 21 → 18",""],["69th Amendment, 1991","Delhi becomes NCT","","2018 Q75"],["73rd and 74th, 1992","Panchayats and municipalities",""],["86th Amendment, 2002","Article 21A: right to education","Also the 11th Fundamental Duty."],["91st Amendment, 2003","Ministers capped at 15%","","2025 Q91"],["99th Amendment, 2014","NJAC","In force 2015, struck down 2015.","2021 Q37"],["101st Amendment, 2016","GST",""],["102nd Amendment, 2018","Backward Classes Commission made constitutional",""],["103rd Amendment, 2019","10% reservation for EWS",""],["104th Amendment, 2020","SC/ST seats to 2030; Anglo-Indian nomination ends",""],["105th Amendment, 2021","States can make backward-class lists again",""],["106th Amendment, 2023","One-third seats for women","In Lok Sabha and Assemblies, after the next census and delimitation."]]},
+{id:"emergency",t:"Emergencies",lede:"Three temple doors, one still tied shut.",art:artEmergency,
+ intro:'<p>The Constitution has three kinds of emergency. Learn the Article number on each door.</p><p>In 1978 the <b>44th Amendment</b> replaced "internal disturbance" with "<b>armed rebellion</b>" as a ground for National Emergency, making a repeat of 1975 harder.</p>',
+ trap:"<b>Financial Emergency (Article 360)</b> has never been declared. A National Emergency has been declared three times.",
+ trick:'A law with a State in its name is a State law: <b>MCOCA</b> (Maharashtra) <span class="seal">2018 Q77</span>. AFSPA, POTA and FEMA are central.',
+ cards:[["Article 352","National Emergency","War, external attack or armed rebellion. Declared 1962, 1971, 1975."],["Article 356","President's Rule","When a State government cannot run by the Constitution. Up to 3 years."],["Article 360","Financial Emergency","Never declared."],["What did the 44th change in Article 352?","\"Internal disturbance\" → \"armed rebellion\"","1978."],["State law among AFSPA, POTA, FEMA, MCOCA?","MCOCA","Maharashtra Control of Organised Crime Act.","2018 Q77"]]}
+];
+var TOTAL=0,SEALS=0;S.forEach(function(sec,i){sec.k=K[i];sec.suit=i%4;sec.cards.forEach(function(c,j){c.id=sec.id+"-"+j;TOTAL++;if(c[3])SEALS++})});
+
+/* ================= storage ================= */
+var KEYK="aso-polity-wb-known",known={};
+try{known=JSON.parse(localStorage.getItem(KEYK)||"{}")||{}}catch(e){known={}}
+function saveKnown(){try{localStorage.setItem(KEYK,JSON.stringify(known))}catch(e){}}
+
+/* ================= card builder ================= */
+function card(c,sec,big){
+  var b=document.createElement("button");b.type="button";b.className="hc s"+sec.suit;b.setAttribute("aria-pressed","false");
+  b.innerHTML='<span class="in"><span class="face fr"><span class="band"><span class="em"></span><span class="no"></span></span><span class="pr"></span><span class="tap"><span>Tap to turn</span><span>↻</span></span></span><span class="face bk" aria-hidden="true"><span class="ans"></span><span class="det"></span></span></span>';
+  b.querySelector(".em").textContent=sec.k;
+  b.querySelector(".no").textContent=sec.t.toUpperCase();
+  b.querySelector(".pr").textContent=c[0];
+  b.querySelector(".ans").textContent=c[1];
+  var det=b.querySelector(".det");det.textContent=c[2]||"";
+  if(c[4]){var ck=document.createElement("span");ck.className="chk";ck.textContent="check before exam";det.appendChild(document.createElement("br"));det.appendChild(ck)}
+  if(c[3]){var sl=document.createElement("span");sl.className="seal lg";sl.innerHTML=esc(c[3]).replace(" ","<br>");b.querySelector(".bk").appendChild(sl)}
+  b.setAttribute("aria-label",c[0]);
+  b.addEventListener("click",function(){var on=b.classList.toggle("on");b.setAttribute("aria-pressed",on?"true":"false");b.querySelector(".fr").setAttribute("aria-hidden",on?"true":"false");b.querySelector(".bk").setAttribute("aria-hidden",on?"false":"true");b.setAttribute("aria-label",on?c[1]+". "+(c[2]||""):c[0])});
+  return b;
+}
+function seals(sec){var y={};sec.cards.forEach(function(c){if(c[3])y[c[3].slice(0,4)]=1});return Object.keys(y).sort()}
+
+/* ================= views ================= */
+var main=document.getElementById("main"),nav=document.getElementById("nav");
+function h(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+
+// home
+var home=h("section","view");home.dataset.view="home";
+home.innerHTML='<div class="hero"><div><p class="kick">OPSC ASO 2027 · General Awareness · Chapter 1</p><h1>Polity<span>憲法</span></h1><p class="lede">The Indian Constitution as thirteen woodblock prints and '+TOTAL+' flip cards. Look at the print, read the short note, then turn every card until you can say the answer before you see it.</p><div class="stats"><div><b>11–18</b><span>questions per paper</span></div><div><b>13</b><span>prints</span></div><div><b>'+TOTAL+'</b><span>flip cards</span></div><div><b>'+SEALS+'</b><span>cards seen in past papers</span></div></div><div class="cta"><a class="btn pri" href="#making">Begin with 一</a><a class="btn" href="#practice">Practise the whole deck</a></div></div><div class="print" id="heroArt"></div></div><div class="h2row"><h2>Thirteen prints</h2><span>Each one is a topic. Open it to read, look and turn the cards.</span></div><div class="tiles" id="tiles"></div>';
+main.appendChild(home);
+home.querySelector("#heroArt").innerHTML=artHero();
+
+var tiles=home.querySelector("#tiles");
+var na=h("a","");na.href="#home";na.dataset.v="home";na.innerHTML='<span class="k">◎</span><span>Home</span>';nav.appendChild(na);
+
+S.forEach(function(sec,i){
+  // nav
+  var a=h("a");a.href="#"+sec.id;a.dataset.v=sec.id;a.innerHTML='<span class="k">'+sec.k+'</span><span></span>';a.lastChild.textContent=sec.t;nav.appendChild(a);
+  // tile
+  var t=h("a","tile s"+sec.suit);t.href="#"+sec.id;
+  t.innerHTML='<span class="th">'+sec.art()+'</span><span class="tlb"><span class="tk">'+sec.k+'</span><span><b></b><small>'+sec.cards.length+' cards</small></span></span>';
+  t.querySelector("b").textContent=sec.t;tiles.appendChild(t);
+  // topic view
+  var v=h("section","view");v.dataset.view=sec.id;v.hidden=true;
+  var sl=seals(sec).map(function(y){return '<span class="seal lg">'+y+'</span>'}).join("");
+  v.innerHTML='<header class="shead"><div class="num" aria-hidden="true">'+sec.k+'</div><div><p class="kick">Topic '+(i+1)+' of 13</p><h1></h1><p class="lede"></p></div><div class="seals" aria-label="Asked in">'+sl+'</div></header>'+
+    '<div class="spread"><div class="print">'+sec.art()+'</div><div class="reading rd">'+sec.intro+
+    (sec.trap?'<div class="slip trap"><small>Trap</small>'+sec.trap+'</div>':'')+
+    (sec.trick?'<div class="slip trick"><small>Memory trick</small>'+sec.trick+'</div>':'')+'</div></div>'+
+    '<div class="deckbar"><h2>The deck</h2><span>'+sec.cards.length+' cards. Say the answer out loud, then turn the card.</span><button class="btn" data-all>Turn all</button><a class="btn" href="#practice" data-prac>Practise this deck →</a></div><div class="deck"></div>';
+  v.querySelector("h1").textContent=sec.t;v.querySelector(".lede").textContent=sec.lede;
+  var deck=v.querySelector(".deck");sec.cards.forEach(function(c){deck.appendChild(card(c,sec))});
+  var allBtn=v.querySelector("[data-all]");
+  allBtn.onclick=function(){var cards=[].slice.call(deck.children),anyOff=cards.some(function(c){return !c.classList.contains("on")});cards.forEach(function(c){if(c.classList.contains("on")!==anyOff)c.click()});allBtn.textContent=anyOff?"Hide all":"Turn all"};
+  v.querySelector("[data-prac]").onclick=function(){pracFilter=sec.id};
+  var pg=h("nav","pager");var prev=S[i-1],next=S[i+1];
+  if(prev){var p=h("a");p.href="#"+prev.id;p.innerHTML='<i>'+prev.k+'</i><span><small>Previous</small><b></b></span>';p.querySelector("b").textContent=prev.t;pg.appendChild(p)}
+  var n=h("a","nx");if(next){n.href="#"+next.id;n.innerHTML='<span><small>Next</small><b></b></span><i>'+next.k+'</i>';n.querySelector("b").textContent=next.t}else{n.href="#practice";n.innerHTML='<span><small>Finished</small><b>Practise the whole deck</b></span><i>◎</i>'}
+  pg.appendChild(n);v.appendChild(pg);
+  main.appendChild(v);
+});
+(function(){var t=h("a","tile alt");t.href="#practice";t.innerHTML='<span class="alt-body"><i>札</i><b>Practise the whole deck</b><small>'+TOTAL+' cards, shuffled. Mark the ones you know.</small></span>';tiles.appendChild(t)})();
+var g=h("div","gap");nav.appendChild(g);
+var pa=h("a");pa.href="#practice";pa.dataset.v="practice";pa.innerHTML='<span class="k">札</span><span>Practise the deck</span>';nav.appendChild(pa);
+
+// practice
+var pracFilter="all",queue=[],qi=0;
+var prac=h("section","view");prac.dataset.view="practice";prac.hidden=true;
+prac.innerHTML='<header class="shead"><div class="num" aria-hidden="true">札</div><div><p class="kick">Practice</p><h1>Turn, answer, sort</h1><p class="lede">One card at a time. Say the answer, turn the card, then tell the deck whether you knew it. Cards you miss come back later.</p></div><div></div></header>'+
+ '<div class="prac"><div class="stage" id="stage"><div id="slot"></div><div class="row"><button class="btn" id="again">Not yet · show again</button><button class="btn pri" id="knew">I knew it</button></div><p id="pos" style="color:var(--muted);font-size:14px"></p></div>'+
+ '<aside class="side"><label for="pf">Which deck<select id="pf"><option value="all">All 13 topics</option></select></label><div class="bigs"><div><b id="sKnown">0</b><span>learned</span></div><div><b id="sLeft">0</b><span>left in round</span></div><div><b id="sTotal">0</b><span>cards in deck</span></div></div><button class="btn" id="shuffle">Shuffle and restart</button><button class="btn" id="reset">Forget what I learned</button><p>"Learned" is saved in this browser only. A card you mark as known leaves the round; one you miss goes to the back.</p></aside></div>';
+main.appendChild(prac);
+var pf=prac.querySelector("#pf");S.forEach(function(sec){var o=document.createElement("option");o.value=sec.id;o.textContent=sec.k+" · "+sec.t;pf.appendChild(o)});
+function pool(){var out=[];S.forEach(function(sec){if(pracFilter==="all"||pracFilter===sec.id)sec.cards.forEach(function(c){out.push([c,sec])})});return out}
+function startRound(){var p=pool().filter(function(x){return !known[x[0].id]});for(var i=p.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=p[i];p[i]=p[j];p[j]=t}queue=p;showCard()}
+function showCard(){var slot=prac.querySelector("#slot");slot.innerHTML="";var all=pool();
+  prac.querySelector("#sTotal").textContent=all.length;prac.querySelector("#sKnown").textContent=all.filter(function(x){return known[x[0].id]}).length;prac.querySelector("#sLeft").textContent=queue.length;
+  if(!queue.length){slot.innerHTML='<div class="slip trick" style="max-width:420px"><small>Done</small>Every card in this deck is marked as learned. Shuffle to go again, or pick another deck.</div>';prac.querySelector("#knew").disabled=true;prac.querySelector("#again").disabled=true;prac.querySelector("#pos").textContent="";return}
+  prac.querySelector("#knew").disabled=false;prac.querySelector("#again").disabled=false;
+  slot.appendChild(card(queue[0][0],queue[0][1],true));prac.querySelector("#pos").textContent=queue[0][1].k+" · "+queue[0][1].t;paintKnown()}
+prac.querySelector("#knew").onclick=function(){if(!queue.length)return;known[queue[0][0].id]=1;saveKnown();queue.shift();showCard()};
+prac.querySelector("#again").onclick=function(){if(!queue.length)return;queue.push(queue.shift());showCard()};
+prac.querySelector("#shuffle").onclick=startRound;
+prac.querySelector("#reset").onclick=function(){pool().forEach(function(x){delete known[x[0].id]});saveKnown();startRound()};
+pf.onchange=function(){pracFilter=pf.value;startRound()};
+
+function paintKnown(){var n=Object.keys(known).length;document.getElementById("known").firstChild.nodeValue=n+" of "+TOTAL+" cards learned";document.getElementById("knownBar").style.width=(100*n/TOTAL)+"%"}
+
+/* ================= routing ================= */
+var views=[].slice.call(document.querySelectorAll(".view"));
+var rail=document.getElementById("rail"),scrim=document.getElementById("scrim"),mb=document.getElementById("menuBtn");
+function closeMenu(){rail.classList.remove("open");scrim.classList.remove("on");mb.setAttribute("aria-expanded","false")}
+mb.onclick=function(){var o=rail.classList.toggle("open");scrim.classList.toggle("on",o);mb.setAttribute("aria-expanded",o?"true":"false")};
+scrim.onclick=closeMenu;
+function route(){
+  var id=(location.hash||"#home").slice(1);
+  if(!views.some(function(v){return v.dataset.view===id}))id="home";
+  views.forEach(function(v){v.hidden=v.dataset.view!==id});
+  nav.querySelectorAll("a").forEach(function(a){a.classList.toggle("on",a.dataset.v===id)});
+  if(id==="practice"){pf.value=pracFilter;startRound()}
+  closeMenu();window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+route();paintKnown();
+
+/* theme */
+var root=document.documentElement,TK="aso-polity-wb-theme";
+function applyT(t){if(t==="light"||t==="dark")root.setAttribute("data-theme",t);else{root.removeAttribute("data-theme");t="system"}
+  document.querySelectorAll(".seg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.t===t?"true":"false")});try{localStorage.setItem(TK,t)}catch(e){}}
+var st0="system";try{st0=localStorage.getItem(TK)||"system"}catch(e){}
+applyT(st0);document.querySelectorAll(".seg button").forEach(function(b){b.onclick=function(){applyT(b.dataset.t)}});
+window.__showView=function(id){views.forEach(function(v){v.hidden=v.dataset.view!==id});window.scrollTo(0,0)};
+})();
+</script>
