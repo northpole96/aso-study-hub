@@ -6,3 +6,5 @@ ASO-GA-Image-Prompts.md
 # sources stay on this computer; only the built pages are published
 pyq/*.md
 pyq/*.txt
+# the iOS app source stays on this computer; only its cards file (app/) is published
+ios-app/
