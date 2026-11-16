@@ -322,6 +322,8 @@ var R = [
  {t:"English Paper III · 2021", f:E21, s:"pyq", p:"EN", y:"2021", x:"100 Q · answers"},
  {t:"English Paper III · 2018", f:E18, s:"pyq", p:"EN", y:"2018", x:"100 Q · answers"},
  {t:"English 3-year trend", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"18–25", x:"What each year asked"},
+ {t:"Reasoning Paper II · 2021", f:"pyq/OPSC-ASO-2021-Reasoning-Maths-Paper-II.html#reasoning-and-mental-ability-q1-50", s:"pyq", p:"RE", y:"2021", main:1, x:"50 Q · answers"},
+ {t:"Maths Paper II · 2021", f:"pyq/OPSC-ASO-2021-Reasoning-Maths-Paper-II.html#mathematics-q51-100", s:"pyq", p:"MA", y:"2021", main:1, x:"50 Q · answers"},
 
  {t:"GA Easy Guide", f:"ASO-GA-Easy-Guide.html", s:"archive", p:"GA", y:"Old", x:"Older look of the Manual"},
  {t:"GA Study Guide", f:"ASO-GA-Study-Guide.html", s:"archive", p:"GA", y:"Old", x:"First guide"},
@@ -385,7 +387,7 @@ function fmt(x){return (Math.round(x*100)/100).toString()}
 function day(ms){return new Date(ms).toLocaleDateString("en-IN",{day:"numeric",month:"short"})}
 function openHref(f,t){return "#/open?f="+encodeURIComponent(f)+"&t="+encodeURIComponent(t||"")}
 function titleOf(f){var b=f.split("#")[0];for(var i=0;i<R.length;i++) if(R[i].f===b) return R[i].t; return b}
-function subOf(r){return r.p==="GA"?"ga":r.p==="EN"?"en":null}
+function subOf(r){return r.p==="GA"?"ga":r.p==="EN"?"en":r.p==="RE"?"re":r.p==="MA"?"ma":null}
 function subById(id){for(var i=0;i<SYL.length;i++) if(SYL[i].id===id) return SYL[i]; return null}
 function has(t){return !!((t.g&&t.g.length)||(t.t&&t.t.length)||(t.p&&t.p.length))}
 function norm(s){return String(s).replace(/^\d+\s+/,"").replace(/[–—]/g,"-").toLowerCase().trim()}

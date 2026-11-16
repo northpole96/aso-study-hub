@@ -23,6 +23,8 @@ PAGES = [
      "The <b>English half</b> of the 2021 Paper III,<br>with worked answers and a topic map."),
     ("OPSC-ASO-2025-English-Paper-III.md", "English III · 2025", "Previous year paper · English",
      "The <b>English half</b> of the 2025 Paper III,<br>with worked answers and a topic map."),
+    ("OPSC-ASO-2021-Reasoning-Maths-Paper-II.md", "Paper II · 2021", "Previous year paper · Reasoning and Maths",
+     "All <b>100 questions</b> of the 2021 Paper II,<br>Reasoning then Maths, with worked answers."),
     ("English-PYQ-Breakdown-2018-2021-2025.md", "English Trend", "Three-year English breakdown",
      "How <b>2018, 2021 and 2025</b> English papers<br>map onto the official syllabus."),
     ("OPSC-ASO-2018-GA-Paper-I-OCR.txt", "GA Paper I · 2018", "Previous year paper · raw scan text",
