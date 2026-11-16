@@ -73,6 +73,9 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
 .btn.on,.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
 .btn[disabled]{background:var(--paper);border-color:var(--rule);color:var(--faint);cursor:default}
 .hint{font-size:10px;color:var(--faint)}
+.ctl{display:flex;gap:8px;flex-wrap:wrap}
+.btn.sm{font-size:10.5px;padding:5px 10px;min-width:0}
+.util{align-items:center}
 
 /* the answer panel: always there, same place, filled after you answer */
 .side{margin-top:22px;display:flex;flex-direction:column;gap:14px}
@@ -121,7 +124,8 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
 <body>
 <div class="page">
   <div class="head">
-    <div class="util mono"><a href="./" target="_top">&larr; ASO Hub</a><span>GA · Current Affairs</span></div>
+    <div class="util mono"><a href="./" target="_top">&larr; ASO Hub</a>
+      <span class="ctl"><button class="btn sm" id="mode" type="button" aria-pressed="false" aria-keyshortcuts="R">Algo on</button><button class="btn sm" id="reset" type="button">Reset ranking</button></span></div>
     <h1>Revise</h1>
     <p class="sub">Endless four-option questions. Every second one is new. A question you miss comes back within the next 20.</p>
     <div class="meter">
@@ -179,7 +183,13 @@ function now(){
 function rand(a){ return a[Math.floor(Math.random()*a.length)] }
 function minBy(a,less){ var b=null; a.forEach(function(x){ if(b===null||less(x,b)) b=x }); return b }
 
+var RKEY="aso-revise-random", rnd=false, rndRecent=[];
+try{ rnd=localStorage.getItem(RKEY)==="1" }catch(e){}
 function next(){
+  if(rnd){  /* algo off: plain random, no ranking */
+    var pool=bank.filter(function(q){return rndRecent.indexOf(q.id)<0});
+    return [rand(pool.length?pool:bank),"random"];
+  }
   var clock=now(), recent={}; S.recent.forEach(function(id){recent[id]=1});
   var fresh=[],ow=[],oo=[],dw=[],dor=[],seen=[];
   bank.forEach(function(q){
@@ -202,6 +212,7 @@ function next(){
 }
 
 function answer(id,g){
+  if(rnd){ rndRecent.push(id); if(rndRecent.length>20) rndRecent=rndRecent.slice(-20); return }
   S.clock=now()+1; S.lastActive=Date.now();
   var isNew=!S.stats[id], st=S.stats[id]||{level:0,last:0,start:0,deadline:0,right:0,wrong:0};
   if(g==="right"){ st.level=isNew?1:Math.min(st.level+1,STRONG); st.right++ }
@@ -228,7 +239,7 @@ function show(){
   var r=next(); cur=r[0]; kind=r[1];
   order=[0,1,2,3]; for(var i=3;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=order[i];order[i]=order[j];order[j]=t}
   var st=S.stats[cur.id], book=cur.ch.slice(0,2)==="ca"?"ca":"ga";
-  var tags=kind==="new"?'<span class="tag new">New</span>'
+  var tags=kind==="random"?'<span class="tag new">Random</span>':kind==="new"?'<span class="tag new">New</span>'
     :(st&&st.wrong?'<span class="tag miss">Review · missed '+st.wrong+'×</span>':'<span class="tag rev">Review</span>');
   if(cur.pyq) tags+='<span class="tag rev">PYQ '+esc(cur.pyq)+'</span>';
   if(cur.check) tags+='<span class="tag chk">Check</span>';
@@ -250,10 +261,21 @@ function toggleUnsure(){
   if(locked) return; unsure=!unsure;
   var b=$("unsure"); b.classList.toggle("on",unsure); b.setAttribute("aria-pressed",unsure);
 }
+function modeUI(){
+  var b=$("mode"); b.textContent=rnd?"Algo off · random":"Algo on"; b.classList.toggle("on",rnd); b.setAttribute("aria-pressed",rnd);
+}
+function toggleMode(){
+  rnd=!rnd; try{ localStorage.setItem(RKEY,rnd?"1":"0") }catch(e){}
+  modeUI(); show();
+}
+function resetRanking(){
+  if(!confirm("Reset ranking?\n\nEvery question becomes new again and the New, Weak, Learning and Strong counts start from zero. This can't be undone.")) return;
+  S={clock:0,lastActive:0,stats:{},recent:[],answered:0,correct:0}; save(); show();
+}
 function idle(){
   var p=$("after"); p.className="panel";
   p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="idle">Pick an answer. If you miss it, the right answer and the reason show here.</div>'+
-    '<div class="keys mono">Keys · 1–4 or A–D answer · ↑ ↓ move, Enter picks<br>U = not sure · Enter or N = next · G = guide</div>';
+    '<div class="keys mono">Keys · 1–4 or A–D answer · ↑ ↓ move, Enter picks<br>U = not sure · Enter or N = next · G = guide · R = algo on/off</div>';
   $("next").disabled=true;
 }
 function pick(pos){
@@ -276,7 +298,7 @@ function pick(pos){
   p.innerHTML='<div class="lab mono">FIG_ANSWER</div>'+
     '<div class="h">'+(right?"Right, but you weren't sure":"Answer: "+esc(cur.o[0]))+'</div>'+
     '<div class="x">'+esc(cur.x)+'</div>'+
-    '<div class="w mono">Comes back within the next '+Math.round(st.deadline-st.last)+' questions'+(right?'':', options shuffled')+'</div>'+
+    '<div class="w mono">'+(rnd?'Random mode · not ranked':'Comes back within the next '+Math.round(st.deadline-st.last)+' questions'+(right?'':', options shuffled'))+'</div>'+
     '<div class="act"><a class="btn" href="'+GUIDE[book]+'" target="_blank" rel="noopener">Open the guide</a></div>';
   nx.focus({preventScroll:true});
   if(innerWidth<900) nx.scrollIntoView({behavior:"smooth",block:"nearest"});
@@ -293,19 +315,22 @@ document.addEventListener("keydown",function(e){
   kbd=true;
   var k=e.key.toLowerCase(), i="1234".indexOf(k); if(i<0) i="abcd".indexOf(k);
   var o=opts(), at=o.indexOf(document.activeElement);
+  var ae=document.activeElement;
+  if((k==="enter"||k===" ")&&ae&&(ae.id==="mode"||ae.id==="reset"||ae.id==="unsure")) return;  // let these buttons work normally
   if(!locked&&i>=0&&k.length===1){ pick(i); e.preventDefault(); return }
   if(!locked&&(k==="arrowdown"||k==="arrowright")){ focusOpt(at<0?0:at+1); e.preventDefault(); return }
   if(!locked&&(k==="arrowup"||k==="arrowleft")){ focusOpt(at<0?o.length-1:at-1); e.preventDefault(); return }
   if(!locked&&(k==="home"||k==="end")){ focusOpt(k==="home"?0:o.length-1); e.preventDefault(); return }
   if(!locked&&(k==="enter"||k===" ")){ if(at<0) focusOpt(0); else pick(at); e.preventDefault(); return }
   if(k==="u"){ toggleUnsure(); e.preventDefault(); return }
+  if(k==="r"&&!e.shiftKey){ toggleMode(); e.preventDefault(); return }
   if(locked&&(k==="enter"||k===" "||k==="n")){
     if(document.activeElement&&document.activeElement.tagName==="A") return;  // Enter on the guide link opens it
     show(); e.preventDefault(); return }
   if(locked&&k==="g"){ var g=document.querySelector("#after a"); if(g){ g.click(); e.preventDefault() } }
 });
 fetch("app/questions.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){
-  bank=d.questions; try{ window.focus() }catch(e){} $("next").onclick=function(){ if(locked) show() }; show();
+  bank=d.questions; modeUI(); $("mode").onclick=toggleMode; $("reset").onclick=resetRanking; try{ window.focus() }catch(e){} $("next").onclick=function(){ if(locked) show() }; show();
 }).catch(function(){
   $("card").innerHTML='<p class="note">Could not load the questions. Open this page from the hub site (it needs app/questions.json next to it).</p>';
 });
