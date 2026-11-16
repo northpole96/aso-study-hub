@@ -1,0 +1,14 @@
+[
+{"id":"85c4cc9ac1","q":"Weather and TV satellites usually use which orbit?","o":["Geostationary orbit (about 36,000 km)","Low Earth orbit (about 400 km)","Sun-synchronous polar orbit","Lunar transfer orbit"],"x":"A geostationary satellite stays over the same spot, so dishes don't need to move."},
+{"id":"baf3649444","q":"Who was the first Indian to go to the International Space Station?","o":["Shubhanshu Shukla","Rakesh Sharma","Prasanth Nair","Kalpana Chawla"],"x":"Shubhanshu Shukla, on Axiom-4 in 2025. Rakesh Sharma (1984) went to the Soviet Salyut-7 station."},
+{"id":"ad036d87fd","q":"Which rocket launched Chandrayaan-3?","o":["LVM3","PSLV","GSLV Mk II","SSLV"],"x":"LVM3 (earlier called GSLV Mk III) launched it on 14 July 2023."},
+{"id":"fe69dd8ea1","q":"National Space Day is observed on…","o":["23 August","14 July","28 February","15 August"],"x":"23 August, when Chandrayaan-3 landed near the Moon's south pole in 2023."},
+{"id":"8f7af85be0","q":"Which mosquito spreads dengue?","o":["Aedes","Anopheles","Culex","Mansonia"],"x":"Aedes spreads dengue, chikungunya and Zika. Anopheles spreads malaria; Culex spreads filaria and Japanese encephalitis."},
+{"id":"da0e313ad9","q":"Lack of which vitamin causes scurvy?","o":["Vitamin C","Vitamin D","Vitamin B1","Vitamin A"],"x":"Vitamin C. D → rickets, B1 → beriberi, A → night blindness."},
+{"id":"f92d90238b","q":"Who discovered the germ that causes tuberculosis?","o":["Robert Koch","Louis Pasteur","Alexander Fleming","Edward Jenner"],"x":"Robert Koch, 1882. 24 March is World TB Day."},
+{"id":"33454e9f75","q":"LPG is mainly made of…","o":["Propane and butane","Methane and ethane","Butane and hydrogen","Methane only"],"x":"LPG = propane + butane. CNG is mainly methane."},
+{"id":"52bb9e53ee","q":"National Science Day, 28 February, marks…","o":["C.V. Raman's discovery of the Raman effect","Launch of Aryabhata","Birth of Homi Bhabha","Pokhran nuclear test"],"x":"Raman announced the effect on 28 February 1928."},
+{"id":"2e3210a28f","q":"A scramjet engine works at…","o":["Hypersonic speed, above Mach 5","Subsonic speed","Just above Mach 1","Zero speed (static launch)"],"x":"A scramjet needs air coming in at very high speed, so it works above Mach 5."},
+{"id":"52e69ba660","q":"Which mission made India the fourth country to dock two satellites in space?","o":["SpaDeX","Gaganyaan","Aditya-L1","XPoSat"],"x":"SpaDeX (Space Docking Experiment), docked in January 2025, after the USA, Russia and China."},
+{"id":"6b51dd8322","q":"Who is the father of the Indian space programme?","o":["Vikram Sarabhai","Homi J. Bhabha","Satish Dhawan","A.P.J. Abdul Kalam"],"x":"Vikram Sarabhai founded ISRO's forerunner INCOSPAR. Bhabha is the father of India's nuclear programme."}
+]
