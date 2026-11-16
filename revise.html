@@ -26,77 +26,119 @@ button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
 
-.page{max-width:760px;margin:0 auto;padding:28px max(16px, env(safe-area-inset-left,0px)) 96px}
+html{scrollbar-gutter:stable}
+.page{max-width:760px;margin:0 auto;padding:24px 16px 40px}
 .mono{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
 .util{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
 .util a{color:var(--muted)}
-h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(2.2rem,8vw,3.4rem);line-height:1;margin:22px 0 0;letter-spacing:.02em}
-.sub{font-size:1rem;color:var(--muted);margin-top:8px;max-width:60ch}
+.head{display:grid;gap:0}
+h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(2.2rem,8vw,3rem);line-height:1;margin:18px 0 0;letter-spacing:.02em}
+.sub{font-size:1rem;color:var(--muted);margin:8px 0 0;max-width:60ch}
 
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule)}
-.stats div{padding:10px 8px 10px 0;min-width:0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule)}
+.stats div{padding:8px 8px 8px 0;min-width:0}
 .stats .k{font-size:10px;color:var(--muted)}
-.stats .v{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(1rem,4.6vw,1.5rem);line-height:1.2}
+.stats .v{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(1rem,4.6vw,1.4rem);line-height:1.2;font-variant-numeric:tabular-nums}
 .bar{height:3px;background:var(--grid);margin-top:-1px}
 .bar i{display:block;height:100%;background:var(--blue);width:0;transition:width .3s}
 
-.card{margin-top:26px}
-.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:11px}
+.main{margin-top:22px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:11px;min-height:46px;align-content:flex-start}
 .src{color:var(--blue);flex-basis:100%}
 .tag{display:inline-block;font-size:10px;padding:1px 7px;border:1px solid currentColor;line-height:1.7}
 .tag.new{color:var(--muted);border-style:dashed}
 .tag.rev{color:var(--blue)}
 .tag.miss{color:var(--warn)}
 .tag.chk{color:var(--warn);border-style:dashed}
-.q{font-size:clamp(1.45rem,4.6vw,1.8rem);font-weight:500;line-height:1.3;margin:16px 0 20px;overflow-wrap:anywhere}
+.q{font-size:clamp(1.4rem,4.4vw,1.7rem);font-weight:500;line-height:1.3;margin:12px 0 18px;overflow-wrap:anywhere;min-height:3.9em}
 
 .opts{display:grid;gap:10px}
-.opt{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:13px 16px;cursor:pointer;font-size:1.12rem;line-height:1.35;min-height:52px}
+.opt{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:12px 16px;cursor:pointer;font-size:1.12rem;line-height:1.35;min-height:52px;outline-offset:-2px}
 .opt:hover:not([disabled]){background:var(--grid)}
 .opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);flex:none}
 .opt .t{min-width:0;overflow-wrap:anywhere}
 .opt[disabled]{cursor:default}
-.opt.right{border:1.5px solid var(--blue);background:var(--blue-soft)}
+/* same border width in every state, so nothing shifts by a pixel */
+.opt.right{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);background:var(--blue-soft)}
 .opt.right .l{color:var(--blue)}
-.opt.wrong{border:1.5px solid var(--warn);color:var(--warn)}
+.opt.wrong{border-color:var(--warn);box-shadow:inset 0 0 0 1px var(--warn);color:var(--warn)}
 .opt.wrong .l{color:var(--warn)}
 .opt.dim{color:var(--faint)}
 .opt.dim .l{color:var(--faint)}
 
-.unsure{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.unsure{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.unsure.gone{visibility:hidden}
 .btn{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--fg);background:var(--paper);border-radius:3px;padding:9px 14px;cursor:pointer;text-decoration:none;display:inline-block}
 .btn.on,.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn[disabled]{background:var(--paper);border-color:var(--rule);color:var(--faint);cursor:default}
 .hint{font-size:10px;color:var(--faint)}
 
-.explain{margin-top:20px;background:var(--paper);border:1px solid var(--warn);padding:16px 18px}
-.explain.ok{border-color:var(--blue)}
-.explain .h{font-weight:500;font-size:1.15rem}
-.explain .x{margin-top:8px}
-.explain .w{margin-top:10px;font-size:10px;color:var(--muted)}
-.explain .act{margin-top:12px}
-.next{margin-top:18px;width:100%;padding:14px}
-
-.keys{margin-top:36px;font-size:10px;color:var(--faint);border-top:1px dotted var(--muted);padding-top:12px}
+/* the answer panel: always there, same place, filled after you answer */
+.side{margin-top:22px;display:flex;flex-direction:column;gap:14px}
+.panel{background:var(--paper);border:1px dashed var(--rule);padding:16px 18px;min-height:150px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+.panel.miss{border:1px solid var(--warn);background:var(--paper)}
+.panel.ok{border:1px solid var(--blue);background:var(--paper)}
+.panel .lab{font-size:10px;color:var(--faint)}
+.panel .idle{color:var(--muted);font-size:1rem;margin-top:8px}
+.panel .good{color:var(--blue);font-size:1.2rem;font-weight:500;margin-top:6px}
+.panel .h{font-weight:500;font-size:1.15rem;margin-top:6px}
+.panel .x{margin-top:8px;line-height:1.5}
+.panel .w{margin-top:10px;font-size:10px;color:var(--muted)}
+.panel .act{margin-top:12px}
+.keys{font-size:10px;color:var(--faint);margin-top:12px;line-height:1.9}
+.next{width:100%;padding:14px}
 .note{margin-top:30px;color:var(--muted);font-size:1rem}
+
+/* desktop: one fixed screen, question on the left, answer panel on the right, no page scroll */
+@media (min-width:900px) and (min-height:560px){
+  html,body{height:100%;overflow:hidden}
+  html{scrollbar-gutter:auto}
+  .page{max-width:1240px;height:100vh;height:100dvh;padding:22px 40px 24px;display:flex;flex-direction:column}
+  .head{grid-template-columns:auto minmax(0,520px);align-items:end;column-gap:40px;justify-content:space-between}
+  .head .util{grid-column:1/-1}
+  .sub{grid-column:1}
+  .meter{grid-column:2;grid-row:2/4;align-self:end}
+  .stats{margin-top:0}
+  .main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:44px;margin-top:26px}
+  .card{min-height:0;overflow:hidden}
+  .side{margin-top:0;min-height:0}
+  .panel{flex:1;min-height:0;overflow:auto;scrollbar-width:none}
+  .panel::-webkit-scrollbar{display:none}
+}
+@media (min-width:900px) and (max-height:760px){
+  .sub{display:none}
+  h1{font-size:2.4rem}
+  .q{font-size:1.45rem;margin:8px 0 14px}
+  .opt{padding:9px 14px;min-height:46px;font-size:1.05rem}
+  .opts{gap:8px}
+}
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="util mono"><a href="./" target="_top">&larr; ASO Hub</a><span>GA · Current Affairs</span></div>
-  <h1>Revise</h1>
-  <p class="sub">An endless stream of four-option questions. Every second question is new. A question you miss comes back within the next 20.</p>
-
-  <div class="stats mono" id="stats" aria-live="polite">
-    <div><div class="k">New</div><div class="v" id="sNew">–</div></div>
-    <div><div class="k">Weak</div><div class="v" id="sWeak">–</div></div>
-    <div><div class="k">Learning</div><div class="v" id="sLearn">–</div></div>
-    <div><div class="k">Strong</div><div class="v" id="sStrong">–</div></div>
+  <div class="head">
+    <div class="util mono"><a href="./" target="_top">&larr; ASO Hub</a><span>GA · Current Affairs</span></div>
+    <h1>Revise</h1>
+    <p class="sub">Endless four-option questions. Every second one is new. A question you miss comes back within the next 20.</p>
+    <div class="meter">
+    <div class="stats mono" id="stats" aria-live="polite">
+      <div><div class="k">New</div><div class="v" id="sNew">–</div></div>
+      <div><div class="k">Weak</div><div class="v" id="sWeak">–</div></div>
+      <div><div class="k">Learning</div><div class="v" id="sLearn">–</div></div>
+      <div><div class="k">Strong</div><div class="v" id="sStrong">–</div></div>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    </div>
   </div>
-  <div class="bar"><i id="bar"></i></div>
 
-  <div class="card" id="card"><p class="note">Loading questions…</p></div>
-
-  <p class="keys mono">Keys: 1–4 or A–D to answer · U = not sure · Enter = next question</p>
+  <div class="main">
+    <div class="card" id="card"><p class="note">Loading questions…</p></div>
+    <div class="side">
+      <div class="panel" id="after"></div>
+      <button class="btn primary next" id="next" type="button" disabled>Next question</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -193,8 +235,9 @@ function show(){
     h+='<button class="opt" type="button" data-pos="'+pos+'"><span class="l mono">'+"ABCD"[pos]+'</span><span class="t">'+esc(cur.o[idx])+'</span></button>';
   });
   h+='</div><div class="unsure" id="unsureRow"><button class="btn" id="unsure" type="button" aria-pressed="false">Not sure</button>'+
-     '<span class="hint mono">Tap before answering if you\'re guessing</span></div><div id="after"></div>';
+     '<span class="hint mono">Tap before answering if you\'re guessing</span></div>';
   $("card").innerHTML=h;
+  idle();
   Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b){ b.onclick=function(){pick(+b.dataset.pos)} });
   $("unsure").onclick=toggleUnsure;
   stats();
@@ -203,6 +246,12 @@ function toggleUnsure(){
   if(locked) return; unsure=!unsure;
   var b=$("unsure"); b.classList.toggle("on",unsure); b.setAttribute("aria-pressed",unsure);
 }
+function idle(){
+  var p=$("after"); p.className="panel";
+  p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="idle">Pick an answer. If you miss it, the right answer and the reason show here.</div>'+
+    '<div class="keys mono">Keys · 1–4 or A–D answer<br>U = not sure · Enter = next</div>';
+  $("next").disabled=true;
+}
 function pick(pos){
   if(locked) return; locked=true;
   var right=order[pos]===0, g=right?(unsure?"unsure":"right"):"wrong";
@@ -210,28 +259,34 @@ function pick(pos){
   Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b,i){
     b.disabled=true; b.classList.add(order[i]===0?"right":(i===pos?"wrong":"dim"));
   });
-  $("unsureRow").hidden=true; stats();
-  if(g==="right"){ timer=setTimeout(show,750); return }
+  $("unsureRow").classList.add("gone"); stats();
+  var p=$("after"), nx=$("next");
+  nx.disabled=false;
+  if(g==="right"){
+    p.className="panel ok";
+    p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="good">Right.</div><div class="w mono">Next question in a moment</div>';
+    timer=setTimeout(show,750); return;
+  }
   var st=S.stats[cur.id], book=cur.ch.slice(0,2)==="ca"?"ca":"ga";
-  $("after").innerHTML='<div class="explain'+(right?' ok':'')+'">'+
+  p.className="panel "+(right?"ok":"miss");
+  p.innerHTML='<div class="lab mono">FIG_ANSWER</div>'+
     '<div class="h">'+(right?"Right, but you weren't sure":"Answer: "+esc(cur.o[0]))+'</div>'+
     '<div class="x">'+esc(cur.x)+'</div>'+
     '<div class="w mono">Comes back within the next '+Math.round(st.deadline-st.last)+' questions'+(right?'':', options shuffled')+'</div>'+
-    '<div class="act"><a class="btn" href="'+GUIDE[book]+'" target="_blank" rel="noopener">Open the guide</a></div></div>'+
-    '<button class="btn primary next" id="next" type="button">Next question</button>';
-  $("next").onclick=show; $("next").focus({preventScroll:true});
-  $("after").scrollIntoView({behavior:"smooth",block:"nearest"});
+    '<div class="act"><a class="btn" href="'+GUIDE[book]+'" target="_blank" rel="noopener">Open the guide</a></div>';
+  nx.focus({preventScroll:true});
+  if(innerWidth<900) nx.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 document.addEventListener("keydown",function(e){
   if(e.metaKey||e.ctrlKey||e.altKey||!cur) return;
   var k=e.key.toLowerCase(), i="1234".indexOf(k); if(i<0) i="abcd".indexOf(k);
   if(!locked&&i>=0&&k.length===1){ pick(i); e.preventDefault() }
   else if(k==="u") toggleUnsure();
-  else if(k==="enter"&&locked&&$("next")){ show(); e.preventDefault() }
+  else if(k==="enter"&&locked){ show(); e.preventDefault() }
 });
 
 fetch("app/questions.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){
-  bank=d.questions; show();
+  bank=d.questions; $("next").onclick=function(){ if(locked) show() }; show();
 }).catch(function(){
   $("card").innerHTML='<p class="note">Could not load the questions. Open this page from the hub site (it needs app/questions.json next to it).</p>';
 });
