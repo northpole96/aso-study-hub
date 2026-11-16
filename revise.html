@@ -73,7 +73,11 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
 .btn.on,.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
 .btn[disabled]{background:var(--paper);border-color:var(--rule);color:var(--faint);cursor:default}
 .hint{font-size:10px;color:var(--faint)}
-.ctl{display:flex;gap:8px;flex-wrap:wrap}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.recall{display:grid;gap:12px;justify-items:start;margin-top:8px}
+.btn.big{padding:14px 22px;font-size:13px}
+.grade{display:flex;gap:10px;flex-wrap:wrap}
+.grade .btn{padding:14px 20px;font-size:13px}
 .btn.sm{font-size:10.5px;padding:5px 10px;min-width:0}
 .util{align-items:center}
 
@@ -125,7 +129,7 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
 <div class="page">
   <div class="head">
     <div class="util mono"><a href="./" target="_top">&larr; ASO Hub</a>
-      <span class="ctl"><button class="btn sm" id="mode" type="button" aria-pressed="false" aria-keyshortcuts="R">Algo on</button><button class="btn sm" id="reset" type="button">Reset ranking</button></span></div>
+      <span class="ctl"><button class="btn sm" id="mode" type="button" aria-pressed="false" aria-keyshortcuts="R">Algo on</button><button class="btn sm" id="mcq" type="button" aria-pressed="false" aria-keyshortcuts="M">MCQ</button><button class="btn sm" id="reveal" type="button" aria-pressed="false" aria-keyshortcuts="S">Answers hidden</button><button class="btn sm" id="reset" type="button">Reset ranking</button></span></div>
     <h1>Revise</h1>
     <p class="sub">Endless four-option questions. Every second one is new. A question you miss comes back within the next 20.</p>
     <div class="meter">
@@ -234,57 +238,130 @@ function stats(){
   $("sNew").textContent=n; $("sWeak").textContent=w; $("sLearn").textContent=l; $("sStrong").textContent=s;
   $("bar").style.width=(bank.length?s/bank.length*100:0)+"%";
 }
-function show(){
-  clearTimeout(timer); locked=false; unsure=false;
-  var r=next(); cur=r[0]; kind=r[1];
-  order=[0,1,2,3]; for(var i=3;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=order[i];order[i]=order[j];order[j]=t}
+/* ===== view settings (saved in this browser) =====
+   rnd    = algo off: random questions, ranking untouched (← → step back and forward)
+   mcq    = show the four options; off = question only, think of the answer, then reveal
+   reveal = show the answer straight away (reading mode, never ranked) */
+function getFlag(k,d){ try{ var v=localStorage.getItem(k); return v===null?d:v==="1" }catch(e){ return d } }
+function setFlag(k,v){ try{ localStorage.setItem(k,v?"1":"0") }catch(e){} }
+var mcq=getFlag("aso-revise-mcq",true), reveal=getFlag("aso-revise-show",false);
+var hist=[], hpos=-1, phase="ask";   // phase: ask → (revealed: non-MCQ, waiting for Knew/Missed) → done
+function shuffled(){ var o=[0,1,2,3]; for(var i=3;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=o[i];o[i]=o[j];o[j]=t} return o }
+
+function show(dir){
+  clearTimeout(timer);
+  var e;
+  if(rnd&&dir==="back"){ if(hpos<=0) return; e=hist[--hpos] }
+  else if(rnd&&hpos<hist.length-1){ e=hist[++hpos] }
+  else {
+    var r=next(); e={q:r[0],kind:r[1],order:shuffled()};
+    if(rnd){ hist.push(e); if(hist.length>300){ hist.shift() } hpos=hist.length-1 }
+  }
+  render(e);
+}
+function render(e){
+  clearTimeout(timer);
+  cur=e.q; kind=e.kind; order=e.order; unsure=false; phase="ask"; locked=false;
   var st=S.stats[cur.id], book=cur.ch.slice(0,2)==="ca"?"ca":"ga";
-  var tags=kind==="random"?'<span class="tag new">Random</span>':kind==="new"?'<span class="tag new">New</span>'
+  var tags=kind==="random"?'<span class="tag new">Random'+(hist.length?' · '+(hpos+1)+' of '+hist.length:'')+'</span>':kind==="new"?'<span class="tag new">New</span>'
     :(st&&st.wrong?'<span class="tag miss">Review · missed '+st.wrong+'×</span>':'<span class="tag rev">Review</span>');
   if(cur.pyq) tags+='<span class="tag rev">PYQ '+esc(cur.pyq)+'</span>';
   if(cur.check) tags+='<span class="tag chk">Check</span>';
   var h='<div class="meta mono"><span class="src">'+(book==="ca"?"News · ":"GA · ")+esc(CH[cur.ch]||cur.ch)+'</span>'+tags+'</div>'+
-        '<h2 class="q" id="qtext">'+esc(cur.q)+'</h2><div class="opts" id="opts" role="group" aria-labelledby="qtext">';
-  order.forEach(function(idx,pos){
-    h+='<button class="opt" type="button" data-pos="'+pos+'" aria-keyshortcuts="'+(pos+1)+' '+"ABCD"[pos]+'"><span class="l mono">'+"ABCD"[pos]+'</span><span class="t">'+esc(cur.o[idx])+'</span></button>';
-  });
-  h+='</div><div class="unsure" id="unsureRow"><button class="btn" id="unsure" type="button" aria-pressed="false" aria-keyshortcuts="U">Not sure</button>'+
-     '<span class="hint mono">Tap before answering if you\'re guessing</span></div>';
+        '<h2 class="q" id="qtext">'+esc(cur.q)+'</h2>';
+  if(mcq){
+    h+='<div class="opts" id="opts" role="group" aria-labelledby="qtext">';
+    order.forEach(function(idx,pos){
+      h+='<button class="opt" type="button" data-pos="'+pos+'" aria-keyshortcuts="'+(pos+1)+' '+"ABCD"[pos]+'"><span class="l mono">'+"ABCD"[pos]+'</span><span class="t">'+esc(cur.o[idx])+'</span></button>';
+    });
+    h+='</div><div class="unsure'+(reveal?' gone':'')+'" id="unsureRow"><button class="btn" id="unsure" type="button" aria-pressed="false" aria-keyshortcuts="U">Not sure</button>'+
+       '<span class="hint mono">Tap before answering if you\'re guessing</span></div>';
+  } else {
+    h+='<div class="recall" id="recall"></div>';
+  }
   $("card").innerHTML=h;
-  idle();
-  Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b){ b.onclick=function(){pick(+b.dataset.pos)} });
-  $("unsure").onclick=toggleUnsure;
+  opts().forEach(function(b){ b.onclick=function(){pick(+b.dataset.pos)} });
+  if($("unsure")) $("unsure").onclick=toggleUnsure;
   stats();
-  if(kbd) focusOpt(0);
+  if(reveal){ showAnswer(true); return }
+  idle();
+  if(!mcq){
+    $("recall").innerHTML='<button class="btn primary big" id="showAns" type="button">Show answer <span aria-hidden="true">· Space</span></button>'+
+      '<p class="hint mono">Say the answer in your head first.</p>';
+    $("showAns").onclick=function(){ showAnswer(false) };
+    if(kbd) $("showAns").focus({preventScroll:true});
+  } else if(kbd) focusOpt(0);
+}
+function nextLabel(){ $("next").innerHTML='Next question <span aria-hidden="true">· '+(rnd?'→':'Enter')+'</span>' }
+function idle(){
+  var p=$("after"); p.className="panel";
+  p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="idle">'+(mcq?'Pick an answer. If you miss it, the right answer and the reason show here.':'Think of the answer, then show it. Then say if you knew it.')+'</div>'+
+    '<div class="keys mono">Keys · '+(mcq?'1–4 or A–D answer · ↑ ↓ move, Enter picks · U = not sure':'Space = show answer · 1 = knew it · 2 = missed')+
+    '<br>'+(rnd?'← → = previous / next question':'Enter or N = next')+' · G = guide<br>R = algo · M = MCQ · S = show answers</div>';
+  nextLabel(); $("next").disabled=!rnd;
+}
+function panelAnswer(cls,head,note){
+  var book=cur.ch.slice(0,2)==="ca"?"ca":"ga", p=$("after");
+  p.className="panel "+cls;
+  p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="h">'+head+'</div>'+
+    (cur.x?'<div class="x">'+esc(cur.x)+'</div>':'')+(note?'<div class="w mono">'+note+'</div>':'')+
+    '<div class="act"><a class="btn" href="'+GUIDE[book]+'" target="_blank" rel="noopener">Open the guide</a></div>';
+}
+function windowNote(){ var st=S.stats[cur.id]; return rnd||!st?'Random mode · not ranked':'Comes back within the next '+Math.round(st.deadline-st.last)+' questions' }
+/* reveal the answer: auto (show-answers mode, never ranked) or after "Show answer" in non-MCQ mode */
+function showAnswer(auto){
+  if(phase!=="ask") return;
+  opts().forEach(function(b,i){ b.disabled=true; b.classList.add(order[i]===0?"right":"dim") });
+  var nx=$("next");
+  if(auto||rnd){
+    phase="done"; locked=true;
+    panelAnswer("ok","Answer: "+esc(cur.o[0]),auto?'Answers shown · not ranked':'Random mode · not ranked');
+    if(!mcq) $("recall").innerHTML='';
+    nx.disabled=false; if(kbd&&!auto) nx.focus({preventScroll:true});
+    return;
+  }
+  phase="revealed";
+  panelAnswer("ok","Answer: "+esc(cur.o[0]),"");
+  $("recall").innerHTML='<div class="grade"><button class="btn primary" id="knew" type="button">Knew it · 1</button><button class="btn" id="missed" type="button">Missed it · 2</button></div>'+
+    '<p class="hint mono">Be honest: a miss brings it back within 20.</p>';
+  $("knew").onclick=function(){ grade(true) }; $("missed").onclick=function(){ grade(false) };
+  if(kbd) $("knew").focus({preventScroll:true});
+}
+function grade(knew){
+  if(phase!=="revealed") return;
+  phase="done"; locked=true;
+  answer(cur.id,knew?"right":"wrong"); stats();
+  $("recall").innerHTML='';
+  $("next").disabled=false;
+  if(knew){ timer=setTimeout(show,500); return }
+  panelAnswer("miss","Answer: "+esc(cur.o[0]),windowNote());
+  $("next").focus({preventScroll:true});
 }
 function toggleUnsure(){
-  if(locked) return; unsure=!unsure;
+  if(locked||!mcq) return; unsure=!unsure;
   var b=$("unsure"); b.classList.toggle("on",unsure); b.setAttribute("aria-pressed",unsure);
 }
-function modeUI(){
+function settingsUI(){
   var b=$("mode"); b.textContent=rnd?"Algo off · random":"Algo on"; b.classList.toggle("on",rnd); b.setAttribute("aria-pressed",rnd);
+  b=$("mcq"); b.textContent=mcq?"MCQ":"No options"; b.classList.toggle("on",!mcq); b.setAttribute("aria-pressed",!mcq);
+  b=$("reveal"); b.textContent=reveal?"Answers shown":"Answers hidden"; b.classList.toggle("on",reveal); b.setAttribute("aria-pressed",reveal);
 }
+function current(){ return {q:cur,kind:kind,order:order} }
 function toggleMode(){
-  rnd=!rnd; try{ localStorage.setItem(RKEY,rnd?"1":"0") }catch(e){}
-  modeUI(); show();
+  rnd=!rnd; setFlag(RKEY,rnd); hist=[]; hpos=-1;
+  settingsUI(); show();
 }
+function toggleMcq(){ mcq=!mcq; setFlag("aso-revise-mcq",mcq); settingsUI(); if(cur) render(current()) }
+function toggleReveal(){ reveal=!reveal; setFlag("aso-revise-show",reveal); settingsUI(); if(cur&&(reveal?phase==="ask":true)) render(current()) }
 function resetRanking(){
   if(!confirm("Reset ranking?\n\nEvery question becomes new again and the New, Weak, Learning and Strong counts start from zero. This can't be undone.")) return;
   S={clock:0,lastActive:0,stats:{},recent:[],answered:0,correct:0}; save(); show();
 }
-function idle(){
-  var p=$("after"); p.className="panel";
-  p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="idle">Pick an answer. If you miss it, the right answer and the reason show here.</div>'+
-    '<div class="keys mono">Keys · 1–4 or A–D answer · ↑ ↓ move, Enter picks<br>U = not sure · Enter or N = next · G = guide · R = algo on/off</div>';
-  $("next").disabled=true;
-}
 function pick(pos){
-  if(locked) return; locked=true;
+  if(locked||phase!=="ask"||!mcq) return; locked=true; phase="done";
   var right=order[pos]===0, g=right?(unsure?"unsure":"right"):"wrong";
   answer(cur.id,g);
-  Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b,i){
-    b.disabled=true; b.classList.add(order[i]===0?"right":(i===pos?"wrong":"dim"));
-  });
+  opts().forEach(function(b,i){ b.disabled=true; b.classList.add(order[i]===0?"right":(i===pos?"wrong":"dim")) });
   $("unsureRow").classList.add("gone"); stats();
   var p=$("after"), nx=$("next");
   nx.disabled=false;
@@ -293,44 +370,49 @@ function pick(pos){
     p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="good">Right.</div><div class="w mono">Next question in a moment</div>';
     timer=setTimeout(show,750); return;
   }
-  var st=S.stats[cur.id], book=cur.ch.slice(0,2)==="ca"?"ca":"ga";
-  p.className="panel "+(right?"ok":"miss");
-  p.innerHTML='<div class="lab mono">FIG_ANSWER</div>'+
-    '<div class="h">'+(right?"Right, but you weren't sure":"Answer: "+esc(cur.o[0]))+'</div>'+
-    '<div class="x">'+esc(cur.x)+'</div>'+
-    '<div class="w mono">'+(rnd?'Random mode · not ranked':'Comes back within the next '+Math.round(st.deadline-st.last)+' questions'+(right?'':', options shuffled'))+'</div>'+
-    '<div class="act"><a class="btn" href="'+GUIDE[book]+'" target="_blank" rel="noopener">Open the guide</a></div>';
+  panelAnswer(right?"ok":"miss",right?"Right, but you weren't sure":"Answer: "+esc(cur.o[0]),windowNote()+(right||rnd?'':', options shuffled'));
   nx.focus({preventScroll:true});
-  if(innerWidth<900) nx.scrollIntoView({behavior:"smooth",block:"nearest"});
+  if(innerWidth<640) nx.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
-/* keyboard: works with no mouse at all
-   1–4 or A–D answer · ↑ ↓ (or ← →) move between options, Enter/Space picks the one in focus
-   U = not sure · Enter, Space or N = next question · G = open the guide */
+/* keyboard: works with no mouse at all (see the key list in the answer panel) */
 var kbd=false;
 function opts(){ return Array.prototype.slice.call(document.querySelectorAll(".opt")) }
 function focusOpt(i){ var o=opts(); if(o.length){ i=(i+o.length)%o.length; o[i].focus({preventScroll:true}) } }
 document.addEventListener("mousedown",function(){ kbd=false });
 document.addEventListener("keydown",function(e){
-  if(e.metaKey||e.ctrlKey||e.altKey||!cur) return;
+  if(e.metaKey||e.ctrlKey||e.altKey||e.shiftKey||!cur) return;
   kbd=true;
   var k=e.key.toLowerCase(), i="1234".indexOf(k); if(i<0) i="abcd".indexOf(k);
-  var o=opts(), at=o.indexOf(document.activeElement);
-  var ae=document.activeElement;
-  if((k==="enter"||k===" ")&&ae&&(ae.id==="mode"||ae.id==="reset"||ae.id==="unsure")) return;  // let these buttons work normally
-  if(!locked&&i>=0&&k.length===1){ pick(i); e.preventDefault(); return }
-  if(!locked&&(k==="arrowdown"||k==="arrowright")){ focusOpt(at<0?0:at+1); e.preventDefault(); return }
-  if(!locked&&(k==="arrowup"||k==="arrowleft")){ focusOpt(at<0?o.length-1:at-1); e.preventDefault(); return }
-  if(!locked&&(k==="home"||k==="end")){ focusOpt(k==="home"?0:o.length-1); e.preventDefault(); return }
-  if(!locked&&(k==="enter"||k===" ")){ if(at<0) focusOpt(0); else pick(at); e.preventDefault(); return }
-  if(k==="u"){ toggleUnsure(); e.preventDefault(); return }
-  if(k==="r"&&!e.shiftKey){ toggleMode(); e.preventDefault(); return }
-  if(locked&&(k==="enter"||k===" "||k==="n")){
-    if(document.activeElement&&document.activeElement.tagName==="A") return;  // Enter on the guide link opens it
-    show(); e.preventDefault(); return }
-  if(locked&&k==="g"){ var g=document.querySelector("#after a"); if(g){ g.click(); e.preventDefault() } }
+  var o=opts(), at=o.indexOf(document.activeElement), ae=document.activeElement;
+  function stop(){ e.preventDefault() }
+  if((k==="enter"||k===" ")&&ae&&/^(mode|mcq|reveal|reset|unsure|knew|missed|showAns)$/.test(ae.id)) return;  // these buttons work normally
+  if(k==="r"){ toggleMode(); return stop() }
+  if(k==="m"){ toggleMcq(); return stop() }
+  if(k==="s"){ toggleReveal(); return stop() }
+  if(k==="g"&&phase!=="ask"){ var g=document.querySelector("#after a"); if(g){ g.click(); return stop() } }
+  // algo off: ← → step through questions, whatever state the question is in
+  if(rnd&&k==="arrowright"){ show(); return stop() }
+  if(rnd&&k==="arrowleft"){ show("back"); return stop() }
+  if(phase==="ask"&&mcq){
+    if(i>=0&&k.length===1){ pick(i); return stop() }
+    if(k==="arrowdown"||(!rnd&&k==="arrowright")){ focusOpt(at<0?0:at+1); return stop() }
+    if(k==="arrowup"||(!rnd&&k==="arrowleft")){ focusOpt(at<0?o.length-1:at-1); return stop() }
+    if(k==="home"||k==="end"){ focusOpt(k==="home"?0:o.length-1); return stop() }
+    if(k==="enter"||k===" "){ if(at<0) focusOpt(0); else pick(at); return stop() }
+    if(k==="u"){ toggleUnsure(); return stop() }
+  }
+  if(phase==="ask"&&!mcq&&(k==="enter"||k===" ")){ showAnswer(false); return stop() }
+  if(phase==="revealed"&&(k==="1"||k==="2")){ grade(k==="1"); return stop() }
+  if(phase==="done"&&(k==="enter"||k===" "||k==="n")){
+    if(ae&&ae.tagName==="A") return;  // Enter on the guide link opens it
+    show(); return stop() }
+  if(rnd&&k==="n"){ show(); return stop() }
 });
 fetch("app/questions.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){
-  bank=d.questions; modeUI(); $("mode").onclick=toggleMode; $("reset").onclick=resetRanking; try{ window.focus() }catch(e){} $("next").onclick=function(){ if(locked) show() }; show();
+  bank=d.questions; settingsUI();
+  $("mode").onclick=toggleMode; $("mcq").onclick=toggleMcq; $("reveal").onclick=toggleReveal; $("reset").onclick=resetRanking;
+  try{ window.focus() }catch(e){}
+  $("next").onclick=function(){ if(locked||rnd) show() }; show();
 }).catch(function(){
   $("card").innerHTML='<p class="note">Could not load the questions. Open this page from the hub site (it needs app/questions.json next to it).</p>';
 });
