@@ -1,0 +1,22 @@
+[
+{"q":"Which countries hosted the Men's T20 World Cup 2026?","o":["India and Sri Lanka","India and Bangladesh","Australia and New Zealand","West Indies and USA"],"x":"India won the final at Ahmedabad."},
+{"q":"Where was the final of the Men's T20 World Cup 2026 played?","o":["Ahmedabad","Mumbai","Colombo","Kolkata"],"x":"India beat New Zealand by 96 runs on 8 March 2026."},
+{"q":"Who was Player of the Tournament in the Men's T20 World Cup 2026?","o":["Sanju Samson","Jasprit Bumrah","Suryakumar Yadav","Abhishek Sharma"],"x":"Bumrah was Player of the Final."},
+{"q":"Where did India win its first Women's ODI World Cup in November 2025?","o":["Navi Mumbai","Lord's, London","Melbourne","Colombo"],"x":"India beat South Africa. Captain: Harmanpreet Kaur."},
+{"q":"Where was the final of the Women's T20 World Cup 2026 played?","o":["Lord's, London","Eden Gardens, Kolkata","MCG, Melbourne","Dubai"],"x":"Australia beat England for their seventh title."},
+{"q":"Which three countries hosted the FIFA World Cup 2026?","o":["USA, Canada and Mexico","USA, Brazil and Mexico","Spain, Portugal and Morocco","Qatar, UAE and Saudi Arabia"],"x":"The first World Cup with 48 teams."},
+{"q":"Whom did Spain beat in the FIFA World Cup 2026 final?","o":["Argentina","France","Brazil","England"],"x":"1–0 after extra time, on 19 July 2026."},
+{"q":"Who won the Golden Ball at the FIFA World Cup 2026?","o":["Rodri","Kylian Mbappé","Lionel Messi","Lamine Yamal"],"x":"Golden Boot: Mbappé. Golden Glove: Unai Simón."},
+{"q":"Which city hosted the Asian Games 2026?","o":["Aichi–Nagoya, Japan","Hangzhou, China","Doha, Qatar","Jakarta, Indonesia"],"x":"India finished 4th with 85 medals."},
+{"q":"How many gold medals did India win at the Asian Games 2026?","o":["21","13","28","39"],"x":"21 gold, 27 silver, 37 bronze = 85."},
+{"q":"Which city hosted the Commonwealth Games 2026?","o":["Glasgow","Birmingham","Victoria","Ahmedabad"],"x":"A slimmed-down Games. India won 39 medals."},
+{"q":"Which countries hosted the Men's Hockey World Cup 2026?","o":["Belgium and the Netherlands","India and Malaysia","Germany and Spain","Australia and New Zealand"],"x":"Germany beat Spain 1–0 in the final."},
+{"q":"Who won the Uber Cup 2026?","o":["South Korea","China","Japan","India"],"x":"China won the Thomas Cup. Both were at Horsens, Denmark."},
+{"q":"Which team lost the IPL 2026 final?","o":["Gujarat Titans","Mumbai Indians","Punjab Kings","Chennai Super Kings"],"x":"Royal Challengers Bengaluru won their second title in a row."},
+{"q":"Who won the women's singles at Wimbledon 2026?","o":["Linda Nosková","Iga Świątek","Aryna Sabalenka","Coco Gauff"],"x":"Her first major title. She is from the Czech Republic."},
+{"q":"D. Gukesh became world chess champion in…","o":["December 2024","September 2026","July 2023","January 2026"],"x":"He beat Ding Liren in Singapore."},
+{"q":"1. India won the Men's T20 World Cup 2026.\n2. The final was played at Ahmedabad.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"India became the first team to defend the title."},
+{"q":"1. The FIFA World Cup 2026 had 48 teams.\n2. Argentina won it.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Spain won."},
+{"q":"1. India finished 4th at the Asian Games 2026.\n2. The Games were held in China.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"They were held in Aichi–Nagoya, Japan."},
+{"q":"1. The Commonwealth Games 2026 were held in Glasgow.\n2. The 2030 Games will be held in Ahmedabad.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Australia topped the 2026 table."}
+]

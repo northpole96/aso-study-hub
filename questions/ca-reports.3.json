@@ -1,0 +1,14 @@
+[
+{"q":"Which country is the most peaceful in the Global Peace Index 2026?","o":["Iceland","Switzerland","New Zealand","Finland"],"x":"Russia is the least peaceful. India is 127th of 163."},
+{"q":"In the Global Hunger Index 2026, India's hunger level is called…","o":["Serious","Low","Moderate","Extremely alarming"],"x":"Score 24.1; rank 100th of 122."},
+{"q":"What is India's rank in the Global Innovation Index 2026?","o":["38th","100th","127th","5th"],"x":"Of 139 countries; the same rank as in 2025."},
+{"q":"Who publishes the World Press Freedom Index?","o":["Reporters Without Borders","Amnesty International","UNESCO","Freedom House"],"x":"RSF, based in Paris."},
+{"q":"India's Human Development Index value in HDR 2025 is…","o":["0.685","0.485","0.785","0.885"],"x":"Rank 130th of 193, in the \"medium\" group."},
+{"q":"Who publishes the India State of Forest Report?","o":["Forest Survey of India","Wildlife Institute of India","NITI Aayog","Central Pollution Control Board"],"x":"The Forest Survey of India is in Dehradun."},
+{"q":"How many countries are ranked in the Global Peace Index 2026?","o":["163","122","139","193"],"x":"Hunger Index: 122. Innovation Index: 139. HDR: 193."},
+{"q":"1. The Global Peace Index is published by the Institute for Economics and Peace.\n2. India ranked 127th in 2026.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Of 163 countries."},
+{"q":"1. The Global Hunger Index is a UN report.\n2. India ranked 100th of 122 in 2026.\nWhich statement is correct?","o":["Only 2","Only 1","Both 1 and 2","Neither 1 nor 2"],"x":"It is published by Concern Worldwide and Welthungerhilfe."},
+{"q":"1. The Global Innovation Index is published by WIPO.\n2. Switzerland topped it in 2026.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"India was 38th."},
+{"q":"1. The World Press Freedom Index is published by Reporters Without Borders.\n2. India's rank improved in 2026.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"India fell from 151st to 157th."},
+{"q":"1. The Human Development Report is published by UNDP.\n2. India is in the \"very high\" human development group.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"India is in the \"medium\" group."}
+]

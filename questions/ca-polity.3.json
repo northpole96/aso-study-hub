@@ -1,0 +1,23 @@
+[
+{"q":"Justice Surya Kant is the ___ Chief Justice of India.","o":["53rd","50th","51st","55th"],"x":"From 24 November 2025."},
+{"q":"Justice Surya Kant's term as Chief Justice ends on…","o":["9 February 2027","31 December 2026","24 November 2027","10 May 2028"],"x":"The next CJI's name will be announced in January 2027."},
+{"q":"Who is the Governor of Odisha?","o":["Hari Babu Kambhampati","Raghubar Das","Ganeshi Lal","S.C. Jamir"],"x":"The Chief Minister is Mohan Charan Majhi."},
+{"q":"Jagdeep Dhankhar resigned as Vice-President in…","o":["July 2025","January 2026","September 2024","March 2025"],"x":"C.P. Radhakrishnan was elected on 9 September 2025."},
+{"q":"The 2026 Kerala election ended how many years of LDF rule?","o":["Ten","Five","Fifteen","Twenty"],"x":"The Congress-led UDF won."},
+{"q":"The 2026 West Bengal election ended Mamata Banerjee's rule of…","o":["15 years","10 years","5 years","20 years"],"x":"She had been Chief Minister since 2011."},
+{"q":"Which sitting Chief Minister lost his own seat in the 2026 Tamil Nadu election?","o":["M.K. Stalin","Pinarayi Vijayan","Himanta Biswa Sarma","N. Rangasamy"],"x":"Vijay's TVK won the state."},
+{"q":"TVK, which won Tamil Nadu in 2026, stands for…","o":["Tamilaga Vettri Kazhagam","Tamil Viduthalai Katchi","Tamil Valar Kazhagam","Thamizhar Vetri Koottani"],"x":"Founded by the actor Vijay."},
+{"q":"Who became Chief Minister of Assam for a second term in 2026?","o":["Himanta Biswa Sarma","Sarbananda Sonowal","Tarun Gogoi","Badruddin Ajmal"],"x":"BJP-led NDA."},
+{"q":"Under which Article does Parliament fix the number of Supreme Court judges?","o":["Article 124(1)","Article 368","Article 143","Article 217"],"x":"In 2026 it raised the number to 37 plus the Chief Justice."},
+{"q":"Before the 2026 change, how many Supreme Court judges were there besides the Chief Justice?","o":["33","30","25","37"],"x":"33 + CJI = 34. Now 37 + CJI = 38."},
+{"q":"How many Bills were passed in the Monsoon Session of Parliament, 2026?","o":["Twelve","Two","Twenty-five","Forty"],"x":"Most were passed with little debate."},
+{"q":"Changing the name of a state needs…","o":["A law of Parliament under Article 3","A constitutional amendment under Article 368","Only an order of the Governor","A vote of all state Assemblies"],"x":"That is how Kerala became Keralam."},
+{"q":"In August 2026 the Supreme Court held that the cruelty law (Section 498-A) can apply to…","o":["Certain live-in relationships","Only registered marriages","Business partners","Tenants and landlords"],"x":"From the 2026 rulings list.","check":true},
+{"q":"1. Kerala's name was changed to Keralam in the Constitution.\n2. It was done by a constitutional amendment under Article 368.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"It was done by a simple law under Articles 3 and 4."},
+{"q":"1. The Supreme Court now has 38 judges, counting the Chief Justice.\n2. The number is fixed by the President under Article 124.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Parliament fixes the number by law."},
+{"q":"1. The BJP formed its first government in West Bengal in 2026.\n2. Suvendu Adhikari became Chief Minister.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Results came on 4 May 2026."},
+{"q":"1. Vijay became Chief Minister of Tamil Nadu in 2026.\n2. His party is the TVK.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Tamilaga Vettri Kazhagam."},
+{"q":"1. Justice Surya Kant is the 53rd Chief Justice of India.\n2. His term runs till 2030.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"His term ends on 9 February 2027."},
+{"q":"1. C.P. Radhakrishnan is the Vice-President of India.\n2. He took over after M. Venkaiah Naidu resigned.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"He took over after Jagdeep Dhankhar resigned."},
+{"q":"1. Droupadi Murmu is the 15th President of India.\n2. She is from Odisha.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"She comes from Mayurbhanj district."}
+]

@@ -1,0 +1,17 @@
+[
+{"q":"How many Padma Vibhushan awards were announced in 2026?","o":["5","13","113","1"],"x":"5 Padma Vibhushan, 13 Padma Bhushan, 113 Padma Shri."},
+{"q":"V.S. Achuthanandan, given the Padma Vibhushan after his death in 2026, was a former Chief Minister of…","o":["Kerala","Tamil Nadu","Karnataka","West Bengal"],"x":"The actor Dharmendra also got it posthumously."},
+{"q":"Anant Nag, Dadasaheb Phalke awardee for 2024, is an actor of which language?","o":["Kannada","Malayalam","Telugu","Marathi"],"x":"Mohanlal (Malayalam) got it for 2023."},
+{"q":"R. Vairamuthu, winner of the 60th Jnanpith Award, writes in…","o":["Tamil","Telugu","Malayalam","Kannada"],"x":"He is the third Tamil winner."},
+{"q":"Vinod Kumar Shukla, 59th Jnanpith winner, was the first winner from…","o":["Chhattisgarh","Jharkhand","Uttarakhand","Odisha"],"x":"He wrote in Hindi."},
+{"q":"M. John Harrison won the 2026 Booker Prize at the age of…","o":["81","35","50","65"],"x":"He is the oldest winner."},
+{"q":"\"Taiwan Travelogue\", International Booker 2026, was translated from…","o":["Mandarin","Japanese","Korean","Kannada"],"x":"The first winner translated from Mandarin."},
+{"q":"Who translated Banu Mushtaq's \"Heart Lamp\" into English?","o":["Deepa Bhasthi","Daisy Rockwell","Lin King","Arunava Sinha"],"x":"International Booker 2025."},
+{"q":"Did any Indian win the Ramon Magsaysay Award in 2026?","o":["No","Yes, one","Yes, two","Yes, three"],"x":"Winners: Tommy Koh, Runa Khan and Bo Kyi."},
+{"q":"Runa Khan, a 2026 Ramon Magsaysay awardee, is from…","o":["Bangladesh","Pakistan","Nepal","Indonesia"],"x":"Tommy Koh: Singapore. Bo Kyi: Myanmar."},
+{"q":"The 72nd National Film Awards ceremony was held at…","o":["Kevadia, Gujarat","New Delhi","Mumbai","Panaji, Goa"],"x":"Anant Nag received the Phalke Award there."},
+{"q":"1. The Dadasaheb Phalke Award for 2024 went to Anant Nag.\n2. The award for 2023 went to Mohanlal.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Note the award year, not the year of the ceremony."},
+{"q":"1. R. Vairamuthu won the 60th Jnanpith Award.\n2. He writes in Telugu.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"He writes in Tamil."},
+{"q":"1. M. John Harrison won the Booker Prize in 2026.\n2. David Szalay won it in 2025.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Szalay won for Flesh."},
+{"q":"1. A Bharat Ratna was announced in 2026.\n2. 131 Padma awards were announced in 2026.\nWhich statement is correct?","o":["Only 2","Only 1","Both 1 and 2","Neither 1 nor 2"],"x":"No Bharat Ratna was announced in 2026."}
+]

@@ -1,0 +1,19 @@
+[
+{"q":"1. Pralay is a surface-to-surface missile.\n2. It is a cruise missile made for the Navy.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Pralay is a short-range quasi-ballistic missile for the Army and Air Force."},
+{"q":"1. BrahMos is a supersonic cruise missile.\n2. It was made jointly with Russia.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"The name joins the Brahmaputra and Moskva rivers."},
+{"q":"1. The ITBP was raised in 1962.\n2. It guards the border with Pakistan.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"The ITBP guards the China border; the BSF guards the Pakistan border."},
+{"q":"1. Malabar is a naval exercise.\n2. France is one of its four members.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Members: India, USA, Japan and Australia."},
+{"q":"1. Agni-V is a ballistic missile.\n2. Its range is more than 5,000 km.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"It is launched from a sealed canister on a road vehicle."},
+{"q":"1. Akash is a surface-to-air missile.\n2. India bought it from Israel.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Akash is made in India by DRDO."},
+{"q":"1. A scramjet has no moving compressor parts.\n2. It works best at subsonic speeds.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"A scramjet works at hypersonic speed, above Mach 5."},
+{"q":"1. The post of Chief of Defence Staff was created in 2019.\n2. General Bipin Rawat was the first to hold it.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"He took charge on 1 January 2020."},
+{"q":"1. The Param Vir Chakra is the highest wartime gallantry award.\n2. The Ashoka Chakra is the highest peacetime gallantry award.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"The two are equal in rank."},
+{"q":"1. Dharma Guardian is held with Japan.\n2. It is a naval exercise.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"It is an army exercise. JIMEX is the navy exercise with Japan."},
+{"q":"1. INS Vikrant is India's first home-built aircraft carrier.\n2. It was built at Cochin Shipyard.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Commissioned in 2022."},
+{"q":"1. Assam Rifles is India's oldest paramilitary force.\n2. It guards the border with Myanmar.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Raised in 1835."},
+{"q":"1. Tejas is a light combat aircraft made by HAL.\n2. Prachand is a battle tank.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Prachand is a light combat helicopter."},
+{"q":"1. The BSF guards the Pakistan and Bangladesh borders.\n2. The SSB guards the Nepal and Bhutan borders.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"SSB = Sashastra Seema Bal."},
+{"q":"1. India bought the S-400 from Russia.\n2. The S-400 is a fighter aircraft.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"It is an air defence missile system."},
+{"q":"1. Exercise Desert Flag is hosted by the UAE.\n2. It is a naval exercise.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"It is an air force exercise at Al Dhafra air base."},
+{"q":"1. Arjun is a fighter aircraft.\n2. Tejas is a battle tank.\nWhich statement is correct?","o":["Neither 1 nor 2","Only 1","Only 2","Both 1 and 2"],"x":"It is the other way round: Arjun is the tank and Tejas the aircraft."}
+]

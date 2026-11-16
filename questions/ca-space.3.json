@@ -1,0 +1,20 @@
+[
+{"q":"PSLV-C62 failed on…","o":["12 January 2026","18 May 2025","30 July 2025","23 August 2023"],"x":"It carried EOS-N1 \"Anvesha\" and 15 small satellites."},
+{"q":"PSLV-C61, carrying EOS-09, failed on…","o":["18 May 2025","12 January 2026","1 January 2024","5 November 2026"],"x":"PSLV-C62 then failed in January 2026: two in a row."},
+{"q":"The EOS-N1 \"Anvesha\" satellite was built for…","o":["DRDO","NASA","The Indian Railways","The India Meteorological Department"],"x":"A maritime surveillance satellite."},
+{"q":"TV-D2, planned under Gaganyaan, is…","o":["A crew-escape (abort) test","A Moon landing","A Mars orbiter","A space station module"],"x":"The first abort test, TV-D1, was in 2023."},
+{"q":"Shubhanshu Shukla went to the International Space Station on which mission?","o":["Axiom-4","Artemis II","Gaganyaan G1","Crew-10"],"x":"June–July 2025."},
+{"q":"NISAR was launched on 30 July 2025 from…","o":["Sriharikota","Thumba","Cape Canaveral","Abdul Kalam Island"],"x":"On GSLV-F16."},
+{"q":"Artemis II was launched on which rocket?","o":["SLS","Falcon 9","Starship","LVM3"],"x":"Space Launch System, with the Orion capsule."},
+{"q":"The Artemis II crew flew farther from Earth than any humans before, beating the record of…","o":["Apollo 13","Apollo 11","Apollo 17","Gemini 7"],"x":"1–10 April 2026."},
+{"q":"Navi Pillay, Nobel Peace Prize 2026, is from…","o":["South Africa","India","Kenya","Malaysia"],"x":"A judge and former UN High Commissioner for Human Rights."},
+{"q":"The 2026 Nobel Prize in Chemistry was for…","o":["Asymmetric synthesis and autocatalysis","Metal–organic frameworks","Lithium-ion batteries","Gene editing"],"x":"Henri Kagan and Kenso Soai."},
+{"q":"Who won the 2026 Nobel Prize in Medicine?","o":["Deisseroth, Hegemann and Nagel","Brunkow, Ramsdell and Sakaguchi","Karikó and Weissman","Ambros and Ruvkun"],"x":"For optogenetics: controlling nerve cells with light."},
+{"q":"María Corina Machado, Nobel Peace Prize 2025, is from…","o":["Venezuela","Colombia","Mexico","Spain"],"x":"A leader of the democratic opposition."},
+{"q":"László Krasznahorkai, Nobel Literature 2025, is from…","o":["Hungary","Poland","Austria","Romania"],"x":"Anne Carson of Canada won in 2026."},
+{"q":"1. PSLV-C62 failed in January 2026.\n2. The fault was near the end of the third stage.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"It was the PSLV's second failure in a row."},
+{"q":"1. Shubhanshu Shukla is the first Indian to visit the International Space Station.\n2. He is the first Indian to go to space.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Rakesh Sharma went to space in 1984."},
+{"q":"1. Artemis II landed astronauts on the Moon.\n2. Its crew included a Canadian.\nWhich statement is correct?","o":["Only 2","Only 1","Both 1 and 2","Neither 1 nor 2"],"x":"It flew around the Moon without landing. Jeremy Hansen is the Canadian."},
+{"q":"1. NISAR is a joint satellite of NASA and ISRO.\n2. It was launched on a PSLV rocket.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"It was launched on GSLV-F16."},
+{"q":"1. Navi Pillay won the Nobel Peace Prize in 2026.\n2. María Corina Machado won it in 2025.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Papers often ask an older year too."}
+]

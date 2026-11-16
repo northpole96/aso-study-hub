@@ -1,0 +1,19 @@
+[
+{"q":"Which country chaired BRICS in 2026?","o":["India","Brazil","Russia","China"],"x":"The 18th summit was in New Delhi."},
+{"q":"The 18th BRICS summit adopted the…","o":["New Delhi Declaration","Kazan Declaration","Rio Declaration","Johannesburg Declaration"],"x":"It backed a bigger UN role for India and Brazil."},
+{"q":"Where was the 2025 SCO summit held?","o":["Tianjin, China","Astana, Kazakhstan","Bishkek, Kyrgyzstan","Islamabad, Pakistan"],"x":"2026: Bishkek."},
+{"q":"Which country was reported as the next SCO chair after Kyrgyzstan?","o":["Pakistan","India","Russia","Iran"],"x":"After the Bishkek summit of 2026.","check":true},
+{"q":"The first G20 summit held in Africa was at…","o":["Johannesburg","Cairo","Nairobi","Cape Town"],"x":"In 2025, under South Africa's presidency."},
+{"q":"At COP31, who leads the negotiations under the shared arrangement?","o":["Australia","Türkiye","Brazil","India"],"x":"Türkiye hosts and holds the COP presidency; Australia's Chris Bowen leads the talks."},
+{"q":"The five countries elected to the UN Security Council in June 2026 will serve in…","o":["2027–28","2026–27","2028–29","2027–31"],"x":"A non-permanent term is two years."},
+{"q":"Which country did Kyrgyzstan beat for its Security Council seat?","o":["Philippines","Germany","Pakistan","Japan"],"x":"After four rounds of voting."},
+{"q":"Which of these countries stays on the Security Council through 2027?","o":["Bahrain","Denmark","Greece","Panama"],"x":"Bahrain, Colombia, DR Congo, Latvia and Liberia stay till end-2027."},
+{"q":"Which was added to the World Heritage list at the Busan session of 2026?","o":["Sarnath","Santiniketan","Moidams of Assam","Hoysala temples"],"x":"Santiniketan and Hoysala: 2023. Moidams: 2024."},
+{"q":"1. The 18th BRICS summit was held in New Delhi.\n2. India chaired BRICS in 2026.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"12–13 September 2026."},
+{"q":"1. The 2026 SCO summit was held in Bishkek.\n2. The 2026 G7 summit was held in Italy.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"The G7 met at Évian-les-Bains, France."},
+{"q":"1. The USA holds the G20 presidency in 2026.\n2. The 2025 G20 summit was held in Johannesburg.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"The 2026 summit is planned at Miami."},
+{"q":"1. COP31 was hosted by Türkiye.\n2. COP30 was held in Belém, Brazil.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"COP31: Antalya, November 2026."},
+{"q":"1. Kyrgyzstan won a UN Security Council seat in 2026.\n2. Germany also won a seat in the same election.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Germany lost its bid."},
+{"q":"1. A non-permanent member of the Security Council serves two years.\n2. Ten non-permanent members are elected every year.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Five are elected each year."},
+{"q":"1. BRICS has 11 members.\n2. Timor-Leste became the 11th member of ASEAN in 2025.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Do not mix up the two \"11\" facts."}
+]

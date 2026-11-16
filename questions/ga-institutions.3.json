@@ -1,0 +1,16 @@
+[
+{"q":"1. The UN Security Council has 15 members.\n2. Non-permanent members serve two-year terms.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Five permanent and ten non-permanent members."},
+{"q":"1. The United Nations was founded in 1945.\n2. Its head office is in Geneva.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"The UN head office is in New York."},
+{"q":"1. The IMF and the World Bank were born at Bretton Woods in 1944.\n2. Both have their head offices in Washington.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"They are called the Bretton Woods twins."},
+{"q":"1. SAARC has eight members.\n2. Myanmar is a member of SAARC.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"Myanmar is in BIMSTEC and ASEAN, not SAARC."},
+{"q":"1. BRICS set up the New Development Bank.\n2. The bank's head office is in Shanghai.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"It began work in 2015."},
+{"q":"1. The International Solar Alliance has its head office in Gurugram.\n2. It was started by India and France.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"At the Paris climate meeting, 2015."},
+{"q":"1. The WTO replaced GATT in 1995.\n2. Its head office is in New York.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"The WTO is in Geneva."},
+{"q":"1. The International Court of Justice sits at The Hague.\n2. It has 15 judges with nine-year terms.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"It is the main court of the UN."},
+{"q":"1. India is a member of ASEAN.\n2. The ASEAN secretariat is in Jakarta.\nWhich statement is correct?","o":["Only 2","Only 1","Both 1 and 2","Neither 1 nor 2"],"x":"India is a dialogue partner, not a member."},
+{"q":"1. NATO's head office is in Brussels.\n2. India is a member of NATO.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"India is not in any military alliance."},
+{"q":"1. The QUAD has India, the USA, Japan and Australia.\n2. It is a military alliance like NATO.\nWhich statement is correct?","o":["Only 1","Only 2","Both 1 and 2","Neither 1 nor 2"],"x":"The QUAD is a dialogue group, not a military alliance."},
+{"q":"1. The WHO has its head office in Geneva.\n2. World Health Day is observed on 7 April.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"The WHO was founded on 7 April 1948."},
+{"q":"1. The Commonwealth has 56 members.\n2. Its secretariat is in London.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Most members were once under British rule."},
+{"q":"1. UNESCO has its head office in Paris.\n2. The Sun Temple at Konark is a UNESCO World Heritage Site.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"Konark was listed in 1984."}
+]
