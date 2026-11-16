@@ -1,0 +1,10 @@
+[
+{"q":"In the World Justice Project's Rule of Law Index 2026, India's rank is…","o":["88th of 143","38th of 139","127th of 163","157th of 180"],"x":"Denmark is first.","check":true},
+{"q":"Which country tops the Rule of Law Index 2026?","o":["Denmark","Iceland","Switzerland","Singapore"],"x":"Published by the World Justice Project.","check":true},
+{"q":"In the Henley Passport Index of July 2026, India's rank was…","o":["81st","38th","100th","131st"],"x":"Singapore is first.","check":true},
+{"q":"Which country tops the Global Gender Gap Index 2026?","o":["Iceland","Norway","Finland","New Zealand"],"x":"India is 131st of 145.","check":true},
+{"q":"The Living Planet Report is published by…","o":["WWF","IUCN","UNEP","Greenpeace"],"x":"The 2026 report found a 73% average fall in monitored wildlife populations since 1970."},
+{"q":"The World Development Report 2026 of the World Bank is about…","o":["Artificial intelligence","Climate change","Migration","Public debt"],"x":"Title: \"The Promise of Artificial Intelligence\"."},
+{"q":"According to the WHO Global TB Report 2026, which country has the most new TB cases?","o":["India","Indonesia","China","Nigeria"],"x":"India has about 25% of the world's new cases.","check":true},
+{"q":"UNCTAD named which country the world's leading ship-recycling nation for 2025?","o":["India","Bangladesh","Türkiye","Pakistan"],"x":"Alang in Gujarat is the largest ship-breaking yard.","check":true}
+]

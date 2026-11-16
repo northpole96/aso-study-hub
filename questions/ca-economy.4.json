@@ -1,0 +1,18 @@
+[
+{"q":"What did the RBI do with the repo rate in its August 2026 policy?","o":["Kept it at 5.25%","Raised it to 5.50%","Cut it to 5.00%","Raised it to 6.00%"],"x":"The hike to 5.50% came in October 2026."},
+{"q":"Retail inflation (CPI) for October 2026 was about…","o":["6.1%","2.1%","4.0%","9.5%"],"x":"It crossed the RBI's upper limit of 6% for the first time in two years.","check":true},
+{"q":"The India–New Zealand Free Trade Agreement came into force on…","o":["20 October 2026","27 April 2026","22 December 2025","1 January 2027"],"x":"It was signed on 27 April 2026."},
+{"q":"The India–UK trade agreement (CETA) came into force on…","o":["15 July 2026","24 July 2025","1 April 2026","26 January 2026"],"x":"It was signed on 24 July 2025."},
+{"q":"With which country did India launch talks for a Preferential Trade Agreement on 28 October 2026?","o":["Mexico","Canada","Chile","Peru"],"x":"The Terms of Reference were signed the same day."},
+{"q":"SACU, with which India agreed terms for a trade agreement in 2026, is a customs union in…","o":["Southern Africa","South America","South-East Asia","Central Asia"],"x":"Southern African Customs Union: South Africa, Botswana, Namibia, Lesotho and Eswatini."},
+{"q":"In its October 2026 World Economic Outlook, the IMF put India's growth for 2026-27 at…","o":["7%","5%","6.4%","8.5%"],"x":"Raised from 6.4% in July.","check":true},
+{"q":"In 2026 India's foreign exchange reserves crossed $785 billion and India became the ___ largest holder.","o":["Fourth","Second","Sixth","Tenth"],"x":"India overtook Russia.","check":true},
+{"q":"What is the outlay of India Semiconductor Mission 2.0?","o":["About ₹1.27 lakh crore","About ₹7,600 crore","About ₹27,000 crore","About ₹10 lakh crore"],"x":"₹1,27,500 crore across six pillars."},
+{"q":"Which was added as the ninth core industry in the new Index of Core Industries (base 2022-23)?","o":["Iron ore","Aluminium","Sugar","Textiles"],"x":"The other eight: coal, crude oil, natural gas, refinery products, fertilisers, steel, cement and electricity."},
+{"q":"Under EPFO 3.0, the limit for automatic settlement of claims was raised to…","o":["₹5 lakh","₹1 lakh","₹50,000","₹25 lakh"],"x":"From ₹1 lakh. Claims of KYC-verified accounts settle in three days.","check":true},
+{"q":"Gross GST collection in October 2026 was about…","o":["₹2.31 lakh crore","₹87,000 crore","₹1.2 lakh crore","₹5 lakh crore"],"x":"About 22.9% more than a year before.","check":true},
+{"q":"Border trade through which pass resumed on 1 August 2026 after six years?","o":["Nathu La","Lipulekh","Shipki La","Zoji La"],"x":"Nathu La is in Sikkim, on the China border.","check":true},
+{"q":"The \"Favara–UPI\" payment link, launched in 2026, connects India with…","o":["Maldives","Mauritius","Sri Lanka","Bhutan"],"x":"Favara is the Maldives' instant payment system.","check":true},
+{"q":"1. The India–UK trade pact took effect in July 2026.\n2. The India–New Zealand pact took effect in October 2026.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"15 July and 20 October 2026."},
+{"q":"1. The RBI kept the repo rate at 5.25% in August 2026.\n2. The RBI raised it to 5.50% in October 2026.\nWhich statement is correct?","o":["Both 1 and 2","Only 1","Only 2","Neither 1 nor 2"],"x":"The October hike was the first of this cycle."}
+]

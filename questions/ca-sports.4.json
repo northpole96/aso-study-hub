@@ -1,0 +1,15 @@
+[
+{"q":"Which city will host the Asian Games in 2030?","o":["Doha","Riyadh","Aichi–Nagoya","New Delhi"],"x":"Doha received the flag on 4 October 2026. Riyadh hosts in 2034."},
+{"q":"Which country topped the medal table at the Asian Games 2026?","o":["China","Japan","South Korea","India"],"x":"Japan was second, South Korea third and India fourth.","check":true},
+{"q":"Whom did India beat in the men's hockey final of the Asian Games 2026?","o":["Malaysia","Pakistan","Japan","South Korea"],"x":"5–1. It was India's 21st gold of the Games."},
+{"q":"Whom did India's women beat for the hockey gold at the Asian Games 2026?","o":["China","Japan","South Korea","Malaysia"],"x":"1–0. India's first women's hockey gold at the Games in 44 years.","check":true},
+{"q":"Who became the first Indian recurve archer to win an individual gold at the Asian Games (2026)?","o":["Kumkum Mohod","Deepika Kumari","Ankita Bhakat","Bhajan Kaur"],"x":"She won after a shoot-off.","check":true},
+{"q":"Who became the first Indian woman to win an individual golf gold at the Asian Games (2026)?","o":["Pranavi Urs","Aditi Ashok","Diksha Dagar","Avani Prashanth"],"x":"Diksha Dagar won the silver.","check":true},
+{"q":"Who were India's flag bearers at the Asian Para Games 2026?","o":["Pramod Bhagat and Bhavina Patel","Sumit Antil and Avani Lekhara","Devendra Jhajharia and Deepa Malik","Mariyappan Thangavelu and Sheetal Devi"],"x":"At Aichi–Nagoya, Japan, in October 2026.","check":true},
+{"q":"Who became Formula One's youngest world champion in 2026?","o":["Kimi Antonelli","Oscar Piastri","Lando Norris","Oliver Bearman"],"x":"An Italian driving for Mercedes.","check":true},
+{"q":"Who became India's 100th chess Grandmaster in November 2026?","o":["Anuj Shrivatri","Divya Deshmukh","R. Vaishali","Aditya Mittal"],"x":"India's first was Viswanathan Anand (1988).","check":true},
+{"q":"Which Indian fast bowler retired from Test cricket in November 2026 with 229 wickets?","o":["Mohammed Shami","Jasprit Bumrah","Ishant Sharma","Umesh Yadav"],"x":"In 64 Tests."},
+{"q":"Who stepped down as captain of the Indian women's cricket team in October 2026?","o":["Harmanpreet Kaur","Smriti Mandhana","Mithali Raj","Deepti Sharma"],"x":"She led India to the 2025 World Cup title.","check":true},
+{"q":"The 2026 Youth Olympic Games were held at…","o":["Dakar, Senegal","Buenos Aires, Argentina","Nanjing, China","Lausanne, Switzerland"],"x":"The first Olympic event held in Africa."},
+{"q":"At the Commonwealth Games 2026, India won a record seven gold medals in…","o":["Boxing","Wrestling","Shooting","Badminton"],"x":"India won 39 medals in all.","check":true}
+]

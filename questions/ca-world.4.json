@@ -1,0 +1,11 @@
+[
+{"q":"Who was sworn in as President of Colombia on 7 August 2026?","o":["Abelardo de la Espriella","Gustavo Petro","Iván Duque","Sergio Fajardo"],"x":"He is Colombia's 36th President.","check":true},
+{"q":"Who was elected President of Bangladesh by Parliament in August 2026?","o":["Mirza Fakhrul Islam Alamgir","Tarique Rahman","Muhammad Yunus","Mohammed Shahabuddin"],"x":"The Prime Minister is Tarique Rahman.","check":true},
+{"q":"The \"Mecca Joint Defence Agreement\" of August 2026 was signed by Saudi Arabia, Türkiye and…","o":["Pakistan","Egypt","Iran","Qatar"],"x":"Signed at Mecca on 7 August 2026."},
+{"q":"On 31 August 2026 a Court of Arbitration at The Hague gave an award on which treaty, which India rejected?","o":["Indus Waters Treaty","Ganga Water Treaty","Mahakali Treaty","Simla Agreement"],"x":"It held the 1960 treaty to be fully in force."},
+{"q":"In 2026 the UN General Assembly backed which map projection in place of Mercator?","o":["Equal Earth","Robinson","Peters","Winkel Tripel"],"x":"On a proposal led by Togo. Mercator makes Africa look far too small."},
+{"q":"India and which country raised their ties to a Comprehensive Strategic Partnership during the PM's Tashkent visit of August 2026?","o":["Uzbekistan","Kazakhstan","Tajikistan","Turkmenistan"],"x":"Tashkent is the capital of Uzbekistan."},
+{"q":"Which former world chess champion became interim President of FIDE in 2026?","o":["Viswanathan Anand","Garry Kasparov","Magnus Carlsen","Vladimir Kramnik"],"x":"After Arkady Dvorkovich stepped back from his duties.","check":true},
+{"q":"MINURSO, the UN mission that ended in 2026 after 35 years, worked in…","o":["Western Sahara","South Sudan","Cyprus","Lebanon"],"x":"In north-west Africa.","check":true},
+{"q":"Which country's Senate removed President Santiago Peña in November 2026?","o":["Paraguay","Peru","Ecuador","Bolivia"],"x":"After a bank collapse.","check":true}
+]
