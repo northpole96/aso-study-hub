@@ -1,0 +1,543 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO GS Mock 02</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · General Studies Paper I · Mock 02</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>GS Mock 02</h1>
+<p class="tag">The 100 questions<br><b>most likely</b> to come<br>in January 2027.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This mock has one rule: every question is here because it is likely to be asked in the coming paper. Each of the 300 questions of 2018, 2021 and 2025 was sorted into a topic family. The examiner comes back to the same families but changes the angle, so this paper asks the next angle. In 2025 a false statement said Motilal Nehru led the Karachi Session; here you are asked who really did.</p>
+<p class="lead" style="margin-top:14px">The news questions copy the 2025 pattern too: exercises and operations, themes of days, who was elected or appointed, and new lists such as World Heritage Sites. All 100 questions are new, and none is repeated from the older tests. Every answer tells you which past question it grew from and what else to learn in that family.</p>
+<div class="rules">
+<div><b>Paper</b><span>100 questions · 90 minutes · 100 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will build a redo set from what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 90 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>100</span> questions</span></div>
+<ol class="bp"><li><span class="n">16</span><span>Polity</span><span class="dots"></span><span class="c">17 in 2025; the biggest block</span></li><li><span class="n">13</span><span>Modern History</span><span class="dots"></span><span class="c">15 in 2025</span></li><li><span class="n">10</span><span>Defence</span><span class="dots"></span><span class="c">10 to 12 each year; half is news</span></li><li><span class="n">09</span><span>Environment</span><span class="dots"></span><span class="c">9 in 2021 and in 2025</span></li><li><span class="n">08</span><span>Economy</span><span class="dots"></span><span class="c">planning, poverty, inflation</span></li><li><span class="n">07</span><span>Governance</span><span class="dots"></span><span class="c">bodies, committees, years</span></li><li><span class="n">07</span><span>Odisha</span><span class="dots"></span><span class="c">rivers, hills, minerals, history</span></li><li><span class="n">07</span><span>Institutions</span><span class="dots"></span><span class="c">who hosts, who publishes</span></li><li><span class="n">07</span><span>General News</span><span class="dots"></span><span class="c">days, lists, new leaders</span></li><li><span class="n">06</span><span>World Geography</span><span class="dots"></span><span class="c">steady 5 or 6</span></li><li><span class="n">05</span><span>India Geography</span><span class="dots"></span><span class="c">passes, borders, monsoon</span></li><li><span class="n">05</span><span>Science &amp; Tech</span><span class="dots"></span><span class="c">space and everyday science</span></li></ol>
+<p class="src" style="margin-top:14px">The weights follow the official syllabus, topics (a) to (j), and the 2025 paper most closely. The news is taken mostly from January to September 2026, because the 2025 paper (held in November) asked the news of January to May.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">90:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 100 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · GS Mock 02 · built 16 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 GA papers. 2026 facts come from the Current Affairs 2026 manual. Questions tagged Check rest on news reports: confirm them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Polity", "q": "The provision for suspending Fundamental Rights during an Emergency was borrowed from the constitution of:", "o": ["Australia", "Germany (Weimar Constitution)", "Canada", "Ireland"], "a": 1, "e": "The Weimar Constitution of Germany gave the idea. Past papers asked single citizenship (Britain, 2021) and nomination of Rajya Sabha members (Ireland, 2025), so another 'borrowed from' question is likely. Also learn: Concurrent List and joint sitting from Australia; strong Centre and residuary powers from Canada; Fundamental Duties from the USSR; amendment procedure from South Africa; Directive Principles and the method of electing the President from Ireland.", "k": "one", "n": false, "c": false}, {"s": "World Geography", "q": "The boundary between the Earth's crust and the mantle is called the:", "o": ["Mohorovičić (Moho) discontinuity", "Lehmann discontinuity", "Conrad discontinuity", "Gutenberg discontinuity"], "a": 0, "e": "Conrad: between the upper and lower crust. Moho: crust and mantle. Gutenberg: mantle and outer core. Lehmann: outer core and inner core. The 2018 paper asked about earthquakes: the focus is the point underground where it starts, and the epicentre is the point on the surface just above it. P waves pass through solids and liquids; S waves pass only through solids.", "k": "one", "n": false, "c": false}, {"s": "Governance", "q": "Arrange the following in the order in which they were set up (earliest first):\n1. Lee Commission\n2. Aitchison Commission\n3. Macaulay Committee\n4. Islington Commission", "o": ["3, 2, 4, 1", "3, 4, 2, 1", "3, 2, 1, 4", "2, 3, 4, 1"], "a": 0, "e": "Macaulay Committee 1854 (open exam) → Aitchison Commission 1886 (Imperial, Provincial and Subordinate services) → Islington Commission 1912 → Lee Commission 1923. The Lee Commission is the 'Royal Commission on Superior Civil Services' (asked in 2025); on its advice the first Public Service Commission was set up in 1926. After independence: Kothari (1976), Satish Chandra (1989), Alagh (2001), Hota (2004).", "k": "order", "n": false, "c": false}, {"s": "Polity", "q": "Which writ is issued by a court to ask a person by what authority he or she holds a public office?", "o": ["Quo Warranto", "Mandamus", "Certiorari", "Habeas Corpus"], "a": 0, "e": "Quo Warranto means 'by what warrant'. Mandamus ('we command', asked in 2018) orders an official to do a public duty. Habeas Corpus frees a person held illegally. Prohibition stops a lower court from going on with a case. Certiorari quashes an order already passed by a lower court. The Supreme Court issues writs under Article 32 and the High Courts under Article 226.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements:\n1. Agni-5 is a surface-to-surface ballistic missile with a range of more than 5,000 km.\n2. BrahMos is a subsonic cruise missile developed by India and Israel.\n3. Akash is a surface-to-air missile.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "BrahMos is a supersonic cruise missile made by India and Russia (the name joins the Brahmaputra and the Moskva). The 2025 paper used the same trick on Pralay, which is a surface-to-surface quasi-ballistic missile with a range of about 150 to 500 km. Others: Prithvi – short-range surface-to-surface; Astra – air-to-air; Nag – anti-tank; Nirbhay – subsonic cruise; S-400 – bought from Russia (asked in 2021).", "k": "stmt", "n": false, "c": false}, {"s": "General News", "q": "Which Indian festival was added to UNESCO's Representative List of the Intangible Cultural Heritage of Humanity in December 2025?", "o": ["Deepavali", "Raja Parba", "Chhath", "Holi"], "a": 0, "e": "It was added at a session held in New Delhi. Earlier Indian entries include Durga Puja of Kolkata (2021) and Garba of Gujarat (2023). Keep three UNESCO lists apart: World Heritage Sites (places), Intangible Cultural Heritage (living traditions) and the Memory of the World Register (documents, asked in 2025).", "k": "one", "n": true, "c": false}, {"s": "Modern History", "q": "The Indian National Army (INA) was first formed in 1942 by:", "o": ["Captain Mohan Singh", "Rash Behari Bose", "Subhas Chandra Bose", "Shah Nawaz Khan"], "a": 0, "e": "Mohan Singh raised the first INA from Indian prisoners of war in Malaya and Singapore. Rash Behari Bose led the Indian Independence League. Subhas Chandra Bose took charge in 1943 and set up the Provisional Government of Free India at Singapore on 21 October 1943 (asked in 2018). The INA trials were held at the Red Fort in 1945.", "k": "one", "n": false, "c": false}, {"s": "Institutions", "q": "Which country holds the presidency of the G20 in 2026?", "o": ["Brazil", "United Kingdom", "United States", "South Africa"], "a": 2, "e": "India (New Delhi, 2023) → Brazil (Rio de Janeiro, 2024) → South Africa (Johannesburg, 2025, the first summit in Africa) → United States (2026). The African Union became a member at the New Delhi summit. The G20 has no permanent secretariat; a 'troika' of the past, present and next presidents runs it.", "k": "one", "n": true, "c": false}, {"s": "Odisha", "q": "Which became Odisha's second national park in April 2025?", "o": ["Bhitarkanika", "Chandaka", "Satkosia", "Similipal"], "a": 3, "e": "Similipal in Mayurbhanj became India's 107th national park, with about 846 sq km. Bhitarkanika (1998) was Odisha's first. Similipal is also a tiger reserve and a UNESCO biosphere reserve, and is known for black tigers. Olive ridley turtles were asked in 2018 and 2025: in 2026 Rushikulya had mass nesting but Gahirmatha did not.", "k": "one", "n": true, "c": false}, {"s": "Modern History", "q": "Who is called the 'Father of Local Self-Government' in India?", "o": ["Lord Curzon", "Lord Ripon", "Lord Lytton", "Lord Mayo"], "a": 1, "e": "Ripon's Resolution of 1882 set up local boards with elected members. He also repealed the Vernacular Press Act, passed the first Factory Act (1881), set up the Hunter Education Commission (1882) and faced the Ilbert Bill row (asked in 2018 and 2025). Lytton: Vernacular Press Act, Arms Act and the Delhi Durbar of 1877. Dufferin: the Congress was founded in his time (1885). Curzon: Partition of Bengal (1905).", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Consider the following statements about the Preamble:\n1. In the Berubari Union case (1960), the Supreme Court said the Preamble is not a part of the Constitution.\n2. In the Kesavananda Bharati case (1973), the Supreme Court said the Preamble is a part of the Constitution.\n3. The Preamble has been amended only once so far.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 3, "e": "All three are correct. The Court changed its view in 1973: the Preamble is a part of the Constitution and can be amended, but its basic features cannot be destroyed. It was amended once, by the 42nd Amendment (1976), which added 'Socialist', 'Secular' and 'Integrity'. The Preamble cannot be enforced in a court. The Preamble was asked in 2018 and twice in 2025.", "k": "stmt", "n": false, "c": false}, {"s": "Institutions", "q": "The Secretary-General of the United Nations is appointed by the:", "o": ["International Court of Justice", "General Assembly, on the recommendation of the Security Council", "General Assembly, on the recommendation of the Economic and Social Council", "Security Council alone"], "a": 1, "e": "This is likely because António Guterres's second term ends on 31 December 2026 and a new Secretary-General starts on 1 January 2027. Learn the new name before the exam. The term is five years. Any permanent member can veto a name in the Security Council. The UN was founded on 24 October 1945 and has 193 members.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Which of the following pairs is NOT correctly matched?", "o": ["New India – Annie Besant", "Comrade – Abul Kalam Azad", "The Samaja – Gopabandhu Das", "Utkal Dipika – Gourishankar Ray"], "a": 1, "e": "Comrade (1911) was started by Maulana Mohammad Ali. Azad ran Al-Hilal. Utkal Dipika (1866) was the first Odia newspaper and The Samaja (1919) was started by Utkalmani Gopabandhu Das. Newspaper questions came in 2021 and twice in 2025. More pairs: Sambad Kaumudi – Rammohan Roy; Rast Goftar – Dadabhai Naoroji; Mook Nayak – B. R. Ambedkar; Hindu – G. Subramania Iyer; Amrita Bazar Patrika – Sisir Kumar Ghosh.", "k": "not", "n": false, "c": false}, {"s": "Odisha", "q": "The coastal plain of Odisha is called the 'Hexadeltaic region' because it is built by the deltas of six rivers. Which of the following is NOT one of the six?", "o": ["Budhabalanga", "Subarnarekha", "Indravati", "Rushikulya"], "a": 2, "e": "The six, from north to south: Subarnarekha, Budhabalanga, Baitarani, Brahmani, Mahanadi and Rushikulya. The 2025 paper asked why the region has this name. The Indravati flows the other way, through Kalahandi, Nabarangpur and Koraput into the Godavari. The 2021 paper asked which rivers add most to the coastal plain.", "k": "not", "n": false, "c": false}, {"s": "Polity", "q": "Which of the following States does NOT have a Legislative Council?", "o": ["Telangana", "Odisha", "Bihar", "Karnataka"], "a": 1, "e": "Only six States have a Legislative Council: Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra and Karnataka. Under Article 169, Parliament can create or abolish a Council by an ordinary law after the State Assembly passes a resolution by a special majority (asked in 2021). A Council member must be 30 years old (asked in 2025). Its size cannot be more than one-third of the Assembly or less than 40.", "k": "not", "n": false, "c": false}, {"s": "Economy", "q": "Consider the following statements:\n1. The RBI's inflation target is 4 per cent, with a band of 2 per cent on either side.\n2. This target is measured by the Wholesale Price Index (WPI).\nWhich of the statements given above is/are correct?", "o": ["Only 1", "Only 2", "Both 1 and 2", "Neither 1 nor 2"], "a": 0, "e": "The target uses the Consumer Price Index (CPI-Combined), brought out by the National Statistics Office. The WPI comes from the Office of the Economic Adviser in the commerce ministry. The Government fixes the target after talking to the RBI, and the six-member Monetary Policy Committee sets the repo rate to meet it. Inflation is named in the syllabus. The CPI got a new base year, 2024, in 2026.", "k": "stmt", "n": false, "c": false}, {"s": "India Geography", "q": "Match List I (Pass) with List II (State or Union Territory):\nList I: a. Zoji La  b. Rohtang  c. Lipulekh  d. Bomdi La\nList II: 1. Uttarakhand  2. Arunachal Pradesh  3. Ladakh  4. Himachal Pradesh", "o": ["a-4, b-3, c-1, d-2", "a-3, b-4, c-1, d-2", "a-3, b-1, c-4, d-2", "a-3, b-4, c-2, d-1"], "a": 1, "e": "Zoji La is on the Srinagar–Leh road. Rohtang links Kullu with Lahaul and Spiti. Lipulekh is on the way to Kailash Mansarovar. Bomdi La is in western Arunachal, near the Sela Tunnel (asked in 2021). The 2021 paper asked a wrong pair: Jelep La is in Sikkim, like Nathu La. Shipki La and Bara Lacha La are in Himachal; Mana and Niti are in Uttarakhand.", "k": "match", "n": false, "c": false}, {"s": "Odisha", "q": "The great Odisha famine of 1866, in which about one-third of the people of the coastal districts died, is known as the:", "o": ["Doji Bara famine", "Chhappania famine", "Chalisa famine", "Na'anka famine"], "a": 3, "e": "'Na'anka' means the ninth regnal year of the Gajapati king of Puri. T. E. Ravenshaw was the Commissioner. The famine woke up Odia public life: Utkal Dipika started the same year, and the demand for a separate Odia province grew from it. Chalisa (1783) was in north India, Doji Bara (1791) in the Deccan and Chhappania (1899) in Rajasthan.", "k": "one", "n": false, "c": false}, {"s": "General News", "q": "The United Nations has declared 2026 as the International Year of:", "o": ["Quantum Science and Technology", "Millets", "the Woman Farmer", "Cooperatives"], "a": 2, "e": "2026 is the International Year of the Woman Farmer, and also of Rangelands and Pastoralists. 2025 was the year of Cooperatives, of Quantum Science and Technology, and of Glaciers' Preservation. 2023 was the year of Millets, on India's proposal.", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "Which of the following Fundamental Rights is available only to citizens of India and not to foreigners?", "o": ["Protection of life and personal liberty under Article 21", "The six freedoms under Article 19", "Freedom of religion under Article 25", "Equality before law under Article 14"], "a": 1, "e": "Five Articles are for citizens only: 15, 16, 19, 29 and 30. All others, such as Articles 14, 20, 21, 21A and 25 to 28, are for every person in India. The 2025 paper asked the Articles on religion (25 to 28) and the 2021 paper asked Article 21A.", "k": "one", "n": false, "c": false}, {"s": "Governance", "q": "Which of the following is NOT one of the three modules of the 'Sevottam' model?", "o": ["Performance-linked pay for employees", "Citizen's Charter", "Service Delivery Capability", "Public Grievance Redress"], "a": 0, "e": "Sevottam (Seva + Uttam, 'excellent service') is a quality management system for public services (asked in 2025). The Department of Administrative Reforms and Public Grievances made it in 2006. Its three parts are a Citizen's Charter, a grievance redress system and the capability to deliver services. The Citizen's Charter idea came from the United Kingdom (1991) and India adopted it in 1997.", "k": "not", "n": false, "c": false}, {"s": "World Geography", "q": "Which warm, dry wind of the Rocky Mountains is called the 'Snow Eater'?", "o": ["Foehn", "Chinook", "Mistral", "Sirocco"], "a": 1, "e": "The Chinook blows down the eastern side of the Rockies and melts snow quickly. The Foehn is the same kind of wind in the Alps. The Sirocco is a hot wind from the Sahara to southern Europe. The Mistral is a cold wind in France, Bora blows on the Adriatic coast and Khamsin in Egypt (all three were in the 2021 question). Loo is the hot summer wind of north India.", "k": "one", "n": false, "c": false}, {"s": "India Geography", "q": "Consider the following statements:\n1. In a positive Indian Ocean Dipole, the western Indian Ocean is warmer than the eastern part.\n2. A positive Indian Ocean Dipole usually weakens the Indian monsoon.\nWhich of the statements given above is/are correct?", "o": ["Only 1", "Only 2", "Both 1 and 2", "Neither 1 nor 2"], "a": 0, "e": "A positive dipole usually helps the monsoon; a negative one hurts it. The Indian Ocean Dipole is also called the 'Indian Niño' and works like El Niño (asked in 2025). El Niño is the warming of the Pacific off Peru and usually means a weak monsoon in India. La Niña is the cooling of the same waters and usually means good rain.", "k": "stmt", "n": false, "c": false}, {"s": "Economy", "q": "The National Multidimensional Poverty Index of NITI Aayog measures poverty in three dimensions using how many indicators?", "o": ["12", "10", "8", "17"], "a": 0, "e": "The global index of the UNDP and Oxford uses 10 indicators. India's index adds two more, maternal health and a bank account, to make 12. The three dimensions are health, education and standard of living, each with equal weight. The data comes from the National Family Health Survey (asked in 2025). NITI Aayog is in charge of measuring poverty (asked in 2021).", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Which Article of the Constitution asks the State to separate the judiciary from the executive?", "o": ["Article 40", "Article 44", "Article 50", "Article 48"], "a": 2, "e": "Article 50 was one of the wrong options in the 2025 question on foreign policy (Article 51), so it is a likely next question. Learn the Directive Principles by number: 39A free legal aid (added in 1976, asked in 2025), 40 village panchayats, 44 uniform civil code, 45 early childhood care, 47 nutrition and prohibition, 48 agriculture and cow protection, 48A environment, 51 international peace.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The office of the Secretary of State for India was created by the:", "o": ["Pitt's India Act, 1784", "Indian Councils Act, 1892", "Regulating Act, 1773", "Government of India Act, 1858"], "a": 3, "e": "After the Revolt of 1857, the 1858 Act moved power from the Company to the Crown. The Secretary of State, helped by a 15-member Council of India, sat in London, and the Governor-General also became the Viceroy (Lord Canning, asked in 2025). Regulating Act 1773: Governor-General of Bengal and a Supreme Court at Calcutta. Pitt's India Act 1784: Board of Control. 1892: a start of elections (asked in 2018). 1935: provincial autonomy and a federal court (asked in 2025).", "k": "one", "n": false, "c": false}, {"s": "Economy", "q": "The Viksit Bharat – Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, which replaced MGNREGA, promises a rural household how many days of wage work in a year?", "o": ["150 days", "200 days", "100 days", "125 days"], "a": 3, "e": "Parliament passed the new law (short name VB–G RAM G) in December 2025. MGNREGA, passed in 2005, had promised 100 days. Employment and poverty alleviation are named in the syllabus, so learn this change well.", "k": "one", "n": true, "c": false}, {"s": "Odisha", "q": "Who led the long fight against the British in the Sambalpur region during and after the Revolt of 1857?", "o": ["Buxi Jagabandhu", "Chakhi Khuntia", "Veer Surendra Sai", "Laxman Naik"], "a": 2, "e": "Surendra Sai fought on until 1862 and died in Asirgarh fort in 1884. Buxi Jagabandhu led the Paika Rebellion of 1817. Chakhi Khuntia, a priest of Puri, helped the rebels of 1857. Laxman Naik of Koraput was hanged in 1943 for the Quit India Movement. The 2018 paper asked two Odisha history questions (the British conquest of 1803 and Gandhi at Cuttack in 1921), and the 1857 revolt was asked in 2018 and 2025.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who called Bal Gangadhar Tilak the 'Father of Indian Unrest'?", "o": ["Valentine Chirol", "Lord Minto", "Lord Curzon", "Annie Besant"], "a": 0, "e": "Valentine Chirol, a British journalist, wrote this in his book 'Indian Unrest' (1910). Tilak ran Kesari (Marathi) and Mahratta (English) and said 'Swaraj is my birthright'. The 2025 paper had a statement question on Lala Lajpat Rai (Punjab Kesari; he founded 'The Punjabee'), so the other two of Lal–Bal–Pal are likely. Bipin Chandra Pal edited New India and Bande Mataram.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Which Schedule of the Constitution contains the forms of oaths and affirmations?", "o": ["Fourth Schedule", "Third Schedule", "Second Schedule", "Seventh Schedule"], "a": 1, "e": "The 2025 paper used this as a trap by pairing oaths with the Second Schedule. Second = salaries and allowances; Third = oaths; Fourth = seats in the Rajya Sabha; Fifth = Scheduled Areas; Sixth = tribal areas of Assam, Meghalaya, Tripura and Mizoram; Seventh = the three lists; Eighth = 22 languages; Ninth = laws kept away from court review (added by the 1st Amendment, 1951); Tenth = defection; Eleventh = Panchayats; Twelfth = Municipalities.", "k": "one", "n": false, "c": false}, {"s": "Environment", "q": "The Stockholm Convention (2001) deals with:", "o": ["trade in endangered species", "persistent organic pollutants", "mercury", "movement of hazardous waste across borders"], "a": 1, "e": "Persistent organic pollutants (POPs) are poisons such as DDT that stay in nature for years. Minamata Convention – mercury (asked in 2021). Basel – hazardous waste. Rotterdam – prior consent for trade in dangerous chemicals. CITES – trade in endangered species. Montreal Protocol – ozone. Do not confuse it with the Stockholm Conference of 1972, the first UN meeting on the environment.", "k": "one", "n": false, "c": false}, {"s": "Institutions", "q": "Which of the following countries was elected in June 2026 as a non-permanent member of the UN Security Council for 2027–28?", "o": ["Kyrgyzstan", "Philippines", "Pakistan", "Germany"], "a": 0, "e": "The 2021 paper asked this same question for the June 2022 election. The five new members for 2027–28 are Austria, Kyrgyzstan, Portugal, Trinidad and Tobago, and Zimbabwe. Kyrgyzstan beat the Philippines and won a seat for the first time; Germany lost. Pakistan's term ends in December 2026. There are 10 non-permanent members, five are elected each year, and the term is two years (asked in 2021).", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Match List I (Military exercise) with List II (Partner country):\nList I: a. KHANJAR  b. DUSTLIK  c. KAZIND  d. Garuda Shakti\nList II: 1. Uzbekistan  2. Indonesia  3. Kyrgyzstan  4. Kazakhstan", "o": ["a-3, b-1, c-4, d-2", "a-3, b-4, c-1, d-2", "a-1, b-3, c-4, d-2", "a-4, b-1, c-3, d-2"], "a": 0, "e": "The three Central Asian names are the trap. KHANJAR is with Kyrgyzstan (2026: Misamari, Assam). DUSTLIK is with Uzbekistan (2026: Aundh, Pune). KAZIND is with Kazakhstan. Garuda Shakti is the special forces exercise with Indonesia. Asked before: Dharma Guardian with Japan (2021 and 2025; the 7th edition was in Uttarakhand in 2026) and Nomadic Elephant with Mongolia (2025). Also: Yudh Abhyas – USA, Shakti – France, AUSTRAHIND – Australia, Surya Kiran – Nepal, Sampriti – Bangladesh.", "k": "match", "n": true, "c": false}, {"s": "Environment", "q": "To be called a 'biodiversity hotspot', a region must have at least 1,500 endemic species of vascular plants and must have lost at least ____ of its original vegetation.", "o": ["50%", "30%", "90%", "70%"], "a": 3, "e": "Norman Myers gave the hotspot idea in 1988 (asked in 2021). 'Endemic' means found only in that region (asked in 2025). There are 36 hotspots in the world. Four touch India: the Himalaya, Indo-Burma, the Western Ghats and Sri Lanka, and Sundaland (the Nicobar Islands).", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which of the following pairs is NOT correctly matched?", "o": ["Indian Naval Academy – Ezhimala", "Officers Training Academy – Pune", "Air Force Academy – Dundigal", "Indian Military Academy – Dehradun"], "a": 1, "e": "The Officers Training Academy is at Chennai (a second one is at Gaya). Pune has the National Defence Academy at Khadakwasla. The Indian National Defence University at Binola, Haryana was asked in 2018 and 2021. Others: National Defence College – New Delhi; Defence Services Staff College – Wellington; College of Defence Management – Secunderabad; Sardar Vallabhbhai Patel National Police Academy – Hyderabad (asked in 2025).", "k": "not", "n": false, "c": false}, {"s": "World Geography", "q": "Which river crosses the Tropic of Capricorn twice?", "o": ["Zambezi", "Congo", "Orange", "Limpopo"], "a": 3, "e": "The Limpopo of southern Africa bends north and then south-east, cutting the Tropic of Capricorn twice. The Congo crosses the Equator twice (asked in 2025). In India the Mahi crosses the Tropic of Cancer twice. The Nile is the longest river and the Amazon carries the most water.", "k": "one", "n": false, "c": false}, {"s": "Environment", "q": "The United Nations Framework Convention on Climate Change (UNFCCC) was opened for signature at the:", "o": ["Kyoto Conference, 1997", "Rio Earth Summit, 1992", "Paris Conference, 2015", "Stockholm Conference, 1972"], "a": 1, "e": "The Rio Earth Summit also gave the Convention on Biological Diversity and Agenda 21. The idea of 'common but differentiated responsibilities' (asked in 2021) comes from it. The Kyoto Protocol was adopted on 11 December 1997 (asked in 2025) and came into force in 2005. The Paris Agreement came at COP21 in 2015. COP30 was at Belém, Brazil (2025) and COP31 at Antalya, Türkiye (2026).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "In March 1929, communist and trade union leaders such as Muzaffar Ahmed, S. A. Dange and P. C. Joshi were arrested and tried in the:", "o": ["Alipore Bomb Case", "Kakori Conspiracy Case", "Meerut Conspiracy Case", "Lahore Conspiracy Case"], "a": 2, "e": "The Meerut Conspiracy Case (1929–33) was the government's attack on the labour movement. The 2025 paper asked two questions on the Labour Swaraj Party (1925), whose leaders included Muzaffar Ahmed and Qazi Nazrul Islam, so this family is live. Earlier, Dange and Muzaffar Ahmed were also tried in the Kanpur Bolshevik Conspiracy Case (1924). Kakori (1925) was a train robbery by the HRA; the Lahore case was against Bhagat Singh; Alipore (1908) was against Aurobindo Ghosh.", "k": "one", "n": false, "c": false}, {"s": "Governance", "q": "Which of the following statements about the Lal Bahadur Shastri National Academy of Administration (LBSNAA) is NOT correct?", "o": ["It works under the Ministry of Home Affairs", "It was set up in 1959", "It trains officers of the Indian Administrative Service", "It is located at Mussoorie in Uttarakhand"], "a": 0, "e": "LBSNAA is under the Department of Personnel and Training. The 2025 paper asked this same style on the Sardar Vallabhbhai Patel National Police Academy (Hyderabad, set up in 1948, under the Home Ministry). Also asked in 2025: Indian Institute of Public Administration, New Delhi (1954) and NIRDPR, Hyderabad. Odisha's own training centre is the Gopabandhu Academy of Administration, Bhubaneswar.", "k": "not", "n": false, "c": false}, {"s": "Modern History", "q": "Consider the following statements about the Permanent Settlement:\n1. It was introduced by Lord Cornwallis in 1793.\n2. It made the zamindars the owners of the land.\n3. Under it, the land revenue was revised every thirty years.\nWhich of the statements given above are correct?", "o": ["Only 1", "Only 1 and 2", "Only 2 and 3", "1, 2 and 3"], "a": 1, "e": "Statement 3 is wrong: the revenue was fixed for ever, which is why it is called 'permanent'. It covered Bengal, Bihar and Orissa. The 2025 paper asked the Ryotwari system (Madras and Bombay; Thomas Munro and Alexander Read; revenue taken straight from the ryot). The third system is Mahalwari (Holt Mackenzie, 1822; North-Western Provinces and Punjab; settled with the village).", "k": "stmt", "n": false, "c": false}, {"s": "Environment", "q": "Which became India's 58th tiger reserve in March 2025?", "o": ["Guru Ghasidas–Tamor Pingla, Chhattisgarh", "Similipal, Odisha", "Ratapani, Madhya Pradesh", "Madhav, Madhya Pradesh"], "a": 3, "e": "56th: Guru Ghasidas–Tamor Pingla. 57th: Ratapani. 58th: Madhav, which gave Madhya Pradesh nine tiger reserves, the most of any State. Project Tiger began in 1973. The 2022 count found 3,682 tigers, and the next count is due in 2027. Odisha has two tiger reserves: Similipal and Satkosia.", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "The name of Kerala was changed to 'Keralam' in 2026. Under which Article can Parliament change the name of a State by an ordinary law?", "o": ["Article 356", "Article 368", "Article 1", "Article 3"], "a": 3, "e": "Under Article 3, Parliament can form new States and change the area, boundary or name of a State by a simple majority. The Bill needs the President's recommendation, and the President first sends it to the State Legislature for its views, which are not binding. Article 4 says such a law is not an amendment under Article 368. Orissa became Odisha in 2011. The 2025 paper listed 'altering the boundary of States' as an option.", "k": "one", "n": true, "c": false}, {"s": "Science & Tech", "q": "Consider the following statements about the Artemis II mission:\n1. It was a crewed NASA mission that flew around the Moon in April 2026.\n2. Its astronauts landed near the Moon's south pole.\nWhich of the statements given above is/are correct?", "o": ["Only 1", "Only 2", "Both 1 and 2", "Neither 1 nor 2"], "a": 0, "e": "Artemis II did not land. Four astronauts (three Americans and Jeremy Hansen of Canada) flew around the Moon in the Orion capsule, launched on the SLS rocket. It was the first crewed trip to the Moon since Apollo 17 in 1972. The 2021 paper had a statement question on China's Chang'e-5 Moon mission, and the 2025 paper asked about SpaceX.", "k": "stmt", "n": true, "c": false}, {"s": "Polity", "q": "In January 2026 the Supreme Court held that menstrual health and hygiene is a part of the right to life and dignity. This right flows from:", "o": ["Article 32", "Article 21", "Article 14", "Article 19"], "a": 1, "e": "Both earlier court questions in this exam were also about Article 21: the right to privacy (2018) and maternity leave (2025). Rights read into Article 21 include privacy, livelihood, clean environment, speedy trial, sleep, and health. This item rests on news reports, so confirm it once before the exam.", "k": "one", "n": true, "c": true}, {"s": "Institutions", "q": "Match List I (Report) with List II (Publisher):\nList I: a. Emissions Gap Report  b. World Investment Report  c. Global Innovation Index  d. Human Development Report\nList II: 1. UNDP  2. WIPO  3. UNEP  4. UNCTAD", "o": ["a-3, b-2, c-4, d-1", "a-3, b-4, c-2, d-1", "a-4, b-3, c-2, d-1", "a-3, b-4, c-1, d-2"], "a": 1, "e": "The 2021 paper asked who publishes 'South Asia Economic Focus' (World Bank) and the World Giving Index (Charities Aid Foundation). More: World Economic Outlook – IMF; Global Gender Gap – World Economic Forum; Global Hunger Index – Concern Worldwide and Welthungerhilfe; World Press Freedom Index – Reporters Without Borders; Global Peace Index – Institute for Economics and Peace. In 2026 India was 38th in the Global Innovation Index.", "k": "match", "n": false, "c": false}, {"s": "Science & Tech", "q": "ISRO's PSLV-C62 mission failed on 12 January 2026 after a problem in its third stage. Which main satellite was lost?", "o": ["NISAR", "CMS-03", "EOS-09", "EOS-N1 (Anvesha)"], "a": 3, "e": "EOS-N1 'Anvesha' was a DRDO satellite for watching the seas. It was the PSLV's second failure in a row: PSLV-C61 with EOS-09 failed in May 2025, and the 2025 paper asked the orbit meant for EOS-09 (Sun-synchronous polar orbit). NISAR, the NASA–ISRO radar satellite, went up on a GSLV in July 2025.", "k": "one", "n": true, "c": false}, {"s": "World Geography", "q": "The rich fishing ground of the Grand Banks, off Newfoundland, lies where which two ocean currents meet?", "o": ["Benguela and Agulhas Currents", "Brazil and Falkland Currents", "Kuroshio and Oyashio", "Gulf Stream and Labrador Current"], "a": 3, "e": "Where a warm current meets a cold one, fog forms and plankton grows, so fish gather. The warm Gulf Stream meets the cold Labrador Current at the Grand Banks. The warm Kuroshio meets the cold Oyashio off Japan. The 2021 paper asked which current is in the southern hemisphere (West Wind Drift).", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Who took over as India's third Chief of Defence Staff on 31 May 2026?", "o": ["General Anil Chauhan", "Admiral Dinesh K. Tripathi", "General Upendra Dwivedi", "General N. S. Raja Subramani"], "a": 3, "e": "The 2021 paper asked 'the present Chief of Air Staff', and all four top posts changed in 2026. CDS: General N. S. Raja Subramani (after Anil Chauhan; the first CDS was Bipin Rawat). Army: General Dhiraj Seth, from 30 June 2026. Navy: Admiral Krishna Swaminathan, from 31 May 2026. Air Force: Air Chief Marshal Ashutosh Dixit, from 31 October 2026.", "k": "one", "n": true, "c": false}, {"s": "Odisha", "q": "Match List I (Peak) with List II (District):\nList I: a. Mahendragiri  b. Malayagiri  c. Meghasani  d. Gandhamardan\nList II: 1. Mayurbhanj  2. Bargarh–Balangir border  3. Gajapati  4. Angul", "o": ["a-4, b-3, c-1, d-2", "a-3, b-4, c-1, d-2", "a-3, b-1, c-4, d-2", "a-3, b-4, c-2, d-1"], "a": 1, "e": "The 2025 paper asked for these hills in north-to-south order, so the districts are the next step. Meghasani is in the Similipal hills. Malayagiri is near Pallahara. Gandhamardan has bauxite and the Nrusinghanath and Harishankar temples. Mahendragiri is in the Eastern Ghats. Deomali in Koraput (1,672 m) is the highest peak of Odisha.", "k": "match", "n": false, "c": false}, {"s": "Governance", "q": "Match List I (Committee) with List II (What it is known for):\nList I: a. Balwant Rai Mehta Committee  b. Ashok Mehta Committee  c. G. V. K. Rao Committee  d. L. M. Singhvi Committee\nList II: 1. Constitutional status for Panchayats  2. Three-tier Panchayati Raj  3. Two-tier Panchayati Raj  4. Called Panchayati Raj 'grass without roots'", "o": ["a-3, b-2, c-4, d-1", "a-2, b-3, c-1, d-4", "a-2, b-3, c-4, d-1", "a-2, b-4, c-3, d-1"], "a": 2, "e": "Balwant Rai Mehta (1957): three tiers; Rajasthan was the first State to start, at Nagaur in 1959. Ashok Mehta (1977): two tiers. G. V. K. Rao (1985): the district as the main unit of planning. L. M. Singhvi (1986): constitutional status, which came with the 73rd Amendment (1992). The 2025 paper named the 'B. R. Mehta Committee' as the one not linked to the civil services.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Operation) with List II (Purpose):\nList I: a. Operation Brahma  b. Operation Sindhu  c. Operation Sagar Bandhu  d. Operation Sindoor\nList II: 1. Bringing Indians home from Iran  2. Strikes on terror camps after the Pahalgam attack  3. Earthquake relief to Myanmar  4. Cyclone relief to Sri Lanka", "o": ["a-1, b-3, c-4, d-2", "a-3, b-4, c-1, d-2", "a-4, b-1, c-3, d-2", "a-3, b-1, c-4, d-2"], "a": 3, "e": "All four are from 2025. Brahma: help to Myanmar after the March earthquake. Sindoor: 7 May, after the Pahalgam attack of 22 April. Sindhu: June, evacuation from Iran. Sagar Bandhu: help to Sri Lanka after Cyclone Ditwah. The 2025 paper asked three operation names (Jindagi, Keller, Olivia). From 2026 learn Operation Urja Suraksha, in which the Navy escorted oil and gas ships during the Strait of Hormuz crisis.", "k": "match", "n": true, "c": false}, {"s": "General News", "q": "Match List I (State) with List II (Chief Minister who took office after the Assembly elections of 2026):\nList I: a. West Bengal  b. Tamil Nadu  c. Kerala  d. Assam\nList II: 1. V. D. Satheesan  2. Himanta Biswa Sarma  3. Suvendu Adhikari  4. Vijay", "o": ["a-3, b-4, c-2, d-1", "a-3, b-1, c-4, d-2", "a-4, b-3, c-1, d-2", "a-3, b-4, c-1, d-2"], "a": 3, "e": "The results came on 4 May 2026. West Bengal got its first BJP government under Suvendu Adhikari. In Tamil Nadu the actor Vijay's party, TVK, won. In Kerala the Congress-led UDF came back under V. D. Satheesan. In Assam Himanta Biswa Sarma won a second term. Odisha's Chief Minister is Mohan Charan Majhi (since June 2024).", "k": "match", "n": true, "c": false}, {"s": "Polity", "q": "The Rajya Sabha must return a Money Bill to the Lok Sabha, with or without its recommendations, within:", "o": ["14 days", "six months", "six weeks", "30 days"], "a": 0, "e": "Article 109 gives the Rajya Sabha only 14 days. The Lok Sabha may accept or reject its recommendations (asked in 2025). Article 110 defines a Money Bill and the Speaker's decision on it is final. A Money Bill starts only in the Lok Sabha, needs the President's recommendation, and there is no joint sitting on it.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Open competition for recruitment to the civil services in India was introduced by the:", "o": ["Indian Councils Act, 1861", "Charter Act of 1833", "Charter Act of 1853", "Government of India Act, 1858"], "a": 2, "e": "The Charter Act of 1853 ended the Company's power to nominate civil servants. The Macaulay Committee (1854) then framed the exam, and Satyendranath Tagore became the first Indian ICS officer in 1863. Charter Act 1813: ₹1 lakh for education (asked in 2021). Charter Act 1833: Governor-General of India, and Macaulay as the first Law Member (asked in 2025).", "k": "one", "n": false, "c": false}, {"s": "World Geography", "q": "Match List I (Landform) with List II (Agent that makes it):\nList I: a. Moraine  b. Barchan  c. Stalactite  d. Oxbow lake\nList II: 1. River  2. Wind  3. Glacier  4. Underground water", "o": ["a-3, b-2, c-4, d-1", "a-3, b-4, c-2, d-1", "a-3, b-2, c-1, d-4", "a-2, b-3, c-4, d-1"], "a": 0, "e": "Glacier: moraine, cirque, drumlin, U-shaped valley. Wind: barchan (a crescent sand dune), mushroom rock, loess. Underground water in limestone: stalactite (hangs from the roof), stalagmite (grows from the floor), sinkhole. River: meander, oxbow lake, delta, V-shaped valley. The 2021 paper asked the bird-foot delta (Mississippi) and types of mountains.", "k": "match", "n": false, "c": false}, {"s": "Economy", "q": "Effective Revenue Deficit is equal to the revenue deficit minus:", "o": ["interest payments", "capital expenditure", "grants given to States for creating capital assets", "market borrowings"], "a": 2, "e": "The 2025 paper asked which term is not a real deficit ('Monetary Deficit'), with Effective Revenue Deficit as an option. Revenue deficit = revenue spending − revenue receipts. Fiscal deficit = total spending − total receipts other than borrowings. Primary deficit = fiscal deficit − interest payments. Budget 2026-27 targets a fiscal deficit of 4.3% of GDP.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Consider the following statements about the National Human Rights Commission:\n1. A former Chief Justice of India or a former Judge of the Supreme Court can be its Chairperson.\n2. The Chairperson holds office for five years or until the age of 70.\n3. It was set up under the Protection of Human Rights Act, 1993.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "Statement 2 is wrong. The 2019 amendment cut the term from five years to three years (or the age of 70) and also allowed a former Supreme Court Judge to be Chairperson. The NHRC was asked in 2018 (who can be chairman), 2021 (first chairman: Ranganath Misra) and 2025 (selection committee). The present Chairperson is Justice V. Ramasubramanian.", "k": "stmt", "n": false, "c": false}, {"s": "Economy", "q": "The new series of India's GDP, released in February 2026, uses which base year?", "o": ["2011-12", "2024-25", "2022-23", "2017-18"], "a": 2, "e": "The base year is the year whose prices are used to compare other years. It moved from 2011-12 to 2022-23. The National Statistics Office under the Ministry of Statistics brings out the GDP numbers. The services sector gives the largest share of GDP (asked in 2025).", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "Match List I (Office) with List II (Minimum age):\nList I: a. Member of a Panchayat  b. Member of the Lok Sabha  c. Member of a Legislative Council  d. Governor\nList II: 1. 35 years  2. 21 years  3. 30 years  4. 25 years", "o": ["a-2, b-4, c-1, d-3", "a-4, b-2, c-3, d-1", "a-2, b-4, c-3, d-1", "a-2, b-3, c-4, d-1"], "a": 2, "e": "Panchayat or Municipality member 21; Lok Sabha and Legislative Assembly 25; Rajya Sabha and Legislative Council 30; President, Vice-President and Governor 35. The 2025 paper asked the Legislative Council age (30).", "k": "match", "n": false, "c": false}, {"s": "Modern History", "q": "Which of the following was NOT part of the alliance defeated by the British at the Battle of Buxar (1764)?", "o": ["Siraj-ud-Daulah", "Shah Alam II", "Mir Qasim", "Shuja-ud-Daulah"], "a": 0, "e": "Siraj-ud-Daulah was defeated earlier, at Plassey (1757). At Buxar, Hector Munro beat Mir Qasim of Bengal, Shuja-ud-Daulah of Awadh and the Mughal emperor Shah Alam II. The Treaty of Allahabad (1765) then gave the Company the Diwani (right to collect revenue) of Bengal, Bihar and Orissa. Wandiwash (1760), which ended the French challenge, was asked in 2018.", "k": "not", "n": false, "c": false}, {"s": "Governance", "q": "Which Article of the Constitution says that a civil servant cannot be dismissed by an authority lower than the one that appointed him, and not without an inquiry?", "o": ["Article 312", "Article 323A", "Article 311", "Article 309"], "a": 2, "e": "Article 309: rules of recruitment and service. Article 310: civil servants hold office during the pleasure of the President or Governor. Article 311: the two safeguards against that pleasure. Article 312: All India Services, created by Parliament after a Rajya Sabha resolution (asked in 2021 and 2025). Article 315: Public Service Commissions. Article 323A: administrative tribunals.", "k": "one", "n": false, "c": false}, {"s": "India Geography", "q": "Which of the following States does NOT share a border with Myanmar?", "o": ["Nagaland", "Manipur", "Tripura", "Mizoram"], "a": 2, "e": "Four States touch Myanmar: Arunachal Pradesh, Nagaland, Manipur and Mizoram. Tripura has Bangladesh on three sides. The 2025 paper matched States with neighbour countries. Sikkim touches three countries (China, Nepal, Bhutan) and so does West Bengal (Bangladesh, Nepal, Bhutan). India's longest land border is with Bangladesh.", "k": "not", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements about the Border Security Force (BSF):\n1. It was raised in 1965.\n2. It guards India's borders with Pakistan and Bangladesh.\n3. It works under the Ministry of Defence.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "All the Central Armed Police Forces work under the Ministry of Home Affairs. The 2025 paper had a three-statement question on the ITBP (raised in 1962, China border), so another force is likely. SSB (1963): Nepal and Bhutan. Assam Rifles (1835, the oldest): Myanmar. CISF (1969): airports and industries. CRPF (1939): internal security. The Coast Guard (1978) is under the Ministry of Defence.", "k": "stmt", "n": false, "c": false}, {"s": "Polity", "q": "A member of a State Public Service Commission, such as the OPSC, holds office for six years or until the age of:", "o": ["60 years", "65 years", "62 years", "70 years"], "a": 2, "e": "State PSC: six years or 62. UPSC: six years or 65. The Governor appoints the chairman and members of a State PSC, but only the President can remove them. Articles 315 to 323 deal with the Commissions. A Joint State PSC is created by Parliament (asked in 2025). The 2021 paper asked which jobs a former member can take.", "k": "one", "n": false, "c": false}, {"s": "Environment", "q": "The '10 per cent law' of energy transfer from one trophic level to the next was given by:", "o": ["Raymond Lindeman", "A. G. Tansley", "Eugene Odum", "Charles Elton"], "a": 0, "e": "Lindeman (1942) said only about 10% of the energy passes to the next level; the rest is lost as heat. That is why the pyramid of energy is always upright. Tansley coined 'ecosystem' (1935), Elton gave the pyramid of numbers, and Ernst Haeckel coined 'ecology'. Ecology terms came in every paper: plankton (2018), hemiparasites and assimilation efficiency (2021), edge species and endemic species (2025).", "k": "one", "n": false, "c": false}, {"s": "General News", "q": "Who became the Prime Minister of Bangladesh in February 2026?", "o": ["Khaleda Zia", "Muhammad Yunus", "Tarique Rahman", "Sheikh Hasina"], "a": 2, "e": "Tarique Rahman of the BNP took office on 17 February 2026 after the election of 12 February. Muhammad Yunus had led the interim government since August 2024, when Sheikh Hasina left the country. In Nepal, Balendra Shah became Prime Minister in March 2026. In Japan, Sanae Takaichi became the first woman Prime Minister in October 2025.", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "The Comptroller and Auditor General of India is called the 'friend, philosopher and guide' of the:", "o": ["Finance Commission", "Public Accounts Committee", "NITI Aayog", "Estimates Committee"], "a": 1, "e": "The CAG's audit reports are examined by the Public Accounts Committee (22 members: 15 from the Lok Sabha and 7 from the Rajya Sabha; its chairman is usually from the Opposition). The CAG is appointed by the President (asked in 2021) under Article 148, serves six years or till the age of 65, and gives the reports to the President (Article 151). The present CAG is K. Sanjay Murthy.", "k": "one", "n": false, "c": false}, {"s": "Institutions", "q": "Consider the following statements about BRICS:\n1. India chaired BRICS in 2026 and hosted its 18th summit.\n2. The New Development Bank of BRICS has its headquarters in New Delhi.\n3. Indonesia became a full member in January 2025.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "The New Development Bank is in Shanghai. The 18th summit was held in New Delhi in September 2026 and ended with the New Delhi Declaration. The 17th summit was at Rio de Janeiro in 2025. The first five members were Brazil, Russia, India, China and South Africa; Egypt, Ethiopia, Iran and the UAE joined in 2024. The 2021 and 2025 papers asked the hosts of SCO and BIMSTEC meetings.", "k": "stmt", "n": true, "c": false}, {"s": "Modern History", "q": "Who presided over the Karachi Session of the Indian National Congress (1931), which passed the resolution on Fundamental Rights and the National Economic Programme?", "o": ["Motilal Nehru", "Subhas Chandra Bose", "Jawaharlal Nehru", "Sardar Vallabhbhai Patel"], "a": 3, "e": "The 2025 paper gave 'Motilal Nehru presided' as a false statement, so the true name is the natural next question. The session was held a few days after Bhagat Singh was hanged, and it approved the Gandhi–Irwin Pact. Other sessions: Belgaum 1924, the only one under Gandhi (asked in 2018); Lahore 1929, Purna Swaraj under Jawaharlal Nehru; Faizpur 1936, the first in a village; Tripuri 1939, Bose beat Pattabhi Sitaramayya.", "k": "one", "n": false, "c": false}, {"s": "Governance", "q": "Consider the following statements about the Lokpal:\n1. It has a Chairperson and not more than eight Members.\n2. Half of the Members must be judicial Members.\n3. The Prime Minister is fully outside its jurisdiction.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "The Prime Minister is covered, but not on matters of foreign relations, security, public order, atomic energy and space. The Lokpal and Lokayuktas Act was passed in 2013 and came into force in January 2014. The first Chairperson was Justice Pinaki Chandra Ghose (2019); the present one is Justice A. M. Khanwilkar. Corruption bodies keep coming: the Santhanam Committee was asked in 2021 and 2025.", "k": "stmt", "n": false, "c": false}, {"s": "Science & Tech", "q": "Galvanisation protects iron from rusting by coating it with a thin layer of:", "o": ["zinc", "copper", "tin", "chromium"], "a": 0, "e": "'Use of science in everyday life' is in the syllabus; the 2018 paper asked what non-stick pans are coated with (Teflon). Food cans are coated with tin. Stainless steel is iron with chromium and nickel. LPG gets its smell from ethyl mercaptan. Dry ice is solid carbon dioxide. Vinegar is acetic acid. Baking soda is sodium bicarbonate.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which of the following countries is NOT a participant in the naval exercise 'Malabar'?", "o": ["Japan", "United States", "France", "Australia"], "a": 2, "e": "Malabar began in 1992 between India and the USA. Japan became a permanent member in 2015 and Australia joined in 2020. The same four countries form the Quad (asked in 2021). India's naval exercise with France is Varuna. The 2025 paper asked this 'who did not take part' style on Exercise Sea Dragon.", "k": "not", "n": false, "c": false}, {"s": "India Geography", "q": "The river Kaveri rises at Talakaveri in the:", "o": ["Mahabaleshwar hills of Maharashtra", "Nilgiri hills of Tamil Nadu", "Amarkantak plateau of Madhya Pradesh", "Brahmagiri hills of Kodagu, Karnataka"], "a": 3, "e": "Krishna rises at Mahabaleshwar and Godavari at Trimbak near Nashik. Narmada and Son rise at Amarkantak in the Maikal range; Tapi does not, it rises at Multai (asked in 2021). Mahanadi rises at Sihawa in Chhattisgarh. Kaveri is the longest river of Tamil Nadu (used in a 2018 statement).", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which is India's highest gallantry award given in peacetime?", "o": ["Ashoka Chakra", "Maha Vir Chakra", "Param Vir Chakra", "Kirti Chakra"], "a": 0, "e": "Peacetime: Ashoka Chakra → Kirti Chakra → Shaurya Chakra. Wartime: Param Vir Chakra → Maha Vir Chakra → Vir Chakra. The 2021 paper asked the only Air Force officer with the Param Vir Chakra (Flying Officer Nirmal Jit Singh Sekhon, 1971). The first Param Vir Chakra went to Major Somnath Sharma (1947).", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "The voting age in India was lowered from 21 years to 18 years by the:", "o": ["86th Amendment Act, 2002", "44th Amendment Act, 1978", "73rd Amendment Act, 1992", "61st Amendment Act, 1988"], "a": 3, "e": "The 61st Amendment changed Article 326. It was passed in 1988 and came into force in 1989. Amendments asked so far: 42nd (2025), 44th and 99th (2021), 69th (2018), 91st (2025). Others to learn: 52nd anti-defection, 73rd Panchayats, 74th Municipalities, 86th Right to Education, 101st GST, 103rd EWS quota, 106th women's reservation.", "k": "one", "n": false, "c": false}, {"s": "Science & Tech", "q": "The Nobel Prize in Chemistry 2025 was given to Susumu Kitagawa, Richard Robson and Omar Yaghi for developing:", "o": ["quantum dots", "metal–organic frameworks", "lithium-ion batteries", "CRISPR gene editing"], "a": 1, "e": "Metal–organic frameworks are crystals full of tiny holes that can trap gases or pull water from desert air. The 2021 paper asked the 2019 Chemistry prize (lithium-ion batteries), so an older year can come too. 2020: CRISPR gene editing. 2023: quantum dots. 2024: protein design. The Nobel Peace Prize 2025 went to María Corina Machado of Venezuela.", "k": "one", "n": true, "c": false}, {"s": "Governance", "q": "CPGRAMS, run by the Department of Administrative Reforms and Public Grievances, is an online system for:", "o": ["training civil servants online", "filing RTI applications", "buying goods and services for government offices", "lodging and tracking public grievances"], "a": 3, "e": "CPGRAMS is the Centralised Public Grievance Redress and Monitoring System. RTI applications go to the RTI Online portal. Government buying is done on GeM. Online training is on iGOT Karmayogi. E-governance is named in the syllabus and was asked in 2018. Others: UMANG (many services in one app), DigiLocker (documents), PRAGATI (the Prime Minister's review of projects).", "k": "one", "n": false, "c": false}, {"s": "Odisha", "q": "The Brahmani river is formed by the meeting of which two rivers at Vedavyas near Rourkela?", "o": ["Sankh and Koel", "Sabari and Sileru", "Ib and Tel", "Ong and Jira"], "a": 0, "e": "The Sankh and the South Koel come down from the Chota Nagpur plateau and join at Vedavyas. The 2021 paper matched the Rajgangpur–Panposh uplands with these two rivers. The Rengali Dam is on the Brahmani. Ib, Tel, Ong and Jira are tributaries of the Mahanadi. Sabari and Sileru in Malkangiri flow to the Godavari. Baitarani rises at Gonasika in Keonjhar; Rushikulya rises in the Rushimala hills and has no delta.", "k": "one", "n": false, "c": false}, {"s": "Science & Tech", "q": "Cholera is a:", "o": ["waterborne bacterial disease", "airborne bacterial disease", "waterborne viral disease", "airborne viral disease"], "a": 0, "e": "The 2025 paper asked the same thing about mumps (an airborne viral disease). Cholera is caused by the bacterium Vibrio cholerae and spreads through dirty water. Bacteria: cholera, typhoid, tuberculosis (airborne), plague. Virus: mumps, measles, polio, dengue, hepatitis, rabies. Protozoa: malaria, kala-azar. Fungus: ringworm.", "k": "one", "n": false, "c": false}, {"s": "India Geography", "q": "The Western Ghats and the Eastern Ghats meet at the:", "o": ["Cardamom hills", "Nilgiri hills", "Shevaroy hills", "Anamalai hills"], "a": 1, "e": "The same four hills were the options in 2025, when the answer was the Cardamom hills (closest to Kanyakumari). Doddabetta is the highest peak of the Nilgiris. The Palghat Gap lies between the Nilgiris and the Anamalai hills. Anamudi in the Anamalai hills is the highest peak of south India. The Shevaroy hills are in the Eastern Ghats of Tamil Nadu.", "k": "one", "n": false, "c": false}, {"s": "World Geography", "q": "Arrange the layers of the atmosphere from the Earth's surface upward:\n1. Stratosphere\n2. Thermosphere\n3. Troposphere\n4. Mesosphere", "o": ["3, 4, 1, 2", "3, 1, 2, 4", "1, 3, 4, 2", "3, 1, 4, 2"], "a": 3, "e": "Troposphere (weather) → Stratosphere (ozone layer; jets fly here) → Mesosphere (coldest; meteors burn up) → Thermosphere (holds the ionosphere, which reflects radio waves) → Exosphere. The gases of the atmosphere were asked in 2018 (nitrogen is the largest) and 2025 (nitrogen 78%, oxygen 21%).", "k": "order", "n": false, "c": false}, {"s": "Environment", "q": "Match List I (Protected area) with List II (Animal it is best known for):\nList I: a. Keibul Lamjao  b. Dachigam  c. Gir  d. Kaziranga\nList II: 1. Asiatic lion  2. One-horned rhinoceros  3. Sangai (brow-antlered deer)  4. Hangul (Kashmir stag)", "o": ["a-3, b-4, c-2, d-1", "a-3, b-1, c-4, d-2", "a-3, b-4, c-1, d-2", "a-4, b-3, c-1, d-2"], "a": 2, "e": "Keibul Lamjao in Manipur floats on Loktak Lake and is the only home of the Sangai. Dachigam is near Srinagar. Gir in Gujarat has all the Asiatic lions (891 in the 2025 count). Kaziranga in Assam has the one-horned rhino. The 2018 paper asked about Manas in Assam. In Odisha: Bhitarkanika – saltwater crocodile; Chilika – Irrawaddy dolphin; Similipal – black (melanistic) tigers.", "k": "match", "n": false, "c": false}, {"s": "Economy", "q": "The 'People's Plan' (1945) for the economic development of India was prepared by:", "o": ["Shriman Narayan Agarwal", "M. N. Roy", "Jayaprakash Narayan", "a group of industrialists led by J. R. D. Tata and G. D. Birla"], "a": 1, "e": "Bombay Plan (1944): eight industrialists. Gandhian Plan (1944): Shriman Narayan Agarwal. People's Plan (1945): M. N. Roy. Sarvodaya Plan (1950): Jayaprakash Narayan. The Planning Commission was set up on 15 March 1950. The Rolling Plan has been asked three times (2018, 2021, 2025): the Janata government of Morarji Desai used it in 1978–80, the idea came from Gunnar Myrdal, and it was not part of any Five Year Plan.", "k": "one", "n": false, "c": false}, {"s": "Environment", "q": "The change in the kinds of species from one habitat or community to another is called:", "o": ["Alpha diversity", "Gamma diversity", "Genetic diversity", "Beta diversity"], "a": 3, "e": "Alpha = diversity inside one community. Beta = change between communities. Gamma = total diversity of the whole region (asked in 2021). R. H. Whittaker gave these three terms. An ecotone is the zone where two communities meet, and species found mostly there are edge species (asked in 2025).", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Consider the following statements about the Governor of a State:\n1. The Governor is appointed by the President.\n2. The Governor holds office during the pleasure of the President.\n3. The Governor can be removed by the State Legislature through impeachment.\n4. The same person can be appointed Governor of two or more States.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 1, 2 and 4", "Only 2, 3 and 4", "1, 2, 3 and 4"], "a": 1, "e": "Statement 3 is wrong: there is no impeachment of a Governor. The President appoints (Article 155) and can remove the Governor at any time (Article 156). The 7th Amendment (1956) allowed one person to be Governor of two or more States. Minimum age is 35. The 2025 paper asked which commission wanted non-partisan Governors (Sarkaria). Odisha: Braj Mohan Ram was named Governor in October 2026, after Hari Babu Kambhampati.", "k": "stmt", "n": false, "c": false}, {"s": "Economy", "q": "Match List I (Committee) with List II (Subject):\nList I: a. Narasimham Committee  b. Malhotra Committee  c. Tendulkar Committee  d. Urjit Patel Committee\nList II: 1. Poverty line  2. Inflation targeting and monetary policy  3. Banking sector reforms  4. Insurance sector reforms", "o": ["a-4, b-3, c-1, d-2", "a-3, b-1, c-4, d-2", "a-3, b-4, c-2, d-1", "a-3, b-4, c-1, d-2"], "a": 3, "e": "The 2025 paper asked the Pherwani Committee (National Stock Exchange), with Narasimham, Rangarajan and Abid Hussain as the other options. Rangarajan also worked on the poverty line (2014) and on disinvestment. Abid Hussain: small industries. Kelkar and Chelliah: tax reforms. N. K. Singh: review of the FRBM law.", "k": "match", "n": false, "c": false}, {"s": "Modern History", "q": "Match List I (Organisation) with List II (Founder):\nList I: a. Indian Association (1876)  b. Poona Sarvajanik Sabha (1870)  c. East India Association (1866)  d. Mohammedan Literary Society (1863)\nList II: 1. Dadabhai Naoroji  2. Abdul Latif  3. Surendranath Banerjea  4. M. G. Ranade", "o": ["a-3, b-1, c-4, d-2", "a-3, b-4, c-2, d-1", "a-3, b-4, c-1, d-2", "a-4, b-3, c-1, d-2"], "a": 2, "e": "These are the bodies that came before the Congress. The 2025 paper asked the Central National Mohammedan Association (Syed Amir Ali) with Abdul Latif as a wrong option, and mentioned the journal of the Poona Sarvajanik Sabha. Also learn: Madras Mahajan Sabha (1884), Bombay Presidency Association (1885, Pherozeshah Mehta), British Indian Association (1851).", "k": "match", "n": false, "c": false}, {"s": "General News", "q": "A year-long celebration of 150 years of 'Vande Mataram' began on 7 November 2025. Who wrote the song?", "o": ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Dwijendralal Roy", "Sarat Chandra Chattopadhyay"], "a": 1, "e": "Bankim Chandra wrote it in 1875 and later placed it in his novel Anandamath (1882). Rabindranath Tagore first sang it at the Calcutta session of the Congress in 1896. It was made the National Song on 24 January 1950. Tagore wrote the National Anthem, Jana Gana Mana.", "k": "one", "n": true, "c": false}, {"s": "Institutions", "q": "Which country hosted the 2026 summit of the Shanghai Cooperation Organisation (SCO), held in the group's 25th year?", "o": ["Kazakhstan", "Russia", "Kyrgyzstan", "China"], "a": 2, "e": "The summit was at Bishkek. The 2025 summit was at Tianjin, China. The SCO was founded at Shanghai in 2001, its secretariat is in Beijing and its anti-terror body (RATS) is at Tashkent. India and Pakistan joined in 2017, Iran in 2023 and Belarus in 2024. The 2021 paper asked who hosted the 20th SCO meeting.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Consider the following statements:\n1. MILAN is a bilateral naval exercise held only between India and Japan.\n2. In February 2026, MILAN and the International Fleet Review were held off Visakhapatnam.\nWhich of the statements given above is/are correct?", "o": ["Only 1", "Only 2", "Both 1 and 2", "Neither 1 nor 2"], "a": 1, "e": "MILAN is a multilateral exercise hosted by the Indian Navy every two years. It began in 1995 in the Andaman and Nicobar Islands and later moved to Visakhapatnam, the base of the Eastern Naval Command. The India–Japan naval exercise is JIMEX. The 2025 paper had the same kind of statement question on TROPEX-25. Confirm the 2026 dates once before the exam.", "k": "stmt", "n": true, "c": true}, {"s": "Modern History", "q": "Which document is known as the 'Magna Carta of English Education in India'?", "o": ["Wood's Despatch, 1854", "Sargent Plan, 1944", "Macaulay's Minute, 1835", "Hunter Commission Report, 1882"], "a": 0, "e": "Charles Wood's Despatch asked for a full system from primary school to university. The universities of Calcutta, Bombay and Madras followed in 1857. The order of education bodies was asked in 2025: Hunter (1882) → Raleigh (1902) → Sadler (1917) → Hartog (1929) → Wardha scheme (1937) → Sargent (1944) → Radhakrishnan (1948) → Kothari (1964).", "k": "one", "n": false, "c": false}, {"s": "Environment", "q": "Consider the following statements about the India State of Forest Report (ISFR) 2023:\n1. Madhya Pradesh has the largest forest cover in area.\n2. Odisha is among the top four States in the increase of forest and tree cover.\nWhich of the statements given above is/are correct?", "o": ["Only 1", "Only 2", "Both 1 and 2", "Neither 1 nor 2"], "a": 2, "e": "By area: Madhya Pradesh, then Arunachal Pradesh, then Chhattisgarh. By share of its own area: Lakshadweep is first, and Mizoram is first among the States. The top four in increase of forest and tree cover are Chhattisgarh, Uttar Pradesh, Odisha and Rajasthan (asked in 2025). India's forest and tree cover is 25.17% of its area. The Forest Survey of India, Dehradun brings out the report every two years.", "k": "stmt", "n": false, "c": false}, {"s": "Modern History", "q": "Arrange Gandhiji's early struggles in India in the order in which they took place (earliest first):\n1. Kheda Satyagraha\n2. Rowlatt Satyagraha\n3. Champaran Satyagraha\n4. Ahmedabad Mill Strike", "o": ["3, 4, 2, 1", "3, 1, 4, 2", "4, 3, 1, 2", "3, 4, 1, 2"], "a": 3, "e": "Champaran (1917, indigo farmers) → Ahmedabad Mill Strike (early 1918, his first hunger strike) → Kheda (1918, no-tax struggle) → Rowlatt Satyagraha (1919). The 2018 paper asked the order of the later movements: Rowlatt (1919), Simon boycott (1928), Civil Disobedience (1930), Quit India (1942). Gandhi also founded the Ahmedabad Textile Labour Association (asked in 2018).", "k": "order", "n": false, "c": false}, {"s": "Institutions", "q": "The headquarters of the International Maritime Organization (IMO) is in:", "o": ["Hamburg", "London", "New York", "Geneva"], "a": 1, "e": "The IMO is the only UN specialised agency based in the United Kingdom. Geneva: WHO, ILO, WTO, WMO (the 2025 paper gave 'Vienna' as a false statement for WMO). Vienna: IAEA, UNIDO. Rome: FAO. Paris: UNESCO. Bern: Universal Postal Union. Montreal: ICAO. Nairobi: UNEP. Gurugram: International Solar Alliance (asked in 2021). Brussels: NATO (asked in 2021).", "k": "one", "n": false, "c": false}, {"s": "Odisha", "q": "Panchpatmali in Koraput district, mined by NALCO, has one of the largest deposits of:", "o": ["chromite", "manganese", "iron ore", "bauxite"], "a": 3, "e": "Bauxite is the ore of aluminium; NALCO's refinery is at Damanjodi. The 2025 paper matched places with minerals (Baula-Nuasahi – chromite; Chhatrapur – monazite). Others: Sukinda in Jajpur – chromite; Joda–Barbil in Keonjhar and Gorumahisani in Mayurbhanj – iron ore; Talcher and Ib valley – coal; Gandhamardan – bauxite.", "k": "one", "n": false, "c": false}, {"s": "Economy", "q": "The 16th Finance Commission, whose award covers 2026–31, kept the States' share in the divisible pool of central taxes at:", "o": ["50%", "41%", "42%", "32%"], "a": 1, "e": "The 14th Commission gave 42%. The 15th cut it to 41% after Jammu and Kashmir became a Union Territory, and the 16th (chairman Arvind Panagariya) kept 41%. The Finance Commission is set up by the President under Article 280 every five years and has a chairman and four other members (asked in 2021). Budget 2026-27 was the first under the 16th Commission.", "k": "one", "n": true, "c": false}, {"s": "General News", "q": "Which site became India's 45th UNESCO World Heritage Site in July 2026?", "o": ["Moidams of the Ahom Dynasty", "Santiniketan", "Maratha Military Landscapes", "Ancient Buddhist Site of Sarnath"], "a": 3, "e": "Sarnath, near Varanasi, is where the Buddha gave his first sermon. It was added at the Busan session. 44th: Maratha Military Landscapes (2025). 43rd: Moidams of Assam (2024). Santiniketan and the Hoysala temples came in 2023. Odisha has one World Heritage Site, the Sun Temple at Konark. The 2025 paper asked about UNESCO's Memory of the World Register, which is for documents.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "A Captain in the Indian Navy is equal in rank to a ____ in the Indian Army.", "o": ["Major", "Brigadier", "Colonel", "Captain"], "a": 2, "e": "A Navy Captain is much senior to an Army Captain. Equal ranks (Army / Navy / Air Force): Major / Lt Commander / Squadron Leader (asked in 2021); Lt Colonel / Commander / Wing Commander; Colonel / Captain / Group Captain; Brigadier / Commodore / Air Commodore; Major General / Rear Admiral / Air Vice Marshal; General / Admiral / Air Chief Marshal.", "k": "one", "n": false, "c": false}, {"s": "Environment", "q": "The Central Pollution Control Board (CPCB) was set up in 1974 under the:", "o": ["Wild Life (Protection) Act, 1972", "Air (Prevention and Control of Pollution) Act, 1981", "Water (Prevention and Control of Pollution) Act, 1974", "Environment (Protection) Act, 1986"], "a": 2, "e": "The CPCB was born under the Water Act and got its air duties later, under the Air Act of 1981. Asked before: it measures pollutants twice a week under the National Air Quality Monitoring Programme (2021) and made the Comprehensive Environmental Pollution Index with IIT Delhi (2025). The Environment (Protection) Act of 1986 came after the Bhopal gas leak. The National Green Tribunal was set up in 2010.", "k": "one", "n": false, "c": false}, {"s": "General News", "q": "What was the theme of World Water Day 2026 (22 March)?", "o": ["Glacier Preservation", "Water for Peace", "Accelerating Change", "Water and Gender"], "a": 3, "e": "2023: Accelerating Change. 2024: Water for Peace. 2025: Glacier Preservation. 2026: Water and Gender. The 2025 paper asked the date of World Water Day, and themes of days come every year (Earth Day in 2018, 2021 and 2025; World TB Day and National Voters' Day in 2025). Note that the 2025 paper asked the Earth Day theme of the year before, so learn two years of themes.", "k": "one", "n": true, "c": false}];
+(function(){
+  var SK="aso-gs-mock-2027-2";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=90*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 100 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 100</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Polity", "Modern History", "Defence", "Environment", "Economy", "Governance", "Odisha", "Institutions", "General News", "World Geography", "India Geography", "Science & Tech"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO GS MOCK 02 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / 100 · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please make the next GS mock from my wrong and skipped questions.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>
