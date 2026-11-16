@@ -1,0 +1,13 @@
+[
+{"q":"PSLV-C62 (January 2026) failed because of a problem in which stage?","o":["Third","First","Second","Fourth"],"x":"PSLV's second failure in a row."},
+{"q":"EOS-N1 \"Anvesha\" was a…","o":["Maritime surveillance satellite of DRDO","Weather satellite","Mars probe","Navigation satellite"],"x":"Lost on PSLV-C62."},
+{"q":"Gaganyaan's first uncrewed flight G1 will carry the robot…","o":["Vyommitra","Pragyan","Vikram","Aditya"],"x":"Moved to late 2026."},
+{"q":"Shubhanshu Shukla is the second Indian in space after…","o":["Rakesh Sharma","Kalpana Chawla","Sunita Williams","Ravish Malhotra"],"x":"Rakesh Sharma, 1984."},
+{"q":"NISAR was launched on…","o":["GSLV-F16","PSLV-C61","LVM3-M5","SSLV-D3"],"x":"30 July 2025, from Sriharikota."},
+{"q":"Who was the commander of Artemis II?","o":["Reid Wiseman","Victor Glover","Christina Koch","Jeremy Hansen"],"x":"April 2026."},
+{"q":"Artemis II was the first crewed flight around the Moon since…","o":["Apollo 17 (1972)","Apollo 11 (1969)","Apollo 13 (1970)","Gemini 7 (1965)"],"x":"Flew farther from Earth than any humans before."},
+{"q":"Who won the 2026 Nobel Prize in Chemistry?","o":["Henri Kagan and Kenso Soai","Kitagawa, Robson and Yaghi","Baker, Hassabis and Jumper","Bawendi, Brus and Ekimov"],"x":"Asymmetric synthesis and autocatalysis.","check":true},
+{"q":"Who won the 2026 Nobel Prize in Economics?","o":["Robert E. Hall and Michael Woodford","Mokyr, Aghion and Howitt","Acemoglu, Johnson and Robinson","Claudia Goldin"],"x":"2025: Mokyr, Aghion, Howitt.","check":true},
+{"q":"Who won the 2025 Nobel Prize in Economics?","o":["Mokyr, Aghion and Howitt","Acemoglu, Johnson and Robinson","Claudia Goldin","Bernanke, Diamond and Dybvig"],"x":"Innovation-led growth."},
+{"q":"Who won the 2025 Nobel Peace Prize?","o":["María Corina Machado","Navi Pillay","Nihon Hidankyo","Narges Mohammadi"],"x":"Venezuela."}
+]

@@ -1,0 +1,11 @@
+[
+{"q":"Which country is the least peaceful in the Global Peace Index 2026?","o":["Russia","Afghanistan","Yemen","Sudan"],"x":"Iceland is most peaceful."},
+{"q":"Who publishes the Global Hunger Index?","o":["Concern Worldwide and Welthungerhilfe","FAO","WFP","World Bank"],"x":"Not a UN report."},
+{"q":"In the Global Hunger Index 2026, which neighbour ranked below India?","o":["Pakistan","Nepal","Bangladesh","Sri Lanka"],"x":"Pakistan 106th."},
+{"q":"Which country tops the Global Innovation Index 2026?","o":["Switzerland","Sweden","USA","Singapore"],"x":"India 38th of 139."},
+{"q":"India's rank in the World Press Freedom Index 2025 was…","o":["151st","157th","161st","159th"],"x":"Fell to 157th in 2026."},
+{"q":"India's rank in the Human Development Report 2025 was…","o":["130th","134th","126th","132nd"],"x":"HDI 0.685 (medium)."},
+{"q":"The Global Peace Index is published by an institute based in…","o":["Sydney","Geneva","London","Washington"],"x":"Institute for Economics and Peace."},
+{"q":"India's approximate rank in the World Happiness Report 2026 was…","o":["116th","126th","94th","136th"],"x":"Of 147.","check":true},
+{"q":"India's reported rank in the Global Gender Gap Report 2026 was…","o":["131st","127th","108th","140th"],"x":"World Economic Forum.","check":true}
+]

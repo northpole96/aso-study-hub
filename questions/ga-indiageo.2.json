@@ -1,0 +1,624 @@
+[
+{
+"q": "Which hills are nearest to Kanyakumari?",
+"o": [
+"Cardamom Hills",
+"Nilgiri Hills",
+"Anamalai Hills",
+"Palani Hills"
+],
+"x": "South of the Palghat gap: Anamalai, Palani, then Cardamom, the southernmost.",
+"pyq": "2025"
+},
+{
+"q": "Which state touches only one foreign country, China?",
+"o": [
+"Himachal Pradesh",
+"Uttarakhand",
+"Sikkim",
+"Arunachal Pradesh"
+],
+"x": "Himachal touches only China; Gujarat touches only Pakistan.",
+"pyq": "2025"
+},
+{
+"q": "Uttarakhand shares borders with…",
+"o": [
+"China and Nepal",
+"Nepal only",
+"China only",
+"Nepal and Bhutan"
+],
+"x": "Uttarakhand: China and Nepal.",
+"pyq": "2025"
+},
+{
+"q": "Which state showed the biggest rise in forest and tree cover in ISFR 2023?",
+"o": [
+"Chhattisgarh",
+"Madhya Pradesh",
+"Kerala",
+"Mizoram"
+],
+"x": "Then Uttar Pradesh, Odisha and Rajasthan.",
+"pyq": "2025"
+},
+{
+"q": "Which is the oldest geosyncline among these?",
+"o": [
+"Dharwar",
+"Cuddapah",
+"Vindhyan",
+"Gondwana"
+],
+"x": "Dharwar, rich in iron and gold.",
+"pyq": "2021"
+},
+{
+"q": "Which river does NOT rise in the Maikal Range?",
+"o": [
+"Tapi",
+"Narmada",
+"Son",
+"Mahanadi (rises nearby at Sihawa)"
+],
+"x": "Tapi rises at Multai in the Satpura.",
+"pyq": "2021"
+},
+{
+"q": "Which forest type covers the largest area of India?",
+"o": [
+"Tropical deciduous",
+"Tropical evergreen",
+"Montane",
+"Mangrove"
+],
+"x": "Monsoon forests; sal and teak.",
+"pyq": "2021"
+},
+{
+"q": "The monsoon varies from year to year mainly because…",
+"o": [
+"The westerly jet stream leaves North India late",
+"The Himalayas grow every year",
+"The Indian Ocean cools suddenly",
+"The Tropic of Cancer shifts"
+],
+"x": "If the westerly jet stays too long, the monsoon is late.",
+"pyq": "2021"
+},
+{
+"q": "Which pass–state pair is WRONG?",
+"o": [
+"Jelep La – Arunachal Pradesh",
+"Nathu La – Sikkim",
+"Shipki La – Himachal Pradesh",
+"Zoji La – Ladakh"
+],
+"x": "Jelep La is in Sikkim.",
+"pyq": "2021"
+},
+{
+"q": "The Tropic of Cancer does NOT pass through…",
+"o": [
+"Odisha",
+"Jharkhand",
+"Tripura",
+"Chhattisgarh"
+],
+"x": "The 8 states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram.",
+"pyq": "2018"
+},
+{
+"q": "Which state has the longest coastline?",
+"o": [
+"Gujarat",
+"Andhra Pradesh",
+"Tamil Nadu",
+"Maharashtra"
+],
+"x": "Gujarat.",
+"pyq": "2018"
+},
+{
+"q": "Among these, the oldest rocks are found in the…",
+"o": [
+"Aravallis",
+"Himalayas",
+"Shiwaliks",
+"Western Ghats"
+],
+"x": "Aravallis: oldest fold mountains.",
+"pyq": "2018"
+},
+{
+"q": "Which state has the highest share of its area under forest?",
+"o": [
+"Mizoram",
+"Madhya Pradesh",
+"Arunachal Pradesh",
+"Odisha"
+],
+"x": "Mizoram (state); Lakshadweep (UT).",
+"pyq": "2018"
+},
+{
+"q": "Indian Standard Time is based on which longitude?",
+"o": [
+"82½° E",
+"80° E",
+"90° E",
+"75½° E"
+],
+"x": "Passes near Mirzapur and also through Odisha. IST = GMT + 5½ hours.",
+"pyq": "2018"
+},
+{
+"q": "How many Indian states have a sea coast?",
+"o": [
+"9",
+"8",
+"10",
+"7"
+],
+"x": "Gujarat, Maharashtra, Goa, Karnataka, Kerala, Tamil Nadu, Andhra Pradesh, Odisha, West Bengal.",
+"pyq": "2018"
+},
+{
+"q": "Which range divides the northern plain from the Deccan Plateau?",
+"o": [
+"Vindhya",
+"Satpura",
+"Aravalli",
+"Ajanta"
+],
+"x": "Vindhya; the Satpura is to its south.",
+"pyq": "2018"
+},
+{
+"q": "IST is ahead of Greenwich Mean Time by…",
+"o": [
+"5 hours 30 minutes",
+"5 hours",
+"6 hours 30 minutes",
+"4 hours 30 minutes"
+],
+"x": "82.5 ÷ 15 = 5.5 hours."
+},
+{
+"q": "India is the ___ largest country in the world by area.",
+"o": [
+"7th",
+"5th",
+"2nd",
+"9th"
+],
+"x": "7th."
+},
+{
+"q": "India shares its longest border with…",
+"o": [
+"Bangladesh",
+"China",
+"Pakistan",
+"Nepal"
+],
+"x": "Bangladesh."
+},
+{
+"q": "Which state does NOT border Bangladesh?",
+"o": [
+"Manipur",
+"Mizoram",
+"Meghalaya",
+"Tripura"
+],
+"x": "Bangladesh: West Bengal, Assam, Meghalaya, Tripura, Mizoram."
+},
+{
+"q": "Which state does NOT border Myanmar?",
+"o": [
+"Tripura",
+"Manipur",
+"Nagaland",
+"Mizoram"
+],
+"x": "Myanmar: Arunachal, Nagaland, Manipur, Mizoram."
+},
+{
+"q": "Which state does NOT border Nepal?",
+"o": [
+"Himachal Pradesh",
+"Uttar Pradesh",
+"Bihar",
+"Sikkim"
+],
+"x": "Nepal: Uttarakhand, UP, Bihar, West Bengal, Sikkim."
+},
+{
+"q": "Which state does NOT border Bhutan?",
+"o": [
+"Nagaland",
+"Assam",
+"Sikkim",
+"Arunachal Pradesh"
+],
+"x": "Bhutan: Sikkim, West Bengal, Assam, Arunachal."
+},
+{
+"q": "The India–Bangladesh border line is often called the…",
+"o": [
+"Zero line",
+"McMahon Line",
+"Durand Line",
+"Line of Control"
+],
+"x": "Asked in 2025.",
+"pyq": "2025"
+},
+{
+"q": "The Durand Line separates…",
+"o": [
+"Pakistan and Afghanistan",
+"India and China",
+"India and Pakistan",
+"India and Nepal"
+],
+"x": "Radcliffe = India–Pakistan/Bangladesh; McMahon = India–China (east)."
+},
+{
+"q": "The Radcliffe Line separates India from…",
+"o": [
+"Pakistan and Bangladesh",
+"China",
+"Afghanistan",
+"Nepal"
+],
+"x": "Drawn in 1947."
+},
+{
+"q": "Hill stations like Shimla lie in the…",
+"o": [
+"Lesser Himalaya",
+"Greater Himalaya",
+"Shiwaliks",
+"Trans-Himalaya"
+],
+"x": "Himadri (Greater), Himachal (Lesser), Shiwaliks (outer)."
+},
+{
+"q": "The outermost and lowest range of the Himalayas is the…",
+"o": [
+"Shiwaliks",
+"Himadri",
+"Himachal",
+"Karakoram"
+],
+"x": "Shiwaliks."
+},
+{
+"q": "Which is the oldest part of India?",
+"o": [
+"Peninsular Plateau",
+"Himalayas",
+"Northern Plain",
+"Thar Desert"
+],
+"x": "The peninsula is made of ancient rocks."
+},
+{
+"q": "Which Ghats are broken by rivers?",
+"o": [
+"Eastern Ghats",
+"Western Ghats",
+"Both",
+"Neither"
+],
+"x": "The Western Ghats are a continuous wall."
+},
+{
+"q": "Most of India's black soil comes from the…",
+"o": [
+"Deccan Traps (lava)",
+"Gondwana rocks",
+"Himalayan rivers",
+"Aravalli rocks"
+],
+"x": "Lava turned into black (regur) soil."
+},
+{
+"q": "Zoji La and Khardung La are passes in…",
+"o": [
+"Ladakh",
+"Himachal Pradesh",
+"Sikkim",
+"Uttarakhand"
+],
+"x": "Ladakh."
+},
+{
+"q": "Rohtang Pass is in…",
+"o": [
+"Himachal Pradesh",
+"Ladakh",
+"Uttarakhand",
+"Sikkim"
+],
+"x": "Also Bara Lacha La and Shipki La."
+},
+{
+"q": "Lipulekh Pass is in…",
+"o": [
+"Uttarakhand",
+"Himachal Pradesh",
+"Sikkim",
+"Arunachal Pradesh"
+],
+"x": "Uttarakhand: Mana, Niti, Lipulekh."
+},
+{
+"q": "The Sela Tunnel is in…",
+"o": [
+"Arunachal Pradesh",
+"Sikkim",
+"Ladakh",
+"Himachal Pradesh"
+],
+"x": "Below the Se La pass.",
+"pyq": "2021"
+},
+{
+"q": "Bom Di La is a pass in…",
+"o": [
+"Arunachal Pradesh",
+"Sikkim",
+"Uttarakhand",
+"Ladakh"
+],
+"x": "Arunachal Pradesh."
+},
+{
+"q": "Which is the longest river of South India?",
+"o": [
+"Godavari",
+"Krishna",
+"Kaveri",
+"Mahanadi"
+],
+"x": "Godavari, \"Dakshin Ganga\"."
+},
+{
+"q": "Which river forms an estuary, not a delta?",
+"o": [
+"Narmada",
+"Mahanadi",
+"Krishna",
+"Kaveri"
+],
+"x": "West-flowing Narmada and Tapi make estuaries."
+},
+{
+"q": "The Son river rises at…",
+"o": [
+"Amarkantak",
+"Multai",
+"Mahabaleshwar",
+"Sihawa"
+],
+"x": "With the Narmada, in the Maikal Range."
+},
+{
+"q": "The Mahanadi rises at…",
+"o": [
+"Sihawa, Chhattisgarh",
+"Amarkantak",
+"Multai",
+"Brahmagiri"
+],
+"x": "Sihawa, near the Maikal Range."
+},
+{
+"q": "The Kashang and Sainj hydro projects are in…",
+"o": [
+"Himachal Pradesh",
+"Uttarakhand",
+"Odisha",
+"Sikkim"
+],
+"x": "Himachal Pradesh.",
+"pyq": "2018"
+},
+{
+"q": "The south-west monsoon usually reaches Kerala around…",
+"o": [
+"1 June",
+"15 May",
+"15 June",
+"1 July"
+],
+"x": "1 June."
+},
+{
+"q": "Winter rain in North-West India that helps wheat comes from…",
+"o": [
+"Western disturbances",
+"Mango showers",
+"Kalbaisakhi",
+"North-east monsoon"
+],
+"x": "From the Mediterranean region."
+},
+{
+"q": "Mango showers are pre-monsoon rains in…",
+"o": [
+"Kerala and Karnataka",
+"Bengal and Odisha",
+"Punjab",
+"Assam"
+],
+"x": "They help mangoes ripen."
+},
+{
+"q": "The hot dry summer wind of North India is called…",
+"o": [
+"Loo",
+"Kalbaisakhi",
+"Mistral",
+"Chinook"
+],
+"x": "Loo."
+},
+{
+"q": "Which soil covers the largest area of India?",
+"o": [
+"Alluvial",
+"Black",
+"Red",
+"Laterite"
+],
+"x": "Northern plains and deltas."
+},
+{
+"q": "Laterite soil is good for…",
+"o": [
+"Cashew and tea",
+"Cotton",
+"Wheat",
+"Rice in deltas"
+],
+"x": "Formed in high-rain areas; heavy rain washes out food."
+},
+{
+"q": "Red and yellow soil is common in…",
+"o": [
+"Odisha, Chhattisgarh and the south",
+"Punjab and Haryana",
+"Rajasthan",
+"The Ganga delta"
+],
+"x": "Good for millets and pulses."
+},
+{
+"q": "What is India's total forest and tree cover (ISFR 2023)?",
+"o": [
+"25.17%",
+"21.7%",
+"33%",
+"19.4%"
+],
+"x": "25.17% of the land."
+},
+{
+"q": "Which state has the most mangroves?",
+"o": [
+"West Bengal",
+"Gujarat",
+"Odisha",
+"Andhra Pradesh"
+],
+"x": "West Bengal (Sundarbans), then Gujarat."
+},
+{
+"q": "After Madhya Pradesh, which state has the second largest forest area?",
+"o": [
+"Arunachal Pradesh",
+"Chhattisgarh",
+"Odisha",
+"Maharashtra"
+],
+"x": "MP, Arunachal, Chhattisgarh."
+},
+{
+"q": "Which biogeographic zone has the world's richest wild sheep and goat community?",
+"o": [
+"Trans-Himalaya",
+"Western Ghats",
+"Deccan Plateau",
+"Semi-arid"
+],
+"x": "Trans-Himalaya (Ladakh)."
+},
+{
+"q": "Which statement about water in India is correct?",
+"o": [
+"India uses more groundwater than any other country",
+"India ranks first in water quality",
+"India uses the least groundwater in Asia",
+"India has no water-quality index"
+],
+"x": "NITI Aayog (2018) placed India 120th of 122 in water quality.",
+"pyq": "2025"
+},
+{
+"q": "The \"Ulta Chaata\" is a device for…",
+"o": [
+"Collecting rainwater",
+"Measuring wind",
+"Solar cooking",
+"Checking soil moisture"
+],
+"x": "An upside-down umbrella that collects rain.",
+"pyq": "2018"
+},
+{
+"q": "World Water Day is observed on…",
+"o": [
+"22 March",
+"5 June",
+"2 February",
+"22 April"
+],
+"x": "22 March.",
+"pyq": "2025"
+},
+{
+"q": "India's highest peak (in Indian-administered territory) lies on the border of Sikkim and…",
+"o": [
+"Nepal",
+"Bhutan",
+"China",
+"Bangladesh"
+],
+"x": "Kanchenjunga, 8,586 m."
+},
+{
+"q": "The Northern Plain was formed mainly by soil brought by…",
+"o": [
+"Indus, Ganga and Brahmaputra",
+"Narmada and Tapi",
+"Godavari and Krishna",
+"Mahanadi and Kaveri"
+],
+"x": "Alluvium from Himalayan rivers."
+},
+{
+"q": "Which rock system comes right after the Archaean in age?",
+"o": [
+"Dharwar",
+"Gondwana",
+"Vindhyan",
+"Deccan Traps"
+],
+"x": "Archaean → Dharwar → Cuddapah → Vindhyan → Gondwana → Deccan Traps."
+},
+{
+"q": "Which coastal state does the Tropic of Cancer pass through?",
+"o": [
+"West Bengal",
+"Odisha",
+"Andhra Pradesh",
+"Maharashtra"
+],
+"x": "Of the 8 Tropic states, Gujarat and West Bengal have a coast."
+},
+{
+"q": "Which border state of India touches Pakistan?",
+"o": [
+"Rajasthan",
+"Haryana",
+"Himachal Pradesh",
+"Uttarakhand"
+],
+"x": "Pakistan: Gujarat, Rajasthan, Punjab, J&K, Ladakh."
+}
+]

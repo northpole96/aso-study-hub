@@ -1,0 +1,691 @@
+[
+{
+"q": "\"Goodwill Ambassador\" is a title linked with…",
+"o": [
+"The UN and its agencies",
+"The Olympic Committee",
+"The Commonwealth",
+"The World Bank only"
+],
+"x": "Famous people who spread a UN message.",
+"pyq": "2025"
+},
+{
+"q": "UNESCO's Memory of the World Register protects…",
+"o": [
+"Old documents and manuscripts",
+"Monuments",
+"Living traditions",
+"Natural sites"
+],
+"x": "Bhagavad Gita and Natyashastra manuscripts were added in 2025.",
+"pyq": "2025"
+},
+{
+"q": "The BIMSTEC Youth Summit 2025 was hosted by…",
+"o": [
+"India (Gandhinagar)",
+"Bangladesh",
+"Thailand",
+"Sri Lanka"
+],
+"x": "Gandhinagar.",
+"pyq": "2025"
+},
+{
+"q": "Which is NOT a SAARC member?",
+"o": [
+"Singapore",
+"Maldives",
+"Afghanistan",
+"Bhutan"
+],
+"x": "SAARC has 8 members.",
+"pyq": "2021"
+},
+{
+"q": "Where is NATO's head office?",
+"o": [
+"Brussels",
+"Geneva",
+"Washington",
+"London"
+],
+"x": "Brussels.",
+"pyq": "2021"
+},
+{
+"q": "What is the term of a non-permanent member of the UN Security Council?",
+"o": [
+"Two years",
+"One year",
+"Three years",
+"Five years"
+],
+"x": "10 non-permanent members.",
+"pyq": "2021"
+},
+{
+"q": "Which country was elected to the Security Council in June 2022 (asked in 2021 paper)?",
+"o": [
+"Mozambique",
+"Kenya",
+"Nigeria",
+"Ghana"
+],
+"x": "Mozambique.",
+"pyq": "2021"
+},
+{
+"q": "The 5th BIMSTEC summit (2022) was hosted by…",
+"o": [
+"Sri Lanka",
+"Thailand",
+"Nepal",
+"Bangladesh"
+],
+"x": "Virtual, chaired by Sri Lanka. 6th: Bangkok, April 2025.",
+"pyq": "2021"
+},
+{
+"q": "The 15th World Forestry Congress was held in…",
+"o": [
+"Seoul",
+"Rome",
+"Durban",
+"Buenos Aires"
+],
+"x": "2022.",
+"pyq": "2021"
+},
+{
+"q": "\"South Asia Economic Focus\" is published by the…",
+"o": [
+"World Bank",
+"IMF",
+"ADB",
+"UNDP"
+],
+"x": "Twice a year.",
+"pyq": "2021"
+},
+{
+"q": "Which country topped the World Giving Index 2021?",
+"o": [
+"Indonesia",
+"USA",
+"Myanmar",
+"Kenya"
+],
+"x": "Published by the Charities Aid Foundation.",
+"pyq": "2021"
+},
+{
+"q": "Which is NOT a UN agency?",
+"o": [
+"International Committee of the Red Cross",
+"WHO",
+"UNESCO",
+"ILO"
+],
+"x": "The ICRC is a private Swiss body.",
+"pyq": "2018"
+},
+{
+"q": "Which Indian served as President of the International Court of Justice?",
+"o": [
+"Dr Nagendra Singh",
+"Dalveer Bhandari",
+"B.N. Rau",
+"Radha Binod Pal"
+],
+"x": "1985–88.",
+"pyq": "2018"
+},
+{
+"q": "The idea of the Non-Aligned Movement is credited to…",
+"o": [
+"Nehru",
+"Gandhi",
+"Indira Gandhi",
+"Krishna Menon"
+],
+"x": "With Tito, Nasser, Sukarno, Nkrumah.",
+"pyq": "2018"
+},
+{
+"q": "The Commonwealth leaders' meeting in 2018 was held in…",
+"o": [
+"London (England)",
+"Samoa",
+"Kigali",
+"Malta"
+],
+"x": "2024: Samoa.",
+"pyq": "2018"
+},
+{
+"q": "UN Day is observed on…",
+"o": [
+"24 October",
+"26 June",
+"10 December",
+"1 January"
+],
+"x": "The UN began on 24 October 1945."
+},
+{
+"q": "How many members does the UN have?",
+"o": [
+"193",
+"195",
+"191",
+"200"
+],
+"x": "193."
+},
+{
+"q": "How many members does the UN Security Council have?",
+"o": [
+"15",
+"10",
+"5",
+"20"
+],
+"x": "5 permanent + 10 non-permanent."
+},
+{
+"q": "Which UN organ has not been active since 1994?",
+"o": [
+"Trusteeship Council",
+"Economic and Social Council",
+"Security Council",
+"Secretariat"
+],
+"x": "Its last trust territory (Palau) became independent."
+},
+{
+"q": "What is the term of an ICJ judge?",
+"o": [
+"9 years",
+"5 years",
+"6 years",
+"12 years"
+],
+"x": "15 judges."
+},
+{
+"q": "António Guterres's term as UN Secretary-General ends on…",
+"o": [
+"31 December 2026",
+"31 December 2027",
+"1 January 2026",
+"30 June 2026"
+],
+"x": "A new Secretary-General starts on 1 January 2027."
+},
+{
+"q": "The head office of the WHO is in…",
+"o": [
+"Geneva",
+"New York",
+"Paris",
+"Vienna"
+],
+"x": "Also ILO, WMO, WIPO, ITU."
+},
+{
+"q": "The head office of the ILO is in…",
+"o": [
+"Geneva",
+"Rome",
+"Vienna",
+"New York"
+],
+"x": "Geneva."
+},
+{
+"q": "The head office of the IMF and the World Bank is in…",
+"o": [
+"Washington",
+"New York",
+"Geneva",
+"London"
+],
+"x": "Washington."
+},
+{
+"q": "UNICEF and UNDP have their head offices in…",
+"o": [
+"New York",
+"Geneva",
+"Paris",
+"Nairobi"
+],
+"x": "New York."
+},
+{
+"q": "The International Atomic Energy Agency is based in…",
+"o": [
+"Vienna",
+"Geneva",
+"Paris",
+"The Hague"
+],
+"x": "Also UNIDO."
+},
+{
+"q": "The International Maritime Organization is based in…",
+"o": [
+"London",
+"Rome",
+"Geneva",
+"Hamburg"
+],
+"x": "IMO, London."
+},
+{
+"q": "The WTO is based in…",
+"o": [
+"Geneva",
+"Washington",
+"New York",
+"Brussels"
+],
+"x": "Not a UN agency."
+},
+{
+"q": "The World Food Programme is based in…",
+"o": [
+"Rome",
+"Geneva",
+"New York",
+"Nairobi"
+],
+"x": "With FAO and IFAD."
+},
+{
+"q": "WIPO is based in…",
+"o": [
+"Geneva",
+"Vienna",
+"Paris",
+"London"
+],
+"x": "World Intellectual Property Organization."
+},
+{
+"q": "Which Indian festival was added to UNESCO's intangible heritage list in 2025?",
+"o": [
+"Deepavali",
+"Holi",
+"Pongal",
+"Onam"
+],
+"x": "Earlier: Chhau, Durga Puja, Garba."
+},
+{
+"q": "How many World Heritage Sites does India have?",
+"o": [
+"45",
+"43",
+"40",
+"42"
+],
+"x": "Latest: Sarnath (2026)."
+},
+{
+"q": "Assam's Moidams became a World Heritage Site in…",
+"o": [
+"2024",
+"2025",
+"2023",
+"2026"
+],
+"x": "Maratha forts 2025; Sarnath 2026."
+},
+{
+"q": "How many members does SAARC have?",
+"o": [
+"8",
+"7",
+"9",
+"10"
+],
+"x": "India, Pakistan, Bangladesh, Nepal, Bhutan, Sri Lanka, Maldives, Afghanistan."
+},
+{
+"q": "SAARC was founded in…",
+"o": [
+"1985",
+"1997",
+"1967",
+"2001"
+],
+"x": "Secretariat: Kathmandu."
+},
+{
+"q": "How many countries are in BIMSTEC?",
+"o": [
+"7",
+"8",
+"5",
+"10"
+],
+"x": "Bangladesh, Bhutan, India, Myanmar, Nepal, Sri Lanka, Thailand."
+},
+{
+"q": "Which is NOT a BIMSTEC member?",
+"o": [
+"Pakistan",
+"Myanmar",
+"Thailand",
+"Bhutan"
+],
+"x": "Pakistan is in SAARC, not BIMSTEC."
+},
+{
+"q": "The 6th BIMSTEC summit (April 2025) was held in…",
+"o": [
+"Bangkok",
+"Kathmandu",
+"Colombo",
+"Dhaka"
+],
+"x": "Bangkok."
+},
+{
+"q": "The SCO secretariat is in…",
+"o": [
+"Beijing",
+"Moscow",
+"Tashkent",
+"Astana"
+],
+"x": "Founded 2001."
+},
+{
+"q": "Which country is NOT an SCO member?",
+"o": [
+"Afghanistan",
+"Iran",
+"Belarus",
+"Pakistan"
+],
+"x": "Members: China, Russia, India, Pakistan, 4 Central Asian countries, Iran, Belarus."
+},
+{
+"q": "Which country is NOT a member of BRICS?",
+"o": [
+"Argentina",
+"Egypt",
+"Indonesia",
+"Ethiopia"
+],
+"x": "Argentina was invited in 2023 but declined. Members: Brazil, Russia, India, China, South Africa + Egypt, Ethiopia, Iran, UAE, Indonesia."
+},
+{
+"q": "Which country chairs BRICS in 2027?",
+"o": [
+"China",
+"Brazil",
+"Russia",
+"South Africa"
+],
+"x": "India chaired in 2026."
+},
+{
+"q": "The African Union joined the G20 at the summit in…",
+"o": [
+"New Delhi, 2023",
+"Rio, 2024",
+"Bali, 2022",
+"Johannesburg, 2025"
+],
+"x": "New Delhi."
+},
+{
+"q": "The G20 was formed in…",
+"o": [
+"1999",
+"2008",
+"1975",
+"1989"
+],
+"x": "Leaders' summits since 2008."
+},
+{
+"q": "NATO was formed in…",
+"o": [
+"1949",
+"1945",
+"1955",
+"1991"
+],
+"x": "Military group of the West."
+},
+{
+"q": "Which country joined NATO in 2024?",
+"o": [
+"Sweden",
+"Finland",
+"Ukraine",
+"Austria"
+],
+"x": "Finland joined in 2023."
+},
+{
+"q": "The ASEAN secretariat is in…",
+"o": [
+"Jakarta",
+"Bangkok",
+"Singapore",
+"Manila"
+],
+"x": "Founded 1967."
+},
+{
+"q": "How many members does the Commonwealth have?",
+"o": [
+"56",
+"54",
+"53",
+"60"
+],
+"x": "Head office London."
+},
+{
+"q": "The first Non-Aligned Movement summit was held in 1961 at…",
+"o": [
+"Belgrade",
+"Bandung",
+"Cairo",
+"New Delhi"
+],
+"x": "Bandung (1955) was the Asian–African conference."
+},
+{
+"q": "The QUAD was restarted in…",
+"o": [
+"2017",
+"2007",
+"2020",
+"2014"
+],
+"x": "First formed in 2007."
+},
+{
+"q": "Who publishes the World Economic Outlook?",
+"o": [
+"IMF",
+"World Bank",
+"WEF",
+"OECD"
+],
+"x": "IMF."
+},
+{
+"q": "Who publishes the Global Risks Report?",
+"o": [
+"World Economic Forum",
+"IMF",
+"UNDP",
+"World Bank"
+],
+"x": "WEF, also the Gender Gap Report."
+},
+{
+"q": "Who publishes the Global Peace Index?",
+"o": [
+"Institute for Economics and Peace",
+"UN",
+"Amnesty International",
+"WEF"
+],
+"x": "India was 136th in 2018; 127th in 2026.",
+"pyq": "2018"
+},
+{
+"q": "Who publishes the Corruption Perceptions Index?",
+"o": [
+"Transparency International",
+"World Bank",
+"UNODC",
+"Amnesty International"
+],
+"x": "Transparency International."
+},
+{
+"q": "Who publishes the World Happiness Report?",
+"o": [
+"UN Sustainable Development Solutions Network",
+"WHO",
+"UNDP",
+"Gallup alone"
+],
+"x": "Finland has topped it for years."
+},
+{
+"q": "Who publishes the SDG India Index?",
+"o": [
+"NITI Aayog",
+"UNDP",
+"MoSPI",
+"RBI"
+],
+"x": "NITI Aayog."
+},
+{
+"q": "Who publishes the World Development Report?",
+"o": [
+"World Bank",
+"IMF",
+"UNDP",
+"WTO"
+],
+"x": "World Bank."
+},
+{
+"q": "The Wildlife Institute of India is in…",
+"o": [
+"Dehradun",
+"Bhopal",
+"Hyderabad",
+"Bengaluru"
+],
+"x": "With the Forest Survey and IMA."
+},
+{
+"q": "The National Rice Research Institute is in…",
+"o": [
+"Cuttack",
+"Bhubaneswar",
+"Hyderabad",
+"Kolkata"
+],
+"x": "Cuttack."
+},
+{
+"q": "NISER and the Institute of Physics are in…",
+"o": [
+"Bhubaneswar",
+"Cuttack",
+"Rourkela",
+"Berhampur"
+],
+"x": "Bhubaneswar (NISER campus at Jatni)."
+},
+{
+"q": "SEBI and NABARD have their head offices in…",
+"o": [
+"Mumbai",
+"New Delhi",
+"Hyderabad",
+"Kolkata"
+],
+"x": "With the RBI."
+},
+{
+"q": "HAL has its head office in…",
+"o": [
+"Bengaluru",
+"Hyderabad",
+"Nashik",
+"Koraput"
+],
+"x": "With ISRO."
+},
+{
+"q": "DRDO's head office is in…",
+"o": [
+"New Delhi",
+"Bengaluru",
+"Hyderabad",
+"Pune"
+],
+"x": "New Delhi."
+},
+{
+"q": "The International Solar Alliance was started by India and…",
+"o": [
+"France",
+"Germany",
+"UAE",
+"Japan"
+],
+"x": "2015, Paris COP21."
+},
+{
+"q": "Which group's members are the USA, India, Japan and Australia?",
+"o": [
+"QUAD",
+"BRICS",
+"SCO",
+"IBSA"
+],
+"x": "QUAD.",
+"pyq": "2021"
+},
+{
+"q": "NATO had how many members when it was asked in 2022?",
+"o": [
+"30",
+"32",
+"28",
+"31"
+],
+"x": "Now 32.",
+"pyq": "2021"
+},
+{
+"q": "The SCO heads of government meeting of November 2021 was hosted by…",
+"o": [
+"Kazakhstan",
+"India",
+"Russia",
+"Uzbekistan"
+],
+"x": "Kazakhstan.",
+"pyq": "2021"
+}
+]

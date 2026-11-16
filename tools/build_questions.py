@@ -21,7 +21,7 @@ def main():
     card_ids = {k["id"] for c in cards["chapters"] for p in c["parts"] for k in p["cards"]}
     out, seen_ids, seen_q, errors = [], set(), {}, []
     for path in sorted(glob.glob(os.path.join(SRC, "*.json"))):
-        ch = os.path.splitext(os.path.basename(path))[0]
+        ch = os.path.basename(path).split(".")[0]   # ga-polity.json, ga-polity.2.json …
         if ch not in chapters:
             errors.append(f"{ch}: no chapter with this id in cards.json"); continue
         for i, q in enumerate(json.load(open(path))):
