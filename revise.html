@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO Revise</title>
+<meta name="description" content="Endless GA and Current Affairs questions for the OPSC ASO exam. Every second question is new; missed ones come back within 20.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* White-and-blue reference-manual look, light mode only. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --faint:#a9a9ae; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.6 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+
+.page{max-width:760px;margin:0 auto;padding:28px max(16px, env(safe-area-inset-left,0px)) 96px}
+.mono{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+.util{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.util a{color:var(--muted)}
+h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(2.2rem,8vw,3.4rem);line-height:1;margin:22px 0 0;letter-spacing:.02em}
+.sub{font-size:1rem;color:var(--muted);margin-top:8px;max-width:60ch}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule)}
+.stats div{padding:10px 8px 10px 0;min-width:0}
+.stats .k{font-size:10px;color:var(--muted)}
+.stats .v{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(1rem,4.6vw,1.5rem);line-height:1.2}
+.bar{height:3px;background:var(--grid);margin-top:-1px}
+.bar i{display:block;height:100%;background:var(--blue);width:0;transition:width .3s}
+
+.card{margin-top:26px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:11px}
+.src{color:var(--blue);flex-basis:100%}
+.tag{display:inline-block;font-size:10px;padding:1px 7px;border:1px solid currentColor;line-height:1.7}
+.tag.new{color:var(--muted);border-style:dashed}
+.tag.rev{color:var(--blue)}
+.tag.miss{color:var(--warn)}
+.tag.chk{color:var(--warn);border-style:dashed}
+.q{font-size:clamp(1.45rem,4.6vw,1.8rem);font-weight:500;line-height:1.3;margin:16px 0 20px;overflow-wrap:anywhere}
+
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:13px 16px;cursor:pointer;font-size:1.12rem;line-height:1.35;min-height:52px}
+.opt:hover:not([disabled]){background:var(--grid)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);flex:none}
+.opt .t{min-width:0;overflow-wrap:anywhere}
+.opt[disabled]{cursor:default}
+.opt.right{border:1.5px solid var(--blue);background:var(--blue-soft)}
+.opt.right .l{color:var(--blue)}
+.opt.wrong{border:1.5px solid var(--warn);color:var(--warn)}
+.opt.wrong .l{color:var(--warn)}
+.opt.dim{color:var(--faint)}
+.opt.dim .l{color:var(--faint)}
+
+.unsure{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.btn{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--fg);background:var(--paper);border-radius:3px;padding:9px 14px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.on,.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.hint{font-size:10px;color:var(--faint)}
+
+.explain{margin-top:20px;background:var(--paper);border:1px solid var(--warn);padding:16px 18px}
+.explain.ok{border-color:var(--blue)}
+.explain .h{font-weight:500;font-size:1.15rem}
+.explain .x{margin-top:8px}
+.explain .w{margin-top:10px;font-size:10px;color:var(--muted)}
+.explain .act{margin-top:12px}
+.next{margin-top:18px;width:100%;padding:14px}
+
+.keys{margin-top:36px;font-size:10px;color:var(--faint);border-top:1px dotted var(--muted);padding-top:12px}
+.note{margin-top:30px;color:var(--muted);font-size:1rem}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="util mono"><a href="./" target="_top">&larr; ASO Hub</a><span>GA · Current Affairs</span></div>
+  <h1>Revise</h1>
+  <p class="sub">An endless stream of four-option questions. Every second question is new. A question you miss comes back within the next 20.</p>
+
+  <div class="stats mono" id="stats" aria-live="polite">
+    <div><div class="k">New</div><div class="v" id="sNew">–</div></div>
+    <div><div class="k">Weak</div><div class="v" id="sWeak">–</div></div>
+    <div><div class="k">Learning</div><div class="v" id="sLearn">–</div></div>
+    <div><div class="k">Strong</div><div class="v" id="sStrong">–</div></div>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+
+  <div class="card" id="card"><p class="note">Loading questions…</p></div>
+
+  <p class="keys mono">Keys: 1–4 or A–D to answer · U = not sure · Enter = next question</p>
+</div>
+
+<script>
+/* Same engine as the ASO Cards iPhone app (Model/Drill.swift).
+   Time is counted in answered questions (the clock); every hour away adds 30.
+   Odd turns: a NEW question. Even turns: a REVIEW (if none is due, another new one).
+   Each answer gives a window in which the question must come back:
+     missed or "not sure": 5–20 · then 15–50 · 40–120 · 100–300 · strong 250–600.
+   Review order: missed past deadline → missed in window (most-missed first) →
+   others past deadline (lowest level first) → others in window → new → longest unseen.
+   Progress stays in this browser (localStorage). */
+var WINDOWS=[[5,20],[15,50],[40,120],[100,300],[250,600]], STRONG=4, PER_HOUR=30, MAX_AWAY=400, RECENT=3;
+var KEY="aso-revise-v2";
+var CH={"ga-polity":"Polity","ga-governance":"Governance and Civil Services","ga-economy":"Economy and Planning",
+ "ga-history":"Modern History","ga-worldgeo":"World Physical Geography","ga-indiageo":"Physical Geography of India",
+ "ga-odisha":"Odisha","ga-environment":"Environment and Ecology","ga-science":"Science and Technology",
+ "ga-defence":"Defence","ga-institutions":"Institutions","ga-current":"Current Affairs",
+ "ca-defence":"Defence news","ca-days":"Days and themes","ca-economy":"Budget and economy","ca-polity":"Polity in the news",
+ "ca-odisha":"Odisha in the news","ca-summits":"Summits","ca-world":"World news","ca-reports":"Reports and indices",
+ "ca-space":"Space and science prizes","ca-env":"Environment and heritage","ca-awards":"Awards","ca-sports":"Sports"};
+var GUIDE={ga:"ASO-GA-Reference-Manual.html",ca:"ASO-Current-Affairs-2026-Manual.html"};
+
+var bank=[], S=load(), cur=null, kind=null, order=[], unsure=false, locked=false, timer=null;
+
+function load(){
+  try{var s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.stats) return s}catch(e){}
+  return {clock:0,lastActive:0,stats:{},recent:[],answered:0,correct:0};
+}
+function save(){ try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){} }
+function now(){
+  if(!S.lastActive) return S.clock;
+  var h=(Date.now()-S.lastActive)/3600000;
+  return h>0.25 ? S.clock+Math.min(h*PER_HOUR,MAX_AWAY) : S.clock;
+}
+function rand(a){ return a[Math.floor(Math.random()*a.length)] }
+function minBy(a,less){ var b=null; a.forEach(function(x){ if(b===null||less(x,b)) b=x }); return b }
+
+function next(){
+  var clock=now(), recent={}; S.recent.forEach(function(id){recent[id]=1});
+  var fresh=[],ow=[],oo=[],dw=[],dor=[],seen=[];
+  bank.forEach(function(q){
+    if(recent[q.id]) return;
+    var st=S.stats[q.id];
+    if(!st){fresh.push(q);return}
+    var e={q:q,s:st}; seen.push(e);
+    if(st.deadline<=clock) (st.level===0?ow:oo).push(e);
+    else if(st.start<=clock) (st.level===0?dw:dor).push(e);
+  });
+  if(S.answered%2===0&&fresh.length) return [rand(fresh),"new"];
+  var p=minBy(ow,function(a,b){return a.s.deadline<b.s.deadline})
+     ||minBy(dw,function(a,b){return a.s.wrong>b.s.wrong||(a.s.wrong===b.s.wrong&&a.s.start<b.s.start)})
+     ||minBy(oo,function(a,b){return a.s.level<b.s.level||(a.s.level===b.s.level&&a.s.deadline<b.s.deadline)})
+     ||minBy(dor,function(a,b){return a.s.level<b.s.level||(a.s.level===b.s.level&&a.s.start<b.s.start)});
+  if(p) return [p.q,"review"];
+  if(fresh.length) return [rand(fresh),"new"];
+  p=minBy(seen,function(a,b){return a.s.last-a.s.wrong*20<b.s.last-b.s.wrong*20});
+  return p?[p.q,"review"]:[rand(bank),"new"];
+}
+
+function answer(id,g){
+  S.clock=now()+1; S.lastActive=Date.now();
+  var isNew=!S.stats[id], st=S.stats[id]||{level:0,last:0,start:0,deadline:0,right:0,wrong:0};
+  if(g==="right"){ st.level=isNew?1:Math.min(st.level+1,STRONG); st.right++ }
+  else if(g==="unsure"){ st.right++ }
+  else { st.level=0; st.wrong++ }
+  var w=WINDOWS[g==="right"?st.level:0];
+  st.last=S.clock; st.start=S.clock+w[0]; st.deadline=S.clock+w[1];
+  S.stats[id]=st; S.recent.push(id); if(S.recent.length>RECENT) S.recent=S.recent.slice(-RECENT);
+  S.answered++; if(g!=="wrong") S.correct++;
+  save();
+}
+
+/* ===== screen ===== */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function $(id){return document.getElementById(id)}
+function stats(){
+  var n=0,w=0,l=0,s=0;
+  bank.forEach(function(q){var st=S.stats[q.id]; if(!st)n++; else if(st.level===0)w++; else if(st.level>=STRONG)s++; else l++});
+  $("sNew").textContent=n; $("sWeak").textContent=w; $("sLearn").textContent=l; $("sStrong").textContent=s;
+  $("bar").style.width=(bank.length?s/bank.length*100:0)+"%";
+}
+function show(){
+  clearTimeout(timer); locked=false; unsure=false;
+  var r=next(); cur=r[0]; kind=r[1];
+  order=[0,1,2,3]; for(var i=3;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=order[i];order[i]=order[j];order[j]=t}
+  var st=S.stats[cur.id], book=cur.ch.slice(0,2)==="ca"?"ca":"ga";
+  var tags=kind==="new"?'<span class="tag new">New</span>'
+    :(st&&st.wrong?'<span class="tag miss">Review · missed '+st.wrong+'×</span>':'<span class="tag rev">Review</span>');
+  if(cur.pyq) tags+='<span class="tag rev">PYQ '+esc(cur.pyq)+'</span>';
+  if(cur.check) tags+='<span class="tag chk">Check</span>';
+  var h='<div class="meta mono"><span class="src">'+(book==="ca"?"News · ":"GA · ")+esc(CH[cur.ch]||cur.ch)+'</span>'+tags+'</div>'+
+        '<h2 class="q">'+esc(cur.q)+'</h2><div class="opts" id="opts">';
+  order.forEach(function(idx,pos){
+    h+='<button class="opt" type="button" data-pos="'+pos+'"><span class="l mono">'+"ABCD"[pos]+'</span><span class="t">'+esc(cur.o[idx])+'</span></button>';
+  });
+  h+='</div><div class="unsure" id="unsureRow"><button class="btn" id="unsure" type="button" aria-pressed="false">Not sure</button>'+
+     '<span class="hint mono">Tap before answering if you\'re guessing</span></div><div id="after"></div>';
+  $("card").innerHTML=h;
+  Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b){ b.onclick=function(){pick(+b.dataset.pos)} });
+  $("unsure").onclick=toggleUnsure;
+  stats();
+}
+function toggleUnsure(){
+  if(locked) return; unsure=!unsure;
+  var b=$("unsure"); b.classList.toggle("on",unsure); b.setAttribute("aria-pressed",unsure);
+}
+function pick(pos){
+  if(locked) return; locked=true;
+  var right=order[pos]===0, g=right?(unsure?"unsure":"right"):"wrong";
+  answer(cur.id,g);
+  Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b,i){
+    b.disabled=true; b.classList.add(order[i]===0?"right":(i===pos?"wrong":"dim"));
+  });
+  $("unsureRow").hidden=true; stats();
+  if(g==="right"){ timer=setTimeout(show,750); return }
+  var st=S.stats[cur.id], book=cur.ch.slice(0,2)==="ca"?"ca":"ga";
+  $("after").innerHTML='<div class="explain'+(right?' ok':'')+'">'+
+    '<div class="h">'+(right?"Right, but you weren't sure":"Answer: "+esc(cur.o[0]))+'</div>'+
+    '<div class="x">'+esc(cur.x)+'</div>'+
+    '<div class="w mono">Comes back within the next '+Math.round(st.deadline-st.last)+' questions'+(right?'':', options shuffled')+'</div>'+
+    '<div class="act"><a class="btn" href="'+GUIDE[book]+'" target="_blank" rel="noopener">Open the guide</a></div></div>'+
+    '<button class="btn primary next" id="next" type="button">Next question</button>';
+  $("next").onclick=show; $("next").focus({preventScroll:true});
+  $("after").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+document.addEventListener("keydown",function(e){
+  if(e.metaKey||e.ctrlKey||e.altKey||!cur) return;
+  var k=e.key.toLowerCase(), i="1234".indexOf(k); if(i<0) i="abcd".indexOf(k);
+  if(!locked&&i>=0&&k.length===1){ pick(i); e.preventDefault() }
+  else if(k==="u") toggleUnsure();
+  else if(k==="enter"&&locked&&$("next")){ show(); e.preventDefault() }
+});
+
+fetch("app/questions.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){
+  bank=d.questions; show();
+}).catch(function(){
+  $("card").innerHTML='<p class="note">Could not load the questions. Open this page from the hub site (it needs app/questions.json next to it).</p>';
+});
+</script>
+</body>
+</html>

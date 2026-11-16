@@ -299,6 +299,8 @@ var R = [
  {t:"Current Affairs 2026", f:CA, s:"guide", p:"GA", y:"2026", x:"News by topic"},
  {t:"Vocabulary list", f:"ASO-Vocabulary.html", s:"guide", p:"EN", y:"EN", x:"Words + synonyms"},
 
+ {t:"Revise · endless questions", f:"revise.html", s:"mock", p:"GA", g:"Revise", n:1280, y:"REV", main:1, x:"1,280 GA + news MCQs · new every 2nd"},
+
  {t:"English Mock 01", f:"ASO-English-Mock-Test-2027-1.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-1", n:100, y:"M01"},
  {t:"English Mock 02", f:"ASO-English-Mock-Test-2027-2.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-2", n:100, y:"M02"},
  {t:"English Mock 03", f:"ASO-English-Mock-Test-2027-3.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-3", n:100, y:"M03"},
@@ -517,7 +519,7 @@ function trend(sid,fig){
 
 /* what to do next, in order */
 function nextList(){
-  var L=[];
+  var L=[["Revise: endless GA questions",openHref("revise.html","Revise · endless questions"),"new every 2nd"]];
   R.forEach(function(r,i){ if(r.k&&status(i)==="prog"&&L.length<2) L.push(["Finish "+r.t,openHref(r.f,r.t),SC[i].q.answered+"/"+SC[i].q.total]) });
   R.forEach(function(r,i){ if(r.s==="mock"&&r.main&&status(i)==="new") L.push(["Take "+r.t,openHref(r.f,r.t),r.n+" Q"]) });
   var en=R.filter(function(r){return r.g==="English mocks"}), last=en[en.length-1];
