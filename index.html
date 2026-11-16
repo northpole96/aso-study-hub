@@ -374,6 +374,12 @@ var SYL=[
  {id:"co", no:"IV", paper:"Paper IV", name:"Computer", short:"Computer", q:"5 tasks", mk:50, time:"1 hr · practical, qualifying only", topics:[
   {c:"—", n:"Windows"},{c:"—", n:"MS Word"},{c:"—", n:"MS Excel"},{c:"—", n:"MS PowerPoint"},{c:"—", n:"MS Access"},{c:"—", n:"Internet services"}]}
 ];
+/* topics without counts or links yet (Reasoning, Maths, Odia, Computer): safe defaults */
+SYL.forEach(function(S){S.topics.forEach(function(t){t.asked=t.asked||null;t.g=t.g||[];t.t=t.t||[];t.p=t.p||[]})});
+var P2="pyq/OPSC-ASO-2021-Reasoning-Maths-Paper-II.html";
+SYL.forEach(function(S){ if(S.id==="re"||S.id==="ma") S.topics.forEach(function(t){
+  t.t=[["Paper II mock","ASO-Paper-II-Mock-2021.html"]];
+  t.p=[S.id==="re"?["2021 Q1–50",P2+"#reasoning-and-mental-ability-q1-50"]:["2021 Q51–100",P2+"#mathematics-q51-100"]] }) });
 var EXAM=new Date(2027,0,17);
 
 /* ===== helpers ===== */
@@ -580,13 +586,13 @@ function subjectView(S){
   var any=S.topics.some(function(t){return ts[S.id+"|"+t.id]});
   function acc(t){var v=ts[S.id+"|"+t.id]; return v?v[0]/(v[0]+v[1]+v[2]):2}
   var list=S.topics.slice();
-  if(topicSort==="asked") list.sort(function(a,b){return b.asked[2]-a.asked[2]||(b.asked[0]+b.asked[1])-(a.asked[0]+a.asked[1])});
+  if(topicSort==="asked") list.sort(function(a,b){var x=a.asked||[0,0,0],y=b.asked||[0,0,0];return y[2]-x[2]||(y[0]+y[1])-(x[0]+x[1])});
   if(topicSort==="weak"&&any) list.sort(function(a,b){return acc(a)-acc(b)});
   h+=sec("Topics",n)+'<div class="filters">'+[["syl","Syllabus order"],["asked","Most asked in 2025"]].concat(any?[["weak","My weakest"]]:[]).map(function(b){return '<button data-ts="'+b[0]+'" aria-pressed="'+(topicSort===b[0])+'">'+b[1]+'</button>'}).join("")+'</div>';
   h+='<div class="panel mx"><div class="hd"><span></span><span>Topic</span><span class="ask" title="Questions asked in each paper"><span>2018</span><span>2021</span><span>2025</span></span><span>Guides</span><span>Topic tests</span><span>Past questions</span><span class="you">My score</span></div>'+
     list.map(function(t){var v=ts[S.id+"|"+t.id], all=v?v[0]+v[1]+v[2]:0;
       return '<div class="tr"><span class="code">('+t.c+')</span><span class="tn">'+esc(t.n)+'</span>'+
-        '<span class="ask" data-l="Asked"><span><i>’18</i>'+t.asked[0]+'</span><span><i>’21</i>'+t.asked[1]+'</span><span><b><i>’25</i>'+t.asked[2]+'</b></span></span>'+
+        '<span class="ask" data-l="Asked">'+(t.asked?'<span><i>’18</i>'+t.asked[0]+'</span><span><i>’21</i>'+t.asked[1]+'</span><span><b><i>’25</i>'+t.asked[2]+'</b></span>':'<span>—</span><span>—</span><span>—</span>')+'</span>'+
         '<span class="lk'+(t.g.length?'':' empty')+'" data-l="Guides">'+links(t.g)+'</span><span class="lk'+(t.t.length?'':' empty')+'" data-l="Tests">'+links(t.t)+'</span><span class="lk'+(t.p.length?'':' empty')+'" data-l="Past Qs">'+links(t.p)+'</span>'+
         '<span class="you">'+(v?'<span class="yb"><span style="width:'+Math.round(v[0]/all*100)+'%"></span></span>'+v[0]+'/'+all:'<span class="none">—</span>')+'</span></div>'}).join("")+'</div>';
   h+='<p class="note">2018, 2021, 2025 = how many questions each real paper asked on the topic. My score = right answers out of all questions on that topic in your finished tests.</p>';
