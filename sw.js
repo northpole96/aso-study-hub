@@ -1,7 +1,7 @@
 /* Offline support for the ASO study hub.
    Pages: network first (so updates show at once), cached copy when offline.
    Fonts and icons: cache first. Every page you open is saved for offline use. */
-var CACHE = "aso-hub-v3";
+var CACHE = "aso-hub-v4";
 var CORE = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png"];
 
 self.addEventListener("install", function (e) {
@@ -29,7 +29,8 @@ self.addEventListener("fetch", function (e) {
     }));
     return;
   }
-  e.respondWith(fetch(req).then(function (res) {
+  // pages and data: always ask the server if there is a newer copy (skips the 10-minute browser cache)
+  e.respondWith(fetch(req, { cache: "no-cache" }).then(function (res) {
     if (res && res.ok) { var copy = res.clone(); caches.open(CACHE).then(function (c) { c.put(req, copy); }); }
     return res;
   }).catch(function () {
