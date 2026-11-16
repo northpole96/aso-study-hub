@@ -691,7 +691,9 @@ function route(){
     var f=params.get("f")||"", t=params.get("t")||titleOf(f);
     if(!/^[\w\-./#]+$/.test(f)||/^\/\/|:/.test(f)){location.hash="#/home";return}
     $("#title").textContent=t; $("#full").href=f; view.className="view frame";
-    if(!view.querySelector("iframe")||view.dataset.f!==f){view.innerHTML='<iframe title="'+esc(t)+'" src="'+esc(f)+'"></iframe>'; view.dataset.f=f}
+    if(!view.querySelector("iframe")||view.dataset.f!==f){view.innerHTML='<iframe title="'+esc(t)+'" src="'+esc(f)+'"></iframe>'; view.dataset.f=f;
+      /* give the opened page the keyboard, so its shortcuts and arrow keys work straight away */
+      var fr=view.querySelector("iframe"); fr.addEventListener("load",function(){ try{ fr.focus(); fr.contentWindow.focus() }catch(e){} })}
     mark(cur); return;
   }
   view.className="view"; view.dataset.f="";
@@ -702,6 +704,18 @@ function route(){
   view.innerHTML='<div class="wrap">'+(q?V.search(q):S?subjectView(S):V[name]())+'</div>';
   view.scrollTop=0;
 }
+/* While a page is open in the frame, keys pressed on the hub itself go to that page
+   (so Revise can be answered with the keyboard without clicking into it first). */
+document.addEventListener("keydown",function(e){
+  var fr=document.querySelector(".view.frame iframe"), t=e.target;
+  if(!fr||e.metaKey||e.ctrlKey||e.altKey||/^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(t.tagName)) return;
+  try{
+    var w=fr.contentWindow; fr.focus(); w.focus();
+    var ev=new w.KeyboardEvent("keydown",{key:e.key,code:e.code,shiftKey:e.shiftKey,bubbles:true,cancelable:true});
+    (w.document.activeElement||w.document.body).dispatchEvent(ev);
+    if(ev.defaultPrevented) e.preventDefault();
+  }catch(err){}
+});
 function render(){ if(!/^#\/?open/.test(location.hash)){var y=$("#view").scrollTop; route(); $("#view").scrollTop=y} }
 function mark(n){
   var tab=(/^s\//.test(n)||n==="syllabus")?"subjects":n;

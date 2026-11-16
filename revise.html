@@ -53,8 +53,9 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
 .q{font-size:clamp(1.4rem,4.4vw,1.7rem);font-weight:500;line-height:1.3;margin:12px 0 18px;overflow-wrap:anywhere;min-height:3.9em}
 
 .opts{display:grid;gap:10px}
-.opt{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:12px 16px;cursor:pointer;font-size:1.12rem;line-height:1.35;min-height:52px;outline-offset:-2px}
+.opt{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:12px 16px;cursor:pointer;font-size:1.12rem;line-height:1.35;min-height:52px;}
 .opt:hover:not([disabled]){background:var(--grid)}
+.opt:focus-visible{outline:2px solid var(--blue);outline-offset:-4px;background:var(--grid)}
 .opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);flex:none}
 .opt .t{min-width:0;overflow-wrap:anywhere}
 .opt[disabled]{cursor:default}
@@ -124,7 +125,7 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
     <h1>Revise</h1>
     <p class="sub">Endless four-option questions. Every second one is new. A question you miss comes back within the next 20.</p>
     <div class="meter">
-    <div class="stats mono" id="stats" aria-live="polite">
+    <div class="stats mono" id="stats">
       <div><div class="k">New</div><div class="v" id="sNew">–</div></div>
       <div><div class="k">Weak</div><div class="v" id="sWeak">–</div></div>
       <div><div class="k">Learning</div><div class="v" id="sLearn">–</div></div>
@@ -137,8 +138,8 @@ h1{font-family:var(--f-pixel);font-weight:400;color:var(--blue);font-size:clamp(
   <div class="main">
     <div class="card" id="card"><p class="note">Loading questions…</p></div>
     <div class="side">
-      <div class="panel" id="after"></div>
-      <button class="btn primary next" id="next" type="button" disabled>Next question</button>
+      <div class="panel" id="after" aria-live="polite"></div>
+      <button class="btn primary next" id="next" type="button" disabled>Next question <span aria-hidden="true">· Enter</span></button>
     </div>
   </div>
 </div>
@@ -232,17 +233,18 @@ function show(){
   if(cur.pyq) tags+='<span class="tag rev">PYQ '+esc(cur.pyq)+'</span>';
   if(cur.check) tags+='<span class="tag chk">Check</span>';
   var h='<div class="meta mono"><span class="src">'+(book==="ca"?"News · ":"GA · ")+esc(CH[cur.ch]||cur.ch)+'</span>'+tags+'</div>'+
-        '<h2 class="q">'+esc(cur.q)+'</h2><div class="opts" id="opts">';
+        '<h2 class="q" id="qtext">'+esc(cur.q)+'</h2><div class="opts" id="opts" role="group" aria-labelledby="qtext">';
   order.forEach(function(idx,pos){
-    h+='<button class="opt" type="button" data-pos="'+pos+'"><span class="l mono">'+"ABCD"[pos]+'</span><span class="t">'+esc(cur.o[idx])+'</span></button>';
+    h+='<button class="opt" type="button" data-pos="'+pos+'" aria-keyshortcuts="'+(pos+1)+' '+"ABCD"[pos]+'"><span class="l mono">'+"ABCD"[pos]+'</span><span class="t">'+esc(cur.o[idx])+'</span></button>';
   });
-  h+='</div><div class="unsure" id="unsureRow"><button class="btn" id="unsure" type="button" aria-pressed="false">Not sure</button>'+
+  h+='</div><div class="unsure" id="unsureRow"><button class="btn" id="unsure" type="button" aria-pressed="false" aria-keyshortcuts="U">Not sure</button>'+
      '<span class="hint mono">Tap before answering if you\'re guessing</span></div>';
   $("card").innerHTML=h;
   idle();
   Array.prototype.forEach.call(document.querySelectorAll(".opt"),function(b){ b.onclick=function(){pick(+b.dataset.pos)} });
   $("unsure").onclick=toggleUnsure;
   stats();
+  if(kbd) focusOpt(0);
 }
 function toggleUnsure(){
   if(locked) return; unsure=!unsure;
@@ -251,7 +253,7 @@ function toggleUnsure(){
 function idle(){
   var p=$("after"); p.className="panel";
   p.innerHTML='<div class="lab mono">FIG_ANSWER</div><div class="idle">Pick an answer. If you miss it, the right answer and the reason show here.</div>'+
-    '<div class="keys mono">Keys · 1–4 or A–D answer<br>U = not sure · Enter = next</div>';
+    '<div class="keys mono">Keys · 1–4 or A–D answer · ↑ ↓ move, Enter picks<br>U = not sure · Enter or N = next · G = guide</div>';
   $("next").disabled=true;
 }
 function pick(pos){
@@ -279,16 +281,31 @@ function pick(pos){
   nx.focus({preventScroll:true});
   if(innerWidth<900) nx.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
+/* keyboard: works with no mouse at all
+   1–4 or A–D answer · ↑ ↓ (or ← →) move between options, Enter/Space picks the one in focus
+   U = not sure · Enter, Space or N = next question · G = open the guide */
+var kbd=false;
+function opts(){ return Array.prototype.slice.call(document.querySelectorAll(".opt")) }
+function focusOpt(i){ var o=opts(); if(o.length){ i=(i+o.length)%o.length; o[i].focus({preventScroll:true}) } }
+document.addEventListener("mousedown",function(){ kbd=false });
 document.addEventListener("keydown",function(e){
   if(e.metaKey||e.ctrlKey||e.altKey||!cur) return;
+  kbd=true;
   var k=e.key.toLowerCase(), i="1234".indexOf(k); if(i<0) i="abcd".indexOf(k);
-  if(!locked&&i>=0&&k.length===1){ pick(i); e.preventDefault() }
-  else if(k==="u") toggleUnsure();
-  else if(k==="enter"&&locked){ show(); e.preventDefault() }
+  var o=opts(), at=o.indexOf(document.activeElement);
+  if(!locked&&i>=0&&k.length===1){ pick(i); e.preventDefault(); return }
+  if(!locked&&(k==="arrowdown"||k==="arrowright")){ focusOpt(at<0?0:at+1); e.preventDefault(); return }
+  if(!locked&&(k==="arrowup"||k==="arrowleft")){ focusOpt(at<0?o.length-1:at-1); e.preventDefault(); return }
+  if(!locked&&(k==="home"||k==="end")){ focusOpt(k==="home"?0:o.length-1); e.preventDefault(); return }
+  if(!locked&&(k==="enter"||k===" ")){ if(at<0) focusOpt(0); else pick(at); e.preventDefault(); return }
+  if(k==="u"){ toggleUnsure(); e.preventDefault(); return }
+  if(locked&&(k==="enter"||k===" "||k==="n")){
+    if(document.activeElement&&document.activeElement.tagName==="A") return;  // Enter on the guide link opens it
+    show(); e.preventDefault(); return }
+  if(locked&&k==="g"){ var g=document.querySelector("#after a"); if(g){ g.click(); e.preventDefault() } }
 });
-
 fetch("app/questions.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){
-  bank=d.questions; $("next").onclick=function(){ if(locked) show() }; show();
+  bank=d.questions; try{ window.focus() }catch(e){} $("next").onclick=function(){ if(locked) show() }; show();
 }).catch(function(){
   $("card").innerHTML='<p class="note">Could not load the questions. Open this page from the hub site (it needs app/questions.json next to it).</p>';
 });
