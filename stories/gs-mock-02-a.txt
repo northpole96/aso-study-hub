@@ -1,0 +1,276 @@
+# polity | The Constitution | How the rule book was written and how it works
+## pol-borrowed | The borrowed bag | The makers read sixty constitutions and took the best of each. | 0
+In 1947 a group of lawyers sat down in Delhi to write a rule book for a new country. They did not start with an empty page. **B. N. Rau**, the adviser to the Constituent Assembly, had studied the constitutions of about sixty countries. Dr Ambedkar was not shy about this. He said nobody owns good ideas, so there is no shame in borrowing them.
+
+The biggest loan came from home. The **Government of India Act, 1935** gave the federal plan, the office of Governor, the Public Service Commissions and the emergency rules.
+
+From **Britain** came the parliamentary system, the rule of law, the writs and **single citizenship**. From the **USA** came the Fundamental Rights, judicial review and the impeachment of the President.
+
+**Ireland** gave three things: the Directive Principles, the way the President is elected, and the **nomination of members to the Rajya Sabha**. **Canada** gave a federation with a strong Centre, and the rule that left-over (residuary) powers go to the Centre. **Australia** gave the **Concurrent List** and the joint sitting of the two Houses.
+
+Then come the small loans that examiners love. The idea of **suspending Fundamental Rights during an Emergency** came from the **Weimar Constitution of Germany**. The **Fundamental Duties** came from the **USSR**. The way to amend the Constitution came from **South Africa**. "Procedure established by law" came from **Japan**. Liberty, equality and fraternity came from **France**.
+
+The exam has already asked Britain (2021) and Ireland (2025). The next country on the list is waiting.
++ Emergency suspension of rights: Germany (Weimar).
++ Rajya Sabha nominations, Directive Principles, election of President: Ireland.
++ Concurrent List, joint sitting: Australia.
++ Residuary powers with the Centre: Canada.
++ Fundamental Duties: USSR. Amendment procedure: South Africa.
+
+## pol-preamble | The page before page one | Is the Preamble a part of the Constitution? The judges took thirteen years to agree. | 1
+On 13 December 1946 Jawaharlal Nehru stood up in the Constituent Assembly and moved the **Objectives Resolution**. It said what kind of country India wished to be. Three years later that speech had become one long sentence, the Preamble. It was adopted with the rest of the Constitution on **26 November 1949**.
+
+The sentence begins with "We, the people of India". It calls India a **Sovereign Socialist Secular Democratic Republic**. Then it promises four things in a fixed order: **Justice** (social, economic and political), **Liberty** (of thought, expression, belief, faith and worship), **Equality** (of status and of opportunity) and **Fraternity**.
+
+But is this page really a part of the book? In the **Berubari Union case (1960)** the Supreme Court said no. In the **Kesavananda Bharati case (1973)** the Court changed its mind and said yes. Parliament can amend the Preamble, but it cannot destroy the basic features.
+
+Parliament has amended it **only once**. The **42nd Amendment (1976)** added three words: **Socialist, Secular and Integrity**.
+
+One more point is a favourite trap. The Preamble **cannot be enforced in a court**. You cannot file a case saying "the Preamble promised me justice".
+
+Great men gave it names. Ernest Barker called it the **key-note** of the Constitution. K. M. Munshi called it the **horoscope** of the republic. Thakurdas Bhargava called it the **soul**. N. A. Palkhivala called it the **identity card**.
++ Berubari 1960: not a part. Kesavananda Bharati 1973: a part.
++ Amended once: 42nd Amendment, 1976 (Socialist, Secular, Integrity).
++ Not enforceable in court.
++ Key-note: Barker. Horoscope: Munshi. Soul: Bhargava. Identity card: Palkhivala.
+
+## pol-rights | Six rights and five keys | Some rights belong to every person in India. Five belong only to citizens. | 11, 12, 10
+Part III of the Constitution, **Articles 12 to 35**, holds the Fundamental Rights. Think of them as six rooms: equality (14–18), freedom (19–22), protection from exploitation (23–24), religion (**25–28**), culture and education (29–30), and the right to go to court (32).
+
+A foreign tourist in Puri also has rights. The police cannot treat her unequally (Article 14) or take her life or liberty without law (Article 21). But five Articles are kept **only for citizens: 15, 16, 19, 29 and 30**. So the six freedoms of **Article 19**, such as free speech and the freedom to move anywhere in India, are not for foreigners.
+
+**Article 21** is the smallest Article with the biggest family. The courts keep reading new rights into the words "life and personal liberty". The right to **privacy** came in 2017 from a nine-judge bench (asked in 2018). **Maternity leave** came in 2025 (asked in 2025). In January 2026 the Court added **menstrual health** ⟨CHECK⟩. Education has its own number, **21A**, added by the 86th Amendment.
+
+A right is useless without a way to enforce it. That way is **Article 32**, which Dr Ambedkar called the heart and soul of the Constitution. The Supreme Court (Article 32) and the High Courts (Article 226) use five writs, like five keys.
+
+**Habeas Corpus** frees a person held illegally. **Mandamus** orders an official to do his duty. **Prohibition** stops a lower court in the middle of a case. **Certiorari** cancels an order a lower court has already passed. **Quo Warranto** asks a person, "By what authority do you hold this public office?"
++ Citizens only: Articles 15, 16, 19, 29, 30.
++ Article 21: privacy, maternity leave, menstrual health (check the last one).
++ Religion: Articles 25 to 28. Education: 21A.
++ Quo Warranto questions a person's claim to a public office.
++ Mandamus was asked in 2018; Prohibition and Quo Warranto are next.
+
+## pol-drawers | Promises and drawers | Learn the Directive Principles by number and the Schedules by what is inside. | 7, 6
+Part IV, **Articles 36 to 51**, is a list of promises the State makes to itself. These are the Directive Principles, an idea taken from Ireland. No court can enforce them, but a government is judged by them.
+
+The exam now asks them by number. Walk down the corridor once. **39A** is free legal aid, added in 1976. **40** is village panchayats. **44** is a uniform civil code. **45** is care of young children. **47** is nutrition and the ban on harmful drinks. **48** is farming and cow protection. **48A** is the environment. **50** asks the State to **separate the judiciary from the executive**. **51** is about international peace, which is why it is called the Article on foreign policy.
+
+In 2025 the paper asked Article 51 and gave Article 50 as a wrong option. Wrong options often become next year's answers.
+
+At the back of the book are the **twelve Schedules**. Think of them as twelve drawers. The **First** has the names of States and Union Territories. The **Second** has salaries. The **Third** has the **forms of oaths**. The **Fourth** has the seats of each State in the Rajya Sabha. The **Fifth** is for Scheduled Areas and the **Sixth** for the tribal areas of Assam, Meghalaya, Tripura and Mizoram.
+
+The **Seventh** has the three lists: Union, State and Concurrent. The **Eighth** has the 22 languages. The **Ninth**, added by the very first amendment in 1951, protects certain laws from the courts. The **Tenth** is the anti-defection law. The **Eleventh** lists 29 subjects for Panchayats and the **Twelfth** lists 18 subjects for Municipalities.
+
+The 2025 paper put oaths in the Second drawer to trick you. They live in the Third.
++ Article 50: separate judiciary from executive. Article 51: foreign policy.
++ Article 39A: free legal aid (1976). Article 40: panchayats. Article 44: uniform civil code.
++ Second Schedule: salaries. Third: oaths. Fourth: Rajya Sabha seats.
++ Ninth Schedule came with the 1st Amendment, 1951.
++ Eleventh: 29 subjects. Twelfth: 18 subjects.
+
+## pol-amend | A book that keeps changing | The amendments the examiner returns to, and one change that is not an amendment at all. | 8, 9
+The Constitution has a door for change, **Article 368**. More than a hundred amendments have walked through it. The examiner keeps coming back to about a dozen.
+
+The **1st (1951)** added the Ninth Schedule. The **42nd (1976)**, passed during the Emergency, was so large that people call it a mini-constitution. It added three words to the Preamble, the Fundamental Duties and free legal aid, and it moved **education** from the State List to the Concurrent List. The **44th (1978)** undid some of the damage. It removed the right to property from the Fundamental Rights and replaced "internal disturbance" with "armed rebellion" as a ground for Emergency.
+
+The **52nd (1985)** brought the anti-defection law. The **61st (1988)** lowered the **voting age from 21 to 18**. The **69th (1991)** made Delhi the National Capital Territory. The **73rd and 74th (1992)** gave Panchayats and Municipalities a place in the Constitution; both took effect in 1993.
+
+The **86th (2002)** made education a right. The **91st (2003)** capped the Council of Ministers at **15%** of the Lok Sabha. The **99th** set up a commission to appoint judges; it came into force in 2015 and the Supreme Court struck it down the same year. The **101st (2016)** brought GST, the **103rd (2019)** the 10% quota for the poor among the general category, and the **106th (2023)** one-third seats for women.
+
+Now the twist. In 2026 Kerala became **Keralam**. That was not done through Article 368. Under **Article 3**, Parliament can create a State or change its area, boundary or **name** by an ordinary law. The President must recommend the Bill and must first send it to the State Legislature for its views. Those views are not binding. **Article 4** says such a law is not counted as an amendment. Orissa became Odisha in 2011.
++ 61st Amendment (1988): voting age 21 to 18.
++ 42nd: Socialist, Secular, Integrity; Fundamental Duties. 44th: property right removed.
++ 69th: Delhi NCT. 91st: ministers capped at 15%. 99th: in force 2015.
++ Renaming a State: Article 3, ordinary law, not Article 368.
+
+## pol-money | Follow the rupee | From the budget speech to the auditor's report, every rupee walks a fixed road. | 2, 5
+Every year the Finance Minister reads the budget. The Constitution calls it the **Annual Financial Statement (Article 112)**. Follow one rupee from that speech.
+
+To raise or spend that rupee, the government needs a **Money Bill**, defined in **Article 110**. A Money Bill can start only in the **Lok Sabha**, and only with the President's recommendation. If there is a doubt, the **Speaker** decides whether a Bill is a Money Bill, and that decision is final.
+
+The Rajya Sabha gets the Bill for just **14 days**. It can only suggest changes. The Lok Sabha **may accept or reject** them (asked in 2025). There is no joint sitting on a Money Bill.
+
+The budget takes weeks to pass, but salaries cannot wait. So Parliament gives an advance called a **Vote on Account** (asked in 2018). Members who want to protest move cut motions. A **policy cut** reduces a demand to **₹1**. A **token cut** reduces it by **₹100**.
+
+After the rupee is spent, one man checks the bills: the **Comptroller and Auditor General**. The **President appoints** him (asked in 2021) under **Article 148**. He serves **six years or till the age of 65**. He gives his reports to the President, who places them before Parliament.
+
+There the **Public Accounts Committee** reads them. It has **22 members**, 15 from the Lok Sabha and 7 from the Rajya Sabha, and its chairman usually comes from the Opposition. Because the committee leans on the auditor at every step, the CAG is called its **friend, philosopher and guide**. The present CAG is **K. Sanjay Murthy**.
++ Money Bill: Article 110, Lok Sabha only, Speaker certifies.
++ Rajya Sabha has 14 days; Lok Sabha may accept or reject.
++ CAG: Article 148, appointed by the President, six years or 65.
++ CAG is the friend, philosopher and guide of the Public Accounts Committee (22 members).
++ Vote on Account: advance grant before the budget is passed.
+
+## pol-state | The view from Bhubaneswar | The Governor, the one House Odisha has, and the ladder of ages. | 4, 13, 3
+Stand outside the Raj Bhavan in Bhubaneswar. The person inside, the **Governor**, was not elected by anyone in Odisha. The **President appoints** the Governor (Article 155), and the Governor stays only **during the pleasure of the President** (Article 156). There is **no impeachment** of a Governor. The State Assembly cannot remove him.
+
+A Governor must be **35 years** old. Since the 7th Amendment of 1956, **one person can be Governor of two or more States**. In 2025 the paper asked who wanted Governors to be non-partisan people from outside the State's politics. That was the **Sarkaria Commission**. In October 2026 **Braj Mohan Ram** was named Governor of Odisha, after Hari Babu Kambhampati.
+
+Now walk to the Assembly. Odisha has only one House. Just **six States** have a second House, the Legislative Council: **Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra and Karnataka**. Odisha's Assembly asked for one in 2018, but Parliament has not created it.
+
+That is the rule of **Article 169**. The Assembly passes a resolution by a special majority, and then **Parliament** creates or abolishes the Council by an ordinary law (asked in 2021). A Council can have at most one-third of the Assembly's strength and at least 40 members.
+
+Last, the ladder of ages. You vote at **18**. You can sit in a Panchayat or Municipality at **21**. You can enter the Lok Sabha or an Assembly at **25**. The Rajya Sabha and a Legislative Council need **30** (asked in 2025). The President, the Vice-President and a Governor need **35**.
++ Governor: appointed and removed by the President; no impeachment; age 35.
++ One person can be Governor of two or more States (7th Amendment).
++ Six States have a Council; Odisha does not.
++ Council is created or abolished by Parliament under Article 169.
++ Ages: 18 vote, 21 Panchayat, 25 Lok Sabha, 30 Rajya Sabha and Council, 35 Governor.
+
+## pol-watchdogs | The watchdogs | The Commission that will conduct your exam, and the one that guards human rights. | 14, 15
+The body that will hold your exam, the OPSC, is written into the Constitution itself. **Articles 315 to 323** set up the Union and State Public Service Commissions.
+
+The **Governor appoints** the chairman and members of a State Commission. Yet the Governor cannot remove them. **Only the President** can, after an inquiry by the Supreme Court. The makers did this so that no State government could frighten the people who select its officers.
+
+A member serves **six years**. In the **UPSC** the age limit is **65**. In a **State Commission** it is **62**. Two or more States can share a **Joint Commission**, and that is created by **Parliament** (asked in 2025). After leaving, the UPSC chairman can take no further government job (asked in 2021).
+
+The second watchdog is younger. The **National Human Rights Commission** is not in the Constitution. It was set up under the **Protection of Human Rights Act, 1993**. Its first chairperson was **Justice Ranganath Misra** (asked in 2021).
+
+At first only a former Chief Justice of India could head it (asked in 2018). A change in **2019** opened the post to any **former Supreme Court Judge** and cut the term from five years to **three years, or till the age of 70**.
+
+The President appoints the chairperson on the advice of a committee of six: the Prime Minister, the Speaker, the Home Minister, the two Leaders of the Opposition and the Deputy Chairman of the Rajya Sabha. In 2025 the paper slipped in the Deputy Speaker of the Lok Sabha, who is not on it. The present chairperson is **Justice V. Ramasubramanian**.
++ State PSC member: six years or 62. UPSC: six years or 65.
++ Appointed by the Governor, removed only by the President.
++ Joint State PSC: created by Parliament.
++ NHRC: 1993 Act; term three years or 70 since 2019.
++ NHRC head can be a former Chief Justice of India or a former Supreme Court Judge.
+
+# history | British Rule and Freedom | From a trading company to the night of freedom
+## his-company | A trading company gets a kingdom | Three battles in seven years, and then the taxman arrives. | 28, 16
+In 1757 the East India Company was still a trader. By 1765 it was collecting the taxes of a land larger than England. Three battles did it.
+
+At **Plassey (1757)** Robert Clive beat **Siraj-ud-Daulah**, the Nawab of Bengal, with the help of the traitor Mir Jafar. At **Wandiwash (1760)** Eyre Coote beat the French and ended their dream in India (asked in 2018). Then came the real test.
+
+At **Buxar (1764)** three rulers joined hands: **Mir Qasim** of Bengal, **Shuja-ud-Daulah** of Awadh and the Mughal emperor **Shah Alam II**. **Hector Munro** beat all three. Siraj was not there. He had died seven years before. By the **Treaty of Allahabad (1765)** the emperor gave the Company the **Diwani**, the right to collect revenue in **Bengal, Bihar and Orissa**.
+
+Now the Company needed a system to collect land tax. It tried three.
+
+**Lord Cornwallis** brought the **Permanent Settlement in 1793** in Bengal, Bihar and Orissa. The **zamindars became owners** of the land, and the tax was **fixed for ever**. That is why it is called permanent.
+
+In Madras and Bombay, **Thomas Munro** and Alexander Read used the **Ryotwari** system (asked in 2025). The government took the tax straight from the farmer, the ryot. In the North-Western Provinces and Punjab, **Holt Mackenzie** brought the **Mahalwari** system in 1822, where the whole village (mahal) paid together.
+
+High taxes and cheap British cloth then broke India's old crafts. Historians call this **deindustrialisation** (asked in 2021).
++ Buxar 1764: Munro beat Mir Qasim, Shuja-ud-Daulah and Shah Alam II.
++ Treaty of Allahabad 1765: Diwani of Bengal, Bihar and Orissa.
++ Permanent Settlement: Cornwallis, 1793, zamindars, revenue fixed for ever.
++ Ryotwari: Munro, Madras and Bombay. Mahalwari: Holt Mackenzie, 1822.
+
+## his-acts | The ladder of Acts | Each Act of the British Parliament added one rung. Climb it once and you can place any of them. | 17, 18
+British rule in India was built by Acts of Parliament, one rung at a time. Climb the ladder once.
+
+**1773, Regulating Act.** The first rung. It made **Warren Hastings** the Governor-General of Bengal and set up a Supreme Court at Calcutta, with **Elijah Impey** as its first Chief Justice. **1784, Pitt's India Act.** A **Board of Control** in London now watched the Company.
+
+**1813, Charter Act.** The Company lost its trade monopoly, and **₹1 lakh a year** was set aside for education (asked in 2021). **1833, Charter Act.** The Governor-General of Bengal became the **Governor-General of India**; William Bentinck was the first. A Law Member joined his council, and that was **Macaulay** (asked in 2025).
+
+**1853, Charter Act.** The Company could no longer hand out civil service jobs to friends. Posts were thrown open to **competition**. The Macaulay Committee of 1854 planned the exam, and in 1863 **Satyendranath Tagore** became the first Indian to pass it.
+
+**1858, Government of India Act.** After the Revolt, the Crown took over. A new minister, the **Secretary of State for India**, sat in London with a council of 15. The Governor-General got a second title, **Viceroy**; **Lord Canning** was the first.
+
+**1861** brought Indians into the law-making council. **1892** made a small start with elections (asked in 2018). **1909**, the Morley–Minto reforms, gave separate electorates to Muslims. **1919**, the Montagu–Chelmsford reforms, brought **dyarchy** to the provinces. **1935** gave **provincial autonomy** and a **federal court** (asked in 2025) and separated Burma from India.
++ 1853: open competition for the civil service.
++ 1858: Secretary of State for India; Viceroy (Canning first).
++ 1833: Governor-General of India; Macaulay first Law Member.
++ 1813: one lakh rupees for education.
++ 1919: dyarchy in provinces. 1935: provincial autonomy, federal court.
+
+## his-viceroys | Two viceroys and a classroom | Lytton shut mouths, Ripon opened doors, and both left exam questions behind. | 19, 25
+Two Viceroys ruled one after the other and could not have been more different.
+
+**Lord Lytton (1876–80)** held a grand **Delhi Durbar in 1877** to declare Queen Victoria the Empress of India, while a famine was killing people in the south. In **1878** he passed the **Vernacular Press Act** to silence Indian-language newspapers, and the **Arms Act**, which stopped Indians from keeping weapons without a licence.
+
+**Lord Ripon (1880–84)** undid much of it. He **repealed the Vernacular Press Act in 1882**. He passed the **first Factory Act in 1881**. His **Resolution of 1882** set up local boards with elected members, and for this he is called the **Father of Local Self-Government**. His law member wrote the **Ilbert Bill (1883)**, which would have let Indian judges try Europeans. The white community's anger over that Bill has been asked in 2018 and 2025.
+
+Ripon also set up the **Hunter Education Commission (1882)**. That takes us to the classroom.
+
+The story of English education has one famous paper. In **1854 Charles Wood** sent a despatch asking for schools at every level, from the village to the university. It is called the **Magna Carta of English Education in India**. The universities of **Calcutta, Bombay and Madras** opened three years later, in 1857. Before it stood **Macaulay's Minute of 1835**, which chose English as the language of teaching.
+
+After Wood came a line of commissions, and the 2025 paper asked their order: **Hunter (1882), Raleigh (1902), Sadler (1917), Hartog (1929), the Wardha scheme (1937), Sargent (1944), Radhakrishnan (1948), Kothari (1964)**.
++ Ripon: Father of Local Self-Government (Resolution of 1882).
++ Ripon also: first Factory Act 1881, repeal of Vernacular Press Act 1882, Ilbert Bill 1883.
++ Lytton: Delhi Durbar 1877, Vernacular Press Act and Arms Act 1878.
++ Wood's Despatch 1854: Magna Carta of English Education.
++ Order: Hunter, Raleigh, Sadler, Hartog, Wardha, Sargent, Radhakrishnan, Kothari.
+
+## his-press | Before the Congress, the printing press | Small clubs and brave newspapers came first. The Congress came later. | 24, 20
+The Congress was born in 1885, but it had many elder brothers. Educated Indians first met in small clubs in the big cities.
+
+In **1863 Abdul Latif** started the **Mohammedan Literary Society** in Calcutta. In **1866 Dadabhai Naoroji** started the **East India Association** in London to tell the British public about India. In **1870 M. G. Ranade** and his friends started the **Poona Sarvajanik Sabha**. In **1876 Surendranath Banerjea** and Ananda Mohan Bose started the **Indian Association**, the strongest of them all. A year or two later **Syed Amir Ali** founded the **Central National Mohammedan Association** (asked in 2025). The Madras Mahajan Sabha (1884) and the Bombay Presidency Association (1885) came just before the Congress.
+
+These men needed a voice, and the voice was the newspaper. Learn each paper with its owner.
+
+**Raja Rammohan Roy** ran Sambad Kaumudi. **Dadabhai Naoroji** ran Rast Goftar. **G. Subramania Iyer** founded The Hindu. **Sisir Kumar Ghosh** founded Amrita Bazar Patrika. **Tilak** ran Kesari and Mahratta. **Annie Besant** ran New India and Commonweal. **Maulana Azad** ran Al-Hilal. **Maulana Mohammad Ali** ran **Comrade**, and the examiner likes to swap these last two. **Gandhi** ran Young India and Harijan. **Ambedkar** ran Mook Nayak.
+
+Odisha has two names to keep. **Utkal Dipika (1866)** of **Gourishankar Ray** was the first Odia newspaper. **The Samaja (1919)** was started by **Gopabandhu Das**.
+
+The rulers hit back with press laws. **Wellesley** brought censorship in **1799** (asked in 2025). **John Adam** made licences compulsory in 1823. **Charles Metcalfe** removed the curbs in 1835 and is called the liberator of the Indian press. India's first newspaper was Hicky's Bengal Gazette (1780).
++ Indian Association 1876: Surendranath Banerjea.
++ Poona Sarvajanik Sabha 1870: M. G. Ranade. East India Association 1866: Dadabhai Naoroji.
++ Mohammedan Literary Society 1863: Abdul Latif.
++ Comrade: Mohammad Ali. Al-Hilal: Azad.
++ Utkal Dipika: Gourishankar Ray. The Samaja: Gopabandhu Das.
+
+## his-tilak | The man they blamed for the unrest | A British journalist gave Tilak an insult. India kept it as a title. | 26
+In 1910 a British journalist named **Valentine Chirol** wrote a book called "Indian Unrest". He wanted to find who was to blame for the anger in India, and he pointed at one man. He called **Bal Gangadhar Tilak** the **Father of Indian Unrest**. Tilak took him to court in London and lost. But the insult became a medal.
+
+Tilak had earned it. He ran two newspapers, **Kesari** in Marathi and **Mahratta** in English. He turned the Ganapati and Shivaji festivals into public meetings. He gave the country a line it still remembers: **"Swaraj is my birthright and I shall have it."**
+
+He was one of three leaders called **Lal–Bal–Pal**. They were the Extremists, who wanted to fight and not just to request. At **Surat in 1907** the Congress split between them and the Moderates. The British sent Tilak to **Mandalay** jail in Burma for six years, and there he wrote the Gita Rahasya. He came back, started a **Home Rule League in 1916**, and helped join the Congress and the Muslim League in the **Lucknow Pact** the same year.
+
+"Lal" was **Lala Lajpat Rai**, the **Punjab Kesari**. He founded the newspaper **The Punjabee** and the Servants of the People Society, and he was the first president of the All India Trade Union Congress in 1920. He died in 1928 after a police lathi charge during the protest against the Simon Commission. The 2025 paper had a statement question on him.
+
+"Pal" was **Bipin Chandra Pal** of Bengal, who edited New India and Bande Mataram. If the examiner has done Lal, then Bal and Pal are due.
++ Valentine Chirol called Tilak the Father of Indian Unrest.
++ Tilak: Kesari, Mahratta, Home Rule League 1916, Mandalay jail.
++ Lajpat Rai: Punjab Kesari, The Punjabee, first AITUC president, died 1928.
++ Surat split 1907. Lucknow Pact 1916.
+
+## his-gandhi | Four fights, then Karachi | Gandhi tested his method in four small struggles before he used it on the whole country. | 23, 22
+Gandhi came home from South Africa on 9 January 1915. He did not jump into national politics. He tested his method, satyagraha, in four small fights, and their order is a ready-made exam question.
+
+First came **Champaran (1917)** in Bihar, for farmers forced to grow indigo. Second came the **Ahmedabad Mill Strike (early 1918)**, where he went on his **first hunger strike** for the workers' wages. Third came **Kheda (1918)** in Gujarat, where farmers refused to pay tax after their crops failed. Fourth came the **Rowlatt Satyagraha (1919)**, his first all-India call, against a law that allowed jail without trial. It ended in the blood of **Jallianwala Bagh** on 13 April 1919.
+
+After that the fights were national, and the 2018 paper asked their order too: **Non-Cooperation (1920)**, the **boycott of the Simon Commission (1928)**, **Civil Disobedience (1930)** and **Quit India (1942)**.
+
+In between, the Congress sessions tell the story. At **Belgaum (1924)** Gandhi presided, the only time he ever did (asked in 2018). At **Lahore (1929)** Jawaharlal Nehru presided and the goal became Purna Swaraj; the first Independence Day was kept on **26 January 1930** (asked in 2025). Gandhi broke the salt law at Dandi on **6 April 1930** (asked in 2018).
+
+Then came **Karachi, March 1931**. Bhagat Singh had been hanged only days before, and the mood was dark. **Sardar Vallabhbhai Patel** presided. The session approved the Gandhi–Irwin Pact and passed the famous resolution on **Fundamental Rights and the National Economic Programme**. The 2025 paper said Motilal Nehru presided. That was the trap.
+
+Later sessions: **Faizpur (1936)** was the first held in a village. At **Tripuri (1939)** Subhas Bose beat Pattabhi Sitaramayya.
++ Order: Champaran 1917, Ahmedabad 1918, Kheda 1918, Rowlatt 1919.
++ Karachi 1931: Sardar Patel presided; Fundamental Rights resolution.
++ Belgaum 1924: the only session under Gandhi.
++ Lahore 1929: Nehru, Purna Swaraj. Faizpur 1936: first village session.
+
+## his-red | Red flags in the mills | The 2025 paper asked four questions on labour and the Left. This is their story. | 21
+After the First World War, prices rose and wages did not. Workers in the mills of Bombay, Calcutta and Ahmedabad began to strike, and leaders came forward to organise them.
+
+In **1920** the **All India Trade Union Congress** was born in Bombay. **Lala Lajpat Rai** was its first president, and **N. M. Joshi** was one of its builders (asked in 2025). In Ahmedabad, **Gandhi** founded the Textile Labour Association (asked in 2018).
+
+A new idea was also arriving from Russia. **M. N. Roy** founded the **Communist Party of India** at Tashkent in 1920 (asked in 2025). In Bengal in **1925** a small group formed the **Labour Swaraj Party**. Its leaders were **Muzaffar Ahmed**, the poet **Qazi Nazrul Islam** and **Hemanta Kumar Sarkar**. The 2025 paper asked about this party twice, and its trap was **S. A. Dange**, who belonged to Bombay and not to this party.
+
+The government was frightened. In **1924** it tried Dange, Muzaffar Ahmed and others in the **Kanpur Bolshevik Conspiracy Case**. Then, in **March 1929**, it arrested about thirty labour leaders in one sweep, among them **Muzaffar Ahmed, S. A. Dange and P. C. Joshi**, along with three Englishmen. The trial was held far from the mill cities, in a small town. This was the **Meerut Conspiracy Case (1929–33)**.
+
+The case failed in its aim. It made the accused famous, and Nehru himself helped their defence. In **1934** Jayaprakash Narayan and Acharya Narendra Dev formed the **Congress Socialist Party** inside the Congress. In **1936** the **All India Kisan Sabha** met at Lucknow under Swami Sahajanand Saraswati.
+
+Do not mix up the cases. **Kakori (1925)** was a train robbery by revolutionaries. The **Lahore** case was against Bhagat Singh. **Alipore (1908)** was against Aurobindo Ghosh.
++ Meerut Conspiracy Case 1929: Muzaffar Ahmed, Dange, P. C. Joshi.
++ Labour Swaraj Party 1925: Muzaffar Ahmed, Nazrul Islam, Hemanta Sarkar (not Dange).
++ AITUC 1920: Lajpat Rai first president; N. M. Joshi.
++ CPI: M. N. Roy. Congress Socialist Party: 1934.
+
+## his-ina | An army born in a prison camp | The Indian National Army had a founder before Netaji. | 27
+In February 1942 Singapore fell to Japan, and thousands of Indian soldiers of the British army became prisoners. One of them, **Captain Mohan Singh**, asked a bold question: why not turn these prisoners into an army to free India? With Japanese help he raised the **first Indian National Army in 1942**.
+
+The political side was led by an old revolutionary living in Japan, **Rash Behari Bose**, who headed the **Indian Independence League**. But Mohan Singh soon quarrelled with the Japanese, and the first INA broke up.
+
+Then the man it needed arrived. **Subhas Chandra Bose** had slipped out of his house in Calcutta in 1941, reached Germany, and in 1943 travelled by submarine to the East. Rash Behari Bose handed the movement to him.
+
+On **21 October 1943**, in **Singapore**, Netaji announced the **Provisional Government of Free India** (asked in 2018). He gave the army its cries, "Delhi Chalo" and "Jai Hind", and a women's unit, the **Rani of Jhansi Regiment**, led by Lakshmi Sahgal. The INA fought on the Burma border and reached Imphal and Kohima before the tide turned.
+
+The war ended, and the British made a mistake. In **1945** they put three INA officers on trial at the **Red Fort**: **Shah Nawaz Khan, P. K. Sehgal and G. S. Dhillon**. The whole country rose in their support. **Bhulabhai Desai** led the defence, and Nehru put on his lawyer's gown after many years.
+
+Other fights from abroad have been asked too: the **Ghadar Party** at **San Francisco** (2018) and Savarkar's **Free India Society** in London (2021).
++ First INA: Captain Mohan Singh, 1942.
++ Indian Independence League: Rash Behari Bose.
++ Provisional Government: Subhas Bose, Singapore, 21 October 1943.
++ Red Fort trials 1945: Shah Nawaz Khan, Sehgal, Dhillon; defended by Bhulabhai Desai.

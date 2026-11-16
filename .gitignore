@@ -8,3 +8,4 @@ pyq/*.md
 pyq/*.txt
 # the iOS app source stays on this computer; only its cards file (app/) is published
 ios-app/
+ios-stories/
