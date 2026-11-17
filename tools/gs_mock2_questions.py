@@ -117,7 +117,7 @@ add(D, "Who took over as India's third Chief of Defence Staff on 31 May 2026?",
     n=True)
 add(D, "Match List I (Military exercise) with List II (Partner country):\nList I: a. KHANJAR  b. DUSTLIK  c. KAZIND  d. Garuda Shakti\nList II: 1. Uzbekistan  2. Indonesia  3. Kyrgyzstan  4. Kazakhstan",
     [M(3, 1, 4, 2), M(1, 3, 4, 2), M(3, 4, 1, 2), M(4, 1, 3, 2)],
-    "The three Central Asian names are the trap. KHANJAR is with Kyrgyzstan (2026: Misamari, Assam). DUSTLIK is with Uzbekistan (2026: Aundh, Pune). KAZIND is with Kazakhstan. Garuda Shakti is the special forces exercise with Indonesia. Asked before: Dharma Guardian with Japan (2021 and 2025; the 7th edition was in Uttarakhand in 2026) and Nomadic Elephant with Mongolia (2025). Also: Yudh Abhyas – USA, Shakti – France, AUSTRAHIND – Australia, Surya Kiran – Nepal, Sampriti – Bangladesh.",
+    "The three Central Asian names are the trap. KHANJAR is with Kyrgyzstan (2026: Misamari, Assam). DUSTLIK is with Uzbekistan (2026: in Uzbekistan). KAZIND is with Kazakhstan. Garuda Shakti is the special forces exercise with Indonesia. Asked before: Dharma Guardian with Japan (2021 and 2025; the 7th edition was in Uttarakhand in 2026) and Nomadic Elephant with Mongolia (2025). Also: Yudh Abhyas – USA, Shakti – France, AUSTRAHIND – Australia, Surya Kiran – Nepal, Sampriti – Bangladesh.",
     k="match", n=True)
 add(D, "Consider the following statements:\n1. MILAN is a bilateral naval exercise held only between India and Japan.\n2. In February 2026, MILAN and the International Fleet Review were held off Visakhapatnam.\nWhich of the statements given above is/are correct?",
     S12,

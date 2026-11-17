@@ -129,8 +129,9 @@ Q Exercise KAZIND is held between India and which country?
 A Kazakhstan
 Q Where was Exercise KHANJAR held in 2026?
 A Misamari, Assam
-Q Where was Exercise DUSTLIK held in 2026?
-A Aundh, Pune
+Q In which country was Exercise DUSTLIK held in 2026?
+A Uzbekistan
+N The two armies take turns. The 2025 edition was at Aundh, Pune.
 F Three that sound alike | **KHANJAR** is a dagger, and it goes with **Kyrgyzstan**: K with K. **KAZIND** carries its partner in its name: **Kazakhstan** and India. **DUSTLIK** means friendship in Uzbek, and goes with **Uzbekistan**. The examiner swaps these three, so tie each to its first letters.
 
 = malabar
