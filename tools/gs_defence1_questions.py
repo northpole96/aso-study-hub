@@ -167,9 +167,9 @@ add("Match List I (Force or body) with List II (Place):\nList I: a. Naval Academ
     k="match")
 
 # ================================================================ EXERCISES AND OPERATIONS
-add("Match List I (Exercise of 2026) with List II (Place):\nList I: a. Yudh Abhyas  b. Tiger Triumph  c. INDRA  d. KHANJAR\nList II: 1. Vladivostok  2. Misamari, Assam  3. Alaska  4. Visakhapatnam",
+add("Match List I (Exercise of 2026) with List II (Place):\nList I: a. Yudh Abhyas  b. Tiger Triumph  c. INDRA  d. KHANJAR\nList II: 1. Vladivostok  2. Misamari, Assam  3. Auli, Uttarakhand  4. Visakhapatnam",
     [M(3, 4, 1, 2), M(4, 3, 1, 2), M(3, 4, 2, 1), M(3, 1, 4, 2)],
-    "The 22nd edition of Yudh Abhyas, the India–USA army exercise, was held in Alaska. Tiger Triumph, the India–USA tri-service relief exercise, was at Visakhapatnam. INDRA, with Russia, was at Vladivostok (INS Sahyadri took part at sea). KHANJAR, with Kyrgyzstan, was at Misamari in Sonitpur district, Assam. In the 2025 paper the question was always one more step: not only the partner but also the place.",
+    "The 22nd edition of Yudh Abhyas, the India–USA army exercise, was held in September 2026 at Auli in Uttarakhand and at Mahajan range in Rajasthan (the 2025 edition was in Alaska, because the two armies take turns). Tiger Triumph, the India–USA tri-service relief exercise, opened at Visakhapatnam in November 2026. INDRA, with Russia, was at Vladivostok (INS Sahyadri took part at sea). KHANJAR, with Kyrgyzstan, was at Misamari in Sonitpur district, Assam. In the 2025 paper the question was always one more step: not only the partner but also the place.",
     k="match", n=True)
 add("Tiger Triumph, the exercise of India and the USA, is conducted mainly to practise:",
     ["Humanitarian aid and disaster relief by all three services", "Mountain warfare by the Army", "Anti-submarine warfare by the Navy", "Air combat by the Air Force"],
