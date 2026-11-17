@@ -1,0 +1,301 @@
+#CH acts | The Acts, councils and commissions | PART A · STATIC
+Each Act gave Indians a little more, but only when pushed. Learn the staircase.
+
+@@fig acts
+
+##Company rule (1773–1857)
+|Act|What was new|
+|---|---|
+|Regulating Act, 1773|First step to control the Company. **Governor-General of Bengal** (Warren Hastings). Governor-General's council of four. **Supreme Court at Calcutta** (1774)|
+|Pitt's India Act, 1784|**Board of Control** in London. The Company's work was split into commercial (Directors) and political (Board). "Double government"|
+|Charter Act, 1793|Renewed the Company for 20 years|
+|Charter Act, 1813|Company's trade monopoly **ended** (except tea and China). **₹1 lakh a year for education** (Clause 43) ⟦2021 Q23⟧. Christian missionaries allowed|
+|Charter Act, 1833|**Governor-General of India** (Bentinck). A **Law Member** (Macaulay). Company's trade ended completely. Said no Indian could be barred from a job because of religion or birth|
+|Charter Act, 1853|Separate Legislative Council. **Open competition** for the civil service. Last Charter Act|
+
+##Crown rule (1858–1947)
+|Act|What was new|
+|---|---|
+|Government of India Act, 1858|Rule passed from the Company to the **Crown**. Post of **Secretary of State for India** with a council of 15. **Viceroy**|
+|Indian Councils Act, 1861|Indians **nominated** to the Viceroy's council (three were: Raja of Benares, Maharaja of Patiala, Sir Dinkar Rao). Portfolio system. Legislative councils for Bombay and Madras|
+|Indian Councils Act, 1892|First step to **election** (indirect). Members could discuss the budget and ask questions ⟦2018 Q28⟧|
+|Indian Councils Act, 1909 (**Morley–Minto**)|**Separate electorates for Muslims**. Elected members increased. An Indian (S. P. Sinha) in the Viceroy's council. Minto is called the father of communal electorates|
+|Government of India Act, 1919 (**Montagu–Chelmsford**)|**Dyarchy in provinces**: some subjects "transferred" to Indian ministers and some "reserved" for the Governor. **Two Houses** at the Centre (Council of State, Legislative Assembly). Direct elections. A statutory commission after 10 years. Franchise only to about 10% people|
+|Government of India Act, 1935|**Provincial autonomy.** **All-India Federation** (never came about). **Federal Court** (1937). **Reserve Bank** (1935). Federal Public Service Commission. Separate electorates extended. Burma separated. **Odisha and Sind made provinces (1936)** ⟦2025 Q38⟧. Council of India abolished. It became the base of the Indian Constitution|
+|Indian Independence Act, 1947|**Two dominions**, India and Pakistan, from 15 August 1947. Princely states free to join either. The post of Secretary of State ended|
+
+>KEY:Memory line
+**1892** election starts. **1909** separate electorates. **1919** dyarchy. **1935** provincial autonomy.
+
+##Commissions and conferences
+|Name|Year|Remember|
+|---|---|---|
+|Hunter Commission|1882|On education (Ripon)|
+|Indian Universities Commission (Raleigh)|1902|Led to the Act of 1904|
+|Sadler Commission|1917|Calcutta University|
+|Hartog Committee|1929|Primary education|
+|Lee Commission|1924|Civil services|
+|**Simon Commission**|1927 (visited 1928)|All-white. Boycotted by the Congress: "**Simon Go Back**". Lala Lajpat Rai was hurt in Lahore, 30 October 1928, and died 17 November|
+|**Nehru Report**|1928|Motilal Nehru. First Indian effort to draft a constitution. Rejected by Jinnah|
+|**Jinnah's 14 points**|1929|Reply to the Nehru Report|
+|**Round Table Conferences**|1930, 1931, 1932|Three conferences in London. Gandhi went only to the **second** (1931)|
+|**Communal Award**|1932|Ramsay MacDonald. Separate electorates for depressed classes|
+|**Poona Pact**|1932|Gandhi and Ambedkar. Reserved seats in joint electorates for depressed classes (148)|
+|**August Offer**|1940|Linlithgow. Dominion status after the war. Rejected|
+|**Cripps Mission**|1942|Dominion after the war with the right to secede. Gandhi called it a "post-dated cheque on a failing bank". Rejected|
+|**C. R. Formula**|1944|Rajagopalachari. Rejected by Jinnah|
+|**Wavell Plan, Simla Conference**|1945|Executive council of Indians. Failed over the League's claim to name all Muslim members|
+|**Cabinet Mission**|1946|Pethick-Lawrence, Stafford Cripps, A. V. Alexander. A three-tier federation. Constituent Assembly. Accepted by both at first|
+|**Mountbatten Plan (3 June Plan)**|1947|Partition. Referendum in NWFP and Sylhet. Princely states to choose|
+
+##Constituent Assembly (briefly)
+- First met on **9 December 1946**. Dr **Rajendra Prasad** was elected permanent president. **Dr B. R. Ambedkar** headed the Drafting Committee.
+- **Objectives Resolution:** moved by Nehru on 13 December 1946.
+- Constitution adopted on **26 November 1949**. It came into force on **26 January 1950**.
+
+>NEXT:Likely next
+?? Which Act brought dyarchy in provinces? || The Government of India Act, 1919.
+?? Which Act gave separate electorates to Muslims? || The Indian Councils Act, 1909.
+?? Which Act introduced provincial autonomy and the Federal Court? || The Government of India Act, 1935.
+?? Which Act ended the Company's trade monopoly in India? || The Charter Act, 1813 (except tea and China). The 1833 Act ended all trade.
+?? Who headed the all-white commission that was boycotted in 1928? || Sir John Simon.
+?? Where did Gandhi attend a Round Table Conference? || London, in 1931 (the second one).
+
+#CH economy | Land, trade and money: the economic story | PART A · STATIC
+##Land revenue systems
+The British needed tax from land. They tried three ways.
+|System|Who started|Where|Who paid the tax|
+|---|---|---|---|
+|**Permanent Settlement** (Zamindari)|Cornwallis, **1793**|Bengal, Bihar, Odisha, Varanasi|The **zamindar**. Amount fixed for ever. Zamindars could lose the land if they did not pay on the "sunset" day|
+|**Ryotwari**|Thomas Munro (Madras, **1820**); Bombay too|**Madras and Bombay** ⟦2025 Q88⟧|The farmer (**ryot**) directly. Revised every 20 to 30 years|
+|**Mahalwari**|Holt Mackenzie, **1822** (Regulation VII)|North-Western Provinces, Punjab, Central India|The whole **village** (mahal) together|
+
+In all three the peasant paid heavily. About half the produce went as tax. Under the Permanent Settlement, zamindars grew rich while tenants were crushed.
+
+##Drain of wealth and de-industrialisation
+- **Drain of wealth:** India sent a large part of its income to Britain without return: salaries, pensions, interest on debt and profits. **Dadabhai Naoroji** gave this theory in his book **Poverty and Un-British Rule in India** (1901). **R. C. Dutt** wrote **The Economic History of India** (1901). M. G. Ranade and G. Subramania Iyer also wrote on it.
+- **De-industrialisation:** Cheap British cloth from the factories of Lancashire was allowed into India nearly free, while Indian cloth was taxed in Britain. Weavers and craftsmen lost work and went back to farming. Nationalist writers hold that colonial policy caused it, and that is the standard answer. ⟦2021 Q27⟧
+- **Commercialisation of agriculture:** farmers were forced to grow cash crops such as **indigo**, cotton, jute, opium and tea for the British market.
+
+##Famines
+|Famine|Year|Note|
+|---|---|---|
+|Bengal|1770|Killed about a third of the people|
+|**Odisha (Na'anka)**|1866|Killed about a third of Odisha's people. Led to a Famine Commission (Campbell)|
+|South India|1876–78|Under Lytton. Strachey Commission (1880)|
+|All India|1896–97, 1899–1900|Lyall Commission (1898), MacDonnell Commission (1901)|
+|Bengal|1943|About three million died during the war|
+
+After 1880 the Government made a "Famine Code" and later the Irrigation Commission (1901).
+
+##Railways, telegraph, irrigation
+- **First railway:** Bombay to Thane, **16 April 1853** (Dalhousie). First line in the north: Howrah to Hooghly (1854). Rail laid so that raw cotton could go to ports and British goods to the interior.
+- **Telegraph:** 1851 (Calcutta to Diamond Harbour) and a wide network by 1854. **Post Office Act**, 1854.
+- **Irrigation:** Ganga Canal (1854), Punjab canal colonies.
+- **Money:** the **Reserve Bank of India** was set up on **1 April 1935**, from the Hilton Young Commission (1926) idea and under the Act of 1934.
+
+##Industry and early Indian business
+- **Tata Iron and Steel Company** at Jamshedpur, 1907 (Jamsetji Tata). First Indian cotton mill: Bombay 1854 (Cowasji Davar). First jute mill at Rishra, near Calcutta, in 1855 (British owned).
+- The **Swadeshi movement** (1905) gave Indian industries a push: Bengal Chemicals (1893 by P. C. Ray), Tata, Bank of India.
+- **Discriminating protection** policy came in the 1920s. The Fiscal Commission of 1921–22.
+- **The Bombay Plan (1944)** by industrialists, a plan for post-war growth.
+
+##The plantation and the indigo story
+European planters forced peasants in Bengal and Bihar to grow indigo at fixed low prices. The **Indigo Revolt** of 1859–60 in Bengal, led by Digambar Biswas and Bishnucharan Biswas, was helped by Harish Chandra Mukherjee's **Hindoo Patriot** and by **Dinabandhu Mitra's play Nil Darpan** (1860). The Government set up the Indigo Commission. In Bihar the **Champaran Satyagraha (1917)** was against the **tinkathia** system of 3 out of 20 parts to be sown with indigo. It was Gandhi's first big movement in India.
+
+>NEXT:Likely next
+?? Which land system was introduced by Thomas Munro? || Ryotwari.
+?? Who gave the "drain of wealth" theory? || Dadabhai Naoroji.
+?? When did the RBI begin work? || 1 April 1935.
+?? Who started the Mahalwari system? || Holt Mackenzie, 1822.
+?? Which play was written on the indigo planters? || Nil Darpan by Dinabandhu Mitra.
+?? What was the tinkathia system? || Forced indigo on 3 of every 20 parts of land in Champaran.
+
+#CH reform | Reformers, education and the press | PART A · STATIC
+##Reform movements
+The reformers argued against caste, sati, child marriage and old customs, and for education and widow remarriage.
+|Body or person|Year|Remember|
+|---|---|---|
+|**Raja Ram Mohan Roy** (**Brahmo Samaj**)|1828 (Atmiya Sabha 1815)|Fought against sati. "Father of Modern India". Wrote Tuhfat-ul-Muwahhidin. Started **Sambad Kaumudi** and **Mirat-ul-Akhbar**. Went to England (1830) and died at Bristol (1833). Title "Raja" from the Mughal emperor Akbar II|
+|Henry Derozio (Young Bengal)|1826|Hindu College, Calcutta. Free thought|
+|**Ishwar Chandra Vidyasagar**|1850s|Widow Remarriage Act (**1856**). Girls' schools. Principal of Sanskrit College|
+|**Dayanand Saraswati** (**Arya Samaj**)|1875 (Bombay)|"Back to the Vedas". **Satyarth Prakash**. Shuddhi. DAV schools after him|
+|**Ramakrishna Paramhansa** and **Vivekananda** (**Ramakrishna Mission**)|1897|Vivekananda's speech at the Parliament of Religions, Chicago, **1893**. Belur Math|
+|Theosophical Society|1875 (New York); Adyar 1882|Madame Blavatsky and Colonel Olcott. **Annie Besant** led it from 1907. Central Hindu College at Banaras (1898)|
+|**Prarthana Samaj**|1867 (Bombay)|Atmaram Pandurang; M. G. Ranade, R. G. Bhandarkar|
+|**Satyashodhak Samaj**|1873|**Jyotiba Phule** (Gulamgiri, 1873). First girls' school in Pune (1848) with Savitribai Phule|
+|**Sri Narayana Guru** (SNDP)|1903|Kerala. "One caste, one religion, one God for man"|
+|**Sir Syed Ahmad Khan** (Aligarh)|1875 Mohammedan Anglo-Oriental College|Modernist Muslim thinker. Opposed the Congress. Scientific Society (1864)|
+|**Deoband** (Dar-ul-Uloom)|1866|Muhammad Qasim Nanotvi. Orthodox, anti-British|
+|Ahmadiyya|1889|Mirza Ghulam Ahmad|
+|Singh Sabha|1873|Amritsar. Sikh reform|
+|Parsi reform|1851|Rahnumai Mazdayasnan Sabha (Naoroji Furdunji, S. S. Bengali, Dadabhai Naoroji)|
+|**Servants of India Society**|1905|G. K. Gokhale|
+|Seva Sadan|1908|Behramji Malabari|
+
+##Laws on social reform
+|Law|Year|Note|
+|---|---|---|
+|Sati abolished|1829|Bentinck|
+|Hindu Widows' Remarriage Act|1856|Vidyasagar and Dalhousie/Canning|
+|Female Infanticide Act|1870||
+|Native Marriage Act|1872|Marriage of different castes under Keshab Chandra Sen's push (Brahmo Marriage Act)|
+|Age of Consent Act|1891|Raised to 12 years. Malabari's work|
+|Sarda Act (Child Marriage Restraint)|1929|Minimum 14 for girls, 18 for boys|
+
+##Education, in order
+The 2025 paper asked the order of commissions. ⟦2025 Q81⟧
+- **1813** Charter Act: first grant for education.
+- **1835** **Macaulay's Minute**: English as the medium. The "downward filtration" theory.
+- **1854** **Wood's Despatch**: called the **"Magna Carta of English education"**. Led to universities at Calcutta, Bombay and Madras (**1857**). Department of Public Instruction in each province.
+- **1882** **Hunter Commission**: primary and secondary education.
+- **1902** Raleigh Commission, then the **Indian Universities Act of 1904** (Curzon).
+- **1917** **Sadler Commission** (Calcutta University).
+- **1929** **Hartog Committee**: primary education.
+- **1937** **Wardha Scheme** (Gandhi's basic education, Zakir Husain Committee).
+- **1944** **Sargent Plan**.
+- After freedom: Radhakrishnan Commission (1948), Mudaliar (1952), Kothari (1964–66).
+
+>KEY:Hot Samosa
+**H-S-H-K:** Hunter (1882), Sadler (1917), Hartog (1929), Kothari (1964).
+
+##Land of colleges
+Calcutta Madrasa (1781, Hastings). **Sanskrit College, Banaras (1791, Jonathan Duncan)**. Fort William College (1800). Hindu College Calcutta (1817). **Elphinstone College**, Bombay. Aligarh (1875). Visva-Bharati (Tagore, 1921). Jamia Millia (1920). **Banaras Hindu University** (1916, Malaviya). **Gujarat Vidyapith** (1920, Gandhi). Tilak's **Deccan Education Society** (1884, with Agarkar).
+
+##The press
+|Year|Event|
+|---|---|
+|1780|**Hicky's Bengal Gazette**: first newspaper in India. James Augustus Hicky|
+|1799|**Censorship of the Press Act** (Wellesley) ⟦2025 Q30⟧|
+|1823|Licensing Regulation (John Adam). Raja Ram Mohan Roy's protest|
+|1835|**Metcalfe** frees the press|
+|1857|Licensing Act (Canning)|
+|1878|**Vernacular Press Act** (Lytton). Aimed at Indian-language papers. A paper could be punished if its editor offended the government|
+|1882|Repealed by **Ripon** ⟦2025 Q76⟧|
+|1908|Newspapers (Incitement to Offences) Act|
+|1910|Indian Press Act (Minto)|
+|1931|Indian Press (Emergency Powers) Act|
+
+>WARN:Passed and repealed
+The Vernacular Press Act was **passed in 1878** and **repealed in 1882**. In 2025 the wrong pair said "Repeal of the Act: 1878". ⟦2025 Q76⟧
+
+##Newspapers and their people
+Asked three times. Learn the table.
+|Newspaper|Person|
+|---|---|
+|Sambad Kaumudi, Mirat-ul-Akhbar|Raja Ram Mohan Roy|
+|Hindoo Patriot|Harish Chandra Mukherjee|
+|Amrita Bazar Patrika|Sisir Kumar Ghosh|
+|The Hindu|G. Subramania Iyer, M. Veeraraghavachari|
+|**Kesari** (Marathi), **Maratha** (English)|**Bal Gangadhar Tilak**|
+|The Bengalee|Surendranath Banerjee|
+|Young India, Navajivan, Harijan, Indian Opinion; **Hind Swaraj** (book, 1909)|**Mahatma Gandhi**|
+|The Punjabee|**Lala Lajpat Rai**|
+|Bande Mataram, Karmayogin|Aurobindo Ghosh|
+|Yugantar|Barindra Kumar Ghosh|
+|Al-Hilal, Al-Balagh|**Maulana Abul Kalam Azad**|
+|Comrade, Hamdard|**Mohammad Ali**|
+|New India, Commonweal|**Annie Besant**|
+|**Hindustan Times** (chairman); the Leader|**Madan Mohan Malaviya**|
+|**Pratap** (Kanpur)|**Ganesh Shankar Vidyarthi**|
+|National Herald|**Jawaharlal Nehru**|
+|Mooknayak, Bahishkrit Bharat|**B. R. Ambedkar**|
+|Free India Society (London, 1906)|**V. D. Savarkar**|
+|Sanjibani|Krishna Kumar Mitra|
+|Bombay Times (later The Times of India)|Started by British traders, 1838|
+|Utkal Dipika (1866)|Gourishankar Ray. **Odisha's first newspaper**|
+|The Samaja (1919)|**Gopabandhu Das**|
+
+>WARN:The 2025 wrong statement
+"The Bombay Times was founded by Sanjibani" was false. Sanjibani is a Bengali weekly, not a person. ⟦2025 Q64⟧
+
+>NEXT:Likely next
+?? Who is called the "Father of Modern India"? || Raja Ram Mohan Roy.
+?? Which Act banned sati and when? || Bentinck's regulation of 1829.
+?? Which Despatch is called the Magna Carta of English education? || Wood's Despatch, 1854.
+?? Who founded the Arya Samaj? || Dayanand Saraswati, 1875.
+?? Who wrote Hind Swaraj? || Mahatma Gandhi (1909).
+?? Who founded the first girls' school in Pune? || Jyotiba and Savitribai Phule, 1848.
+
+#CH revolts | Revolts before 1857 and the Revolt of 1857 | PART A · STATIC
+##Tribal and peasant revolts before 1857
+|Revolt|Years|Leader and note|
+|---|---|---|
+|Sanyasi and Fakir|1763–1800|Bengal. Majnu Shah. The background of **Anandamath**|
+|Chuar|1768–1800|Midnapore, Bankura|
+|Poligar (Kattabomman)|1799|Veerapandiya Kattabomman, Tamil Nadu|
+|Vellore Mutiny|1806|Sepoys. New head-dress. Tipu's sons were there|
+|**Paika Rebellion**|**1817**|Khurda, Odisha. **Buxi Jagabandhu Bidyadhar**. See Chapter 12|
+|Kittur|1824|Rani Chennamma, Karnataka|
+|Kol|1831–32|Chhota Nagpur|
+|Titu Mir (Wahabi)|1831|Barasat, Bengal|
+|Ahom|1828||
+|Khasi|1829–33|Tirot Singh|
+|Pagal Panthis|1825–33|Karam Shah and Tipu, Mymensingh|
+|Faraizi|1838–57|Haji Shariatullah, Dudu Miyan, Bengal|
+|**Santhal Hul**|**1855–56**|**Sidhu and Kanhu**, with Chand and Bhairav. Damin-i-Koh area (Rajmahal, Bhagalpur)|
+|Khond|1836–56|Chakra Bisoi, Odisha. Against human sacrifice law ⟨CHECK⟩|
+|Kuka (Namdhari)|1872|Baba Ram Singh, Punjab|
+
+##After 1857
+|Revolt|Years|Leader and note|
+|---|---|---|
+|Indigo Revolt|1859–60|Bengal. Digambar and Bishnu Biswas|
+|Pabna Agrarian|1873|Ishan Chandra Roy|
+|**Deccan Riots**|1875|Against moneylenders. Led to the Deccan Agriculturists' Relief Act, 1879|
+|Rampa Rebellion|1879, 1922–24|Andhra. Alluri Sitarama Raju in 1922|
+|**Munda Ulgulan**|**1899–1900**|**Birsa Munda** (b. **15 November 1875**, d. Ranchi jail, June 1900). Chotanagpur Tenancy Act 1908|
+|Moplah|1921|Malabar. Linked to Khilafat. Wagon tragedy|
+|Eka Movement|1921|Awadh|
+|Bardoli Satyagraha|1928|Vallabhbhai Patel won the title "**Sardar**"|
+|Tebhaga|1946|Bengal. Two-thirds share for tenants|
+|Telangana|1946–51|Against the Nizam and landlords|
+
+##The Revolt of 1857
+**Spark.** The new **Enfield rifle** had cartridges that were said to be greased with cow and pig fat. Both Hindu and Muslim soldiers feared for their religion.
+
+**Deeper causes.**
+- **Political:** states taken by the Doctrine of Lapse, **Awadh** annexed in 1856, pensions ended (Nana Saheb), the Mughal emperor's title to end after Bahadur Shah.
+- **Economic:** heavy land tax, ruin of crafts, loss of work.
+- **Social:** fear of conversion, laws against sati and for widow remarriage seen as meddling.
+- **Military:** Indian soldiers were low paid and badly treated. The **General Service Enlistment Act (1856)** required service overseas.
+
+**Course.**
+- **29 March 1857:** **Mangal Pandey** attacked officers at **Barrackpore**.
+- **10 May 1857:** the revolt proper began at **Meerut**. ⟦2018 Q29⟧ Next day soldiers reached **Delhi** and proclaimed **Bahadur Shah Zafar** emperor.
+
+|Centre|Leader|
+|---|---|
+|Delhi|Bahadur Shah Zafar, Bakht Khan (general)|
+|Kanpur|Nana Saheb, Tantia Tope, Azimullah Khan|
+|Lucknow (Awadh)|**Begum Hazrat Mahal**, with Birjis Qadr|
+|Jhansi|**Rani Lakshmibai**|
+|Jagdishpur (Bihar)|**Kunwar Singh**|
+|**Faizabad**|**Maulvi Ahmadullah Shah** (Hazrat Mahal led at Lucknow, not at Faizabad) ⟦2025 Q75⟧|
+|Bareilly|Khan Bahadur Khan|
+|Allahabad|Liaqat Ali|
+|Assam|Maniram Dewan|
+|**Sambalpur (Odisha)**|**Veer Surendra Sai**|
+
+**Suppression.**
+- **British officers:** John Nicholson and **Hodson** (took Delhi, September 1857; Hodson captured the emperor at Humayun's Tomb), **Henry Havelock** (Kanpur), **Colin Campbell** (Lucknow), **Hugh Rose** (Jhansi, Gwalior).
+- **Bahadur Shah** was exiled to Rangoon where he died in 1862. Tantia Tope was betrayed and hanged (April 1859). The Rani of Jhansi died fighting at Gwalior (June 1858). Kunwar Singh died in April 1858.
+- Sikh and Gurkha soldiers, the Madras and Bombay armies and many princes (Scindia, Holkar, the Nizam, Kashmir) **stayed loyal**.
+
+**Result.**
+- The **Government of India Act, 1858** ended Company rule. The Crown took over.
+- **Queen Victoria's Proclamation** was read at **Allahabad on 1 November 1858**. It promised no more annexation, respect for religion and equal jobs. It is called the **"Magna Carta of Indian liberties"**.
+- The Army was reorganised (Peel Commission, 1858) and "divide and rule" grew.
+
+**How it is judged.**
+- **V. D. Savarkar** called it **the "First War of Independence"** (book, 1909).
+- **R. C. Majumdar** said it was "neither first, nor national, nor a war of independence".
+- **S. N. Sen** and **Disraeli** (a "national revolt") took middle views.
+
+>NEXT:Likely next
+?? Where did the Revolt of 1857 begin? || Meerut, on 10 May 1857.
+?? Who led the revolt at Lucknow? || Begum Hazrat Mahal.
+?? Who led the Santhal revolt? || Sidhu and Kanhu (1855–56).
+?? Who led the Munda Ulgulan? || Birsa Munda (1899–1900).
+?? Who led the revolt at Sambalpur in 1857? || Veer Surendra Sai.
+?? Where was the Queen's Proclamation read? || Allahabad, 1 November 1858.

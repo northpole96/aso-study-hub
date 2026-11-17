@@ -1,0 +1,260 @@
+#CH start | Start here | READ FIRST · 5 minutes
+The official syllabus line for this topic is "(c) History of British Rules in India and Freedom Struggle". So the period is **about 1600 to 1950**: how the British came, how they ruled, how Indians answered, and how the country became free. Ancient and medieval history are not in the syllabus. This guide covers the whole period in 14 chapters of fixed knowledge, then one chapter on history in the 2025 and 2026 news, then a last-week page.
+
+Modern History is the biggest block of fixed facts in the paper. It had 14 questions in 2018, 10 in 2021 and 16 in 2025, the most ever. Because the facts never change, a student who learns them well can score almost full marks here.
+
+##How the papers asked it
+The examiner repeats **families**. A family is a small topic that returns every few years from a new side.
+
+|Family|What was asked|Papers|
+|---|---|---|
+|Viceroys and Governors-General|Ilbert Bill row under Ripon; Censorship Act 1799 under Wellesley; first Law Member; first Viceroy and Governor-General|2018, 2025|
+|Acts|Provincial autonomy and Federal Court (1935); Charter Act 1813 Clause 43 (education); principle of election (1892)|2018, 2021, 2025|
+|Education and the press|Order of the education commissions; Vernacular Press Act repealed 1882; Bombay Times; newspapers and their owners|2021, 2025|
+|Land and economy|Ryotwari system; deindustrialisation|2021, 2025|
+|Organisations and founders|Central National Mohammedan Association; Ghadar Party (San Francisco); Ahmedabad Textile Labour Association; Servants of the People; Labour Swaraj Party; AITUC|2018, 2025|
+|Revolt of 1857|Where it began (Meerut); wrong pair of leaders and centres|2018, 2025|
+|Congress and Gandhi|Karachi session 1931; Purna Swaraj day; Belgaum 1924; Gandhi at Cuttack 1921; salt law broken 6 April 1930; Bose's government at Singapore; order of movements|2018, 2025|
+|Rulers and courts|Gulab Singh, Duleep Singh, Wajid Ali Shah pairs; the order of colonial courts; Bhangi clan|2021|
+|Treaties and wars|Wandiwash; Treaty of Deogaon (Odisha); Treaty of Bassein ("cypher")|2018|
+
+>KEY:How to read this guide
+- Every chapter ends with a "Likely next" block. Tap a question to see its answer.
+- A blue chip such as ⟦2025 Q10⟧ means the fact was asked in that paper.
+- A tag ⟨CHECK⟩ means the fact is disputed in books or rests on one source. Re-check it before the exam.
+- Dates are given because many questions say "which came first" or "which pair is wrong".
+
+>WARN:The favourite trap
+The examiner changes **one** detail in a true sentence: a wrong Viceroy, a wrong year, a wrong place, a wrong founder. So learn pairs and years, not just stories. Where the guide puts a bold name next to a year, that pair is the thing to remember.
+
+##Three passes
+- **Pass 1:** read Chapters 1 to 14 in order. Chapter 1 gives the whole timeline, so read it twice.
+- **Pass 2:** learn the tables: Viceroys, Acts, Congress sessions, organisations, newspapers.
+- **Pass 3 (last week):** Chapter 16 only, and every ⟨CHECK⟩.
+
+#CH timeline | The whole story in one timeline | PART A · STATIC
+Read this chapter first and last. A question that asks "arrange in order" is solved by a clear line in the head.
+
+@@fig timeline
+
+##1600 to 1857: the Company becomes the ruler
+|Year|Event|
+|---|---|
+|1600|East India Company gets its charter from Queen Elizabeth I|
+|1757|Battle of Plassey. Clive beats Siraj-ud-Daulah|
+|1760|Battle of Wandiwash. French power ends in India|
+|1764|Battle of Buxar|
+|1765|Treaty of Allahabad. Company gets the Diwani of Bengal, Bihar and Odisha|
+|1773|Regulating Act|
+|1784|Pitt's India Act|
+|1793|Permanent Settlement (Cornwallis)|
+|1799|Fall of Tipu Sultan. Censorship of the Press Act|
+|1802|Treaty of Bassein|
+|1803|Treaty of Deogaon. Odisha passes to the British|
+|1813|Charter Act. Clause 43 on education|
+|1817|Paika Rebellion in Odisha|
+|1829|Sati banned (Bentinck)|
+|1835|Macaulay's Minute. Metcalfe frees the press|
+|1849|Punjab annexed after the second Sikh war|
+|1853|First railway, Bombay to Thane|
+|1854|Wood's Despatch|
+|1856|Widow Remarriage Act. Awadh annexed|
+|1857|The Revolt|
+
+##1858 to 1914: the Crown and the first national voice
+|Year|Event|
+|---|---|
+|1858|Government of India Act. Queen's Proclamation (1 November)|
+|1861|Indian Councils Act|
+|1870|Poona Sarvajanik Sabha|
+|1875|Arya Samaj. Aligarh college|
+|1876|Indian Association. Royal Titles Act|
+|1878|Vernacular Press Act|
+|1882|Ripon repeals the Act. Local self-government. Hunter Commission|
+|1883|Ilbert Bill|
+|1885|Indian National Congress founded|
+|1892|Indian Councils Act (election principle)|
+|1897|Ramakrishna Mission. Tilak jailed|
+|1905|Partition of Bengal. Swadeshi movement|
+|1906|Muslim League founded|
+|1907|Surat split|
+|1909|Morley–Minto Reforms|
+|1911|Capital shifted to Delhi. Partition of Bengal cancelled|
+|1913|Ghadar Party|
+|1914|First World War begins. Komagata Maru|
+
+##1915 to 1947: the Gandhian age and freedom
+|Year|Event|
+|---|---|
+|1915|Gandhi returns to India|
+|1916|Lucknow Pact. Home Rule Leagues|
+|1917|Champaran. Montagu's Declaration|
+|1919|Rowlatt Act. Jallianwala Bagh. Government of India Act 1919|
+|1920|Non-Cooperation Movement and Khilafat. AITUC|
+|1922|Chauri Chaura. Movement withdrawn|
+|1923|Swaraj Party|
+|1927|Simon Commission announced|
+|1928|Nehru Report. Bardoli|
+|1929|Lahore Congress: Purna Swaraj. Meerut case. Bhagat Singh in the Assembly|
+|1930|Dandi March. Civil Disobedience. First Round Table Conference|
+|1931|Gandhi–Irwin Pact. Karachi session. Bhagat Singh hanged|
+|1932|Communal Award. Poona Pact|
+|1935|Government of India Act|
+|1936|Odisha becomes a province (1 April)|
+|1937|Provincial elections. Congress ministries|
+|1939|Second World War. Congress ministries resign. Tripuri|
+|1940|Lahore Resolution of the League. August Offer. Individual Satyagraha|
+|1942|Cripps Mission. Quit India (8 August)|
+|1943|Bose's Azad Hind government (21 October)|
+|1945|Simla Conference. INA trials|
+|1946|Naval mutiny. Cabinet Mission. Direct Action Day. Interim Government. Constituent Assembly meets|
+|1947|Mountbatten Plan (3 June). Independence Act. 15 August|
+|1948|Gandhi assassinated (30 January). Hyderabad and Odisha states merged|
+|1950|Republic (26 January)|
+
+>KEY:Four "big four" lists
+- **Movements:** Rowlatt (1919), Non-Cooperation (1920), Civil Disobedience (1930), Quit India (1942).
+- **Commissions:** Hunter (1882), Simon (1927), Cripps (1942), Cabinet Mission (1946).
+- **Acts of reform:** 1892, 1909, 1919, 1935.
+- **Tricks of expansion:** Subsidiary Alliance, Doctrine of Lapse, "bad government", direct war.
+
+>NEXT:Likely next
+?? What happened in 1765? || The Company got the Diwani of Bengal, Bihar and Odisha after Buxar.
+?? In which year was the capital shifted to Delhi? || 1911, announced at the Delhi Durbar.
+?? In which year did Odisha become a separate province? || 1936.
+?? Which came first, the Dandi March or the Poona Pact? || The Dandi March (1930). The Poona Pact was in 1932.
+
+#CH company | How the British took India (1600–1856) | PART A · STATIC
+##The Europeans come
+The Portuguese came first (Vasco da Gama reached Calicut in 1498). They were followed by the Dutch, the English, the Danish and the French.
+|Company|Year|Main base|
+|---|---|---|
+|Portuguese|1498|Goa, Daman, Diu|
+|English East India Company|1600|Surat, then Madras (1639), Bombay (1668), Calcutta (1690)|
+|Dutch|1602|Pulicat, Chinsura|
+|Danish|1616|Tranquebar, Serampore|
+|French|1664|Pondicherry (1674), Chandernagore|
+
+The English company won because it had a navy, money from trade and clever commanders. The Mughal Empire was also growing weak after Aurangzeb (1707).
+
+##Bengal: Plassey and Buxar
+- **Plassey, 1757.** Robert Clive beat the Nawab **Siraj-ud-Daulah**, because **Mir Jafar**, the Nawab's commander, changed sides. Mir Jafar became Nawab. This gave the Company control of Bengal. The "Black Hole of Calcutta" (1756) was the excuse.
+- **Buxar, 1764.** Hector Munro beat three rulers together: **Mir Qasim** of Bengal, **Shuja-ud-Daula** of Awadh and the Mughal emperor **Shah Alam II**.
+- **Treaty of Allahabad, 1765:** Clive gave Awadh back, but took from Shah Alam the **Diwani**, the right to collect taxes in **Bengal, Bihar and Odisha**. Bengal then had "dual government" (Company collected tax, the Nawab kept law and order) until 1772.
+
+##The French: the Carnatic Wars
+Three wars in South India (1746–63). The **Battle of Wandiwash (1760)** (Eyre Coote beat Lally) ended the French challenge. The **Treaty of Paris (1763)** left the French only a few trading towns. ⟦2018 Q26⟧
+
+##Mysore: Haidar Ali and Tipu Sultan
+|War|Years|End|
+|---|---|---|
+|First|1767–69|Treaty of Madras. Haidar had the upper hand|
+|Second|1780–84|Treaty of Mangalore. Haidar died in 1782|
+|Third|1790–92|Treaty of **Seringapatam** (1792). Tipu lost half his lands. Cornwallis led the British|
+|Fourth|1799|Tipu died defending **Seringapatam**. Wellesley was Governor-General. The Wodeyars were put back on the throne of Mysore|
+
+Tipu is remembered for his rocket artillery, a "Tree of Liberty" planted at Seringapatam and a modern navy and trade plan.
+
+##The Marathas
+|War|Years|End|
+|---|---|---|
+|First|1775–82|Treaty of **Salbai** (1782)|
+|Second|1803–05|Peshwa Baji Rao II signed the **Treaty of Bassein (1802)** and accepted British protection. Historians call him a "cypher" (a zero). ⟦2018 Q71⟧ Then came the battles of Assaye and Argaon. The Bhonsle of Nagpur signed the **Treaty of Deogaon (1803)** and gave up **Odisha** ⟦2018 Q27⟧. Scindia signed the Treaty of Surji-Anjangaon|
+|Third|1817–19|Peshwa deposed and pensioned off at Bithur. The Maratha power ended|
+
+>WARN:Deogaon and Argaon
+Argaon was a **battle** of the second Maratha war. **Deogaon** was the **treaty**. Odisha was given up by the Treaty of Deogaon, not Argaon. ⟦2018 Q27⟧
+
+##Punjab and Sindh
+- **Maharaja Ranjit Singh** (died 1839) built the Sikh state with a strong army. By the Treaty of **Amritsar (1809)** he agreed to keep to the Sutlej.
+- **First Anglo-Sikh war (1845–46):** Treaty of **Lahore** (1846). Gulab Singh was made ruler of **Jammu and Kashmir** by the Treaty of Amritsar (1846) for ₹75 lakh. ⟦2021 Q21⟧
+- **Second war (1848–49):** Punjab annexed by **Dalhousie** in 1849. Boy king **Duleep Singh** was sent to England. The Koh-i-Noor diamond went with him. The **Bhangi** clan (misl) had ruled Amritsar, Lahore and part of Punjab. ⟦2021 Q25⟧
+- **Sindh:** taken by **Charles Napier** in 1843 (the Amirs of Sindh were beaten at Miani).
+
+##Other conquests
+- **Nepal:** Anglo-Nepal war (1814–16). Treaty of **Sugauli** (1816).
+- **Burma:** First war (1824–26), Treaty of **Yandabo**. Second war 1852 (Lower Burma). Third war 1885–86 (all Burma).
+- **Afghanistan:** First war (1839–42), a disaster for the British. Treaty of Gandamak (1879) after the second war.
+
+##Two tricks for taking states
+**Subsidiary Alliance** (Wellesley, 1798). A ruler agreed to: keep a British force in his state and pay for it; keep a British Resident; give up foreign relations; and not employ other Europeans. In return he was "protected". **Hyderabad** (1798) was the first to accept. Others: Mysore (1799), Tanjore, Awadh (1801), Peshwa (1802), Scindia and Bhonsle (1803–04).
+
+**Doctrine of Lapse** (Dalhousie, 1848–56). If a ruler died without a **natural** son, the state "lapsed" to the British. Taken this way: Satara (1848), Jaitpur and Sambalpur (1849), Jhansi (1853), Nagpur (1854), Udaipur. **Awadh** was taken in 1856 for "bad government" and **Wajid Ali Shah** was sent to Calcutta. Many rulers lost their thrones, which was a main reason for the 1857 revolt. ⟦2021 Q21, Q22⟧
+
+>KEY:Rulers and their states
+Gulab Singh: Jammu. Duleep Singh: Punjab. Wajid Ali Shah: Awadh. Krishnaraja Wodeyar: Mysore. The Nizam (Asaf Jah): Hyderabad. Govinda Chandra: Cachar. **Shah Shuja and Zaman Shah ruled Afghanistan**, so pairing them with Rohilkhand or Peshawar is wrong. ⟦2021 Q21, Q22⟧
+
+##Law and courts
+Under Cornwallis the courts were set up in a ladder. Lowest to highest: **Munsif's Court → Sadr Amin's Court → Zilla (district) Court → Sadr Diwani Adalat**. ⟦2021 Q24⟧
+
+>NEXT:Likely next
+?? Which battle ended French power in India? || Wandiwash, 1760.
+?? Which treaty gave Odisha to the British? || The Treaty of Deogaon, 1803.
+?? Who accepted the Subsidiary Alliance first? || The Nizam of Hyderabad.
+?? Which state was taken by the Doctrine of Lapse in 1854? || Nagpur.
+?? Who was called a "cypher" in the Treaty of Bassein? || Peshwa Baji Rao II.
+?? Who got Kashmir in the Treaty of Amritsar 1846? || Gulab Singh.
+
+#CH rulers | Governors-General, Viceroys and how they ruled | PART A · STATIC
+This table gives the most marks in the chapter. The question is nearly always "under whom did this happen?"
+
+##The table
+|Name|Years|Remember him for|
+|---|---|---|
+|Warren Hastings|1773–85|First Governor-General of Bengal. Supreme Court at Calcutta (1774); first Chief Justice **Elijah Impey**|
+|Cornwallis|1786–93|**Permanent Settlement** (1793). Father of civil services. Cornwallis Code. Police reform. Third Mysore war|
+|John Shore|1793–98|Policy of non-intervention|
+|Wellesley|1798–1805|**Subsidiary Alliance**. Fort William College (1800). **Censorship of the Press Act, 1799** ⟦2025 Q30⟧. Fourth Mysore war. Second Maratha war|
+|Minto I|1807–13|Treaty of Amritsar (1809) with Ranjit Singh|
+|Hastings (Marquess)|1813–23|Third Maratha war. Ryotwari in Madras begun by Munro in his time. Press censorship loosened|
+|Amherst|1823–28|First Burma war|
+|**William Bentinck**|1828–35|**Sati banned** (1829). Suppressed thugs. English education (1835). First **Governor-General of India** (1833). Macaulay, first Law Member ⟦2025 Q45⟧|
+|Metcalfe|1835–36|Freed the press (1835). "Liberator of the Indian press"|
+|Auckland|1836–42|First Afghan war|
+|Hardinge I|1844–48|First Sikh war|
+|**Dalhousie**|1848–56|**Doctrine of Lapse**. First railway 1853. Telegraph (1851 to 1854). Post Office Act 1854. **Wood's Despatch** (1854). Widow Remarriage Act (1856, under Canning)|
+|**Canning**|1856–62|**Revolt of 1857**. First **Viceroy** (1858). Three universities (1857). Indian Councils Act 1861|
+|Elgin I|1862–63|Wahabi trouble|
+|John Lawrence|1864–69|Bhutan war. High Courts set up at Calcutta, Bombay and Madras (1862) under the Act of 1861|
+|Mayo|1869–72|Financial decentralisation. First **census** (1872). Killed in the Andamans (1872)|
+|Northbrook|1872–76|Kuka revolt. Baroda ruler deposed (1875)|
+|**Lytton**|1876–80|**Vernacular Press Act** (1878). Arms Act (1878). Royal Titles Act (1876). Delhi Durbar (1877). Famine of 1876–78. Strachey Commission|
+|**Ripon**|1880–84|**Repealed the Vernacular Press Act** (1882). **Ilbert Bill** (1883). **Local self-government** (1882). Hunter Commission (1882). First Factory Act (1881). First regular census (1881). Called the "father of local self-government" ⟦2025 Q10, 2018 Q86⟧|
+|Dufferin|1884–88|Congress founded (1885). Third Burma war|
+|Lansdowne|1888–94|Indian Councils Act 1892. Factory Act 1891. Durand Line (1893). Age of Consent Act (1891)|
+|Elgin II|1894–99|Tribal and frontier wars. Famine|
+|**Curzon**|1899–1905|**Partition of Bengal** (1905). Universities Act (1904). Calcutta Corporation Act (1899). Ancient Monuments Act (1904). Archaeological Survey revived. Police Commission. Co-operative Societies Act (1904). Punjab Land Alienation Act (1900)|
+|Minto II|1905–10|**Muslim League** (1906). **Morley–Minto Reforms** (1909). Swadeshi. Surat split|
+|Hardinge II|1910–16|**Capital shifted to Delhi** (1911). Bengal partition cancelled. Attack on Hardinge (1912). Komagata Maru|
+|Chelmsford|1916–21|**Rowlatt Act** (1919). **Jallianwala Bagh**. Montagu–Chelmsford Reforms (1919). Non-Cooperation|
+|Reading|1921–26|Moplah revolt. Chauri Chaura. Swaraj Party. Kakori (1925). Rawalpindi|
+|**Irwin**|1926–31|Simon Commission. **Dandi March**. First Round Table Conference. **Gandhi–Irwin Pact** (1931). Declared Dominion Status goal (1929)|
+|Willingdon|1931–36|Second Round Table. **Communal Award, Poona Pact** (1932). Government of India Act 1935|
+|Linlithgow|1936–44|1937 elections. Second World War. **August Offer** (1940). **Quit India** (1942). The longest-serving Viceroy|
+|Wavell|1944–47|Simla Conference. **Cabinet Mission** (1946). Interim Government. Naval mutiny|
+|**Mountbatten**|1947–48|Last Viceroy. **3 June Plan**. First Governor-General of free India|
+|C. Rajagopalachari|1948–50|First Indian, and last, Governor-General|
+
+>WARN:First Law Member
+In 2025 a statement said the first Law Member was Lord Amherst. That is false. The first Law Member (added by the Charter Act of 1833) was **Thomas Babington Macaulay**. ⟦2025 Q45⟧
+
+>WARN:First Governor-General of Bengal, of India and Viceroy
+First Governor-General of **Bengal**: Warren Hastings. First Governor-General of **India**: William Bentinck. First **Viceroy** (and also Governor-General): Lord Canning. A 2025 option mixed these. ⟦2025 Q45⟧
+
+##The Ilbert Bill row
+The Bill of **1883**, named after the Law Member Courtenay Ilbert, would have let Indian judges try Europeans in the districts. Europeans protested loudly and the Bill was watered down. Indians learned how effective organised protest is, and the Congress was formed two years later. ⟦2018 Q86, 2025 Q10⟧
+
+##The services
+- **Civil Services.** Cornwallis made them well-paid and separate from trade. **Wellesley** founded the Fort William College (1800). **Haileybury** (1806) trained the Company's men in England. The **Charter Act of 1853** brought an open exam. **Satyendranath Tagore** was the first Indian in the ICS (1863). The exam was held only in London until 1922. The **Lee Commission** (1924) recommended 40% Indians.
+- **Army.** The Company's three armies of Bengal, Madras and Bombay. After 1857 the proportion of Europeans was raised and artillery was kept in British hands. The **Peel Commission** (1858) reorganised the Army. "Martial races" were preferred.
+- **Police.** Cornwallis set up the thana system. The **Police Act of 1861** made the modern force.
+- **Judiciary.** Hastings began the courts. The **Supreme Court (1774)**, **Sadr Adalats**, **High Courts Act 1861** (High Courts at Calcutta, Bombay, Madras). Macaulay's **Indian Penal Code (1860)**, Civil Procedure Code (1859), Criminal Procedure Code (1861) and Evidence Act (1872). The first Law Commission (1834) was headed by Macaulay.
+
+>NEXT:Likely next
+?? Who was the first Governor-General of India? || William Bentinck, under the Charter Act of 1833.
+?? Who was the first Viceroy? || Lord Canning, in 1858.
+?? Who is called the father of local self-government? || Lord Ripon.
+?? Who passed the Vernacular Press Act, and who repealed it? || Lytton in 1878; Ripon in 1882.
+?? Under which Viceroy was the capital shifted to Delhi? || Lord Hardinge II.
+?? Who was the last Viceroy? || Lord Mountbatten.
+?? Who was the only Indian Governor-General? || C. Rajagopalachari.
