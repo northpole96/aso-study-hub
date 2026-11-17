@@ -1,0 +1,219 @@
+# history | British Rule and Freedom
+
+## his-company
+
+= plassey
+D 1757 | Battle of Plassey | **Robert Clive** beat **Siraj-ud-Daulah**, the Nawab of Bengal. The Nawab's own commander, **Mir Jafar**, had been bought before the fight. He stood still during the battle and was made Nawab after it.
+Q Which Nawab of Bengal lost the Battle of Plassey in 1757?
+A Siraj-ud-Daulah
+N He was killed a few days later. So he could not have fought at Buxar, seven years on.
+Q Which commander betrayed Siraj-ud-Daulah at Plassey and became Nawab as his prize?
+A Mir Jafar
+Q Who led the Company's army at Plassey?
+A Robert Clive
+S The battle that was won before it began | On 23 June 1757 Siraj-ud-Daulah brought about fifty thousand men to the mango groves of **Plassey**. Clive had about three thousand. It should not have been a fight at all. But the largest part of the Nawab's army stood under **Mir Jafar**, and Mir Jafar had already made a deal. At noon it rained. The Nawab's gunpowder got wet; the English had covered theirs. By evening the Nawab was running, and a trading company had a kingdom in its hands.
+
+= wandiwash
+Q Which battle of 1760 ended French hopes in India, and who won it for the British?
+A Wandiwash; Eyre Coote
+N He beat the French general Count de Lally. It decided the Third Carnatic War.
+F How the French lost India | The British and the French fought three **Carnatic Wars** in the south. The last one was settled at **Wandiwash in 1760**, where **Eyre Coote** beat Count de Lally. Pondicherry fell the next year. The French got it back by treaty, but only as a trading town.
+
+= buxar
+D 1764 | Battle of Buxar | **Hector Munro** beat three rulers at once: **Mir Qasim** of Bengal, **Shuja-ud-Daulah** of Awadh and the Mughal emperor **Shah Alam II**. Plassey was won by a trick. Buxar was won by fighting.
+Q Who commanded the Company's army at Buxar in 1764?
+A Hector Munro
+Q Name the three rulers who fought the Company together at Buxar.
+A Mir Qasim, Shuja-ud-Daulah and Shah Alam II
+N Bengal, Awadh and the Mughal emperor. Siraj-ud-Daulah is the wrong name the examiner likes to add.
+Q Which Mughal emperor was beaten at Buxar?
+A Shah Alam II
+Q Shuja-ud-Daulah, who fought at Buxar, was the Nawab of which state?
+A Awadh
+F Why Buxar matters more than Plassey | At Plassey the Company beat one Nawab with the help of a traitor. At **Buxar** it beat the Nawab of Bengal, the Nawab of Awadh and the **Mughal emperor** in an open fight. After Buxar nobody in north India could say no to the Company, and the emperor himself signed away the revenue of Bengal.
+
+= diwani
+D 1765 | Treaty of Allahabad | One year after Buxar, the emperor **Shah Alam II** gave the Company the **Diwani** of **Bengal, Bihar and Orissa**. Diwani means the right to collect the land revenue. **Clive** signed for the Company.
+Q What does the word "Diwani" mean?
+A The right to collect land revenue
+Q Which treaty gave the Company the Diwani, and in which year?
+A Treaty of Allahabad, 1765
+Q The Diwani of 1765 covered which three areas?
+A Bengal, Bihar and Orissa
+N "Orissa" here was only a small strip near Midnapore. The British took the rest of Odisha from the Marathas in 1803.
+Q Which Mughal emperor gave the Diwani to the Company?
+A Shah Alam II
+Q Who signed the Treaty of Allahabad for the Company?
+A Robert Clive
+N He had come back to India in 1765 for a second term as Governor of Bengal.
+F Two masters in Bengal | From **1765 to 1772** Bengal had a **dual government**. The Company took the revenue (the Diwani) but did none of the work of ruling. The Nawab had to keep law and order but had no money. It was Clive's plan. **Warren Hastings** ended it in 1772.
+Q What name is given to Clive's system in which the Company took Bengal's revenue and the Nawab kept the administration?
+A Dual government
+N It ran from 1765 to 1772.
+Q Who ended the dual government of Bengal, and in which year?
+A Warren Hastings, 1772
+
+= permanent
+D 1793 | Permanent Settlement | **Lord Cornwallis** fixed the land revenue of Bengal, Bihar and Orissa **for ever**. The **zamindars** became owners of the land. They kept one part in eleven and paid ten parts to the Company.
+Q Who brought in the Permanent Settlement, and in which year?
+A Lord Cornwallis, 1793
+Q Under the Permanent Settlement, who became the owners of the land?
+A The zamindars
+Q Why is the Permanent Settlement called "permanent"?
+A The revenue was fixed for ever
+Q Which official, later Governor-General himself, planned the Permanent Settlement with Cornwallis?
+A John Shore
+F The sunset law | The Permanent Settlement was easy on the Company and hard on everyone else. A zamindar had to pay by **sunset on a fixed day**. If he was late, his estate was sold by auction. So the zamindar pressed the farmer, and the farmer had no one to press.
+
+= ryotwari
+Q Which two officers are linked with the Ryotwari system?
+A Thomas Munro and Alexander Read
+Q In which parts of India was the Ryotwari system used?
+A Madras and Bombay presidencies
+Q In the Ryotwari system, who paid the land tax to the government?
+A The farmer (ryot) himself
+N There was no zamindar in between. The tax was not fixed for ever; it was revised from time to time.
+
+= mahalwari
+Q Who introduced the Mahalwari system, and in which year?
+A Holt Mackenzie, 1822
+Q What is a "mahal" in the Mahalwari system?
+A A village or estate
+N The whole village paid the tax together, through its headman.
+Q In which regions was the Mahalwari system used?
+A North-Western Provinces, Punjab and parts of central India
+F Three ways to tax the land | The Company tried three systems. **Permanent Settlement** (Cornwallis, 1793): the zamindar pays, in Bengal. **Ryotwari** (Munro and Read): the farmer pays, in Madras and Bombay. **Mahalwari** (Holt Mackenzie, 1822): the village pays together, in the north. Ask "who pays?" and you can tell them apart.
+
+= drain
+Q What word do historians use for the ruin of India's old crafts under British rule?
+A Deindustrialisation
+N Cheap machine-made cloth from Britain came in almost free of duty, while Indian cloth was taxed heavily in Britain.
+Q Who put forward the "drain of wealth" theory?
+A Dadabhai Naoroji
+N His book was "Poverty and Un-British Rule in India" (1901).
+F The drain | **Dadabhai Naoroji** said Britain was draining India. Every year money left India as salaries, pensions and profits, and nothing came back for it. He called this the **drain of wealth** and wrote it down in "Poverty and Un-British Rule in India". R. C. Dutt made the same case later.
+
+= clive
+S The clerk who took a kingdom | **Robert Clive** came to Madras in 1744 as a "writer", the lowest clerk of the Company. He hated the desk. When war with the French began he changed his pen for a sword, and at **Arcot in 1751** he made his name. Six years later he won **Plassey**. He went home rich, and came back in **1765** as Governor of Bengal to take the **Diwani** from the emperor. A clerk had become the tax collector of the richest land in India.
+
+## his-acts
+
+= regulating
+D 1773 | Regulating Act | The first time the British Parliament stepped in to control the Company. The Governor of Bengal became the **Governor-General of Bengal**, and **Warren Hastings** was the first. A **Supreme Court** was set up at Calcutta.
+Q Which was the first Act of the British Parliament to control the Company's rule in India?
+A Regulating Act, 1773
+Q Who was the first Governor-General of Bengal?
+A Warren Hastings
+Q Which Act set up the Supreme Court at Calcutta?
+A Regulating Act, 1773
+N The court opened in 1774.
+Q Who was the first Chief Justice of the Supreme Court at Calcutta?
+A Elijah Impey
+
+= pitts
+Q Which Act set up the Board of Control to watch the Company from London?
+A Pitt's India Act, 1784
+F Two masters in London | After **Pitt's India Act (1784)** the Company had two bosses at home. The **Court of Directors** looked after trade. The new **Board of Control**, made up of ministers, looked after political matters. This "double government" lasted until 1858.
+
+= c1813
+D 1813 | Charter Act | The Company lost its **monopoly of trade** with India; it kept only tea and the China trade. **One lakh rupees a year** was set aside for education. Christian missionaries were allowed to come and preach.
+Q Which Act ended the Company's monopoly of trade with India?
+A Charter Act, 1813
+N It kept the monopoly in tea and in trade with China for twenty more years.
+Q How much money did the Charter Act of 1813 set aside each year for education?
+A One lakh rupees
+Q Which Charter Act first allowed Christian missionaries to work in India?
+A Charter Act, 1813
+S One lakh rupees and twenty-two years | In **1813** Parliament told the Company to spend **one lakh rupees a year** on teaching Indians. Then nobody could agree what to teach. One group, the Orientalists, wanted Sanskrit, Arabic and Persian. The other, the Anglicists, wanted English and Western science. The money lay almost unused while they argued. The quarrel ended only in **1835**, when **Macaulay** wrote his famous Minute and **Bentinck** chose English.
+
+= c1833
+Q Which Act turned the Governor-General of Bengal into the Governor-General of India?
+A Charter Act, 1833
+Q Who was the first Governor-General of India?
+A Lord William Bentinck
+Q Who was the first Law Member of the Governor-General's council?
+A Lord Macaulay
+N The post was created by the Charter Act of 1833.
+Q After which Act did the Company stop trading altogether and remain only a ruler?
+A Charter Act, 1833
+F Three firsts, three Acts | **Warren Hastings** was the first Governor-General of Bengal (Act of 1773). **William Bentinck** was the first Governor-General of India (Act of 1833). **Lord Canning** was the first Viceroy (Act of 1858). The examiner swaps the three names, so learn each with its Act.
+
+= c1853
+Q Which Act opened the civil service to competition?
+A Charter Act, 1853
+Q Which committee of 1854 planned the civil service examination?
+A Macaulay Committee
+Q Who was the first Indian to pass the Indian Civil Service examination, and in which year?
+A Satyendranath Tagore, 1863
+N He was an elder brother of Rabindranath Tagore.
+S An exam six thousand miles away | From **1853** anyone could sit the civil service exam. In practice an Indian had to sail to **London**, write papers in English and compete with boys from English schools. **Satyendranath Tagore** did it in **1863**. Then the rulers made it harder. **Lytton** cut the top age to nineteen. Indians asked for decades that the exam be held in India too. That wish came true only in **1922**, at Allahabad.
+
+= g1858
+D 1858 | Government of India Act | After the Revolt the **Crown** took India from the Company. A new minister, the **Secretary of State for India**, sat in London with a **council of 15**. The Governor-General was also called the **Viceroy**.
+Q Which office was created in London by the Government of India Act, 1858?
+A Secretary of State for India
+Q How many members sat in the Council of the Secretary of State for India?
+A Fifteen
+Q Who was the first Viceroy of India?
+A Lord Canning
+N He was also the last Governor-General under the Company.
+Q In which city was the Queen's Proclamation of 1858 read out?
+A Allahabad
+N Lord Canning read it on 1 November 1858.
+Q Which two London bodies were ended by the Act of 1858?
+A The Board of Control and the Court of Directors
+
+= i1861
+Q Which Act first brought Indians into the law-making council?
+A Indian Councils Act, 1861
+N They were chosen by the Viceroy, not elected.
+
+= i1892
+Q Which Act made the first small start with elections to the councils?
+A Indian Councils Act, 1892
+N The word "election" was not used. Local bodies sent up names. Members could also discuss the budget.
+
+= i1909
+Q Which Act gave separate electorates to Muslims?
+A Indian Councils Act, 1909
+N It is also called the Morley–Minto reforms.
+Q In the Morley–Minto reforms, which post did Morley hold and which did Minto hold?
+A Morley: Secretary of State. Minto: Viceroy.
+Q Who was the first Indian member of the Viceroy's Executive Council?
+A Satyendra Prasanna Sinha
+N He joined as Law Member in 1909.
+F Separate electorates | In a **separate electorate**, Muslim voters alone chose the Muslim members. The **Act of 1909** began it. The Viceroy, **Lord Minto**, is called the father of communal electorates. The idea grew with every later Act and ended in Partition.
+
+= g1919
+Q Which Act brought dyarchy to the provinces?
+A Government of India Act, 1919
+N It is also called the Montagu–Chelmsford reforms.
+Q What does "dyarchy" mean?
+A Rule by two
+N Provincial subjects were cut into two lists: "reserved" for the Governor's officials and "transferred" for Indian ministers.
+Q In the Montagu–Chelmsford reforms, which post did Montagu hold and which did Chelmsford hold?
+A Montagu: Secretary of State. Chelmsford: Viceroy.
+Q Which Act first gave the Centre a legislature with two Houses?
+A Government of India Act, 1919
+F Dyarchy in one picture | Under the **Act of 1919** each province had two kinds of subject. **Reserved** subjects, such as police and land revenue, stayed with the Governor and his officials. **Transferred** subjects, such as education and health, went to Indian ministers. The ministers had the work but not the money.
+
+= g1935
+D 1935 | Government of India Act | The longest Act the British ever wrote for India. It gave **provincial autonomy**, planned an all-India federation, set up a **Federal Court** and separated **Burma** from India. Much of our Constitution was taken from it.
+Q Which Act gave autonomy to the provinces?
+A Government of India Act, 1935
+Q In which year did the Federal Court begin work?
+A 1937
+N It was set up under the Act of 1935 and sat in Delhi.
+Q Which country was separated from India by the Act of 1935?
+A Burma
+Q Which two new provinces were made in 1936?
+A Orissa and Sind
+Q On which date did Odisha become a separate province?
+A 1 April 1936
+N The day is kept as Utkal Dibasa.
+Q The Act of 1935 ended dyarchy in the provinces. Where did it plan to bring dyarchy instead?
+A At the Centre
+N This part never came into force, because the princes did not join the federation.
+
+= ladder
+F The ladder in one breath | **1773** Governor-General of Bengal. **1784** Board of Control. **1813** trade monopoly ends. **1833** Governor-General of India. **1853** open competition. **1858** Crown rule. **1861** Indians in council. **1892** first elections. **1909** separate electorates. **1919** dyarchy. **1935** provincial autonomy.
