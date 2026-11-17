@@ -1,0 +1,230 @@
+# polity | The Constitution
+
+## pol-money
+
+= budget
+Q What does the Constitution call the budget, and under which Article?
+A Annual Financial Statement; Article 112
+Q What is a Vote on Account?
+A An advance grant to run the government until the budget is passed
+N Asked in 2018. It usually covers two months.
+Q Which Bill allows the government to take money out of the Consolidated Fund of India?
+A Appropriation Bill
+F Three purses | The Union keeps its money in three places. The **Consolidated Fund** holds all taxes and loans; nothing leaves it without a law of Parliament. The **Public Account** holds money that belongs to others, such as provident funds. The **Contingency Fund** is a small purse for emergencies, in the hands of the President.
+
+= moneybill
+Q Which Article defines a Money Bill?
+A Article 110
+Q In which House must a Money Bill be introduced?
+A Lok Sabha
+N And only on the recommendation of the President.
+Q Who decides whether a Bill is a Money Bill?
+A The Speaker of the Lok Sabha
+N The Speaker's decision is final.
+Q For how many days can the Rajya Sabha keep a Money Bill?
+A 14 days
+Q What can the Lok Sabha do with changes the Rajya Sabha suggests to a Money Bill?
+A Accept or reject them
+N Asked in 2025. The Rajya Sabha can only recommend.
+Q Can there be a joint sitting of the two Houses on a Money Bill?
+A No
+F Why the Rajya Sabha is weak on money | The Lok Sabha is elected directly by the people who pay the taxes. So on a **Money Bill** the Rajya Sabha can neither reject nor change it. It can only suggest, and it must send the Bill back within **14 days**. If it sits on the Bill, the Bill is taken as passed.
+
+= joint
+Q Under which Article is a joint sitting of the two Houses held, and who presides?
+A Article 108; the Speaker of the Lok Sabha
+N A joint sitting has been held only three times.
+
+= cuts
+Q A policy cut motion reduces a demand to how much?
+A One rupee
+N It says: we reject the whole policy behind this demand.
+Q A token cut motion reduces a demand by how much?
+A One hundred rupees
+N It is used to air one particular complaint.
+F Three cut motions | **Policy cut**: reduce the demand **to ₹1**; we reject the policy. **Economy cut**: reduce it **by a stated sum**; you are spending too much. **Token cut**: reduce it **by ₹100**; we have one complaint. Watch the small words "to" and "by".
+
+= cag
+Q Under which Article is the Comptroller and Auditor General appointed, and by whom?
+A Article 148; the President
+Q What is the term of office of the CAG?
+A Six years or till the age of 65
+Q To whom does the CAG submit his reports on the Union's accounts?
+A The President
+N The President places them before Parliament. For a State, the reports go to the Governor.
+Q How can the CAG be removed from office?
+A In the same way as a judge of the Supreme Court
+Q Who is the present Comptroller and Auditor General of India?
+A K. Sanjay Murthy
+F The guardian of the public purse | The **CAG** checks every rupee the Centre and the States spend. To keep him free, the Constitution gives him a fixed term (**six years or 65**), makes him as hard to remove as a Supreme Court judge, and bars him from any government job afterwards. Ambedkar called him the most important officer under the Constitution.
+
+= pac
+Q How many members does the Public Accounts Committee have, and from which Houses?
+A 22: 15 from the Lok Sabha and 7 from the Rajya Sabha
+Q Who is called the "friend, philosopher and guide" of the Public Accounts Committee?
+A The Comptroller and Auditor General
+Q By convention, the chairman of the Public Accounts Committee comes from which side?
+A The Opposition
+N The Speaker appoints him. A minister cannot be a member.
+Q How many members does the Estimates Committee have, and from which House?
+A 30, all from the Lok Sabha
+F Two committees on money | The **Public Accounts Committee** (22 members, both Houses) looks back: was the money spent as Parliament ordered? It works from the CAG's reports. The **Estimates Committee** (30 members, Lok Sabha only) looks forward: could the same work be done for less?
+
+= fincom
+Q Under which Article is the Finance Commission set up, and how often?
+A Article 280; every five years
+N It advises how taxes should be shared between the Centre and the States.
+Q Who chairs the Sixteenth Finance Commission?
+A Arvind Panagariya
+
+## pol-state
+
+= governor
+Q Who appoints the Governor of a State, and under which Article?
+A The President; Article 155
+Q For how long does a Governor hold office?
+A During the pleasure of the President
+N The normal term is five years, but the President can remove or transfer a Governor at any time.
+Q Can a Governor be impeached?
+A No
+N Only the President can be impeached. The State Assembly has no power to remove a Governor.
+Q What is the minimum age to be a Governor?
+A 35 years
+Q Which amendment allowed one person to be Governor of two or more States?
+A 7th Amendment, 1956
+Q Who gives the oath of office to a Governor?
+A The Chief Justice of the High Court
+F Elected by nobody | The Governor is the head of the State, yet no one in the State votes for him. The **President appoints** him (Article 155) and he stays at the **President's pleasure** (Article 156). The makers copied this from Canada, because they feared an elected Governor would clash with the elected Chief Minister.
+
+= sarkaria
+Q Which commission said that a Governor should be a non-partisan person from outside the State?
+A Sarkaria Commission
+N Asked in 2025. It was set up in 1983 to study Centre–State relations.
+Q Which later commission, set up in 2007, also studied Centre–State relations?
+A Punchhi Commission
+
+= odgov
+Q Who was named Governor of Odisha in October 2026?
+A Braj Mohan Ram
+N He followed Hari Babu Kambhampati.
+Q In which city is the High Court of Odisha, and in which year was it set up?
+A Cuttack; 1948
+Q How many seats does Odisha have in the State Assembly, the Lok Sabha and the Rajya Sabha?
+A 147, 21 and 10
+F A minister Odisha must have | Article 164 says that in four States there must be a **Minister in charge of tribal welfare**: **Odisha**, Madhya Pradesh, Chhattisgarh and Jharkhand. The same Article says the Governor appoints the Chief Minister, and the other ministers on the Chief Minister's advice.
+Q Article 164 says four States must have a Minister for tribal welfare. Name them.
+A Odisha, Madhya Pradesh, Chhattisgarh and Jharkhand
+
+= council
+Q How many States have a Legislative Council today?
+A Six
+Q Name the six States that have a Legislative Council.
+A Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra and Karnataka
+Q Does Odisha have a Legislative Council?
+A No
+N The Odisha Assembly asked for one in 2018, but Parliament has not made the law.
+Q Under which Article is a Legislative Council created or abolished, and by whom?
+A Article 169; Parliament
+N First the State Assembly must pass a resolution by a special majority. Asked in 2021.
+Q What are the largest and smallest sizes allowed for a Legislative Council?
+A One-third of the Assembly; at least 40 members
+F Who sits in a Council | A Legislative Council is filled in five ways. **One-third** are chosen by the MLAs. **One-third** by local bodies. **One-twelfth** by graduates. **One-twelfth** by teachers. The last **one-sixth** are named by the Governor. A member sits for six years.
+S The House that Odisha asked for | Odisha has one House, the Assembly of 147 members. In **2018** that Assembly passed a resolution asking for a second House, a Legislative Council. Under **Article 169** that is only the first step. The second step belongs to **Parliament**, which must pass a law to create the Council. Parliament has not done so. So the resolution lies in Delhi, and Odisha remains one of the twenty-two States with a single House.
+
+= ages
+Q What is the minimum age to be a member of the Lok Sabha or a State Assembly?
+A 25 years
+Q What is the minimum age to be a member of the Rajya Sabha or a Legislative Council?
+A 30 years
+N Asked in 2025.
+Q What is the minimum age to be a member of a Panchayat or a Municipality?
+A 21 years
+Q What is the minimum age to be President or Vice-President of India?
+A 35 years
+F The ladder of ages | **18** to vote. **21** for a Panchayat or Municipality. **25** for the Lok Sabha or an Assembly. **30** for the Rajya Sabha or a Council. **35** for President, Vice-President or Governor.
+
+= powers
+Q Under which Article does a Governor issue ordinances, and under which does the President?
+A Article 213 (Governor); Article 123 (President)
+Q Under which Article does the Governor have the power to pardon, and under which does the President?
+A Article 161 (Governor); Article 72 (President)
+Q Who is the highest law officer of a State, and under which Article?
+A Advocate General; Article 165
+N The Centre's law officer is the Attorney General, under Article 76.
+
+## pol-watchdogs
+
+= psc
+Q Which Articles deal with the Public Service Commissions?
+A Articles 315 to 323
+Q Who appoints the chairman and members of a State Public Service Commission?
+A The Governor
+Q Who can remove the chairman or a member of a State Public Service Commission?
+A Only the President
+N The Governor appoints but cannot remove. For misbehaviour, the Supreme Court must first hold an inquiry.
+Q What is the term of a member of the UPSC?
+A Six years or till the age of 65
+Q What is the term of a member of a State Public Service Commission?
+A Six years or till the age of 62
+Q Who creates a Joint Public Service Commission for two or more States?
+A Parliament
+N Asked in 2025. It acts when the State Legislatures ask for it.
+Q After retiring, can the chairman of the UPSC take another job under the government?
+A No
+N Asked in 2021. A State chairman can still become chairman or member of the UPSC.
+F Appointed here, removed there | The **Governor** appoints the members of a State Commission, but only the **President** can remove them. This split is on purpose. A State government that dislikes the Commission's choice of officers cannot punish it.
+F UPSC and State PSC side by side | **Appointed by**: President, Governor. **Removed by**: President in both. **Term**: six years in both. **Age limit**: 65 for the UPSC, **62** for a State Commission. **Report goes to**: President, Governor.
+
+= opsc
+D 1949 | Odisha Public Service Commission | The body that holds the ASO examination was set up on **1 April 1949**. Its office is at **Cuttack**. It works under Articles 315 to 323, like every State Commission.
+Q In which year was the Odisha Public Service Commission set up, and where is its office?
+A 1949; Cuttack
+Q In which year was the first Public Service Commission set up in India?
+A 1926
+N The Lee Commission had recommended it in 1924.
+
+= nhrc
+D 1993 | National Human Rights Commission | It was set up under the **Protection of Human Rights Act, 1993**. So it is a **statutory** body, made by a law, and not a constitutional one.
+Q Under which Act was the National Human Rights Commission set up?
+A Protection of Human Rights Act, 1993
+Q Who was the first chairperson of the National Human Rights Commission?
+A Justice Ranganath Misra
+N Asked in 2021. He was born in Odisha and had been Chief Justice of India.
+Q Since 2019, who can be the chairperson of the NHRC?
+A A former Chief Justice of India or a former Supreme Court judge
+N Before 2019 only a former Chief Justice of India could hold the post.
+Q What is the term of the NHRC chairperson since 2019?
+A Three years or till the age of 70
+N It was five years before the change.
+Q Who is the present chairperson of the NHRC?
+A Justice V. Ramasubramanian
+S The Odia judge in the first chair | When the National Human Rights Commission opened in **1993**, its first chairperson was **Justice Ranganath Misra**. He was born at Banpur in Odisha and began as a lawyer in Cuttack. He rose to be a judge of the Orissa High Court, then of the Supreme Court, and in 1990 the **Chief Justice of India**. In those days only a former Chief Justice could head the Commission. That rule was relaxed in **2019**.
+
+= nhrcpanel
+Q How many members sit on the committee that recommends the NHRC chairperson, and who heads it?
+A Six; the Prime Minister
+Q Name the six members of the committee that selects the NHRC chairperson.
+A PM, Speaker, Home Minister, both Leaders of the Opposition, Deputy Chairman of Rajya Sabha
+N The Deputy Speaker of the Lok Sabha is not on it. That was the trap in 2025.
+Q Who appoints the chairperson of the NHRC?
+A The President
+
+= eci
+Q Which Article sets up the Election Commission of India?
+A Article 324
+Q What is the term of the Chief Election Commissioner?
+A Six years or till the age of 65
+Q How can the Chief Election Commissioner be removed?
+A In the same way as a judge of the Supreme Court
+Q Who was the first Chief Election Commissioner of India?
+A Sukumar Sen
+Q On which date is National Voters' Day kept, and why?
+A 25 January; the Election Commission was founded on that day in 1950
+
+= kinds
+F In the book or made by a law? | **Constitutional** bodies have their own Article: the Election Commission (324), UPSC (315), Finance Commission (280), CAG (148). **Statutory** bodies were made by an Act: the NHRC, the Central Information Commission, the Lokpal. **NITI Aayog** is neither. It was made by a Cabinet resolution.
+Q Is the National Human Rights Commission a constitutional body or a statutory body?
+A A statutory body
+Q NITI Aayog was created by which means?
+A A resolution of the Union Cabinet
+N So it is neither constitutional nor statutory. It replaced the Planning Commission in 2015.

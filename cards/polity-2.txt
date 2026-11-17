@@ -1,0 +1,181 @@
+# polity | The Constitution
+
+## pol-drawers
+
+= part4
+Q Which Part and which Articles hold the Directive Principles?
+A Part IV, Articles 36 to 51
+Q Can a court enforce the Directive Principles?
+A No
+N Article 37 says they are not enforceable, but they are "fundamental in the governance of the country".
+F Rights and Directives | A **Fundamental Right** is a limit on the State: the State must not do this. A **Directive Principle** is a goal for the State: the State should try to do this. You can go to court for the first. You can only vote on the second.
+
+= dpsp1
+Q Which Article asks the State to give free legal aid?
+A Article 39A
+N It was added by the 42nd Amendment in 1976.
+Q Which Article asks the State to organise village panchayats?
+A Article 40
+Q Which Article speaks of a uniform civil code?
+A Article 44
+Q Which Directive Principle asks for equal pay for equal work for men and women?
+A Article 39
+Q Which Article is about early childhood care and education for children below six?
+A Article 45
+
+= dpsp2
+Q Which Article asks the State to raise the level of nutrition and to ban harmful drinks?
+A Article 47
+Q Which Article is about farming, animal husbandry and the protection of cows?
+A Article 48
+Q Which Article asks the State to protect the environment, forests and wildlife?
+A Article 48A
+N It was added by the 42nd Amendment in 1976.
+Q Which Article asks the State to separate the judiciary from the executive?
+A Article 50
+Q Which Article is about international peace and security?
+A Article 51
+N It is called the Article on foreign policy. Asked in 2025, with Article 50 as a wrong option.
+F Walking down the corridor | Say the numbers once a day. **39A** legal aid. **40** panchayats. **44** uniform civil code. **45** young children. **47** nutrition and prohibition. **48** farming and cows. **48A** environment. **50** separate the judiciary. **51** world peace.
+F The Gandhian ones | Some Directive Principles come straight from Gandhi's ideas: village **panchayats** (40), **cottage industries** (43), the ban on **intoxicating drinks** (47) and the protection of **cows** (48). The examiner asks you to pick the Gandhian principle from a list.
+
+= duties
+D 1976 | Fundamental Duties | The **42nd Amendment** added a new Part IVA with one Article, **51A**, listing ten duties of citizens. The **Swaran Singh Committee** had asked for them. The idea came from the USSR.
+Q In which Part and which Article are the Fundamental Duties?
+A Part IVA, Article 51A
+Q Which committee recommended the Fundamental Duties?
+A Swaran Singh Committee
+Q How many Fundamental Duties are there now, and which amendment added the last one?
+A Eleven; 86th Amendment, 2002
+N The eleventh asks parents to send children aged 6 to 14 to school.
+
+= sched1
+Q How many Schedules does the Constitution have now?
+A Twelve
+N It began with eight.
+Q What does the First Schedule contain?
+A The names of the States and Union Territories
+Q What does the Second Schedule contain?
+A Salaries and allowances
+N Those of the President, Governors, judges, the Speaker and the CAG.
+Q Which Schedule contains the forms of oaths?
+A Third Schedule
+N The 2025 paper put oaths in the Second Schedule to trick you.
+Q What does the Fourth Schedule contain?
+A The seats of each State in the Rajya Sabha
+
+= sched2
+Q Which Schedule deals with Scheduled Areas and Scheduled Tribes in most States?
+A Fifth Schedule
+N Large parts of Odisha, such as Koraput, Mayurbhanj and Sundargarh, are Fifth Schedule areas.
+Q The Sixth Schedule covers the tribal areas of which four States?
+A Assam, Meghalaya, Tripura and Mizoram
+Q What does the Seventh Schedule contain?
+A The Union, State and Concurrent Lists
+Q How many languages are in the Eighth Schedule?
+A 22
+N It began with 14. Odia was one of them from the start.
+F Three lists | The **Seventh Schedule** divides the work. **Union List**: defence, railways, banking, foreign affairs. **State List**: police, public health, agriculture. **Concurrent List**: education, forests, marriage. If a Central law and a State law on a Concurrent subject clash, the Central law wins.
+Q Police and public health are in which List?
+A State List
+Q Education is in which List today?
+A Concurrent List
+N The 42nd Amendment moved it there from the State List in 1976.
+
+= sched3
+Q Which Schedule was added by the 1st Amendment in 1951?
+A Ninth Schedule
+N It was made to protect land reform laws from being struck down by the courts.
+Q Which Schedule holds the anti-defection law?
+A Tenth Schedule
+N It was added by the 52nd Amendment in 1985.
+Q The Eleventh Schedule lists how many subjects, and for which bodies?
+A 29 subjects; Panchayats
+Q The Twelfth Schedule lists how many subjects, and for which bodies?
+A 18 subjects; Municipalities
+F Twelve drawers | **1** States. **2** Salaries. **3** Oaths. **4** Rajya Sabha seats. **5** Scheduled Areas. **6** Tribal areas of the north-east. **7** Three lists. **8** Languages. **9** Protected laws. **10** Anti-defection. **11** Panchayats. **12** Municipalities.
+S A drawer the courts could not open | In 1950 the new States began to take land from the zamindars and give it to farmers. The zamindars went to court, and the courts began to strike the laws down as a breach of the right to property. So in **1951**, with the very **first amendment**, Parliament built a locked drawer: the **Ninth Schedule**. Any law placed in it could not be challenged for breaking Fundamental Rights. It began with 13 laws. In 2007 the Supreme Court said that even this drawer can be opened.
+
+## pol-amend
+
+= art368
+Q Which Article gives Parliament the power to amend the Constitution?
+A Article 368
+Q Can the two Houses hold a joint sitting to pass a Constitution Amendment Bill?
+A No
+N Each House must pass it separately, by a special majority.
+F Three ways to change the book | Some parts change by a **simple majority**, like an ordinary law (making a new State, for example). Most parts need a **special majority** in each House. Parts that touch the States, such as the election of the President, also need the agreement of **half the State Legislatures**.
+
+= early
+Q What did the 1st Amendment of 1951 add to the Constitution?
+A The Ninth Schedule
+Q Which amendment of 1956 reorganised the States on the basis of language?
+A 7th Amendment
+
+= a42
+D 1976 | The 42nd Amendment | Passed during the Emergency. It changed so much that it is called a **mini-constitution**. It added three words to the Preamble, the **Fundamental Duties** and free legal aid, and moved education to the Concurrent List.
+Q Which amendment is called a "mini-constitution"?
+A 42nd Amendment, 1976
+Q Name three things the 42nd Amendment added to the Constitution.
+A Three words in the Preamble, the Fundamental Duties, free legal aid
+N It also added Article 48A on the environment and moved five subjects, education among them, to the Concurrent List.
+
+= a44
+D 1978 | The 44th Amendment | The Janata government undid the worst of the Emergency changes. The **right to property** stopped being a Fundamental Right, and a National Emergency could no longer be declared for "internal disturbance", only for **armed rebellion**.
+Q Which words replaced "internal disturbance" as a ground for National Emergency?
+A "Armed rebellion"
+N The 44th Amendment made the change in 1978.
+Q Under which three Articles can an Emergency be declared?
+A Article 352 (national), 356 (President's rule in a State), 360 (financial)
+N A Financial Emergency has never been declared in India.
+
+= a52
+Q Which amendment brought in the anti-defection law, and in which year?
+A 52nd Amendment, 1985
+Q Which amendment lowered the voting age from 21 to 18?
+A 61st Amendment, 1988
+Q Which amendment made Delhi the National Capital Territory?
+A 69th Amendment, 1991
+
+= a73
+D 1992 | The 73rd and 74th Amendments | The 73rd gave **Panchayats** a place in the Constitution and the 74th did the same for **Municipalities**. Both took effect in 1993. **24 April** is kept as National Panchayati Raj Day.
+Q Which amendment gave constitutional status to Panchayats, and which to Municipalities?
+A 73rd (Panchayats); 74th (Municipalities)
+Q On which date is National Panchayati Raj Day kept?
+A 24 April
+N The 73rd Amendment came into force on 24 April 1993.
+
+= a86
+Q Which amendment made education a Fundamental Right?
+A 86th Amendment, 2002
+Q The 91st Amendment limits the Council of Ministers to what share of the Lok Sabha?
+A 15 per cent
+N The same limit applies in a State, with a floor of 12 ministers. Asked in 2025.
+Q What did the 99th Amendment set up, and what happened to it?
+A A commission to appoint judges; the Supreme Court struck it down
+N It came into force in 2015 and was struck down the same year. The collegium system came back.
+
+= a101
+Q Which amendment brought in the Goods and Services Tax?
+A 101st Amendment, 2016
+N GST began on 1 July 2017.
+Q Which amendment gave a 10 per cent quota to the poor among the general category?
+A 103rd Amendment, 2019
+Q Which amendment reserves one-third of seats for women in the Lok Sabha and the Assemblies?
+A 106th Amendment, 2023
+F Amendments by number | **1** Ninth Schedule. **7** States reorganised. **42** mini-constitution. **44** property right removed. **52** anti-defection. **61** voting age 18. **73, 74** local bodies. **86** education. **91** ministers 15%. **101** GST. **103** EWS quota. **106** women's seats.
+
+= art3
+Q Under which Article can Parliament change the name of a State?
+A Article 3
+Q Is a law that renames a State counted as a Constitution amendment?
+A No
+N Article 4 says so. It is an ordinary law passed by a simple majority.
+Q Before a Bill to rename a State is introduced, who must recommend it and whose views must be asked?
+A The President; the State Legislature
+N The views of the State Legislature are not binding on Parliament.
+Q In which year did Orissa become Odisha?
+A 2011
+N In the same year "Oriya" became "Odia" in the Eighth Schedule, by the 96th Amendment.
+S Two letters, two laws | In 2011 the State changed its English name from Orissa to **Odisha**. That needed only an ordinary law of Parliament under **Article 3**. But the language was also to change, from Oriya to **Odia**, and the language sits in the Eighth Schedule of the Constitution. A Schedule can be changed only by an amendment. So two laws went through Parliament together: a small Act for the State and the **96th Amendment** for the language.
+F Not every change is an amendment | Making a new State, changing a boundary or changing a **name** is done under **Article 3** by an ordinary law. Kerala became **Keralam** this way in 2026, and Orissa became Odisha in 2011. Article 368 is not used.

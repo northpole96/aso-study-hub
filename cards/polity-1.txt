@@ -1,0 +1,260 @@
+# polity | The Constitution
+
+## pol-borrowed
+
+= assembly
+D 1946 | The Constituent Assembly meets | The Assembly sat for the first time on **9 December 1946**. The oldest member, **Sachchidananda Sinha**, took the chair for two days. Then **Dr Rajendra Prasad** was elected its President.
+Q On which date did the Constituent Assembly first meet?
+A 9 December 1946
+Q Who was the temporary President of the Constituent Assembly at its first meeting?
+A Dr Sachchidananda Sinha
+N He was the oldest member. Dr Rajendra Prasad was elected President two days later.
+Q Who was the elected President of the Constituent Assembly?
+A Dr Rajendra Prasad
+Q Under which plan of 1946 was the Constituent Assembly set up?
+A Cabinet Mission Plan
+Q Who first put forward the idea of a Constituent Assembly for India, in 1934?
+A M. N. Roy
+
+= drafting
+Q Who was the Chairman of the Drafting Committee?
+A Dr B. R. Ambedkar
+N The committee was set up on 29 August 1947 and had seven members.
+Q Who was the Constitutional Adviser to the Constituent Assembly?
+A B. N. Rau
+N He studied about sixty constitutions and prepared the first draft for the Drafting Committee to work on.
+Q How long did the Constituent Assembly take to make the Constitution?
+A 2 years, 11 months and 18 days
+Q On which date was the Constitution adopted, and on which date did it come into force?
+A 26 November 1949; 26 January 1950
+N 26 November is kept as Constitution Day.
+F The book when it was new | The Constitution of 1950 had **395 Articles, 22 Parts and 8 Schedules**. Today it has **12 Schedules**. It is the longest written constitution in the world, because one book holds the rules for both the Centre and the States.
+Q How many Articles, Parts and Schedules did the original Constitution have?
+A 395 Articles, 22 Parts, 8 Schedules
+S The adviser nobody remembers | Everyone knows Dr Ambedkar wrote the Constitution. Fewer know the man who gave him the first draft. **B. N. Rau** was a civil servant and a judge, and the Assembly made him its **Constitutional Adviser**. He read the constitutions of about sixty countries. He travelled to America, Canada, Ireland and Britain to ask judges what had gone wrong in theirs. Then he wrote a draft and handed it to the **Drafting Committee**. He took no salary for the work.
+
+= act1935
+Q Which single source gave the Indian Constitution the most?
+A Government of India Act, 1935
+N The federal plan, the office of Governor, the Public Service Commissions and the emergency rules came from it.
+Q The office of Governor and the Public Service Commissions were taken from which source?
+A Government of India Act, 1935
+
+= britain
+Q From which country did India take single citizenship?
+A Britain
+N Asked in 2021. The USA has double citizenship: of the country and of a State.
+Q The parliamentary system and the rule of law came from which country?
+A Britain
+Q The five writs came to our Constitution from which country?
+A Britain
+F What Britain gave | From **Britain** came the way our government works day to day: the **parliamentary system**, the cabinet, the **rule of law**, **single citizenship**, the **writs** and two Houses of Parliament. Britain itself has no single written constitution.
+
+= usa
+Q From which country did India take the Fundamental Rights?
+A USA
+Q Judicial review and the independence of the judiciary came from which country?
+A USA
+Q The impeachment of the President was taken from which country?
+A USA
+N The post of Vice-President and the removal of judges also came from the USA.
+
+= ireland
+Q Which three things did India take from the Constitution of Ireland?
+A Directive Principles, the method of electing the President, nomination to the Rajya Sabha
+N Asked in 2025.
+Q The idea of nominating members to the Rajya Sabha came from which country?
+A Ireland
+Q How many members does the President nominate to the Rajya Sabha?
+A Twelve
+N They are people known for literature, science, art and social service.
+
+= canada
+Q A federation with a strong Centre was taken from which country?
+A Canada
+Q In India, who holds the residuary (left-over) powers, and which country gave this rule?
+A The Centre; Canada
+N In the USA the left-over powers stay with the States. India chose the opposite.
+Q The appointment of State Governors by the Centre follows the model of which country?
+A Canada
+
+= australia
+Q From which country did India take the Concurrent List?
+A Australia
+Q The joint sitting of the two Houses of Parliament came from which country?
+A Australia
+
+= small
+Q The suspension of Fundamental Rights during an Emergency was taken from which constitution?
+A Weimar Constitution of Germany
+Q The Fundamental Duties were taken from which country?
+A USSR
+Q The procedure for amending the Constitution was taken from which country?
+A South Africa
+Q "Procedure established by law" was taken from which country?
+A Japan
+Q "Liberty, equality and fraternity" in the Preamble came from which country?
+A France
+N The idea of a republic came from France too.
+F The small loans | Five small loans are asked most. **Germany** (Weimar): suspending rights in an Emergency. **USSR**: Fundamental Duties. **South Africa**: how to amend. **Japan**: "procedure established by law". **France**: liberty, equality, fraternity.
+F Canada or Australia? | These two are mixed up most. **Canada** is about power: a strong Centre, left-over powers with the Centre, Governors sent by the Centre. **Australia** is about working together: the **Concurrent List** and the **joint sitting**.
+
+## pol-preamble
+
+= objectives
+D 1946 | Objectives Resolution | On **13 December 1946** **Jawaharlal Nehru** moved a resolution saying what kind of country India would be. The Assembly passed it on 22 January 1947. It grew into the Preamble.
+Q Who moved the Objectives Resolution, and on which date?
+A Jawaharlal Nehru, 13 December 1946
+Q The Preamble grew out of which resolution?
+A The Objectives Resolution
+Q With which words does the Preamble begin?
+A "We, the people of India"
+N So the power of the Constitution comes from the people, not from Parliament or the States.
+
+= words
+Q In the Preamble, what five words describe India, in order?
+A Sovereign, Socialist, Secular, Democratic, Republic
+Q Which four ideals does the Preamble promise, in order?
+A Justice, Liberty, Equality, Fraternity
+Q Which three kinds of justice does the Preamble name?
+A Social, economic and political
+N The order matters. The examiner changes it to "political, social and economic".
+Q The Preamble promises liberty of which five things?
+A Thought, expression, belief, faith and worship
+Q The Preamble promises equality of which two things?
+A Status and opportunity
+Q Which date is written inside the Preamble?
+A 26 November 1949
+F The Preamble in one breath | India is a **Sovereign Socialist Secular Democratic Republic**. It promises **Justice** (social, economic, political), **Liberty** (thought, expression, belief, faith, worship), **Equality** (status and opportunity) and **Fraternity** (the dignity of the person and the unity and integrity of the Nation).
+Q What does the word "Republic" mean in the Preamble?
+A The head of the State is elected, not a king
+N Britain is a democracy but not a republic.
+
+= part
+Q In which case did the Supreme Court say the Preamble is NOT a part of the Constitution?
+A Berubari Union case, 1960
+Q In which case did the Supreme Court say the Preamble IS a part of the Constitution?
+A Kesavananda Bharati case, 1973
+Q Which doctrine did the Kesavananda Bharati case of 1973 lay down?
+A The basic structure doctrine
+N Parliament can amend any part of the Constitution, but it cannot destroy its basic features.
+S Thirteen judges and one head of a monastery | **Kesavananda Bharati** was the head of a religious house in Kerala. The State took some of its land, and in 1970 he went to court. He lost his land. But his case grew into the biggest hearing the Supreme Court has ever held: **thirteen judges**, sitting for 68 days. In **1973** they ruled, by seven to six, that Parliament may change the Constitution but may not destroy its **basic structure**. The case carries his name, yet he gained nothing from it.
+Q How many judges heard the Kesavananda Bharati case?
+A Thirteen
+N It is the largest bench the Supreme Court has ever had. The verdict was seven to six.
+
+= amended
+D 1976 | The 42nd Amendment and the Preamble | The Preamble has been amended **only once**. During the Emergency the 42nd Amendment added three words: **Socialist, Secular** and **Integrity**.
+Q How many times has the Preamble been amended?
+A Once
+Q Which amendment changed the Preamble, and in which year?
+A 42nd Amendment, 1976
+Q Which three words did the 42nd Amendment add to the Preamble?
+A Socialist, Secular and Integrity
+N "Unity of the Nation" became "unity and integrity of the Nation".
+Q Can a citizen go to court to enforce the Preamble?
+A No
+N It is a part of the Constitution but it is not enforceable. It gives no power and sets no limit by itself.
+
+= names
+Q Who called the Preamble the "key-note" of the Constitution?
+A Ernest Barker
+Q Who called the Preamble the "horoscope" of our republic?
+A K. M. Munshi
+Q Who called the Preamble the "soul" of the Constitution?
+A Thakurdas Bhargava
+Q Who called the Preamble the "identity card" of the Constitution?
+A N. A. Palkhivala
+F Four names for one page | **Key-note**: Ernest Barker. **Horoscope**: K. M. Munshi. **Soul**: Thakurdas Bhargava. **Identity card**: N. A. Palkhivala. Do not mix this with Article 32, which **Ambedkar** called the "heart and soul" of the Constitution.
+
+## pol-rights
+
+= part3
+Q Which Part and which Articles of the Constitution hold the Fundamental Rights?
+A Part III, Articles 12 to 35
+Q How many Fundamental Rights are there today, and how many were there in 1950?
+A Six today; seven in 1950
+N The right to property was taken out in 1978.
+F Six rooms | Part III has six groups of rights. **Equality**: Articles 14–18. **Freedom**: 19–22. **Against exploitation**: 23–24. **Religion**: 25–28. **Culture and education**: 29–30. **Constitutional remedies**: 32.
+Q Which Articles cover the right to freedom of religion?
+A Articles 25 to 28
+N Asked in 2025.
+Q Which Articles cover the right to equality?
+A Articles 14 to 18
+Q Which Articles cover the right against exploitation?
+A Articles 23 and 24
+
+= equality
+Q Which Article promises equality before the law?
+A Article 14
+Q Which Article abolishes untouchability?
+A Article 17
+Q Which Article abolishes titles?
+A Article 18
+Q On which five grounds does Article 15 forbid discrimination?
+A Religion, race, caste, sex and place of birth
+
+= freedom
+Q Which Article gives the six freedoms, such as speech and movement?
+A Article 19
+Q Name the six freedoms of Article 19.
+A Speech, assembly, association, movement, residence, profession
+Q Which Article protects life and personal liberty?
+A Article 21
+Q Which Article makes education a Fundamental Right, and for which ages?
+A Article 21A; 6 to 14 years
+N It was added by the 86th Amendment, 2002.
+Q Which two Articles cannot be suspended even during a National Emergency?
+A Articles 20 and 21
+N The 44th Amendment made sure of this, after the Emergency of 1975.
+
+= exploit
+Q Which Article bans traffic in human beings and forced labour?
+A Article 23
+Q Article 24 bans the work of children below what age in factories and mines?
+A 14 years
+
+= citizens
+Q Which five Articles give rights to citizens only, and not to foreigners?
+A Articles 15, 16, 19, 29 and 30
+Q Can a foreigner in India claim the freedom of speech under Article 19?
+A No
+N Article 19 is for citizens only. But a foreigner does have Articles 14 and 21.
+F A tourist's rights | A foreign tourist in Puri has most Fundamental Rights. She is equal before the law (**Article 14**) and her life and liberty are protected (**Article 21**). What she does not have are the five citizen-only Articles: **15, 16, 19, 29 and 30**.
+
+= art21
+Q In which year did the Supreme Court declare privacy a Fundamental Right, and under which Article?
+A 2017; Article 21
+N A bench of nine judges decided it in the Puttaswamy case.
+F The growing family of Article 21 | The courts keep finding new rights inside the words "life and personal liberty". **Privacy** (2017). **Maternity leave** as part of a woman's dignity (2025). **Menstrual health** (January 2026) ⟨CHECK⟩. Education got its own number, **21A**.
+
+= property
+Q Which amendment removed the right to property from the Fundamental Rights?
+A 44th Amendment, 1978
+Q Under which Article is the right to property now a legal right?
+A Article 300A
+
+= art32
+Q Which Article did Dr Ambedkar call the "heart and soul" of the Constitution?
+A Article 32
+N It is the right to go to the Supreme Court to enforce the Fundamental Rights.
+Q Under which Articles do the Supreme Court and the High Courts issue writs?
+A Article 32 (Supreme Court); Article 226 (High Courts)
+N A High Court's power is wider. It can issue writs for other legal rights too.
+Q Which Article defines "the State" for the purpose of Fundamental Rights?
+A Article 12
+
+= writs
+Q Which writ frees a person who is held illegally?
+A Habeas Corpus
+N The words mean "you shall have the body".
+Q Which writ orders a public official to do his duty?
+A Mandamus
+N The word means "we command". Asked in 2018.
+Q Which writ stops a lower court in the middle of a case?
+A Prohibition
+Q Which writ cancels an order that a lower court has already passed?
+A Certiorari
+Q Which writ asks a person by what authority he holds a public office?
+A Quo Warranto
+F Five keys | **Habeas Corpus**: produce the person. **Mandamus**: do your duty. **Prohibition**: stop the case now. **Certiorari**: the order is cancelled. **Quo Warranto**: by what right do you hold this post? Prohibition comes before the order; Certiorari comes after it.
