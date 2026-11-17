@@ -1,0 +1,206 @@
+# news | News of the Year
+
+## new-days
+
+= days1
+Q On which date is World Wetlands Day?
+A 2 February
+Q On which date is World Consumer Rights Day?
+A 15 March
+N Asked in 2025.
+Q On which date is World Water Day?
+A 22 March
+N Asked in 2025.
+Q On which date is Earth Day?
+A 22 April
+N The twin trap: Water Day is 22 March, Earth Day 22 April.
+
+= days2
+Q On which date is World Health Day?
+A 7 April
+Q On which date is World Environment Day?
+A 5 June
+Q On which date is International Yoga Day?
+A 21 June
+Q On which date is National Voters' Day?
+A 25 January
+N The day the Election Commission was founded, in 1950.
+F Dates never change | **2 Feb** Wetlands. **15 Mar** Consumer Rights. **22 Mar** Water. **24 Mar** TB. **7 Apr** Health. **22 Apr** Earth. **5 Jun** Environment. **21 Jun** Yoga. **25 Jan** Voters. Themes change every year; these dates do not.
+
+= water
+Q What was the theme of World Water Day 2026?
+A Water and Gender
+Q What was the theme of World Water Day 2025?
+A Glacier Preservation
+Q What was the theme of World Water Day 2024?
+A Water for Peace
+N Its full wording was "Leveraging Water for Peace".
+F Learn two years | The 2025 paper asked the Earth Day theme of **2024**, not 2025. So carry two years of each. **Water Day**: 2024 **Water for Peace**, 2025 **Glacier Preservation**, 2026 **Water and Gender**. **Earth Day**: 2024 **Planet vs. Plastics**, 2025 **Our Power, Our Planet**.
+
+= earth
+Q What was the theme of Earth Day 2024?
+A Planet vs. Plastics
+N The 2025 paper asked this, a year-old theme.
+Q What was the theme of Earth Day 2025?
+A Our Power, Our Planet
+N 2026 was reported as the same ⟨CHECK⟩.
+
+= voters
+Q What was the theme of National Voters' Day 2025?
+A Nothing Like Voting, I Vote for Sure
+N Asked in 2025.
+Q What was the theme of National Voters' Day 2026?
+A My India, My Vote ⟨CHECK⟩
+
+= wed
+Q Which country hosted World Environment Day 2026?
+A Azerbaijan
+N The focus was climate action.
+Q Which country hosted World Environment Day 2025, and on what?
+A South Korea, on ending plastic pollution
+Q What was the theme of World Health Day 2026?
+A Together for health. Stand with science.
+
+= years
+Q What has the UN named 2026 the International Year of?
+A The Woman Farmer
+N Also of Rangelands and Pastoralists.
+Q What was 2023 the International Year of, on India's proposal?
+A Millets
+Q Name the three International Years of 2025.
+A Cooperatives, Quantum Science and Technology, Glaciers' Preservation
+
+## new-faces
+
+= results
+Q On which date were the votes of four States counted in 2026?
+A 4 May 2026
+Q Who became Chief Minister of West Bengal in 2026?
+A Suvendu Adhikari
+N The BJP's first government in the State, ending 15 years of Mamata Banerjee.
+Q Who became Chief Minister of Tamil Nadu in 2026?
+A Vijay
+Q Which party did Vijay found?
+A TVK, Tamilaga Vettri Kazhagam
+
+= kerala
+Q Who became Chief Minister of Kerala in 2026?
+A V. D. Satheesan
+N The Congress-led UDF ended ten years of Left rule.
+Q Who won a second term as Chief Minister of Assam in 2026?
+A Himanta Biswa Sarma
+N Assam was the only one of the four States not to change hands.
+F Four States, one count | Counting day, **4 May 2026**. **West Bengal**: BJP's first government, **Suvendu Adhikari**. **Tamil Nadu**: actor **Vijay** and his TVK. **Kerala**: the UDF returns, **V. D. Satheesan**. **Assam**: no change, **Himanta Biswa Sarma** again.
+S The star who won a State | Tamil Nadu has a long habit of film stars turning to politics. M. G. Ramachandran and J. Jayalalithaa both went from the screen to the Chief Minister's chair. In **2026** the actor **Vijay** followed them. He had started his own party, the **TVK**, only a short time before. On counting day, **4 May**, it swept the State, and the star became **Chief Minister**.
+
+= odishacm
+Q Who is the Chief Minister of Odisha?
+A Mohan Charan Majhi
+N Since June 2024, leading Odisha's first BJP government.
+
+= bangladesh
+Q Who became Prime Minister of Bangladesh in February 2026?
+A Tarique Rahman
+N Son of Khaleda Zia. He took office on 17 February 2026.
+Q Which party won Bangladesh's election of 12 February 2026?
+A BNP
+Q Who ran Bangladesh's interim government after Sheikh Hasina left in August 2024?
+A Muhammad Yunus
+
+= neighbours
+Q Who became Prime Minister of Nepal in March 2026?
+A Balendra Shah
+N A young former mayor of Kathmandu.
+Q Who became Japan's first woman Prime Minister, in October 2025?
+A Sanae Takaichi
+
+= posts
+Q Who is the President of India, and which number is she?
+A Droupadi Murmu, the 15th
+N She comes from Mayurbhanj, Odisha.
+Q Who is the Vice-President of India?
+A C. P. Radhakrishnan
+N Elected in September 2025.
+Q Who is the Chief Justice of India, and which number?
+A Justice Surya Kant, the 53rd
+Q Who is the Chief Election Commissioner of India?
+A Gyanesh Kumar
+
+## new-unesco
+
+= sarnath
+Q Which site became India's 45th World Heritage Site in July 2026?
+A Ancient Buddhist Site of Sarnath
+Q In which city was Sarnath added to the World Heritage List?
+A Busan, South Korea
+Q What did the Buddha do at Sarnath?
+A Gave his first sermon
+N Its lion pillar gave India its national emblem.
+D 2026 | Sarnath on the World Heritage List | In **July**, at **Busan**, UNESCO added the **Ancient Buddhist Site of Sarnath** as India's **45th** World Heritage Site. Here the Buddha gave his **first sermon**, and here stood the **lion pillar** of the national emblem.
+
+= heritage
+Q Which was India's 44th World Heritage Site, added in 2025?
+A Maratha Military Landscapes
+N Twelve forts of Shivaji's kingdom.
+Q Which was India's 43rd World Heritage Site, added in 2024?
+A Moidams of Assam
+N Burial mounds of the Ahom kings.
+Q Name the two Indian World Heritage Sites added in 2023.
+A Santiniketan and the Hoysala temples
+Q Which is Odisha's only World Heritage Site?
+A Sun Temple, Konark
+F Counting back from 45 | **45th, 2026**: **Sarnath**. **44th, 2025**: **Maratha Military Landscapes**. **43rd, 2024**: **Moidams** of Assam. **2023**: **Santiniketan** and the **Hoysala** temples. Odisha's one: **Konark**. If the examiner asks "the latest", he means the top of this list.
+
+= ich
+Q Which Indian festival was added to UNESCO's Intangible Cultural Heritage list in December 2025?
+A Deepavali
+N At a session held in New Delhi.
+Q In which year was Durga Puja of Kolkata added to the Intangible Heritage list?
+A 2021
+Q In which year was Garba of Gujarat added to the Intangible Heritage list?
+A 2023
+Q Which Odisha dance is on UNESCO's Intangible Heritage list?
+A Chhau
+
+= mow
+Q What does UNESCO's Memory of the World Register protect?
+A Documentary heritage: manuscripts and records
+N Asked in 2025.
+Q Which two Indian texts were added to the Memory of the World Register in 2025?
+A Bhagavad Gita and Bharata's Natyashastra
+F Three boxes | **Places** go on the **World Heritage List**: Sarnath, Konark. **Living traditions** go on the **Intangible Cultural Heritage** list: Deepavali, Garba, Chhau. **Documents** go on the **Memory of the World Register**: the Gita and the Natyashastra manuscripts. First ask: a place, a tradition or a document?
+
+## new-vande
+
+= bankim
+Q Who wrote Vande Mataram?
+A Bankim Chandra Chatterjee
+Q On which date was Vande Mataram written?
+A 7 November 1875
+Q In which novel did Vande Mataram appear, and in which year?
+A Anandamath, 1882
+Q What do the words "Vande Mataram" mean?
+A Mother, I bow to thee
+D 1875 | Vande Mataram is written | On **7 November**, **Bankim Chandra Chatterjee**, a deputy magistrate in Bengal, wrote a poem to the motherland. In **1882** he placed it in his novel **Anandamath**.
+
+= sung
+Q Who first sang Vande Mataram in public, and where?
+A Rabindranath Tagore, at the 1896 Calcutta Congress
+Q In which movement did Vande Mataram become the slogan?
+A Swadeshi movement, 1905
+S The cry they could not ban | In **1905** Lord **Curzon** divided Bengal. Crowds poured into the streets of Calcutta, and the words they shouted were two: **Vande Mataram**. The British banned the cry in public. It only grew louder, and it became the slogan of the **Swadeshi** movement and the name of a newspaper. The poem had been written thirty years earlier by **Bankim Chandra**, and first sung in public by **Tagore** in **1896**.
+
+= national
+Q On which date did Vande Mataram become the National Song?
+A 24 January 1950
+Q Who wrote Jana Gana Mana, the National Anthem?
+A Rabindranath Tagore
+Q Which country's anthem, Amar Sonar Bangla, did Tagore write?
+A Bangladesh
+F Two poets, two songs | **Bankim Chandra**: **Vande Mataram**, the **National Song**. **Tagore**: **Jana Gana Mana**, the **National Anthem**, and Bangladesh's **Amar Sonar Bangla** too. On **24 January 1950** the Constituent Assembly gave the song equal honour with the anthem.
+
+= vande150
+Q On which date did India begin the 150th-year celebration of Vande Mataram?
+A 7 November 2025
+Q What did the 2026 change in law make an offence about Vande Mataram?
+A Deliberately stopping its singing

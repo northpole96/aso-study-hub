@@ -1,0 +1,188 @@
+# science | Science and Technology
+
+## sci-germs
+
+= mumps
+Q Is mumps viral or bacterial, and does it spread through air or water?
+A Viral, airborne
+N The 2025 question.
+Q Is cholera viral or bacterial, and does it spread through air or water?
+A Bacterial, waterborne
+Q Which bacterium causes cholera?
+A Vibrio cholerae
+F Two questions for any disease | Ask: **what causes it** (virus, bacterium, protozoan or fungus)? And **how does it travel** (air, water, a bite)? **Mumps**: virus, air. **Cholera**: bacterium, water. **TB**: bacterium, air. **Polio**: virus, water and food. Fill the grid and the options sort themselves.
+
+= bacteria
+Q Is typhoid viral or bacterial?
+A Bacterial
+N It spreads through water, like cholera.
+Q Is tuberculosis viral or bacterial, and how does it spread?
+A Bacterial, through the air
+Q Name three other bacterial diseases besides cholera, typhoid and TB.
+A Plague, tetanus and leprosy
+Q Which kind of germ can antibiotics kill?
+A Bacteria
+N They do not work on viruses.
+
+= virus
+Q Name three airborne viral diseases.
+A Mumps, measles and chickenpox
+N Influenza and COVID-19 are also airborne and viral.
+Q Name two viral diseases that spread through water and food.
+A Polio and hepatitis A
+Q Which mosquito carries dengue?
+A Aedes
+Q Which virus causes AIDS?
+A HIV
+Q How does rabies usually reach people?
+A Through a dog's bite
+
+= protozoa
+Q Which protozoan causes malaria?
+A Plasmodium
+Q Which mosquito carries malaria?
+A Female Anopheles
+Q Name two other protozoan diseases besides malaria.
+A Kala-azar and sleeping sickness
+Q What kind of germ causes ringworm?
+A Fungus
+N Athlete's foot is also fungal.
+
+= vitamins
+Q Lack of which vitamin causes scurvy?
+A Vitamin C
+Q Lack of which vitamin causes rickets?
+A Vitamin D
+Q Lack of which vitamin causes night blindness?
+A Vitamin A
+Q Lack of which vitamin causes beriberi?
+A Vitamin B1
+F No germ at all | Some diseases come from a missing vitamin, not a germ. **C**: scurvy, bleeding gums. **D**: rickets, soft bones. **A**: night blindness. **B1**: beriberi. When an option calls scurvy viral, it is wrong at the root.
+
+= tbday
+Q On which date is World TB Day?
+A 24 March
+N Asked in 2025.
+Q Why is World TB Day held on 24 March?
+A Robert Koch announced the TB germ on that day in 1882
+S The germ found on 24 March | In the 1880s tuberculosis killed one in seven people in Europe, and nobody knew why. A German doctor, **Robert Koch**, spent months staining and growing the tissue of patients until he saw a thin rod-shaped germ. On **24 March 1882** he announced it in Berlin: **tuberculosis is caused by a bacterium**. A hundred years later, that date became **World TB Day**.
+
+## sci-space
+
+= c61
+Q Which satellite was lost when PSLV-C61 failed in May 2025?
+A EOS-09
+Q For which orbit was EOS-09 meant?
+A Sun-synchronous polar orbit
+N Asked in 2025.
+Q In which stage did PSLV-C61 fail?
+A Third stage
+
+= c62
+Q On which date did PSLV-C62 fail?
+A 12 January 2026
+Q Which satellite was lost on PSLV-C62?
+A EOS-N1, named Anvesha
+N Built for the DRDO to watch the seas.
+Q In which stage did PSLV-C62 fail?
+A Third stage, again
+S The workhorse stumbles | For thirty years the **PSLV** was ISRO's workhorse, the rocket that almost never failed. On **18 May 2025** **PSLV-C61** lifted off with the earth-watching satellite **EOS-09**. Its third stage lost pressure, and the satellite was lost. Eight months later, on **12 January 2026**, **PSLV-C62** tried again with **Anvesha**. Once more the trouble came in the **third stage**. Two failures in a row, in the same place.
+
+= nisar
+Q Which two space agencies built the NISAR satellite?
+A NASA and ISRO
+Q On which rocket was NISAR launched in July 2025?
+A GSLV
+Q What kind of satellite is NISAR?
+A Radar satellite
+
+= shukla
+Q Who became the first Indian to stay on the International Space Station?
+A Shubhanshu Shukla
+N On the Axiom-4 mission, 2025.
+Q Who was the first Indian in space, and in which year?
+A Rakesh Sharma, 1984
+Q What is the robot that will fly on Gaganyaan's first test flight called?
+A Vyommitra
+Q What is India's own crewed space programme called?
+A Gaganyaan
+
+= artemis
+Q In which month and year did Artemis II fly around the Moon?
+A April 2026
+Q Did Artemis II land on the Moon?
+A No; it only flew around it
+Q Which Canadian astronaut flew on Artemis II?
+A Jeremy Hansen
+N The other three were American.
+Q In which capsule and on which rocket did Artemis II fly?
+A Orion capsule, SLS rocket
+Q Which was the last mission before Artemis II to carry people to the Moon?
+A Apollo 17, 1972
+D 2026 | Artemis II | In **April**, NASA sent **four astronauts around the Moon** and back in the **Orion** capsule on the **SLS** rocket: three Americans and the Canadian **Jeremy Hansen**. It **did not land**. It was the first crewed Moon trip since **1972**.
+
+= oldspace
+Q What was the name of Chandrayaan-2's lander?
+A Vikram
+N Asked in 2018.
+Q Which Chinese mission brought back Moon rock in 2020?
+A Chang'e-5
+N Asked in 2021.
+
+## sci-kitchen
+
+= coats
+Q What are non-stick pans coated with?
+A Teflon
+N Asked in 2018.
+Q Galvanised iron is coated with which metal?
+A Zinc
+Q Food cans are coated with which metal?
+A Tin
+Q Stainless steel is iron mixed with which two metals?
+A Chromium and nickel
+F Coats against rust | A roof sheet is **galvanised**: dipped in **zinc**. A food can is coated with **tin**, which does not poison food. Kitchen plates are **stainless steel**: iron with **chromium and nickel**. A frying pan is coated with **Teflon** so food does not stick.
+
+= gas
+Q What is LPG mostly made of?
+A Butane and propane
+Q Which chemical is added to LPG to give it a smell?
+A Ethyl mercaptan
+N LPG has no smell of its own; the smell warns you of a leak.
+Q What is CNG mostly made of?
+A Methane
+
+= shelf
+Q What is the chemical name of baking soda?
+A Sodium bicarbonate
+Q What is the chemical name of washing soda?
+A Sodium carbonate
+Q Vinegar is a weak solution of which acid?
+A Acetic acid
+Q What is dry ice?
+A Solid carbon dioxide
+Q What is the chemical name of common salt?
+A Sodium chloride
+
+= mof
+Q For what did the 2025 Chemistry Nobel go?
+A Metal–organic frameworks
+Q Who won the 2025 Chemistry Nobel?
+A Susumu Kitagawa, Richard Robson and Omar Yaghi
+Q What can metal–organic frameworks do with their tiny empty rooms?
+A Trap gases, store hydrogen or pull water from desert air
+S A crystal full of rooms | Most crystals are packed solid. In the late 1980s **Richard Robson** built one that was mostly empty: metal joints linked by carbon rods, like scaffolding, with tiny rooms inside. **Susumu Kitagawa** showed gases could flow in and out, and **Omar Yaghi** made the frameworks strong and stable. One gram can hold a huge inner surface. Today such crystals can pull drinking water out of **desert air**. In **2025** the three shared the **Chemistry Nobel**.
+
+= nobelchain
+Q For what did the 2019 Chemistry Nobel go?
+A Lithium-ion batteries
+N Asked in 2021, so the exam asks prizes from a few years back.
+Q For what did the 2020 Chemistry Nobel go?
+A CRISPR gene editing
+Q For what did the 2023 Chemistry Nobel go?
+A Quantum dots
+Q For what did the 2024 Chemistry Nobel go?
+A Protein design
+Q Who won the 2025 Nobel Peace Prize?
+A María Corina Machado of Venezuela
+F The Chemistry chain | **2019**: **lithium-ion batteries**, the one in your phone. **2020**: **CRISPR**, scissors for genes. **2023**: **quantum dots**, tiny crystals that glow. **2024**: **protein design**. **2025**: **metal–organic frameworks**. The 2021 paper asked a prize two years old, so carry the chain.

@@ -25,7 +25,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIMIT = {"q": 30, "a": 14, "n": 34, "f": 58, "d": 44, "s": 98, "title": 9}
 
 def curly(t):
-    t = re.sub(r'"(?=[\w(.])', "“", t).replace('"', "”")
+    # a quote opens after a space, a bracket or a bold mark and before a non-space; otherwise it closes
+    t = re.sub(r'(?:(?<=^)|(?<=[\s(*]))"(?=\S)', "“", t).replace('"', "”")
     return re.sub(r"(?<=\w)'", "’", t).replace(" '", " ‘").replace("'", "’")
 
 def words(t):

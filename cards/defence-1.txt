@@ -1,0 +1,400 @@
+# defence | Defence
+
+## def-chiefs
+
+= cds
+Q Who became India's third Chief of Defence Staff on 31 May 2026?
+A General N. S. Raja Subramani
+N He came after Bipin Rawat (the first) and Anil Chauhan (the second).
+Q Who was India's first Chief of Defence Staff?
+A General Bipin Rawat
+Q In which year was the post of Chief of Defence Staff created?
+A 2019
+N It was made so that the Army, Navy and Air Force plan and fight together.
+Q What is the main job given to the new Chief of Defence Staff?
+A Setting up joint theatre commands
+F Why a CDS at all | Before **2019** each force planned on its own. The **Chief of Defence Staff** sits above the three chiefs' level of planning so that they buy, train and fight together. The big unfinished job is the **theatre command**: one commander for one region, with soldiers, ships and planes all under him.
+
+= navychief
+Q Who became Chief of the Naval Staff on 31 May 2026?
+A Admiral Krishna Swaminathan
+N He took over from Admiral Dinesh K. Tripathi, on the same day the new CDS took over.
+Q Whom did Admiral Krishna Swaminathan succeed as Navy chief?
+A Admiral Dinesh K. Tripathi
+
+= armychief
+Q Who became Chief of the Army Staff on 30 June 2026?
+A General Dhiraj Seth
+N He took over from General Upendra Dwivedi.
+Q Whom did General Dhiraj Seth succeed as Army chief?
+A General Upendra Dwivedi
+
+= airchief
+Q Who became Chief of the Air Staff on 31 October 2026?
+A Air Chief Marshal Ashutosh Dixit
+N He took over from Air Chief Marshal A. P. Singh. The 2021 paper asked "the present Chief of Air Staff".
+Q Whom did Ashutosh Dixit succeed as Chief of the Air Staff?
+A Air Chief Marshal A. P. Singh
+
+= chiefs4
+F Four chairs in five months | **31 May 2026**: **Raja Subramani** becomes CDS and **Krishna Swaminathan** Navy chief. **30 June**: **Dhiraj Seth** takes the Army. **31 October**: **Ashutosh Dixit** takes the Air Force. Remember the order of the months: May for two, June for the Army, October for the Air Force.
+S Every door, a new name | In most years one service chief retires and the others carry on. **2026** was different. Between May and October all four top chairs of the forces changed hands. On a single day, **31 May**, a new **Chief of Defence Staff** and a new **Navy chief** walked in together. The Army followed a month later and the Air Force in the autumn. For an examiner who asked "the present Chief of Air Staff" in 2021, it was a year full of fresh questions.
+
+= navycaptain
+Q A Captain in the Navy is equal to which rank in the Army?
+A Colonel
+N The trap: a Navy Captain is far senior to an Army Captain.
+Q A Captain in the Navy is equal to which rank in the Air Force?
+A Group Captain
+Q An Army Colonel is equal to which rank in the Navy?
+A Captain
+F The Captain trap | The word **Captain** means two very different ranks. In the **Army** a Captain is a young officer, just above a Lieutenant. In the **Navy** a Captain is equal to an Army **Colonel** and an Air Force **Group Captain**. So when a question says "Captain", first ask: which service?
+
+= ranks1
+Q Which Air Force rank is equal to an Army Major?
+A Squadron Leader
+Q Which Navy rank is equal to an Army Major?
+A Lieutenant Commander
+Q Which Air Force rank is equal to an Army Lieutenant Colonel?
+A Wing Commander
+Q Which Navy rank is equal to an Army Lieutenant Colonel?
+A Commander
+
+= ranks2
+Q Which Navy rank is equal to an Army Brigadier?
+A Commodore
+Q Which Air Force rank is equal to an Army Brigadier?
+A Air Commodore
+Q Which Navy rank is equal to an Army Major General?
+A Rear Admiral
+Q Which Air Force rank is equal to an Army Major General?
+A Air Vice Marshal
+
+= ranks3
+Q Which Navy rank is equal to an Army Lieutenant General?
+A Vice Admiral
+Q Which Air Force rank is equal to an Army Lieutenant General?
+A Air Marshal
+Q Which Air Force rank is equal to an Army General?
+A Air Chief Marshal
+F The ladder in threes | Read each step as Army, Navy, Air Force. **Major**, Lieutenant Commander, **Squadron Leader**. Lieutenant Colonel, Commander, **Wing Commander**. **Colonel, Captain, Group Captain**. **Brigadier, Commodore**, Air Commodore. Major General, **Rear Admiral**, Air Vice Marshal. Lieutenant General, Vice Admiral, Air Marshal. General, Admiral, Air Chief Marshal.
+
+= fivestar
+Q Who is the only officer ever made Marshal of the Air Force?
+A Arjan Singh
+Q Name the three honorary five-star ranks of the Army, Navy and Air Force.
+A Field Marshal, Admiral of the Fleet, Marshal of the Air Force
+N They sit above General, Admiral and Air Chief Marshal.
+
+## def-exercises
+
+= dharma
+Q Exercise Dharma Guardian is held between India and which country?
+A Japan
+N Asked in 2021 and again in 2025.
+Q In which State was the seventh edition of Dharma Guardian held in 2026?
+A Uttarakhand
+Q With which country does India hold the naval exercise JIMEX?
+A Japan
+N JIMEX is the Navy's; Dharma Guardian is the Army's. Both are with Japan.
+
+= army1
+Q Exercise Yudh Abhyas is held between India and which country?
+A USA
+Q Exercise Shakti is held between India and which country?
+A France
+Q Exercise Nomadic Elephant is held between India and which country?
+A Mongolia
+N Asked in 2025.
+Q Exercise AUSTRAHIND is held between India and which country?
+A Australia
+
+= army2
+Q Exercise Surya Kiran is held between India and which country?
+A Nepal
+Q Exercise Sampriti is held between India and which country?
+A Bangladesh
+Q Exercise Mitra Shakti is held between India and which country?
+A Sri Lanka
+Q Garuda Shakti is a special forces exercise with which country?
+A Indonesia
+F Neighbours by name | **Surya Kiran**, the sun's ray, goes to **Nepal**. **Sampriti**, harmony, goes to **Bangladesh**. **Mitra Shakti**, the strength of friends, goes to **Sri Lanka**. **Garuda Shakti**, named after the eagle of Indonesian legend, goes to **Indonesia**, whose national airline is Garuda.
+
+= stans
+Q Exercise KHANJAR is held between India and which country?
+A Kyrgyzstan
+Q Exercise DUSTLIK is held between India and which country?
+A Uzbekistan
+Q Exercise KAZIND is held between India and which country?
+A Kazakhstan
+Q Where was Exercise KHANJAR held in 2026?
+A Misamari, Assam
+Q Where was Exercise DUSTLIK held in 2026?
+A Aundh, Pune
+F Three that sound alike | **KHANJAR** is a dagger, and it goes with **Kyrgyzstan**: K with K. **KAZIND** carries its partner in its name: **Kazakhstan** and India. **DUSTLIK** means friendship in Uzbek, and goes with **Uzbekistan**. The examiner swaps these three, so tie each to its first letters.
+
+= malabar
+D 1992 | Malabar begins | The naval exercise **Malabar** started as a drill between **India and the USA**. **Japan** became a permanent member in **2015** and **Australia** joined in **2020**, making it the same four as the Quad.
+Q In which year did the Malabar exercise begin?
+A 1992
+Q Name the four members of the Malabar naval exercise.
+A India, USA, Japan and Australia
+N The same four as the Quad, asked in 2021. France is not a member.
+Q Which country joined Malabar last, in 2020?
+A Australia
+Q Name the four countries of the Quad.
+A India, USA, Japan and Australia
+
+= navyex
+Q What is the name of India's naval exercise with France?
+A Varuna
+Q With which country does India hold the naval exercise SIMBEX?
+A Singapore
+Q With which country does India hold the naval exercise Konkan?
+A United Kingdom
+Q What is the name of the Indian Navy's own biggest war drill?
+A TROPEX
+N Asked in 2025. It stands for Theatre Level Operational Readiness Exercise.
+
+= milan
+Q How is MILAN different from Malabar or Varuna?
+A It is multilateral: many navies take part
+N It is hosted by the Indian Navy every two years.
+Q Where was MILAN first held, in 1995?
+A Andaman and Nicobar Islands
+Q In which city is MILAN now held?
+A Visakhapatnam
+N Home of the Eastern Naval Command.
+Q Which event was held at Visakhapatnam along with MILAN in February 2026?
+A International Fleet Review ⟨CHECK⟩
+S A meeting, not a match | In **1995** the Indian Navy invited a few nearby navies to the **Andaman and Nicobar Islands**. It was not a drill against one partner. It was a get-together of many, and it was called **MILAN**, "meeting". It grew every two years. In time it moved to **Visakhapatnam**, the home of the Eastern Naval Command, and in **February 2026** it was held there along with the International Fleet Review ⟨CHECK⟩. When an option says MILAN is with one country, it is wrong.
+
+## def-missiles
+
+= agni
+Q What type of missile is Agni?
+A Surface-to-surface ballistic missile
+Q What is the range of Agni-5?
+A More than 5,000 km
+Q Which is the short-range surface-to-surface ballistic missile of the same kind as Agni?
+A Prithvi
+Q Who is called the Missile Woman of India?
+A Dr Tessy Thomas
+N She led the Agni projects. Asked in 2021.
+F What "ballistic" means | A **ballistic** missile is pushed up by its rocket and then falls on its target like a thrown stone, rising very high on the way. **Agni** and **Prithvi** are ballistic. A **cruise** missile is different: it flies low and level, like a plane with no pilot, all the way.
+
+= pralay
+Q What type of missile is Pralay?
+A Surface-to-surface, quasi-ballistic missile
+N The 2025 paper called it an air-to-surface cruise missile. That was false.
+Q What is the range of the Pralay missile?
+A About 150 to 500 km
+Q Why is Pralay called quasi-ballistic?
+A It can change its path in flight
+
+= brahmos
+Q Which two countries built BrahMos together?
+A India and Russia
+Q Which two rivers give BrahMos its name?
+A Brahmaputra and Moskva
+Q What type of missile is BrahMos?
+A Supersonic cruise missile
+N Supersonic means faster than sound.
+Q What is the name of India's subsonic cruise missile?
+A Nirbhay
+S Two rivers in one name | When India and Russia agreed to build a missile together, they needed a name that belonged to both. They took the **Brahmaputra**, which flows through Assam, and the **Moskva**, which flows through Moscow. **BrahMos** flies low like a plane but faster than sound, which makes it a **supersonic cruise missile**. It can be fired from land, ships, submarines and aircraft.
+
+= akash
+Q What type of missile is Akash?
+A Surface-to-air
+Q What type of missile is Astra?
+A Air-to-air
+Q What is the job of the Nag missile?
+A Destroying tanks (anti-tank)
+Q From which country did India buy the S-400 air defence system?
+A Russia
+N Asked in 2021.
+F Start and target | Name each missile by where it starts and what it hits. **Agni**: land to land. **Akash**: ground to air, at enemy planes. **Astra**: air to air, one plane at another. **Nag**: at tanks. The examiner changes one of these words, so check both halves.
+
+= igmdp
+Q Which programme gave India Agni, Prithvi, Akash, Trishul and Nag?
+A Integrated Guided Missile Development Programme
+Q Who led the Integrated Guided Missile Development Programme?
+A Dr A. P. J. Abdul Kalam
+
+= chandipur
+Q Where in Odisha is the Integrated Test Range for missiles?
+A Chandipur
+N Tests are also held from Dr A. P. J. Abdul Kalam Island, off the Odisha coast.
+Q What is the island off Odisha used for missile tests now called?
+A Dr A. P. J. Abdul Kalam Island
+N It used to be called Wheeler Island.
+Q What kind of engine burns fuel in air moving faster than sound and has no moving parts?
+A Scramjet
+N Asked in 2025.
+
+## def-borders
+
+= mha
+Q Under which ministry do the Central Armed Police Forces work?
+A Ministry of Home Affairs
+N The examiner's favourite false statement puts them under Defence.
+Q Which border force is under the Ministry of Defence, not Home Affairs?
+A Indian Coast Guard
+Q In which year was the Indian Coast Guard set up?
+A 1978
+Q What is SAREX, run by the Coast Guard?
+A National search and rescue exercise at sea
+N It was held off Paradip in 2026.
+F The one that breaks the rule | BSF, ITBP, SSB, Assam Rifles, CRPF and CISF all work under the **Ministry of Home Affairs**. The **Indian Coast Guard**, set up in **1978**, is the odd one out: it is under the **Ministry of Defence**. If a statement puts the BSF under Defence, it is false.
+
+= bsf
+D 1965 | Border Security Force raised | After the war with Pakistan, India raised the **BSF** on **1 December 1965**. It guards the borders with **Pakistan and Bangladesh** and works under the Home Ministry.
+Q On which date was the Border Security Force raised?
+A 1 December 1965
+Q The BSF guards India's borders with which two countries?
+A Pakistan and Bangladesh
+Q Which force guards the India–Bangladesh border?
+A Border Security Force
+
+= itbp
+Q Which force guards India's border with China?
+A Indo-Tibetan Border Police
+Q After which war was the ITBP raised?
+A The 1962 war with China
+N The 2025 paper had three statements on the ITBP.
+Q Which force guards the open borders with Nepal and Bhutan?
+A Sashastra Seema Bal
+N Raised in 1963.
+
+= assamrifles
+Q Which is the oldest of the Central Armed Police Forces?
+A Assam Rifles
+N Raised in 1835.
+Q Which force guards the India–Myanmar border?
+A Assam Rifles
+Q In which year was the Assam Rifles raised?
+A 1835
+
+= crpf
+Q In which year did the Central Reserve Police Force begin?
+A 1939
+Q Which force, raised in 1969, protects airports and big industries?
+A Central Industrial Security Force
+Q Which force is known as the black cat commandos?
+A National Security Guard
+N Raised in 1984.
+F One border, one force | **Pakistan** and **Bangladesh**: BSF. **China**: ITBP. **Nepal** and **Bhutan**: SSB. **Myanmar**: Assam Rifles. Inside the country: **CRPF**. Airports, the Delhi Metro and factories: **CISF**. Each force was born from an event: 1962 gave the ITBP, 1965 gave the BSF.
+
+## def-academies
+
+= nda
+Q Where is the National Defence Academy?
+A Khadakwasla, Pune
+N It trains cadets of all three forces together.
+Q Where is the Indian Military Academy?
+A Dehradun
+Q Where is the Indian Naval Academy?
+A Ezhimala, Kerala
+Q Where is the Air Force Academy?
+A Dundigal, near Hyderabad
+
+= ota
+Q Where is the Officers Training Academy for short service officers?
+A Chennai
+N A second one is at Gaya. The trap places it in Pune, where the NDA is.
+F Pune is the trap | The **NDA** is at **Khadakwasla, Pune**. After it, Army cadets go to the **IMA, Dehradun**, Navy cadets to **Ezhimala** and Air Force cadets to **Dundigal**. Short service officers go to the **OTA at Chennai** (and Gaya). Because Pune is famous for the NDA, the examiner likes to put the OTA there too.
+
+= staff
+Q Where is the Defence Services Staff College?
+A Wellington, in the Nilgiris
+Q Where is the College of Defence Management?
+A Secunderabad
+Q Where is the National Defence College?
+A New Delhi
+
+= indu
+Q Where is the Indian National Defence University coming up?
+A Binola, Haryana
+N Asked twice, in 2018 and 2021.
+
+= npa
+Q Where is the Sardar Vallabhbhai Patel National Police Academy?
+A Hyderabad
+N Asked in 2025.
+
+= warmedals
+Q What is India's highest gallantry award in war?
+A Param Vir Chakra
+Q Put the three wartime gallantry awards in order, highest first.
+A Param Vir Chakra, Maha Vir Chakra, Vir Chakra
+Q Who designed the Param Vir Chakra medal?
+A Savitri Khanolkar
+
+= peacemedals
+Q What is India's highest gallantry award in peacetime?
+A Ashoka Chakra
+Q Put the three peacetime gallantry awards in order, highest first.
+A Ashoka Chakra, Kirti Chakra, Shaurya Chakra
+F Two ladders of three | For bravery **in war**: **Param Vir**, Maha Vir, Vir Chakra. For bravery **in peacetime**: **Ashoka**, Kirti, Shaurya Chakra. Each ladder has three steps. Learn the top of each ladder first, because that is what the examiner asks.
+
+= pvc
+Q Who received the first Param Vir Chakra?
+A Major Somnath Sharma
+N In 1947, in Kashmir.
+Q Who is the only Air Force officer to receive the Param Vir Chakra?
+A Flying Officer Nirmal Jit Singh Sekhon
+N For the 1971 war. Asked in 2021.
+S Alone in the sky | In December **1971** Pakistani jets attacked the airfield at **Srinagar**. A young pilot, **Flying Officer Nirmal Jit Singh Sekhon**, took off under fire and fought several enemy aircraft at once. He was shot down and killed. He was given the **Param Vir Chakra**, and he is still the **only Air Force officer** to receive it.
+
+## def-operations
+
+= ops2025paper
+Q Operation Jindagi was the rescue at which tunnel?
+A Silkyara tunnel
+N One of three operation names asked in 2025.
+Q Operation Keller was carried out against terrorists in which district?
+A Shopian
+Q Operation Olivia protects which animals in Odisha?
+A Olive ridley turtles
+N It is the Coast Guard's watch over their nesting beaches.
+
+= brahma
+Q What was Operation Brahma?
+A India's earthquake relief to Myanmar, 2025
+Q On which date did the great earthquake hit Myanmar?
+A 28 March 2025
+
+= sindoor
+Q What was Operation Sindoor?
+A India's strikes on terror camps after the Pahalgam attack
+Q On which date was Operation Sindoor carried out?
+A 7 May 2025
+Q On which date did terrorists kill tourists at Pahalgam?
+A 22 April 2025
+Q Which operation hunted down the Pahalgam attackers?
+A Operation Mahadev
+D 2025 | Operation Sindoor | On **22 April** terrorists killed tourists at **Pahalgam**. On **7 May** India struck terror camps across the border in **Operation Sindoor**. A later operation, **Mahadev**, hunted down the attackers.
+
+= sindhu
+Q What was Operation Sindhu?
+A Bringing Indians home from Iran during the Israel–Iran fighting
+N June 2025. Thousands of Indian students were stuck.
+
+= sagar
+Q What was Operation Sagar Bandhu?
+A India's relief to Sri Lanka after Cyclone Ditwah
+N Late 2025. The name means "friend across the sea".
+Q Which cyclone flooded Sri Lanka in late 2025?
+A Cyclone Ditwah
+
+= urja
+Q What was Operation Urja Suraksha?
+A Navy escorts for oil and gas ships coming to India
+N 2026, during the Strait of Hormuz crisis. "Urja" means energy.
+Q Which crisis led to Operation Urja Suraksha in 2026?
+A The Strait of Hormuz crisis
+
+= opsall
+F A year of names | **Brahma**: earthquake, Myanmar. **Sindoor**: strikes after Pahalgam. **Sindhu**: students home from Iran. **Sagar Bandhu**: cyclone relief, Sri Lanka. **Urja Suraksha**: oil and gas ships escorted. Most are rescue and relief, not war, and the examiner likes exactly these.
+S Friend across the sea | Late in **2025** a cyclone named **Ditwah** crossed **Sri Lanka**. Rivers burst their banks and villages went under water. India's ships and aircraft were among the first to arrive, carrying food, medicine and rescue teams. The mission was called **Operation Sagar Bandhu**, which means "friend across the sea". It was the fourth relief operation of a busy year that had begun with **Operation Brahma** in earthquake-hit Myanmar.

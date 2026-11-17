@@ -1,0 +1,221 @@
+# governance | Governance and Civil Service
+
+## gov-frame
+
+= macaulay
+Q Which Act of 1853 ended the giving of Company jobs as favours?
+A Charter Act of 1853
+Q Which committee of 1854 designed the open civil service exam?
+A Macaulay Committee
+Q Why could few Indians take the early civil service exam?
+A It was held only in London
+
+= commissions
+Q Which commission of 1886 split the service into Imperial, Provincial and Subordinate branches?
+A Aitchison Commission
+Q In which year was the Islington Commission set up?
+A 1912
+Q Put in order: Lee, Macaulay, Islington, Aitchison.
+A Macaulay, Aitchison, Islington, Lee
+F Four bodies in order | **Macaulay 1854**: an open exam. **Aitchison 1886**: three branches, Imperial, Provincial, Subordinate. **Islington 1912**: a fresh look. **Lee 1923**: a Public Service Commission in India, which opened in **1926**. The years climb by about thirty, then twenty-six, then eleven.
+
+= lee
+Q What is the full name of the Lee Commission?
+A Royal Commission on the Superior Civil Services
+N Asked in 2025.
+Q In which year was the Lee Commission set up?
+A 1923
+Q In which year did India's first Public Service Commission open?
+A 1926
+D 1926 | The first Public Service Commission | Acting on the **Lee Commission** of **1923**, the British opened India's first **Public Service Commission**. Under the Constitution it became the **UPSC**.
+
+= steel
+Q Who called the Indian civil service the "steel frame"?
+A Lloyd George
+N The British Prime Minister. Sardar Patel later kept the frame and gave it a new purpose.
+S The frame that stayed | In 1922 the British Prime Minister, **Lloyd George**, told Parliament that the Indian civil service was the **steel frame** holding the whole empire up. Twenty-five years later, many Indian leaders wanted to pull it down as a tool of foreign rule. **Sardar Patel** disagreed. He told the Constituent Assembly that without a united, protected service, the new country would fall apart. So the frame stayed, and the Constitution gave its officers a shield in **Article 311**.
+
+= art311
+Q Under Article 311, who cannot dismiss a civil servant?
+A Any authority lower than the one that appointed him
+Q Under Article 311, what must happen before a civil servant is dismissed?
+A An inquiry where he can defend himself
+Q Which Article says an officer serves at the pleasure of the President or Governor?
+A Article 310
+Q Which Article lets the government make service rules?
+A Article 309
+F Pleasure, then shield | **Article 309**: the government makes service rules. **Article 310**: the officer serves **at the pleasure** of the President or Governor. **Article 311** limits that pleasure with two shields: **no dismissal by a lower authority**, and **no dismissal without an inquiry**.
+
+= art312
+Q Which Article lets Parliament create a new All India Service?
+A Article 312
+N Asked in 2021 and 2025.
+Q What must the Rajya Sabha do before a new All India Service is created?
+A Pass a resolution by a two-thirds vote
+
+= lbsnaa
+Q Where is the Lal Bahadur Shastri National Academy of Administration?
+A Mussoorie
+Q In which year was the LBSNAA set up?
+A 1959
+Q Under which department does the LBSNAA work?
+A Department of Personnel and Training
+N Not the Home Ministry. The police academy at Hyderabad is the one under the Home Ministry.
+
+## gov-citizen
+
+= charter
+Q Where and in which year did the Citizen's Charter begin?
+A Britain, 1991
+Q In which year did India adopt the Citizen's Charter?
+A 1997
+Q What does a Citizen's Charter state?
+A What service an office gives, and in how many days
+
+= sevottam
+Q What is Sevottam?
+A A quality management system for public services
+N Asked in 2025.
+Q Which department built Sevottam, and in which year?
+A Department of Administrative Reforms and Public Grievances, 2006
+Q How many modules does Sevottam have?
+A Three
+Q Name the three modules of Sevottam.
+A Citizen's Charter, Public Grievance Redress, Service Delivery Capability
+N Nothing in it is about staff pay.
+F Seva plus uttam | **Sevottam** joins "seva" and "uttam": excellent service. Made by **DARPG** in **2006**, it is a **quality management system** with three modules: the **Citizen's Charter**, **Grievance Redress** and **Service Delivery Capability**. If an option names a fourth, such as pay or training, it is the fake.
+
+= cpgrams
+Q What is CPGRAMS used for?
+A Lodging public complaints online against central offices
+Q Which department runs CPGRAMS?
+A Department of Administrative Reforms and Public Grievances
+
+= portals
+Q On which portal do government offices buy goods?
+A GeM
+N Government e-Marketplace.
+Q Which platform trains government officials online?
+A iGOT Karmayogi
+Q Which app puts many government services in one place?
+A UMANG
+Q What is PRAGATI?
+A The Prime Minister's screen for reviewing stuck projects
+Q Where can a citizen keep certificates in digital form?
+A DigiLocker
+
+= arc2
+Q What was the title of the Second ARC's first report?
+A Right to Information: Master Key to Good Governance
+N Asked in 2021.
+Q What was the Second ARC's twelfth report called?
+A Citizen Centric Administration
+Q What is Odisha's Mo Sarkar?
+A Officers phone citizens to ask how they were treated
+N Begun in 2019.
+S The phone call from the office | Most people leave a government office and never hear from it again. In **2019** Odisha tried something new. Under **Mo Sarkar**, "my government", officers pick citizens who visited a police station or a hospital and **phone them** to ask how they were treated. A rude officer could find his name in a report. It was a simple idea, built on the old promise of the **Citizen's Charter**: the citizen at the counter should be heard.
+
+## gov-corruption
+
+= santhanam
+Q Which committee studied corruption in public life in 1962?
+A K. Santhanam Committee
+N Asked in 2021 and 2025.
+Q In which year was the Santhanam Committee set up?
+A 1962
+Q Which body was the first child of the Santhanam Committee's report?
+A Central Vigilance Commission
+
+= cvc
+D 1964 | Central Vigilance Commission | Set up on the advice of the **Santhanam Committee**, the CVC stood for decades on a government order alone. A law gave it **statutory status in 2003**.
+Q In which year was the Central Vigilance Commission set up?
+A 1964
+Q In which year did the CVC get statutory status?
+A 2003
+
+= lokpalword
+Q Who coined the word "Lokpal", and in which year?
+A L. M. Singhvi, 1963
+Q Which body first asked for a Lokpal at the Centre and Lokayuktas in the States?
+A First Administrative Reforms Commission, 1966
+N It was led at first by Morarji Desai.
+
+= lokpalact
+D 2013 | Lokpal and Lokayuktas Act | After the public protest of **2011** and fifty years of failed bills, Parliament passed the Lokpal law. It came into force in **January 2014**.
+Q In which year was the Lokpal and Lokayuktas Act passed?
+A 2013
+Q How many Members can the Lokpal have besides its Chairperson?
+A Not more than eight
+Q What share of Lokpal Members must be judicial Members?
+A Half
+Q Can the Lokpal look into the Prime Minister?
+A Yes, with limits
+N It cannot touch foreign relations, security, public order, atomic energy or space.
+
+= lokpalchair
+Q Who was the first Chairperson of the Lokpal?
+A Justice Pinaki Chandra Ghose
+N Appointed in 2019.
+Q Who is the present Chairperson of the Lokpal?
+A Justice A. M. Khanwilkar
+F Fifty years for one word | **1962**: the **Santhanam Committee**. **1963**: **L. M. Singhvi** coins "Lokpal". **1964**: the **CVC**. **1966**: the first ARC asks for a Lokpal. **2013**: the Act at last. **2019**: the first Lokpal, **Justice P. C. Ghose**. The idea took half a century to reach a chair.
+
+= rti
+Q Within how many days must an office answer an RTI request?
+A 30 days
+Q Within how long must an RTI request be answered if life or liberty is at stake?
+A 48 hours
+Q In which year was the Right to Information Act passed?
+A 2005
+Q What did the 2021 paper call the strongest control by citizens over government?
+A The election
+
+## gov-village
+
+= art40
+Q Which Article asks the State to organise village panchayats?
+A Article 40
+N It is a Directive Principle.
+
+= brmehta
+D 1957 | Balwant Rai Mehta Committee | It found that village schemes failed because the people had no say. It proposed **three tiers**: **village panchayat, block samiti, district parishad**.
+Q Which committee of 1957 proposed three-tier Panchayati Raj?
+A Balwant Rai Mehta Committee
+Q Name the three tiers proposed by the Balwant Rai Mehta Committee.
+A Village panchayat, block samiti, district parishad
+Q Where did Nehru open the first Panchayati Raj system on 2 October 1959?
+A Nagaur, Rajasthan
+Q Does the Balwant Rai Mehta Committee belong among civil service committees?
+A No; it is a Panchayati Raj committee
+N The 2025 paper wrongly listed it with civil service committees.
+S A Gandhi Jayanti in Nagaur | On **2 October 1959**, Gandhi's birthday, **Jawaharlal Nehru** stood in **Nagaur** in the Rajasthan desert and opened India's first three-tier Panchayati Raj. The plan came from the **Balwant Rai Mehta Committee**, which had found that village schemes failed because villagers had no say. Gandhi had dreamed of every village as a small republic. That morning, the dream got its first office.
+
+= ashok
+Q Which committee of 1977 suggested a two-tier Panchayati Raj?
+A Ashok Mehta Committee
+
+= gvkrao
+Q Which committee called Panchayati Raj "grass without roots"?
+A G. V. K. Rao Committee, 1985
+Q Which unit did the G. V. K. Rao Committee want as the main unit of planning?
+A The district
+
+= singhvi86
+Q Which committee of 1986 asked for constitutional status for Panchayats?
+A L. M. Singhvi Committee
+N The same Singhvi who coined the word "Lokpal".
+F Four committees in order | **Balwant Rai Mehta 1957**: three tiers. **Ashok Mehta 1977**: two tiers. **G. V. K. Rao 1985**: **"grass without roots"**, make the district the unit. **L. M. Singhvi 1986**: give Panchayats **constitutional status**. The last wish came true with the **73rd Amendment, 1992**.
+
+= amend73
+Q Which Amendment gave Panchayats constitutional status?
+A 73rd Amendment, 1992
+Q Which Schedule lists the subjects of Panchayats, and how many?
+A Eleventh Schedule, 29 subjects
+Q What share of Panchayat seats is reserved for women under the 73rd Amendment?
+A One-third
+Q Which Part of the Constitution deals with Panchayats?
+A Part IX
+Q Which Amendment did for towns what the 73rd did for villages?
+A 74th Amendment
+N It added the Twelfth Schedule with 18 subjects.
+D 1992 | 73rd and 74th Amendments | Panchayats and town bodies got **constitutional status**. Elections every five years became compulsory, **one-third** of seats went to women, and **State Election Commissions** and **State Finance Commissions** were created.

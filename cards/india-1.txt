@@ -1,0 +1,156 @@
+# india | India Geography
+
+## ind-edges
+
+= west
+Q In which region is Zoji La?
+A Ladakh
+N It carries the road from Srinagar to Leh.
+Q Which pass links Kullu with Lahaul and Spiti?
+A Rohtang
+Q Through which pass does the Sutlej enter India from Tibet?
+A Shipki La
+Q In which State is Bara Lacha La?
+A Himachal Pradesh
+
+= middle
+Q In which State is Lipulekh pass?
+A Uttarakhand
+N On the old route to Kailash Mansarovar.
+Q Name two other Uttarakhand passes that lead to Tibet.
+A Mana and Niti
+
+= east
+Q In which State are Nathu La and Jelep La?
+A Sikkim
+N The 2021 paper placed Jelep La in Arunachal Pradesh as its trap.
+Q In which State is Bomdi La?
+A Arunachal Pradesh
+Q In which State is the Sela Tunnel?
+A Arunachal Pradesh
+N Asked in 2021. It runs under the Sela Pass on the road to Tawang.
+F Doors in the wall, west to east | **Zoji La**: Ladakh. **Rohtang, Bara Lacha La, Shipki La**: Himachal. **Lipulekh, Mana, Niti**: Uttarakhand. **Nathu La, Jelep La**: Sikkim. **Bomdi La**: Arunachal. When an option moves a pass one State over, that is the trap.
+
+= myanmar
+Q Which four States touch Myanmar?
+A Arunachal Pradesh, Nagaland, Manipur and Mizoram
+Q Does Tripura touch Myanmar?
+A No
+N Tripura is wrapped on three sides by Bangladesh.
+
+= three
+Q Which three countries does Sikkim touch?
+A China, Nepal and Bhutan
+Q Which three countries does West Bengal touch?
+A Bangladesh, Nepal and Bhutan
+Q Which three countries does Arunachal Pradesh touch?
+A Bhutan, China and Myanmar
+Q Which two countries does Uttarakhand touch?
+A China and Nepal
+F Count the neighbours | **Sikkim**: China, Nepal, Bhutan. **West Bengal**: Bangladesh, Nepal, Bhutan. **Arunachal**: Bhutan, China, Myanmar. **Uttarakhand**: China, Nepal. **Himachal**: only China. **Gujarat**: only Pakistan. **Myanmar** touches four: Arunachal, Nagaland, Manipur, Mizoram.
+
+= one
+Q Which is the only country Himachal Pradesh touches?
+A China
+Q Which is the only country Gujarat touches?
+A Pakistan
+
+= longest
+Q With which country does India share its longest land border?
+A Bangladesh
+Q Which State has India's longest coastline?
+A Gujarat
+N Asked in 2018.
+Q How many Indian States have a coastline?
+A Nine
+
+## ind-south
+
+= nilgiri
+Q Where do the Western and Eastern Ghats meet?
+A Nilgiri hills
+Q What is the highest peak of the Nilgiris?
+A Doddabetta
+Q Which gap lies south of the Nilgiris?
+A Palghat Gap
+
+= anamudi
+Q What is the highest peak in south India?
+A Anamudi
+Q In which hills is Anamudi?
+A Anamalai hills
+Q Which hills are closest to Kanyakumari?
+A Cardamom hills
+N The 2025 question, with Nilgiri, Anamalai and Shevaroy as the other options.
+Q To which Ghats do the Shevaroy hills belong?
+A Eastern Ghats
+N They are in Tamil Nadu.
+F Walking south | The two Ghats meet in the **Nilgiris** (peak: **Doddabetta**). Then comes the **Palghat Gap**. Then the **Anamalai** hills, with **Anamudi**, the highest in the south. Last, the **Cardamom** hills, closest to Kanyakumari. The **Shevaroys** are off to the east, in the Eastern Ghats.
+
+= kaveri
+Q Where does the Kaveri rise?
+A Talakaveri, in the Brahmagiri hills of Kodagu
+Q Where does the Krishna rise?
+A Mahabaleshwar
+Q Where does the Godavari rise?
+A Trimbak, near Nashik
+Q Which is the longest river of the peninsula?
+A Godavari
+
+= amarkantak
+Q Which two rivers rise at Amarkantak?
+A Narmada and Son
+N The Narmada flows west, the Son north-east to the Ganga.
+Q In which range is Amarkantak?
+A Maikal range
+Q Which river does not rise in the Maikal range: Narmada, Son, Mahanadi or Tapi?
+A Tapi
+N Asked in 2021.
+Q Where does the Tapi rise?
+A Multai, in the Satpura hills
+S Two rivers, two directions | On the plateau of **Amarkantak**, in the **Maikal range**, two rivers are born close together and never meet again. The **Narmada** turns west and runs all the way to the Arabian Sea through a rift valley. The **Son** turns north-east and joins the Ganga. The **Tapi**, the Narmada's western twin, is not born here at all. It rises at **Multai** in the Satpura hills.
+
+= westward
+Q Which two big rivers flow west into the Arabian Sea through rift valleys?
+A Narmada and Tapi
+F Where the rivers are born | **Kaveri**: Talakaveri, Kodagu. **Krishna**: Mahabaleshwar. **Godavari**: Trimbak, Nashik. **Narmada** and **Son**: Amarkantak. **Mahanadi**: Sihawa. **Tapi**: Multai. Three flow east to the Bay; **Narmada and Tapi** flow west.
+
+## ind-monsoon
+
+= elnino
+Q What is El Niño?
+A Unusual warming of the Pacific off Peru
+Q What does El Niño usually do to India's monsoon?
+A Weakens it
+Q What does the name El Niño mean?
+A The boy child
+N It comes around Christmas.
+Q What is La Niña, and what does it usually bring India?
+A Cool Pacific waters; good rain
+
+= iod
+Q What is a positive Indian Ocean Dipole?
+A The western Indian Ocean is warmer than the eastern part
+Q What does a positive Indian Ocean Dipole usually do to the monsoon?
+A Helps it
+Q What is the Indian Ocean Dipole also called?
+A Indian Niño
+N The 2025 paper asked this in two statements.
+F Two oceans pull | **El Niño**: warm Pacific off Peru, **weak** monsoon. **La Niña**: cool Pacific, **good** rain. **Positive IOD**: western Indian Ocean warmer than the east, **helps** the monsoon. **Negative IOD**: the east warmer, the monsoon suffers.
+S The boy child | Fishermen in **Peru** noticed that in some years the cold sea off their coast turned warm, and the fish disappeared. It usually happened around Christmas, so they named it **El Niño**, the boy child, after the infant Jesus. Scientists later found that the same warming changes winds across the whole Pacific. Thousands of kilometres away, in those years, India's monsoon usually comes **weak**.
+
+= onset
+Q Around which date does the monsoon reach Kerala?
+A 1 June
+Q What are the pre-monsoon showers of Kerala and Karnataka called?
+A Mango showers
+Q What are the violent evening storms of Bengal before the monsoon called?
+A Kalbaisakhi
+Q What brings winter rain to north-west India?
+A Western disturbances
+N They come from the Mediterranean.
+
+= jet
+Q Which high winds over north India must shift north before the monsoon arrives?
+A Jet streams
+N Asked in 2021, on why the monsoon fluctuates.

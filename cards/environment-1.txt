@@ -1,0 +1,244 @@
+# environment | Environment
+
+## env-words
+
+= ecology
+Q Who coined the word "ecology"?
+A Ernst Haeckel
+Q Who coined the word "ecosystem", and in which year?
+A A. G. Tansley, 1935
+Q Who drew the first pyramid of numbers?
+A Charles Elton
+F Three words, three people | **Haeckel** named the subject: **ecology**, the study of living things and their surroundings. **Tansley** named the unit: the **ecosystem**, in 1935. **Elton** drew its shape: the **pyramid of numbers**, with many plants at the bottom and very few hunters at the top.
+
+= tenpercent
+Q Who gave the 10 per cent law of energy flow, and in which year?
+A Raymond Lindeman, 1942
+Q Under the 10 per cent law, how much energy passes from one food level to the next?
+A About 10%
+N The rest is lost, mostly as heat.
+Q Which ecological pyramid is always upright and can never be inverted?
+A The pyramid of energy
+N A pyramid of numbers or biomass can be upside down; energy cannot.
+F Why the pyramid narrows | At each step up the food chain only about **10%** of the energy passes on. Grass with 1,000 units feeds deer with 100, and the deer feed a tiger with 10. That is why there are so few top hunters, and why the **pyramid of energy is always upright**. **Lindeman** gave the law in **1942**.
+
+= diversity
+Q Who gave the terms alpha, beta and gamma diversity?
+A R. H. Whittaker
+Q What does beta diversity measure?
+A The change in species from one community to the next
+N Asked in 2021. Alpha is inside one community; gamma is the whole region.
+Q What is alpha diversity?
+A The variety of species inside one community
+Q What is gamma diversity?
+A The total variety of species over a whole region
+F Alpha, beta, gamma | Stand in one pond and count: that is **alpha**. Walk from the pond into the forest and see how the species change: that is **beta**. Count everything in the whole region: that is **gamma**. Beta is the one the examiner asks, because it is about **change between** communities.
+
+= ecotone
+Q What is the border zone between two communities called?
+A Ecotone
+Q What are species that live mainly in the border zone between two communities called?
+A Edge species
+N Asked in 2025.
+Q What is a species found in only one region of the world called?
+A Endemic species
+N Asked in 2025.
+Q What are plankton?
+A Tiny living things that drift with the water
+N Asked in 2018.
+
+= hotspot
+Q Who gave the idea of the biodiversity hotspot, and in which year?
+A Norman Myers, 1988
+N Asked in 2021.
+Q How many endemic plant species must a region have to be a biodiversity hotspot?
+A At least 1,500
+Q How much of its original vegetation must a hotspot have lost?
+A At least 70%
+Q How many biodiversity hotspots are there in the world?
+A 36
+Q Name the four biodiversity hotspots that touch India.
+A Himalaya, Indo-Burma, Western Ghats with Sri Lanka, Sundaland
+N Sundaland reaches India through the Nicobar Islands.
+F Rich and in danger | A hotspot must pass two tests. It must be **rich**: at least **1,500 endemic plants**. And it must be **in danger**: at least **70% of its vegetation lost**. **Norman Myers** gave the idea in **1988**. The world has **36**; India touches **four**.
+S A list of places to save first | In **1988** a British ecologist, **Norman Myers**, asked a hard question. There is not enough money to save every forest. Which ones should come first? His answer was the places where many plants live nowhere else and where most of the land has already been cleared. He called them **biodiversity hotspots**. The idea caught on, and the list has grown to **36**. Four of them reach into India, from the Himalaya to the **Nicobar Islands**.
+
+## env-treaties
+
+= stockholm
+D 1972 | Stockholm Conference | The first big **UN meeting on the human environment** was held in **Stockholm**. **World Environment Day, 5 June**, marks its opening day, and the UN Environment Programme was born from it.
+Q The Stockholm Convention of 2001 deals with what?
+A Persistent organic pollutants
+N Poisons such as DDT that do not break down and travel up the food chain.
+Q In which city was the first big UN conference on the environment held in 1972?
+A Stockholm
+Q World Environment Day, 5 June, marks the opening of which conference?
+A Stockholm Conference, 1972
+
+= minamata
+Q The Minamata Convention deals with which metal?
+A Mercury
+N Asked in 2021. Minamata is a town in Japan where factory waste poisoned the sea.
+Q Which convention controls the movement of hazardous waste between countries?
+A Basel Convention
+Q Which convention says dangerous chemicals can be traded only with the buyer's informed consent?
+A Rotterdam Convention
+F Tie each town to one poison | **Stockholm**: poisons that do not break down, such as DDT. **Minamata**: **mercury**. **Basel**: **hazardous waste** crossing borders. **Rotterdam**: dangerous chemicals sold only with the buyer's **prior informed consent**. Four towns, four problems.
+
+= ramsar
+Q The Ramsar Convention protects what?
+A Wetlands
+Q In which country is the town of Ramsar?
+A Iran
+Q In which year was the Ramsar Convention signed?
+A 1971
+Q Which treaty of 1987 protects the ozone layer?
+A Montreal Protocol
+Q Which convention controls trade in endangered animals and plants?
+A CITES
+N It was signed in Washington.
+
+= rio
+D 1992 | Earth Summit, Rio de Janeiro | Countries signed the **UN Framework Convention on Climate Change**. The same summit gave the **Convention on Biological Diversity** and **Agenda 21**, and the rule of common but differentiated responsibilities.
+Q At which summit was the UN Framework Convention on Climate Change signed?
+A Earth Summit, Rio de Janeiro, 1992
+Q Name two other outcomes of the Rio Earth Summit besides the UNFCCC.
+A Convention on Biological Diversity and Agenda 21
+Q What does the rule of "common but differentiated responsibilities" say?
+A All must act, but rich countries must do more
+N Asked in 2021. Rich countries polluted first.
+
+= kyoto
+D 1997 | Kyoto Protocol | Adopted at **Kyoto** on **11 December 1997**, it set targets for rich countries to cut greenhouse gases. It named **six gases** and came into force in **2005**.
+Q On which date was the Kyoto Protocol adopted?
+A 11 December 1997
+N Asked in 2025.
+Q In which year did the Kyoto Protocol come into force?
+A 2005
+Q How many greenhouse gases did the Kyoto Protocol name?
+A Six
+
+= cops
+Q At which COP was the Paris Agreement made, and in which year?
+A COP21, 2015
+Q What warming limit did the Paris Agreement set?
+A Well below 2°C
+Q Where was COP30 held in 2025?
+A Belém, Brazil
+Q Where was COP31 held in 2026?
+A Antalya, Türkiye
+F The climate road | **Rio 1992**: the climate convention is signed. **Kyoto 1997**: the first binding cuts, in force 2005. **Paris 2015**, COP21: keep warming **well below 2°C**. **Belém 2025**: COP30. **Antalya 2026**: COP31. A COP is the yearly meeting of the countries that signed at Rio.
+S The town that gave its name to a disease | In the 1950s the cats of **Minamata**, a fishing town in Japan, began to shake and fall into the sea. Then the people fell ill. A factory had been pouring waste full of **mercury** into the bay for years, and the fish carried it to every table. The illness became known as **Minamata disease**. In 2013 the world signed a treaty to control mercury, and it was named after the town.
+
+## env-forests
+
+= isfr
+Q Which body publishes the India State of Forest Report?
+A Forest Survey of India, Dehradun
+Q How often is the India State of Forest Report published?
+A Every two years
+Q By the 2023 report, what share of India is under forest and tree cover?
+A 25.17%
+
+= forestarea
+Q Which State has the largest forest area, by the 2023 report?
+A Madhya Pradesh
+N Then Arunachal Pradesh and Chhattisgarh.
+Q Which Union Territory has the highest share of its land under forest?
+A Lakshadweep
+Q Which State has the highest share of its land under forest?
+A Mizoram
+Q Name the four States that added the most forest and tree cover in the 2023 report.
+A Chhattisgarh, Uttar Pradesh, Odisha and Rajasthan
+N The 2025 question. Odisha is in it.
+F Largest is not densest | By **area**, **Madhya Pradesh** has the most forest. By **share of its own land**, **Lakshadweep** leads, and **Mizoram** leads among States. For the biggest **increase**, remember **Chhattisgarh, UP, Odisha, Rajasthan**. Read the question twice: area, share or increase?
+
+= tiger
+D 1973 | Project Tiger | India began **Project Tiger** to save its tigers in special reserves. The count of **2022** found **3,682** tigers, and the next result is due in **2027**.
+Q In which year did Project Tiger begin?
+A 1973
+Q How many tigers did the 2022 count find?
+A 3,682
+Q How often are India's tigers counted?
+A Every four years
+Q Name Odisha's two tiger reserves.
+A Similipal and Satkosia
+
+= reserves
+Q Which was India's 58th tiger reserve, notified in March 2025?
+A Madhav, Madhya Pradesh
+Q Which was India's 57th tiger reserve?
+A Ratapani, Madhya Pradesh
+Q Which was India's 56th tiger reserve?
+A Guru Ghasidas–Tamor Pingla, Chhattisgarh
+Q Which State has the most tiger reserves?
+A Madhya Pradesh
+N Nine, after Madhav.
+
+= parks
+Q Kaziranga National Park is famous for which animal?
+A One-horned rhinoceros
+Q Gir is the only wild home of which animal?
+A Asiatic lion
+N 891 at the 2025 count.
+Q Dachigam National Park protects which animal?
+A Hangul, the Kashmir stag
+Q Which national park floats on Loktak Lake?
+A Keibul Lamjao, Manipur
+Q Keibul Lamjao is the only home of which deer?
+A Sangai, the brow-antlered deer
+F One park, one animal | **Kaziranga**, Assam: the **one-horned rhino**. **Gir**, Gujarat: the **Asiatic lion**. **Dachigam**, near Srinagar: the **hangul**. **Keibul Lamjao**, Manipur: the **sangai**, on floating islands of Loktak Lake. In Odisha: **Bhitarkanika** for crocodiles, **Chilika** for dolphins, **Similipal** for black tigers.
+S The park that floats | In Manipur lies **Loktak Lake**, covered with floating mats of soil and plants called phumdis. On these mats lives a deer found nowhere else on earth, the **sangai**. It walks on the soft ground with a careful step, which is why it is called the dancing deer. To save it, India made **Keibul Lamjao**, the only floating national park in the world.
+
+= odishawild
+Q Bhitarkanika in Odisha is known for which animal?
+A Saltwater crocodiles
+Q Chilika Lake is known for which dolphin?
+A Irrawaddy dolphin
+
+## env-watchers
+
+= cpcb
+D 1974 | Water Act and the CPCB | Parliament passed the **Water (Prevention and Control of Pollution) Act** and created the **Central Pollution Control Board** to enforce it. Its duties over air came with the Air Act of 1981.
+Q Under which Act was the Central Pollution Control Board set up?
+A Water (Prevention and Control of Pollution) Act, 1974
+Q In which year was the Air (Prevention and Control of Pollution) Act passed?
+A 1981
+F Born from water | The **CPCB** was not made for the air. It was born from the **Water Act of 1974**, to keep rivers clean. The **Air Act of 1981** later gave it the air too. The examiner offers 1981 or the Environment Act as the parent. The answer is the Water Act.
+
+= epa
+D 1986 | Environment (Protection) Act | After the **Bhopal gas leak** of December 1984, Parliament passed a wide law that lets the Centre act on **any kind of pollution**. It is an umbrella over the older water and air laws.
+Q Which disaster led to the Environment (Protection) Act, 1986?
+A Bhopal gas leak, 1984
+Q In which year was the Wild Life (Protection) Act passed?
+A 1972
+Q In which year was the National Green Tribunal set up?
+A 2010
+S The night in Bhopal | On a December night in **1984**, a gas leaked from a pesticide factory in **Bhopal**. It spread over the sleeping city, and thousands died. India had laws for water and for air, but none wide enough for a disaster like this. Two years later Parliament passed the **Environment (Protection) Act, 1986**, which lets the Centre act against any kind of pollution, from any source.
+
+= namp
+Q How often does the CPCB measure pollutants at each station under the air monitoring programme?
+A Twice a week
+N Asked in 2021. The programme is the National Air Quality Monitoring Programme.
+Q With which institute did the CPCB build the Comprehensive Environmental Pollution Index?
+A IIT Delhi
+N Asked in 2025.
+Q What does the Comprehensive Environmental Pollution Index score?
+A Polluted industrial areas
+
+= aqi
+Q How many pollutants does India's Air Quality Index use?
+A Eight
+Q How many colour bands does the Air Quality Index have?
+A Six, from Good to Severe
+Q Under the National Clean Air Programme, by how much must cities cut PM10?
+A Up to 40%
+
+= poisons
+Q Minamata disease is caused by which metal?
+A Mercury
+Q Itai-itai disease is caused by which metal?
+A Cadmium
+Q Blue baby syndrome is caused by what in drinking water?
+A Nitrates
+F Three poisons, three names | **Minamata** disease: **mercury**, from fish in a poisoned bay in Japan. **Itai-itai**, "it hurts, it hurts": **cadmium**, which makes bones soft and painful. **Blue baby syndrome**: **nitrates** in well water, which stop a baby's blood from carrying oxygen.

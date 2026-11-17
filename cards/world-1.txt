@@ -1,0 +1,161 @@
+# world | World Geography
+
+## wor-layers
+
+= moho
+Q What is the border between the crust and the mantle called?
+A Mohorovičić discontinuity (Moho)
+Q The Moho is named after a scientist of which country?
+A Croatia
+Q What is the border between the upper and lower crust called?
+A Conrad discontinuity
+
+= gutenberg
+Q What is the border between the mantle and the outer core called?
+A Gutenberg discontinuity
+Q What is the border between the outer and inner core called?
+A Lehmann discontinuity
+Q Is the earth's outer core solid or liquid?
+A Liquid
+Q Is the earth's inner core solid or liquid?
+A Solid
+F The lift going down | Going down: **crust**, then the **Conrad** line inside it. **Moho** into the **mantle**. **Gutenberg** into the liquid **outer core**. **Lehmann** into the solid **inner core**. Remember the order of names: C, M, G, L.
+
+= waves
+Q Which earthquake waves cannot pass through liquid?
+A S waves
+N That is how we know the outer core is liquid: S waves stop there.
+Q Which earthquake waves pass through both solids and liquids?
+A P waves
+Q What is the point underground where an earthquake starts called?
+A Focus
+N Asked in 2018.
+Q What is the point on the surface right above an earthquake's focus called?
+A Epicentre
+
+= air
+Q Name the layers of the air in order, going up.
+A Troposphere, stratosphere, mesosphere, thermosphere, exosphere
+Q In which layer of the air does all weather happen?
+A Troposphere
+Q In which layer is the ozone layer?
+A Stratosphere
+N Calm and clear; jets fly here.
+Q Which is the coldest layer of the air?
+A Mesosphere
+N Meteors burn up here.
+Q Which part of the upper air bounces radio waves back to earth?
+A Ionosphere
+F The lift going up | **Troposphere**: weather. **Stratosphere**: calm, jets and the **ozone layer**. **Mesosphere**: the coldest, where meteors burn. **Thermosphere**: hot and thin, holding the **ionosphere** that bounces radio waves. Then the exosphere fades into space.
+
+= gases
+Q What share of the air is nitrogen?
+A About 78%
+Q What share of the air is oxygen?
+A About 21%
+Q Which gas is third in the air, after nitrogen and oxygen?
+A Argon
+N Asked in 2018 and 2025.
+
+## wor-water
+
+= twice
+Q Which African river crosses the Equator twice?
+A Congo
+N The 2025 question.
+Q Which river crosses the Tropic of Capricorn twice?
+A Limpopo
+Q Which Indian river crosses the Tropic of Cancer twice?
+A Mahi
+F Rivers that cross back | **Congo**: the **Equator**, twice. **Limpopo**: the **Tropic of Capricorn**, twice, in a great arc through southern Africa. **Mahi**: the **Tropic of Cancer**, twice, in western India. Three rivers, three lines.
+
+= rivers
+Q Which is the longest river in the world?
+A Nile
+Q Which river carries the most water?
+A Amazon
+Q Which river has a bird's foot delta?
+A Mississippi
+N Asked in 2021.
+
+= meet
+Q What happens where a warm ocean current meets a cold one?
+A Fog forms and plankton grow, so fish gather
+Q Which two currents meet off Newfoundland?
+A Gulf Stream and Labrador Current
+Q What is the rich fishing ground off Newfoundland called?
+A Grand Banks
+Q Which two currents meet off Japan?
+A Kuroshio (warm) and Oyashio (cold)
+S Fog over the Grand Banks | Off **Newfoundland**, in Canada, the warm **Gulf Stream** coming up from the tropics runs into the cold **Labrador Current** coming down from the Arctic. Where they meet, thick fog hangs over the water, and tiny plankton grow in huge numbers. Fish crowd in to feed on them. For centuries fishermen from Europe crossed the ocean to this shallow sea, the **Grand Banks**, one of the richest fishing grounds on earth.
+
+= cold
+Q Which cold current flows off Peru?
+A Humboldt Current
+Q Which cold current flows off south-west Africa?
+A Benguela Current
+Q Which current lies in the southern hemisphere, circling Antarctica?
+A West Wind Drift
+N Asked in 2021.
+Q Which sea has no coastline at all?
+A Sargasso Sea
+N Asked in 2018. It is held in place by currents.
+
+## wor-shapers
+
+= river
+Q What shape of valley does a river cut in the hills?
+A V-shaped
+Q What forms when a river's meander is cut off?
+A Oxbow lake
+Q What are the loops of a river on a plain called?
+A Meanders
+
+= glacier
+Q What shape of valley does a glacier carve?
+A U-shaped
+Q What is the armchair-shaped hollow carved by a glacier called?
+A Cirque
+Q What is the heap of rocks and mud dropped by a glacier called?
+A Moraine
+
+= wind
+Q What is a crescent-shaped sand dune called?
+A Barchan
+Q Which worker makes mushroom rocks in deserts?
+A Wind
+
+= cave
+Q What are the stone icicles hanging from a cave roof called?
+A Stalactites
+Q What are the stone pillars growing up from a cave floor called?
+A Stalagmites
+Q In what kind of rock do stalactites form?
+A Limestone
+F Which worker made it | **River**: V valley, meanders, **oxbow lake**, delta. **Glacier**: U valley, cirque, **moraine**. **Wind**: **barchan** dunes, mushroom rocks. **Underground water**: **stalactites** from the roof, stalagmites from the floor. Stalac**t**ites hold on **t**ight to the ceiling.
+
+= chinook
+Q Which wind is called the Snow Eater?
+A Chinook
+Q On which mountains does the Chinook blow?
+A The eastern side of the Rocky Mountains
+Q Which warm, dry wind blows in the Alps?
+A Foehn
+S The wind that eats snow | On a winter day on the plains east of the **Rocky Mountains**, the air can turn warm in a few hours. A dry wind rushes down the slopes and the snow simply vanishes, melting and drying at once. People there call it the **Chinook**, the **Snow Eater**. Across the ocean, in the **Alps**, the same kind of wind has another name: the **Foehn**.
+
+= sahara
+Q Which hot wind blows from the Sahara to southern Europe?
+A Sirocco
+Q Which wind blows from the Sahara to West Africa?
+A Harmattan
+Q In which country does the Khamsin blow?
+A Egypt
+Q What is the hot summer wind of north India called?
+A Loo
+
+= coldwind
+Q Which cold wind blows in France?
+A Mistral
+Q Which cold wind blows on the Adriatic coast?
+A Bora
+F Hot or cold | **Hot**: Chinook (Rockies), Foehn (Alps), Sirocco and Harmattan (from the Sahara), Khamsin (Egypt), Loo (north India). **Cold**: **Mistral** (France) and **Bora** (Adriatic). Only two cold ones, so learn those two and treat the rest as warm.

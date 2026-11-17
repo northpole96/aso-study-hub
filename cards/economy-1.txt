@@ -1,0 +1,219 @@
+# economy | Economy and Planning
+
+## eco-plans
+
+= bombay
+D 1944 | Bombay Plan | Eight big businessmen, among them **J. R. D. Tata** and **G. D. Birla**, wrote a plan for free India built on heavy industry, with the state helping at the start.
+Q Who wrote the Bombay Plan of 1944?
+A Eight industrialists, among them J. R. D. Tata and G. D. Birla
+Q In which year was the Bombay Plan written?
+A 1944
+
+= gandhian
+Q Who wrote the Gandhian Plan?
+A Shriman Narayan Agarwal
+N It was built around villages and small industry. Also 1944.
+Q Who wrote the People's Plan of 1945?
+A M. N. Roy
+N It put farming and the needs of the poor first.
+Q Who wrote the Sarvodaya Plan of 1950?
+A Jayaprakash Narayan
+F Four plans before the Plan | **1944**: the **Bombay Plan** of the industrialists, and the **Gandhian Plan** of **S. N. Agarwal**. **1945**: the **People's Plan** of **M. N. Roy**. **1950**: the **Sarvodaya Plan** of **Jayaprakash Narayan**. Pair each plan with its writer: businessmen, a Gandhian, a communist, a socialist.
+
+= commission
+D 1950 | Planning Commission | Set up on **15 March 1950** by a **resolution of the Cabinet**, not by any law or Article. The **Prime Minister** was its chairman.
+Q On which date was the Planning Commission set up?
+A 15 March 1950
+Q Who was the chairman of the Planning Commission?
+A The Prime Minister
+Q Was the Planning Commission set up by the Constitution, by a law, or by a Cabinet resolution?
+A By a Cabinet resolution
+
+= plans
+Q What did the First Five Year Plan (1951–56) stress?
+A Agriculture
+Q Whose model did the Second Five Year Plan follow?
+A P. C. Mahalanobis
+N It built heavy industry.
+Q What is the gap of three one-year plans from 1966 to 1969 called?
+A Plan Holiday
+N It followed two wars and a drought.
+
+= rolling
+Q Which government adopted the Rolling Plan in 1978?
+A The Janata government of Morarji Desai
+N Asked in 2021.
+Q Which economist gave the idea of the Rolling Plan?
+A Gunnar Myrdal
+Q Which Five Year Plan introduced the Rolling Plan?
+A None of them
+N The 2025 paper's answer was "none of the above". It ran 1978–80, between the Fifth and Sixth Plans.
+Q What does "Rolling Plan" mean?
+A Targets are reviewed each year and the plan moves one year forward
+N Asked in 2018.
+S The plan that kept moving | In **1977** the Janata Party came to power, and the new Prime Minister, **Morarji Desai**, did not like the old way of fixing targets for five years at a time. In **1978** his government ended the Fifth Plan a year early and tried an idea of the Swedish economist **Gunnar Myrdal**. Each year the targets would be checked again and the plan "rolled" one year forward. The **Rolling Plan** lasted only until **1980**, when the next government went back to Five Year Plans.
+
+= niti
+Q When did NITI Aayog replace the Planning Commission?
+A 1 January 2015
+Q In which List of the Seventh Schedule is "economic and social planning"?
+A Concurrent List
+N Asked in 2021.
+
+## eco-deficits
+
+= fiscal
+Q What does the fiscal deficit show, in plain words?
+A What the government must borrow this year
+N All spending minus all income other than loans.
+Q What fiscal deficit does Budget 2026-27 aim at?
+A 4.3% of GDP
+Q What is the revenue deficit?
+A Day-to-day spending minus day-to-day income
+
+= primary
+Q How is the primary deficit worked out?
+A Fiscal deficit minus interest payments
+F The chain of four gaps | **Revenue deficit**: day-to-day spending minus day-to-day income. **Fiscal deficit**: the whole gap, the year's borrowing. Take **interest** out of the fiscal deficit and you have the **primary deficit**. Take **grants to States for capital assets** out of the revenue deficit and you have the **effective revenue deficit**.
+
+= effective
+Q How is the effective revenue deficit worked out?
+A Revenue deficit minus grants to States for creating capital assets
+Q In which Budget was the effective revenue deficit first used?
+A Budget 2011-12
+Q Is "monetary deficit" a budget term?
+A No
+N The 2025 paper added it as a fake fifth deficit.
+S The road that was counted as waste | The Centre sends money to the States, and the books counted all of it as day-to-day spending. But some of that money built **roads and schools**, things that last for years. Counting it with salaries and subsidies made the gap look worse than it was. So the **Budget of 2011-12** brought a new measure, the **effective revenue deficit**: the revenue deficit minus **grants for creating capital assets**.
+
+= fc
+Q Under which Article is the Finance Commission set up?
+A Article 280
+Q How many members does the Finance Commission have?
+A A chairman and four other members
+N Asked in 2021.
+Q How often is a Finance Commission set up?
+A Every five years
+Q Who sets up the Finance Commission?
+A The President
+
+= share
+Q Who chairs the 16th Finance Commission?
+A Arvind Panagariya
+Q Which period does the 16th Finance Commission cover?
+A 2026 to 2031
+Q What share of central taxes did the 16th Finance Commission give the States?
+A 41%
+N It kept the 15th Commission's share.
+Q What share did the 14th Finance Commission give the States?
+A 42%
+F From 42 to 41 | The **14th** Finance Commission gave the States **42%** of central taxes. The **15th** cut it to **41%**, because Jammu and Kashmir became a Union Territory and no longer took a State's share. The **16th**, under **Arvind Panagariya** for **2026–31**, kept **41%**.
+
+= frbm
+Q Which law keeps the government's deficits in check?
+A The FRBM Act
+N Fiscal Responsibility and Budget Management Act, 2003.
+Q Which committee reviewed the FRBM Act?
+A N. K. Singh Committee
+
+## eco-prices
+
+= target
+Q What is the RBI's inflation target?
+A 4%, with a band of 2% either side
+Q Which index is used to measure the RBI's inflation target?
+A Consumer Price Index
+N Not the Wholesale Price Index.
+Q Who fixes the inflation target?
+A The Government, after talking to the RBI
+Q Since which year has the RBI had a formal inflation target?
+A 2016
+F Four, give or take two | The RBI must keep inflation at **4%**, and anything from **2% to 6%** is allowed. The number is fixed by the **Government after talking to the RBI**, and it is read on the **CPI**, the prices a family pays in the shop. The design came from the **Urjit Patel Committee**.
+
+= mpc
+Q How many members does the Monetary Policy Committee have?
+A Six
+Q What is the repo rate?
+A The rate at which the RBI lends to banks
+Q Which committee designed inflation targeting in India?
+A Urjit Patel Committee
+
+= indexes
+Q Which office makes the Consumer Price Index?
+A National Statistics Office
+Q Which office makes the Wholesale Price Index?
+A Office of the Economic Adviser, Ministry of Commerce
+
+= committees
+Q The Narasimham Committee reformed which sector?
+A Banking
+Q The Malhotra Committee reformed which sector?
+A Insurance
+Q Which committee proposed the National Stock Exchange?
+A Pherwani Committee
+N Asked in 2025.
+Q Which committee drew the poverty line that Rangarajan later redrew?
+A Tendulkar Committee
+F One committee, one sector | **Narasimham**: **banks**. **Malhotra**: **insurance**. **Pherwani**: the **National Stock Exchange**. **Tendulkar**, then **Rangarajan**: the **poverty line**. **Urjit Patel**: **inflation targeting**. **N. K. Singh**: the FRBM law. Learn them as pairs, because the examiner swaps the sectors.
+
+= sebi
+Q Who regulates stock exchanges in India?
+A SEBI
+N The 2025 paper asked what the RBI does not do. This is it.
+Q Who regulates mutual funds in India?
+A SEBI
+N Asked in 2018.
+
+= base
+Q What is the new base year of India's GDP series, released in February 2026?
+A 2022-23
+N It moved from 2011-12.
+Q What is the new base year of the Consumer Price Index?
+A 2024
+Q Which sector gives the largest share of India's GDP?
+A Services
+N Asked in 2025.
+D 2026 | New yardsticks | In **February** the statistics office released a new GDP series with base year **2022-23**, replacing **2011-12**. The Consumer Price Index also moved to a new base, **2024**.
+
+## eco-poor
+
+= mpi
+Q Which two bodies built the global Multidimensional Poverty Index?
+A UNDP and Oxford University
+Q Name the three dimensions of the Multidimensional Poverty Index.
+A Health, education and standard of living
+N Each has equal weight.
+Q How many indicators does the global MPI use?
+A 10
+Q How many indicators does India's national MPI use?
+A 12
+
+= nmpi
+Q Which two indicators does India's MPI add to the global ten?
+A Maternal health and bank account
+Q Which body makes India's national Multidimensional Poverty Index?
+A NITI Aayog
+N The 2021 paper asked who measures poverty. The answer was NITI Aayog.
+Q From which survey does the MPI data come?
+A National Family Health Survey
+N Asked in 2025.
+Q About how many Indians left multidimensional poverty between 2013-14 and 2022-23?
+A About 24.82 crore
+F Poor in more than money | A family may earn something and still be poor if the children are out of school and there is no toilet. So the **MPI** looks at **health, education and standard of living**. The global index has **10** indicators; **NITI Aayog's** has **12**, adding **maternal health** and a **bank account**. The data comes from the **NFHS**.
+
+= mgnrega
+D 2005 | MGNREGA | Parliament promised every rural household **100 days** of paid work a year. It became the best-known scheme in India, until a new law replaced it in December **2025**.
+Q How many days of work a year did MGNREGA promise?
+A 100 days
+Q In which year was MGNREGA passed?
+A 2005
+
+= vbgramg
+Q Which Act replaced MGNREGA in December 2025?
+A Viksit Bharat – Guarantee for Rozgar and Ajeevika Mission (Gramin) Act
+N Called VB–G RAM G for short.
+Q How many days of work does the VB–G RAM G Act promise?
+A 125 days
+Q In which month and year did Parliament replace MGNREGA?
+A December 2025
+S From 100 days to 125 | For twenty years a village family in India could ask for **100 days** of paid work a year, and the government had to give it. That was **MGNREGA**, passed in **2005**. In **December 2025** Parliament replaced it with a new law with a long name, shortened to **VB–G RAM G**. The promise grew to **125 days**. With "employment" and "poverty alleviation" both in the syllabus, the examiner is unlikely to miss it.

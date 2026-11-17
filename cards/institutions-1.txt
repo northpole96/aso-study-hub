@@ -1,0 +1,193 @@
+# institutions | Institutions
+
+## ins-un
+
+= un
+Q On which date was the United Nations founded?
+A 24 October 1945
+Q How many members does the United Nations have?
+A 193
+
+= unsc
+Q How many seats does the UN Security Council have?
+A 15
+Q Name the five permanent members of the Security Council.
+A USA, Russia, China, United Kingdom and France
+N Each holds a veto.
+Q How long is the term of a non-permanent member of the Security Council?
+A Two years
+N Asked in 2021.
+Q How many non-permanent members are elected each year?
+A Five
+F Five fixed, ten elected | The **Security Council** has **15** seats. **Five** never change and carry a veto: **USA, Russia, China, UK, France**. The other **ten** are elected for **two years**, **five each year**, so half the elected seats change every January.
+
+= unsc2027
+Q Name the five countries elected to the Security Council for 2027–28.
+A Austria, Kyrgyzstan, Portugal, Trinidad and Tobago, Zimbabwe
+Q Which country won a Security Council seat for the first time in June 2026?
+A Kyrgyzstan
+N It beat the Philippines.
+Q Which big European country lost the Security Council election of June 2026?
+A Germany
+S A first seat for Kyrgyzstan | In **June 2026** the General Assembly voted for five new members of the Security Council, for **2027–28**. Most results were expected. Two were not. **Kyrgyzstan**, a small mountain country in Central Asia, won a seat **for the first time**, beating the Philippines. And **Germany**, one of the richest countries in the world, **lost**. The other winners were **Austria, Portugal, Trinidad and Tobago** and **Zimbabwe**.
+
+= sg
+Q Who appoints the UN Secretary-General?
+A The General Assembly, on the Security Council's recommendation
+Q How long is the term of the UN Secretary-General?
+A Five years
+Q When does António Guterres finish his second term?
+A 31 December 2026
+
+= geneva
+Q Which city has the most UN agencies?
+A Geneva
+Q Name four UN agencies with headquarters in Geneva.
+A WHO, ILO, WTO and WMO
+Q Where are the headquarters of the World Meteorological Organization?
+A Geneva
+N The 2025 paper falsely placed it in Vienna.
+
+= cities
+Q Where are the headquarters of the IAEA?
+A Vienna
+Q Where are the headquarters of the FAO?
+A Rome
+Q Where are the headquarters of UNESCO?
+A Paris
+Q Where are the headquarters of the Universal Postal Union?
+A Bern
+Q Where are the headquarters of the ICAO?
+A Montreal
+Q Where are the headquarters of UNEP?
+A Nairobi
+F One city, one agency | **Vienna**: IAEA, atoms. **Rome**: FAO, food. **Paris**: UNESCO, schools and heritage. **Bern**: the postal union. **Montreal**: ICAO, aircraft. **Nairobi**: UNEP, environment. **London**: only the **IMO**, ships. **Geneva** has the rest: WHO, ILO, WTO, WMO.
+
+= imo
+Q Which is the only UN agency based in London?
+A International Maritime Organization
+Q What does the International Maritime Organization do?
+A Makes the safety rules for ships
+
+= icj
+Q Where does the International Court of Justice sit?
+A The Hague
+Q Which Indian has been President of the International Court of Justice?
+A Dr Nagendra Singh
+N Asked in 2018.
+
+## ins-clubs
+
+= brics
+Q Which country joined Brazil, Russia, India and China in BRICS in 2010?
+A South Africa
+Q Which four countries joined BRICS in 2024?
+A Egypt, Ethiopia, Iran and the UAE
+Q Which country became a full member of BRICS in January 2025?
+A Indonesia
+
+= brics2026
+Q Which country chaired BRICS in 2026?
+A India
+Q Where was the 18th BRICS summit held?
+A New Delhi
+N In September 2026. It ended with the New Delhi Declaration.
+Q Where was the 17th BRICS summit held in 2025?
+A Rio de Janeiro
+Q Where are the headquarters of the New Development Bank?
+A Shanghai
+N Not Delhi, though India chaired BRICS in 2026.
+
+= sco
+Q Where and in which year was the SCO founded?
+A Shanghai, 2001
+Q Where is the SCO secretariat?
+A Beijing
+Q Where is the SCO's anti-terror office, RATS?
+A Tashkent
+Q In which year did India and Pakistan join the SCO?
+A 2017
+Q Which countries joined the SCO in 2023 and 2024?
+A Iran (2023) and Belarus (2024)
+
+= sco2026
+Q Where was the SCO summit held in 2026?
+A Bishkek, Kyrgyzstan
+N The club's 25th year.
+Q Where was the SCO summit held in 2025?
+A Tianjin, China
+F Shanghai is the name, not the office | The **SCO** was founded in **Shanghai in 2001**, but its secretariat is in **Beijing** and its anti-terror office in **Tashkent**. The **BRICS bank** is the one in **Shanghai**. Summits: **Tianjin 2025**, **Bishkek 2026**.
+
+= g20
+Q Which countries chaired the G20 in 2023, 2024, 2025 and 2026?
+A India, Brazil, South Africa, USA
+Q At which G20 summit did the African Union become a member?
+A New Delhi, 2023
+Q Where was the first G20 summit in Africa held?
+A Johannesburg, 2025
+Q What is the G20's group of the last, present and next chairs called?
+A The troika
+N The G20 has no permanent office.
+S The chair that moves | The **G20** has no headquarters and no permanent staff. Each year one member takes the chair and hosts the summit. In **2023** it was **India**, and at **New Delhi** the **African Union** joined as a member. In **2024** the chair passed to **Brazil**, and in **2025** to **South Africa**, which held the first G20 summit on African soil at **Johannesburg**. In **2026** it went to the **United States**.
+
+= others
+Q Where is the BIMSTEC secretariat?
+A Dhaka
+Q Where is the SAARC secretariat?
+A Kathmandu
+Q Where are NATO's headquarters?
+A Brussels
+Q Where are the headquarters of the International Solar Alliance?
+A Gurugram
+N Started by India and France.
+Q What is the International Solar Alliance's dream line?
+A One Sun, One World, One Grid
+
+## ins-reports
+
+= unfamily
+Q Who publishes the Human Development Report?
+A UNDP
+Q Who publishes the Emissions Gap Report?
+A UNEP
+Q Who publishes the World Investment Report?
+A UNCTAD
+Q Who publishes the Global Innovation Index?
+A WIPO
+Q Who publishes the World Employment and Social Outlook?
+A ILO
+F Sort by publisher | The **UN family**: Human Development (**UNDP**), Emissions Gap (**UNEP**), World Investment (**UNCTAD**), Global Innovation (**WIPO**). The **Washington twins**: World Economic Outlook (**IMF**), World Development Report (**World Bank**). **Private groups**: Gender Gap (**WEF**), Hunger (two charities), Press Freedom (**RSF**).
+
+= money
+Q Who publishes the World Economic Outlook?
+A IMF
+Q Who publishes the World Development Report?
+A World Bank
+Q Who publishes the Global Financial Stability Report?
+A IMF
+Q Who publishes "South Asia Economic Focus"?
+A World Bank
+N Asked in 2021.
+
+= private
+Q Who publishes the Global Gender Gap Report?
+A World Economic Forum
+Q Who publishes the Global Hunger Index?
+A Concern Worldwide and Welthungerhilfe
+Q Who publishes the World Press Freedom Index?
+A Reporters Without Borders
+Q Who publishes the Global Peace Index?
+A Institute for Economics and Peace
+Q Who publishes the Living Planet Report?
+A WWF
+Q Who publishes the World Giving Index?
+A Charities Aid Foundation
+N Asked in 2021.
+
+= ranks
+Q What was India's rank in the Global Innovation Index in 2026?
+A 38th
+Q What was India's rank in the Global Peace Index in 2026?
+A 127th
+Q What was India's rank in the Global Hunger Index in 2026?
+A 100th
