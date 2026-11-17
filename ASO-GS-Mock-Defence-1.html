@@ -1,0 +1,543 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO GS Defence Mock 01</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · General Studies Paper I · Defence Mock 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>GS Defence 01</h1>
+<p class="tag">50 questions on<br><b>Defence and the Armed Forces</b><br>syllabus topic (h).</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This is a short paper on one topic only: syllabus topic (h), Defence and Indian Armed Forces. In the real papers Defence gave 8 questions in 2018, 10 in 2021 and 12 in 2025, so it is one of the steadiest scoring parts. Here are 50 questions, each one the next angle of a family that the examiner has already asked: exercises and who hosts them, operations and what they were for, service chiefs, missiles, ships, border forces and gallantry awards.</p>
+<p class="lead" style="margin-top:14px">About a fifth of the paper is 2026 news (the new chiefs, exercises of 2026, new ships). None of the 50 questions repeats a Defence question from GS Mock 01, 02 or 03. Every answer says which past question it grew from and what else to learn in that family.</p>
+<div class="rules">
+<div><b>Paper</b><span>50 questions · 45 minutes · 50 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will build a redo set from what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 45 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>50</span> questions</span></div>
+<ol class="bp"><li><span class="n">07</span><span>Leaders and organisation</span><span class="dots"></span><span class="c">chiefs, CDS, DAC, iDEX, FDI</span></li><li><span class="n">22</span><span>Forces, ships, aircraft and weapons</span><span class="dots"></span><span class="c">commands, carriers, missiles, nuclear policy</span></li><li><span class="n">12</span><span>Border forces, awards and days</span><span class="dots"></span><span class="c">mottos, Param Vir Chakra, academies, lines</span></li><li><span class="n">09</span><span>Exercises and operations</span><span class="dots"></span><span class="c">2026 exercises, evacuations, US agreements</span></li></ol>
+<p class="src" style="margin-top:14px">The weights follow the official syllabus, topic (h), and the Defence questions of 2018, 2021 and 2025. News is taken mostly from January to October 2026.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">45:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 50 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · GS Defence Mock 01 · built 17 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 GA papers. 2026 facts come from the Current Affairs 2026 manual. Questions tagged Check rest on news reports: confirm them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Defence", "q": "Pinaka, developed by DRDO and named after the bow of Lord Shiva, is a:", "o": ["Anti-tank guided missile", "Multi-barrel rocket launcher", "Main battle tank", "Light combat helicopter"], "a": 1, "e": "Pinaka fires a salvo of rockets from a truck and has been improved with longer range and guided versions. The Arjun is the Army's main battle tank (made by DRDO's CVRDE at Avadi, a 2018 question), Nag is the anti-tank missile, and Prachand is the HAL light combat helicopter. Learn each weapon with its job: gun, rocket, tank, missile, helicopter.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "INS Chilka, a large training base of the Indian Navy for new sailors, is located in:", "o": ["Andhra Pradesh", "Kerala", "Goa", "Odisha"], "a": 3, "e": "INS Chilka stands on the shore of Chilika Lake in Odisha. It trains the recruits of the Navy. The same State has the Integrated Test Range at Chandipur and Dr A. P. J. Abdul Kalam Island, where missiles are tested. OPSC likes defence facts that touch Odisha. The Naval Academy is at Ezhimala in Kerala, and the National Defence Academy is at Khadakwasla, Pune.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The K-15 'Sagarika' is a:", "o": ["Air-to-air missile", "Submarine-launched ballistic missile", "Surface-to-air missile", "Anti-ship cruise missile"], "a": 1, "e": "K-15 Sagarika is a short-range missile fired from a submerged submarine. It is made by DRDO, and the longer K-4 is the next of the series. These missiles give the nuclear submarines of the Arihant class their real power. The rule from the earlier papers still holds: name the missile by where it starts and what it hits.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which command, set up in 2003 and headed by a Commander-in-Chief, looks after India's nuclear weapons?", "o": ["Andaman and Nicobar Command", "Integrated Defence Staff", "Defence Space Agency", "Strategic Forces Command"], "a": 3, "e": "The Strategic Forces Command (SFC) was set up in 2003 to manage the nuclear arsenal, and it takes orders from the Nuclear Command Authority. The Andaman and Nicobar Command (2001, Port Blair) was India's first tri-service command. The 2018 and 2021 papers asked about defence bodies and where they sit. Remember also the Defence Space Agency and the Defence Cyber Agency, both set up in 2019.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which mission, announced by the Prime Minister on 15 August 2025, aims to build a national shield against air attacks?", "o": ["Mission Gaganyaan", "Mission Shakti", "Mission Divyastra", "Mission Sudarshan Chakra"], "a": 3, "e": "The Prime Minister announced Mission Sudarshan Chakra from the Red Fort. The 2025 paper asked about Iron Dome, so India's own shield is the next angle. Do not confuse it with Mission Shakti (anti-satellite test of 2019), Divyastra (Agni-5 MIRV test of 2024) or Gaganyaan (the human spaceflight mission of ISRO).", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "INS Mahendragiri, a Nilgiri-class stealth frigate commissioned in 2026, is named after a mountain range in which State?", "o": ["Karnataka", "Andhra Pradesh", "Tamil Nadu", "Odisha"], "a": 3, "e": "Mahendragiri is a hill range of the Eastern Ghats in Gajapati district of Odisha. The seven Project 17A frigates are all named after hills: Nilgiri, Himgiri, Udaygiri, Dunagiri, Taragiri, Vindhyagiri and Mahendragiri. In the Odisha paper the 2025 exam asked about hills from north to south, so the name is useful twice. The Nilgiri class is built in India at Mazagon Dock and GRSE.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Which one of the following is NOT an Israeli air defence system?", "o": ["Iron Dome", "Arrow", "David's Sling", "THAAD"], "a": 3, "e": "THAAD is made in the USA by Lockheed Martin. Iron Dome (asked in 2025), David's Sling and Arrow are the three layers of Israel's air defence: short, medium and long range. India's own plan is the 'Sudarshan Chakra' mission, and the S-400, bought from Russia, was asked in 2021.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Under the policy changes of 2020, foreign direct investment in the defence sector is allowed up to ____ through the automatic route.", "o": ["49%", "74%", "26%", "100%"], "a": 1, "e": "Till 2020 the automatic route allowed 49%, and before 2016 it was only 26%. In 2020 the limit became 74% on the automatic route, and anything above that needs government approval. This is a cross question between the Economy and the Defence parts of the syllabus, and the 2025 paper liked such cross questions. Remember the three numbers in order: 26, 49, 74.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Arrange the following forces in the order in which they were raised (earliest first):\nA. Assam Rifles  B. Border Security Force  C. Indo-Tibetan Border Police  D. Central Reserve Police Force", "o": ["A, D, C, B", "A, D, B, C", "D, A, C, B", "A, C, D, B"], "a": 0, "e": "Assam Rifles began in 1835. The CRPF began in 1939. The ITBP was raised in 1962 after the war with China, and the BSF in 1965 after the war with Pakistan. Then came the SSB (1963 in its first form), the CISF (1969) and the NSG (1984). Learn the ladder 1835, 1939, 1962, 1965, 1969, 1984.", "k": "order", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Param Vir Chakra winner) with List II (War or operation):\nList I: a. Major Somnath Sharma  b. Abdul Hamid  c. Flying Officer Nirmal Jit Singh Sekhon  d. Captain Vikram Batra\nList II: 1. Kargil, 1999  2. War of 1971  3. War of 1965  4. Kashmir, 1947", "o": ["a-4, b-3, c-1, d-2", "a-3, b-4, c-2, d-1", "a-4, b-2, c-3, d-1", "a-4, b-3, c-2, d-1"], "a": 3, "e": "Somnath Sharma, the first winner, fell at Badgam in Kashmir in 1947. Abdul Hamid destroyed tanks at Asal Uttar in 1965. Sekhon, the only Air Force winner (asked in 2021), defended Srinagar airfield in 1971. Vikram Batra fought at Point 4875 in Kargil in 1999 ('Yeh Dil Maange More'). The same four wars are a standard 'arrange' and 'match' family.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "Which one of the following is NOT correctly matched?", "o": ["Kirti Chakra – second highest gallantry award in peacetime", "Maha Vir Chakra – second highest gallantry award in war", "Vir Chakra – gallantry award for peacetime", "Param Vir Chakra – highest gallantry award in war"], "a": 2, "e": "The Vir Chakra is the third gallantry award for war, not for peacetime. The war ladder: Param Vir Chakra, Maha Vir Chakra, Vir Chakra. The peacetime ladder: Ashoka Chakra, Kirti Chakra, Shaurya Chakra. The 2021 paper asked who got the Param Vir Chakra from the Air Force; the Mock 02 key asked the top peacetime award. The medal of the Param Vir Chakra was designed by Savitri Khanolkar.", "k": "not", "n": false, "c": false}, {"s": "Defence", "q": "Operation Sindoor was launched by India on:", "o": ["7 May 2025", "22 April 2025", "29 September 2016", "26 February 2019"], "a": 0, "e": "India named the strikes after the Pahalgam terror attack of 22 April 2025. Operation Sindoor began on 7 May 2025. The Balakot air strike was on 26 February 2019 after the Pulwama attack of 14 February, and the 'surgical strikes' across the Line of Control were on 28–29 September 2016 after Uri. The examiner may offer all three dates as options.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Match List I (Exercise of 2026) with List II (Place):\nList I: a. Yudh Abhyas  b. Tiger Triumph  c. INDRA  d. KHANJAR\nList II: 1. Vladivostok  2. Misamari, Assam  3. Alaska  4. Visakhapatnam", "o": ["a-3, b-1, c-4, d-2", "a-3, b-4, c-2, d-1", "a-3, b-4, c-1, d-2", "a-4, b-3, c-1, d-2"], "a": 2, "e": "The 22nd edition of Yudh Abhyas, the India–USA army exercise, was held in Alaska. Tiger Triumph, the India–USA tri-service relief exercise, was at Visakhapatnam. INDRA, with Russia, was at Vladivostok (INS Sahyadri took part at sea). KHANJAR, with Kyrgyzstan, was at Misamari in Sonitpur district, Assam. In the 2025 paper the question was always one more step: not only the partner but also the place.", "k": "match", "n": true, "c": false}, {"s": "Defence", "q": "Consider the following statements about the National Security Guard (NSG):\n1. It was set up in 1984.\n2. It works under the Ministry of Defence.\n3. Its commandos are known as the 'Black Cats'.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "The NSG works under the Ministry of Home Affairs, so statement 2 is wrong. It was raised in 1984 for counter-terror and hijack work, and its men are called Black Cats because of their black dress. The false statement 'a force of Home Affairs works under Defence' has been the examiner's favourite trap, and the only border-type force under Defence is the Coast Guard (set up in 1978).", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "Which one of the following Army Commands is NOT correctly matched with its headquarters?", "o": ["Southern Command – Pune", "Eastern Command – Guwahati", "Central Command – Lucknow", "Northern Command – Udhampur"], "a": 1, "e": "The Eastern Command is at Fort William, Kolkata, not Guwahati. The other pairs are right: Northern (Udhampur), Southern (Pune), Central (Lucknow). Also learn Western (Chandimandir), South Western (Jaipur) and ARTRAC, the training command (Shimla). The 2025 paper asked where the National Police Academy and other bodies sit; 'body and place' pairs are a favourite.", "k": "not", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements about the Chief of Defence Staff (CDS):\n1. The CDS is the Principal Military Adviser to the Defence Minister on tri-service matters.\n2. The CDS heads the Department of Military Affairs and is its Secretary.\n3. The CDS has operational command over the Army, Navy and Air Force.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "Statement 3 is wrong. The CDS does not command troops. The three chiefs keep command of their own forces. The CDS plans, joins the forces together and pushes reform such as theatre commands. The post was created in 2019, together with the Department of Military Affairs (DMA) inside the Ministry of Defence. The CDS is also the Permanent Chairman of the Chiefs of Staff Committee.", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Force) with List II (Motto):\nList I: a. Border Security Force  b. Indo-Tibetan Border Police  c. Central Reserve Police Force  d. Assam Rifles\nList II: 1. Valour, Determination, Devotion to Duty  2. Service and Loyalty  3. Duty unto Death  4. Friends of the Hill People", "o": ["a-3, b-2, c-1, d-4", "a-1, b-3, c-2, d-4", "a-3, b-1, c-2, d-4", "a-3, b-1, c-4, d-2"], "a": 2, "e": "The BSF's motto is 'Jeevan Paryant Kartavya', Duty unto Death. The ITBP's is Shaurya, Dridhta, Karma Nishtha. The CRPF is 'Service and Loyalty' and the Assam Rifles are the 'Friends of the Hill People'. All of them work under the Ministry of Home Affairs, except the Coast Guard, which is under the Ministry of Defence. The 2025 paper had three statements on the ITBP.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "Which one of the following pairs (Operation – Purpose) is NOT correctly matched?", "o": ["Operation Safed Sagar – Air Force action in Kargil", "Operation Pawan – Indian Peace Keeping Force in Sri Lanka", "Operation Blue Star – Capture of the Siachen glacier", "Operation Trident – Navy attack on Karachi in 1971"], "a": 2, "e": "Operation Blue Star (1984) was the action at the Golden Temple in Amritsar. The capture of Siachen was Operation Meghdoot, in the same year. Safed Sagar was the Air Force's role in the Kargil war; the Navy's was Operation Talwar. Trident is the reason for Navy Day on 4 December. Mock 03 asked Meghdoot, Polo, Cactus and Vijay, so these are the neighbouring operations.", "k": "not", "n": false, "c": false}, {"s": "Defence", "q": "Arrange the following in the order of their dates (earliest first):\nA. Operation Pawan in Sri Lanka  B. Operation Polo in Hyderabad  C. The surrender of the Pakistani army at Dhaka  D. The liberation of Goa", "o": ["B, C, D, A", "B, D, A, C", "B, D, C, A", "D, B, C, A"], "a": 2, "e": "Operation Polo, the police action on Hyderabad, took place in September 1948. Goa was freed in December 1961 by Operation Vijay. The Pakistani army surrendered at Dhaka on 16 December 1971. Operation Pawan, the Indian Peace Keeping Force action in Sri Lanka, began in October 1987. Dates with 'the order of' are easy to guess once the four decades are fixed.", "k": "order", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Evacuation operation) with List II (Country or place):\nList I: a. Operation Ganga  b. Operation Kaveri  c. Operation Devi Shakti  d. Operation Maitri\nList II: 1. Afghanistan  2. Ukraine  3. Nepal earthquake  4. Sudan", "o": ["a-4, b-2, c-1, d-3", "a-2, b-1, c-4, d-3", "a-2, b-4, c-3, d-1", "a-2, b-4, c-1, d-3"], "a": 3, "e": "Operation Ganga (2022) brought Indians back from Ukraine. Kaveri (2023) was from Sudan. Devi Shakti (2021) was from Afghanistan. Maitri (2015) was the relief mission after the Nepal earthquake. The 2025 paper asked Operation Jindagi, Keller, Olivia and Zero Line, and Mock 02 had Brahma, Sindhu and Sagar Bandhu. Learn the purpose of each operation name, not just the name.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "The Scorpene-class submarines, such as INS Kalvari, are built at Mazagon Dock in Mumbai with the technology of which country?", "o": ["Germany", "Russia", "Sweden", "France"], "a": 3, "e": "Project 75 gave India six Scorpene submarines, built at Mazagon Dock Shipbuilders with the French company Naval Group. INS Kalvari was the first, in 2017. Do not mix them with the nuclear submarines of the Arihant class, which are built at Visakhapatnam. Russia is the source of the older Kilo-class boats and the Vikramaditya.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "In September 2025 the Indian Air Force retired its last squadron of which fighter jet after more than sixty years of service?", "o": ["MiG-29", "Mirage 2000", "Jaguar", "MiG-21"], "a": 3, "e": "The MiG-21 first joined the Air Force in 1963 and fought in the wars of 1965 and 1971. The farewell was held at Chandigarh in September 2025. The Su-30MKI, built under licence by HAL, is now the main fighter, and the Tejas Mk1A is the new home-built one. A farewell or a first induction is a typical 'news of the year' question.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Consider the following statements about the changes of service chiefs in 2026:\n1. Admiral Krishna Swaminathan succeeded Admiral Dinesh K. Tripathi.\n2. General Dhiraj Seth succeeded General Anil Chauhan.\n3. Air Chief Marshal Ashutosh Dixit succeeded Air Chief Marshal A. P. Singh.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "Statement 2 is the trap. General Anil Chauhan was the second CDS, not an Army chief. He gave way to General Raja Subramani as CDS. General Dhiraj Seth took over the Army from General Upendra Dwivedi. The examiner likes to swap two names that belong to the same story, so learn each 'took over from' pair. Bipin Rawat was the first CDS (2019).", "k": "stmt", "n": true, "c": false}, {"s": "Defence", "q": "Match List I (Day) with List II (Date):\nList I: a. Indian Army Day  b. Indian Air Force Day  c. Indian Navy Day  d. Armed Forces Flag Day\nList II: 1. 8 October  2. 15 January  3. 4 December  4. 7 December", "o": ["a-1, b-2, c-3, d-4", "a-2, b-1, c-3, d-4", "a-2, b-3, c-1, d-4", "a-2, b-1, c-4, d-3"], "a": 1, "e": "Army Day (15 January) marks the day in 1949 when K. M. Cariappa became the first Indian chief. Air Force Day (8 October) marks the founding in 1932. Navy Day (4 December) recalls Operation Trident, the 1971 attack on Karachi harbour. Armed Forces Flag Day (7 December) is for collecting funds for soldiers' families. Remember the trap: 3 and 4 December sit one day apart.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "In October 2021 the 41 factories of the Ordnance Factory Board were turned into how many government-owned companies?", "o": ["12", "7", "5", "3"], "a": 1, "e": "The Government closed the Ordnance Factory Board and put its 41 factories into seven Defence Public Sector Undertakings, such as Munitions India Limited, Armoured Vehicles Nigam Limited and Advanced Weapons and Equipment India Limited. The aim was better work and more exports. This sits with the 'Make in India in defence' family. Other public companies to remember are HAL (Bengaluru), BEL (Bengaluru), BDL (Hyderabad), Mazagon Dock (Mumbai) and GRSE (Kolkata).", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "In March 2019, India became the fourth country to destroy a satellite in orbit with a missile. The test was called:", "o": ["Operation Shakti", "Operation Vijay", "Mission Sudarshan", "Mission Shakti"], "a": 3, "e": "Mission Shakti (27 March 2019) was an anti-satellite (ASAT) test by DRDO. The first three were the USA, Russia and China. 'Operation Shakti' is the other test: the Pokhran-II nuclear tests of May 1998. The first test of 1974 was called 'Smiling Buddha'. The examiner may put the two Shaktis side by side.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which of India's aircraft carriers was built at Cochin Shipyard and commissioned in September 2022?", "o": ["INS Vikramaditya", "INS Viraat", "INS Vikrant", "INS Vishal"], "a": 2, "e": "INS Vikrant is India's first aircraft carrier designed and built in India, at Cochin Shipyard Limited. INS Vikramaditya was bought from Russia (it was the Admiral Gorshkov). INS Viraat, the old carrier, was the former British HMS Hermes and left service in 2017. INS Vishal is only the planned name of the next carrier. The first INS Vikrant, a British-built carrier, played a part in the 1971 war.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements:\n1. The Innovations for Defence Excellence (iDEX) scheme was launched in 2018 to help start-ups and small firms make defence products.\n2. Defence Industrial Corridors are being set up in Uttar Pradesh and Tamil Nadu.\n3. The Defence Acquisition Council is headed by the Chief of Defence Staff.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "The Defence Acquisition Council (DAC) is chaired by the Defence Minister, not the CDS. It gives the first approval to big purchases, called 'Acceptance of Necessity'; the 2021 paper asked about an Acceptance of Necessity for an HAL aircraft. iDEX and the two corridors (UP and Tamil Nadu) belong to the same push for self-reliance. In 2020 FDI in defence was raised to 74% through the automatic route.", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Air force exercise) with List II (Country linked to it):\nList I: a. Garuda  b. Red Flag  c. Desert Flag  d. Eastern Bridge\nList II: 1. Oman  2. United Arab Emirates  3. France  4. United States", "o": ["a-3, b-4, c-1, d-2", "a-4, b-3, c-2, d-1", "a-3, b-2, c-4, d-1", "a-3, b-4, c-2, d-1"], "a": 3, "e": "Garuda is with France, Red Flag is held in the USA, Desert Flag is held in the UAE (the 2025 paper had a statement question on Desert Flag-10), and Eastern Bridge is with Oman. Pitch Black is held in Australia (Mock 03). Tarang Shakti, held in India in 2024, was the first multinational air exercise India hosted.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "'Surya', launched on 6 October 2026, is India's first home-built:", "o": ["Aircraft carrier", "Fleet Support Ship", "Nuclear submarine", "Missile destroyer"], "a": 1, "e": "A fleet support ship carries fuel, water, food and spares so that warships can stay at sea for weeks. Surya is the first such ship built fully in India. The Navy also placed orders in November 2026 for eight Next Generation Corvettes, which went to GRSE and Goa Shipyard. The 2025 paper asked news of ships and exercises, so 'which ship, what type' is a good question to expect.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Match List I (Force or body) with List II (Place):\nList I: a. Naval Academy  b. Air Force Academy  c. Defence Services Staff College  d. College of Defence Management\nList II: 1. Dundigal  2. Wellington  3. Ezhimala  4. Secunderabad", "o": ["a-3, b-1, c-2, d-4", "a-3, b-2, c-1, d-4", "a-1, b-3, c-2, d-4", "a-3, b-1, c-4, d-2"], "a": 0, "e": "The Indian Naval Academy is at Ezhimala, Kerala. The Air Force Academy is at Dundigal near Hyderabad. The Defence Services Staff College is at Wellington in the Nilgiris, and the College of Defence Management at Secunderabad. The Indian National Defence University (asked in 2018 and 2021) is being built at Binola, Haryana. The 2025 paper asked where the Police Academy is: Hyderabad.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "The Territorial Army, a force of part-time volunteer citizen soldiers, was inaugurated in 1949 by:", "o": ["C. Rajagopalachari", "Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "K. M. Cariappa"], "a": 0, "e": "C. Rajagopalachari, then Governor-General, inaugurated the Territorial Army on 9 October 1949. Its members hold a regular job and train in their spare time, and they can be called to serve in an emergency. The first Indian Commander-in-Chief, K. M. Cariappa (1949), later became a Field Marshal in 1986. Territorial Army Day is celebrated on 9 October.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The Atal Tunnel below the Rohtang Pass, built by the Border Roads Organisation and opened in 2020, is in which State?", "o": ["Himachal Pradesh", "Arunachal Pradesh", "Uttarakhand", "Jammu and Kashmir"], "a": 0, "e": "The Atal Tunnel joins Manali with the Lahaul-Spiti valley and is the world's longest highway tunnel above 10,000 feet. The Border Roads Organisation (BRO) works under the Ministry of Defence. The Sela Tunnel, asked in 2021, is in Arunachal Pradesh and eases the road to Tawang. The Zojila tunnel is for Kashmir and Ladakh.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Agreement with the USA) with List II (Subject):\nList I: a. LEMOA  b. COMCASA  c. BECA  d. GSOMIA\nList II: 1. Sharing of geospatial data  2. Use of each other's bases for supplies  3. Secure military communication equipment  4. Protecting shared classified military information", "o": ["a-3, b-2, c-1, d-4", "a-2, b-3, c-4, d-1", "a-1, b-3, c-2, d-4", "a-2, b-3, c-1, d-4"], "a": 3, "e": "These are called the 'foundational agreements'. LEMOA (2016) is about logistics and supplies. COMCASA (2018) is about secure communication equipment. BECA (October 2020) is about maps, satellite images and other geospatial data. GSOMIA (2002) protects classified information. India holds the largest number of exercises with the USA, such as Yudh Abhyas, Tiger Triumph and Vajra Prahar.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "The motto of the National Cadet Corps (NCC) is:", "o": ["Duty, Honour, Country", "Unity and Discipline", "Be Prepared", "Service before Self"], "a": 1, "e": "The NCC was formed under the National Cadet Corps Act of 1948, and it works under the Ministry of Defence. It has an Army, a Navy and an Air Wing. NCC Day falls on the fourth Sunday of November. 'Be Prepared' is the Scouts' motto, a trap for the careless.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Agni-4 and the long-range Pinaka rocket, tested in 2026, were fired from which test range?", "o": ["Kolar, Karnataka", "Chandipur, Odisha", "Pokhran, Rajasthan", "Sriharikota, Andhra Pradesh"], "a": 1, "e": "The Integrated Test Range at Chandipur in Balasore district is DRDO's main missile test site, along with Dr A. P. J. Abdul Kalam Island in Bhadrak district. Pokhran is a nuclear and artillery range, and Sriharikota is for space launches by ISRO. This detail rests on one news report, so treat it with care.", "k": "one", "n": true, "c": true}, {"s": "Defence", "q": "Tiger Triumph, the exercise of India and the USA, is conducted mainly to practise:", "o": ["Anti-submarine warfare by the Navy", "Humanitarian aid and disaster relief by all three services", "Air combat by the Air Force", "Mountain warfare by the Army"], "a": 1, "e": "Tiger Triumph is a tri-service exercise, which means the Army, Navy and Air Force of both countries take part, and its theme is relief after a disaster. RAHAT MITRA, the first relief exercise with Myanmar, is of the same kind. The USA is the partner with whom India holds the largest number of exercises.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Who became the first Indian officer to be made a Field Marshal, in January 1973?", "o": ["Arjan Singh", "K. M. Cariappa", "Sam Manekshaw", "K. S. Thimayya"], "a": 2, "e": "Sam Manekshaw led the Army in the 1971 war that ended with the birth of Bangladesh. K. M. Cariappa was made Field Marshal later, in 1986. Arjan Singh of the Air Force was made Marshal of the Air Force in 2002, and he is the only one. The 2021 paper asked for 'the only Air Force officer' with the Param Vir Chakra, a similar 'only one' question.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Naval Command) with List II (Headquarters):\nList I: a. Western Naval Command  b. Eastern Naval Command  c. Southern Naval Command  d. Andaman and Nicobar Command\nList II: 1. Kochi  2. Mumbai  3. Visakhapatnam  4. Port Blair", "o": ["a-2, b-3, c-1, d-4", "a-1, b-3, c-2, d-4", "a-2, b-3, c-4, d-1", "a-3, b-2, c-1, d-4"], "a": 0, "e": "The Western Command (Mumbai) and the Eastern Command (Visakhapatnam) are the two operational commands. The Southern Command at Kochi is the training command. The Andaman and Nicobar Command at Port Blair, set up in 2001, was India's first tri-service command. Admiral Swaminathan headed the Western Naval Command before he became Navy chief. MILAN 2026 was held at Visakhapatnam, home of the Eastern Command.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "MIRV technology, shown in the Agni-5 test of March 2024 called 'Mission Divyastra', allows a missile to:", "o": ["Fly below radar at a low height", "Launch from a submarine", "Change course using a satellite", "Carry several warheads that hit different targets"], "a": 3, "e": "MIRV means Multiple Independently targetable Re-entry Vehicle. One Agni-5 can drop several warheads that fall on different places. Agni-5 has a range of more than 5,000 km. Submarine launch belongs to the K-series, such as K-15 Sagarika. A missile that flies low and level is a cruise missile, such as BrahMos or Nirbhay.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements about India's nuclear policy:\n1. India follows a 'No First Use' policy.\n2. The Nuclear Command Authority has a Political Council headed by the Prime Minister.\n3. India's nuclear doctrine allows the first use of nuclear weapons against a conventional attack.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "No First Use (NFU) means India will not be the first to use a nuclear weapon, but will hit back hard if attacked. Statement 3 says the opposite. The doctrine speaks of 'credible minimum deterrence'. The Political Council gives the order, and the Executive Council, headed by the National Security Adviser, advises it. The Pokhran tests were in 1974 and in May 1998.", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Exercise) with List II (Partner country):\nList I: a. Ekuverin  b. Harimau Shakti  c. Maitree  d. Ajeya Warrior\nList II: 1. Thailand  2. United Kingdom  3. Malaysia  4. Maldives", "o": ["a-4, b-3, c-1, d-2", "a-4, b-1, c-3, d-2", "a-3, b-4, c-1, d-2", "a-4, b-3, c-2, d-1"], "a": 0, "e": "Ekuverin is with the Maldives, Harimau Shakti with Malaysia (the tiger), Maitree with Thailand ('friendship'), and Ajeya Warrior with the United Kingdom. Earlier mocks covered the neighbours Surya Kiran (Nepal), Sampriti (Bangladesh) and Mitra Shakti (Sri Lanka), and the Central Asian three: KHANJAR, DUSTLIK and KAZIND. The 2025 paper asked Nomadic Elephant (Mongolia) and Dharma Guardian (Japan).", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "The contracts signed in November 2026 for eight Next Generation Corvettes of the Indian Navy went to:", "o": ["Garden Reach Shipbuilders and Goa Shipyard", "Hindustan Shipyard and L&T", "Mazagon Dock and Cochin Shipyard", "Bharat Dynamics and HAL"], "a": 0, "e": "Both are public sector shipyards, one in Kolkata and one in Goa. Next Generation Corvettes are small warships for coastal waters and anti-submarine work. Bharat Dynamics (Hyderabad) makes missiles and HAL (Bengaluru) makes aircraft, so they are the wrong sort of company. Learn which yard builds which ship: Mazagon Dock builds destroyers and Scorpene submarines.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "Consider the following statements about the Indian Navy's aircraft carriers:\n1. INS Vikramaditya was bought from Russia.\n2. INS Vikrant, commissioned in 2022, was built at Cochin Shipyard.\n3. INS Viraat was bought from France.\nWhich of the statements given above are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "INS Viraat was bought from Britain (the former HMS Hermes), not France. So statement 3 is false. Statements 1 and 2 are right. In 2025 the paper asked three-statement questions on one force or one ship. The trap is always one wrong country or place in an otherwise true set.", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Gun) with List II (Country of origin or design):\nList I: a. Bofors  b. M777 ultra-light howitzer  c. K9 Vajra  d. Dhanush\nList II: 1. USA  2. India  3. Sweden  4. South Korea", "o": ["a-3, b-1, c-2, d-4", "a-3, b-1, c-4, d-2", "a-1, b-3, c-4, d-2", "a-2, b-1, c-4, d-3"], "a": 1, "e": "The Bofors gun came from Sweden in the 1980s and was famous for the Kargil war and for the scandal. The M777 is from the USA and fits mountains because it is light. K9 Vajra is a South Korean tracked gun built in India by L&T. Dhanush is the Indian 'desi Bofors', made by an Ordnance Factory. The Pinaka, also a DRDO product, is a rocket launcher, not a gun.", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "The Pokhran-II nuclear tests of May 1998 were carried out under the code name:", "o": ["Smiling Buddha", "Operation Meghdoot", "Operation Shakti", "Operation Vijay"], "a": 2, "e": "Pokhran-II (11 and 13 May 1998) was Operation Shakti, in the time of Prime Minister Atal Bihari Vajpayee. National Technology Day is on 11 May for this reason. Pokhran-I (18 May 1974) was called 'Smiling Buddha'. Operation Vijay was the Kargil war of 1999 and Operation Meghdoot took Siachen in 1984.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Post) with List II (Officer who took over in 2026):\nList I: a. Chief of Defence Staff  b. Chief of the Army Staff  c. Chief of the Naval Staff  d. Chief of the Air Staff\nList II: 1. Admiral Krishna Swaminathan  2. General N. S. Raja Subramani  3. Air Chief Marshal Ashutosh Dixit  4. General Dhiraj Seth", "o": ["a-1, b-4, c-2, d-3", "a-4, b-2, c-1, d-3", "a-2, b-4, c-1, d-3", "a-2, b-4, c-3, d-1"], "a": 2, "e": "Four chairs changed in five months. On 31 May 2026 General N. S. Raja Subramani became the third CDS and Admiral Krishna Swaminathan became Navy chief. General Dhiraj Seth took the Army on 30 June, and Air Chief Marshal Ashutosh Dixit took the Air Force on 31 October. The 2021 paper asked 'the present Chief of Air Staff', so 'who holds which post' is a live family. Order to remember: May (two), June (Army), October (Air Force).", "k": "match", "n": true, "c": false}, {"s": "Defence", "q": "The first squadron of the Rafale fighter jets of the Indian Air Force is based at:", "o": ["Hasimara", "Bhuj", "Ambala", "Jodhpur"], "a": 2, "e": "No. 17 Squadron, the 'Golden Arrows', was formed with Rafale jets at Ambala in Haryana in September 2020. The second squadron is at Hasimara in West Bengal. The Rafale is made by Dassault of France. The 2021 paper asked about an aircraft cleared for HAL, and the S-400 from Russia, so 'which jet, which maker, which country' is a standing family.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The Advanced Medium Combat Aircraft (AMCA), India's planned fifth-generation fighter, is being developed by:", "o": ["Aeronautical Development Agency", "Bharat Electronics Limited", "Hindustan Aeronautics Limited alone", "Defence Institute of Advanced Technology"], "a": 0, "e": "The Aeronautical Development Agency (ADA), Bengaluru, designs it, under DRDO. HAL built the Tejas that ADA designed. Fifth-generation means stealth shape, advanced sensors and the ability to share data. The Tejas Light Combat Aircraft first flew in 2001. Fighter jets, makers and designers are a repeated pairing in the Defence part.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Line) with List II (Meaning):\nList I: a. Radcliffe Line  b. McMahon Line  c. Durand Line  d. Line of Control\nList II: 1. India–China boundary in the east  2. Afghanistan–Pakistan boundary  3. Partition boundary of Punjab and Bengal in 1947  4. Ceasefire line in Jammu and Kashmir", "o": ["a-3, b-1, c-4, d-2", "a-3, b-1, c-2, d-4", "a-1, b-3, c-2, d-4", "a-3, b-2, c-1, d-4"], "a": 1, "e": "Sir Cyril Radcliffe drew the line that split Punjab and Bengal in 1947. The McMahon Line comes from the 1914 Simla Convention and runs along Arunachal Pradesh. The Durand Line (1893) separates Afghanistan and Pakistan. The Line of Control in Jammu and Kashmir was named in the Simla Agreement of 1972 after the 1971 war. The LAC is the border with China in the west and middle sectors.", "k": "match", "n": false, "c": false}];
+(function(){
+  var SK="aso-gs-defence-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=45*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 50 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 50</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Defence"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO GS DEFENCE MOCK 01 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / 50 · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please make the next Defence or GS mock from my wrong and skipped questions.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>
