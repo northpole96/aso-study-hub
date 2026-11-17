@@ -1,0 +1,268 @@
+#CH airforce | The Indian Air Force | PART A · STATIC
+The Air Force guards the sky and supports the Army and Navy. **Air Force Day** is on **8 October**. The force was formed on 8 October **1932**, and it became the Indian Air Force (dropping "Royal") in 1950. The 94th Air Force Day was held on 8 October 2026 at **Hindon**, Ghaziabad. The motto is "Nabhah Sprisham Deeptam", "Touch the sky with glory".
+
+##Commands
+|Command|Headquarters|
+|---|---|
+|Western Air Command|New Delhi|
+|Central Air Command|Prayagraj|
+|Eastern Air Command|Shillong|
+|Southern Air Command|Thiruvananthapuram|
+|South Western Air Command|Gandhinagar|
+|Training Command|Bengaluru|
+|Maintenance Command|Nagpur|
+
+##Aircraft
+|Aircraft|Maker or source|Remember|
+|---|---|---|
+|Su-30MKI|HAL, licence from Russia|The main fighter today|
+|Rafale|Dassault, France|36 bought. First squadron (No. 17, "Golden Arrows") at **Ambala**, second (No. 101) at **Hasimara**. ⟦2018 Q57⟧. No. 17 Squadron completed 75 years on 1 October 2026|
+|Tejas (LCA)|HAL, designed by ADA|First flew on 4 January 2001. The IAF has about 38 Tejas in two squadrons ⟨CHECK⟩. Mk-1A, Mk-2 and the AMCA follow|
+|AMCA|ADA, Bengaluru|Fifth-generation stealth fighter. A new facility has been planned at Puttaparthi, Andhra Pradesh. First prototype 2028 to 2029 ⟨CHECK⟩|
+|Mirage 2000|Dassault, France|Based at Gwalior. Planned to stay till about 2038 to 2039 ⟨CHECK⟩|
+|MiG-21|Russia|**Retired in September 2025** at Chandigarh after over 60 years. It first joined in 1963. The MiG-29 and Jaguar are still in service|
+|C-17 Globemaster, C-130J Super Hercules|USA|Heavy and medium airlift. Based at Hindon|
+|AH-64E Apache, CH-47F Chinook|USA|Attack and heavy-lift helicopters|
+|LCH Prachand|HAL|Light Combat Helicopter, inducted in October 2022 at Jodhpur. The President flew in it on 27 February 2026, the first President to fly an attack helicopter|
+|Netra AEW&C|DRDO, on Embraer jets|Airborne early warning. Three Mk-1 aircraft at Bathinda|
+
+The sanctioned strength is **42 squadrons** and the IAF has about 31 ⟨CHECK⟩. The Dornier 228, which HAL makes, was cleared for the IAF in 2022 ⟦2021 Q88⟧.
+
+##Air defence and others
+- **S-400 Triumf** from Russia. Reported plan: five systems in all, with more cleared by the DAC. In February 2026 the DAC cleared 288 S-400 missiles (about ₹10,000 crore) to refill the stocks used in Operation Sindoor ⟨CHECK⟩. The air force uses the name **Sudarshan Chakra** for the S-400.
+- **Akash**, **MRSAM** and the new **Kusha** make the layers.
+- **Akashteer** is the Army's air defence control network.
+- **Garud Commando Force:** the Air Force's special forces, raised in 2004.
+- **Air Force Academy:** Dundigal, near Hyderabad.
+- **Aero India:** the air show at Yelahanka, Bengaluru. The 15th was in February 2025. The 16th is scheduled for 8 to 12 February 2027 ⟨CHECK⟩.
+- A **Squadron Leader** equals an Army **Major** ⟦2021 Q90⟧.
+
+>NEXT:Likely next
+?? Where is Eastern Air Command? || Shillong.
+?? Which fighter was retired in September 2025? || MiG-21.
+?? Which Rafale base is in West Bengal? || Hasimara.
+?? Who designed the Tejas? || Aeronautical Development Agency, built by HAL.
+?? Air Force Day falls on which date? || 8 October.
+
+#CH ranks | Ranks, academies and training | PART A · STATIC
+The three services keep different names for the same rank. The examiner asks the **equal rank** across services, and the training place.
+
+##Equal ranks
+@@fig ranks
+
+|Army|Navy|Air Force|
+|---|---|---|
+|Lieutenant|Sub-Lieutenant|Flying Officer|
+|Captain|Lieutenant|Flight Lieutenant|
+|Major|Lieutenant Commander|Squadron Leader ⟦2021 Q90⟧|
+|Lieutenant Colonel|Commander|Wing Commander|
+|Colonel|Captain|Group Captain|
+|Brigadier|Commodore|Air Commodore|
+|Major General|Rear Admiral|Air Vice Marshal|
+|Lieutenant General|Vice Admiral|Air Marshal|
+|General|Admiral|Air Chief Marshal|
+|Field Marshal|Admiral of the Fleet|Marshal of the Air Force|
+
+>WARN:The Captain trap
+A **Navy Captain** is senior: equal to an Army **Colonel** and an Air Force **Group Captain**. An **Army Captain** is a junior officer, just above a Lieutenant.
+
+- Only two Army officers became **Field Marshal**: **Sam Manekshaw** (January 1973, the 1971 war hero) and **K. M. Cariappa** (1986).
+- **Arjan Singh** is the only **Marshal of the Air Force** (2002).
+- Below officers: **Junior Commissioned Officers** (Naib Subedar, Subedar, Subedar Major) and non-commissioned ranks (Naik, Havildar).
+
+##Training places
+|Institution|Place|
+|---|---|
+|National Defence Academy (NDA)|Khadakwasla, Pune. Cadets of all three services train together|
+|Indian Military Academy (IMA)|Dehradun|
+|Officers Training Academy (OTA)|Chennai and Gaya (not Pune)|
+|Indian Naval Academy|Ezhimala, Kerala|
+|Air Force Academy|Dundigal, near Hyderabad|
+|Defence Services Staff College|Wellington, Nilgiris, Tamil Nadu|
+|College of Defence Management|Secunderabad|
+|National Defence College|New Delhi|
+|Indian National Defence University|Binola, Gurugram, Haryana ⟦2018 Q58, 2021 Q81⟧|
+|Sardar Vallabhbhai Patel National Police Academy|Hyderabad ⟦2025⟧|
+|Army Sports Institute|Pune|
+|Naval War College|Goa|
+
+##Women in the forces
+- Women are now Agniveers in all three services. Women Agniveers joined the Air Force band in 2026.
+- The Supreme Court order of 2021 opened the NDA to women. The first women cadets joined in 2022.
+- In August 2026 Squadron Leader **Bhawana Kanth** became the first Indian woman to finish the **Fighter Combat Leader** course at TACDE, Gwalior ⟨CHECK⟩.
+- In September 2026 Air Vice Marshal **Shakti Sharma** became the first non-medical woman officer to reach that rank ⟨CHECK⟩.
+- Colonel **Sofiya Qureshi** and Wing Commander **Vyomika Singh** briefed the nation during Operation Sindoor.
+
+>NEXT:Likely next
+?? A Navy Captain equals which Army rank? || Colonel.
+?? Who was the first Field Marshal of India? || Sam Manekshaw.
+?? Where is the Indian Naval Academy? || Ezhimala, Kerala.
+?? Where is the OTA? || Chennai (and Gaya).
+?? Which rank in the Air Force equals an Army Brigadier? || Air Commodore.
+
+#CH capf | Border forces and internal security | PART A · STATIC
+India has about **15,106 km** of land border with seven neighbours and a coastline of about **7,516 km**. The **Central Armed Police Forces (CAPFs)** guard the borders in peace and keep order inside the country. They work under the **Ministry of Home Affairs**, not the Ministry of Defence. The **Indian Coast Guard** is the exception: it is under Defence.
+
+##The forces
+|Force|Raised|Job and border|Motto|
+|---|---|---|---|
+|Assam Rifles|1835 (Cachar Levy)|Oldest. India–Myanmar border (1,643 km). Headed by an Army officer. Administered by Home Affairs, operations under the Army. HQ Shillong|Friends of the Hill People|
+|Central Reserve Police Force (CRPF)|1939 (27 July, the Crown Representative's Police)|Largest. Keeps peace inside the country. Units: CoBRA (jungle warfare), Rapid Action Force. **Valour Day** is 9 April, for the 1965 Sardar Post fight in the Rann of Kutch|Service and Loyalty|
+|Indo-Tibetan Border Police (ITBP)|24 October 1962, after the war with China|India–China border (3,488 km) in high mountains. Disaster relief too. ⟦2025 Q29⟧|Shaurya, Dridhta, Karma Nishtha (Valour, Determination, Devotion to Duty)|
+|Border Security Force (BSF)|1 December 1965, after the war with Pakistan|India–Pakistan (3,323 km) and India–Bangladesh (4,096 km) borders. First Director General: K. F. Rustamji|Duty unto Death|
+|Sashastra Seema Bal (SSB)|1963 (as Special Service Bureau)|India–Nepal (1,751 km) and India–Bhutan (699 km) open borders|Service, Security, Brotherhood|
+|Central Industrial Security Force (CISF)|10 March 1969|Airports, Delhi Metro, atomic plants, Parliament, ports. A port security vertical was planned in 2026|Protection and Security|
+|National Security Guard (NSG)|1984|"Black Cats". Counter-terror and hijack work. Base at Manesar. First **Mahila Commando Conversion Course** launched at Manesar in August 2026 ⟨CHECK⟩|Sarvatra Sarvottam Suraksha|
+|National Disaster Response Force (NDRF)|2006 (Disaster Management Act 2005)|Floods, quakes, building collapse|Disaster Response|
+
+>KEY:One border, one force
+Pakistan and Bangladesh: **BSF**. China: **ITBP**. Nepal and Bhutan: **SSB**. Myanmar: **Assam Rifles**. Inside the country: **CRPF**. Airports and metro: **CISF**. Sea: **Coast Guard**.
+
+>WARN:The ITBP question of 2025
+Two statements were true: it was formed after the 1962 war, and it helps in disasters. The false one said it opened a new base at "Kutul, Rajasthan". **Kutul is in Chhattisgarh**, against Naxalites. The examiner changed the State and the purpose. ⟦2025 Q29⟧
+
+##Latest on the CAPFs
+- **Zero Line:** the strip along the India–Bangladesh border, used in the term "Operation Zero Line". ⟦2025 Q20⟧
+- **Vibrant Villages Programme II:** approved in April 2025 for about ₹6,839 crore to 2028–29, for 1,954 border villages on the Pakistan, Nepal, Bangladesh, Bhutan and Myanmar borders.
+- **Smart Border project:** announced by the Home Minister for the Pakistan and Bangladesh borders (about 6,000 km) ⟨CHECK⟩.
+- **PRAHAAR:** the National Counter-Terrorism Policy and Strategy released by the Home Ministry in February 2026.
+- **NIDMS:** the National IED Data Management System, launched in January 2026.
+- **CAPF Bill 2026:** a single law for CRPF, BSF, ITBP and CISF, which gives more senior posts to IPS officers ⟨CHECK⟩.
+- **New Directors General (January 2026):** BSF: Praveen Kumar. ITBP: Shatrujeet Singh Kapoor ⟨CHECK⟩.
+
+>NEXT:Likely next
+?? Which force guards the border with Myanmar? || Assam Rifles.
+?? Which force was raised in 1965? || Border Security Force.
+?? What is the motto of the BSF? || Duty unto Death.
+?? Who was the first Director General of the BSF? || K. F. Rustamji.
+?? Under which ministry do the CAPFs work? || Ministry of Home Affairs.
+
+#CH awards | Awards, honours and days | PART A · STATIC
+##Gallantry awards
+Each ladder has three steps. Learn the top step first.
+|For war|For peacetime|
+|---|---|
+|Param Vir Chakra (highest)|Ashoka Chakra (highest)|
+|Maha Vir Chakra|Kirti Chakra|
+|Vir Chakra|Shaurya Chakra|
+
+- The **Param Vir Chakra** (1950) has only 21 winners. The medal was designed by **Savitri Khanolkar**. The first winner was **Major Somnath Sharma** (1947, Badgam, Kashmir).
+- **Abdul Hamid** (1965, Asal Uttar), **Flying Officer Nirmal Jit Singh Sekhon** (1971, Srinagar airfield, the **only Air Force** winner ⟦2021 Q86⟧), **Captain Vikram Batra**, **Manoj Kumar Pandey**, **Yogendra Singh Yadav** and **Sanjay Kumar** (all Kargil 1999).
+- **Republic Day 2026:** 70 personnel got gallantry awards. Group Captain **Shubhanshu Shukla** was named for the **Ashoka Chakra** ⟨CHECK⟩. Colonel Sofiya Qureshi got the Vishisht Seva Medal ⟨CHECK⟩.
+
+##Service medals (distinguished service)
+Param Vishisht Seva Medal, Uttam Yudh Seva Medal, Ati Vishisht Seva Medal, Yudh Seva Medal, Sena Medal, Nausena Medal, Vayu Sena Medal, Vishisht Seva Medal.
+
+##Days
+|Day|Date|Remember|
+|---|---|---|
+|Army Day|15 January|1949, Cariappa. 2026 parade at Jaipur|
+|Veterans' Day|14 January|Cariappa's retirement|
+|Coast Guard Day|1 February|1977|
+|CISF Raising Day|10 March|1969|
+|Ordnance Factory Day|18 March|First production, Cossipore, Kolkata, 1802|
+|CRPF Valour Day|9 April|Sardar Post, 1965|
+|National Technology Day|11 May|Pokhran-II, 1998|
+|BRO Raising Day|7 May|Raised 1960|
+|Kargil Vijay Diwas|26 July||
+|Navy Day|4 December|Operation Trident, 1971|
+|Armed Forces Flag Day|7 December|Fund for soldiers' families|
+|BSF Raising Day|1 December|1965|
+|Vijay Diwas|16 December|The 1971 surrender at Dhaka|
+|Air Force Day|8 October|1932|
+|Territorial Army Day|9 October||
+|ITBP Raising Day|24 October|1962|
+|NSG Raising Day|16 October|1984|
+|NCC Day|Fourth Sunday of November|NCC was set up in 1948. Motto: Unity and Discipline|
+
+##The BRO
+The **Border Roads Organisation** was raised in **1960** and now works under the Ministry of Defence. It builds roads, bridges and tunnels in the hills: **Atal Tunnel** (Rohtang, Himachal Pradesh, opened 3 October 2020, the longest highway tunnel above 10,000 feet), **Sela Tunnel** (Arunachal Pradesh, near Tawang ⟦2021 Q89⟧), and the **Shinku La** tunnel under construction. Its projects have names: Himank, Vijayak, Deepak, Dantak (Bhutan), Chetak (Rajasthan), Udayak, Arunank.
+
+>NEXT:Likely next
+?? Who designed the Param Vir Chakra? || Savitri Khanolkar.
+?? Which date is Navy Day? || 4 December.
+?? Under which ministry is the BRO? || Ministry of Defence.
+?? Which is the highest peacetime gallantry award? || Ashoka Chakra.
+?? What was the NCC motto? || Unity and Discipline.
+
+#CH weapons | Weapons, DRDO and the defence industry | PART A · STATIC
+##Missiles
+A **ballistic** missile is pushed up by its rocket and falls on the target like a thrown stone. A **cruise** missile flies low and level, like an unmanned plane. **Supersonic** is faster than sound (about Mach 1 to 5). **Hypersonic** is above **Mach 5**.
+
+@@fig missiles
+
+|Missile|Kind|Range and notes|
+|---|---|---|
+|Prithvi|Surface-to-surface, short range ballistic|About 150 to 350 km. The first missile of the programme|
+|Agni-I|Medium-short ballistic|700 to 1,200 km. Tested again on 22 May 2026 by the Strategic Forces Command ⟨CHECK⟩|
+|Agni-II, III|Intermediate range|2,000 km and above, 3,000 km and above|
+|Agni-IV|Intermediate range|About 4,000 km. Tested on **6 August 2026** from Chandipur, Odisha|
+|Agni-V|Intercontinental type|More than 5,000 km. **MIRV** (several warheads, different targets) shown in "Mission Divyastra", March 2024. A MIRV flight was shown again on 8 May 2026 from Dr APJ Abdul Kalam Island|
+|Agni-Prime|Canisterised|A rail-launched test was shown on 24 September 2025|
+|K-15 Sagarika|Submarine-launched ballistic|About 750 km|
+|K-4|Submarine-launched ballistic|About 3,500 km|
+|Pralay|Surface-to-surface, **quasi-ballistic**|150 to 500 km. Can change course in flight. Made by DRDO's Research Centre Imarat, with Bharat Dynamics as production partner. Salvo trial on 31 December 2025 and again on **5 November 2026** from Kalam Island ⟦2025 Q36⟧|
+|BrahMos|Supersonic cruise|Made with Russia. The name joins the **Brah**maputra and the **Mos**kva. Land, ship, sub and air launch. Sold to the Philippines (2022 contract). Vietnam and Indonesia deals reported ⟨CHECK⟩|
+|Nirbhay|Subsonic cruise|About 1,000 km. LRLACM, a long-range land attack cruise missile, was tested on 15 June 2026|
+|Akash|Surface-to-air|Made in India|
+|MRSAM (Barak-8)|Surface-to-air|With Israel. DAC cleared more MRSAM in July 2026|
+|Kusha|Long-range surface-to-air|Maiden flight test on **23 July 2026** from Kalam Island. M1 150 km, M2 250 km, M3 about 350 km ⟨CHECK⟩. A part of the national air defence shield|
+|Astra|Air-to-air, beyond visual range|Mk-1 about 110 km. A ramjet version (SFDR) was tested on 3 February 2026|
+|Rudram|Air-to-surface, hits radars|RudraM-II tested on 2 June 2026|
+|Nag, Helina, MPATGM|Anti-tank|Nag is third generation|
+|LR-AShM|Hypersonic glide, anti-ship|Phase-II test reported in May 2026 ⟨CHECK⟩|
+|VSHORADS|Man-portable air defence|Three trials from Chandipur in March 2026|
+|AD-1 and AD-2|Ballistic missile defence interceptors|Phase-II of BMD. A multi-layered BMD test on 10 and 11 June 2026 ⟨CHECK⟩|
+
+>WARN:The Pralay trap
+In 2025 two false statements were set: "air-to-surface cruise missile" and "700 to 1,500 km, naval". Pralay is a **surface-to-surface quasi-ballistic** missile of **150 to 500 km**, for the Army and the Air Force. ⟦2025 Q36⟧
+
+>KEY:Start and target
+Name each missile by where it starts and what it hits. **Agni**: land to land. **Akash**: ground to air. **Astra**: air to air. **Nag**: at tanks. **Rudram**: air to radar. The examiner changes one word, so check both halves.
+
+##Scramjet and hypersonic
+A **scramjet** burns fuel in air that moves faster than sound inside the engine, with no moving parts. ⟦2025 Q51⟧ DRDL, Hyderabad, ran a long-duration ground test of the actively cooled scramjet full-scale combustor on 9 January 2026 for more than 12 minutes. In 2020 DRDO flew the HSTDV at Mach 6.
+
+##Hit by name: the Missile Man and the Missile Woman
+- **Dr A. P. J. Abdul Kalam:** the "Missile Man". He led the **Integrated Guided Missile Development Programme (IGMDP)** from 1983. It gave Agni, Prithvi, Akash, Trishul and Nag. He was Scientific Adviser to the Defence Minister and DRDO head (1992 to 1999).
+- **Dr Tessy Thomas:** the "Missile Woman of India", who led the Agni projects. ⟦2021 Q84⟧
+
+##DRDO
+- The **Defence Research and Development Organisation** was formed in **1958**. HQ: DRDO Bhawan, New Delhi. Motto: "Balasya Mulam Vijnanam".
+- Chairman: **Samir V. Kamat** ⟨CHECK⟩.
+- Labs to know: DRDL and RCI (Hyderabad, missiles), ADE and GTRE (Bengaluru, aircraft and engines), CVRDE (Avadi, tanks), ARDE and HEMRL (Pune), NSTL (Visakhapatnam, naval), NPOL (Kochi, sonar), ADRDE (Agra, parachutes), ITR (Chandipur, test range).
+
+##Defence companies (DPSUs)
+|Company|Place|Makes|
+|---|---|---|
+|HAL|Bengaluru|Aircraft and helicopters: Su-30MKI, Tejas, Dhruv, Prachand, Dornier|
+|BEL|Bengaluru|Radars and electronics|
+|BEML|Bengaluru|Heavy vehicles|
+|BDL|Hyderabad|Missiles: Akash, Astra, Varunastra torpedo|
+|Mazagon Dock (MDL)|Mumbai|Submarines, destroyers, frigates|
+|GRSE|Kolkata|Warships. Reported to have got Navratna status in June 2026 ⟨CHECK⟩|
+|Goa Shipyard (GSL)|Goa|Patrol vessels, Coast Guard ships|
+|Hindustan Shipyard (HSL)|Visakhapatnam|Fleet support ships, diving vessels|
+|MIDHANI|Hyderabad|Special metals|
+
+>WARN:Not a DPSU
+**Cochin Shipyard** builds INS Vikrant but belongs to the Ministry of **Ports, Shipping and Waterways**, not the Ministry of Defence.
+
+In **October 2021** the 41 factories of the **Ordnance Factory Board** were turned into **seven** companies: Munitions India, Armoured Vehicles Nigam, Advanced Weapons and Equipment India, Troop Comforts, Yantra India, India Optel and Gliders India. Yantra India got Miniratna Category-I status in February 2026.
+
+##Self-reliance (Atmanirbhar) in defence
+- **Positive Indigenisation Lists:** items the forces may not import. The first was in August 2020.
+- **iDEX** (Innovations for Defence Excellence), 2018: helps start-ups and small firms. Backed by the **Technology Development Fund**.
+- **Defence Industrial Corridors:** Uttar Pradesh and Tamil Nadu.
+- **FDI:** 74% by the automatic route since 2020 (it was 49%).
+- **Money (2026–27):** defence budget about **₹7.85 lakh crore** (₹7,84,678 crore), about 15% more than the year before. Capital outlay about **₹2.19 lakh crore**. About ₹1.39 lakh crore (75% of the capital buying money) is kept for Indian industry.
+- **Production** in 2025–26 reached a record about **₹1.78 lakh crore**. **Exports** reached a record **₹38,424 crore** (up about 62.7%). Private firms gave about 45%. The target is ₹50,000 crore. India sells to over 80 countries.
+- **SIPRI (2025 figures):** India is the **fifth-largest spender** (about US$92.1 billion) and the **second-largest arms importer** (2021–25). Russia supplied about 40% of imports, France about 29% and Israel about 15%.
+
+>NEXT:Likely next
+?? What does MIRV stand for? || Multiple Independently targetable Re-entry Vehicle.
+?? Pralay is what kind of missile? || Surface-to-surface quasi-ballistic.
+?? Which two rivers give BrahMos its name? || Brahmaputra and Moskva.
+?? When was DRDO formed? || 1958.
+?? Into how many companies was the Ordnance Factory Board split? || Seven, in October 2021.
+?? What is the FDI limit in defence by automatic route? || 74%.

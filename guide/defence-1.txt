@@ -1,0 +1,233 @@
+#CH start | Start here | READ FIRST · 5 minutes
+This guide covers the whole Defence part of the OPSC ASO syllabus, topic (h) "Defence and Indian Armed Forces". It has two halves. **Part A** is the fixed knowledge: how the forces are built, their ranks, weapons, history and law. **Part B** is the news from January 2025 to November 2026, which is the window the examiner draws from. Read Part A once slowly. Read Part B twice, because news is where a question can change from year to year.
+
+Defence has grown from 8 questions in 2018 to 10 in 2021 and 12 in 2025. It is now the third biggest topic after Polity and Modern History. About half of it is fixed facts and half is news. That is why this guide gives the same space to both.
+
+##How defence is asked
+The examiner does not ask for long essays on strategy. The questions are small, exact and repeat in families. Learn each family, not each question.
+
+|Family|What was asked|Papers|
+|---|---|---|
+|Exercises|Dharma Guardian (partner = Japan), Nomadic Elephant (Mongolia), Desert Flag-10 (UAE), TROPEX-25, Sea Dragon 2025, Gandiv Vijay|2018, 2021, 2025|
+|Operations|Jindagi (Silkyara tunnel), Keller (Shopian), Zero Line (Bangladesh border), Olivia (turtles)|2025|
+|Missiles and weapons|Pralay, scramjet, S-400, Missile Woman, Arjun and Vijayanta tank, Rafale, Iron Dome and Golden Dome|2018, 2021, 2025|
+|Chiefs and ranks|Present Chief of Air Staff, Squadron Leader = Major, Navy Captain|2021|
+|Bodies and places|Indian National Defence University (Binola), police academy (Hyderabad), ITBP statements|2018, 2021, 2025|
+|Awards|Only Air Force Param Vir Chakra (Sekhon)|2021|
+|Heritage and tourism|Bharat Ranbhoomi Darshan, Fort William renamed Vijay Durg|2025|
+
+>KEY:How to read this guide
+- Every chapter has a "Likely next" block at the end. Tap a question to see its answer.
+- A blue chip such as ⟦2025 Q9⟧ means the fact was asked in that paper.
+- A tag ⟨CHECK⟩ means the fact rests on one news report, or sources disagree. Re-check it in the last week before the exam.
+- Dates and numbers of news items come from the Ministry of Defence statements as reported by the press, and from monthly defence digests, up to 17 November 2026.
+
+##The three-pass plan
+- **Pass 1 (static, Chapters 1 to 14):** read the prose, then learn the tables. These are stable and will not change before January 2027.
+- **Pass 2 (news, Chapters 15 to 22):** read in the order given. Learn the 2026 chiefs, exercises and ships first.
+- **Pass 3 (last week):** read only Chapter 23, the one-page revision, and every ⟨CHECK⟩ tag.
+
+#CH structure | How India's defence is organised | PART A · STATIC
+The Constitution gives the Union (not the States) the power over defence (Union List, Entry 1). The armed forces serve under a clear chain: the President, the Government, and then the military.
+
+@@fig chain
+
+##The chain of command
+- The **President** is the Supreme Commander of the armed forces (Article 53(2)). Parliament can regulate this power by law.
+- The **Prime Minister** heads the **Cabinet Committee on Security (CCS)**, which takes the big decisions: war, nuclear use, large purchases.
+- The **Defence Minister (Raksha Mantri)** runs the **Ministry of Defence (MoD)**. Rajnath Singh has held the post since 2019.
+- The **Defence Secretary** is the senior civil servant of the MoD. Rajesh Kumar Singh holds the post.
+- The **National Security Adviser (NSA)** advises the Prime Minister. The National Security Council was set up in 1998. The **Defence Planning Committee** (2018) is chaired by the NSA.
+
+##Five departments of the Ministry of Defence
+|Department|What it does|
+|---|---|
+|Department of Defence|Looks after the three services, the Coast Guard, budget, and the Border Roads Organisation|
+|Department of Military Affairs (DMA)|Created on 1 January 2020. Headed by the CDS, who is also its Secretary. Deals with joint planning, training and the procurement of items special to the services|
+|Department of Defence Production|Runs the defence public sector companies and the old Ordnance Factories|
+|Department of Defence Research and Development|Runs DRDO. The Secretary is also the DRDO Chairman|
+|Department of Ex-Servicemen Welfare|Pensions, resettlement and health care for veterans|
+
+##The Chief of Defence Staff (CDS)
+Before 2019 each service planned alone. The Kargil Review Committee (1999, K. Subrahmanyam) and the Group of Ministers (2001) had asked for a single top military adviser. The post was created in **2019** and the first CDS took over on 30 December 2019.
+
+- The CDS is the **Principal Military Adviser** to the Defence Minister on tri-service matters.
+- The CDS is the **Permanent Chairman of the Chiefs of Staff Committee**.
+- The CDS heads the **Department of Military Affairs** and is its Secretary.
+- The CDS does **not** command troops. The three chiefs keep command of their own service. This is a common false statement. ⟦2026 news⟧
+- The upper age limit for a CDS is 65 years.
+
+|No.|CDS|Period|
+|---|---|---|
+|1|General Bipin Rawat|30 Dec 2019 to 8 Dec 2021 (died in a helicopter crash near Coonoor)|
+|2|General Anil Chauhan|30 Sep 2022 to 30 May 2026|
+|3|General N. S. Raja Subramani|31 May 2026 onwards|
+
+The main job given to General Raja Subramani is to set up **integrated theatre commands**. Chapter 21 explains where that stands.
+
+##Tri-service bodies
+|Body|Year|Remember|
+|---|---|---|
+|Headquarters Integrated Defence Staff (IDS)|2001|Silver Jubilee on 1 October 2026 (25 years). Headed by the Chief of Integrated Defence Staff (CISC)|
+|Andaman and Nicobar Command (ANC)|2001|**First** tri-service command. Port Blair (Sri Vijaya Puram). The Commander-in-Chief comes by turns from each service.|
+|Strategic Forces Command (SFC)|2003|Manages the nuclear weapons. Takes orders from the Nuclear Command Authority|
+|Defence Space Agency, Defence Cyber Agency, Armed Forces Special Operations Division|2019|Three new tri-service agencies|
+|Defence Acquisition Council (DAC)|2001|Chaired by the Defence Minister. First approval for big purchases|
+
+##Nuclear Command Authority
+Two bodies: the **Political Council**, headed by the Prime Minister (only it can order the use of nuclear weapons), and the **Executive Council**, headed by the National Security Adviser. The doctrine is explained in Chapter 9.
+
+##The Defence Acquisition Council and how things are bought
+Every big purchase goes through steps. Knowing the steps helps you decode news such as "DAC accords AoN for ₹52,000 crore".
+- **Acceptance of Necessity (AoN):** the DAC says the force really needs it. This is only the first step. It does not mean a vendor has been chosen or a contract signed.
+- **Request for Proposal (RFP):** firms are asked to bid. Then trials, price talks and, for large amounts, approval by the CCS.
+- **Contract signing:** the MoD signs with a firm. Delivery follows later.
+
+The Defence Acquisition Procedure 2020 (DAP-2020) sets the categories, in order of preference:
+|Category|Meaning|
+|---|---|
+|Buy (Indian-IDDM)|Indigenously Designed, Developed and Manufactured. The most preferred. Needs at least 50% indigenous content|
+|Buy (Indian)|Made in India by an Indian firm, with at least 50% indigenous content|
+|Buy and Make (Indian)|Buy some, then make the rest in India|
+|Buy (Global, manufacture in India)|A foreign firm sets up production here|
+|Buy (Global)|Bought ready-made from abroad. The last choice|
+|Make-I, II, III|Industry builds a prototype. Make-I: government funds 70% of the design cost. ⟦example: Runway-independent UAV, 2026⟧|
+
+A review of DAP-2020 began in June 2025. No new DAP has been notified as far as the sources show. ⟨CHECK⟩
+
+>NEXT:Likely next
+?? Who heads the Department of Military Affairs? || The Chief of Defence Staff, as its Secretary.
+?? Which is the first tri-service command of India? || Andaman and Nicobar Command (2001).
+?? Which committee gave the idea of a CDS? || Kargil Review Committee, 1999, headed by K. Subrahmanyam.
+?? The Defence Planning Committee is headed by whom? || The National Security Adviser.
+?? What does AoN stand for? || Acceptance of Necessity.
+
+#CH army | The Indian Army | PART A · STATIC
+The Army is the biggest of the three services and guards the land borders. **Army Day** is on **15 January**. It marks 1949, when General **K. M. Cariappa** became the first Indian Commander-in-Chief and took over from the last British chief. The 2026 Army Day parade was held at **Jaipur** for the first time.
+
+##Commands
+The Army has seven commands. Each is led by a Lieutenant General, called General Officer Commanding-in-Chief.
+|Command|Headquarters|
+|---|---|
+|Northern Command|Udhampur|
+|Western Command|Chandimandir|
+|Eastern Command|Kolkata (Fort William, renamed Vijay Durg) ⟦2025 Q14⟧|
+|Southern Command|Pune|
+|Central Command|Lucknow|
+|South Western Command|Jaipur|
+|Army Training Command (ARTRAC)|Shimla|
+
+>WARN:Name traps
+In 2025 the examiner asked which name pair was **wrong**. Fort William in Kolkata was renamed **Vijay Durg**. One of its gates, St George's Gate, was renamed **Shivaji Gate**. "Nehru Durg" was the false option. ⟦2025 Q14⟧
+
+##Fighting corps in the north
+|Corps|Nickname|Base|
+|---|---|---|
+|14 Corps|Fire and Fury Corps|Leh. Ladakh, Siachen, Kargil|
+|15 Corps|Chinar Corps|Srinagar|
+|16 Corps|White Knight Corps|Nagrota|
+|17 Corps|Mountain Strike Corps (Brahmastra)|Panagarh, West Bengal. In 2026 five Integrated Battle Groups were set up under it|
+
+##Regiments and arms
+- **Infantry** is the foot soldier. Famous regiments: Madras (the oldest, 1758), Maratha Light Infantry, Rajputana Rifles, Sikh, Dogra, Garhwal Rifles, Kumaon, Gorkha Rifles, Jat, Mahar, Punjab, Assam.
+- **Armoured Corps** (tanks), **Artillery** (guns and rockets), **Engineers**, **Signals**.
+- **Army Aviation Corps:** raised on 1 November 1986. Flies helicopters such as Dhruv (ALH), Rudra and Prachand.
+- **Rashtriya Rifles:** raised in 1990 for counter-insurgency in Jammu and Kashmir.
+- **Territorial Army:** part-time volunteer soldiers with a regular job. Inaugurated on **9 October 1949** by **C. Rajagopalachari**.
+- **Special Forces:** Parachute Regiment (Special Forces). The Navy has MARCOS and the Air Force has Garud.
+
+##Main weapons of the Army
+|Kind|Name|Remember|
+|---|---|---|
+|Main battle tank|Arjun, T-90 Bhishma, T-72 Ajeya|Arjun is the first tank **designed** in India (DRDO's CVRDE, Avadi). Vijayanta (1965) was the first tank **built** in India, on a British design ⟦2018 Q56⟧|
+|Light tank|Zorawar|DRDO with L&T. In September 2026 Tata Advanced Systems was reported L1 in the trials, order about ₹20,000 crore ⟨CHECK⟩|
+|Guns|Dhanush, K9 Vajra, M777, ATAGS, Bofors|Dhanush is made in India (called the "desi Bofors"). K9 Vajra is South Korean design, built by L&T. M777 is a light howitzer from the USA. In 2026 the Army planned about 300 more K9 Vajra and 300 Dhanush guns|
+|Rockets|Pinaka, Smerch|Pinaka is DRDO's multi-barrel rocket launcher, named after Lord Shiva's bow. Pinaka LRGR-120 (120 km) was flight tested in December 2025|
+|Anti-tank missiles|Nag, MPATGM, Javelin, Spike|MPATGM is a man-portable, third-generation, fire-and-forget missile. It was tested against a moving target in January 2026. About 60 Javelins were ordered in 2026 under emergency purchase (₹292 crore) ⟨CHECK⟩|
+|Rifles|AK-203, Ugram|AK-203 is made at Korwa, Amethi, by the Indo-Russian Rifles Pvt Ltd. Ugram, a 7.62 mm rifle by DRDO's ARDE, cleared trials in July 2026|
+|Air defence|Akash, S-400|S-400 is bought from Russia ⟦2021 Q87⟧|
+|Drones|Shaktibaan regiments, Shaurya drone squadrons, Peacekeeper kamikaze drones|See Chapter 21|
+
+##Army news in a line
+- **Army Commanders' Conference 2026** (13 to 16 April) declared 2026 the **Year of Networking and Data Centricity**.
+- **Agnipath** (2022): soldiers called **Agniveers** serve for four years, and up to 25% are kept on for 15 more years.
+- The **Army Sports Institute** is at Pune. The **Mission Olympics** began in 2001. ⟦2018 Q96⟧
+
+>NEXT:Likely next
+?? Where is Eastern Command headquartered, and what is the fort now called? || Kolkata; Fort William is now Vijay Durg.
+?? Which corps is the Brahmastra Corps? || 17 Corps (Mountain Strike Corps), Panagarh.
+?? Who inaugurated the Territorial Army? || C. Rajagopalachari, 9 October 1949.
+?? Which is the first tank built in India? || Vijayanta. The first designed in India is Arjun.
+?? Where is Army Day 2026 held? || Jaipur, for the first time.
+
+#CH navy | The Indian Navy and the Coast Guard | PART A · STATIC
+The Navy guards the sea lanes, India's 7,516 km coastline and the islands. **Navy Day** is on **4 December**. It recalls **Operation Trident** in the 1971 war, when Indian missile boats hit Karachi harbour. The motto is "Sham No Varunah", which means "May the Lord of the Waters be good to us".
+
+In September 2022, with the commissioning of INS Vikrant, the Navy dropped the old British St George's Cross from its flag. The new ensign carries the Navy crest, shaped like the seal of Shivaji Maharaj.
+
+##Commands and bases
+|Command|Headquarters|Remember|
+|---|---|---|
+|Western Naval Command|Mumbai|Admiral Swaminathan led it before becoming Navy chief|
+|Eastern Naval Command|Visakhapatnam|MILAN and the International Fleet Review, February 2026|
+|Southern Naval Command|Kochi|The training command|
+|Andaman and Nicobar Command|Port Blair|Tri-service|
+
+Other bases to know:
+- **INS Kadamba** at Karwar (Karnataka): the big base built under **Project Seabird**.
+- **INS Chilka** on Chilika Lake, Odisha: trains new sailors.
+- **INS Baaz** at Campbell Bay, Great Nicobar.
+- **INS Garuda** at Kochi and **INS Shikra** at Mumbai (helicopters). **Indian Naval Academy**: Ezhimala, Kerala.
+- **Project Varsha:** the planned base for nuclear submarines near Visakhapatnam (Rambilli).
+
+##Aircraft carriers
+|Ship|Remember|
+|---|---|
+|INS Vikramaditya|Bought from Russia. It was the Russian carrier Admiral Gorshkov. Joined in 2013|
+|INS Vikrant (IAC-1)|First carrier **designed and built in India**, at Cochin Shipyard. Commissioned on 2 September 2022|
+|INS Viraat|Old carrier. It was the British HMS Hermes. Left service in 2017|
+
+The Navy's goal for 2035 is a fleet of about 200 warships, three carriers and six nuclear submarines. ⟨CHECK⟩
+
+##Submarines
+- **Kalvari class (Scorpene):** six boats built at Mazagon Dock with France's Naval Group under **Project 75**: Kalvari, Khanderi, Karanj, Vela, Vagir, Vagsheer. The last, Vagsheer, joined on 15 January 2025. Next is **Project 75I**: six more with a German partner, reported at over $8 billion ⟨CHECK⟩. In 2026 the Navy also signed for 48 Black Shark torpedoes from Italy for these boats.
+- **Sindhughosh (Kilo) class:** older Russian boats.
+- **Nuclear-powered missile submarines (SSBN), Arihant class:** **INS Arihant** (2016), **INS Arighaat** (August 2024), **INS Aridhaman** (the third, reported commissioned in 2026 ⟨CHECK date⟩, about 7,000 tonnes, eight launch tubes carrying up to 24 K-15 or 8 K-4 missiles). A fourth, launched on 16 October 2025, is likely to be named **INS Arisudan**.
+- **INS Chakra:** a nuclear attack submarine taken on lease from Russia.
+
+##Warships
+|Class|Project|Ships|
+|---|---|---|
+|Kolkata-class destroyers|P-15A|Kolkata, Kochi, Chennai|
+|Visakhapatnam-class destroyers|P-15B|Visakhapatnam, Mormugao, Imphal, Surat. INS Surat (2025) completed the class|
+|Shivalik-class frigates|P-17|Shivalik, Satpura, Sahyadri|
+|Nilgiri-class frigates|P-17A|Nilgiri, Himgiri, Udaygiri, Taragiri, Dunagiri, Mahendragiri, Vindhyagiri. Named after hills. **INS Mahendragiri** is named after the Mahendragiri hills of **Odisha**. Delivered on 30 April and commissioned at Visakhapatnam on 11 July 2026 ⟦2026⟧|
+|Kamorta-class corvettes|P-28|Kamorta, Kadmatt, Kiltan, Kavaratti|
+|Mahe-class shallow water craft|ASW-SWC|Eight ships: Mahe, Malwan, Mangrol, Malpe, Mulki, Munroe, Makkah, Mandavi. All are named after coastal towns that start with M. Cochin Shipyard builds them. INS Mangrol joined on 12 October 2026|
+
+>CHECK:The ship dates
+The ASW shallow water ships are called Mahe class in some reports and Arnala class in others. Use "Mahe class" in the exam. Dates of delivery and commissioning are given separately in the news, so a question may use either.
+
+##Aircraft and special forces
+- **MH-60R Seahawk:** 24 ordered from the USA under a 2020 agreement worth about $2.6 billion. Reportedly 21 are in service, the last three due by end-2026.
+- **P-8I Neptune:** 12 in service. The DAC cleared **six more** on 12 February 2026 ⟨CHECK⟩.
+- **MiG-29K** fighters fly from the carriers.
+- **MARCOS:** the Navy's marine commandos, raised in 1987.
+- **MQ-9B Sea Guardian:** two leased for 30 months in August 2026 for about ₹1,943 crore.
+
+##The Indian Coast Guard
+- Set up on **1 February 1977** (interim). The **Coast Guard Act** came in **1978**. **Coast Guard Day** is 1 February.
+- It works under the **Ministry of Defence**, not Home Affairs. This is the one force of this kind that does. ⟦favourite false statement⟧
+- Motto: "Vayam Rakshamah", "We protect".
+- Five regions: North West (Gandhinagar), West (Mumbai), East (Chennai), North East (Kolkata), Andaman and Nicobar (Port Blair).
+- **Operation Olivia:** its yearly protection of Olive Ridley turtles on the Odisha coast. ⟦2018, 2025⟧
+- **SAREX:** the National Maritime Search and Rescue Exercise. The 12th was held off **Paradip, Odisha**, on 8 October 2026, with observers from 30 countries.
+- New ships in 2026: Samudra Pratap (pollution control, 5 January), ICGS Achal (9 May), ICGS Ajit (9 October, based at Okha, built at Goa Shipyard).
+
+>NEXT:Likely next
+?? Which was the first aircraft carrier built in India, and where? || INS Vikrant, Cochin Shipyard, 2022.
+?? INS Mahendragiri is named after hills in which State? || Odisha.
+?? Which Navy exercise is with France? || Varuna.
+?? Name the three Arihant-class submarines in order. || Arihant, Arighaat, Aridhaman.
+?? Which force under the Ministry of Defence guards the sea? || Indian Coast Guard.
+?? What was the Navy flag change of 2022? || The St George's Cross was dropped; the new ensign follows the seal of Shivaji.

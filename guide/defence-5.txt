@@ -1,0 +1,169 @@
+#CH tests | Missile and weapon tests, December 2025 to November 2026 | PART B · NEWS
+Almost every big test is held from the **Integrated Test Range at Chandipur** or **Dr A. P. J. Abdul Kalam Island**, both in **Odisha**. This is why the exam, which likes Odisha, has so many chances here.
+
+|Date|Test|What to remember|
+|---|---|---|
+|31 Dec 2025|**Pralay** salvo|Two canisterised missiles fired from Chandipur. About 350 km with a one-tonne warhead, or 500 km with half the load|
+|9 Jan 2026|Scramjet combustor|DRDL ran the full-scale combustor for more than 12 minutes (ground test)|
+|Jan|MPATGM|Man-portable anti-tank missile hit a moving target at KK Ranges, Maharashtra|
+|3 Feb|**SFDR**|Solid Fuel Ducted Ramjet booster test from Chandipur. Needed for a long-range air-to-air missile|
+|Mar|VSHORADS|Three trials of the man-portable air defence missile|
+|Mar|ADC-150|150 kg air-droppable container, from a P-8I off Goa|
+|Dec 2025, Mar 2026|Pinaka LRGR-120 and Pinaka-ER|120 km guided rocket; proof firing of 24 rockets at Pokhran|
+|7 May|TARA|A kit that turns unguided bombs into guided ones. Test by DRDO and the Air Force|
+|8 May|**Agni (MIRV)**|Several warheads from one missile, from Kalam Island. Targets across the Indian Ocean Region|
+|May|NASM-SR|Navy anti-ship missile fired from a helicopter. Two missiles in quick succession ⟨CHECK⟩|
+|22 May|Agni-I|By the Strategic Forces Command from Chandipur ⟨CHECK⟩|
+|2 Jun|**RudraM-II**|Air-to-surface missile. IAF and DRDO|
+|10 and 11 Jun|Multi-layered BMD, NASM-MR|Interceptors hit targets. A medium-range naval anti-ship missile flew for the first time ⟨CHECK⟩|
+|15 Jun|**LRLACM**|Long-Range Land Attack Cruise Missile, Kalam Island. Lead lab: ADE, Bengaluru|
+|23 Jul|**Kusha**|First flight of the long-range surface-to-air missile from Kalam Island|
+|6 Aug|**Agni-4**|From Chandipur, by the Strategic Forces Command. About 4,000 km. Two stage, solid fuel|
+|Sep|Khagantak-243|IAF drop test of a 300 kg-class glide bomb ⟨CHECK⟩|
+|Oct|High-altitude parachute and platform|ADRDE. Jump from 16,000 ft at Nyoma. A platform held 20 km height for 30 minutes|
+|Oct|Nagastra-2|Loitering munition by Solar Defence. Trials done. First batch reached the Army ⟨CHECK⟩|
+|5 Nov|**Pralay**|User trial from Kalam Island. Induction is near|
+|About 12 Nov|AD-1 interceptor|Phase-II ballistic missile defence ⟨CHECK⟩|
+
+>KEY:Pattern to expect
+A question names a missile and asks **where it was tested** (Odisha), **what type it is** or **which lab made it**. Remember: DRDL and RCI Hyderabad (missiles), ADE Bengaluru (cruise missile LRLACM), ADRDE Agra (parachutes), ITR Chandipur (range).
+
+#CH inductions | Ships, aircraft and equipment inducted | PART B · NEWS
+##Navy
+|Date|Ship|What it is|
+|---|---|---|
+|5 Jan|Samudra Pratap|Coast Guard pollution control vessel, 114.5 m|
+|27 Feb|INS Anjadip|Third of eight anti-submarine shallow water craft. Commissioned at Chennai|
+|31 Mar|INS Malwan (second of the class)|Delivered by Cochin Shipyard. Commissioned 22 July|
+|30 Apr|INS Mahendragiri|6th Nilgiri-class (P-17A) stealth frigate. Built at Mazagon Dock. Over 75% indigenous. **Commissioned 11 July at Visakhapatnam**|
+|April|**INS Aridhaman**|Third nuclear ballistic missile submarine. About 7,000 tonnes. Reported commissioned in 2026 ⟨CHECK date⟩|
+|9 May|ICGS Achal|Coast Guard fast patrol vessel, Goa Shipyard|
+|21 June|INS Dunagiri, INS Sanshodhak, INS Agray|Commissioned at Kolkata, all built at GRSE. Dunagiri is the 5th P-17A frigate and carries BrahMos. Sanshodhak is a large survey vessel. Agray is an ASW shallow water craft|
+|18 June|First Air Cushion Vehicle for the Coast Guard|Built by Chowgule, Goa ⟨CHECK⟩|
+|21 Aug and 12 Oct|**INS Mangrol**|Third Mahe-class craft. Delivered 21 August, commissioned 12 October|
+|27 Aug and 16 Oct|**INS Samarthak**|First multi-purpose vessel, built by L&T Kattupalli. Commissioned on 16 October by Vice President C. P. Radhakrishnan|
+|31 Aug|**INS Nipun**|Second Nistar-class diving support vessel, built at Hindustan Shipyard. Commissioned at Mumbai|
+|6 Oct|**INS Surya (FSS-1)**|India's first home-built **Fleet Support Ship**. Launched at Hindustan Shipyard, Visakhapatnam. Over 82% indigenous|
+|9 Oct|**ICGS Ajit**|Fast patrol vessel, built at Goa Shipyard. Based at Okha|
+|Nov|Eight **Next Generation Corvettes**|Contracts went to GRSE and Goa Shipyard|
+|2025|INS Nilgiri, INS Surat, INS Vaghsheer|Commissioned together by the Prime Minister at Mumbai on 15 January 2025: a frigate, a destroyer and a submarine|
+|2025|INS Arighaat (August 2024), S4*|The second Arihant-class submarine, and the fourth, launched 16 October 2025|
+
+The Navy planned to commission about **18 or 19 warships in 2026**, the most in one year.
+
+##Air Force and Army equipment
+- **MiG-21** retired in September 2025.
+- **Tejas:** 25 years since first flight (4 January 2026). In September 2026 HAL handed over two Tejas twin-seater trainers and three HTT-40 trainers.
+- **MH-60R** helicopters: 21 of 24 in service, the last three expected by end-2026.
+- **Mountain radars, NETRA:** the Netra early-warning aircraft got its Final Operational Clearance in June 2026 ⟨CHECK⟩.
+- **Army drones:** 106 Peacekeeper (Agniveg) kamikaze drones delivered ⟨CHECK⟩.
+- **Rafale:** first-line fleet of 36, with 114 more planned (Chapter 13).
+
+##Projects to know
+|Project|What|
+|---|---|
+|P-75 (Scorpene)|Six boats. Finished with Vagsheer in 2025|
+|P-75I|Six more with a German partner. Reported over $8 billion. Not signed ⟨CHECK⟩|
+|P-17A|Seven frigates, all named after hills|
+|P-15B|Four destroyers. Surat was the last|
+|AMCA|Fifth-generation fighter. Prototype 2028 to 2029 ⟨CHECK⟩|
+|Zorawar|Light tank, about 25 tonnes|
+|Project Kusha|Long-range surface-to-air missiles, 2028 to 2030 induction ⟨CHECK⟩|
+
+>NEXT:Likely next
+?? Which was the first indigenous Fleet Support Ship? || INS Surya (FSS-1).
+?? Which nuclear submarine is the third of its class? || INS Aridhaman.
+?? Where was INS Mahendragiri commissioned? || Visakhapatnam, 11 July 2026.
+?? Which ship was built by L&T and is a multi-purpose vessel? || INS Samarthak.
+?? Where is ICGS Ajit based? || Okha, Gujarat.
+
+#CH reforms | Reforms: theatre commands, new Army shape and drones | PART B · NEWS
+##Integrated theatre commands
+A **theatre command** puts soldiers, ships and planes of a region under one commander. India has none yet, apart from the tri-service Andaman and Nicobar Command and the Strategic Forces Command.
+- In **April 2026** three sets of proposals went to the Defence Ministry. The plan reported: a **Northern** command for China, a **Western** command for Pakistan and a **Maritime** command for the Indian Ocean. The Air Force was reported to lead the Western theatre.
+- In July 2026 the CDS was to ask the Defence Minister to approve the plan. It also needs the Cabinet Committee on Security.
+- In August 2026 the Government told Parliament the report was "under consideration". **No theatre command has been notified as of November 2026.** ⟨CHECK⟩
+
+##The Army's new shape (from 1 July 2026)
+|New unit|Meaning|
+|---|---|
+|**Integrated Battle Groups (IBGs)**|All-arms groups (infantry, armour, artillery, engineers) of more than 5,000 soldiers. Five IBGs and one Fire Support Group were put under 17 Mountain Strike Corps at Panagarh|
+|**Rudra brigades**|All-arms brigades|
+|**Bhairav battalions**|Light commando battalions. Appeared on Republic Day 2026. One took part in Mountain Guardian|
+|**Shaktibaan regiments**|Drone and unmanned units. 15 to 20 planned. Drones of 5 km to 500 km range. Loitering munition tender of about ₹2,000 crore|
+|**Divyastra batteries**|Precision-strike units|
+|**Shaurya drone squadrons**|Six squadrons placed in tank regiments|
+|**Counter-drone grid**|A joint grid to counter enemy drones|
+
+The Army chief's theme for 2026 is "Networking and Data Centricity".
+
+##Drones and new technology
+- **Loitering munitions:** Nagastra (Solar Defence), Vijayastra (Solar, announced February 2026), Sky Striker, Harop.
+- **Directed energy:** a private firm gave the Army a compact 2 kW laser weapon on an unmanned ground vehicle ⟨CHECK⟩.
+- **Quantum:** Military Quantum Mission policy (January 2026). QpiAI's 64-qubit "Kaveri" processor ⟨CHECK⟩.
+- **Counter-terror:** the PRAHAAR policy (February 2026).
+
+>NEXT:Likely next
+?? What are IBGs? || Integrated Battle Groups: all-arms groups of over 5,000 soldiers, set up from 1 July 2026.
+?? Which corps got five IBGs? || 17 Mountain Strike Corps, Panagarh.
+?? Has India notified theatre commands? || Not as of November 2026. The plan is with the Ministry and the CCS.
+?? What are Shaktibaan regiments? || Drone and unmanned units of the Army.
+?? What is PRAHAAR? || The National Counter-Terrorism Policy and Strategy (February 2026).
+
+#CH worldnews | World defence news and Odisha links | PART B · NEWS
+##Odisha and defence
+Odisha is the testing ground of India's missiles. Learn the list.
+|Place or item|Fact|
+|---|---|
+|Integrated Test Range, Chandipur|Balasore district. DRDO's main missile range|
+|Dr A. P. J. Abdul Kalam Island|Bhadrak district. Used to be called Wheeler Island|
+|Pralay, Agni-4, Kusha, LRLACM, TARA|All tested from Odisha in 2025 and 2026|
+|INS Chilka|Naval training base on Chilika Lake|
+|INS Mahendragiri|Named after the hills of Gajapati district, Odisha|
+|SAREX-2026|Off Paradip, 8 October 2026|
+|Operation Olivia|Coast Guard, Olive Ridley turtles, Odisha coast ⟦2018, 2025⟧|
+|HAL Koraput (Sunabeda)|Makes MiG aero-engine parts|
+|Paradip|Coast Guard base and major port|
+
+##Events around the world that touched India
+- **Iran war and the Hormuz crisis (2026):** The Strait of Hormuz is about 33 km wide at its narrowest. Over 21 million barrels of oil a day pass through it, and India imports about 85% of its crude. The Indian Navy's **Operation Urja Suraksha** protected tankers. Brent oil crossed $100 ⟨CHECK⟩.
+- **Pakistan–Saudi Strategic Mutual Defence Agreement** (September 2025). A joint pact with Türkiye was reported in 2026 ⟨CHECK⟩.
+- **BRICS Summit:** the 18th, in New Delhi on 12 and 13 September 2026 ⟨CHECK⟩.
+- **BIMSTEC Home Ministers' Meeting:** the first, in New Delhi on 13 October 2026.
+- **Golden Dome (USA)** and the **Iron Dome (Israel)** air defence ⟦2025 Q9⟧.
+- **NATO** has 32 members. The **US** renamed its department of defence the "Department of War" in September 2025 ⟨CHECK⟩.
+
+>NEXT:Likely next
+?? Where is the missile test range of Odisha? || Chandipur (Balasore), and Dr A. P. J. Abdul Kalam Island (Bhadrak).
+?? What was Kalam Island called earlier? || Wheeler Island.
+?? Which Navy ship is named after Odisha hills? || INS Mahendragiri.
+?? Where was SAREX-2026 held? || Off Paradip, Odisha.
+?? How many members does NATO have? || 32.
+
+#CH rev | One-page revision and CHECK list | LAST WEEK
+##Ten lists to know by heart
+- **Chiefs:** CDS Raja Subramani (3rd, 31 May), Navy Swaminathan (31 May), Army Seth (30 Jun), Air Dixit (31 Oct).
+- **Commands:** Army (Udhampur, Chandimandir, Kolkata, Pune, Lucknow, Jaipur, Shimla). Navy (Mumbai, Visakhapatnam, Kochi). Air (Delhi, Prayagraj, Shillong, Thiruvananthapuram, Gandhinagar, Bengaluru, Nagpur).
+- **Raising years:** Assam Rifles 1835, CRPF 1939, ITBP 1962, SSB 1963, BSF 1965, CISF 1969, NSG 1984, NDRF 2006.
+- **Days:** Army 15 Jan, Coast Guard 1 Feb, Air Force 8 Oct, Navy 4 Dec, Flag Day 7 Dec, Kargil 26 Jul, Vijay Diwas 16 Dec.
+- **Wars:** 1947, 1962, 1965, 1971, 1999. Operations: Polo 1948, Vijay (Goa) 1961, Meghdoot 1984, Pawan 1987, Cactus 1988, Vijay (Kargil) 1999, Sindoor 2025.
+- **Missiles:** Prithvi 150 to 350, Agni-I 700 to 1,200, Agni-IV 4,000, Agni-V 5,000+, Pralay 150 to 500, K-15 750, K-4 3,500, BrahMos supersonic.
+- **Nuclear:** 1974 Smiling Buddha, 1998 Shakti, doctrine 2003, SFC 2003.
+- **Ships:** Vikrant (Cochin 2022), Vikramaditya (Russia 2013), Arihant, Arighaat, Aridhaman, P-17A seven hill names.
+- **Exercises 2026:** KHANJAR (Assam), Dharma Guardian (Uttarakhand), Yudh Abhyas (Auli and Mahajan), INDRA (Vladivostok), AUSTRAHIND (Kerala), SAREX (Paradip), Malabar (Japan).
+- **Numbers:** budget ₹7.85 lakh crore, exports ₹38,424 crore, production ₹1.78 lakh crore, FDI 74%.
+
+##Every CHECK in one place
+Re-check these before the exam:
+- Date of INS Aridhaman's commissioning.
+- Whether any theatre command has been notified.
+- Whether the 114 Rafale contract was signed.
+- The AoN value of the 26 October DAC meeting (one source).
+- The Vice Chief of the Air Staff (two names reported).
+- The Ashoka Chakra for Group Captain Shubhanshu Shukla.
+- Place and date of DUSTLIK 2026 and the Tiger Triumph 2026 format.
+- The planned date of Aero India 2027.
+- Names of DGs (BSF, ITBP, Coast Guard) and the DRDO Chairman.
+
+##Sources
+This guide was put together on 17 November 2026 from the Ministry of Defence and PIB statements as reported by the press, the Indian Army and US Army exercise notices, monthly defence digests for January to October 2026, SIPRI, the Union Budget 2026–27 reports, and the past ASO papers of 2018, 2021 and 2025.
