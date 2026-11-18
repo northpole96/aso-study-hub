@@ -387,7 +387,7 @@
         tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
         tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
         tool("inkhd", "eye", "Hide", "Hide or show the ink") +
-        tool("inkcl", "trash", "Clear", "Erase every drawing on this page") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (Undo brings it back)") +
       "</div>" +
     "</div>";
   var $ = function (id) { return bar.querySelector("#" + id); };
