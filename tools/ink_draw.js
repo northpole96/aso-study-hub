@@ -302,6 +302,8 @@
     try { input.setPointerCapture(e.pointerId); } catch (x) {}
     activePointer = e.pointerId;
     var isPen = e.pointerType === "pen";
+    // Shift held: the pen drags the page like a hand tool instead of drawing.
+    if (e.shiftKey) { panning = { y: e.clientY, x: e.clientX }; lastTap = null; input.style.cursor = "grabbing"; return; }
     // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
     erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
     if (erasing) { erased = []; eraseAt(e); return; }
@@ -316,6 +318,13 @@
   function onMove(e) {
     if (e.pointerId !== activePointer) return;
     if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
+    if (panning) {
+      // The page follows the pen: drag up to read further down.
+      // "instant": the page has scroll-behavior:smooth, which would make the drag lag.
+      window.scrollBy({ left: panning.x - e.clientX, top: panning.y - e.clientY, behavior: "instant" });
+      panning.x = e.clientX; panning.y = e.clientY;
+      return;
+    }
     if (erasing) { eraseAt(e); return; }
     if (!current) return;
     var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
@@ -326,6 +335,10 @@
   // distance limit, so taps are detected here with a looser one.
   var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
   var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  var panning = null, shiftDown = false;
+  function setCursor() {
+    input.style.cursor = !state.on ? "" : panning ? "grabbing" : shiftDown ? "grab" : state.eraser ? "cell" : "crosshair";
+  }
   // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
   // (or forgets the last one if this was a real stroke).
   function isDoubleTap(s, e) {
@@ -342,6 +355,7 @@
 
   function endStroke(e) {
     activePointer = null;
+    if (panning) { panning = null; setCursor(); return; }
     if (erasing) {
       erasing = false; lastTap = null;
       if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
@@ -404,7 +418,7 @@
     }).join("");
   }
   bar.innerHTML =
-    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D)">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D). Hold Shift and drag to scroll.">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
     '<div class="ipanel" id="inkpanel">' +
       '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
       '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
@@ -433,7 +447,7 @@
     });
     input.style.pointerEvents = state.on ? "auto" : "none";
     input.style.touchAction = state.touchDraws ? "none" : "pan-y";
-    input.style.cursor = state.on ? (state.eraser ? "cell" : "crosshair") : "";
+    setCursor();
   }
   bar.addEventListener("click", function (e) {
     var b = e.target.closest("button"); if (!b) return;
@@ -447,6 +461,10 @@
     else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
     sync();
   });
+  // Hold Shift to scroll by dragging: the cursor turns into a hand while Shift is down.
+  function onShift(e) { if (e.key === "Shift") { shiftDown = e.type === "keydown"; if (!panning) setCursor(); } }
+  window.addEventListener("keydown", onShift);
+  window.addEventListener("keyup", onShift);
   window.addEventListener("keydown", function (e) {
     if (e.metaKey || e.ctrlKey || e.altKey) {
       if ((e.key === "z" || e.key === "Z") && state.on && !e.shiftKey) { e.preventDefault(); doUndo(); }
@@ -472,7 +490,7 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   var sT = false;
   window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
-  window.addEventListener("blur", function () { if (activePointer !== null) endStroke(); });
+  window.addEventListener("blur", function () { shiftDown = false; if (activePointer !== null) endStroke(); setCursor(); });
   input.addEventListener("pointerdown", onDown);
   // Moves and releases are heard on the whole window: pointer capture can be lost just before the
   // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
