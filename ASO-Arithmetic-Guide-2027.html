@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO Arithmetic Guide 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference manual. A fixed contents column on the left (wide screens), and a single
+   reading column of ~760px where prose, tables and grid-paper FIG boxes of blue line art alternate. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b; --warn-soft:#fdf1e8;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  --side:272px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18.5px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+strong,b{font-weight:600}
+p{margin:12px 0}
+ul,ol{padding-left:1.25em;margin:12px 0}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+
+/* ---------- side contents ---------- */
+.bar{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:30;background:var(--bg);border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 0 calc(14px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+.bar-in{display:flex;flex-direction:column;gap:12px;padding:0 20px 14px;border-bottom:1px dotted var(--muted)}
+.bar-in b{font-family:var(--f-pixel);color:var(--blue);font-size:15px;line-height:1.25;font-weight:400;order:-1}
+#navbtn{display:none}
+.btn{border:1px solid var(--rule);background:var(--paper);padding:3px 9px;cursor:pointer;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-radius:2px}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;gap:3px}
+#nav{overflow-y:auto;flex:1;padding:10px 0}
+#nav a{display:flex;gap:10px;align-items:baseline;padding:4px 20px;text-decoration:none;font-size:15.5px;line-height:1.35;color:var(--fg)}
+#nav a .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2.2em}
+#nav a:hover{color:var(--blue)}
+#nav a.on{color:var(--blue)}
+#nav a.on .n{color:var(--blue)}
+.chap{flex-shrink:0;margin:12px 20px 4px;padding-top:12px;border-top:1px dotted var(--muted)}
+.chap-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chap-n{font-size:15px;line-height:20px;height:20px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chap-bar{height:6px;border:1px solid var(--blue);background:var(--paper)}
+.chap-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .15s}
+.chap-m{display:flex;justify-content:space-between;gap:8px;margin-top:6px;height:14px;line-height:14px;white-space:nowrap;overflow:hidden;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.chap-m b{color:var(--blue);font-weight:400}
+@media (max-width:1099px){
+  .chap{margin:0;padding:6px max(16px, env(safe-area-inset-right,0px)) 6px max(16px, env(safe-area-inset-left,0px));border-top:1px dotted var(--muted);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+  .chap-k{display:none}
+  .chap-n{margin:0;font-size:13px}
+  .chap-bar{grid-column:1/-1;order:3;height:4px}
+  .chap-m{margin:0}
+  .chap-m #chapPct{display:none}
+}
+.prog{position:relative;flex-shrink:0;margin:26px 20px 4px;height:6px;border:1px solid var(--fg);background:var(--paper)}
+.prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.prog::before{content:"CHAPTERS STUDIED";position:absolute;left:-1px;bottom:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+main{margin-left:var(--side);padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 110px}
+.col{max-width:800px;margin:0 auto}
+
+@media (max-width:1099px){
+  .bar{position:sticky;top:env(safe-area-inset-top,0px);inset:auto;width:auto;border-right:0;border-bottom:1px solid var(--rule);padding:8px 0 0;display:block}
+  .bar-in{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px;padding:0 max(16px, env(safe-area-inset-right,0px)) 8px max(16px, env(safe-area-inset-left,0px));border-bottom:0}
+  .bar-in b{order:0;font-size:12px;flex:1}
+  #navbtn{display:inline-block;order:-1}
+  #nav{display:none;max-height:70vh;border-top:1px dotted var(--muted)}
+  #nav.open{display:block}
+  .prog{margin:0;border-width:1px 0 0;height:3px}
+  .prog::before{display:none}
+  main{margin-left:0}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}
+}
+
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:20px 40px;align-items:end}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2rem,5vw,3.6rem);line-height:1.02}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:760px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 6px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:28px 40px;align-items:start;padding-block:24px 8px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .fig{max-width:420px}}
+.dropcap::first-letter{float:left;font-size:4em;line-height:.82;padding:6px 8px 0 0}
+.count{display:inline-block;margin-top:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px}
+
+/* contents */
+.toc{padding-block:48px 8px}
+.tochead{display:flex;align-items:center;gap:14px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:28px 0 0;padding:0}
+.toclist li{display:flex;align-items:baseline;gap:8px;padding:3px 0;margin:0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-transform:uppercase}
+@media (max-width:520px){.toclist .c{display:none}}
+
+/* ---------- chapters ---------- */
+section{padding-block:76px 8px;scroll-margin-top:12px}
+@media (max-width:1099px){section{scroll-margin-top:64px}}
+.sectrule{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sectrule .line{flex:1;height:1px;background:var(--fg);min-width:30px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.done{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.done input{accent-color:var(--blue);width:14px;height:14px;margin:0}
+section>h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:12px 0 18px}
+section>h2+p::first-letter{float:left;font-size:3.5em;line-height:.82;padding:6px 8px 0 0}
+section h3{font-size:1.45rem;margin:46px 0 8px;display:flex;gap:12px;align-items:baseline}
+section h3 .h3n{font-family:var(--f-mono);font-size:12px;color:var(--blue);letter-spacing:.06em;min-width:2.6em}
+
+.pyq{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* boxes */
+.box{margin:26px 0;padding:14px 18px;background:var(--paper);border:1px solid var(--rule)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box-t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.box ul{list-style:none;padding:0}
+.box li{padding-left:16px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;background:var(--fg)}
+.box.asked{background:transparent;border:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding:12px 0}
+.box.asked li{font-size:.98rem}
+.box.tip,.box.key{border:1px dashed var(--blue)}
+.box.tip .box-t,.box.key .box-t{color:var(--blue)}
+.box.key{background:var(--blue-soft)}
+.box.warn{border:1px dashed var(--warn);background:var(--warn-soft)}
+.box.warn .box-t{color:var(--warn)}
+.box.check{border:1px dotted var(--warn)}
+.box.check .box-t{color:var(--warn)}
+.box.fix{border:1px solid var(--rule);border-left:3px solid var(--blue)}
+.box.next{border:1px solid var(--fg);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.box.next .box-t{color:var(--fg)}
+.qas{counter-reset:q;border-top:1px solid var(--rule)}
+details.qa{border-bottom:1px dotted var(--muted);counter-increment:q}
+details.qa summary{list-style:none;cursor:pointer;padding:8px 30px 8px 38px;position:relative;font-size:1rem;line-height:1.45}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::before{content:"Q" counter(q,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+details.qa summary::after{content:"+";position:absolute;right:4px;top:6px;font-family:var(--f-mono);color:var(--blue);font-size:16px}
+details.qa[open] summary::after{content:"−"}
+details.qa summary:hover{color:var(--blue)}
+details.qa p{margin:0 0 10px 38px;padding:6px 12px;background:var(--blue);color:var(--on-blue);font-size:.98rem}
+
+/* tables */
+.tw{overflow-x:auto;margin:16px 0}
+table.t{width:100%;border-collapse:collapse;font-size:16.5px;line-height:1.5;margin:0}
+.t th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--fg);border-top:1px solid var(--fg)}
+.t td{padding:8px 12px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;text-align:left}
+.t td:first-child{font-weight:600}
+@media (max-width:640px){
+  table.t,.t tbody,.t tr,.t td{display:block;width:100%}
+  .t thead{display:none}
+  .t tr{border-top:1px solid var(--fg);padding:8px 0}
+  .t td{border:0;padding:2px 0}
+  .t td:not(:first-child)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+}
+
+/* figures */
+.figwrap{margin:30px 0 26px}
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible}
+.fl,.fr,.fy{position:absolute;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1}
+.fl,.fr{writing-mode:vertical-rl}
+.fl{left:10px;top:12px;transform:rotate(180deg)}
+.fr{right:10px;top:12px}
+.fy{right:12px;bottom:9px}
+.figcap{font-size:.95rem;font-style:italic;color:var(--muted);margin:8px 0 0}
+.figcap b{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--blue);font-weight:400;margin-right:6px}
+@media (max-width:560px){.fig{padding:26px 22px}.fl,.fr,.fy{font-size:8.5px}.fl{left:6px}.fr{right:6px}.fy{right:8px;bottom:6px}}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .grid{fill:none;stroke:var(--rule);stroke-width:1}
+.fig svg .hz{stroke:var(--blue);stroke-width:1.2}
+.fig svg .hl{stroke:var(--blue);stroke-width:.9}
+.fig svg .hd{fill:var(--blue)}
+.fig svg text{font-family:var(--f-mono);letter-spacing:.05em}
+.fig svg .lb{font-size:11px;fill:var(--blue)}
+.fig svg .lbm{font-size:11px;fill:var(--muted)}
+.fig svg .lbs{font-size:9.5px;fill:var(--muted)}
+.fig svg .ttl{font-size:10px;fill:var(--muted);letter-spacing:.1em}
+.fig svg .lbrv{font-size:11px;fill:var(--on-blue)}
+.fig svg .lbsrv{font-size:9.5px;fill:var(--on-blue)}
+.fig svg .big{font-family:var(--f-pixel);font-size:22px;fill:var(--blue)}
+.fig svg .bigrv{font-family:var(--f-pixel);font-size:19px;fill:var(--on-blue)}
+
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--fg);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+footer p{margin:0}
+#up{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;border-color:var(--blue);color:var(--blue);padding:6px 10px}
+
+.chk{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--warn);border:1px dotted var(--warn);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;background:var(--warn-soft)}
+.chkn{font-style:italic;font-size:.85em;color:var(--warn)}
+.box.next .qas{margin-top:8px}
+.box.next details.qa p{background:var(--blue)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
+.hubbtn{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;text-decoration:none}
+.navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
+
+/* ---------- pen-tablet drawing mode (tools/ink_draw.js) ---------- */
+#inkl{position:absolute;left:0;top:0;width:0;height:0;z-index:25;pointer-events:none;mix-blend-mode:multiply}
+.inkt{position:absolute;left:0;pointer-events:none}
+#inki{position:fixed;inset:0;z-index:26;pointer-events:none}
+body.drawing main{-webkit-user-select:none;user-select:none}
+
+/* the rail, snapped to the right edge */
+#ink{position:fixed;z-index:40;right:env(safe-area-inset-right,0px);top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);color:var(--muted)}
+#ink button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#ink svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.igrid{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+
+/* closed: a slim tab with a vertical label, like the FIG_ labels */
+#ink .itab{display:flex;flex-direction:column;align-items:center;gap:10px;width:34px;padding:12px 0 14px;
+  border:1px dashed var(--blue);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+#ink .itab:hover{background-color:var(--blue-soft)}
+.iv{writing-mode:vertical-rl;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+#ink.open .itab{display:none}
+
+/* open: the tool panel */
+.ipanel{display:none;width:62px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+  border:1px solid var(--fg);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.ipanel::-webkit-scrollbar{display:none}
+#ink.open .ipanel{display:block}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:7px 6px 6px 9px;background:var(--fg)}
+.ihead .ik{color:#fff;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:0}
+#ink .ix svg{stroke:#fff;width:14px;height:14px}
+#ink .ix{padding:2px}
+.ig{padding:8px 0 9px;border-top:1px dotted var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ihead + .ig{border-top:0}
+.ik{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.isws{display:flex;flex-direction:column;align-items:center;gap:7px}
+#ink .isw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--rule)}
+#ink .isw.hi{width:30px;height:11px;border-radius:0;opacity:.8}
+#ink .isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.itools{gap:2px}
+#ink .itool{display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;padding:6px 0 5px;border:1px solid transparent}
+#ink .itool:hover{border-color:var(--rule);background:var(--paper)}
+#ink .itool[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.il{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-height:520px){.ig{padding:5px 0 6px;gap:4px}.isws{gap:5px}#ink .itool{padding:4px 0 3px}}
+@media print{#ink,#inkl,#inki{display:none}}
+</style></head><body>
+<div class="bar"><div class="bar-in"><button class="btn" id="navbtn" aria-expanded="false" aria-controls="nav">Contents</button><b>ASO 2027 · ARITHMETIC GUIDE</b></div>
+<nav id="nav"><a href="#start"><span class="n">00</span>Start here</a><div class="navg">Speed Family</div><a href="#speed-basics"><span class="n">01</span>Speed, time and distance: the one formula</a><a href="#speed-relative"><span class="n">02</span>Meeting and chasing: relative speed</a><a href="#trains"><span class="n">03</span>Trains: poles, platforms and other trains</a><a href="#races"><span class="n">04</span>Races and circular tracks</a><a href="#boats"><span class="n">05</span>Boats and streams</a><a href="#speed-sheet"><span class="n">06</span>One-page sheet and traps</a></nav>
+<div class="chap" id="chap"><div class="chap-k">Now reading</div><div class="chap-n" id="chapN">Start here</div><div class="chap-bar"><i id="chapBar"></i></div><div class="chap-m"><span><b id="chapPct">0%</b></span><span id="chapMin"></span></div></div></div>
+<main><div class="col">
+<header class="mast"><h1>Arithmetic Guide</h1><p class="tag">Paper II (B) Mathematics,<br><b>one family at a time</b>, set to<br>the 2018, 2021 and 2025 papers.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="stats"><span class="count">6 chapters</span><span class="count">about 2,900 words</span><span class="count">every type, every trap</span></div>
+<div class="toc"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>6</span> chapters</span></div><ol class="toclist"><li><span class="n">00.</span><a href="#start">Start here</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">01.</span><a href="#speed-basics">Speed, time and distance: the one formula</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">02.</span><a href="#speed-relative">Meeting and chasing: relative speed</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">03.</span><a href="#trains">Trains: poles, platforms and other trains</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">04.</span><a href="#races">Races and circular tracks</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">05.</span><a href="#boats">Boats and streams</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">06.</span><a href="#speed-sheet">One-page sheet and traps</a><span class="dots"></span><span class="c">3 min</span></li></ol></div>
+<section id="start"><div class="sectrule"><span class="eyebrow">Chapter <b>00</b> · READ FIRST · 3 minutes</span><span class="line"></span></div><h2>Start here</h2><p>The maths half of Paper II is 50 questions. Arithmetic is the biggest part of it: 15 questions in 2018, 17 in 2021 and <strong>44 in 2025</strong>, when the paper switched to the R. S. Aggarwal style of word problems. This guide takes arithmetic <strong>one family at a time</strong>. Each family gets a few short chapters that explain every type, show worked examples, and point out the traps the options set. After each family you take its practice set on the hub, press Copy answers, and paste the report into the chat for a redo set.</p><h3><span class="h3n">0.1</span>The order we are following</h3><p>The families are taken in the order of their weight in 2025, the paper that matters most for 2027.</p><div class="tw"><table class="t"><thead><tr><th>#</th><th>Family</th><th>2025 questions</th><th>Status</th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="Family">Time and work, pipes</td><td data-l="2025 questions">8</td><td data-l="Status">done (practice set: Time and Work · 14 types)</td></tr><tr><td data-l="#">2</td><td data-l="Family">Speed, trains, races, boats</td><td data-l="2025 questions">6</td><td data-l="Status">this guide, chapters 1 to 6</td></tr><tr><td data-l="#">3</td><td data-l="Family">Number system: HCF, LCM, divisibility, remainders, squares</td><td data-l="2025 questions">8 to 11</td><td data-l="Status">next</td></tr><tr><td data-l="#">4</td><td data-l="Family">Percentage, profit and loss, interest</td><td data-l="2025 questions">10</td><td data-l="Status">later</td></tr><tr><td data-l="#">5</td><td data-l="Family">Indices and surds</td><td data-l="2025 questions">5</td><td data-l="Status">later</td></tr><tr><td data-l="#">6</td><td data-l="Family">Ages, partnership, average, clocks, mixtures</td><td data-l="2025 questions">about 8</td><td data-l="Status">later</td></tr></tbody></table></div><aside class="box key"><p class="box-t">How to use each family</p><ul><li>Read its chapters once, slowly, with rough paper. Do every worked example yourself before you read the working.</li><li>Then take the practice set on the hub. The questions are mixed, so you have to spot the type.</li><li>Paste the Copy answers report into the chat. The next set brings back what you missed.</li><li>Move on when the family scores 80% or more.</li></ul></aside><aside class="box tip"><p class="box-t">Draw on the page</p><p>This guide has the pen mode of the History guide. Press D (or tap the DRAW tab on the right) and work the examples straight on the page. Hold Shift and drag to scroll.</p></aside></section>
+<section id="speed-basics"><div class="sectrule"><span class="eyebrow">Chapter <b>01</b> · SPEED FAMILY · 2025 Q54, Q64</span><span class="line"></span></div><h2>Speed, time and distance: the one formula</h2><p>Every question in this family grows from one line: <strong>distance = speed × time</strong>. If you know two of the three, you can find the third. Speed = distance ÷ time, and time = distance ÷ speed. The examiner never changes this rule; he only hides it under trains, races and boats.</p><p>In 2025 the family took <strong>6 of the 50</strong> maths questions: Robert on his cycle <span class="pyq">2025 Q54</span>, a train passing a man <span class="pyq">2025 Q59</span>, a race "by 28 metres in 7 seconds" <span class="pyq">2025 Q60</span>, a car going 10 km/h faster <span class="pyq">2025 Q64</span>, a 100 m race with a head start <span class="pyq">2025 Q65</span> and another train passing a man <span class="pyq">2025 Q82</span>.</p><h3><span class="h3n">1.1</span>Units: km/h and metres per second</h3><p>Most mistakes in this family are unit mistakes. A train question gives lengths in metres and times in seconds, but speeds in km/h. Change them before you do anything else.</p><p>One km is 1,000 m and one hour is 3,600 seconds, so 1 km/h = 1000/3600 = <strong>5/18 m/s</strong>. To go back, multiply by <strong>18/5</strong>.</p><div class="tw"><table class="t"><thead><tr><th>Change</th><th>Multiply by</th><th>Example</th></tr></thead><tbody><tr><td data-l="Change">km/h → m/s</td><td data-l="Multiply by">5/18</td><td data-l="Example">90 km/h × 5/18 = 25 m/s</td></tr><tr><td data-l="Change">m/s → km/h</td><td data-l="Multiply by">18/5</td><td data-l="Example">20 m/s × 18/5 = 72 km/h</td></tr></tbody></table></div><aside class="box tip"><p class="box-t">Learn these four by heart</p><p>18 km/h = 5 m/s · 36 km/h = 10 m/s · 54 km/h = 15 m/s · 72 km/h = 20 m/s. Every multiple of 18 turns into a whole number of metres per second, which is why examiners love 54 and 72.</p></aside><h3><span class="h3n">1.2</span>Speed and time go opposite ways</h3><p>For a <strong>fixed distance</strong>, if the speed goes up, the time goes down in the same ratio. If you go at 3/4 of your usual speed, you take 4/3 of your usual time. This one idea solves the "late" questions.</p><p>Example: walking at 3/4 of his usual speed, a man is 20 minutes late. The new time is 4/3 of the usual, so the extra time is 4/3 − 1 = <strong>1/3 of the usual time</strong>. That 1/3 is 20 minutes, so the usual time is 60 minutes.</p><h3><span class="h3n">1.3</span>Late at one speed, early at another</h3><p>The question gives two speeds and says he is late by one amount and early by another. The two times differ by <strong>late + early</strong> (the right time sits between them). If he is late both times, they differ by the difference.</p><p>Example: at 4 km/h a boy is 10 minutes late; at 5 km/h he is 5 minutes early. The times differ by 15 minutes = 1/4 hour. So d/4 − d/5 = 1/4, which is d/20 = 1/4, and <strong>d = 5 km</strong>.</p><p>Shortcut: distance = (product of speeds ÷ difference of speeds) × time difference = (20 ÷ 1) × 1/4 = 5 km.</p><p>The real 2025 question was this type with clock times. Robert reaches at 2 p.m. at 10 km/h and at 12 noon at 15 km/h; at what speed will he reach at 1 p.m.? <span class="pyq">2025 Q54</span> The times differ by 2 hours: d/10 − d/15 = 2, so d/30 = 2 and d = 60 km. At 10 km/h he rides 6 hours, so he starts at 8 a.m. To arrive at 1 p.m. he has 5 hours: 60 ÷ 5 = <strong>12 km/h</strong>. Note that the answer is not 12.5, the plain average of 10 and 15.</p><h3><span class="h3n">1.4</span>Faster by a few km/h, so hours less</h3><p>The 2025 car question: a car covers 715 km; at 10 km/h more it would take 2 hours less. Find the speed. <span class="pyq">2025 Q64</span> This makes a quadratic: 715/v − 715/(v + 10) = 2. Do not solve it. <strong>Try the options.</strong> 715 ÷ 55 = 13 hours and 715 ÷ 65 = 11 hours, a difference of exactly 2. So the speed is <strong>55 km/h</strong>.</p><aside class="box warn"><p class="box-t">Try the options</p><p>In speed questions with a quadratic inside, checking each option is faster than algebra. Start with an option that divides the distance exactly.</p></aside><h3><span class="h3n">1.5</span>Average speed</h3><p>Average speed is <strong>total distance ÷ total time</strong>. It is almost never the plain average of the speeds.</p><div class="figwrap"><figure class="fig"><span class="fl">FIG_001</span><span class="fr">[ AVERAGE SPEED ]</span><svg viewBox="0 0 520 170" role="img" aria-label="Why average speed is below the plain average: more time at the slow speed"><text class="ttl" x="10" y="18">120 KM THERE AT 40, BACK AT 60 · TIME ON THE BOTTOM LINE</text><rect class="lt" x="10" y="40" width="288" height="34"/><text class="lb" x="154" y="62" text-anchor="middle">3 h at 40 km/h</text><rect class="bl" x="298" y="40" width="192" height="34"/><text class="lbrv" x="394" y="62" text-anchor="middle">2 h at 60</text><line class="hz" x1="10" y1="96" x2="490" y2="96"/><line class="hl" x1="10" y1="90" x2="10" y2="102"/><text class="lbs" x="10" y="116" text-anchor="middle">0 h</text><line class="hl" x1="106" y1="90" x2="106" y2="102"/><text class="lbs" x="106" y="116" text-anchor="middle">1 h</text><line class="hl" x1="202" y1="90" x2="202" y2="102"/><text class="lbs" x="202" y="116" text-anchor="middle">2 h</text><line class="hl" x1="298" y1="90" x2="298" y2="102"/><text class="lbs" x="298" y="116" text-anchor="middle">3 h</text><line class="hl" x1="394" y1="90" x2="394" y2="102"/><text class="lbs" x="394" y="116" text-anchor="middle">4 h</text><line class="hl" x1="490" y1="90" x2="490" y2="102"/><text class="lbs" x="490" y="116" text-anchor="middle">5 h</text><text class="lb" x="10" y="150">240 km ÷ 5 h = 48 km/h, not 50</text></svg><span class="fy">PAPER II · B</span></figure><p class="figcap"><b>FIG_001</b>Equal distances, unequal times: the slow part lasts longer.</p></div><p>When the two distances are equal (going and coming back), use <strong>2xy ÷ (x + y)</strong>. At 30 km/h there and 60 km/h back: 2 × 30 × 60 ÷ 90 = <strong>40 km/h</strong>, not 45. For three equal distances, use 3xyz ÷ (xy + yz + zx), or simply take each part as the LCM of the speeds and add up the times.</p><p>When the distances are not equal, work out each time and add them. 30 km at 10 km/h (3 h) and 30 km at 15 km/h (2 h) is 60 km in 5 hours = 12 km/h.</p><h3><span class="h3n">1.6</span>Stoppages</h3><p>A bus runs at 80 km/h without stops but averages 60 km/h with them. In each hour it loses 20 km. At 80 km/h, 20 km takes 20/80 hour = <strong>15 minutes</strong>. So it stops 15 minutes every hour. Formula: (difference ÷ speed without stops) × 60.</p><aside class="box next"><p class="box-t">Likely next in this chapter</p><div class="qas"><details class="qa"><summary>At 5/6 of his usual speed a man is 12 minutes late. What is his usual time?</summary><p>New time is 6/5 of usual, so the extra 1/5 of usual is 12 minutes. Usual time = 60 minutes.</p></details><details class="qa"><summary>54 km/h in metres per second?</summary><p>54 × 5/18 = 15 m/s.</p></details><details class="qa"><summary>A man goes at 20 km/h and returns at 30 km/h. Average speed?</summary><p>2 × 20 × 30 ÷ 50 = 24 km/h.</p></details><details class="qa"><summary>Without stops a train runs at 45 km/h; with stops 36 km/h. Minutes stopped per hour?</summary><p>9/45 × 60 = 12 minutes.</p></details></div></aside></section>
+<section id="speed-relative"><div class="sectrule"><span class="eyebrow">Chapter <b>02</b> · SPEED FAMILY · moving objects</span><span class="line"></span></div><h2>Meeting and chasing: relative speed</h2><p>When two things move at the same time, think about the <strong>gap</strong> between them. The gap closes (or opens) at the <strong>relative speed</strong>.</p><ul><li>Moving <strong>towards each other</strong> (opposite directions): speeds <strong>ADD</strong>.</li><li>Moving <strong>the same way</strong> (one chasing the other): speeds <strong>SUBTRACT</strong>.</li></ul><p>This one rule is the key to trains, races and boats too, so learn it well.</p><h3><span class="h3n">2.1</span>Meeting</h3><p>Two towns are 200 km apart. Cars leave both towns at the same time towards each other at 30 km/h and 20 km/h. The gap closes at 30 + 20 = 50 km/h, so they meet after 200 ÷ 50 = <strong>4 hours</strong>, at 30 × 4 = 120 km from the first town.</p><p>If one car leaves an hour later, first move the early car forward by one hour, then use the gap that is left. Forgetting this head start is the common trap.</p><h3><span class="h3n">2.2</span>Chasing</h3><p>A thief is 1 km ahead. He runs at 8 km/h and a policeman follows at 10 km/h. The gap closes at 10 − 8 = 2 km/h, so the policeman catches him after 1 ÷ 2 = <strong>half an hour</strong>. In that time the thief runs 4 km and the policeman 5 km. Read whose distance the question asks for.</p><aside class="box warn"><p class="box-t">Whose distance?</p><p>The options always hold both runners' distances. The policeman runs the thief's distance PLUS the starting gap.</p></aside><aside class="box next"><p class="box-t">Likely next</p><div class="qas"><details class="qa"><summary>Two trains start towards each other from places 330 km apart at 50 and 60 km/h. After how long do they meet?</summary><p>The gap closes at 110 km/h: 330 ÷ 110 = 3 hours.</p></details><details class="qa"><summary>A cyclist leaves 2 hours after a walker at 6 km/h, riding at 10 km/h on the same road. When does he catch up?</summary><p>Walker's head start = 12 km; gap closes at 4 km/h; 3 hours after the cyclist starts.</p></details></div></aside></section>
+<section id="trains"><div class="sectrule"><span class="eyebrow">Chapter <b>03</b> · SPEED FAMILY · 2025 Q59, Q82</span><span class="line"></span></div><h2>Trains: poles, platforms and other trains</h2><p>A train question is a relative-speed question where <strong>the length of the train counts</strong>. The front of the train must travel until its back end has cleared whatever it is passing.</p><div class="figwrap"><figure class="fig"><span class="fl">FIG_002</span><span class="fr">[ WHAT A TRAIN COVERS ]</span><svg viewBox="0 0 520 300" role="img" aria-label="What distance a train covers when it passes a pole, a platform and another train"><text class="ttl" x="10" y="22">A · POLE</text><line class="grid" x1="10" y1="56" x2="510" y2="56"/><text class="lb" x="510" y="22" text-anchor="end">distance = train only</text><text class="ttl" x="10" y="112">B · PLATFORM</text><line class="grid" x1="10" y1="146" x2="510" y2="146"/><text class="lb" x="510" y="112" text-anchor="end">distance = train + platform</text><text class="ttl" x="10" y="202">C · ANOTHER TRAIN</text><line class="grid" x1="10" y1="236" x2="510" y2="236"/><text class="lb" x="510" y="202" text-anchor="end">distance = both trains</text><rect class="bl" x="40" y="30" width="120" height="18"/><circle class="ln" cx="48" cy="51" r="3"/><circle class="ln" cx="152" cy="51" r="3"/><text class="lbsrv" x="100" y="43" text-anchor="middle">TRAIN L</text><line class="hz" x1="300" y1="22" x2="300" y2="56"/><circle class="hd" cx="300" cy="20" r="3"/><line class="hz" x1="170" y1="39" x2="230" y2="39"/><path class="nf" d="M224 35 L230 39 L224 43"/><path class="dt" d="M40 66 L160 66"/><text class="lbs" x="100" y="80" text-anchor="middle">covers L</text><rect class="bl" x="30" y="120" width="120" height="18"/><circle class="ln" cx="38" cy="141" r="3"/><circle class="ln" cx="142" cy="141" r="3"/><text class="lbsrv" x="90" y="133" text-anchor="middle">TRAIN L</text><line class="hz" x1="160" y1="129" x2="200" y2="129"/><path class="nf" d="M194 125 L200 129 L194 133"/><rect class="lt" x="220" y="132" width="180" height="14"/><text class="lbs" x="310" y="143" text-anchor="middle">PLATFORM P</text><path class="dt" d="M30 156 L400 156"/><text class="lbs" x="215" y="170" text-anchor="middle">covers L + P</text><rect class="bl" x="30" y="210" width="110" height="18"/><circle class="ln" cx="38" cy="231" r="3"/><circle class="ln" cx="132" cy="231" r="3"/><text class="lbsrv" x="85" y="223" text-anchor="middle">TRAIN 1</text><line class="hz" x1="150" y1="219" x2="195" y2="219"/><path class="nf" d="M189 215 L195 219 L189 223"/><rect class="ln" x="260" y="210" width="150" height="18"/><circle class="ln" cx="268" cy="231" r="3"/><circle class="ln" cx="402" cy="231" r="3"/><text class="lbs" x="335" y="223" text-anchor="middle">TRAIN 2</text><line class="hz" x1="420" y1="219" x2="470" y2="219"/><path class="nf" d="M464 215 L470 219 L464 223"/><text class="lbs" x="260" y="258" text-anchor="middle">same way: speeds SUBTRACT · opposite ways: speeds ADD</text><path class="dt" d="M30 266 L410 266"/><text class="lbs" x="220" y="282" text-anchor="middle">covers L1 + L2</text></svg><span class="fy">PAPER II · B</span></figure><p class="figcap"><b>FIG_002</b>A pole has no length; a platform and another train add their lengths.</p></div><div class="tw"><table class="t"><thead><tr><th>Train passes</th><th>Distance covered</th><th>Speed to use</th></tr></thead><tbody><tr><td data-l="Train passes">a pole, a tree, a standing man</td><td data-l="Distance covered">length of the train</td><td data-l="Speed to use">train's speed</td></tr><tr><td data-l="Train passes">a platform, a bridge, a tunnel</td><td data-l="Distance covered">train + platform</td><td data-l="Speed to use">train's speed</td></tr><tr><td data-l="Train passes">a man walking or running</td><td data-l="Distance covered">length of the train</td><td data-l="Speed to use">add speeds if he comes towards it; subtract if he goes the same way</td></tr><tr><td data-l="Train passes">another train</td><td data-l="Distance covered">both lengths together</td><td data-l="Speed to use">add speeds if opposite; subtract if same way</td></tr></tbody></table></div><h3><span class="h3n">3.1</span>Worked: the two 2025 questions</h3><p>A train 100 m long takes 6 seconds to cross a man walking at 5 km/h in the opposite direction. Find the train's speed. <span class="pyq">2025 Q59</span> Relative speed = 100/6 m/s = 100/6 × 18/5 = 60 km/h. Opposite directions add, so train + 5 = 60 and the train runs at <strong>55 km/h</strong>.</p><p>A train 220 m long runs at 59 km/h. How long does it take to pass a man running at 7 km/h towards it? <span class="pyq">2025 Q82</span> Opposite directions, so 59 + 7 = 66 km/h = 66 × 5/18 = 55/3 m/s. Time = 220 ÷ 55/3 = <strong>12 seconds</strong>.</p><p>Both questions are one family, asked from two sides: find the speed, then find the time. The next paper may ask for the <strong>length</strong> (given speed and time) or put the man on the <strong>same side</strong> (subtract).</p><h3><span class="h3n">3.2</span>Pole and platform together</h3><p>A train passes a pole in 10 s and a 200 m platform in 20 s. The extra 10 s cover the 200 m platform, so the speed is 20 m/s and the train is 20 × 10 = <strong>200 m</strong> long.</p><h3><span class="h3n">3.3</span>Two trains</h3><p>Trains of 100 m and 200 m at 40 and 50 km/h, opposite ways: 300 m at 90 km/h = 25 m/s, so <strong>12 seconds</strong>. Same pair going the same way: 300 m at 10 km/h = 25/9 m/s, so <strong>108 seconds</strong>.</p><h3><span class="h3n">3.4</span>After they meet</h3><p>Two trains start at the same time towards each other. After meeting, one takes a hours and the other b hours to finish. Then <strong>speed of first: speed of second = √b: √a</strong>. With 4 hours and 9 hours, the ratio is 3: 2. The faster train is the one with less time left.</p><aside class="box next"><p class="box-t">Likely next</p><div class="qas"><details class="qa"><summary>A train at 72 km/h crosses a 250 m bridge in 25 seconds. Length of the train?</summary><p>20 m/s × 25 = 500 m in all, so the train is 250 m.</p></details><details class="qa"><summary>A 150 m train passes a man walking at 6 km/h in the same direction in 10 seconds. Speed of the train?</summary><p>15 m/s = 54 km/h relative, so the train runs at 60 km/h.</p></details><details class="qa"><summary>Two trains, 120 m and 80 m, cross each other in 10 s going opposite ways. If one runs at 30 km/h, the other?</summary><p>20 m/s = 72 km/h together, so 42 km/h.</p></details></div></aside></section>
+<section id="races"><div class="sectrule"><span class="eyebrow">Chapter <b>04</b> · SPEED FAMILY · 2025 Q60, Q65</span><span class="line"></span></div><h2>Races and circular tracks</h2><p>A race is two runners on the same road. Three phrases do all the work, so learn what each one means.</p><div class="tw"><table class="t"><thead><tr><th>Phrase</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Phrase">A beats B by 20 m</td><td data-l="Meaning">when A finishes, B is 20 m short of the line</td></tr><tr><td data-l="Phrase">A beats B by 5 seconds</td><td data-l="Meaning">B finishes 5 seconds after A</td></tr><tr><td data-l="Phrase">A gives B a start of 20 m</td><td data-l="Meaning">B starts 20 m ahead, so B runs 20 m less</td></tr><tr><td data-l="Phrase">dead heat</td><td data-l="Meaning">both reach the line together</td></tr></tbody></table></div><h3><span class="h3n">4.1</span>Beats by metres AND by seconds</h3><p>"A beats B by 28 metres or 7 seconds" means B needs 7 seconds to run those last 28 m. So <strong>B's speed = 28 ÷ 7 = 4 m/s</strong>. This is the key step. <span class="pyq">2025 Q60</span> In a 1 km race, B takes 1000 ÷ 4 = 250 s, and A finishes 7 s earlier: <strong>243 s = 4 min 3 s</strong>.</p><h3><span class="h3n">4.2</span>Head start and still wins</h3><p>In a 100 m race, A runs at 8 km/h. A gives B a start of 4 m and still beats him by 15 seconds. Find B's speed. <span class="pyq">2025 Q65</span> 8 km/h = 20/9 m/s, so A takes 100 ÷ 20/9 = 45 s. B runs only 96 m but takes 45 + 15 = 60 s. B's speed = 96/60 = 1.6 m/s = 1.6 × 18/5 = <strong>5.76 km/h</strong>.</p><h3><span class="h3n">4.3</span>Chains</h3><p>In a km race, A beats B by 100 m and B beats C by 100 m. When A runs 1,000, B runs 900; when B runs 900, C runs 900 × 900/1000 = 810. So A beats C by <strong>190 m</strong>, not 200.</p><h3><span class="h3n">4.4</span>Circular tracks</h3><p>On a closed track the runners meet when the faster one gains <strong>one full lap</strong> (same direction) or when together they cover <strong>one full lap</strong> (opposite directions). On a 400 m track at 6 and 4 m/s: same direction, 400 ÷ 2 = 200 s; opposite, 400 ÷ 10 = 40 s. To meet again <strong>at the starting point</strong>, take the LCM of their lap times.</p><aside class="box next"><p class="box-t">Likely next</p><div class="qas"><details class="qa"><summary>In a 500 m race A beats B by 50 m or 10 seconds. A's time?</summary><p>B's speed 5 m/s, B's time 100 s, so A takes 90 s.</p></details><details class="qa"><summary>A runs 7/4 times as fast as B. What start must A give B so they finish 84 m together?</summary><p>Distances 7: 4 in the same time; B runs 4/7 × 84 = 48 m, so a start of 36 m.</p></details></div></aside></section>
+<section id="boats"><div class="sectrule"><span class="eyebrow">Chapter <b>05</b> · SPEED FAMILY · downstream and upstream</span><span class="line"></span></div><h2>Boats and streams</h2><p>A river adds its own speed to everything floating in it. Going <strong>downstream</strong> (with the water), the stream helps: D = b + s. Going <strong>upstream</strong> (against it), the stream slows the boat: U = b − s. Here b is the boat's speed in still water and s is the stream's speed.</p><div class="figwrap"><figure class="fig"><span class="fl">FIG_003</span><span class="fr">[ WITH AND AGAINST ]</span><svg viewBox="0 0 520 210" role="img" aria-label="A boat going downstream and upstream"><path class="dt" d="M20 90 q10 -5 20 0 t20 0"/><path class="dt" d="M110 90 q10 -5 20 0 t20 0"/><path class="dt" d="M200 90 q10 -5 20 0 t20 0"/><path class="dt" d="M290 90 q10 -5 20 0 t20 0"/><path class="dt" d="M380 90 q10 -5 20 0 t20 0"/><path class="dt" d="M20 180 q10 -5 20 0 t20 0"/><path class="dt" d="M110 180 q10 -5 20 0 t20 0"/><path class="dt" d="M200 180 q10 -5 20 0 t20 0"/><path class="dt" d="M290 180 q10 -5 20 0 t20 0"/><path class="dt" d="M380 180 q10 -5 20 0 t20 0"/><text class="ttl" x="10" y="20">DOWNSTREAM · WITH THE WATER</text><path class="bl" d="M150 60 L250 60 L235 78 L165 78 Z"/><line class="hz" x1="270" y1="68" x2="350" y2="68"/><path class="nf" d="M344 64 L350 68 L344 72"/><text class="lb" x="510" y="72" text-anchor="end">D = b + s</text><text class="ttl" x="10" y="110">UPSTREAM · AGAINST THE WATER</text><path class="ln" d="M270 150 L370 150 L355 168 L285 168 Z"/><line class="hz" x1="250" y1="158" x2="170" y2="158"/><path class="nf" d="M176 154 L170 158 L176 162"/><text class="lb" x="510" y="162" text-anchor="end">U = b − s</text><text class="lbs" x="10" y="200">water flows → at s · boat b = (D + U) ÷ 2 · stream s = (D − U) ÷ 2</text></svg><span class="fy">PAPER II · B</span></figure><p class="figcap"><b>FIG_003</b>The stream helps one way and hurts the other by the same amount.</p></div><p>Two lines answer most questions. <strong>Boat = (D + U) ÷ 2</strong> and <strong>stream = (D − U) ÷ 2</strong>. If a boat goes downstream at 20 km/h and upstream at 12 km/h, the boat is 16 km/h and the stream 4 km/h.</p><h3><span class="h3n">5.1</span>There and back</h3><p>A boat at 8 km/h in still water, on a stream of 2 km/h, goes 30 km and back. Down at 10 km/h takes 3 hours; up at 6 km/h takes 5 hours. Total <strong>8 hours</strong>. If the question gives the total time and asks the distance, write d/D + d/U = total time and solve.</p><h3><span class="h3n">5.2</span>Upstream takes n times as long</h3><p>If going up takes <strong>n times</strong> as long as coming down the same distance, then b: s = (n + 1): (n − 1). Twice as long gives 3: 1; three times gives 2: 1.</p><aside class="box warn"><p class="box-t">Three traps</p><ul><li>Using the still-water speed for a trip on the river.</li><li>Giving the stream's speed when the question asks for the boat's.</li><li>Giving the downstream speed (b + s) as the boat's speed.</li></ul></aside><aside class="box next"><p class="box-t">Likely next</p><div class="qas"><details class="qa"><summary>A man rows 24 km downstream in 3 hours and 12 km upstream in 3 hours. Speed of the stream?</summary><p>D = 8, U = 4; stream = (8 − 4) ÷ 2 = 2 km/h.</p></details><details class="qa"><summary>A man rows at 6 km/h in still water. It takes him 3 times as long upstream as downstream. Stream speed?</summary><p>b: s = 4: 2 = 2: 1, so s = 3 km/h.</p></details></div></aside></section>
+<section id="speed-sheet"><div class="sectrule"><span class="eyebrow">Chapter <b>06</b> · SPEED FAMILY · revision</span><span class="line"></span></div><h2>One-page sheet and traps</h2><p>Read this page the night before you take the speed practice set, and again in the last week.</p><div class="tw"><table class="t"><thead><tr><th>Situation</th><th>Rule</th></tr></thead><tbody><tr><td data-l="Situation">units</td><td data-l="Rule">km/h × 5/18 = m/s; m/s × 18/5 = km/h</td></tr><tr><td data-l="Situation">same distance, new speed</td><td data-l="Rule">time changes in the opposite ratio</td></tr><tr><td data-l="Situation">late and early</td><td data-l="Rule">times differ by late + early</td></tr><tr><td data-l="Situation">average speed, equal distances</td><td data-l="Rule">2xy ÷ (x + y)</td></tr><tr><td data-l="Situation">stoppages</td><td data-l="Rule">minutes per hour = (difference ÷ fast speed) × 60</td></tr><tr><td data-l="Situation">meeting</td><td data-l="Rule">speeds add</td></tr><tr><td data-l="Situation">chasing</td><td data-l="Rule">speeds subtract</td></tr><tr><td data-l="Situation">train and pole</td><td data-l="Rule">train length only</td></tr><tr><td data-l="Situation">train and platform</td><td data-l="Rule">train + platform</td></tr><tr><td data-l="Situation">two trains</td><td data-l="Rule">both lengths; add speeds if opposite, subtract if same way</td></tr><tr><td data-l="Situation">after meeting</td><td data-l="Rule">speed ratio = √(other's time): √(own time)</td></tr><tr><td data-l="Situation">beats by x m or t s</td><td data-l="Rule">loser's speed = x ÷ t</td></tr><tr><td data-l="Situation">circular track</td><td data-l="Rule">same way: lap ÷ difference; opposite: lap ÷ sum</td></tr><tr><td data-l="Situation">boats</td><td data-l="Rule">D = b + s, U = b − s, b = (D + U) ÷ 2, s = (D − U) ÷ 2</td></tr></tbody></table></div><aside class="box warn"><p class="box-t">The traps the options set</p><ul><li>The plain average of two speeds (always wrong for average speed).</li><li>The answer in the wrong unit: 15 when the option needed 54 km/h.</li><li>The relative speed given as the train's speed.</li><li>The other person's distance or time (the policeman, B instead of A).</li><li>Forgetting a head start in time or in metres.</li></ul></aside><aside class="box key"><p class="box-t">Now practise</p><p>Take the Speed and Trains set on the hub (26 questions, 26 minutes). Then paste the Copy answers report into the chat.</p></aside></section></div></main>
+<button class="btn" id="up" aria-label="Back to top">Top</button>
+<footer><div class="col"><p>OPSC ASO 2027 · Arithmetic Guide · started 18 Nov 2026 from the official Paper II (B) syllabus, the maths sections of the 2018, 2021 and 2025 booklets and the standard R. S. Aggarwal types.</p><p>Every worked example was recomputed by hand and by the practice-set check scripts.</p></div></footer>
+<script>
+(function(){
+var nav=document.getElementById('nav'),btn=document.getElementById('navbtn'),links=[].slice.call(nav.querySelectorAll('a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+btn.onclick=function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+document.getElementById('up').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+var cn=document.getElementById('chapN'),cb=document.getElementById('chapBar'),cp=document.getElementById('chapPct');
+function spy(){
+  var y=window.scrollY+120,idx=0;
+  for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) idx=i; }
+  var s=secs[idx],top=s.offsetTop,h=s.offsetHeight,p=Math.max(0,Math.min(1,(window.scrollY+100-top)/Math.max(1,h-window.innerHeight*0.5)));
+  links.forEach(function(a,j){a.classList.toggle('on',j===idx)});
+  cn.textContent=links[idx].textContent.replace(/^\d+/,'');
+  cb.style.width=Math.round(p*100)+'%';cp.textContent=Math.round(p*100)+'%';
+}
+var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){spy();tk=false})}},{passive:true});spy();
+})();
+</script><script>window.ASO_INK_KEY='aso-ink-arith-2027';</script>
+<script>
+/* Pen-tablet drawing mode for the ASO guides.
+   Ink engine ported from the draw-app project (ink-stroke.ts + ink-canvas.tsx):
+   streamlined, pressure-sensitive strokes, Catmull-Rom smoothing, pen/mouse brush,
+   pen-eraser end, tablet quirks (flat pressure, missed pointerup, coalesced events).
+   New here: strokes are anchored to the chapter they start in and painted on tiles that scroll with the text, saved in localStorage,
+   highlighter, stroke eraser, undo, clear, hide, and "touch scrolls / touch draws". */
+(function () {
+  "use strict";
+  var KEY = window.ASO_INK_KEY || "aso-ink-" + location.pathname;
+
+  /* ---------------- ink engine (from ink-stroke.ts) ---------------- */
+  var PRESSURE_RATE = 0.275, DENSE_SPACING = 3, SAMPLE_SPACING = 0.75, WIDTH_STEP = 0.04;
+
+  function densify(pts, emit) {
+    var n = pts.length;
+    function knot(a, b) { return Math.max(1e-4, Math.sqrt(Math.hypot(b.x - a.x, b.y - a.y))); }
+    for (var i = 0; i < n - 1; i++) {
+      var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n - 1, i + 2)];
+      var steps = Math.max(1, Math.ceil(Math.hypot(p2.x - p1.x, p2.y - p1.y) / DENSE_SPACING));
+      var t1 = p0 === p1 ? 1e-4 : knot(p0, p1);
+      var t2 = t1 + knot(p1, p2);
+      var t3 = t2 + (p3 === p2 ? 1e-4 : knot(p2, p3));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, t = t1 + (t2 - t1) * u;
+        var lerp = function (a, b, ta, tb) { return ((tb - t) * a + (t - ta) * b) / (tb - ta); };
+        var ax1 = lerp(p0.x, p1.x, 0, t1), ay1 = lerp(p0.y, p1.y, 0, t1);
+        var ax2 = lerp(p1.x, p2.x, t1, t2), ay2 = lerp(p1.y, p2.y, t1, t2);
+        var ax3 = lerp(p2.x, p3.x, t2, t3), ay3 = lerp(p2.y, p3.y, t2, t3);
+        var bx1 = lerp(ax1, ax2, 0, t2), by1 = lerp(ay1, ay2, 0, t2);
+        var bx2 = lerp(ax2, ax3, t1, t3), by2 = lerp(ay2, ay3, t1, t3);
+        emit(lerp(bx1, bx2, t1, t2), lerp(by1, by2, t1, t2), p1.p + (p2.p - p1.p) * u);
+      }
+    }
+  }
+
+  function steady(input, brush, isComplete) {
+    var n = input.length;
+    if (n === 0) return [];
+    var size = brush.size, first = input[0], firstP = first.p, i = 1, minD2 = Math.pow(size / 3, 2);
+    while (i < n && Math.pow(input[i].x - first.x, 2) + Math.pow(input[i].y - first.y, 2) <= minD2) {
+      firstP = Math.max(firstP, input[i].p); i++;
+    }
+    var out = [{ x: first.x, y: first.y, p: firstP, dist: 0, run: 0 }];
+    var lag = Math.max(0.1, brush.streamline * size), px = first.x, py = first.y, run = 0, k = 1;
+    function take(ix, iy, ip, exact) {
+      var x = ix, y = iy;
+      if (!exact) {
+        var a = 1 - Math.exp(-Math.hypot(ix - px, iy - py) / lag);
+        x = px + (ix - px) * a; y = py + (iy - py) * a;
+      }
+      if (Math.abs(x - px) < 1e-4 && Math.abs(y - py) < 1e-4) return;
+      var d = Math.hypot(x - px, y - py);
+      run += d;
+      if (k++ < 4 && run < size) return;
+      out.push({ x: x, y: y, p: ip, dist: d, run: run });
+      px = x; py = y;
+    }
+    var kept = [first].concat(input.slice(i));
+    densify(kept, function (x, y, p) { take(x, y, p, false); });
+    if (isComplete && n > 1) { var last = input[n - 1]; take(last.x, last.y, last.p, true); }
+    return out;
+  }
+
+  function widths(pts, brush) {
+    var size = brush.size, thinning = brush.thinning, sim = brush.simulatePressure, easing = brush.easing, n = pts.length;
+    function radius(p) { return Math.max(0.05, size * easing(0.5 - thinning * (0.5 - p))); }
+    var total = pts[n - 1].run;
+    if (!sim && total < size) {
+      var max = pts.reduce(function (m, q) { return Math.max(m, q.p); }, 0.5);
+      return pts.map(function () { return radius(max); });
+    }
+    function step(prev, q) {
+      var sp = Math.min(1, q.dist / size), target = sim ? Math.min(1, 1 - sp) : q.p;
+      return Math.min(1, prev + (target - prev) * sp * PRESSURE_RATE);
+    }
+    var prev = sim ? 0.5 : pts[0].p;
+    for (var j = 0; j < n; j++) {
+      var q = pts[j];
+      if (q.run > size * 5) break;
+      var sp = Math.min(1, q.dist / size);
+      var p = sim ? Math.min(1, prev + (Math.min(1, 1 - sp) - prev) * sp * PRESSURE_RATE)
+                  : Math.min(1, prev + (q.p - prev) * 0.5);
+      prev += (p - prev) * 0.5;
+    }
+    return pts.map(function (q) { prev = step(prev, q); return radius(prev); });
+  }
+
+  function paintStroke(ctx, input, brush, isComplete) {
+    var pts = steady(input, brush, isComplete);
+    if (pts.length === 0) return;
+    var r = widths(pts, brush);
+    if (pts.length === 1) { ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, r[0], 0, Math.PI * 2); ctx.fill(); return; }
+    ctx.save();
+    ctx.strokeStyle = ctx.fillStyle; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    var runWidth = -1;
+    function wOf(rad) { return Math.max(WIDTH_STEP, Math.round((2 * rad) / WIDTH_STEP) * WIDTH_STEP); }
+    function begin(x, y, w) { runWidth = w; ctx.beginPath(); ctx.moveTo(x, y); }
+    function end() { ctx.lineWidth = runWidth; ctx.stroke(); }
+    begin(pts[0].x, pts[0].y, wOf(r[0]));
+    function emit(x, y, rad) {
+      var w = wOf(rad);
+      ctx.lineTo(x, y);
+      if (w !== runWidth) { end(); begin(x, y, w); }
+    }
+    function line(x0, y0, r0, x1, y1, r1) {
+      var steps = Math.max(1, Math.ceil(Math.hypot(x1 - x0, y1 - y0) / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) { var u = s / steps; emit(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, r0 + (r1 - r0) * u); }
+    }
+    var n = pts.length;
+    function mid(i) { return { x: (pts[i].x + pts[i + 1].x) / 2, y: (pts[i].y + pts[i + 1].y) / 2, r: (r[i] + r[i + 1]) / 2 }; }
+    var a = mid(0);
+    line(pts[0].x, pts[0].y, r[0], a.x, a.y, a.r);
+    for (var i = 1; i < n - 1; i++) {
+      var c = pts[i], b = mid(i);
+      var approx = Math.hypot(c.x - a.x, c.y - a.y) + Math.hypot(b.x - c.x, b.y - c.y);
+      var steps = Math.max(1, Math.ceil(approx / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, w = 1 - u;
+        emit(w * w * a.x + 2 * w * u * c.x + u * u * b.x, w * w * a.y + 2 * w * u * c.y + u * u * b.y,
+             w * w * a.r + 2 * w * u * r[i] + u * u * b.r);
+      }
+      a = b;
+    }
+    line(a.x, a.y, a.r, pts[n - 1].x, pts[n - 1].y, r[n - 1]);
+    end();
+    ctx.restore();
+  }
+
+  /* ---------------- brushes (from ink-canvas.tsx) ---------------- */
+  var PEN_WIDTH_SCALE = 0.54;
+  function penEasing(t) { return (t * 0.65 + Math.sin((t * Math.PI) / 2) * 0.35) * PEN_WIDTH_SCALE; }
+  var PEN = { size: 4.6, thinning: 0.62, streamline: 0.62, simulatePressure: false, easing: penEasing };
+  var HI = { size: 18, thinning: 0, streamline: 0.35, simulatePressure: false, easing: function () { return 0.5; } };
+  var PEN_PRESSURE_BOOST = 1.25, MIN_PEN_PRESSURE = 0.025, MOUSE_PRESSURE = 0.5, PEN_MIN_STEP = 1;
+  var useCoalesced = !/iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  var COLORS = [
+    { n: "Black", v: "#111111" }, { n: "Blue", v: "#2b4cff" }, { n: "Red", v: "#dc2626" }, { n: "Green", v: "#15803d" },
+    { n: "Yellow highlighter", v: "#ffd400", hi: 1 }, { n: "Green highlighter", v: "#3ddc84", hi: 1 }, { n: "Pink highlighter", v: "#ff6fb5", hi: 1 }
+  ];
+
+  /* ---------------- page layout + state ----------------
+     The ink is painted on canvas TILES that sit inside the page (position:absolute), so they scroll
+     with the text natively, in the same frame. (A fixed canvas repainted on scroll lags one frame
+     behind and looks like parallax.) Only tiles near the screen exist; the rest are dropped.
+     Each stroke is stored relative to the chapter <section> it starts in: x in the column's units
+     (scaled when the column width changes), y from the section top. So opening a Q&A or a new
+     layout moves the ink together with its chapter. */
+  var col = document.querySelector("main .col") || document.body;
+  var secs = [].slice.call(document.querySelectorAll("main section[id]"));
+  var L = { left: 0, w: 1, tops: {}, docW: 1, docH: 1 };
+  function measure() {
+    var sx = window.scrollX, sy = window.scrollY, r = col.getBoundingClientRect();
+    L.left = r.left + sx; L.w = Math.max(1, col.clientWidth);
+    L.tops = {};
+    secs.forEach(function (s) { L.tops[s.id] = s.getBoundingClientRect().top + sy; });
+    L.docW = document.documentElement.clientWidth;
+    L.docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  }
+  function topOf(s) { return s.a && L.tops[s.a] != null ? L.tops[s.a] : 0; }
+  function sectionAt(pageY) {
+    var best = null, bt = -1e9;
+    secs.forEach(function (s) { var t = L.tops[s.id]; if (t <= pageY && t > bt) { bt = t; best = s.id; } });
+    return best;
+  }
+
+  var strokes = [], undo = [], current = null, activePointer = null, lastKept = null, erasing = false, erased = [];
+  var state = { on: false, color: COLORS[0].v, hi: false, eraser: false, touchDraws: false, hidden: false };
+  try { var sv = JSON.parse(localStorage.getItem(KEY) || "null"); if (sv && sv.strokes) strokes = sv.strokes; if (sv && sv.touchDraws) state.touchDraws = true; } catch (e) {}
+
+  var saveT = 0;
+  function save() {
+    clearTimeout(saveT);
+    saveT = setTimeout(function () {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 2, touchDraws: state.touchDraws, strokes: strokes })); } catch (e) {}
+    }, 400);
+  }
+
+  /* ---------------- painting ---------------- */
+  var TILE = 512;
+  var layer = document.createElement("div");
+  layer.id = "inkl"; layer.setAttribute("aria-hidden", "true");
+  var live = document.createElement("canvas"), lctx = live.getContext("2d"), liveTop = 0;
+  live.className = "inkt"; live.style.display = "none";
+  layer.appendChild(live);
+  var tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
+  var tiles = {}, dpr = 1, frame = 0;
+
+  // Paint one stroke onto canvas context c, whose top edge is at page y = top.
+  function paint(c, s, top, done) {
+    var k = L.w / s.w, ox = L.left, oy = topOf(s) - top;
+    var pts = s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: s.pen && s.flat ? MOUSE_PRESSURE : q[2] }; });
+    if (s.hi) {
+      var cv = c.canvas;
+      if (tmp.width !== cv.width || tmp.height !== cv.height) { tmp.width = cv.width; tmp.height = cv.height; }
+      tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tmp.width, tmp.height);
+      tctx.setTransform(dpr, 0, 0, dpr, 0, 0); tctx.fillStyle = s.c;
+      paintStroke(tctx, pts, HI, done);
+      c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 0.4; c.drawImage(tmp, 0, 0); c.restore();
+    } else {
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.fillStyle = s.c;
+      paintStroke(c, pts, PEN, done);
+    }
+  }
+  function yRange(s) { var t = topOf(s); return [t + s.b[1], t + s.b[3]]; }
+
+  function paintTile(t) {
+    t.ctx.setTransform(1, 0, 0, 1, 0, 0); t.ctx.clearRect(0, 0, t.c.width, t.c.height);
+    if (state.hidden) return;
+    strokes.forEach(function (s) { var y = yRange(s); if (y[1] > t.top && y[0] < t.top + t.h) paint(t.ctx, s, t.top, true); });
+  }
+  function dropTile(i) { var t = tiles[i]; t.c.width = t.c.height = 0; t.c.remove(); delete tiles[i]; }
+  function makeTile(i) {
+    var top = i * TILE, h = Math.min(TILE, L.docH - top);
+    if (h <= 0) return;
+    var c = document.createElement("canvas");
+    c.className = "inkt";
+    c.style.top = top + "px"; c.style.width = L.docW + "px"; c.style.height = h + "px";
+    c.width = Math.max(1, Math.round(L.docW * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var t = tiles[i] = { c: c, ctx: c.getContext("2d"), top: top, h: h };
+    layer.appendChild(c); paintTile(t);
+  }
+  // Keep tiles from one screen above to two screens below the view; drop the rest.
+  function ensureTiles() {
+    var vh = window.innerHeight, sy = window.scrollY, last = Math.ceil(L.docH / TILE) - 1;
+    var lo = Math.max(0, Math.floor((sy - vh) / TILE)), hi = Math.min(last, Math.floor((sy + 2 * vh) / TILE));
+    Object.keys(tiles).forEach(function (i) { if (i < lo - 1 || i > hi + 1) dropTile(i); });
+    for (var i = lo; i <= hi; i++) if (!tiles[i]) makeTile(i);
+  }
+  function repaintAll() { Object.keys(tiles).forEach(function (i) { paintTile(tiles[i]); }); }
+  function rebuild() {
+    dpr = window.devicePixelRatio || 1;
+    Object.keys(tiles).forEach(dropTile);
+    measure(); ensureTiles();
+  }
+
+  function renderLive() {
+    frame = 0;
+    lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
+    if (current) paint(lctx, current.s, liveTop, false);
+  }
+  function request() { if (!frame) frame = requestAnimationFrame(renderLive); }
+  // The stroke being drawn goes on its own canvas covering the screen at pen-down time.
+  function startLive() {
+    var h = Math.max(1, Math.min(window.innerHeight, L.docH - window.scrollY));
+    liveTop = window.scrollY;
+    live.style.top = liveTop + "px"; live.style.width = L.docW + "px"; live.style.height = h + "px";
+    live.width = Math.round(L.docW * dpr); live.height = Math.round(h * dpr);
+    live.style.display = "block";
+  }
+  function stopLive() { live.style.display = "none"; live.width = live.height = 1; }
+
+  /* ---------------- drawing input (from ink-canvas.tsx) ---------------- */
+  var input = document.createElement("div");
+  input.id = "inki"; input.setAttribute("aria-hidden", "true");
+
+  function pageOf(e, isPen, s) {
+    var k = L.w / s.w;
+    return [Math.round(((e.clientX + window.scrollX - L.left) / k) * 10) / 10,
+      Math.round((e.clientY + window.scrollY - topOf(s)) * 10) / 10,
+      isPen ? Math.round(Math.min(1, Math.max(MIN_PEN_PRESSURE, e.pressure * PEN_PRESSURE_BOOST)) * 1000) / 1000 : MOUSE_PRESSURE];
+  }
+  function notePressure(cur, raw) {
+    if (!cur.s.pen || raw === 0) return;
+    if (cur.first === null) cur.first = raw; else if (raw !== cur.first) cur.s.flat = false;
+  }
+  function addPoint(cur, pt) {
+    var pts = cur.s.pts;
+    if (cur.s.pen && lastKept && Math.hypot(pt[0] - lastKept[0], pt[1] - lastKept[1]) < PEN_MIN_STEP) { pts[pts.length - 1] = pt; return; }
+    var prev = pts[pts.length - 1];
+    if (prev && prev[0] === pt[0] && prev[1] === pt[1] && prev[2] === pt[2]) return;
+    pts.push(pt); lastKept = pt;
+  }
+  function bbox(pts, pad) {
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    pts.forEach(function (q) { x0 = Math.min(x0, q[0]); y0 = Math.min(y0, q[1]); x1 = Math.max(x1, q[0]); y1 = Math.max(y1, q[1]); });
+    return [x0 - pad, y0 - pad, x1 + pad, y1 + pad];
+  }
+
+  // Stroke eraser: remove every stroke that has a point near the pen.
+  function eraseAt(e) {
+    var px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
+    strokes.forEach(function (s) {
+      var k = L.w / s.w, X = (px - L.left) / k, Y = py - topOf(s);
+      if (X < s.b[0] - R || X > s.b[2] + R || Y < s.b[1] - R || Y > s.b[3] + R) return;
+      var r2 = Math.pow(R / k + (s.hi ? 9 : 2), 2);
+      for (var i = 0; i < s.pts.length; i++) {
+        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - Y;
+        if (dx * dx + dy * dy <= r2) { hit.push(s); return; }
+      }
+    });
+    if (hit.length) { strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; }); erased = erased.concat(hit); repaintAll(); }
+  }
+
+  function onDown(e) {
+    if (!state.on) return;
+    if (e.pointerType === "mouse" && e.button !== 0 && e.button !== 5) return;
+    if (e.pointerType === "touch" && !state.touchDraws) return;
+    if (activePointer !== null) endStroke(null);
+    e.preventDefault();
+    try { input.setPointerCapture(e.pointerId); } catch (x) {}
+    activePointer = e.pointerId;
+    var isPen = e.pointerType === "pen";
+    // Shift held: the pen drags the page like a hand tool instead of drawing.
+    if (e.shiftKey) { panning = { y: e.clientY, x: e.clientX }; lastTap = null; input.style.cursor = "grabbing"; return; }
+    // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
+    erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
+    if (erasing) { erased = []; eraseAt(e); return; }
+    var s = { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: L.w, a: sectionAt(e.clientY + window.scrollY), pts: [], b: null };
+    current = { first: null, s: s };
+    s.pts.push(pageOf(e, isPen, s));
+    notePressure(current, e.pressure);
+    lastKept = s.pts[0];
+    downTime = e.timeStamp; downX = e.clientX; downY = e.clientY;
+    startLive(); request();
+  }
+  function onMove(e) {
+    if (e.pointerId !== activePointer) return;
+    if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
+    if (panning) {
+      // The page follows the pen: drag up to read further down.
+      // "instant": the page has scroll-behavior:smooth, which would make the drag lag.
+      window.scrollBy({ left: panning.x - e.clientX, top: panning.y - e.clientY, behavior: "instant" });
+      panning.x = e.clientX; panning.y = e.clientY;
+      return;
+    }
+    if (erasing) { eraseAt(e); return; }
+    if (!current) return;
+    var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
+    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
+    request();
+  }
+  // Double-tap to clear (as in draw-app). The browser's own dblclick uses the system's very tight
+  // distance limit, so taps are detected here with a looser one.
+  var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
+  var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  var panning = null, shiftDown = false;
+  function setCursor() {
+    input.style.cursor = !state.on ? "" : panning ? "grabbing" : shiftDown ? "grab" : state.eraser ? "cell" : "crosshair";
+  }
+  // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
+  // (or forgets the last one if this was a real stroke).
+  function isDoubleTap(s, e) {
+    var p0 = s.pts[0];
+    var isTap = !!e && e.type === "pointerup" && e.timeStamp - downTime <= TAP_MAX_TIME &&
+      s.pts.every(function (q) { return Math.hypot(q[0] - p0[0], q[1] - p0[1]) <= TAP_MAX_MOVE; });
+    if (!isTap) { lastTap = null; return false; }
+    if (lastTap && downTime - lastTap.time <= DOUBLE_TAP_TIME && Math.hypot(downX - lastTap.x, downY - lastTap.y) <= DOUBLE_TAP_DISTANCE) {
+      return true;
+    }
+    lastTap = { x: downX, y: downY, time: e.timeStamp, s: s };
+    return false;
+  }
+
+  function endStroke(e) {
+    activePointer = null;
+    if (panning) { panning = null; setCursor(); return; }
+    if (erasing) {
+      erasing = false; lastTap = null;
+      if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
+      erased = []; return;
+    }
+    if (current && isDoubleTap(current.s, e)) {
+      // Drop the dot the first tap left, then clear; Undo brings back the page as it was.
+      var dot = lastTap.s; lastTap = null; current = null;
+      var u = undo[undo.length - 1];
+      if (u && u.t === "add" && u.s === dot) { undo.pop(); strokes = strokes.filter(function (x) { return x !== dot; }); }
+      doClear(); repaintAll(); stopLive();
+      return;
+    }
+    if (current) {
+      var s = current.s;
+      s.b = bbox(s.pts, s.hi ? 12 : 6);
+      strokes.push(s); undo.push({ t: "add", s: s }); current = null;
+      var y = yRange(s);
+      Object.keys(tiles).forEach(function (i) { var t = tiles[i]; if (y[1] > t.top && y[0] < t.top + t.h && !state.hidden) paint(t.ctx, s, t.top, true); });
+      save();
+    }
+    stopLive();
+  }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
+
+  function doUndo() {
+    var a = undo.pop(); if (!a) return;
+    if (a.t === "add") strokes = strokes.filter(function (s) { return s !== a.s; });
+    else strokes = strokes.concat(a.list);
+    repaintAll(); save();
+  }
+  function doClear() {
+    if (!strokes.length) return;
+    undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
+  }
+
+  /* ---------------- toolbar: a rail on the right edge ---------------- */
+  var I = {
+    pen: '<path d="M4 20l1.2-4.6L15.8 4.8a1.7 1.7 0 0 1 2.4 0l1 1a1.7 1.7 0 0 1 0 2.4L8.6 18.8z"/><path d="M14 6.6l3.4 3.4"/>',
+    erase: '<path d="M8.5 19.5L3.8 14.8a1.6 1.6 0 0 1 0-2.3L12.5 3.8a1.6 1.6 0 0 1 2.3 0l5.4 5.4a1.6 1.6 0 0 1 0 2.3l-8 8z"/><path d="M8 9l7 7M8.5 19.5H20"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.5a1.6 1.6 0 0 1 2.5-2L8 15"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeoff: '<path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.5 9.5 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>'
+  };
+  function ic(n) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[n] + "</svg>"; }
+  function tool(id, icon, label, title) {
+    return '<button type="button" class="itool" id="' + id + '" title="' + title + '">' + ic(icon) + '<span class="il">' + label + "</span></button>";
+  }
+
+  var bar = document.createElement("div");
+  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools"); bar.setAttribute("aria-orientation", "vertical");
+  var pens = COLORS.filter(function (c) { return !c.hi; }), his = COLORS.filter(function (c) { return c.hi; });
+  function sw(list) {
+    return list.map(function (c) {
+      var i = COLORS.indexOf(c);
+      return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
+    }).join("");
+  }
+  bar.innerHTML =
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D). Hold Shift and drag to scroll.">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<div class="ipanel" id="inkpanel">' +
+      '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
+      '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
+      '<div class="ig"><span class="ik">Mark</span><div class="isws">' + sw(his) + "</div></div>" +
+      '<div class="ig itools">' +
+        tool("inker", "erase", "Erase", "Erase whole strokes (E). The back end of a pen erases too.") +
+        tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
+        tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
+        tool("inkhd", "eye", "Hide", "Hide or show the ink") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (or double-tap the page). Undo brings it back.") +
+      "</div>" +
+    "</div>";
+  var $ = function (id) { return bar.querySelector("#" + id); };
+
+  function sync() {
+    document.body.classList.toggle("drawing", state.on);
+    bar.classList.toggle("open", state.on);
+    $("inkon").setAttribute("aria-pressed", state.on);
+    $("inker").setAttribute("aria-pressed", state.eraser);
+    $("inktc").setAttribute("aria-pressed", state.touchDraws);
+    $("inktc").querySelector(".il").textContent = state.touchDraws ? "Finger ✎" : "Finger ↕";
+    $("inkhd").setAttribute("aria-pressed", state.hidden);
+    $("inkhd").innerHTML = ic(state.hidden ? "eyeoff" : "eye") + '<span class="il">' + (state.hidden ? "Show" : "Hide") + "</span>";
+    [].forEach.call(bar.querySelectorAll(".isw"), function (b) {
+      b.setAttribute("aria-pressed", !state.eraser && COLORS[+b.dataset.c].v === state.color);
+    });
+    input.style.pointerEvents = state.on ? "auto" : "none";
+    input.style.touchAction = state.touchDraws ? "none" : "pan-y";
+    setCursor();
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.classList.contains("isw")) { var c = COLORS[+b.dataset.c]; state.color = c.v; state.hi = !!c.hi; state.eraser = false; }
+    else if (b.id === "inkon") { state.on = true; if (state.hidden) { state.hidden = false; repaintAll(); } }
+    else if (b.id === "inkoff") state.on = false;
+    else if (b.id === "inker") state.eraser = !state.eraser;
+    else if (b.id === "inkun") doUndo();
+    else if (b.id === "inkcl") doClear();
+    else if (b.id === "inktc") { state.touchDraws = !state.touchDraws; save(); }
+    else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
+    sync();
+  });
+  // Hold Shift to scroll by dragging: the cursor turns into a hand while Shift is down.
+  function onShift(e) { if (e.key === "Shift") { shiftDown = e.type === "keydown"; if (!panning) setCursor(); } }
+  window.addEventListener("keydown", onShift);
+  window.addEventListener("keyup", onShift);
+  window.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      if ((e.key === "z" || e.key === "Z") && state.on && !e.shiftKey) { e.preventDefault(); doUndo(); }
+      return;
+    }
+    if (e.repeat || /input|textarea|select/i.test((e.target && e.target.tagName) || "")) return;
+    var k = e.key.toLowerCase();
+    if (k === "d") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; repaintAll(); } sync(); }
+    else if (k === "e" && state.on) { state.eraser = !state.eraser; sync(); }
+  });
+
+  /* ---------------- wire up ---------------- */
+  document.body.appendChild(layer);
+  document.body.appendChild(input);
+  document.body.appendChild(bar);
+  rebuild(); sync();
+  var rT = 0;
+  function relayout() { clearTimeout(rT); rT = setTimeout(rebuild, 120); }
+  window.addEventListener("resize", relayout);
+  // Page height changes (a Q&A opened, fonts arrived) move the chapters: re-measure and repaint.
+  if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.querySelector("main") || document.body);
+  window.addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  var sT = false;
+  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
+  window.addEventListener("blur", function () { shiftDown = false; if (activePointer !== null) endStroke(); setCursor(); });
+  input.addEventListener("pointerdown", onDown);
+  // Moves and releases are heard on the whole window: pointer capture can be lost just before the
+  // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
+  window.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerup", onUp);
+  window.addEventListener("pointercancel", onUp);
+})();
+</script></body></html>

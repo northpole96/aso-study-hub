@@ -1,0 +1,189 @@
+#CH speed-basics | Speed, time and distance: the one formula | SPEED FAMILY · 2025 Q54, Q64
+Every question in this family grows from one line: **distance = speed × time**. If you know two of the three, you can find the third. Speed = distance ÷ time, and time = distance ÷ speed. The examiner never changes this rule; he only hides it under trains, races and boats.
+
+In 2025 the family took **6 of the 50** maths questions: Robert on his cycle ⟦2025 Q54⟧, a train passing a man ⟦2025 Q59⟧, a race "by 28 metres in 7 seconds" ⟦2025 Q60⟧, a car going 10 km/h faster ⟦2025 Q64⟧, a 100 m race with a head start ⟦2025 Q65⟧ and another train passing a man ⟦2025 Q82⟧.
+
+##Units: km/h and metres per second
+Most mistakes in this family are unit mistakes. A train question gives lengths in metres and times in seconds, but speeds in km/h. Change them before you do anything else.
+
+One km is 1,000 m and one hour is 3,600 seconds, so 1 km/h = 1000/3600 = **5/18 m/s**. To go back, multiply by **18/5**.
+
+|Change|Multiply by|Example|
+|---|---|---|
+|km/h → m/s|5/18|90 km/h × 5/18 = 25 m/s|
+|m/s → km/h|18/5|20 m/s × 18/5 = 72 km/h|
+
+>TIP:Learn these four by heart
+18 km/h = 5 m/s · 36 km/h = 10 m/s · 54 km/h = 15 m/s · 72 km/h = 20 m/s. Every multiple of 18 turns into a whole number of metres per second, which is why examiners love 54 and 72.
+
+##Speed and time go opposite ways
+For a **fixed distance**, if the speed goes up, the time goes down in the same ratio. If you go at 3/4 of your usual speed, you take 4/3 of your usual time. This one idea solves the "late" questions.
+
+Example: walking at 3/4 of his usual speed, a man is 20 minutes late. The new time is 4/3 of the usual, so the extra time is 4/3 − 1 = **1/3 of the usual time**. That 1/3 is 20 minutes, so the usual time is 60 minutes.
+
+##Late at one speed, early at another
+The question gives two speeds and says he is late by one amount and early by another. The two times differ by **late + early** (the right time sits between them). If he is late both times, they differ by the difference.
+
+Example: at 4 km/h a boy is 10 minutes late; at 5 km/h he is 5 minutes early. The times differ by 15 minutes = 1/4 hour. So d/4 − d/5 = 1/4, which is d/20 = 1/4, and **d = 5 km**.
+
+Shortcut: distance = (product of speeds ÷ difference of speeds) × time difference = (20 ÷ 1) × 1/4 = 5 km.
+
+The real 2025 question was this type with clock times. Robert reaches at 2 p.m. at 10 km/h and at 12 noon at 15 km/h; at what speed will he reach at 1 p.m.? ⟦2025 Q54⟧ The times differ by 2 hours: d/10 − d/15 = 2, so d/30 = 2 and d = 60 km. At 10 km/h he rides 6 hours, so he starts at 8 a.m. To arrive at 1 p.m. he has 5 hours: 60 ÷ 5 = **12 km/h**. Note that the answer is not 12.5, the plain average of 10 and 15.
+
+##Faster by a few km/h, so hours less
+The 2025 car question: a car covers 715 km; at 10 km/h more it would take 2 hours less. Find the speed. ⟦2025 Q64⟧ This makes a quadratic: 715/v − 715/(v + 10) = 2. Do not solve it. **Try the options.** 715 ÷ 55 = 13 hours and 715 ÷ 65 = 11 hours, a difference of exactly 2. So the speed is **55 km/h**.
+
+>WARN:Try the options
+In speed questions with a quadratic inside, checking each option is faster than algebra. Start with an option that divides the distance exactly.
+
+##Average speed
+Average speed is **total distance ÷ total time**. It is almost never the plain average of the speeds.
+
+@@fig avg
+
+When the two distances are equal (going and coming back), use **2xy ÷ (x + y)**. At 30 km/h there and 60 km/h back: 2 × 30 × 60 ÷ 90 = **40 km/h**, not 45. For three equal distances, use 3xyz ÷ (xy + yz + zx), or simply take each part as the LCM of the speeds and add up the times.
+
+When the distances are not equal, work out each time and add them. 30 km at 10 km/h (3 h) and 30 km at 15 km/h (2 h) is 60 km in 5 hours = 12 km/h.
+
+##Stoppages
+A bus runs at 80 km/h without stops but averages 60 km/h with them. In each hour it loses 20 km. At 80 km/h, 20 km takes 20/80 hour = **15 minutes**. So it stops 15 minutes every hour. Formula: (difference ÷ speed without stops) × 60.
+
+>NEXT:Likely next in this chapter
+?? At 5/6 of his usual speed a man is 12 minutes late. What is his usual time? || New time is 6/5 of usual, so the extra 1/5 of usual is 12 minutes. Usual time = 60 minutes.
+?? 54 km/h in metres per second? || 54 × 5/18 = 15 m/s.
+?? A man goes at 20 km/h and returns at 30 km/h. Average speed? || 2 × 20 × 30 ÷ 50 = 24 km/h.
+?? Without stops a train runs at 45 km/h; with stops 36 km/h. Minutes stopped per hour? || 9/45 × 60 = 12 minutes.
+
+#CH speed-relative | Meeting and chasing: relative speed | SPEED FAMILY · moving objects
+When two things move at the same time, think about the **gap** between them. The gap closes (or opens) at the **relative speed**.
+
+- Moving **towards each other** (opposite directions): speeds **ADD**.
+- Moving **the same way** (one chasing the other): speeds **SUBTRACT**.
+
+This one rule is the key to trains, races and boats too, so learn it well.
+
+##Meeting
+Two towns are 200 km apart. Cars leave both towns at the same time towards each other at 30 km/h and 20 km/h. The gap closes at 30 + 20 = 50 km/h, so they meet after 200 ÷ 50 = **4 hours**, at 30 × 4 = 120 km from the first town.
+
+If one car leaves an hour later, first move the early car forward by one hour, then use the gap that is left. Forgetting this head start is the common trap.
+
+##Chasing
+A thief is 1 km ahead. He runs at 8 km/h and a policeman follows at 10 km/h. The gap closes at 10 − 8 = 2 km/h, so the policeman catches him after 1 ÷ 2 = **half an hour**. In that time the thief runs 4 km and the policeman 5 km. Read whose distance the question asks for.
+
+>WARN:Whose distance?
+The options always hold both runners' distances. The policeman runs the thief's distance PLUS the starting gap.
+
+>NEXT:Likely next
+?? Two trains start towards each other from places 330 km apart at 50 and 60 km/h. After how long do they meet? || The gap closes at 110 km/h: 330 ÷ 110 = 3 hours.
+?? A cyclist leaves 2 hours after a walker at 6 km/h, riding at 10 km/h on the same road. When does he catch up? || Walker's head start = 12 km; gap closes at 4 km/h; 3 hours after the cyclist starts.
+
+#CH trains | Trains: poles, platforms and other trains | SPEED FAMILY · 2025 Q59, Q82
+A train question is a relative-speed question where **the length of the train counts**. The front of the train must travel until its back end has cleared whatever it is passing.
+
+@@fig trains
+
+|Train passes|Distance covered|Speed to use|
+|---|---|---|
+|a pole, a tree, a standing man|length of the train|train's speed|
+|a platform, a bridge, a tunnel|train + platform|train's speed|
+|a man walking or running|length of the train|add speeds if he comes towards it; subtract if he goes the same way|
+|another train|both lengths together|add speeds if opposite; subtract if same way|
+
+##Worked: the two 2025 questions
+A train 100 m long takes 6 seconds to cross a man walking at 5 km/h in the opposite direction. Find the train's speed. ⟦2025 Q59⟧ Relative speed = 100/6 m/s = 100/6 × 18/5 = 60 km/h. Opposite directions add, so train + 5 = 60 and the train runs at **55 km/h**.
+
+A train 220 m long runs at 59 km/h. How long does it take to pass a man running at 7 km/h towards it? ⟦2025 Q82⟧ Opposite directions, so 59 + 7 = 66 km/h = 66 × 5/18 = 55/3 m/s. Time = 220 ÷ 55/3 = **12 seconds**.
+
+Both questions are one family, asked from two sides: find the speed, then find the time. The next paper may ask for the **length** (given speed and time) or put the man on the **same side** (subtract).
+
+##Pole and platform together
+A train passes a pole in 10 s and a 200 m platform in 20 s. The extra 10 s cover the 200 m platform, so the speed is 20 m/s and the train is 20 × 10 = **200 m** long.
+
+##Two trains
+Trains of 100 m and 200 m at 40 and 50 km/h, opposite ways: 300 m at 90 km/h = 25 m/s, so **12 seconds**. Same pair going the same way: 300 m at 10 km/h = 25/9 m/s, so **108 seconds**.
+
+##After they meet
+Two trains start at the same time towards each other. After meeting, one takes a hours and the other b hours to finish. Then **speed of first : speed of second = √b : √a**. With 4 hours and 9 hours, the ratio is 3 : 2. The faster train is the one with less time left.
+
+>NEXT:Likely next
+?? A train at 72 km/h crosses a 250 m bridge in 25 seconds. Length of the train? || 20 m/s × 25 = 500 m in all, so the train is 250 m.
+?? A 150 m train passes a man walking at 6 km/h in the same direction in 10 seconds. Speed of the train? || 15 m/s = 54 km/h relative, so the train runs at 60 km/h.
+?? Two trains, 120 m and 80 m, cross each other in 10 s going opposite ways. If one runs at 30 km/h, the other? || 20 m/s = 72 km/h together, so 42 km/h.
+
+#CH races | Races and circular tracks | SPEED FAMILY · 2025 Q60, Q65
+A race is two runners on the same road. Three phrases do all the work, so learn what each one means.
+
+|Phrase|Meaning|
+|---|---|
+|A beats B by 20 m|when A finishes, B is 20 m short of the line|
+|A beats B by 5 seconds|B finishes 5 seconds after A|
+|A gives B a start of 20 m|B starts 20 m ahead, so B runs 20 m less|
+|dead heat|both reach the line together|
+
+##Beats by metres AND by seconds
+"A beats B by 28 metres or 7 seconds" means B needs 7 seconds to run those last 28 m. So **B's speed = 28 ÷ 7 = 4 m/s**. This is the key step. ⟦2025 Q60⟧ In a 1 km race, B takes 1000 ÷ 4 = 250 s, and A finishes 7 s earlier: **243 s = 4 min 3 s**.
+
+##Head start and still wins
+In a 100 m race, A runs at 8 km/h. A gives B a start of 4 m and still beats him by 15 seconds. Find B's speed. ⟦2025 Q65⟧ 8 km/h = 20/9 m/s, so A takes 100 ÷ 20/9 = 45 s. B runs only 96 m but takes 45 + 15 = 60 s. B's speed = 96/60 = 1.6 m/s = 1.6 × 18/5 = **5.76 km/h**.
+
+##Chains
+In a km race, A beats B by 100 m and B beats C by 100 m. When A runs 1,000, B runs 900; when B runs 900, C runs 900 × 900/1000 = 810. So A beats C by **190 m**, not 200.
+
+##Circular tracks
+On a closed track the runners meet when the faster one gains **one full lap** (same direction) or when together they cover **one full lap** (opposite directions). On a 400 m track at 6 and 4 m/s: same direction, 400 ÷ 2 = 200 s; opposite, 400 ÷ 10 = 40 s. To meet again **at the starting point**, take the LCM of their lap times.
+
+>NEXT:Likely next
+?? In a 500 m race A beats B by 50 m or 10 seconds. A's time? || B's speed 5 m/s, B's time 100 s, so A takes 90 s.
+?? A runs 7/4 times as fast as B. What start must A give B so they finish 84 m together? || Distances 7 : 4 in the same time; B runs 4/7 × 84 = 48 m, so a start of 36 m.
+
+#CH boats | Boats and streams | SPEED FAMILY · downstream and upstream
+A river adds its own speed to everything floating in it. Going **downstream** (with the water), the stream helps: D = b + s. Going **upstream** (against it), the stream slows the boat: U = b − s. Here b is the boat's speed in still water and s is the stream's speed.
+
+@@fig boat
+
+Two lines answer most questions. **Boat = (D + U) ÷ 2** and **stream = (D − U) ÷ 2**. If a boat goes downstream at 20 km/h and upstream at 12 km/h, the boat is 16 km/h and the stream 4 km/h.
+
+##There and back
+A boat at 8 km/h in still water, on a stream of 2 km/h, goes 30 km and back. Down at 10 km/h takes 3 hours; up at 6 km/h takes 5 hours. Total **8 hours**. If the question gives the total time and asks the distance, write d/D + d/U = total time and solve.
+
+##Upstream takes n times as long
+If going up takes **n times** as long as coming down the same distance, then b : s = (n + 1) : (n − 1). Twice as long gives 3 : 1; three times gives 2 : 1.
+
+>WARN:Three traps
+- Using the still-water speed for a trip on the river.
+- Giving the stream's speed when the question asks for the boat's.
+- Giving the downstream speed (b + s) as the boat's speed.
+
+>NEXT:Likely next
+?? A man rows 24 km downstream in 3 hours and 12 km upstream in 3 hours. Speed of the stream? || D = 8, U = 4; stream = (8 − 4) ÷ 2 = 2 km/h.
+?? A man rows at 6 km/h in still water. It takes him 3 times as long upstream as downstream. Stream speed? || b : s = 4 : 2 = 2 : 1, so s = 3 km/h.
+
+#CH speed-sheet | One-page sheet and traps | SPEED FAMILY · revision
+Read this page the night before you take the speed practice set, and again in the last week.
+
+|Situation|Rule|
+|---|---|
+|units|km/h × 5/18 = m/s; m/s × 18/5 = km/h|
+|same distance, new speed|time changes in the opposite ratio|
+|late and early|times differ by late + early|
+|average speed, equal distances|2xy ÷ (x + y)|
+|stoppages|minutes per hour = (difference ÷ fast speed) × 60|
+|meeting|speeds add|
+|chasing|speeds subtract|
+|train and pole|train length only|
+|train and platform|train + platform|
+|two trains|both lengths; add speeds if opposite, subtract if same way|
+|after meeting|speed ratio = √(other's time) : √(own time)|
+|beats by x m or t s|loser's speed = x ÷ t|
+|circular track|same way: lap ÷ difference; opposite: lap ÷ sum|
+|boats|D = b + s, U = b − s, b = (D + U) ÷ 2, s = (D − U) ÷ 2|
+
+>WARN:The traps the options set
+- The plain average of two speeds (always wrong for average speed).
+- The answer in the wrong unit: 15 when the option needed 54 km/h.
+- The relative speed given as the train's speed.
+- The other person's distance or time (the policeman, B instead of A).
+- Forgetting a head start in time or in metres.
+
+>KEY:Now practise
+Take the Speed and Trains set on the hub (26 questions, 26 minutes). Then paste the Copy answers report into the chat.

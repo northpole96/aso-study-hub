@@ -1,0 +1,23 @@
+#CH start | Start here | READ FIRST · 3 minutes
+The maths half of Paper II is 50 questions. Arithmetic is the biggest part of it: 15 questions in 2018, 17 in 2021 and **44 in 2025**, when the paper switched to the R. S. Aggarwal style of word problems. This guide takes arithmetic **one family at a time**. Each family gets a few short chapters that explain every type, show worked examples, and point out the traps the options set. After each family you take its practice set on the hub, press Copy answers, and paste the report into the chat for a redo set.
+
+##The order we are following
+The families are taken in the order of their weight in 2025, the paper that matters most for 2027.
+
+|#|Family|2025 questions|Status|
+|---|---|---|---|
+|1|Time and work, pipes|8|done (practice set: Time and Work · 14 types)|
+|2|Speed, trains, races, boats|6|this guide, chapters 1 to 6|
+|3|Number system: HCF, LCM, divisibility, remainders, squares|8 to 11|next|
+|4|Percentage, profit and loss, interest|10|later|
+|5|Indices and surds|5|later|
+|6|Ages, partnership, average, clocks, mixtures|about 8|later|
+
+>KEY:How to use each family
+- Read its chapters once, slowly, with rough paper. Do every worked example yourself before you read the working.
+- Then take the practice set on the hub. The questions are mixed, so you have to spot the type.
+- Paste the Copy answers report into the chat. The next set brings back what you missed.
+- Move on when the family scores 80% or more.
+
+>TIP:Draw on the page
+This guide has the pen mode of the History guide. Press D (or tap the DRAW tab on the right) and work the examples straight on the page. Hold Shift and drag to scroll.

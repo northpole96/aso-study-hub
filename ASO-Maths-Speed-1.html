@@ -1,0 +1,542 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO Speed and Trains</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · Paper II (B) Mathematics · Speed, Trains, Races, Boats · Set 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>Speed and Trains</h1>
+<p class="tag">26 questions on<br><b>speed, trains, races and boats</b>,<br>every type and its twists.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">Speed questions took 6 of the 50 maths questions in 2025: Robert on his cycle (Q54), two trains passing a running man (Q59, Q82), a car going 10 km/h faster (Q64) and two races (Q60, Q65). This set covers every type in the family, with the twists the examiner likes: units, average speed, late and early, chases, trains against poles, platforms and other trains, head starts, circular tracks, and boats with and against the stream.</p>
+<p class="lead" style="margin-top:14px">Three ideas solve almost all of them. Distance = speed × time. Multiply km/h by 5/18 to get metres per second. Speeds ADD when two things move towards each other and SUBTRACT when one chases the other. The four parts are mixed, so you have to spot the type yourself. Each answer names the type, shows the working, gives a shortcut and explains the trap options. Read the matching chapter of the Arithmetic Guide first if a type is new to you.</p>
+<div class="rules">
+<div><b>Paper</b><span>26 questions · 26 minutes · 26 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will build a redo set from what you got wrong or skipped.</span></div>
+<div><b>Speed</b><span>About a minute a question. If a sum is not moving, mark it and go on.</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 26 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>26</span> questions</span></div>
+<ol class="bp"><li><span class="n">12</span><span>Speed & Time</span><span class="dots"></span><span class="c">units, late/early, average speed, chases · 2025 Q54, Q64</span></li><li><span class="n">07</span><span>Trains</span><span class="dots"></span><span class="c">poles, platforms, men, other trains · 2025 Q59, Q82</span></li><li><span class="n">04</span><span>Races</span><span class="dots"></span><span class="c">beats by, head start, circular track · 2025 Q60, Q65</span></li><li><span class="n">03</span><span>Boats & Streams</span><span class="dots"></span><span class="c">downstream, upstream, there and back</span></li></ol>
+<p class="src" style="margin-top:14px">Speed, time and distance sits under Arithmetic, topic (a) of the Paper II (B) syllabus (Advt. No. 15 of 2026-27).</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">26:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 26 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · Speed, Trains, Races, Boats · Set 01 · built 18 Nov 2026 from the official syllabus and the six speed questions of the 2025 Paper II booklet. Every answer was recomputed by a script (tools/check_maths_speed1.py).</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Speed & Time", "q": "The speeds of A and B are in the ratio 3 : 4. A takes 30 minutes more than B to reach a place. How long does A take?", "o": ["1 hour", "2 1/2 hours", "2 hours", "1 1/2 hours"], "a": 2, "e": "Type: ratio of speeds. For the same distance, times are in the opposite ratio, so A : B time = 4 : 3. The difference of 1 part is 30 minutes, so A takes 4 parts = 120 minutes = 2 hours (and B takes 1 1/2 hours). Trap: 1 1/2 hours is B's time. Read which person the question asks about.", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "A train 125 m long passes a man running at 5 km/h in the same direction in 10 seconds. What is the speed of the train?", "o": ["40 km/h", "50 km/h", "45 km/h", "55 km/h"], "a": 1, "e": "Type: train and a moving man. Same direction, so speeds SUBTRACT: relative speed = 125/10 = 12.5 m/s = 12.5 × 18/5 = 45 km/h. That is (train − man), so train = 45 + 5 = 50 km/h. Trap: 45 km/h is only the relative speed. If the man ran TOWARDS the train, the train would be 45 − 5 = 40 km/h, which is the other trap.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A train runs at 72 km/h. How many metres does it cover in 15 seconds?", "o": ["1,080 m", "300 m", "400 m", "270 m"], "a": 1, "e": "Type: changing units. To turn km/h into metres per second, multiply by 5/18 (because 1 km = 1,000 m and 1 hour = 3,600 s, and 1000/3600 = 5/18). 72 × 5/18 = 20 m/s. In 15 seconds: 20 × 15 = 300 m. Trap: 1,080 is 72 × 15, which mixes km/h with seconds. Rule: before you multiply speed by time, make the units match. Going back, m/s × 18/5 gives km/h.", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "A train 180 m long running at 54 km/h crosses a platform in 20 seconds. How long is the platform?", "o": ["300 m", "180 m", "150 m", "120 m"], "a": 3, "e": "Type: train and a platform (or a bridge, a tunnel). To cross a platform the train covers its own length PLUS the platform's length. 54 km/h = 15 m/s. In 20 s it covers 15 × 20 = 300 m. Platform = 300 − 180 = 120 m. Trap: 300 m is train + platform together.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "Ravi cycles to a town. At 12 km/h he reaches at 3 p.m.; at 18 km/h he reaches at 1 p.m. At what speed must he cycle to reach at 2 p.m.?", "o": ["14.4 km/h", "14 km/h", "13.5 km/h", "15 km/h"], "a": 0, "e": "Type: the 2025 Q54 family (Robert on his cycle). The two times differ by 2 hours, so d/12 − d/18 = 2. That is d/36 = 2, so d = 72 km. At 12 km/h the ride takes 72/12 = 6 hours, so he starts at 9 a.m. To reach at 2 p.m. he has 5 hours: 72/5 = 14.4 km/h. Trap: 15 km/h is the average of 12 and 18. The answer is never the plain average, because time, not speed, is split evenly.", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "A train 240 m long passes a pole in 16 seconds. What is its speed in km/h?", "o": ["48 km/h", "15 km/h", "54 km/h", "60 km/h"], "a": 2, "e": "Type: train and a pole (or a man standing, a tree, a signal post). The pole has no length, so the train covers only its own length. Speed = 240/16 = 15 m/s. Into km/h: 15 × 18/5 = 54 km/h. Trap: 15 is the answer in m/s. Always check which unit the options use.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "Without stoppages a bus runs at 54 km/h. With stoppages its average speed is 45 km/h. For how many minutes does the bus stop each hour?", "o": ["15 minutes", "10 minutes", "12 minutes", "9 minutes"], "a": 1, "e": "Type: stoppages. In one hour the bus loses 54 − 45 = 9 km because of stops. At its running speed, 9 km takes 9/54 hour = 1/6 hour = 10 minutes. Formula: stop time per hour = (difference ÷ speed without stops) × 60. Trap: 9 minutes treats the lost kilometres as minutes.", "k": "one", "n": false, "c": false}, {"s": "Races", "q": "A and B start running together from the same point on a 600 m circular track, at 5 m/s and 3 m/s, in the same direction. After how long do they first meet?", "o": ["75 seconds", "2 minutes", "5 minutes", "10 minutes"], "a": 2, "e": "Type: circular track. In the same direction they meet when the faster gains one full lap, 600 m, on the slower. It gains 5 − 3 = 2 m each second, so 600/2 = 300 seconds = 5 minutes. Trap: 75 seconds is the opposite-direction answer (speeds add: 600/8). Likely next: 'when will they next be together at the STARTING point?' A takes 120 s a lap and B 200 s, so the LCM: 600 s = 10 minutes.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "Walking at 4/5 of his usual speed, a man reaches his office 10 minutes late. What is his usual time for the journey?", "o": ["30 minutes", "50 minutes", "45 minutes", "40 minutes"], "a": 3, "e": "Type: slower speed, late arrival. For a fixed distance, time goes the opposite way to speed. If speed becomes 4/5, time becomes 5/4 of the usual time. The extra time is 5/4 − 1 = 1/4 of the usual time, and that is 10 minutes. So the usual time is 4 × 10 = 40 minutes. Trap: 50 minutes is the NEW (slow) time. Likely next: 'at 6/7 of his speed he is 12 minutes late' (extra = 1/6 of usual, so usual = 72 minutes).", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "A train passes a pole in 15 seconds and a 100 m long platform in 25 seconds. What is the length of the train?", "o": ["100 m", "150 m", "200 m", "250 m"], "a": 1, "e": "Type: pole and platform together. The extra 10 seconds are spent covering the 100 m platform, so the speed is 100/10 = 10 m/s. In 15 seconds at 10 m/s the train covers its own length: 150 m. Algebra check: L/15 = (L + 100)/25 gives 25L = 15L + 1,500, so L = 150.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A man walks 60 km. He covers the first 24 km at 6 km/h and the rest at 12 km/h. What is his average speed?", "o": ["10 km/h", "9 km/h", "8 km/h", "8 4/7 km/h"], "a": 3, "e": "Type: average speed, unequal parts. Time for 24 km at 6 km/h = 4 h. The rest is 36 km at 12 km/h = 3 h. Total: 60 km in 7 hours = 60/7 = 8 4/7 km/h. Trap: 9 km/h is the plain average of 6 and 12. Always go back to total distance ÷ total time.", "k": "one", "n": false, "c": false}, {"s": "Boats & Streams", "q": "A boat goes 30 km downstream in 2 hours and 18 km upstream in 2 hours. What is the speed of the boat in still water?", "o": ["12 km/h", "24 km/h", "15 km/h", "3 km/h"], "a": 0, "e": "Type: boat basics. Downstream (with the water) speed = boat + stream = 30/2 = 15 km/h. Upstream (against the water) = boat − stream = 18/2 = 9 km/h. Boat = half the SUM = (15 + 9)/2 = 12 km/h. Stream = half the DIFFERENCE = (15 − 9)/2 = 3 km/h. Trap: 3 km/h is the stream's speed, and 15 km/h is the downstream speed.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A man drives from A to B at 40 km/h and returns at 60 km/h. What is his average speed for the whole journey?", "o": ["52 km/h", "48 km/h", "45 km/h", "50 km/h"], "a": 1, "e": "Type: average speed, same distance both ways. Average speed is total distance ÷ total time, NOT the average of the speeds. Formula for two equal distances: 2xy/(x + y) = 2 × 40 × 60/100 = 48 km/h. Check with a distance of 120 km: 3 hours going, 2 hours back, so 240 km in 5 hours = 48 km/h. Trap: 50 km/h is the plain average. He spends MORE time at the slower speed, so the answer is always below the plain average.", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "Two trains 100 m and 150 m long run in the same direction at 72 km/h and 54 km/h. How long does the faster train take to pass the slower one completely?", "o": ["50 seconds", "20 seconds", "30 seconds", "7 1/7 seconds"], "a": 0, "e": "Type: two trains, same direction (overtaking). Distance = both lengths = 250 m. Same direction, so speeds SUBTRACT: 72 − 54 = 18 km/h = 5 m/s. Time = 250/5 = 50 seconds. Trap: 7 1/7 seconds adds the speeds (126 km/h = 35 m/s), which is the opposite-direction rule.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A boy walks to school at 5 km/h and reaches 6 minutes late. If he walks at 6 km/h, he reaches 4 minutes early. How far is the school?", "o": ["5 km", "3 km", "4 km", "6 km"], "a": 0, "e": "Type: late at one speed, early at another. The two times differ by 6 + 4 = 10 minutes = 1/6 hour (late and early ADD, because the right time sits between them). So d/5 − d/6 = 1/6. The left side is d/30, so d/30 = 1/6 and d = 5 km. Shortcut: distance = (product of speeds ÷ difference of speeds) × time difference = (30 ÷ 1) × 1/6 = 5 km. Trap: subtracting 6 − 4 = 2 minutes instead of adding gives 1 km, which is why you must check whether both times are late, or one late and one early.", "k": "one", "n": false, "c": false}, {"s": "Races", "q": "In a 200 m race, A runs at 18 km/h. A gives B a start of 20 m and still beats him by 5 seconds. What is B's speed?", "o": ["14.4 km/h", "15 km/h", "16 km/h", "12 km/h"], "a": 0, "e": "Type: start given AND a win by time (the 2025 Q65 family, the 100 m race at 8 km/h). 18 km/h = 5 m/s, so A finishes 200 m in 40 seconds. B runs only 180 m and takes 40 + 5 = 45 seconds. B's speed = 180/45 = 4 m/s = 4 × 18/5 = 14.4 km/h. Trap: forgetting the start gives 200/45 m/s = 16 km/h.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A man covers three equal distances at 10 km/h, 20 km/h and 60 km/h. What is his average speed for the whole journey?", "o": ["24 km/h", "30 km/h", "20 km/h", "18 km/h"], "a": 3, "e": "Type: average speed, three equal distances. Take each part as 60 km (the LCM of 10, 20 and 60). Times: 6 h, 3 h and 1 h, so 180 km in 10 hours = 18 km/h. Formula: 3xyz/(xy + yz + zx) = 3 × 12,000/(200 + 1,200 + 600) = 36,000/2,000 = 18. Trap: 30 km/h is the plain average of 10, 20 and 60.", "k": "one", "n": false, "c": false}, {"s": "Boats & Streams", "q": "A boat's speed in still water is 10 km/h and the stream flows at 2 km/h. The boat goes to a place and comes back in 25 hours. How far is the place?", "o": ["100 km", "125 km", "150 km", "120 km"], "a": 3, "e": "Type: there and back. Downstream speed = 12 km/h and upstream = 8 km/h. So d/12 + d/8 = 25. Over 24: (2d + 3d)/24 = 25, so 5d = 600 and d = 120 km. Check: 10 hours going down, 15 hours coming up, 25 hours in all. Trap: 125 km uses the still-water speed both ways (25 × 10 ÷ 2).", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A car covers a distance in 6 hours at 60 km/h. What speed does it need to cover the same distance in 4 1/2 hours?", "o": ["70 km/h", "75 km/h", "80 km/h", "90 km/h"], "a": 2, "e": "Type: same distance, new time (the 2025 Q64 family, the car and its 715 km). Distance = 60 × 6 = 360 km. New speed = 360 ÷ 4.5 = 80 km/h. Shortcut: speed and time go opposite ways, so new speed = 60 × 6/4.5 = 60 × 4/3 = 80. Likely next: 'to cover it in 3/4 of the time, by how much must the speed rise?' (by 1/3, that is 33 1/3%).", "k": "one", "n": false, "c": false}, {"s": "Races", "q": "A runs 1 2/3 times as fast as B. If A gives B a start of 80 m, how far from the start must the winning post be so that both reach it at the same time?", "o": ["240 m", "120 m", "200 m", "160 m"], "a": 2, "e": "Type: a start (head start) given. Speeds A : B = 5/3 : 1 = 5 : 3, so in the same time they cover distances in the ratio 5 : 3. A runs 80 m more than B, and the difference is 5 − 3 = 2 parts. So 1 part = 40 m and A runs 5 parts = 200 m. Trap: 120 m is how far B runs (3 parts).", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "Two trains 140 m and 160 m long run at 60 km/h and 48 km/h in opposite directions on parallel tracks. How long do they take to cross each other?", "o": ["12 seconds", "9 seconds", "10 seconds", "90 seconds"], "a": 2, "e": "Type: two trains, opposite directions. Distance = both lengths = 140 + 160 = 300 m. Opposite directions, so speeds ADD: 108 km/h = 108 × 5/18 = 30 m/s. Time = 300/30 = 10 seconds. Trap: 90 seconds uses the difference of speeds (12 km/h), which is the same-direction rule.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "A thief is seen by a policeman 200 m away. The thief runs at 10 km/h and the policeman chases at 12 km/h. How far will the thief have run before he is caught?", "o": ["1.2 km", "1 km", "800 m", "600 m"], "a": 1, "e": "Type: a chase, same direction. Speeds SUBTRACT: the gap of 200 m closes at 12 − 10 = 2 km/h. Time = 0.2 km ÷ 2 km/h = 0.1 hour = 6 minutes. In that time the thief runs 10 × 0.1 = 1 km. Trap: 1.2 km is how far the POLICEMAN runs (the thief's 1 km plus the 200 m gap).", "k": "one", "n": false, "c": false}, {"s": "Trains", "q": "Two trains start at the same time from P and Q towards each other. After they meet, they take 9 hours and 16 hours to reach Q and P respectively. What is the ratio of their speeds?", "o": ["16 : 9", "3 : 4", "9 : 16", "4 : 3"], "a": 3, "e": "Type: times after meeting. Rule: speed of first : speed of second = √(time of second after meeting) : √(time of first after meeting). Here: √16 : √9 = 4 : 3. Sense check: the train from P needs only 9 more hours, less than the other, so it must be the faster one. That rules out 3 : 4. Traps: 16 : 9 forgets the square root, and 9 : 16 forgets both the root and the swap.", "k": "one", "n": false, "c": false}, {"s": "Boats & Streams", "q": "A man takes twice as long to row a distance upstream as to row the same distance downstream. If the stream flows at 4 km/h, what is his speed in still water?", "o": ["12 km/h", "6 km/h", "8 km/h", "16 km/h"], "a": 0, "e": "Type: ratio of times. Twice the time upstream means downstream speed is twice the upstream speed: b + 4 = 2(b − 4). So b + 4 = 2b − 8, and b = 12 km/h. Shortcut: if upstream takes n times as long, boat : stream = (n + 1) : (n − 1) = 3 : 1 here, so the boat is 3 × 4 = 12. Trap: 8 km/h is the upstream speed.", "k": "one", "n": false, "c": false}, {"s": "Races", "q": "In a 1 km race, A beats B by 100 m, and B beats C by 100 m. By how many metres does A beat C?", "o": ["210 m", "180 m", "190 m", "200 m"], "a": 2, "e": "Type: one runner beats another, chained (the 2025 Q60 family, 'in a km race A beats B by...'). When A runs 1,000 m, B runs 900 m. When B runs 1,000 m, C runs 900 m, so when B runs 900 m, C runs 900 × 900/1,000 = 810 m. So when A finishes, C has run 810 m and A beats C by 190 m. Trap: 200 m just adds the two leads. The second lead shrinks because B has not finished when A does.", "k": "one", "n": false, "c": false}, {"s": "Speed & Time", "q": "Two towns P and Q are 310 km apart. A car leaves P at 8 a.m. towards Q at 40 km/h. Another leaves Q at 9 a.m. towards P at 50 km/h. When do they meet?", "o": ["12 noon", "12:30 p.m.", "11 a.m.", "11:30 a.m."], "a": 0, "e": "Type: moving towards each other. By 9 a.m. the first car has gone 40 km, so 270 km is left between them. Moving towards each other, the gap closes at 40 + 50 = 90 km/h (speeds ADD). Time = 270/90 = 3 hours after 9 a.m., so they meet at 12 noon. Trap: forgetting the first car's head start gives 310/90 ≈ 3.4 hours after 8 a.m., about 11:27. Likely next: how far from P do they meet? 40 × 4 = 160 km.", "k": "one", "n": false, "c": false}];
+(function(){
+  var SK="aso-maths-speed-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=26*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 26 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 26</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Speed & Time", "Trains", "Races", "Boats & Streams"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO SPEED AND TRAINS SET 01 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / 26 · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please make the next speed set from my wrong and skipped questions.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>

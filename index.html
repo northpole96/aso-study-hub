@@ -296,6 +296,7 @@ var R = [
  {t:"Official scheme & syllabus", f:"pyq/OPSC-ASO-2026-27-Official-Syllabus.html", s:"syllabus", p:"ALL", y:"2026-27"},
 
  {t:"GA Reference Manual", f:RM, s:"guide", p:"GA", y:"Main", main:1, x:"All 12 topics"},
+ {t:"Arithmetic Guide", f:"ASO-Arithmetic-Guide-2027.html", s:"guide", p:"MA", y:"ARI", x:"one family at a time · now: speed, trains, races, boats", topic:"ari"},
  {t:"Modern History Guide", f:"ASO-History-Guide-2027.html", s:"guide", p:"GA", y:"HIS", x:"1600 to 1950 + news 2025–26", topic:"his"},
  {t:"Defence Guide", f:"ASO-Defence-Guide-2027.html", s:"guide", p:"GA", y:"DEF", x:"Static + news to Nov 2026", topic:"def"},
  {t:"Current Affairs 2026", f:CA, s:"guide", p:"GA", y:"2026", x:"News by topic"},
@@ -311,6 +312,7 @@ var R = [
  {t:"Paper II Mock · 2021 paper", f:"ASO-Paper-II-Mock-2021.html", s:"mock", p:"RE", g:"Paper II mocks", k:"aso-paper2-mock-2021", n:100, y:"P2-21", main:1},
  {t:"Maths Mock 01", f:"ASO-Maths-Mock-2027-1.html", s:"mock", p:"MA", g:"Paper II mocks", k:"aso-maths-mock-2027-1", n:50, y:"MA01", main:1},
  {t:"Time and Work · 14 types", f:"ASO-Maths-Time-Work-1.html", s:"mock", p:"MA", g:"Topic sets", k:"aso-maths-time-work-1", n:14, y:"TW1", topic:"ari"},
+ {t:"Speed, Trains, Races, Boats", f:"ASO-Maths-Speed-1.html", s:"mock", p:"MA", g:"Topic sets", k:"aso-maths-speed-1", n:26, y:"SPD1", topic:"ari"},
  {t:"GS Mock 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-1", n:100, y:"GS01", main:1},
  {t:"GS Mock 02 · most likely", f:"ASO-GS-Mock-Test-2027-2.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-2", n:100, y:"GS02", main:1},
  {t:"GS Mock 03 · most likely II", f:"ASO-GS-Mock-Test-2027-3.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-3", n:100, y:"GS03", main:1},
@@ -363,7 +365,7 @@ var SYL=[
   {c:"A", n:"Number series"},{c:"A", n:"Alphabet series"},{c:"A", n:"Direction sense"},{c:"A", n:"Coding and decoding"},{c:"A", n:"Number ranking"},{c:"A", n:"Arithmetic reasoning"},{c:"A", n:"Age problems"},
   {c:"B", n:"Non-verbal series"},{c:"B", n:"Mirror images"},{c:"B", n:"Cubes and dice"},{c:"B", n:"Grouping identical figures"},{c:"B", n:"Embedded figures"}]},
  {id:"ma", no:"II", paper:"Paper II (B)", name:"Maths", short:"Maths", q:50, mk:50, time:"1½ hrs with Reasoning", topics:[
-  {id:"ari", c:"a", n:"Arithmetic", asked:[15,17,44], t:[["Time and work 14","ASO-Maths-Time-Work-1.html"]], tags:["Arithmetic","Time & Work"]},{id:"alg", c:"b", n:"Algebra", asked:[15,14,5], tags:["Algebra"]},{id:"men", c:"c", n:"Mensuration, 2D and 3D", asked:[3,3,0], tags:["Mensuration"]},{id:"stp", c:"d", n:"Statistics and probability", asked:[17,16,1], tags:["Statistics & Probability"]}]},
+  {id:"ari", c:"a", n:"Arithmetic", asked:[15,17,44], g:[["Arithmetic Guide","ASO-Arithmetic-Guide-2027.html"]], t:[["Time and work 14","ASO-Maths-Time-Work-1.html"],["Speed and trains 26","ASO-Maths-Speed-1.html"]], tags:["Arithmetic","Time & Work","Speed & Time","Trains","Races","Boats & Streams"]},{id:"alg", c:"b", n:"Algebra", asked:[15,14,5], tags:["Algebra"]},{id:"men", c:"c", n:"Mensuration, 2D and 3D", asked:[3,3,0], tags:["Mensuration"]},{id:"stp", c:"d", n:"Statistics and probability", asked:[17,16,1], tags:["Statistics & Probability"]}]},
  {id:"en", no:"III", paper:"Paper III (a)", name:"English", short:"English", q:100, mk:100, time:"2 hrs with Odia", topics:[
   {id:"verb", c:"i", n:"Verb", asked:[5,11,3], g:[["Verbs",EG+"#verbs"]], t:[], p:[["2021 Q1–2",E21+"#q1"]], tags:["Verb","Infinitive & gerund","Voice & Narration"]},
   {id:"prep", c:"i", n:"Preposition", asked:[9,15,6], g:[["Prepositions",EG+"#prepositions"]], t:[], p:[["2021 Q53–62",E21+"#q53"]], tags:["Preposition","Prepositions & phrasal verbs","Phrasal verbs"]},
