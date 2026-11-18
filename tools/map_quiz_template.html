@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+<style>
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b; --ok:#1b7f3b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 var(--f-serif);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+.mono{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--muted)}
+.app{display:grid;grid-template-rows:auto 1fr;height:100vh}
+/* top bar */
+.top{display:flex;align-items:center;gap:22px;padding:10px 22px;border-bottom:1px dotted var(--muted);background:var(--bg)}
+.top h1{font-family:var(--f-pixel);color:var(--blue);font-size:26px;line-height:1;letter-spacing:.02em;font-weight:400}
+.top .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.top .sp{flex:1}
+.score{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;display:flex;gap:16px}
+.score b{font-weight:500;color:var(--fg)}
+.score .r b{color:var(--ok)} .score .w b{color:var(--warn)}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:6px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
+.btn.pri{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.btn.pri:hover{color:var(--on-blue);filter:brightness(1.1)}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.btn:disabled{opacity:.35;cursor:default}
+/* main */
+.main{display:grid;grid-template-columns:1fr 420px;min-height:0}
+.mapbox{position:relative;min-width:0;min-height:0;margin:14px 0 14px 22px;border:1px dashed var(--rule);
+  background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:12px 12px}
+.mapbox .fig{position:absolute;left:-1px;top:16px;transform:translateX(-100%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--blue);padding-right:4px}
+svg#map{display:block;width:100%;height:100%;cursor:crosshair}
+svg#map.study{cursor:grab}
+.sphere{fill:#f6f8ff;stroke:var(--rule);stroke-width:1}
+.grat{fill:none;stroke:#dfe4f3;stroke-width:.5}
+.land{fill:#fff;stroke:#2a2a2a;stroke-width:.55;stroke-linejoin:round}
+.state{fill:#fff;stroke:#7d7d86;stroke-width:.7;stroke-linejoin:round}
+.inline{fill:none;stroke:#111;stroke-width:.9;stroke-linejoin:round;pointer-events:none}
+.river{fill:none;stroke:var(--blue);stroke-width:.9;stroke-opacity:.55;stroke-linecap:round;pointer-events:none}
+.land,.state,.grat,.inline,.river,.sphere{vector-effect:non-scaling-stroke}
+.hl{fill:var(--blue-soft)!important;stroke:var(--blue)!important;stroke-width:1.6!important}
+.hlw{fill:#fde7dc!important;stroke:var(--warn)!important;stroke-width:1.2!important}
+.river.hl{fill:none!important;stroke:var(--blue)!important;stroke-width:3.4!important;stroke-opacity:1!important}
+.hover{fill:#f2f4ff}
+.mk text{font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase;paint-order:stroke;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:#fff;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;transform:translate(12px,12px);white-space:nowrap}
+.tip[hidden]{display:none}
+.ctl{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px}
+.ctl .btn{padding:5px 10px;min-width:74px;text-align:center;background:var(--paper)}
+.legend{position:absolute;left:14px;bottom:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.85);padding:3px 8px}
+/* panel */
+.panel{display:flex;flex-direction:column;padding:14px 22px 22px 22px;min-height:0}
+.qhead{display:flex;align-items:center;gap:12px}
+.qno{font-family:var(--f-pixel);color:var(--blue);font-size:40px;line-height:1}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.chip.yr{background:var(--blue);border-color:var(--blue);color:#fff}
+.qtext{margin-top:10px;font-size:25px;line-height:1.3;min-height:66px}
+.kind{margin-top:8px}
+.res{margin-top:14px;border:1px dashed var(--rule);background:var(--paper);padding:12px 16px;height:clamp(200px,30vh,300px);overflow:auto;visibility:hidden}
+.res.show{visibility:visible}
+.res .v{font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.res .v.ok{color:var(--ok)} .res .v.no{color:var(--warn)}
+.res .d{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-top:2px}
+.res p{margin-top:10px;font-size:18px;line-height:1.5}
+.res p::first-letter{font-family:var(--f-pixel);color:var(--blue);font-size:1.5em;line-height:1}
+.acts{display:flex;gap:10px;margin-top:14px}
+.acts .btn{flex:1;padding:10px 14px;font-size:12px}
+.hint{margin-top:8px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.grid{margin-top:auto;padding-top:14px;border-top:1px dotted var(--muted)}
+.grid .lab{display:flex;justify-content:space-between}
+.cells{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:8px}
+.cells button{height:24px;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:11px;cursor:pointer}
+.cells button.cur{border-color:var(--blue);outline:1px solid var(--blue)}
+.cells button.r{background:#e3f3e8;border-color:#9bd0ac}
+.cells button.w{background:#fde7dc;border-color:#efb497}
+.cells button.s{background:#f1f1f3;color:var(--muted)}
+/* result overlay */
+.ov{position:fixed;inset:0;background:rgba(251,251,251,.94);display:flex;align-items:center;justify-content:center;z-index:5}
+.ov[hidden]{display:none}
+.card{width:880px;max-height:88vh;overflow:auto;background:var(--paper);border:1px solid var(--fg);padding:30px 34px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:12px 12px}
+.card h2{font-family:var(--f-pixel);color:var(--blue);font-size:34px;font-weight:400}
+.big{display:flex;gap:36px;margin-top:16px;align-items:baseline}
+.big div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.big b{display:block;font-family:var(--f-serif);font-size:44px;color:var(--fg);font-weight:500;letter-spacing:0;text-transform:none;line-height:1.1}
+.toc{list-style:none;margin-top:18px}
+.toc li{display:flex;align-items:baseline;gap:10px;font-size:18px;padding:3px 0}
+.toc .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-5px)}
+.toc .c{font-family:var(--f-mono);font-size:12px}
+.card textarea{display:block;width:100%;height:160px;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--bg);padding:10px;resize:vertical}
+.card .acts{margin-top:16px}
+.foot{position:absolute;right:22px;bottom:3px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>Map Test</h1>
+    <div class="sub">__SUB__</div>
+    <div class="sp"></div>
+    <div class="score"><span class="r">Right <b id="s-r">0</b></span><span class="w">Wrong <b id="s-w">0</b></span><span>Skipped <b id="s-s">0</b></span><span>Left <b id="s-l">0</b></span></div>
+    <button class="btn" id="b-study" aria-pressed="false" title="Show every place in this set (T)">Study map · T</button>
+    <button class="btn" id="b-finish">Finish</button>
+    <button class="btn" id="b-reset">Start again</button>
+  </header>
+  <div class="main">
+    <div class="mapbox" id="mapbox">
+      <span class="fig">FIG_001 · WORLD + INDIA</span>
+      <svg id="map" role="img" aria-label="Blank map of the world with Indian states"></svg>
+      <div class="ctl">
+        <button class="btn" id="v-world" title="W">World · W</button>
+        <button class="btn" id="v-india" title="I">India · I</button>
+        <button class="btn" id="v-in" title="+">+</button>
+        <button class="btn" id="v-out" title="-">−</button>
+      </div>
+      <div class="legend">Scroll to zoom · drag to move · click to answer</div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <aside class="panel">
+      <div class="qhead"><span class="qno" id="q-no">01</span><span class="chip" id="q-s"></span><span class="chip yr" id="q-y" hidden></span></div>
+      <div class="qtext" id="q-text"></div>
+      <div class="kind mono" id="q-kind"></div>
+      <div class="res" id="res"><div class="v" id="r-v"></div><div class="d" id="r-d"></div><p id="r-e"></p></div>
+      <div class="acts"><button class="btn" id="b-skip">Skip · S</button><button class="btn pri" id="b-next">Next · Enter</button></div>
+      <div class="hint">Zoom in before you click if the place is small. Keys: W world, I India, + / − zoom, Enter next, S skip.</div>
+      <div class="grid"><div class="lab"><span class="mono">All questions</span><span class="mono" id="g-n"></span></div><div class="cells" id="cells"></div></div>
+    </aside>
+  </div>
+</div>
+<div class="ov" id="ov" hidden><div class="card">
+  <span class="mono">Result · __SUB__</span>
+  <h2>Your score.</h2>
+  <div class="big"><div><b id="o-net">0</b>net marks</div><div><b id="o-r">0</b>right</div><div><b id="o-w">0</b>wrong</div><div><b id="o-s">0</b>skipped</div></div>
+  <ul class="toc" id="o-toc"></ul>
+  <p class="mono" style="margin-top:18px">Send your answers to Claude · copy this and paste it in the chat</p>
+  <textarea id="o-txt" readonly></textarea>
+  <div class="acts"><button class="btn pri" id="o-copy">Copy answers</button><button class="btn" id="o-study">Review on the study map</button><button class="btn" id="o-close">Back to the map</button></div>
+</div></div>
+<div class="foot">Map data: Natural Earth (public domain) · Indian states and boundary: DataMeet (CC BY 2.5 IN)</div>
+<script>
+var Q = __Q__;
+var KEY = "__KEY__";
+</script>
+<script>
+var WORLD = __WORLD__;
+var STATES = __STATES__;
+var RIVERS = __RIVERS__;
+var INDIA = __INDIA__;
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var N=Q.length;
+function fresh(){return {ans:Q.map(function(){return null}),clk:Q.map(function(){return null}),cur:0,done:false}}
+function load(){try{var s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s&&s.ans&&s.ans.length===N) return s}catch(e){} return fresh()}
+var S=load();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+
+/* ---------- map ---------- */
+var svg=d3.select("#map"), box=$("mapbox");
+var W=Math.max(300,box.clientWidth), H=Math.max(300,box.clientHeight);
+svg.attr("viewBox","0 0 "+W+" "+H);
+var proj=d3.geoNaturalEarth1().fitExtent([[18,18],[W-18,H-18]],{type:"Sphere"});
+var path=d3.geoPath(proj);
+var root=svg.append("g");
+root.append("path").datum({type:"Sphere"}).attr("class","sphere").attr("d",path);
+root.append("path").datum(d3.geoGraticule10()).attr("class","grat").attr("d",path);
+// A ring wound the wrong way covers the whole globe instead of the land. Flip any polygon part bigger than half the sphere.
+function fixWinding(fc){ (fc.features||[]).forEach(function(f){ var g=f.geometry; if(!g) return;
+  var polys=g.type==="Polygon"?[g.coordinates]:g.type==="MultiPolygon"?g.coordinates:[];
+  polys.forEach(function(pl){ if(d3.geoArea({type:"Polygon",coordinates:pl})>2*Math.PI) pl.forEach(function(r){r.reverse()}) }) }) }
+fixWinding(WORLD); fixWinding(STATES); fixWinding(INDIA);
+var countries=WORLD.features.filter(function(f){return f.properties.name!=="India"});
+var gC=root.append("g").selectAll("path").data(countries).join("path").attr("class","land").attr("d",path);
+var gS=root.append("g").selectAll("path").data(STATES.features).join("path").attr("class","state").attr("d",path);
+var india={type:"FeatureCollection",features:STATES.features};
+root.append("path").datum(INDIA).attr("class","inline").attr("d",path);
+var gR=root.append("g").selectAll("path").data(RIVERS.features).join("path").attr("class","river").attr("d",path);
+var gM=root.append("g").attr("class","mk");
+var K=1;
+var zoom=d3.zoom().scaleExtent([1,60]).clickDistance(5).on("zoom",function(ev){K=ev.transform.k; root.attr("transform",ev.transform); sizeMarks()});
+svg.call(zoom).on("dblclick.zoom",null);
+function fitBounds(b,pad,dur){
+  var dx=b[1][0]-b[0][0], dy=b[1][1]-b[0][1], x=(b[0][0]+b[1][0])/2, y=(b[0][1]+b[1][1])/2;
+  var k=Math.min(60,Math.max(1,(1-(pad||.1))/Math.max(dx/W,dy/H)));
+  svg.transition().duration(dur===undefined?650:dur).call(zoom.transform,d3.zoomIdentity.translate(W/2-k*x,H/2-k*y).scale(k));
+}
+var IND_B=path.bounds(india);
+function layout(){
+  var w=box.clientWidth, h=box.clientHeight; if(w<50||h<50||(w===W&&h===H)) return;
+  W=w; H=h; svg.attr("viewBox","0 0 "+W+" "+H);
+  proj.fitExtent([[18,18],[W-18,H-18]],{type:"Sphere"});
+  root.selectAll("path:not(.x)").attr("d",path); IND_B=path.bounds(india);
+  svg.call(zoom.transform,d3.zoomIdentity); if(study) drawStudy(); else render();
+}
+window.addEventListener("resize",layout); window.addEventListener("load",layout); requestAnimationFrame(layout);
+function viewWorld(d){svg.transition().duration(d===undefined?650:d).call(zoom.transform,d3.zoomIdentity)}
+function viewIndia(d){fitBounds(IND_B,.06,d)}
+$("v-world").onclick=function(){viewWorld()}; $("v-india").onclick=function(){viewIndia()};
+$("v-in").onclick=function(){svg.transition().duration(300).call(zoom.scaleBy,1.6)};
+$("v-out").onclick=function(){svg.transition().duration(300).call(zoom.scaleBy,1/1.6)};
+
+/* ---------- geometry helpers ---------- */
+var R_KM=6371;
+function km(a,b){return d3.geoDistance(a,b)*R_KM}
+function stateAt(ll){for(var i=0;i<STATES.features.length;i++) if(d3.geoContains(STATES.features[i],ll)) return STATES.features[i]; return null}
+function countryAt(ll){var s=stateAt(ll); if(s) return {f:null,name:"India",state:s};
+  for(var i=0;i<countries.length;i++) if(d3.geoContains(countries[i],ll)) return {f:countries[i],name:countries[i].properties.name}; return null}
+function riverByName(n){return RIVERS.features.filter(function(f){return f.properties.n===n})}
+function lines(f){var g=f.geometry; return g.type==="LineString"?[g.coordinates]:g.coordinates}
+function kmToRiver(ll,feats){var best=1e9;
+  feats.forEach(function(f){lines(f).forEach(function(L){
+    for(var i=0;i<L.length-1;i++){
+      // project onto segment in a local flat frame around the click
+      var c=Math.cos(ll[1]*Math.PI/180), ax=(L[i][0]-ll[0])*c, ay=L[i][1]-ll[1], bx=(L[i+1][0]-ll[0])*c, by=L[i+1][1]-ll[1];
+      var dx=bx-ax, dy=by-ay, t=dx||dy?Math.max(0,Math.min(1,-(ax*dx+ay*dy)/(dx*dx+dy*dy))):0;
+      var px=ax+t*dx, py=ay+t*dy, d=Math.sqrt(px*px+py*py)*111.2; if(d<best) best=d;
+    }})});
+  return best}
+function featBounds(fs){var b=[[1e9,1e9],[-1e9,-1e9]]; fs.forEach(function(f){var c=path.bounds(f); b[0][0]=Math.min(b[0][0],c[0][0]);b[0][1]=Math.min(b[0][1],c[0][1]);b[1][0]=Math.max(b[1][0],c[1][0]);b[1][1]=Math.max(b[1][1],c[1][1])}); return b}
+
+/* ---------- marks ---------- */
+function clearMarks(){gM.selectAll("*").remove(); gC.classed("hl",false).classed("hlw",false); gS.classed("hl",false).classed("hlw",false); gR.classed("hl",false)}
+function sizeMarks(){gM.selectAll("circle").attr("r",function(){return (+this.getAttribute("data-r"))/K}).attr("stroke-width",1.6/K);
+  gM.selectAll("line").attr("stroke-width",1.2/K).attr("stroke-dasharray",(4/K)+","+(3/K));
+  gM.selectAll("text").style("font-size",(12/K)+"px").style("stroke-width",(3.5/K)+"px").attr("dx",function(){return (+this.getAttribute("data-dx"))/K}).attr("dy",function(){return (+this.getAttribute("data-dy"))/K});
+  gM.selectAll("path.x").attr("stroke-width",2/K).attr("d",function(){var p=JSON.parse(this.getAttribute("data-p")),s=6/K;return "M"+(p[0]-s)+","+(p[1]-s)+"L"+(p[0]+s)+","+(p[1]+s)+"M"+(p[0]-s)+","+(p[1]+s)+"L"+(p[0]+s)+","+(p[1]-s)})}
+function dot(ll,cls,label,col){var p=proj(ll);
+  gM.append("circle").attr("cx",p[0]).attr("cy",p[1]).attr("data-r",cls==="ring"?9:4).attr("fill",cls==="ring"?"none":col).attr("stroke",col);
+  if(cls==="ring") gM.append("circle").attr("cx",p[0]).attr("cy",p[1]).attr("data-r",2.5).attr("fill",col).attr("stroke",col);
+  if(label) gM.append("text").attr("x",p[0]).attr("y",p[1]).attr("data-dx",12).attr("data-dy",4).attr("fill",col).text(label);
+}
+function cross(ll,col){var p=proj(ll); gM.append("path").attr("class","x").attr("data-p",JSON.stringify(p)).attr("stroke",col).attr("fill","none")}
+function link(a,b){var p=proj(a),q=proj(b); gM.insert("line",":first-child").attr("x1",p[0]).attr("y1",p[1]).attr("x2",q[0]).attr("y2",q[1]).attr("stroke","#6e6e73")}
+function labelAt(ll,text,col){var p=proj(ll); gM.append("text").attr("x",p[0]).attr("y",p[1]).attr("data-dx",0).attr("data-dy",0).attr("text-anchor","middle").attr("fill",col).text(text)}
+
+function targetFeats(q){
+  if(q.t==="state") return STATES.features.filter(function(f){return f.properties.ST_NM===q.g});
+  if(q.t==="country") return countries.filter(function(f){return f.properties.name===q.g});
+  if(q.t==="river") return riverByName(q.g);
+  return [];
+}
+function showTarget(q,i){
+  var col="#2b4cff";
+  if(q.t==="pt"){dot(q.g,"ring",q.n,col); return}
+  var fs=targetFeats(q);
+  if(q.t==="state") gS.filter(function(f){return f.properties.ST_NM===q.g}).classed("hl",true);
+  if(q.t==="country") gC.filter(function(f){return f.properties.name===q.g}).classed("hl",true);
+  if(q.t==="river") gR.filter(function(f){return f.properties.n===q.g}).classed("hl",true);
+  var c=d3.geoCentroid({type:"FeatureCollection",features:fs});
+  if(q.t==="river"){var L=lines(fs[0]); var mid=L[0][Math.floor(L[0].length/2)]; c=mid}
+  labelAt(c,q.n,col);
+}
+function showClick(q,i){
+  var c=S.clk[i]; if(!c) return;
+  var ok=S.ans[i]===0, col=ok?"#1b7f3b":"#b4410b";
+  if(!ok&&(q.t==="state"||q.t==="country")){var hit=countryAt(c); if(hit){ if(hit.state&&q.t==="state") gS.filter(function(f){return f===hit.state}).classed("hlw",true); else if(hit.f) gC.filter(function(f){return f===hit.f}).classed("hlw",true);}}
+  if(q.t==="pt"&&!ok) link(c,q.g);
+  cross(c,col);
+}
+function frame(q,i){
+  var c=S.clk[i], b;
+  if(q.t==="pt"){var p=proj(q.g); b=[[p[0],p[1]],[p[0],p[1]]]} else b=featBounds(targetFeats(q));
+  if(c){var cp=proj(c); b=[[Math.min(b[0][0],cp[0]),Math.min(b[0][1],cp[1])],[Math.max(b[1][0],cp[0]),Math.max(b[1][1],cp[1])]]}
+  var pad=40; b=[[b[0][0]-pad,b[0][1]-pad],[b[1][0]+pad,b[1][1]+pad]];
+  // only move if something is off screen or tiny
+  var t=d3.zoomTransform(svg.node()), a=t.apply(b[0]), z=t.apply(b[1]);
+  var off=a[0]<0||a[1]<0||z[0]>W||z[1]>H;
+  if(off) fitBounds(b,.15);
+}
+
+/* ---------- question flow ---------- */
+var KIND={pt:"Click on the place",state:"Click inside the state",country:"Click inside the country",river:"Click on the river line"};
+function render(){
+  var i=S.cur, q=Q[i];
+  $("q-no").textContent=(i+1<10?"0":"")+(i+1);
+  $("q-s").textContent=q.s; var y=$("q-y"); if(q.y){y.hidden=false;y.textContent=q.y} else y.hidden=true;
+  $("q-text").textContent=q.q; $("q-kind").textContent=KIND[q.t];
+  clearMarks();
+  var a=S.ans[i], res=$("res");
+  if(a===null){res.classList.remove("show"); $("b-skip").disabled=false}
+  else{
+    res.classList.add("show"); $("b-skip").disabled=true;
+    var v=$("r-v"); v.className="v "+(a===0?"ok":"no"); v.textContent=a===0?"Right":a===-1?"Skipped":"Wrong";
+    $("r-d").textContent=detail(q,i); $("r-e").textContent=q.e;
+    showTarget(q,i); showClick(q,i); sizeMarks();
+  }
+  if(study) drawStudy();
+  cells(); tally();
+}
+function detail(q,i){var c=S.clk[i]; if(!c) return "The answer is marked in blue.";
+  if(q.t==="pt") return "Your click was "+Math.round(km(c,q.g))+" km away · within "+q.k+" km counts";
+  if(q.t==="river") return "Your click was "+Math.round(kmToRiver(c,targetFeats(q)))+" km from the river";
+  var h=countryAt(c); if(!h) return "You clicked the sea";
+  if(q.t==="state") return h.state?"You clicked "+h.state.properties.ST_NM:"You clicked "+h.name+", outside India";
+  return "You clicked "+h.name;
+}
+function judge(q,ll){
+  if(q.t==="pt") return km(ll,q.g)<=q.k;
+  if(q.t==="river"){var c0=proj.invert([W/2,H/2]), c1=proj.invert([W/2,H/2+1]), tol=Math.max(35, 10*km(c0,c1)/K); return kmToRiver(ll,targetFeats(q))<=tol}
+  var h=countryAt(ll); if(!h) return false;
+  if(q.t==="state") return !!(h.state&&h.state.properties.ST_NM===q.g);
+  return h.name===q.g;
+}
+svg.on("click",function(ev){
+  if(study) return;
+  var i=S.cur; if(S.ans[i]!==null||S.done) return;
+  var t=d3.zoomTransform(svg.node()), pt=d3.pointer(ev,svg.node()), p=t.invert(pt), ll=proj.invert(p);
+  if(!ll||!isFinite(ll[0])) return;
+  S.clk[i]=[+ll[0].toFixed(3),+ll[1].toFixed(3)];
+  S.ans[i]=judge(Q[i],ll)?0:1; save(); render(); frame(Q[i],i);
+});
+function next(){
+  if(S.ans[S.cur]===null) return;
+  for(var j=1;j<=N;j++){var k=(S.cur+j)%N; if(S.ans[k]===null){S.cur=k; save(); render(); return}}
+  finish();
+}
+$("b-next").onclick=function(){ if(S.ans[S.cur]===null) return; next() };
+$("b-skip").onclick=function(){ if(S.ans[S.cur]!==null) return; S.ans[S.cur]=-1; save(); render(); frame(Q[S.cur],S.cur) };
+function cells(){
+  var h=""; for(var i=0;i<N;i++){var a=S.ans[i]; h+='<button data-i="'+i+'" class="'+(i===S.cur?"cur ":"")+(a===0?"r":a===1?"w":a===-1?"s":"")+'">'+(i+1)+'</button>'}
+  $("cells").innerHTML=h;
+}
+$("cells").onclick=function(e){var b=e.target.closest("button"); if(!b) return; S.cur=+b.dataset.i; save(); render(); if(S.ans[S.cur]!==null) frame(Q[S.cur],S.cur)};
+function tally(){var r=0,w=0,s=0,l=0; S.ans.forEach(function(a){if(a===0)r++;else if(a===1)w++;else if(a===-1)s++;else l++});
+  $("s-r").textContent=r;$("s-w").textContent=w;$("s-s").textContent=s;$("s-l").textContent=l; $("g-n").textContent=(N-l)+" / "+N+" done"; return [r,w,s,l]}
+
+/* ---------- finish ---------- */
+function finish(){
+  S.done=true; save();
+  var t=tally(), net=t[0]-t[1]*0.25;
+  $("o-net").textContent=(Math.round(net*100)/100); $("o-r").textContent=t[0]; $("o-w").textContent=t[1]; $("o-s").textContent=t[2]+t[3];
+  var by={}, order=[]; Q.forEach(function(q,i){ if(!by[q.s]){by[q.s]=[0,0];order.push(q.s)} by[q.s][1]++; if(S.ans[i]===0) by[q.s][0]++ });
+  $("o-toc").innerHTML=order.map(function(s){return '<li><span>'+s+'</span><span class="dots"></span><span class="c">'+by[s][0]+' / '+by[s][1]+'</span></li>'}).join("");
+  var out="ASO MAP TEST 01 (WORLD + INDIA) — MY ANSWERS\nRight "+t[0]+" · Wrong "+t[1]+" · Skipped "+(t[2]+t[3])+" · Net "+(Math.round(net*100)/100)+" / "+N+"\n";
+  Q.forEach(function(q,i){var a=S.ans[i]; if(a===0) return;
+    out+="\nQ"+(i+1)+" ["+q.s+"] "+q.q+"\n   "+(a===1?"WRONG — "+detail(q,i):"SKIPPED")+" · answer: "+q.n+"\n"});
+  $("o-txt").value=out; $("ov").hidden=false;
+}
+$("b-finish").onclick=finish;
+$("o-close").onclick=function(){$("ov").hidden=true};
+$("o-study").onclick=function(){$("ov").hidden=true; setStudy(true)};
+$("o-copy").onclick=function(){var t=$("o-txt"); t.select(); try{navigator.clipboard.writeText(t.value)}catch(e){document.execCommand("copy")} this.textContent="Copied"};
+$("b-reset").onclick=function(){ if(!confirm("Clear all answers and start again?")) return; S=fresh(); save(); $("ov").hidden=true; setStudy(false); viewWorld(); render() };
+
+/* ---------- study map ---------- */
+var study=false;
+function drawStudy(){
+  clearMarks();
+  Q.forEach(function(q,i){
+    var col=S.ans[i]===0?"#1b7f3b":S.ans[i]===1?"#b4410b":"#2b4cff";
+    if(q.t==="pt") dot(q.g,"dot",(i+1)+" · "+q.n,col);
+    else{ if(q.t==="state") gS.filter(function(f){return f.properties.ST_NM===q.g}).classed("hl",true);
+      if(q.t==="country") gC.filter(function(f){return f.properties.name===q.g}).classed("hl",true);
+      if(q.t==="river") gR.filter(function(f){return f.properties.n===q.g}).classed("hl",true);
+      var fs=targetFeats(q), c=q.t==="river"?lines(fs[0])[0][Math.floor(lines(fs[0])[0].length/2)]:d3.geoCentroid({type:"FeatureCollection",features:fs});
+      labelAt(c,(i+1)+" · "+q.n,col)}
+  });
+  sizeMarks();
+}
+function setStudy(on){study=on; $("b-study").setAttribute("aria-pressed",on?"true":"false"); svg.classed("study",on);
+  $("tip").hidden=true; if(on) drawStudy(); else render()}
+$("b-study").onclick=function(){setStudy(!study)};
+svg.on("mousemove",function(ev){
+  var tip=$("tip"); if(!study){tip.hidden=true;return}
+  var t=d3.zoomTransform(svg.node()), pt=d3.pointer(ev,svg.node()), ll=proj.invert(t.invert(pt)); if(!ll) return;
+  var h=countryAt(ll); if(!h){tip.hidden=true;return}
+  tip.textContent=h.state?h.state.properties.ST_NM+" · India":h.name; tip.hidden=false;
+  var r=box.getBoundingClientRect(); tip.style.left=(ev.clientX-r.left)+"px"; tip.style.top=(ev.clientY-r.top)+"px";
+});
+svg.on("mouseleave",function(){$("tip").hidden=true});
+
+/* ---------- keys ---------- */
+document.addEventListener("keydown",function(e){
+  if(e.target.tagName==="TEXTAREA"||e.metaKey||e.ctrlKey||e.altKey) return;
+  var k=e.key.toLowerCase();
+  if(k==="enter"||k==="n"){ if(!$("ov").hidden) return; e.preventDefault(); if(S.ans[S.cur]!==null) next() }
+  else if(k==="s"){ $("b-skip").click() }
+  else if(k==="w"){ viewWorld() } else if(k==="i"){ viewIndia() }
+  else if(k==="t"){ setStudy(!study) }
+  else if(k==="+"||k==="="){ $("v-in").click() } else if(k==="-"||k==="_"){ $("v-out").click() }
+  else if(k==="arrowright"){ S.cur=Math.min(N-1,S.cur+1); save(); render() } else if(k==="arrowleft"){ S.cur=Math.max(0,S.cur-1); save(); render() }
+});
+
+window.ASO_MAP={proj:proj,svg:svg.node(),screen:function(ll){var t=d3.zoomTransform(svg.node()),p=t.apply(proj(ll)),r=svg.node().getBoundingClientRect();return [r.left+p[0]*r.width/W,r.top+p[1]*r.height/H]}};  // used by tests
+render();
+if(S.ans[S.cur]!==null) frame(Q[S.cur],S.cur);
+if(S.done&&location.hash!=="#map") finish();
+})();
+</script>
+</body>
+</html>
