@@ -614,6 +614,7 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     s.pts.push(pageOf(e, isPen, s));
     notePressure(current, e.pressure);
     lastKept = s.pts[0];
+    downTime = e.timeStamp; downX = e.clientX; downY = e.clientY;
     startLive(); request();
   }
   function onMove(e) {
@@ -625,12 +626,38 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
     request();
   }
-  function endStroke() {
+  // Double-tap to clear (as in draw-app). The browser's own dblclick uses the system's very tight
+  // distance limit, so taps are detected here with a looser one.
+  var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
+  var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
+  // (or forgets the last one if this was a real stroke).
+  function isDoubleTap(s, e) {
+    var p0 = s.pts[0];
+    var isTap = !!e && e.type === "pointerup" && e.timeStamp - downTime <= TAP_MAX_TIME &&
+      s.pts.every(function (q) { return Math.hypot(q[0] - p0[0], q[1] - p0[1]) <= TAP_MAX_MOVE; });
+    if (!isTap) { lastTap = null; return false; }
+    if (lastTap && downTime - lastTap.time <= DOUBLE_TAP_TIME && Math.hypot(downX - lastTap.x, downY - lastTap.y) <= DOUBLE_TAP_DISTANCE) {
+      return true;
+    }
+    lastTap = { x: downX, y: downY, time: e.timeStamp, s: s };
+    return false;
+  }
+
+  function endStroke(e) {
     activePointer = null;
     if (erasing) {
-      erasing = false;
+      erasing = false; lastTap = null;
       if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
       erased = []; return;
+    }
+    if (current && isDoubleTap(current.s, e)) {
+      // Drop the dot the first tap left, then clear; Undo brings back the page as it was.
+      var dot = lastTap.s; lastTap = null; current = null;
+      var u = undo[undo.length - 1];
+      if (u && u.t === "add" && u.s === dot) { undo.pop(); strokes = strokes.filter(function (x) { return x !== dot; }); }
+      doClear(); repaintAll(); stopLive();
+      return;
     }
     if (current) {
       var s = current.s;
@@ -642,7 +669,7 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     }
     stopLive();
   }
-  function onUp(e) { if (e.pointerId === activePointer) endStroke(); }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
 
   function doUndo() {
     var a = undo.pop(); if (!a) return;
@@ -691,7 +718,7 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
         tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
         tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
         tool("inkhd", "eye", "Hide", "Hide or show the ink") +
-        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (Undo brings it back)") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (or double-tap the page). Undo brings it back.") +
       "</div>" +
     "</div>";
   var $ = function (id) { return bar.querySelector("#" + id); };
