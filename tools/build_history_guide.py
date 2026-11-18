@@ -243,5 +243,10 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
 })();
 </script></body></html>"""
 page = head + "\n".join(secs) + foot
+# Pen-tablet drawing mode (ported from the draw-app project): CSS before </style>, script before </body>.
+INK_CSS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ink_draw.css"), encoding="utf-8").read()
+INK_JS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ink_draw.js"), encoding="utf-8").read()
+page = page.replace("</style></head>", INK_CSS + "</style></head>", 1)
+page = page.replace("</body></html>", "<script>window.ASO_INK_KEY='aso-ink-history-2027';</script>\n<script>\n" + INK_JS + "</script></body></html>", 1)
 open(OUT, "w", encoding="utf-8").write(page)
 print("wrote", OUT, len(page), "bytes;", n_ch, "chapters;", total_words, "words")
