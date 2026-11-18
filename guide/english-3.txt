@@ -1,0 +1,183 @@
+#CH articles | Articles: a, an, the | GRAMMAR · Rules 56–65
+English has three articles. **A** and **an** mean "any one" and go with singular countable nouns. **The** means "the one we both know". Sometimes no article is right at all. The 2021 paper put ten article blanks in a row ⟦2021 Q63⟧ to ⟦2021 Q72⟧, and 2025 asked three ⟦2025 Q24⟧ ⟦2025 Q31⟧ ⟦2025 Q57⟧. Each one is a free mark if you know the eight situations below.
+
+##R56 A or an: go by sound, not spelling || An before a vowel sound (an hour, an MLA); a before a consonant sound (a university, a one-rupee coin)
+Use **an** when the next word **starts with a vowel sound**, and **a** when it starts with a consonant sound. Spelling can trick you. A silent h gives a vowel sound: an hour, an honest man, an honour, an heir. A "yoo" sound is a consonant sound: a university, a unique idea, a European, a useful book. "One" starts with a "w" sound: a one-way street. Letters said aloud follow their sound: an MLA (em), an SP, but a BA.
+✗ It was a honour to meet the author.
+✓ It was an honour to meet the author. ⟦2025 Q57⟧
+✗ She has an unique perspective.
+✓ She has a unique perspective. ⟦2025 Q31⟧
+✓ Los Angeles has an ideal climate. ⟦2021 Q64⟧
+
+##R57 A for any one, the for a known one || A policeman = any one policeman; the police = the known service
+Use **a/an** when you mention a thing for the first time, or when any one of its kind will do. Use **the** when the listener knows which one you mean, because it was mentioned before or there is only one in that place. "I saw a dog. **The** dog was barking." "Someone call **a** policeman!" (any one) ⟦2021 Q67⟧ "Someone call **the** police!" (the service) ⟦2021 Q68⟧ A job or role takes a/an: "He is **a** doctor." "Kobe Bryant is **a** basketball player." ⟦2021 Q72⟧
+✗ He is the real American hero (if there are many).
+✓ He is a real American hero. ⟦2021 Q69⟧
+
+##R58 The with one-of-a-kind things || The sun, the earth, the sky; the + superlative; the + first, second, last; the only, the same
+Use **the** with things there is only one of (the sun, the moon, the earth, the sky, the world, the Prime Minister), before **superlatives** (the best, the worst), **ordinals** (the first, the second, the last) and the words **only** and **same**.
+✗ This is worst restaurant in the country.
+✓ This is the worst restaurant in the country. ⟦2021 Q65⟧
+✓ He was the first person to arrive.
+
+##R59 The with geography || The + rivers, seas, oceans, mountain ranges, deserts, forests, island groups, plural countries
+Use **the** before the names of rivers (the Mahanadi, the Ganga), seas and oceans (the Bay of Bengal, the Indian Ocean), mountain **ranges** (the Himalayas, the Eastern Ghats), deserts (the Thar), big forests (the Amazon rainforest), island **groups** (the Andamans), and countries with a plural or "union" name (the USA, the UK, the Netherlands). For a general area, too: "in **the** mountains".
+✗ I will be visiting Amazon rainforest next year.
+✓ I will be visiting the Amazon rainforest next year. ⟦2025 Q24⟧
+✓ They spend their holidays in the mountains. ⟦2021 Q63⟧
+
+##R60 No article || No article before names, single peaks and lakes, languages, meals, games, subjects and general plurals
+Leave out the article before **names** of people, cities, states and most countries (Odisha, India), **single** mountains and lakes (Mount Everest, Chilika Lake), **languages** (Odia, English), **meals** (breakfast, lunch), **games** (cricket, hockey), **subjects** (history), and **plural or uncountable nouns used in general**: "I don't like dogs." ⟦2021 Q70⟧ Numbers used as amounts also take none: "I can't live on 500 dollars a month." ⟦2021 Q66⟧ "I haven't seen him in five years." ⟦2021 Q71⟧
+✗ The Mount Everest is the highest peak.
+✓ Mount Everest is the highest peak.
+✗ We play the hockey every evening.
+✓ We play hockey every evening.
+
+##R61 School, hospital, church and prison || Going for the main purpose: no article; going as a visitor or to the building: the
+When you go to **school, college, hospital, church, temple, prison, bed** or **court** for its main purpose, use no article: "He goes to school" (as a student). "He was sent to prison" (as a prisoner). When you go for some other reason, or mean the building, use **the**: "His mother went to **the** school to meet the teacher." Fixed phrases also need no article: at home, by bus, by train, on foot, at night.
+✗ My brother goes to the school every day to study.
+✓ My brother goes to school every day.
+✓ Alice is not at home. She is at work. ⟦2021 Q25⟧
+
+##R62 The + adjective and the + class || The rich, the poor; the cow is a useful animal; the flute (instrument)
+**The + adjective** means a whole group of people (the poor, the blind, the young), with a plural verb (Rule 47). **The + singular noun** can stand for a whole class: "**The** cow is a useful animal." Musical instruments take the: "She plays **the** flute." Games do not: "She plays chess."
+✗ He plays violin very well.
+✓ He plays the violin very well.
+
+##R63 Article position with such, what, quite, half || Such a, what a, quite a, rather a, half an hour, many a
+With **such, what, quite, rather, half** and **many**, the article comes **after** the word: such a man, what a day, quite a long way, half an hour, many a time. With **so, too, as, how**, the adjective comes before the article: so good a man, too big a risk.
+✗ He is a such fool.
+✓ He is such a fool.
+✗ I waited for a half hour.
+✓ I waited for half an hour.
+
+##R64 Repeated article: one person or two || The secretary and treasurer (one person); the secretary and the treasurer (two people)
+Repeating the article shows **two** different people or things. Not repeating it shows **one** person with two roles. This also decides the verb (Rule 37). "The poet and painter **is** dead" (one man). "The poet and **the** painter **are** dead" (two men).
+✓ I met the principal and the vice-principal. (two people)
+✓ The headmaster and secretary is coming. (one person)
+
+##R65 Articles in fixed phrases || In a hurry, at a loss, a few, a lot of, in the end, at the moment, all of a sudden
+Some phrases have a fixed article and must be learnt as they are: in a hurry, at a loss, as a rule, in a nutshell, a lot of, a few, a little, at the moment, in the end, on the whole, all of a sudden, once upon a time. Some take no article: at present, in time, on time, by chance, in fact, by mistake. A three-blank question can test articles with a fixed phrase: "Only **a** cynic would argue with **the** statement that most people learn their native language with **a** fair degree of success." ⟦2018 Q94⟧
+✗ He left in hurry.
+✓ He left in a hurry.
+
+>NEXT:Likely next
+?? Fill in: "He is ____ honest officer." (a) a (b) an || (b) an. Silent h.
+?? Fill in: "____ Mahanadi flows into ____ Bay of Bengal." || The, the (Rule 59).
+?? Fill in: "She is ____ European." (a) a (b) an || (a) a. "European" starts with a "y" sound.
+?? Fill in: "____ Chilika Lake is famous for its birds." (a) The (b) no article || (b) No article (Rule 60). Single lakes take none. ⟨CHECK some books write "the Chilika Lake"; "Chilika Lake" is the safer answer⟩
+?? Fill in: "He is ____ tallest boy in ____ class." || the, the (Rule 58).
+?? Fill in: "It was ____ unusual request." (a) a (b) an || (b) an. "Unusual" starts with an "uh" sound, not "yoo".
+
+#CH tenses | Tenses | GRAMMAR · Rules 66–80
+A tense tells **when** an action happens and whether it is finished or still going on. Tenses gave 12 marks in 2018, 7 in 2021 and 9 in 2025. Almost every blank comes with a **time clue** (yesterday, since 2020, for five years now, by next year, before she started). Find the clue first, and the tense follows.
+
+@@fig tenses
+
+|Clue words|Tense|Example|
+|---|---|---|
+|always, usually, every day|simple present|She usually eats at 7.|
+|now, at the moment, look!|present continuous|She is sleeping.|
+|already, just, yet, so far, ever, since, for|present perfect|I have done my work.|
+|yesterday, ago, last year, in 1993|simple past|They won in 1993.|
+|before, by the time (in the past)|past perfect|The train had left.|
+|tomorrow, next year|simple future|I will go.|
+|by + future time|future perfect|By 2028 she will have finished.|
+
+##R66 Simple present || Habits, general truths, timetables: she eats, the sun rises, the train leaves at 6
+Use the **simple present** for things done regularly, for facts that are always true, and for fixed timetables. Add -s or -es with he, she, it and singular nouns. ⟦2021 Q31⟧
+✗ She usually eat breakfast at 7 AM.
+✓ She usually eats breakfast at 7 AM. ⟦2025 Q37⟧
+✓ Water boils at 100 °C.
+
+##R67 Present continuous and state verbs || Am, is, are + -ing for now; but know, love, like, see, hear, believe, belong, contain are not used in -ing form
+Use **am / is / are + -ing** for an action going on right now. ⟦2021 Q75⟧ But **state verbs** (feelings, senses, thinking, owning) are not used in the continuous form: know, understand, believe, love, like, hate, want, see, hear, smell, seem, belong, own, contain, consist.
+✗ I am knowing him for years.
+✓ I have known him for years.
+✗ This box is containing books.
+✓ This box contains books.
+✓ Don't make a noise; she is sleeping. ⟦2021 Q75⟧
+
+##R68 Present perfect || Have or has + V3 for a past action with a result now; with already, just, yet, so far, ever, never
+Use **have / has + past participle** when the time is not stated and the result matters now: "I have done my work." ⟦2021 Q74⟧ It goes with **just, already, yet, ever, never, so far, up to now, recently, lately, this week**. ⟦2018 Q15⟧ "Just" sits between have and the V3: "I have **just** finished." ⟦2018 Q22⟧
+✗ I did not have any trouble so far.
+✓ I have had no trouble so far. ⟦2018 Q15⟧
+
+##R69 No present perfect with a past time || Yesterday, ago, last week, in 1993 need the simple past
+When the sentence names a **finished past time** (yesterday, last year, two days ago, in 1993, when I was young), use the **simple past**, never have/has.
+✗ They have won the Asia Cup in 1993.
+✓ They won the Asia Cup trophy in 1993. ⟦2025 Q63⟧
+✗ I have seen him yesterday.
+✓ I saw him yesterday.
+
+##R70 Since and for || Since + a point in time; for + a length of time; both usually with a perfect tense
+**Since** marks the **starting point**: since Monday, since 2020, since morning. **For** marks the **length**: for two hours, for five years. Both go with the present perfect (or present perfect continuous) when the action reaches now. Nimisha Bansal teaches this as a "golden rule".
+✗ She lives in New York since five years.
+✓ She has lived in New York for five years now. ⟦2025 Q23⟧
+✗ He is ill since Monday.
+✓ He has been ill since Monday.
+
+##R71 Present perfect continuous || Have been or has been + -ing for an action that began in the past and is still going on
+Use **have / has been + -ing** to stress that an action started earlier and is **still continuing**, or has only just stopped and left a sign. "He has been sleeping for five hours" means he is still asleep. ⟦2018 Q3⟧ "Why are your clothes wet?" "I have been washing the car." ⟦2018 Q76⟧ The question form is "How long have you been waiting?" ⟦2018 Q14⟧
+✗ I am waiting here since morning.
+✓ I have been waiting here since morning.
+
+##R72 Past perfect for the earlier action || Of two past actions, the earlier one takes had + V3, the later one the simple past
+When two actions both happened in the past, the **earlier** one takes **had + past participle**. Words like before, after, when, by the time and already show the order. This is one of the most tested rules: ⟦2025 Q10⟧ ⟦2025 Q27⟧ ⟦2021 Q73⟧ ⟦2021 Q13⟧ ⟦2018 Q99⟧
+✗ The train left before she started from home.
+✓ The train had left before she started from home. ⟦2025 Q10⟧
+✓ When I reached the cathedral, the ceremony had already begun. ⟦2018 Q99⟧
+✓ They had known each other for over a decade when they finally met. ⟦2025 Q27⟧
+
+##R73 Past perfect continuous || Had been + -ing for a long action that went on up to another past moment
+Use **had been + -ing** for an action that continued for a while **before** another past action. "The Raos had been living frugally all year, so they saved enough for a car." ⟦2021 Q11⟧
+✓ She had been working for six hours when the power failed.
+
+##R74 Will, shall and going to || Will for a quick decision, offer or promise; going to for a plan already made
+Use **will** for a decision made at the moment of speaking, or an offer: "Wait a minute, I **will** carry this box for you." ⟦2021 Q28⟧ Use **be going to** for a plan made earlier, or when there are signs now: "Look at the clouds. It **is going to** rain." After shall, will and other modals, use the base verb: "She shall **come** soon." ⟦2021 Q87⟧
+✗ Wait, I carry this box for you.
+✓ Wait, I will carry this box for you.
+
+##R75 No will after when, if, before, until || In a time or if clause about the future, use the simple present
+After **when, as soon as, before, after, until, till, if, unless, once**, a future action is written in the **simple present** (or present perfect). The will stays in the main clause.
+✗ I will call you when I will reach home.
+✓ I will call you when I reach home.
+✗ Wait here until I will come back.
+✓ Wait here until I come back.
+
+##R76 Future perfect || Will have + V3 for an action done before a future time; clue: by + future time
+**By + a future time** (by next year, by this time tomorrow, by 2030) asks for the **future perfect**: will have + past participle. ⟦2018 Q88⟧
+✗ By this time next year, she finishes her degree.
+✓ By this time next year, she will have finished her degree.
+
+##R77 Sequence of tenses || A past main verb is followed by a past verb in the next clause, except for universal truths
+When the main verb is in the past (said, thought, knew, told), the verb in the clause that follows is usually in the past too: "He said that he **was** tired." But a **universal truth** stays in the present: "The teacher said that the earth **moves** round the sun." Also, "since" after a perfect tense takes the simple past: "It has been two years since he **left**."
+✗ He told me that he will come.
+✓ He told me that he would come.
+✓ Our teacher said that honesty is the best policy.
+
+##R78 Past simple and past continuous together || Was or were + -ing for the long background action; simple past for the short action that broke in
+When a short action interrupts a longer one, the long one takes **was / were + -ing**, and the short one takes the **simple past**. "I **was reading** when the phone **rang**."
+✗ When I reached, he still slept.
+✓ When I reached, he was still sleeping.
+
+##R79 Questions and negatives with do || Put the helping verb before the subject: Why did she leave? Never: Why she did leave?
+In a question, the helping verb (do, did, have, is, will) comes **before** the subject, and the main verb goes back to its base form after did. "Why **did** she **leave** so early?" ⟦2021 Q3⟧ An indirect question keeps normal order: "I asked why she **had left**."
+✗ Why she did leave so early?
+✓ Why did she leave so early? ⟦2021 Q3⟧
+✗ Did he went home?
+✓ Did he go home?
+
+##R80 Used to and be used to || Used to + verb = a past habit; be used to + -ing = to be familiar with
+**Used to + base verb** means a habit in the past that has stopped: "I used to **play** cricket." **Be used to / get used to + -ing** means "be familiar with": "I am used to **getting** up early." Here "to" is a preposition, so the -ing form follows. ⟦2018 Q44⟧
+✗ She is getting used to live in the city.
+✓ She is getting used to living in the city. ⟦2018 Q44⟧
+
+>NEXT:Likely next
+?? Fill in: "I ____ this book since Monday." (a) am reading (b) have been reading || (b) have been reading (Rules 70–71).
+?? Fill in: "He ____ the letter before I arrived." (a) wrote (b) had written || (b) had written (Rule 72).
+?? Spot the error: "He has returned from Delhi last night." || "has returned" should be "returned" (Rule 69).
+?? Fill in: "The patient ____ before the doctor came." (a) died (b) had died || (b) had died.
+?? Fill in: "By the time you arrive, we ____ dinner." (a) will finish (b) will have finished || (b) will have finished (Rule 76).
+?? Fill in: "The earth ____ round the sun." (a) moved (b) moves || (b) moves. A universal truth.
+?? Spot the error: "I will wait till he will finish his work." || "will finish" should be "finishes" (Rule 75).

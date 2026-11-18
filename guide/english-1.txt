@@ -1,0 +1,235 @@
+#CH start | Start here | READ FIRST · 5 minutes
+English is Paper III (A): **100 questions, 100 marks**, sharing two hours with the Odia paper. Each right answer gives 1 mark, and each wrong answer takes away 0.25. Our goal is simple. English should be the paper where you lose almost nothing. Unlike General Studies, English has no new facts to chase. The same rules come back every year, so a student who knows them well can score 85 or more.
+
+This guide is built on the **120 rules of grammar** in the order Nimisha Bansal teaches them. Her course opens with each and every, then both, then who, whom, which and that, then conditional sentences, then "one of the" and numbers with units. This guide opens the same way. After that, the rules are grouped by the official syllabus, and every rule is checked against the three past papers. The wording, the examples and the numbering after the opening rules are this guide's own, so a rule number here may not match her book.
+
+##What the syllabus asks
+The official line for English is: Grammar (Verb, Preposition, Adverb, Subject Verb Agreement, Error Correction / Recognition, Tenses, Fill in the Blanks with Articles etc., Vocabulary, Synonyms, Antonyms), Comprehension, and Sentence Rearrangement. Nothing else. Narration, question tags, analogies and parts of speech were asked in 2018 and 2021, but they are not in the syllabus, and the 2025 paper dropped them all.
+
+##How many questions each part got
+|Part|2018|2021|2025|What it means for you|
+|---|---|---|---|---|
+|Vocabulary (word in context)|25|3|21|Big again in 2025. Chapter 12|
+|Tenses and conditionals|12|7|9|Always 7 to 12. Chapters 3 and 7|
+|Prepositions and phrasal verbs|9|15|6|Always asked. Chapter 11|
+|Error spotting|7|12|6|Uses every rule. Chapter 13|
+|Subject–verb agreement|2|11|7|Rising. Chapter 4|
+|Verb forms (-ing, to, modals, voice)|5|11|3|Chapter 8|
+|Adverbs and inversion|2|0|15|Jumped in 2025. Chapters 9 and 10|
+|Articles|5|10|3|Chapter 6|
+|Synonyms and antonyms|5|11|0|In the syllabus, may return. Chapter 12|
+|Sentence rearrangement|1|5|20|Rising fast. Chapter 14|
+|Comprehension|4|5|10|Rising. Chapter 15|
+
+>KEY:How to read this guide
+- Each rule has a number, a short explanation, and a pair of sentences: the crossed-out one is wrong, the blue one is right.
+- A blue chip such as ⟦2025 Q9⟧ means that exact rule was tested in that paper and question number.
+- Every chapter ends with a "Likely next" box. Tap a question to see the answer. These are the next angles the examiner is likely to try.
+- A ⟨CHECK⟩ tag means grammar books or answer keys disagree. Read the note, and pick the safer answer in the exam.
+- Chapter 16 lists all 120 rules on one page for the last week.
+
+>WARN:Weight your time on 2025
+The 2025 paper was 64 fill-in-the-blanks, 6 error-spotting questions, 20 rearrangement questions and 2 passages. It stayed fully inside the syllabus for the first time. Expect 2027 to look like 2025, so the rules that fill blanks (agreement, tense, adverb form, preposition, article) matter most.
+
+##Three passes
+- **Pass 1 (two weeks):** read Chapters 1 to 11, one a day. Say each right sentence aloud. Your ear learns faster than your eye.
+- **Pass 2:** Chapters 12 to 15, the question types. Practise them on the English mocks on the hub.
+- **Pass 3 (last week):** Chapter 16, the 120 rules in one table, and every ⟨CHECK⟩.
+
+#CH determiners | Each, every, both and other small words | GRAMMAR · Rules 1–10
+Determiners are the small words that stand before a noun and tell us **how many** or **which one**: each, every, both, either, few, little, much, many, some, any. They look easy, which is why examiners love them. One wrong determiner makes the whole sentence wrong, and the error is easy to miss.
+
+##R1 Each and every || Each = one by one, from two or more; every = all of three or more; both take a singular verb
+**Each** looks at the members one by one. It can be used for two people or for more. **Every** looks at the whole group as a set, and it needs at least three. So for two hands, two eyes or two sides, use each, never every. Both words take a **singular noun and a singular verb**, because we are thinking of one member at a time. Each can also stand alone as a pronoun ("Each has a book"), but every cannot. With "of", use "each of the + plural noun", still with a singular verb. Every cannot take "of" directly, so write "every one of".
+✗ Every hand of the boy was dirty.
+✓ Each hand of the boy was dirty.
+✗ Each of the buildings have a unique design.
+✓ Each of the buildings has a unique design. ⟦2025 Q55⟧
+
+##R2 Both || Both goes with and, never with as well as; don't use it with not
+**Both** means two together, so it takes a plural verb. Its partner is always **and**: "both Ram and Shyam". Do not write "both … as well as" or "both … also". Both is also wrong with "not". For "not this one and not that one", English uses **neither … nor**. When a possessive word is used, both comes first: "both my brothers", not "my both brothers".
+✗ Both Ravi as well as his sister were present.
+✓ Both Ravi and his sister were present.
+✗ Both of them did not come.
+✓ Neither of them came.
+
+##R3 Either and neither || Either and neither are for two only and take a singular verb
+**Either** means one of two. **Neither** means not this one and not that one. Both are only for **two**. For three or more, use any (one) or none. On their own, or as "either of / neither of", they take a **singular verb**. Neither already carries the "not", so never add another "not" after it.
+✗ Neither of the two candidates are experienced.
+✓ Neither of the candidates is very experienced. ⟦2025 Q39⟧ ⟦2018 Q52⟧
+✗ Either of these four roads leads to the station.
+✓ Any one of these four roads leads to the station.
+
+##R4 Few, a few, the few || Few = hardly any (negative); a few = some (positive); the few = all of the small number there is
+These three words go with **countable** nouns (books, friends, people). **Few** is negative: "Few people came" means almost nobody came. **A few** is positive: "A few people came" means some did. **The few** means "all of the small number": "The few books he had were old" means he had some books and all of them were old. Few and a few take a plural verb. ⟦2021 Q90⟧
+✗ He has few friends, so he is never lonely.
+✓ He has a few friends, so he is never lonely.
+✓ Few applicants have backed out. ⟦2021 Q90⟧
+
+##R5 Little, a little, the little || Same idea as few, but for uncountable nouns like milk, time, money
+**Little** (almost none), **a little** (some) and **the little** (all of the small amount) work exactly like few, but for things we cannot count: water, time, money, hope, knowledge. They take a singular verb. Words that sit before little to show a very small amount are so, too, very and "precious": so little, too little, precious little. ⟦2018 Q92⟧
+✗ There is a little hope, so we must give up.
+✓ There is little hope, so we must give up.
+✓ The little money he had was stolen.
+
+##R6 Much and many || Many for countable nouns, much for uncountable ones
+**Many** goes with things we count: many books, many times. **Much** goes with things we cannot count: much water, much time, much information. The same split works for "a large number of" (countable) and "a great deal of" or "a large amount of" (uncountable). ⟦2018 Q38⟧
+✗ There is not many water in the tank.
+✓ There is not much water in the tank.
+✓ There was a great deal of concern about the power cuts. ⟦2018 Q38⟧
+
+##R7 Less and fewer || Fewer for numbers (countable), less for amount (uncountable)
+**Fewer** is the comparative of few, so it goes with countable nouns. **Less** is the comparative of little, so it goes with uncountable nouns. Write "fewer mistakes" and "less sugar". With a comparative, remember that "than" must follow. ⟦2018 Q51⟧
+✗ Less students passed this year.
+✓ Fewer students passed this year.
+✓ It takes fewer cars than boats to ferry them. ⟦2018 Q51⟧
+
+##R8 Some and any || Some in positive sentences, any in negatives and questions
+**Some** is used in positive statements: "I have some money." **Any** is used in negative sentences and questions: "I don't have any money." "Do you have any money?" Some is also fine in a question that is really an offer or request: "Would you like some tea?" After hardly, scarcely and without, use any, because those words are negative.
+✗ I did not buy some apples.
+✓ I did not buy any apples.
+✓ He left without any help.
+
+##R9 Many a || Many a + singular noun + singular verb
+**Many a** means "many", but its grammar is singular. It is followed by a singular noun and a singular verb: "many a man has", "many a student was". Compare "a great many", which is plural: "a great many students were".
+✗ Many a man have suffered during the partition.
+✓ Many a man has suffered during the partition. ⟦2021 Q85⟧
+
+##R10 Enough, such and such a || Such a + singular countable noun; such + plural or uncountable noun
+**Such a** goes before a singular countable noun: such a good man. Plain **such** goes before plurals and uncountables: such good men, such bad weather. In a "such … that" sentence, the noun must be present: "It was such a hot day that we stayed in." **Enough** comes after an adjective (old enough) but before a noun (enough money).
+✗ He is enough old to vote.
+✓ He is old enough to vote.
+✓ It was such a good film that we saw it twice.
+
+>NEXT:Likely next
+?? Choose the right word: "____ of the two sisters can sing well." (a) Every (b) Each || (b) Each. "Every" needs three or more.
+?? Fill in: "Neither the students nor the teacher ____ happy." (a) was (b) were || (a) was. Nearer subject is "teacher" (Rule 35).
+?? Fill in: "There are ____ errors in your essay than in mine." (a) less (b) fewer || (b) fewer. Errors can be counted.
+?? Spot the error: "Both the brothers as well as their father was injured." || "as well as" should be "and", and "was" should be "were". Both … and takes a plural verb.
+?? Fill in: "He has ____ knowledge of computers, so he could not help us." (a) little (b) a little || (a) little. The sentence is negative in feeling.
+
+#CH relatives | Who, whom, which, that and other pronouns | GRAMMAR · Rules 11–20
+A pronoun stands in place of a noun. A **relative pronoun** (who, whom, which, that, whose) joins two ideas: "I met the man **who** helps the poor." The examiner tests three things here: the case (who or whom), the right word for people or things, and whether the pronoun matches its noun.
+
+##R11 Who and whom || Who is the doer (subject); whom is the receiver (object)
+Use **who** when the person does the action, and **whom** when the action is done to the person or when the word follows a preposition. A quick test: answer the question in your head. If the answer is "he", use who. If the answer is "him", use whom. "____ wishes to see you?" → **He** wishes → who. "____ do you wish to see?" → see **him** → whom. ⟦2018 Q4⟧
+✗ The man who I met yesterday is a doctor.
+✓ The man whom I met yesterday is a doctor.
+✓ To whom did you give the letter?
+
+##R12 Which, that and whose || Who for people, which for things and animals, that for both
+**Who** and **whom** are for people (and pets with names, in some books). **Which** is for things and animals. **That** can be used for people, animals and things. **Whose** shows belonging and works for both people and things: "a house whose roof leaks". Extra information about a known person sits between commas, and then you must use who or which, never that. ⟦2021 Q27⟧
+✗ The book who you lent me is lost.
+✓ The book which (or that) you lent me is lost.
+✓ My aunt, who lives in Mumbai, is a doctor. ⟦2021 Q27⟧
+
+##R13 That after special words || Use that, not which or who, after superlatives, all, only, same, none, nothing, everything
+After a **superlative** (the best, the tallest), after **all, only, same, any, none, nothing, everything, much, little**, and after "It is … that", English uses **that**. The rule exists because these words point to one exact thing.
+✗ This is the best film which I have seen.
+✓ This is the best film that I have seen.
+✓ All that glitters is not gold.
+
+##R14 Whoever, whatever and what || Use whoever or what when there is no noun before the relative word
+When there is no noun for the pronoun to point back to, use **whoever** (any person who), **whatever** (anything that) or **what** (the thing which). "Which" and "that" need a noun before them. Never write "what" after a noun.
+✗ The thing what he said was true.
+✓ What he said was true.
+✓ Whoever comes first will get the prize.
+
+##R15 Pronoun after a preposition or than || After a preposition use me, him, her, us, them; after than or as, use the form the hidden verb needs
+After a preposition (between, with, for, to, except, like), the pronoun must be the object form: me, him, her, us, them. After **than** or **as**, finish the sentence in your head: "He is taller than I (am)." "She likes you more than (she likes) me."
+✗ This is a secret between you and I.
+✓ This is a secret between you and me.
+✓ He is taller than I.
+
+##R16 Order of pronouns || Polite order: you, then he or she, then I (2-3-1); but I come first when owning a fault
+When pronouns of different persons stand together, good manners decide the order. In a normal or good sentence, use **second, third, first**: "You, he and I will go." When you admit a mistake, take the blame first: "I, you and he are to blame."
+✗ I and you will attend the meeting.
+✓ You and I will attend the meeting.
+✓ I and my brother broke the window. (owning a fault)
+
+##R17 One and one's || A sentence that starts with one keeps one's and oneself
+If the subject is **one** meaning "any person", keep using one, one's and oneself. Do not switch to his or her. ⟦2025 Q67⟧ uses "one gets", so one stays one throughout that sentence.
+✗ One should keep his promises.
+✓ One should keep one's promises.
+
+##R18 Each other and one another || Each other for two, one another for more than two
+Traditional grammar books and exam keys say: **each other** for two people, **one another** for three or more. Modern English mixes them, but the exam follows the book rule.
+✓ The two brothers love each other.
+✓ The members of the team help one another.
+
+##R19 Pronoun agrees with its noun || Everyone takes his or her; a committee acting as one takes its
+A pronoun must match the noun it stands for. Singular words like **everyone, each, everybody, nobody** take his or her (or his, in older keys). A **collective noun** acting as one unit takes **its**, not their. If the sentence already treats the noun as singular ("the committee has"), every later word must be singular too. ⟦2025 Q69⟧
+✗ The committee, which has reached a decision, are preparing their report.
+✓ The committee, which has reached a decision, is preparing its report. ⟦2025 Q69⟧
+✓ Everyone must bring his or her own pen.
+
+##R20 Reflexive pronouns || Some verbs need myself or himself: avail, absent, enjoy, pride, apply; others never take it
+A few verbs need a reflexive pronoun after them: **avail oneself of, absent oneself from, enjoy oneself, pride oneself on, apply oneself to**. Some verbs never take one: keep, hide, qualify, bathe, rest. "He hid" is right; "He hid himself" is extra.
+✗ He availed of the offer.
+✓ He availed himself of the offer.
+✗ They enjoyed at the party.
+✓ They enjoyed themselves at the party.
+
+>NEXT:Likely next
+?? Fill in: "The officer ____ you complained against has been transferred." (a) who (b) whom || (b) whom. You complained against **him**.
+?? Fill in: "He is the only man ____ can solve it." (a) who (b) that || (b) that. After "only", use that.
+?? Spot the error: "Let you and I finish the work." || "I" should be "me". "Let" is followed by an object.
+?? Fill in: "One must do ____ duty." (a) his (b) one's || (b) one's.
+?? Fill in: "The jury gave ____ verdict." (a) its (b) their || (a) its. The jury acts as one body.
+
+#CH conditionals | If-sentences and wishes | GRAMMAR · Rules 21–27
+A conditional sentence has two parts: the **if** part (the condition) and the **result** part. Nimisha Bansal calls the tense pairs here "golden rules", because once you know the pair, the blank fills itself. In 2025 they gave four marks: ⟦2025 Q1⟧ ⟦2025 Q13⟧ ⟦2025 Q25⟧ ⟦2025 Q38⟧, plus an error-spotting question ⟦2025 Q66⟧.
+
+|If part|Result part|Meaning|
+|---|---|---|
+|present (If it rains)|will + verb (I will stay)|a real, possible future|
+|past (If I had money / If I were)|would + verb (I would buy)|unreal now, imaginary|
+|past perfect (If I had known)|would have + V3 (I would have come)|unreal past, too late now|
+|present (If you heat ice)|present (it melts)|always true|
+
+##R21 First conditional || If + present, will + verb (never will in the if part)
+For a real chance in the future, the if part is in the **simple present**, and the result has **will**. Do not put will in the if part. The same is true after when, before, after, until, as soon as and unless when they talk about the future (Rule 75).
+✗ If it will rain tomorrow, I will bring my umbrella.
+✓ If it rains tomorrow, I will bring my umbrella. ⟦2025 Q25⟧
+
+##R22 Second conditional and "if I were" || If + past, would + verb; use were for every person
+For something unreal or imaginary now, use the **past** in the if part and **would + verb** in the result. With "be", formal English uses **were** for all persons: if I were, if he were, if she were. "If I were you" is a fixed phrase for advice.
+✗ If I was a bird, I would fly.
+✓ If I were a bird, I would fly.
+✓ If I were you, I would have seized that opportunity. ⟦2025 Q38⟧
+
+##R23 Third conditional || If + had + V3, would have + V3, for a past that did not happen
+For a past that did not happen, put **had + past participle** in the if part and **would have + past participle** in the result. A common error is "will have" or "would" alone in the result.
+✗ If I had been rich in my youth, I will have bought a car.
+✓ If I had been rich in my youth, I would have bought a car. ⟦2025 Q66⟧
+
+##R24 Conditional without if || Had she known = If she had known; Were I = If I were; Should you = If you should
+The word **if** can be dropped when the helping verb moves to the front. "Had she known about the meeting, she **would have been** there." "Were I rich, I would help." "Should you need help, call me." The result part keeps the same pair as before.
+✗ Had she known about the meeting, she would be there on time.
+✓ Had she known about the meeting, she would have been there on time. ⟦2025 Q13⟧
+
+##R25 Wish || Wish + past for now; wish + had + V3 for the past; wish + would for a change you want
+**Wish** always talks about something unreal, so the verb moves one step back. For a wish about now, use the past: "I wish I **knew** the answer." "He wishes he **lived** with his parents." ⟦2018 Q54⟧ For a regret about the past, use the past perfect: "I wish I **had brought** an umbrella." ⟦2018 Q74⟧ The 2025 paper offered only "had" for a past regret, which was the closest choice. ⟦2025 Q1⟧ Never use will or can after wish.
+✗ I wish I will have more time.
+✓ I wish I had had more time for this project.
+
+##R26 Unless and lest || Unless already means if not, so never add not; lest is followed by should
+**Unless** means "if not", so a second "not" makes a double negative. **Lest** means "so that … not" or "for fear that", and it is followed by **should** or by the base verb, never by "not".
+✗ Unless you do not work hard, you will fail.
+✓ Unless you work hard, you will fail.
+✗ Walk carefully lest you may not fall.
+✓ Walk carefully lest you should fall.
+
+##R27 It is time, would rather and had better || It is time + past; would rather and had better + base verb
+"It is time" (or "It is high time") for an action that is late takes the **past**: "It is time we **left**." **Would rather** and **had better** are followed by the base verb, with no "to": "I'd rather **stay** home." ⟦2018 Q36⟧ "You had better **leave**." When would rather has a new subject, the verb goes into the past: "I'd rather you **went** now."
+✗ It is high time we start working.
+✓ It is high time we started working.
+✗ You had better to see a doctor.
+✓ You had better see a doctor.
+
+>NEXT:Likely next
+?? Fill in: "If he ____ harder, he would have passed." (a) worked (b) had worked || (b) had worked. Third conditional.
+?? Fill in: "Were I in your place, I ____ apologise." (a) will (b) would || (b) would. "Were I" = "If I were".
+?? Spot the error: "If you will heat ice, it melts." || "will heat" should be "heat". A general truth uses the present in both parts.
+?? Fill in: "She wishes she ____ the job last year." (a) took (b) had taken || (b) had taken. Regret about the past.
+?? Fill in: "Should it rain, the match ____ cancelled." (a) will be (b) would have been || (a) will be. "Should it rain" = "If it rains".

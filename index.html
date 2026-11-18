@@ -290,7 +290,7 @@ details>summary:hover{color:var(--blue)}
    x one-line note · main = start here · tests only: k saved-answers key, n questions, g group,
    topic = every question belongs to this one topic id (for single-topic sets) */
 var RM="ASO-GA-Reference-Manual.html", CA="ASO-Current-Affairs-2026-Manual.html", GEO="ASO-Geography-PYQs.html",
-    G21="pyq/OPSC-ASO-2021-GA-Paper-I.html", E25="pyq/OPSC-ASO-2025-English-Paper-III.html",
+    G21="pyq/OPSC-ASO-2021-GA-Paper-I.html", E25="pyq/OPSC-ASO-2025-English-Paper-III.html", EG="ASO-English-Grammar-Guide-2027.html",
     E21="pyq/OPSC-ASO-2021-English-Paper-III.html", E18="pyq/OPSC-ASO-2018-English-Paper-III.html";
 var R = [
  {t:"Official scheme & syllabus", f:"pyq/OPSC-ASO-2026-27-Official-Syllabus.html", s:"syllabus", p:"ALL", y:"2026-27"},
@@ -300,6 +300,7 @@ var R = [
  {t:"Defence Guide", f:"ASO-Defence-Guide-2027.html", s:"guide", p:"GA", y:"DEF", x:"Static + news to Nov 2026", topic:"def"},
  {t:"Current Affairs 2026", f:CA, s:"guide", p:"GA", y:"2026", x:"News by topic"},
  {t:"Vocabulary list", f:"ASO-Vocabulary.html", s:"guide", p:"EN", y:"EN", x:"Words + synonyms"},
+ {t:"English Grammar Guide", f:EG, s:"guide", p:"EN", y:"ENG", x:"120 rules + PYQs, 2018–2025"},
 
  {t:"Revise · endless questions", f:"revise.html", s:"mock", p:"GA", g:"Revise", n:2018, y:"REV", main:1, x:"2,018 GA + news MCQs · new every 2nd"},
 
@@ -362,18 +363,18 @@ var SYL=[
  {id:"ma", no:"II", paper:"Paper II (B)", name:"Maths", short:"Maths", q:50, mk:50, time:"1½ hrs with Reasoning", topics:[
   {c:"a", n:"Arithmetic"},{c:"b", n:"Algebra"},{c:"c", n:"Mensuration, 2D and 3D"},{c:"d", n:"Statistics and probability"}]},
  {id:"en", no:"III", paper:"Paper III (a)", name:"English", short:"English", q:100, mk:100, time:"2 hrs with Odia", topics:[
-  {id:"verb", c:"i", n:"Verb", asked:[5,11,3], g:[], t:[], p:[["2021 Q1–2",E21+"#q1"]], tags:["Verb","Infinitive & gerund","Voice & Narration"]},
-  {id:"prep", c:"i", n:"Preposition", asked:[9,15,6], g:[], t:[], p:[["2021 Q53–62",E21+"#q53"]], tags:["Preposition","Prepositions & phrasal verbs","Phrasal verbs"]},
-  {id:"adv", c:"i", n:"Adverb", asked:[2,0,15], g:[], t:[], p:[["2025 Q1–64",E25+"#fill-in-the-blanks-q1-64"]], tags:["Adverb","Adjective & adverb forms","Connectors & inversion"]},
-  {id:"sva", c:"i", n:"Subject–verb agreement", asked:[2,11,7], g:[], t:[], p:[["2021 Q83–92",E21+"#q83"]], tags:["Subject–verb agreement"]},
-  {id:"err", c:"i", n:"Error correction", asked:[7,12,6], g:[], t:[], p:[["2025 Q65–70",E25+"#spot-the-incorrect-segment-q65-70"],["2021 Q12–16",E21+"#q12"]], tags:["Error correction","Error spotting","Sentence improvement"]},
-  {id:"ten", c:"i", n:"Tenses", asked:[12,7,9], g:[], t:[], p:[["2021 Q73–76",E21+"#q73"]], tags:["Tenses","Tenses & conditionals"]},
-  {id:"art", c:"i", n:"Articles", asked:[5,10,3], g:[], t:[], p:[["2021 Q63–72",E21+"#q63"]], tags:["Articles"]},
-  {id:"voc", c:"i", n:"Vocabulary", asked:[25,3,21], g:[["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2025 Q1–64",E25+"#fill-in-the-blanks-q1-64"]], tags:["Vocabulary","Vocabulary in context","One-word","Spelling","Confusable words","Idioms","Idioms & proverbs"]},
-  {id:"syn", c:"i", n:"Synonyms", asked:[5,6,0], g:[["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2021 Q41–52",E21+"#q41"]], tags:["Synonyms"]},
-  {id:"ant", c:"i", n:"Antonyms", asked:[0,5,0], g:[["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2021 Q41–52",E21+"#q41"]], tags:["Antonyms"]},
-  {id:"com", c:"ii", n:"Comprehension", asked:[4,5,10], g:[], t:[], p:[["2025 Q91–100",E25+"#reading-comprehension"],["2021 Q93–97",E21+"#passage-q93-97"],["2018 Q67–70",E18+"#passage-q67-70"]], tags:["Comprehension"]},
-  {id:"rea", c:"iii", n:"Sentence rearrangement", asked:[1,5,20], g:[], t:[], p:[["2025 Q71–90",E25+"#rearrange-the-parts-into-a-sentence-q71-84"],["2021 Q77–81",E21+"#q77"]], tags:["Sentence rearrangement","Paragraph ordering","Para jumble"]}]},
+  {id:"verb", c:"i", n:"Verb", asked:[5,11,3], g:[["Verbs",EG+"#verbs"]], t:[], p:[["2021 Q1–2",E21+"#q1"]], tags:["Verb","Infinitive & gerund","Voice & Narration"]},
+  {id:"prep", c:"i", n:"Preposition", asked:[9,15,6], g:[["Prepositions",EG+"#prepositions"]], t:[], p:[["2021 Q53–62",E21+"#q53"]], tags:["Preposition","Prepositions & phrasal verbs","Phrasal verbs"]},
+  {id:"adv", c:"i", n:"Adverb", asked:[2,0,15], g:[["Adverbs",EG+"#modifiers"],["Inversion",EG+"#inversion"]], t:[], p:[["2025 Q1–64",E25+"#fill-in-the-blanks-q1-64"]], tags:["Adverb","Adjective & adverb forms","Connectors & inversion"]},
+  {id:"sva", c:"i", n:"Subject–verb agreement", asked:[2,11,7], g:[["Agreement",EG+"#agreement"]], t:[], p:[["2021 Q83–92",E21+"#q83"]], tags:["Subject–verb agreement"]},
+  {id:"err", c:"i", n:"Error correction", asked:[7,12,6], g:[["Error method",EG+"#errors"]], t:[], p:[["2025 Q65–70",E25+"#spot-the-incorrect-segment-q65-70"],["2021 Q12–16",E21+"#q12"]], tags:["Error correction","Error spotting","Sentence improvement"]},
+  {id:"ten", c:"i", n:"Tenses", asked:[12,7,9], g:[["Tenses",EG+"#tenses"],["If-sentences",EG+"#conditionals"]], t:[], p:[["2021 Q73–76",E21+"#q73"]], tags:["Tenses","Tenses & conditionals"]},
+  {id:"art", c:"i", n:"Articles", asked:[5,10,3], g:[["Articles",EG+"#articles"]], t:[], p:[["2021 Q63–72",E21+"#q63"]], tags:["Articles"]},
+  {id:"voc", c:"i", n:"Vocabulary", asked:[25,3,21], g:[["Vocabulary",EG+"#vocabulary"],["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2025 Q1–64",E25+"#fill-in-the-blanks-q1-64"]], tags:["Vocabulary","Vocabulary in context","One-word","Spelling","Confusable words","Idioms","Idioms & proverbs"]},
+  {id:"syn", c:"i", n:"Synonyms", asked:[5,6,0], g:[["Synonyms",EG+"#vocabulary"],["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2021 Q41–52",E21+"#q41"]], tags:["Synonyms"]},
+  {id:"ant", c:"i", n:"Antonyms", asked:[0,5,0], g:[["Antonyms",EG+"#vocabulary"],["Word list","ASO-Vocabulary.html"]], t:[["Vocab test","ASO-Vocabulary-Test-65-MCQ.html"]], p:[["2021 Q41–52",E21+"#q41"]], tags:["Antonyms"]},
+  {id:"com", c:"ii", n:"Comprehension", asked:[4,5,10], g:[["Method",EG+"#comprehension"]], t:[], p:[["2025 Q91–100",E25+"#reading-comprehension"],["2021 Q93–97",E21+"#passage-q93-97"],["2018 Q67–70",E18+"#passage-q67-70"]], tags:["Comprehension"]},
+  {id:"rea", c:"iii", n:"Sentence rearrangement", asked:[1,5,20], g:[["Method",EG+"#rearrange"]], t:[], p:[["2025 Q71–90",E25+"#rearrange-the-parts-into-a-sentence-q71-84"],["2021 Q77–81",E21+"#q77"]], tags:["Sentence rearrangement","Paragraph ordering","Para jumble"]}]},
  {id:"od", no:"III", paper:"Paper III (b)", name:"Odia", short:"Odia", q:100, mk:100, time:"2 hrs with English", topics:[
   {c:"i", n:"Grammar: verb, tense, adverb, agreement, error correction"},{c:"i", n:"Vocabulary: synonyms and antonyms"},{c:"ii", n:"Comprehension passage"},{c:"iii", n:"Sentence rearrangement"}]},
  {id:"co", no:"IV", paper:"Paper IV", name:"Computer", short:"Computer", q:"5 tasks", mk:50, time:"1 hr · practical, qualifying only", topics:[

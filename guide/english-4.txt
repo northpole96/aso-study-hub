@@ -1,0 +1,159 @@
+#CH verbs | Verb forms: to, -ing, modals and voice | GRAMMAR · Rules 81–90
+The syllabus says **Verb**. In the papers this meant three things: which form follows a verb (to go, go or going), what a modal like must or should means, and how to turn active voice into passive. Most of these are fixed pairs, so the fastest way to learn them is by sound. Say each right sentence two or three times.
+
+##R81 Bare infinitive || After make, let, help, see, hear, watch, had better, would rather: the base verb without to
+After **make, let, have** (meaning cause), and after the senses **see, hear, watch, feel**, the next verb has **no "to"**: "Let him **go**." "I made him **cry**." ⟦2018 Q53⟧ ⟦2018 Q18⟧ Modals (can, must, should, will) also take the bare verb. But in the **passive**, "to" comes back, or the -ing form is used: "He was made **to** work." "He was seen **going** to school." ⟦2021 Q6⟧
+✗ Let him to go.
+✓ Let him go.
+✗ He made me to understand.
+✓ He made me understand. ⟦2018 Q18⟧
+✓ Most schools do not let their students leave before 4 p.m. ⟦2018 Q53⟧
+
+##R82 Verbs that take -ing || Admit, avoid, deny, enjoy, finish, mind, practise, consider, regret, risk, suggest + -ing
+These verbs are followed by the **-ing form** (a gerund), never by "to + verb": **admit, avoid, consider, deny, enjoy, finish, mind, miss, practise, regret, risk, suggest, keep, give up, can't help, look forward to, object to, be used to**.
+✗ The witness admitted to have been near the scene.
+✓ The witness admitted having been near the scene. ⟦2025 Q34⟧
+✗ I look forward to meet you.
+✓ I look forward to meeting you.
+
+##R83 Verbs that take to + verb || Decide, hope, want, agree, refuse, plan, promise, expect + to; ask or tell someone (not) to
+These verbs take **to + base verb**: decide, hope, want, wish, agree, refuse, plan, promise, expect, fail, manage, afford, offer. Verbs of ordering and asking take **object + to + verb**: ask, tell, advise, order, request, allow, remind, warn. For a negative, put **not** before "to". ⟦2025 Q48⟧
+✗ She asked them don't interrupt her.
+✓ She had asked them not to interrupt her. ⟦2025 Q48⟧
+✓ Anita came to contribute to the cause. ⟦2021 Q23⟧
+
+##R84 Prevent, stop, prohibit, discourage || Prevent, stop, prohibit, deter, discourage + someone + from + -ing; forbid + someone + to
+**Prevent, stop, prohibit, deter, discourage, refrain, abstain** go with **from + -ing**: prevent someone from doing. **Forbid** takes "to": forbid someone to do.
+✗ This will prevent companies to dispose waste improperly.
+✓ This will prevent companies from disposing hazardous waste improperly. ⟦2025 Q6⟧
+
+##R85 -ing after a preposition || Any preposition (of, in, at, for, about, without, on) is followed by the -ing form
+When a verb comes after a **preposition**, it takes the -ing form: tired **of working** ⟦2021 Q40⟧, good **at singing**, interested **in learning**, **without saying**, **before leaving**, **instead of going**. "Go shopping" and "go swimming" use the -ing form directly. ⟦2021 Q39⟧
+✗ I am tired to work.
+✓ I'm tired of working. ⟦2021 Q40⟧
+✗ He left without say goodbye.
+✓ He left without saying goodbye.
+
+##R86 Possessive before -ing || My, his, her, their before a gerund: I object to his coming late
+When a person comes before a gerund, formal English uses the **possessive**: "I object to **his** coming late," not "him coming". "Do you mind **my** opening the window?" Nimisha Bansal teaches this as a separate rule, and it is a common error-spotting trap.
+✗ I don't like you going there alone.
+✓ I don't like your going there alone.
+
+##R87 Modals and their meanings || Must = duty or certainty; mustn't = not allowed; needn't = not necessary; should, ought to = advice or duty
+**Must** shows a strong duty: "You must wear a helmet." **Mustn't** means it is **not allowed**: "People mustn't walk on the grass." ⟦2021 Q2⟧ **Needn't** or **don't have to** means it is **not necessary**. **Should** and **ought to** give advice or a moral duty: "We ought to love our neighbours." ⟦2018 Q11⟧ "You shouldn't go out without an umbrella." ⟦2021 Q29⟧ **May** asks or gives permission, and **might** shows a weaker chance. **Was supposed to** means "it was planned, but": "Tom was supposed to call Susan yesterday." ⟦2021 Q35⟧ "May you live long!" is a formal wish. ⟦2018 Q1⟧ "Would you … please" is the most polite request. ⟦2018 Q2⟧
+✗ You must not to go there.
+✓ You must not go there.
+✗ He can to swim.
+✓ He can swim.
+
+##R88 Need and dare || As modals, no -s and no to: He need not go; how dare he; as main verbs: He needs to go
+**Need** and **dare** behave like modals in negatives and questions: "He **need not** come." "How **dare** he say that?" Then there is no -s and no "to". As normal verbs, they take -s and "to": "He **needs to** come." "He **does not dare to** speak." Do not mix the two.
+✗ He needs not come.
+✓ He need not come. (or: He does not need to come.)
+
+##R89 Active to passive || Object becomes subject; use be + V3 in the same tense as the active verb
+To make the passive: the **object** becomes the subject, and the verb becomes **be + past participle**, with "be" in the **same tense** as the active verb. Add "by + doer" only if it matters; drop "by someone, by people". The number of "be" follows the new subject.
+|Tense|Active|Passive|
+|---|---|---|
+|simple present|Everyone understands English.|English is understood by everyone. ⟦2021 Q33⟧|
+|simple past|The salt-water corroded the beams.|The metal beams were corroded by the salt-water. ⟦2021 Q30⟧|
+|future|I will clean the house.|The house will be cleaned by me. ⟦2021 Q1⟧|
+|present perfect|Someone has picked my pocket.|My pocket has been picked. ⟦2018 Q8⟧|
+|continuous|They are building a bridge.|A bridge is being built.|
+|modal|You must finish the work.|The work must be finished.|
+|order|Shut the door.|Let the door be shut.|
+✗ The beams was corroded by the salt-water.
+✓ The metal beams were corroded by the salt-water. ⟦2021 Q30⟧
+
+##R90 Verbs that need no passive and verbs that do || Happen, occur, arrive, die, belong, seem cannot be passive; was born, was married, was drowned are passive
+Verbs with **no object** (intransitive verbs) cannot be made passive: happen, occur, arrive, die, sleep, belong, seem, exist. "The accident **happened**," never "was happened". On the other hand, some ideas are usually passive: **was born**, **is said to**, **is known to**, **is supposed to**.
+✗ The accident was happened at night.
+✓ The accident happened at night.
+✗ He borned in 1990.
+✓ He was born in 1990.
+
+>NEXT:Likely next
+?? Fill in: "She avoided ____ to him." (a) to talk (b) talking || (b) talking (Rule 82).
+?? Fill in: "The rain prevented us ____ out." (a) to go (b) from going || (b) from going (Rule 84).
+?? Fill in: "You ____ pay now; you can pay later." (a) mustn't (b) needn't || (b) needn't. Not necessary.
+?? Passive of "They are repairing the road." || The road is being repaired (Rule 89).
+?? Spot the error: "I am looking forward to see you." || "see" should be "seeing" (Rule 82).
+?? Fill in: "He was made ____ the work again." (a) do (b) to do || (b) to do. In the passive, "to" comes back (Rule 81).
+
+#CH modifiers | Adjectives and adverbs | GRAMMAR · Rules 91–100
+An **adjective** describes a noun: a **quick** runner. An **adverb** describes a verb, an adjective or another adverb: he ran **quickly**, **utterly** untenable, **very** well. The 2025 paper asked eight blanks on adjective and adverb forms and degree, and the syllabus names **Adverb** directly. The usual trap is offering four forms of one word (thorough, through, thoroughly, thoroughness) and asking for the one that fits.
+
+>TIP:The form test
+Look at the word the blank describes. Before or after a **noun**, or after be, seem, look, feel, become, remain: use the adjective. Describing a **verb, an adjective or another adverb**: use the -ly adverb.
+
+##R91 Adverb for a verb, adjective or adverb || The -ly form describes how an action is done, or how much
+When the blank tells **how** an action was done, use the **adverb**: finished **quickly** ⟦2025 Q44⟧, scrutinised **meticulously** ⟦2025 Q19⟧, analysed **exhaustively** ⟦2025 Q41⟧, spoke **measuredly** ⟦2025 Q49⟧ ⟨CHECK a rare word; it was the only adverb offered⟩. When it tells **how much** about an adjective or adverb, use an adverb of degree: **utterly** untenable ⟦2025 Q32⟧, **reasonably** well ⟦2025 Q12⟧.
+✗ The youngest runner finished the race quick.
+✓ The youngest runner finished the race quickly. ⟦2025 Q44⟧
+✗ The hypothesis was utter untenable.
+✓ The hypothesis was utterly untenable. ⟦2025 Q32⟧
+
+##R92 Adjective after linking verbs || After be, seem, look, feel, smell, taste, sound, become, remain, lie, keep: the adjective
+**Linking verbs** join the subject to a word that describes it, so that word is an **adjective**: "She looks **happy**." "The milk tastes **sour**." "I feel **bad**." "The team remained **optimistic**." ⟦2025 Q47⟧ "The deposits lie **subterranean**" (a state, not an action). ⟦2025 Q56⟧ Watch out: "look" and "feel" can also be action verbs, and then take an adverb: "She looked **angrily** at me."
+✗ The rose smells sweetly.
+✓ The rose smells sweet.
+✗ I feel badly about it.
+✓ I feel bad about it.
+
+##R93 Degrees of comparison || Two things: comparative + than; three or more: the + superlative; of all = superlative
+**Positive** (tall), **comparative** (taller, more careful) and **superlative** (tallest, most careful). Use the comparative for **two**, always with **than**. ⟦2018 Q10⟧ Use the superlative for **three or more**, with **the**, and often with "of all" or "in the class". ⟦2025 Q4⟧ Short words take -er/-est; long words take more/most: fastidious, more fastidious, most fastidious. ⟦2018 Q82⟧
+✗ She is the more innocent of all.
+✓ She is the most innocent of all. ⟦2025 Q4⟧
+✗ Ram is more cleverer than Shyam.
+✓ Ram is cleverer than Shyam.
+
+##R94 No double comparatives; to after Latin comparatives || Never more better or most best; senior, junior, superior, inferior, prior, prefer take to, not than
+Do not use **more** or **most** with a word that already has -er or -est. Some words are already complete: unique, perfect, ideal, complete, round, square (not "more unique"). The Latin comparatives **senior, junior, superior, inferior, prior, anterior, posterior** and the verb **prefer** take **to**, not than. ⟦2021 Q36⟧ "Prefer A to B": "I prefer tea **to** coffee."
+✗ She is senior than me.
+✓ She is senior to me. ⟦2021 Q36⟧
+✗ This is the most best book.
+✓ This is the best book.
+
+##R95 Than any other; compare like with like || Than any other + singular noun; compare a thing with a thing of the same kind
+When a comparative compares one item with the rest of its group, say **than any other** + singular noun: "Delhi is bigger than any other city in India." ⟦2021 Q16⟧ Without "other", the item would be compared with itself. Also compare the **same kind of thing**: "The climate of Odisha is hotter than **that of** Shimla," not "than Shimla".
+✗ The building is as high as every other building in the country.
+✓ The building is higher than any other building in the country. ⟦2021 Q16⟧
+✗ The population of Mumbai is greater than Kolkata.
+✓ The population of Mumbai is greater than that of Kolkata.
+
+##R96 Look-alike adverbs || Hard (with effort) vs hardly (almost not); late vs lately (recently); near vs nearly (almost); high vs highly (very)
+These pairs have **different meanings**, so -ly does not just mean "in a … way". **Hard** = with effort; **hardly** = almost not. **Late** = not on time; **lately** = recently ⟦2018 Q9⟧. **Near** = close; **nearly** = almost. **High** = up; **highly** = very much. **Short** = suddenly; **shortly** = soon. "Hardly" is negative, so it can begin an inversion (Rule 103). ⟦2025 Q11⟧
+✗ He works hardly to pass.
+✓ He works hard to pass.
+✓ I have not met my brother lately. ⟦2018 Q9⟧
+
+##R97 Too and very; so and such || Too = more than needed, often with to; very = a lot; so + adjective, such + noun
+**Too** has a negative sense: more than is good. "The ring is **too costly to** buy." ⟦2021 Q19⟧ **Very** just makes a word stronger. Do not write "too … that"; use **so … that**: "The box was **so** heavy **that** I could not lift it." **So** goes with an adjective or adverb; **such** goes with a noun (Rule 10). Note that **costly, friendly, lovely, likely, lively, ugly** end in -ly but are **adjectives**, so "He spoke friendly" is wrong; say "in a friendly way". ⟦2021 Q19⟧
+✗ He is too weak that he cannot walk.
+✓ He is so weak that he cannot walk. (or: He is too weak to walk.)
+
+##R98 Position of only, just, even, ever || Put only next to the word it limits; just and ever go between have and the V3
+**Only** limits the word right after it, so its position changes the meaning. "They work **only when** they have no money." ⟦2021 Q14⟧ **Just, already, ever, never** come between the helping verb and the main verb: "I have **just** seen him." ⟦2018 Q22⟧ "Enough" follows an adjective (old enough) and precedes a noun (enough time).
+✗ They only work when they have no money.
+✓ They work only when they have no money. ⟦2021 Q14⟧
+
+##R99 Adjective order and adjective forms || Opinion, size, age, colour, origin, material: a beautiful old Indian wooden box
+When several adjectives come together, the natural order is **opinion, size, age, shape, colour, origin, material, purpose**: "a **lovely small old** round **red Indian** cotton bag". Also learn the right forms: **elder** and **eldest** for people in one family, **older** and **oldest** for age in general (and before than: "older than", never "elder than"). **Later / latest** refer to time; **latter / last** to order.
+✗ He is elder than me.
+✓ He is older than I am.
+✓ Of the two, the latter is better.
+
+##R100 No double negative || Hardly, scarcely, barely, seldom, never, nothing, no one already mean not: don't add another not
+Words such as **hardly, scarcely, barely, seldom, rarely, never, nobody, nothing, neither** are already negative. Adding "not" or "no" makes a double negative, which is wrong in standard English. ⟦2018 Q29⟧ Use "any" or "ever" after them: hardly **any**, hardly **ever**. ⟦2018 Q92⟧
+✗ I cannot hardly see the picture.
+✓ I can hardly see the picture. ⟦2018 Q29⟧
+✗ He seldom or never does not come.
+✓ He seldom, if ever, comes.
+
+>NEXT:Likely next
+?? Fill in: "She sings ____." (a) beautiful (b) beautifully || (b) beautifully (Rule 91).
+?? Fill in: "The food tastes ____." (a) good (b) well || (a) good (Rule 92).
+?? Fill in: "He is ____ than his brother." (a) more taller (b) taller || (b) taller (Rule 94).
+?? Spot the error: "This pen is superior than that one." || "than" should be "to" (Rule 94).
+?? Fill in: "I have ____ any money left." (a) hardly (b) not hardly || (a) hardly (Rule 100).
+?? Fill in: "Of the two plans, the second is ____." (a) best (b) better || (b) better. Two things take the comparative.

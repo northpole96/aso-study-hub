@@ -1,0 +1,222 @@
+#CH inversion | Inversion and joining words | GRAMMAR · Rules 101–110
+In a normal sentence the subject comes before the verb: "She **had** never seen such a sight." When a **negative or limiting word** moves to the front for force, English swaps the order, and the helping verb jumps before the subject: "Never **had she** seen such a sight." This is called **inversion**. In 2025 it gave seven marks ⟦2025 Q8⟧ ⟦2025 Q11⟧ ⟦2025 Q21⟧ ⟦2025 Q40⟧ ⟦2025 Q70⟧, and the pairs of joining words (no sooner … than, not only … but also) were tested alongside it.
+
+>KEY:The inversion pattern
+Negative word + helping verb (do, does, did, had, have, is, can, will) + subject + main verb. If the plain sentence has no helping verb, add do, does or did: "He rarely **smiles**" → "Rarely **does** he **smile**."
+
+##R101 No sooner … than || No sooner + had + subject + V3 … than; never when or then
+"No sooner" is a comparative, so its partner is **than**, never "when" or "then". The verb after it is inverted, usually with **had + V3** in the past: "No sooner **had** he reached the station **than** the train left." In the present, use do or does.
+✗ No sooner did the child touch the tree when it broke into blossom.
+✓ No sooner did the child touch the tree than it broke out into blossoms. ⟦2025 Q8⟧
+✗ No sooner he had left than it began to rain.
+✓ No sooner had he left than it began to rain.
+
+##R102 Hardly and scarcely … when || Hardly or scarcely + had + subject + V3 … when (or before); never than
+**Hardly, scarcely** and **barely** pair with **when** (or before), not than. They also cause inversion: "Hardly **had** I sat down **when** the bell rang." On its own at the start, hardly still inverts: "Hardly **does** one encounter such a feat." ⟦2025 Q11⟧
+✗ Hardly had I reached than it started raining.
+✓ Hardly had I reached when it started raining.
+
+##R103 Negative openers || Never, never before, seldom, rarely, little, nowhere, at no time, under no circumstances, not until + inversion
+These words at the front of a sentence always cause inversion: **never, never before, seldom, rarely, little, nowhere, at no time, on no account, under no circumstances, in no way, not once, not until, only then, only after, only when**. ⟦2025 Q40⟧
+✗ Never before such data had been accessible.
+✓ Never before had such data been accessible to researchers. ⟦2025 Q40⟧
+✗ Little he knew that he was being watched.
+✓ Little did he know that he was being watched.
+✓ Only then did I realise my mistake.
+
+##R104 So and such at the front || So + adjective or adverb + verb + subject … that; such + be + noun … that
+When **so + adjective/adverb** begins the sentence, the verb inverts and **that** follows: "So compellingly **did she** articulate her views **that** the audience sat in silence." ⟦2025 Q21⟧ With **such**, the pattern is "Such **was** his anger **that** …". Never write "such compelling … that" when an adverb is needed.
+✗ Such compelling did she speak that everyone listened.
+✓ So compellingly did she speak that everyone listened.
+
+##R105 Not only … but also || Keep both halves parallel and in the same tense; at the front, not only causes inversion
+**Not only … but also** must join two things of the **same kind** (two verbs, two nouns, two clauses). When "not only" opens the sentence, it inverts the first half: "Not only **did** the rain ruin the picnic, but the wind also made it impossible …" Both halves must be in the same tense. ⟦2025 Q70⟧
+✗ Not only does the rain ruin the picnic, but also the wind made it impossible to set up the tent.
+✓ Not only did the rain ruin the picnic, but the wind also made it impossible to set up the tent. ⟦2025 Q70⟧
+✗ He not only lost his money but also his health.
+✓ He lost not only his money but also his health.
+
+##R106 Correlative pairs || Either … or, neither … nor, both … and, whether … or, though … yet, so … that, as … as, such … as
+These words come in **fixed pairs**. Never swap a partner.
+|Opening word|Its partner|Example|
+|---|---|---|
+|either|or|Either you or he must go.|
+|neither|nor|Neither he nor I knew.|
+|both|and|Both Ram and Shyam came.|
+|not only|but also|not only clever but also kind|
+|no sooner|than|No sooner had … than …|
+|hardly, scarcely|when|Hardly had … when …|
+|though, although|yet (or nothing), never but|Though he is poor, yet he is honest.|
+|so|that|so tired that he slept|
+|such|that, or as (= like)|such men as these|
+|as|as (positive), so … as (negative)|as tall as; not so tall as|
+|whether|or|whether you like it or not|
+|lest|should|lest he should fall|
+|rather|than|I would rather die than beg.|
+|the same|as, or that|the same book as yours|
+✗ Though he is poor, but he is honest.
+✓ Though he is poor, yet he is honest.
+
+##R107 Because, because of, due to, despite || Because + clause; because of, owing to, despite, in spite of + noun or -ing
+**Because, since, as, though, although** are followed by a **clause** (a subject and a verb). **Because of, owing to, due to, despite, in spite of** are followed by a **noun or -ing word**. "Despite" never takes "of"; "in spite" always does. ⟦2021 Q12⟧
+✗ They could not admire him because of they dislike him.
+✓ They could not admire him because they dislike him. ⟦2021 Q12⟧
+✗ Despite of the rain, the match went on.
+✓ Despite the rain, the match went on. (or: In spite of the rain …)
+
+##R108 Linking adverbs show the turn of thought || However, but = contrast; therefore, so, consequently = result; moreover, also = addition
+A **linking adverb** tells you which way the thought turns. **Contrast:** however, but, yet, still, nevertheless, on the other hand, whereas ⟦2021 Q26⟧. **Result:** therefore, so, thus, hence, consequently. **Addition:** moreover, furthermore, besides, also. **Example:** for instance. **Time:** first, then, finally, initially. Read both sentences, decide the turn, then pick the word. ⟦2025 Q33⟧ ⟦2025 Q52⟧ These same words are the best clues in paragraph rearrangement (Chapter 14).
+✗ The first experiment failed. Therefore, the team learned valuable lessons.
+✓ The initial experiment failed. However, the team learned valuable lessons. ⟦2025 Q33⟧
+✓ French people love cooking, whereas the English don't seem very interested. ⟦2021 Q26⟧
+
+##R109 Parallel structure || Words joined by and, or, but, than must be the same form: to read and to write; reading and writing
+Things joined by **and, or, but, than, as** or a pair like **both … and** must have the **same grammatical shape**: two nouns, two -ing forms, two to-verbs, two clauses. "She enjoys hiking and partying." ⟦2025 Q75⟧
+✗ He likes reading, writing and to swim.
+✓ He likes reading, writing and swimming.
+✗ It is better to give than receiving.
+✓ It is better to give than to receive.
+
+##R110 Till, until, as soon as, so that || Until and till already include not-until meaning; as soon as has no then; so that takes may or can
+**Until** and **till** mean "up to the time when"; do not add "not" inside the clause they open. ⟦2018 Q37⟧ **As soon as** needs no "then" after it. **So that** (purpose) takes **may, might, can** or **could**: "He works hard so that he **may** succeed." **In order to** takes a base verb.
+✗ Wait here until I do not return.
+✓ Wait here until I return.
+✗ As soon as he came, then the meeting began.
+✓ As soon as he came, the meeting began.
+
+>NEXT:Likely next
+?? Fill in: "Scarcely had he left ____ the guests arrived." (a) than (b) when || (b) when (Rule 102).
+?? Fill in: "Seldom ____ such courage." (a) I have seen (b) have I seen || (b) have I seen (Rule 103).
+?? Fill in: "Not until he lost his job ____ the value of money." (a) he realised (b) did he realise || (b) did he realise.
+?? Fill in: "He is poor; ____, he is honest." (a) therefore (b) however || (b) however. Contrast.
+?? Spot the error: "Although he worked hard, but he failed." || Drop "but" (Rule 106).
+?? Fill in: "So loudly ____ that the neighbours complained." (a) he shouted (b) did he shout || (b) did he shout (Rule 104).
+
+#CH prepositions | Prepositions and phrasal verbs | GRAMMAR · Rules 111–120
+A preposition shows how one word is linked to another: in, on, at, of, for, with, from, to, by. English prepositions follow **habit**, not logic, so they must be learnt in pairs: "afraid **of**", "good **at**", "comply **with**". The 2021 paper asked ten in a row ⟦2021 Q53⟧ to ⟦2021 Q62⟧, plus multi-blank sets, and OPSC reused a 2018 preposition question word for word in 2021 ⟦2021 Q9⟧ ⟦2018 Q87⟧. Learn the tables in this chapter by saying them aloud.
+
+##R111 At, on, in for time || At + clock time; on + day or date; in + month, year, season, part of day
+**At** for an exact time: at 5 o'clock, at noon, at night, at the end of the lesson ⟦2021 Q60⟧. **On** for days and dates: on Monday, on 15 August, on my birthday. **In** for longer periods: in June, in 2027, in winter, in the morning. **By** means "not later than": by Friday. **Until/till** means "up to": until Friday. **Within** means "before the end of": within a week. **In time** = early enough; **on time** = at the planned time.
+✗ The exam is in 17 January.
+✓ The exam is on 17 January.
+✓ The teacher set some homework at the end of the lesson. ⟦2021 Q60⟧
+
+##R112 At, on, in for place; between and among; beside and besides || At a point, on a surface, in an enclosed space; between two, among many; beside = next to, besides = in addition to
+**At** for a point: at the door, at the station, at work. **On** for a surface or a line: on the table, on the wall, on the road. **In** for an inside space or a big area: in the room, in Odisha, in an apartment ⟦2021 Q38⟧. **Between** for two, **among** for more than two. **Beside** means next to; **besides** means in addition to. ⟦2018 Q62⟧
+✗ The money was divided between the four brothers.
+✓ The money was divided among the four brothers.
+✓ He sat beside me; besides us, there were two others. ⟦2018 Q62⟧
+
+##R113 Adjective + preposition || Afraid of, good at, worried about, envious of, different from, eligible for, adjacent to, bored with, based on
+These adjectives always take the same preposition. All of the bold ones were asked in the three papers.
+|Preposition|Adjectives and participles|
+|---|---|
+|of|**afraid** of ⟦2021 Q53⟧, **envious** of ⟦2021 Q56⟧, **tired** of, proud of, fond of, aware of, capable of, full of, guilty of, ashamed of, **consisting** of ⟦2021 Q9⟧|
+|at|**good** at ⟦2021 Q61⟧, bad at, surprised at, clever at, angry at (a thing)|
+|about|**worried** about ⟦2021 Q54⟧, anxious about, careful about, sorry about|
+|to|**senior** / junior / superior / inferior to, **adjacent** to ⟦2018 Q5⟧, **according** to, **contrary** to ⟦2025 Q51⟧, similar to, addicted to, accustomed to, equal to, married to, kind to|
+|for|**eligible** for ⟦2018 Q5⟧, famous for, responsible for, sorry for, ready for, **notorious** for ⟦2021 Q18⟧|
+|from|**different** from ⟦2018 Q28⟧, free from, absent from, far from, safe from|
+|with|**bored** with (or by) ⟦2021 Q9⟧, angry with (a person), pleased with, satisfied with, busy with, familiar with, popular with|
+|on|**based** on ⟦2021 Q9⟧, keen on, dependent on, intent on|
+|in|interested in, rich in, weak in, confident in, absorbed in|
+✗ She is good in tennis.
+✓ I am good at tennis. ⟦2021 Q61⟧
+✗ English is different than German.
+✓ English is different from German. ⟦2018 Q28⟧
+
+##R114 Verb + preposition || Comply with, consist of, confide in, decide on, suffer from, insist on, abstain from, arrive at, focus on, apply to
+These verbs need a fixed preposition after them.
+|Preposition|Verbs|
+|---|---|
+|with|comply with, cope with, deal with, part with, agree with (a person), quarrel with|
+|of|consist of, approve of, dispose of, accuse of, remind of, **inform** someone **of** ⟦2021 Q37⟧, die of (a disease)|
+|in|**confide** in ⟦2021 Q57⟧, believe in, succeed in, persist in, indulge in, **lie** in (expertise lies in) ⟦2025 Q14⟧|
+|on|**decide** on ⟦2021 Q58⟧, insist on, depend on, rely on, **focus** on ⟦2025 Q42⟧, comment on, congratulate on|
+|from|**suffer** from ⟦2021 Q59⟧, abstain from, refrain from, differ from, prevent from, recover from|
+|at|**arrive** at (a place or a decision) ⟦2025 Q18⟧, aim at, look at, laugh at, hint at|
+|to|**apply** to (a person) ⟦2018 Q5⟧, object to, belong to, listen to, reply to ⟦2018 Q18⟧, submit to, agree to (a plan)|
+|for|apply for (a job), wait for, long for, account for, hope for, **submit** something **for** approval ⟦2018 Q86⟧, **forgive** someone **for** ⟦2018 Q78⟧|
+✗ The committee finally came at a decision.
+✓ The committee finally arrived at a decision. ⟦2025 Q18⟧
+✗ She suffers with a heart disease.
+✓ She suffers from a heart disease. ⟦2021 Q59⟧
+
+##R115 No preposition after these verbs || Discuss, enter, reach, resemble, marry, attack, order, request, approach, investigate, accompany: no preposition
+These verbs take their object **directly**. Adding about, into, to, with or on is a common error: **discuss** a problem, **enter** a room, **reach** home, **resemble** his father, **marry** her, **attack** the enemy, **order** a meal, **request** help, **approach** the officer, **investigate** a case, **accompany** a friend, **inform** them (of something), **consider** him (no "as" ⟦2018 Q98⟧).
+✗ We discussed about the problem.
+✓ We discussed the problem.
+✗ He reached to Delhi at night.
+✓ He reached Delhi at night.
+✗ I will inform this to them.
+✓ I will inform them of this. ⟦2021 Q37⟧
+
+##R116 Noun + preposition || Expertise in, research on, experiment on, access to, approval for, demand for, respect for, in honour of, with regard to
+Nouns also have fixed partners: **expertise** in ⟦2025 Q14⟧, an **experiment** on ⟦2025 Q64⟧, **research** on, **access** to, **approval** for, **demand** for, **respect** for, **reason** for, **cure** for, **solution** to, **key** to, **answer** to, **influence** on, **effect** on, **interest** in, **party in his honour** ⟦2021 Q7⟧, **with regard to** ⟦2021 Q5⟧, **at** the enquiry (during it) ⟦2018 Q39⟧.
+✗ He has no access of the files.
+✓ He has no access to the files.
+✓ They organised a party in his honour. ⟦2021 Q7⟧
+
+##R117 Phrasal verbs || Verb + small word with a new meaning: call for, turn out, hold on to, give up, put up with, get over, put off, look into, carry out
+A **phrasal verb** is a verb plus a small word (up, out, off, on, for, into) that together mean something new. They are asked as blanks with four look-alike options. ⟦2025 Q54⟧ ⟦2025 Q60⟧ ⟦2021 Q34⟧
+|Phrasal verb|Meaning|
+|---|---|
+|call for|need, demand ⟦2025 Q54⟧|
+|call off|cancel|
+|turn out|prove to be ⟦2021 Q34⟧|
+|turn down|refuse|
+|hold on to|keep, not let go ⟦2025 Q60⟧|
+|give up|stop, abandon|
+|give in|surrender|
+|put up with|bear, tolerate|
+|put off|delay|
+|get over|recover from|
+|look into|investigate|
+|look after|take care of|
+|look down on|think someone is lower|
+|carry out|do, complete|
+|bring about|cause|
+|break down|stop working; lose control of feelings|
+|break out|start suddenly (a war, a fire)|
+|come across|find by chance|
+|take after|look or behave like a parent|
+|take up|start (a job or hobby) ⟦2018 Q55⟧|
+|make up for|compensate|
+|set up|start (a company)|
+|run out of|have no more left|
+✗ The design comes to meticulous attention.
+✓ The intricate design calls for meticulous attention. ⟦2025 Q54⟧
+
+##R118 Fixed phrases with prepositions || With regard to, in accordance with, on account of, in spite of, by mistake, on purpose, at random, take to heart
+Many short phrases always use the same preposition: **with regard to** ⟦2021 Q5⟧, **in accordance with**, **on account of**, **in spite of**, **instead of**, **by means of**, **in addition to**, **on behalf of**, **by mistake**, **by chance**, **on purpose**, **at random**, **in vain**, **at once**, **on foot**, **by bus**, **under no circumstances** ⟦2018 Q86⟧, **take something to heart** ⟦2021 Q55⟧.
+✗ With regard of his principles, he must be careful.
+✓ With regard to his principles, he has to be very careful. ⟦2021 Q5⟧
+
+##R119 Prepositions that change the meaning || Angry with a person, at a thing; agree with a person, to a plan; die of a disease, from a cause
+Some words take **different prepositions for different meanings**. Learn them as pairs.
+|Word|With a person|With a thing or idea|
+|---|---|---|
+|angry|angry **with** him|angry **at** his rudeness|
+|agree|agree **with** you|agree **to** the proposal|
+|die|die **of** a disease (cholera)|die **from** a wound or cause (overwork)|
+|compare|compare **with** (find likeness and difference)|compare **to** (say one is like the other)|
+|tired|tired **of** (bored)|tired **from** (worn out by)|
+|decide|decide **on** (choose) ⟦2021 Q58⟧|decide **about** (think about)|
+✗ He died from cholera.
+✓ He died of cholera.
+
+##R120 Prepositions of movement and travel || Into = movement inside; in = position; by bus, by train, on foot; to a place, towards a direction
+**Into** shows movement from outside to inside: "He jumped **into** the river." **In** shows where something already is: "He was swimming **in** the river." Travel takes **by**: by bus, by train, by air; but **on foot**, and **in my car**. **To** shows the end point: go to school; **towards** shows the direction only. **Arrive at** a small place, **arrive in** a city or country; but **reach** takes nothing (Rule 115). For "late by about an hour", the 2021 paper wanted "about". ⟦2021 Q62⟧ ⟨CHECK the blank would normally stay empty⟩
+✗ He jumped in the well to save the child.
+✓ He jumped into the well to save the child.
+✗ We went there by foot.
+✓ We went there on foot.
+
+>NEXT:Likely next
+?? Fill in: "He is addicted ____ smoking." (a) of (b) to || (b) to. Note: "to" is a preposition here, so smok**ing** follows.
+?? Fill in: "The house consists ____ five rooms." (a) in (b) of || (b) of.
+?? Fill in: "The meeting was put ____ till Monday." (a) off (b) out || (a) off. Delayed.
+?? Spot the error: "She resembles to her mother." || Drop "to" (Rule 115).
+?? Fill in: "I am angry ____ him ____ his behaviour." || with, at (Rule 119).
+?? Fill in: "He abstained ____ voting." (a) from (b) to || (a) from.
+?? Fill in: "The fire broke ____ at midnight." (a) out (b) down || (a) out.

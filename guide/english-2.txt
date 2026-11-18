@@ -1,0 +1,185 @@
+#CH agreement | Subject–verb agreement | GRAMMAR · Rules 28–49
+The basic law is short: **a singular subject takes a singular verb, and a plural subject takes a plural verb.** "The boy **plays**." "The boys **play**." The hard part is finding the real subject. The examiner hides it behind long phrases, joins two subjects with tricky words, or uses nouns that look plural but are not. This chapter gave 11 marks in 2021 and 7 in 2025, plus most of the error-spotting questions. Learn it well.
+
+>TIP:The one-line method
+Cover everything between the subject and the verb with your finger. "The **collection** [of rare manuscripts] **is** housed in the archive." Then ask: is the word left before the verb one thing or many? ⟦2025 Q53⟧
+
+##R28 One of the || One of the + plural noun + singular verb
+"One of the" picks **one** from a group. The noun after it must be **plural** (one of the boys), but the verb agrees with "one", so it is **singular**. This was Nimisha Bansal's fifth rule.
+✗ One of the boy is absent.
+✗ One of the boys are absent.
+✓ One of the boys is absent.
+
+##R29 One of those who || One of those who + plural verb; but the only one of those who + singular verb
+In "He is one of those men **who** work hard", the word "who" points to "men", not to "one", so the verb after who is **plural**. When "the only one" is used, who points to "one", so the verb is singular: "He is the only one of the boys who **works** hard."
+✗ She is one of the best singers who has ever lived.
+✓ She is one of the best singers who have ever lived.
+✓ He is the only one of the players who has scored a century.
+
+##R30 Number + unit before a noun || A ten-rupee note, a five-year plan: the unit stays singular when it describes a noun
+When a number and a unit stand **before a noun** like an adjective, joined by a hyphen, the unit has **no -s**: a ten-rupee note, a five-year plan, a two-hour film, a six-foot man. This is Nimisha Bansal's sixth rule.
+✗ He gave me a hundred-rupees note.
+✓ He gave me a hundred-rupee note.
+✗ It is a three-days course.
+✓ It is a three-day course.
+
+##R31 Amount as one sum || A sum of money, a distance or a time seen as one amount takes a singular verb
+"Ten kilometres **is** a long walk." "Five hundred rupees **is** too much for a shirt." "Two hours **is** enough." The plural noun is treated as **one total amount**, so the verb is singular.
+✗ Fifty kilometres are too far to walk.
+✓ Fifty kilometres is too far to walk.
+
+##R32 Dozen, hundred, thousand || After a number, no -s: two dozen eggs, five hundred people; with of, add -s: dozens of eggs
+When an exact number comes before dozen, score, hundred, thousand, lakh or million, the word stays singular: two dozen, three hundred, five lakh. When there is no exact number and "of" follows, add -s: dozens of, hundreds of, thousands of.
+✗ He bought three dozens bananas.
+✓ He bought three dozen bananas.
+✓ Thousands of people came.
+
+##R33 Each, every, everyone, someone, nobody || These words take a singular verb
+Words ending in -one, -body and -thing (everyone, someone, nobody, anything, everything) and the words each and every are all **singular**. Two subjects joined by "and" become singular too when each or every stands before them: "Every boy and girl **was** given a book." ⟦2021 Q24⟧
+✗ Everyone feel a great sense of elation when one gets a dream job.
+✓ Everyone feels a great sense of elation when one gets a dream job. ⟦2025 Q67⟧
+✓ Everyone at the party was amazed. ⟦2021 Q24⟧
+
+##R34 Either of, neither of, none of || Either of and neither of take a singular verb; none takes singular in formal keys
+"Either of", "neither of" and "each of" are followed by a plural noun but take a **singular verb**. ⟦2025 Q39⟧ **None** can take either verb in modern English, but exam keys prefer the **singular** when none means "not one". ⟦2018 Q91⟧ With an uncountable noun, none is always singular: "None of the milk was spilt."
+✗ Neither of the candidates are very experienced.
+✓ Neither of the candidates is very experienced. ⟦2025 Q39⟧
+✓ None of us wants to change the schedule. ⟦2018 Q91⟧
+
+##R35 Either … or, neither … nor, not only … but also || The verb agrees with the nearer subject
+When two subjects are joined by **either … or, neither … nor, or, nor, not only … but also**, the verb agrees with the subject **closest to it**. To sound natural, put the plural subject last: "Neither the manager nor his assistants were aware."
+✗ Neither the manager nor his assistant were aware of the new rules.
+✓ Neither the manager nor his assistant was aware of the new rules. ⟦2025 Q65⟧
+✓ Either you or he is to blame.
+
+##R36 As well as, along with, together with || The verb agrees with the first subject; the added words don't count
+Words such as **as well as, along with, together with, with, besides, in addition to, like, and not, rather than** add extra information but do not join the subjects. The verb agrees with the **first** subject only. ⟦2025 Q9⟧ ⟦2021 Q86⟧
+✗ The team, as well as their coach, are optimistic.
+✓ The team, as well as their coach, is optimistic. ⟦2025 Q9⟧
+✓ The chief along with his family is involved. ⟦2021 Q86⟧
+
+##R37 Two subjects joined by and || And makes a plural verb; but one person or one idea stays singular
+Two subjects joined by **and** take a **plural verb**: "The dog and the cat are fed." ⟦2021 Q83⟧ But when both words name **one person**, use one article and a singular verb: "The secretary and treasurer **is** here" (one person holds both posts). "The secretary and **the** treasurer **are** here" (two people). Pairs that form one idea are singular too: bread and butter, rice and curry, slow and steady.
+✗ Bread and butter are my breakfast.
+✓ Bread and butter is my breakfast.
+✓ The collector and the magistrate were present. (two people)
+
+##R38 A number of and the number of || A number of = many, plural verb; the number of = the count, singular verb
+"**A number of** students **were** absent" means many students. "**The number of** students **is** rising" means the count. The same split holds for "a variety of" (plural) and "the variety of" (singular).
+✗ A number of factors has influenced the result.
+✓ A number of factors have influenced the outcome. ⟦2025 Q20⟧
+✓ The number of road accidents is increasing.
+
+##R39 Collective nouns || One unit acting together: singular verb; members acting separately or disagreeing: plural verb
+A **collective noun** names a group: team, committee, jury, family, class, crowd, group, board, army, collection. When the group acts **as one body**, use a singular verb. When its members act **as separate people** (quarrel, disagree, take their seats), use a plural verb. Keys argue about feelings ("The board of directors **are** anxious"), so look for a clue such as "their" or "among themselves". ⟦2021 Q89⟧ ⟨CHECK keys split; the 2021 answer is "are" in this guide⟩
+✓ The collection of rare manuscripts is housed in the archive. ⟦2025 Q53⟧
+✓ The jury were divided in their opinions.
+✓ A group of students is planning to go to the beach. ⟦2025 Q35⟧ ⟨CHECK some keys accept "are"⟩
+
+##R40 Nouns that look plural || News, measles, mathematics, physics, politics, economics take a singular verb
+Some nouns end in -s but name **one** thing: **news**, subjects (mathematics, physics, economics, civics, politics), diseases (measles, mumps, rickets), games (billiards, draughts), and some names (the United States, the Arabian Nights). They take a singular verb.
+✗ The news are good.
+✓ The news is good.
+✓ Measles is a common disease among children. ⟦2021 Q88⟧
+
+##R41 Pair nouns and "a pair of" || Scissors, trousers, spectacles take a plural verb; a pair of scissors takes a singular verb
+Things made of two equal parts are always plural: scissors, trousers, jeans, spectacles, tongs, pliers, shorts. "The scissors **are** sharp." But with **a pair of**, the subject is "pair", so the verb is singular.
+✗ The pair of shoes are on sale.
+✓ The pair of shoes is on sale. ⟦2025 Q62⟧
+✓ My trousers are torn.
+
+##R42 Some, all, most, half, part + of || The verb follows the noun after of: uncountable noun singular, plural noun plural
+Words of portion (**some of, all of, most of, half of, part of, a lot of, plenty of**) take their number from the noun after "of". "Some of the rice **is** left" (rice is uncountable). "Some of the apples **are** rotten."
+✗ Some of the rice are still left.
+✓ Some of the rice is still left. ⟦2021 Q91⟧
+✓ Half of the students were absent.
+
+##R43 Gerund, infinitive or clause as subject || An -ing word, a to-verb or a whole clause as the subject is singular
+When the subject is an action (an -ing word or a to-verb) or a whole clause, treat it as **one** thing: "Public speaking **is** a skill." ⟦2021 Q92⟧ "To err **is** human." "What he says **is** true." "That Ajita was not invited **was** a shame." ⟦2021 Q7⟧
+✗ Reading novels are her hobby.
+✓ Reading novels is her hobby.
+
+##R44 Long subjects with of || The quality of the mangoes: the verb agrees with quality, not with mangoes
+When the subject is "X of Y", the verb agrees with **X**. "The quality of the mangoes **was** poor." "The rules of the game **have** changed." The examiner places a noun of the opposite number right before the verb to trap you. ⟦2025 Q68⟧
+✗ Immigration rules has become so strict that …
+✓ Immigration rules have become so strict that … ⟦2025 Q68⟧
+✗ The cost of all these books are high.
+✓ The cost of all these books is high.
+
+##R45 There is and there are || After there, the verb agrees with the noun that follows it
+"There" is not the real subject. Look at the noun after the verb. "There **is** a book on the table." "There **are** many books." With two nouns, keys follow the first one: "There **is** a pen and two books."
+✗ There is many reasons for this.
+✓ There are many reasons for this.
+
+##R46 Who, which, that in agreement || The verb after who or which agrees with the word who stands for
+After **who, which, that**, look back at the noun or pronoun they replace. "It is I who **am** to blame." "It is you who **are** wrong." "I, who **am** your friend, will help."
+✗ It is I who is responsible.
+✓ It is I who am responsible.
+
+##R47 The + adjective and plural-only nouns || The rich, the poor, cattle, police, people, poultry, clergy take a plural verb
+**The + adjective** means a whole class of people, so it is plural: "The rich **are** not always happy." Some nouns are always plural even without -s: **cattle, people, police, poultry, clergy, gentry, vermin**. "The police **have** arrested him."
+✗ The poor needs help.
+✓ The poor need help.
+✓ The cattle are grazing.
+
+##R48 More than one || More than one + singular noun + singular verb
+"More than one" sounds plural, but grammar follows "one": "More than one student **was** absent." The noun after it is singular too. By contrast, "more students than one" is plural.
+✗ More than one students were punished.
+✓ More than one student was punished.
+
+##R49 Titles, names and nouns of quantity || A book title, a country name or a sum treated as one takes a singular verb
+The name of a book, film, newspaper or country is **one thing**, even if it looks plural. "The Times of India **is** a daily." "The United Nations **has** 193 members." "Gulliver's Travels **was** written by Swift."
+✗ The Netherlands are a small country.
+✓ The Netherlands is a small country.
+
+>NEXT:Likely next
+?? Fill in: "The captain, along with his players, ____ received the trophy." (a) has (b) have || (a) has. "Along with" doesn't count (Rule 36).
+?? Fill in: "Not only the students but also the principal ____ present." (a) was (b) were || (a) was. Nearer subject (Rule 35).
+?? Fill in: "Mathematics ____ my favourite subject." (a) is (b) are || (a) is (Rule 40).
+?? Fill in: "Ten years ____ a long time to wait." (a) is (b) are || (a) is. One period of time (Rule 31).
+?? Spot the error: "The number of unemployed youths are rising every year." || "are" should be "is". "The number of" is singular (Rule 38).
+?? Fill in: "Every boy and every girl ____ a prize." (a) was given (b) were given || (a) was given (Rule 33).
+?? Fill in: "Either the teacher or the students ____ to blame." (a) is (b) are || (b) are. Nearer subject "students".
+
+#CH nouns | Nouns: number and form | GRAMMAR · Rules 50–55
+A noun is a naming word. The exam tests nouns through agreement and articles: you cannot choose "a" or "is" until you know if the noun is countable, uncountable, always plural or always singular. These six rules settle that.
+
+##R50 Uncountable nouns || Information, advice, furniture, luggage, equipment, scenery, machinery, poetry, news: no -s, no a
+These nouns name a **mass**, not separate items. They have **no plural**, take **no "a"**, and take a **singular verb**. To count them, use a unit: a piece of advice, an item of news, an article of furniture. ⟦2018 Q42⟧
+✗ He gave me many advices.
+✓ He gave me a lot of advice.
+✗ The sceneries of Kashmir are beautiful.
+✓ The scenery of Kashmir is beautiful.
+
+##R51 Nouns with the same form in both || Sheep, deer, fish, series, species, aircraft, crew: one form for singular and plural
+Some nouns do not change: one sheep, ten sheep; one series, two series; a species, many species. The verb shows the number: "A deer **was** seen." "Three deer **were** seen."
+✗ I saw many sheeps in the field.
+✓ I saw many sheep in the field.
+
+##R52 Plurals of compound nouns || Add -s to the main word: sisters-in-law, passers-by, commanders-in-chief
+In a compound noun, the **main word** takes the plural sign: mother-in-law → mothers-in-law, passer-by → passers-by, commander-in-chief → commanders-in-chief. When there is no main noun, add -s at the end: forget-me-nots, grown-ups.
+✗ His two brother-in-laws came.
+✓ His two brothers-in-law came.
+
+##R53 Possessive forms || Add 's for living things; add only ' after a plural ending in s; use of for things
+Living things take **'s**: the boy's book. A plural ending in -s takes only an apostrophe: the boys' hostel, a students' canteen. ⟦2018 Q77⟧ Plurals without -s take 's: children's books, men's shoes. Non-living things usually take **of**: the leg of the table, not the table's leg. Fixed time and distance phrases are exceptions: a day's work, a stone's throw.
+✗ The roof's of the house leak.
+✓ The roof of the house leaks.
+✓ A canteen for students = a students' canteen. ⟦2018 Q77⟧
+
+##R54 Double possessive and "of mine" || A friend of mine, a book of his: not "a my friend"
+English cannot put "a" and "my" together. Use the pattern **a + noun + of + mine/yours/his/hers/ours/theirs**: "a friend of mine". With a name: "a friend of Ravi's".
+✗ He is a my friend.
+✓ He is a friend of mine.
+
+##R55 Group nouns || A herd of cattle, a flock of sheep, a pack of wolves, a swarm of bees, a bunch of keys
+English has a fixed word for many groups. Learn the common ones: a **herd** of cattle, a **flock** of sheep or birds, a **pack** of wolves or cards, a **swarm** of bees or insects, a **pride** of lions, a **school** of fish, a **bunch** of keys or grapes, a **fleet** of ships, a **crowd** of people, a **gang** of thieves. ⟦2018 Q32⟧
+✗ A herd of wolves attacked the sheep.
+✓ A pack of wolves attacked the sheep.
+
+>NEXT:Likely next
+?? Fill in: "All the ____ was damaged in the fire." (a) furniture (b) furnitures || (a) furniture (Rule 50).
+?? Pick the right plural of "son-in-law". || sons-in-law (Rule 52).
+?? Fill in: "She bought a ____ of grapes." (a) bunch (b) herd || (a) bunch (Rule 55).
+?? Spot the error: "Give me an information about the train." || Drop "an": "Give me some information" (Rule 50).
+?? Fill in: "This is the ____ hostel." (a) girl's (b) girls' || (b) girls'. A hostel for many girls.
