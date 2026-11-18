@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map Guide · World + India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+<style>
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 var(--f-serif);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+.mono{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--muted)}
+.app{display:grid;grid-template-rows:auto 1fr;height:100vh}
+.top{display:flex;align-items:center;gap:18px;padding:10px 22px;border-bottom:1px dotted var(--muted)}
+.top h1{font-family:var(--f-pixel);color:var(--blue);font-size:26px;line-height:1;font-weight:400;letter-spacing:.02em}
+.top .sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.top .sp{flex:1}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:6px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.main{display:grid;grid-template-columns:1fr 600px;min-height:0}
+.mapbox{position:relative;min-width:0;min-height:0;margin:14px 0 14px 22px;border:1px dashed var(--rule);
+  background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:12px 12px}
+.mapbox .fig{position:absolute;left:-1px;top:16px;transform:translateX(-100%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--blue);padding-right:4px}
+svg#map{display:block;width:100%;height:100%;cursor:grab}
+.sphere{fill:#f5f7ff;stroke:var(--rule);stroke-width:1}
+.grat{fill:none;stroke:#dfe4f3;stroke-width:.5}
+.land{fill:#fff;stroke:#2a2a2a;stroke-width:.55;stroke-linejoin:round}
+.state{fill:#fff;stroke:#7d7d86;stroke-width:.7;stroke-linejoin:round}
+.inline{fill:none;stroke:#111;stroke-width:.95;stroke-linejoin:round;pointer-events:none}
+.river{fill:none;stroke:var(--blue);stroke-width:.9;stroke-opacity:.5;stroke-linecap:round;pointer-events:none}
+.land,.state,.grat,.inline,.river,.sphere{vector-effect:non-scaling-stroke}
+.hl{fill:var(--blue-soft)!important;stroke:var(--blue)!important;stroke-width:1.4!important}
+.river.hl{fill:none!important;stroke-width:3.2!important;stroke-opacity:1!important}
+.pin{cursor:pointer}
+.pin circle.o{fill:var(--paper);stroke:var(--blue)}
+.pin circle.i{fill:var(--blue)}
+.pin text{font-family:var(--f-mono);letter-spacing:.04em;fill:var(--fg);paint-order:stroke;stroke:#fff;stroke-linejoin:round}
+.pin text.no{fill:var(--blue);font-weight:500}
+.pin.on circle.o{fill:var(--blue)}
+.pin.on circle.i{fill:#fff}
+.pin.on text{fill:var(--blue);font-weight:500}
+.pin.dim{opacity:.55}
+.ctl{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px}
+.ctl .btn{padding:5px 10px;min-width:74px;text-align:center}
+.legend{position:absolute;left:14px;bottom:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.85);padding:3px 8px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:#fff;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;transform:translate(12px,12px);white-space:nowrap}
+.tip[hidden]{display:none}
+/* guide column */
+.guide{overflow-y:auto;padding:18px 30px 60px 30px;scroll-behavior:smooth}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.guide h2{font-size:38px;line-height:1.1;font-weight:500;margin-top:6px}
+.cnav{display:flex;gap:8px;margin-top:12px}
+.lead{margin-top:16px;font-size:19.5px;line-height:1.6}
+.dropcap::first-letter{float:left;font-family:var(--f-pixel);color:var(--blue);font-size:3.4em;line-height:.9;padding:6px 8px 0 0}
+.orn{margin:22px 0 6px;border-top:1px dotted var(--muted)}
+.ent{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;padding:12px 10px 12px 8px;border-left:2px solid transparent;cursor:pointer}
+.ent:hover{background:#f6f7fb}
+.ent.on{border-left-color:var(--blue);background:var(--blue-soft)}
+.ent .no{font-family:var(--f-pixel);color:var(--blue);font-size:20px;line-height:1.2}
+.ent h3{font-size:21px;font-weight:600;line-height:1.25}
+.ent p{grid-column:2;font-size:18px;line-height:1.5}
+.chips{display:inline-flex;gap:6px;margin-left:8px;vertical-align:2px}
+.yr{display:inline-block;background:var(--blue);color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;padding:1px 7px}
+.chk{display:inline-block;border:1px solid var(--warn);color:var(--warn);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;padding:0 6px}
+/* contents */
+.toc h2{font-family:var(--f-serif)}
+.toc .part{margin-top:22px}
+.toc ol{list-style:none;margin-top:6px}
+.toc li{display:flex;align-items:baseline;gap:10px;padding:5px 0;cursor:pointer;font-size:20px}
+.toc li:hover{color:var(--blue)}
+.toc li .n{font-family:var(--f-mono);font-size:12px;color:var(--blue);width:26px}
+.toc li .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-6px)}
+.toc li .c{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.foot{position:absolute;right:22px;bottom:3px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>Map Guide</h1>
+    <div class="sub">World + India · __NCH__ chapters · __NP__ places</div>
+    <div class="sp"></div>
+    <button class="btn" id="b-toc">Contents · C</button>
+    <button class="btn" id="b-prev">← Chapter</button>
+    <button class="btn" id="b-next">Chapter →</button>
+    <button class="btn" id="b-lab" aria-pressed="true" title="Hide names to test your memory">Names · L</button>
+    <button class="btn" id="b-all" aria-pressed="false" title="Show every place in the guide">All places · A</button>
+  </header>
+  <div class="main">
+    <div class="mapbox" id="mapbox">
+      <span class="fig" id="fig">FIG_001</span>
+      <svg id="map" role="img" aria-label="Map of the world with Indian states and the places of this chapter"></svg>
+      <div class="ctl">
+        <button class="btn" id="v-ch" title="F">Chapter · F</button>
+        <button class="btn" id="v-world" title="W">World · W</button>
+        <button class="btn" id="v-india" title="I">India · I</button>
+        <button class="btn" id="v-in">+</button>
+        <button class="btn" id="v-out">−</button>
+      </div>
+      <div class="legend">Scroll to zoom · drag to move · click a pin to read about it</div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <div class="guide" id="guide"></div>
+  </div>
+</div>
+<div class="foot">Map data: Natural Earth (public domain) · Indian states and boundary: DataMeet (CC BY 2.5 IN)</div>
+<script>
+var CH = __CH__;
+var KEY = "aso-map-guide-1";
+var WORLD = __WORLD__;
+var STATES = __STATES__;
+var RIVERS = __RIVERS__;
+var INDIA = __INDIA__;
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var st={ch:0,on:-1,lab:true,all:false,toc:false};
+try{var s0=JSON.parse(localStorage.getItem(KEY)||"null"); if(s0&&typeof s0.ch==="number"&&s0.ch<CH.length){st.ch=s0.ch; st.lab=s0.lab!==false}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({ch:st.ch,lab:st.lab}))}catch(e){}}
+
+/* ---------- map ---------- */
+function fixWinding(fc){ (fc.features||[]).forEach(function(f){ var g=f.geometry; if(!g) return;
+  var polys=g.type==="Polygon"?[g.coordinates]:g.type==="MultiPolygon"?g.coordinates:[];
+  polys.forEach(function(pl){ if(d3.geoArea({type:"Polygon",coordinates:pl})>2*Math.PI) pl.forEach(function(r){r.reverse()}) }) }) }
+fixWinding(WORLD); fixWinding(STATES); fixWinding(INDIA);
+var svg=d3.select("#map"), box=$("mapbox");
+var W=Math.max(300,box.clientWidth), H=Math.max(300,box.clientHeight);
+svg.attr("viewBox","0 0 "+W+" "+H);
+var proj=d3.geoNaturalEarth1().fitExtent([[18,18],[W-18,H-18]],{type:"Sphere"});
+var path=d3.geoPath(proj);
+var root=svg.append("g");
+root.append("path").datum({type:"Sphere"}).attr("class","sphere");
+root.append("path").datum(d3.geoGraticule10()).attr("class","grat");
+var countries=WORLD.features.filter(function(f){return f.properties.name!=="India"});
+var gC=root.append("g").selectAll("path").data(countries).join("path").attr("class","land");
+var gS=root.append("g").selectAll("path").data(STATES.features).join("path").attr("class","state");
+root.append("path").datum(INDIA).attr("class","inline");
+var gR=root.append("g").selectAll("path").data(RIVERS.features).join("path").attr("class","river");
+var gP=root.append("g");
+function drawBase(){root.selectAll(".sphere,.grat,.land,.state,.inline,.river").attr("d",path)}
+drawBase();
+var K=1;
+var zoom=d3.zoom().scaleExtent([1,80]).clickDistance(5).on("zoom",function(ev){K=ev.transform.k; root.attr("transform",ev.transform); sizePins()});
+svg.call(zoom).on("dblclick.zoom",null);
+function go(t,dur){svg.transition().duration(dur===undefined?700:dur).call(zoom.transform,t)}
+function fitBox(b,pad,maxK,dur){
+  var dx=Math.max(1,b[1][0]-b[0][0]), dy=Math.max(1,b[1][1]-b[0][1]), x=(b[0][0]+b[1][0])/2, y=(b[0][1]+b[1][1])/2;
+  var k=Math.min(maxK||80,Math.max(1,(1-pad)/Math.max(dx/W,dy/H)));
+  go(d3.zoomIdentity.translate(W/2-k*x,H/2-k*y).scale(k),dur);
+}
+function boundsOf(pts){var b=[[1e9,1e9],[-1e9,-1e9]]; pts.forEach(function(p){b[0][0]=Math.min(b[0][0],p[0]);b[0][1]=Math.min(b[0][1],p[1]);b[1][0]=Math.max(b[1][0],p[0]);b[1][1]=Math.max(b[1][1],p[1])}); return b}
+function viewWorld(d){go(d3.zoomIdentity,d)}
+function viewIndia(d){fitBox(path.bounds(INDIA),.06,80,d)}
+function viewChapter(d){var P=CH[st.ch].P; fitBox(boundsOf(P.map(function(p){return proj(p.g)})),.22,30,d)}
+$("v-world").onclick=function(){viewWorld()}; $("v-india").onclick=function(){viewIndia()}; $("v-ch").onclick=function(){viewChapter()};
+$("v-in").onclick=function(){svg.transition().duration(300).call(zoom.scaleBy,1.6)};
+$("v-out").onclick=function(){svg.transition().duration(300).call(zoom.scaleBy,1/1.6)};
+function layout(){
+  var w=box.clientWidth,h=box.clientHeight; if(w<50||h<50||(w===W&&h===H)) return;
+  W=w;H=h; svg.attr("viewBox","0 0 "+W+" "+H); proj.fitExtent([[18,18],[W-18,H-18]],{type:"Sphere"}); drawBase(); drawPins(); viewChapter(0);
+}
+window.addEventListener("resize",layout); window.addEventListener("load",layout); requestAnimationFrame(layout);
+
+/* ---------- pins ---------- */
+function drawPins(){
+  gP.selectAll("*").remove();
+  var list=[]; CH.forEach(function(c,ci){c.P.forEach(function(p,pi){ if(st.all||ci===st.ch) list.push({c:ci,i:pi,p:p}) })});
+  var g=gP.selectAll("g").data(list).join("g").attr("class",function(d){return "pin"+(d.c!==st.ch?" dim":"")})
+    .attr("transform",function(d){var q=proj(d.p.g);return "translate("+q[0]+","+q[1]+")"});
+  g.append("circle").attr("class","o"); g.append("circle").attr("class","i");
+  g.append("text").attr("class","no").text(function(d){return d.c===st.ch?(d.i+1):""});
+  g.append("text").attr("class","nm").text(function(d){return d.p.n});
+  g.on("click",function(ev,d){ev.stopPropagation(); if(d.c!==st.ch){st.ch=d.c; renderGuide(); drawPins()} select(d.i,true,false)})
+   .on("mouseenter",function(ev,d){ if(st.lab&&d.c===st.ch) return; var t=$("tip"); t.textContent=d.p.n; t.hidden=false; var r=box.getBoundingClientRect(); t.style.left=(ev.clientX-r.left)+"px"; t.style.top=(ev.clientY-r.top)+"px"})
+   .on("mouseleave",function(){$("tip").hidden=true});
+  sizePins(); mark();
+}
+function sizePins(){
+  var s=1/K;
+  gP.selectAll("circle.o").attr("r",function(){return (this.parentNode.classList.contains("on")?8:6)*s}).attr("stroke-width",1.6*s);
+  gP.selectAll("circle.i").attr("r",2.2*s);
+  gP.selectAll("text.no").attr("x",-9*s).attr("y",-8*s).attr("text-anchor","end").style("font-size",(11*s)+"px").style("stroke-width",(3*s)+"px");
+  gP.selectAll("text.nm").attr("x",10*s).attr("y",4*s).style("font-size",(12*s)+"px").style("stroke-width",(3.5*s)+"px")
+    .style("display",function(d){return st.lab&&d.c===st.ch?null:"none"});
+}
+function mark(){
+  gP.selectAll("g.pin").classed("on",function(d){return d.c===st.ch&&d.i===st.on});
+  gC.classed("hl",false); gS.classed("hl",false); gR.classed("hl",false);
+  var p=st.on>=0?CH[st.ch].P[st.on]:null;
+  if(p){ if(p.c) gC.filter(function(f){return f.properties.name===p.c}).classed("hl",true);
+    if(p.s) gS.filter(function(f){return f.properties.ST_NM===p.s}).classed("hl",true);
+    if(p.r) gR.filter(function(f){return f.properties.n===p.r}).classed("hl",true); }
+  gP.selectAll("g.pin.on").raise(); sizePins();
+}
+function select(i,scroll,fly){
+  st.on=i; mark();
+  document.querySelectorAll(".ent").forEach(function(e,j){e.classList.toggle("on",j===i)});
+  if(scroll){var e=document.querySelectorAll(".ent")[i]; if(e) e.scrollIntoView({block:"center",behavior:"smooth"})}
+  if(fly&&i>=0){ var p=CH[st.ch].P[i], q=proj(p.g), t=d3.zoomTransform(svg.node()), a=t.apply(q);
+    var inside=a[0]>60&&a[1]>60&&a[0]<W-60&&a[1]<H-60;
+    if(!inside||K<2){ var k=Math.max(K, CH[st.ch].part==="India"?6:2.5); go(d3.zoomIdentity.translate(W/2-k*q[0],H/2-k*q[1]).scale(k)) } }
+}
+
+/* ---------- guide column ---------- */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function renderGuide(){
+  var c=CH[st.ch], g=$("guide"); st.toc=false; $("b-toc").setAttribute("aria-pressed","false");
+  $("fig").textContent="FIG_"+String(st.ch+1).padStart(3,"0")+" · "+c.t.toUpperCase();
+  var h='<div class="eyebrow">Chapter '+String(st.ch+1).padStart(2,"0")+' · '+c.part+' · '+c.P.length+' places</div><h2>'+esc(c.t)+'.</h2>';
+  h+='<p class="lead dropcap">'+esc(c.intro)+'</p><div class="orn"></div>';
+  c.P.forEach(function(p,i){
+    var chips=(p.y?p.y.split(/,\s*/).map(function(y){return '<span class="yr">'+esc(y)+'</span>'}).join(""):"")+(p.k?'<span class="chk">CHECK</span>':"");
+    h+='<div class="ent" data-i="'+i+'"><span class="no">'+String(i+1).padStart(2,"0")+'</span><h3>'+esc(p.n)+(chips?'<span class="chips">'+chips+'</span>':"")+'</h3><p>'+esc(p.x)+'</p></div>';
+  });
+  h+='<div class="orn"></div><div class="cnav">'+(st.ch>0?'<button class="btn" data-go="'+(st.ch-1)+'">← '+esc(CH[st.ch-1].t)+'</button>':'')+(st.ch<CH.length-1?'<button class="btn" data-go="'+(st.ch+1)+'">'+esc(CH[st.ch+1].t)+' →</button>':'')+'</div>';
+  g.innerHTML=h; g.scrollTop=0; st.on=-1;
+}
+function renderToc(){
+  st.toc=true; $("b-toc").setAttribute("aria-pressed","true");
+  var h='<div class="toc"><div class="eyebrow">Map Guide · World + India</div><h2>Table of Contents.</h2>';
+  ["India","World"].forEach(function(part){
+    h+='<div class="part eyebrow">Part '+(part==="India"?"A · India":"B · The world")+'</div><ol>';
+    CH.forEach(function(c,i){ if(c.part===part) h+='<li data-go="'+i+'"><span class="n">'+String(i+1).padStart(2,"0")+'</span><span>'+esc(c.t)+'</span><span class="dots"></span><span class="c">'+c.P.length+'</span></li>' });
+    h+='</ol>';
+  });
+  h+='</div>'; $("guide").innerHTML=h; $("guide").scrollTop=0;
+}
+function openCh(i){ if(i<0||i>=CH.length) return; st.ch=i; save(); renderGuide(); drawPins(); viewChapter() }
+$("guide").addEventListener("click",function(e){
+  var g=e.target.closest("[data-go]"); if(g){openCh(+g.dataset.go); return}
+  var en=e.target.closest(".ent"); if(en) select(+en.dataset.i,false,true);
+});
+$("guide").addEventListener("mouseover",function(e){var en=e.target.closest(".ent"); if(!en) return; var i=+en.dataset.i;
+  gP.selectAll("g.pin").classed("on",function(d){return d.c===st.ch&&(d.i===i||d.i===st.on)}); sizePins()});
+$("guide").addEventListener("mouseleave",function(){mark()});
+$("b-toc").onclick=function(){ if(st.toc) renderGuide(); else renderToc() };
+$("b-prev").onclick=function(){openCh(st.ch-1)}; $("b-next").onclick=function(){openCh(st.ch+1)};
+function setLab(v){st.lab=v; $("b-lab").setAttribute("aria-pressed",v?"true":"false"); save(); sizePins()}
+$("b-lab").onclick=function(){setLab(!st.lab)};
+function setAll(v){st.all=v; $("b-all").setAttribute("aria-pressed",v?"true":"false"); drawPins(); if(v) viewWorld()}
+$("b-all").onclick=function(){setAll(!st.all)};
+document.addEventListener("keydown",function(e){
+  if(e.metaKey||e.ctrlKey||e.altKey) return; var k=e.key.toLowerCase();
+  if(k==="arrowright"){openCh(st.ch+1)} else if(k==="arrowleft"){openCh(st.ch-1)}
+  else if(k==="arrowdown"||k==="j"){e.preventDefault(); select(Math.min(CH[st.ch].P.length-1,st.on+1),true,true)}
+  else if(k==="arrowup"||k==="k"){e.preventDefault(); select(Math.max(0,st.on-1),true,true)}
+  else if(k==="l"){setLab(!st.lab)} else if(k==="a"){setAll(!st.all)} else if(k==="c"){$("b-toc").click()}
+  else if(k==="w"){viewWorld()} else if(k==="i"){viewIndia()} else if(k==="f"){viewChapter()}
+  else if(k==="+"||k==="="){$("v-in").click()} else if(k==="-"){$("v-out").click()}
+});
+$("b-lab").setAttribute("aria-pressed",st.lab?"true":"false");
+window.ASO_MAP={proj:proj,svg:svg.node()};
+renderGuide(); drawPins(); viewChapter(0);
+})();
+</script>
+</body>
+</html>
