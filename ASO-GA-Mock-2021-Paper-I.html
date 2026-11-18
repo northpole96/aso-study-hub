@@ -1,0 +1,552 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO GA Mock · 2021 paper</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.pass{margin-top:14px;border:1px dashed var(--rule);background:var(--paper);padding:12px 14px;max-height:46vh;overflow:auto}
+.pass b{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-bottom:6px}
+.pass p{font-size:1rem;line-height:1.65}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · Paper I General Awareness · 2021 paper</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>GA Mock 2021</h1>
+<p class="tag">The <b>2021</b> General Awareness paper,<br>the same 100 questions in the<br>same order, as a timed test.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This is the real 2021 Paper I (General Awareness), question for question. Questions 1 to 20 are current affairs from 2022, 21 to 30 history, 31 to 51 polity and administration, 52 to 60 international bodies, 61 to 80 geography, 81 to 90 defence, 91 science and 92 to 100 environment. Take it once under exam rules to see where you stand against the paper the board actually set.</p>
+<p class="lead" style="margin-top:14px">There is no official key. The answers are worked out from standard books. About one question in four is tagged <b>Check</b>: the key may be wrong or the question itself is loose (a misprint, or two options that could both work). Do not trust a Check answer without looking it up. The 2022 current-affairs questions are old news now, so use them to learn the style, not to learn the facts.</p>
+<div class="rules">
+<div><b>Paper</b><span>100 questions · 90 minutes · 100 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>Score</b><span>Your result is broken down by section, so you can see which topic to work on first.</span></div>
+<div><b>Redo</b><span>After you submit, press “Copy answers” and paste the report into the chat. Claude will build a redo set from the questions you got wrong or skipped.</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 90 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>100</span> questions</span></div>
+<ol class="bp"><li><span class="n">20</span><span>Current Affairs</span><span class="dots"></span><span class="c">Q1–20</span></li><li><span class="n">10</span><span>Modern History</span><span class="dots"></span><span class="c">Q21–30</span></li><li><span class="n">12</span><span>Polity</span><span class="dots"></span><span class="c">Q31–40, 50–51</span></li><li><span class="n">06</span><span>Governance</span><span class="dots"></span><span class="c">Q41–46</span></li><li><span class="n">03</span><span>Economy</span><span class="dots"></span><span class="c">Q47–49</span></li><li><span class="n">09</span><span>Institutions</span><span class="dots"></span><span class="c">Q52–60</span></li><li><span class="n">10</span><span>World Geography</span><span class="dots"></span><span class="c">Q61–70</span></li><li><span class="n">07</span><span>India Geography</span><span class="dots"></span><span class="c">Q71–75, 79–80</span></li><li><span class="n">03</span><span>Odisha</span><span class="dots"></span><span class="c">Q76–78</span></li><li><span class="n">10</span><span>Defence</span><span class="dots"></span><span class="c">Q81–90</span></li><li><span class="n">01</span><span>Science</span><span class="dots"></span><span class="c">Q91</span></li><li><span class="n">09</span><span>Environment</span><span class="dots"></span><span class="c">Q92–100</span></li></ol>
+<p class="src" style="margin-top:14px">Marks: 100 questions, 100 marks, 90 minutes, minus a quarter for each wrong answer. Source: OPSC ASO 2021 Paper I, booklet A (exam held in 2022).</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">90:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 100 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="pass" id="q-pass" hidden><b></b><p></p></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so Claude can build a redo set on exactly those rules.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · GA Mock · the 2021 General Awareness paper, question for question.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Current Affairs", "q": "In the guidelines announced by Union Finance Minister in the 2022-2023 Budget, instead of using the term 'Crypto Currency', the term ______ is used.", "o": ["Bitcoins Assets", "Ethercoins Assets", "Altcoins Assets", "Virtual Digital Assets"], "a": 3, "e": "The 2022-23 Budget used the term Virtual Digital Assets (VDA) for crypto, and taxed gains at 30%."}, {"s": "Current Affairs", "q": "Which State in India presented 'Child Budget' as part of the Annual State Budget?", "o": ["Andhra Pradesh", "Gujarat", "Sikkim", "Madhya Pradesh"], "a": 3, "e": "Madhya Pradesh presented a Child Budget in its 2022-23 State Budget. Gujarat and Sikkim are also named in news, so the key is not fully sure.", "c": 1}, {"s": "Current Affairs", "q": "The Government of India announced its decision to convert 150 villages into 'Villages of Excellence' with technical assistance from ______.", "o": ["Japan", "Israel", "USA", "Netherlands"], "a": 1, "e": "India planned Villages of Excellence with technical help from Israel (Indo-Israel agriculture cooperation).", "c": 1}, {"s": "Current Affairs", "q": "Which one of the following is not the objective of 'Operation Sajag' launched by Delhi Police?", "o": ["To curb area domination exercise", "Keeping tap on criminals", "Intensive checking at pickets", "Special rewards to traffic-friendly drivers"], "a": 3, "e": "Operation Sajag aims at area domination, tracking criminals and checking at pickets. A reward for traffic-friendly drivers is not part of it."}, {"s": "Current Affairs", "q": "The GSI has approved the setting up of country's first Geological Park at ______.", "o": ["Lamheta, Jabalpur", "Kadagu, Karnataka", "Idukki, Kerala", "Talala Gir, Gujarat"], "a": 0, "e": "The GSI approved the country's first Geological Park at Lamheta Ghat, Jabalpur (Madhya Pradesh)."}, {"s": "Current Affairs", "q": "Match the following:\n(I) Meghalaya — (i) Hojagiri\n(II) Mizoram — (ii) Wangala Dance\n(III) Manipur — (iii) Bamboo Dance\n(IV) Tripura — (iv) Thang ta", "o": ["I-ii, II-iii, III-iv, IV-i", "I-iii, II-i, III-ii, IV-iv", "I-ii, II-i, III-iii, IV-iv", "I-iii, II-iv, III-i, IV-iv"], "a": 0, "e": "Meghalaya: Wangala. Mizoram: Bamboo Dance. Manipur: Thang-ta (martial dance). Tripura: Hojagiri."}, {"s": "Current Affairs", "q": "The Central Board of Secondary Education has introduced 'Data Science Subject' as a subject for its students of 8-12 class in collaboration with ______ company.", "o": ["Inter", "Dell", "Microsoft", "Infosys"], "a": 0, "e": "CBSE introduced Data Science for classes 8 to 12 with Intel. The option is misprinted as Inter."}, {"s": "Current Affairs", "q": "Which of the following statements is not correct?", "o": ["Recently the Ministry of Earth Sciences has launched the Deep Ocean Mission", "This Mission mode project is to support the Green Economy initiative of Government of India", "This project is aimed to study bio-diversity, the impact of climate change etc", "In 2022 India signed a contract with International Sea Board Authority"], "a": 1, "e": "The Deep Ocean Mission supports the Blue Economy, not a Green Economy. So (B) is the wrong statement."}, {"s": "Current Affairs", "q": "Digital India 'BHASHINI' is ______. Which one of the above is not correct?", "o": ["India's Artificial Intelligence-led Language Translation Platform", "It gives access to global content in their own languages", "It is a step to realize digital photography", "It promotes Digital India Vision"], "a": 2, "e": "BHASHINI is an AI-led language translation platform. It has nothing to do with digital photography."}, {"s": "Current Affairs", "q": "The theme of 'Earth Day-2022' is ______.", "o": ["Nurture the Nature", "Go Green, Save Green", "Save the Earth, Save the Future", "Invest in our Planet"], "a": 3, "e": "Earth Day 2022 theme: Invest in Our Planet."}, {"s": "Current Affairs", "q": "Which of the following statements is not correct?\n(I) The Chang'e5 Lunar Space Craft Mission is undertaken by China\n(II) It found water at its landing site\n(III) It is the third Lunar Exploration Mission of Russia\n(IV) The Chang'e5 Lunar Space Craft was launched on November 23, 2020", "o": ["(II) and (IV)", "(III) only", "(IV) only", "(I) only"], "a": 1, "e": "Chang'e-5 is a Chinese mission, not a Russian one. Statement III is wrong."}, {"s": "Current Affairs", "q": "Which country recently passed a law to make 'ethnic unity' mandatory?", "o": ["Tibet", "Vietnam", "Nepal", "Myanmar"], "a": 0, "e": "The option is Tibet. The law on ethnic unity was passed in the Tibet Autonomous Region (China). The question wording is loose.", "c": 1}, {"s": "Current Affairs", "q": "Which of the following countries is not a Member of SAARC?", "o": ["Bhutan", "Bangladesh", "Singapore", "Sri Lanka"], "a": 2, "e": "SAARC members: Afghanistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Sri Lanka. Singapore is not one."}, {"s": "Current Affairs", "q": "The 15th 'World Forestry Congress' was held at ______.", "o": ["Seoul, Korea", "Durban, South Africa", "Jakarta, Indonesia", "Buenos Aires, Argentina"], "a": 0, "e": "The 15th World Forestry Congress was held in Seoul, South Korea, in May 2022."}, {"s": "Current Affairs", "q": "'South Asia Economic Focus' a bi-annual Economic Report is published by ______.", "o": ["Asian Development Bank", "IMF", "World Bank", "World Economic Forum"], "a": 2, "e": "South Asia Economic Focus is a World Bank report, published twice a year."}, {"s": "Current Affairs", "q": "'Minamata Convention' is an international platform to discuss about ______.", "o": ["Mercury Pollution", "Air Pollution", "Soil Pollution", "Silicon Pollution"], "a": 0, "e": "The Minamata Convention is about mercury pollution."}, {"s": "Current Affairs", "q": "Which of the following statements is not correct?", "o": ["Ukraine is the fourth largest country in Europe after Russia", "Kyiv is the largest city in Ukraine", "It shares its borders with Russia to East and Northeast borders", "It has coastline along the sea of Azov"], "a": 0, "e": "Ukraine is the second largest country in Europe after Russia, not the fourth. (A) is the wrong statement."}, {"s": "Current Affairs", "q": "According to 'Charitable Aid Foundation' which country topped 'World Giving Index, 2021'?", "o": ["Kenya", "India", "Indonesia", "New Zealand"], "a": 2, "e": "Indonesia topped the CAF World Giving Index 2021."}, {"s": "Current Affairs", "q": "With which American Scientist Professor Deepak Dhar shared the prestigious Boltzmann medal in Statistical Physics for the Year 2022?", "o": ["John Hopfield", "Kenneth G. Wilson", "Sam F. Edwards", "Dan Frenkal"], "a": 3, "e": "Deepak Dhar shared the 2022 Boltzmann Medal with Daan Frenkel."}, {"s": "Current Affairs", "q": "'Dharma Guardian Military Exercise' is conducted between which of the following countries?", "o": ["India and Bhutan", "India and USA", "India and Japan", "India and France"], "a": 2, "e": "Dharma Guardian is an India–Japan army exercise."}, {"s": "Modern History", "q": "Which of the following is not a matched pair?", "o": ["Gulab Singh / Jammu", "Duleep Singh / Punjab", "Shah Shuja / Rohilkhand", "Wajid Ali Shah / Awadh"], "a": 2, "e": "Shah Shuja was an Afghan ruler. Rohilkhand was Hafiz Rahmat Khan's land. This pair is wrong."}, {"s": "Modern History", "q": "Which is not the matched pair?", "o": ["Krishnaraja Wodeyar / Mysore", "Nizamulmulk Asaf Jah / Hyderabad", "Govinda Chandra / Cachar", "Zaman Shah / Peshawar"], "a": 3, "e": "Zaman Shah was a Durrani ruler of Afghanistan. Pairing him with Peshawar is the odd one. Check this against the source book.", "c": 1}, {"s": "Modern History", "q": "Clause 43, of the Charter Act of 1813 of the British Parliament concerned:", "o": ["Law and Order situation in India", "Education in India", "Foreign policy and trade relations in India", "Initiation of Indian Renaissance"], "a": 1, "e": "Clause 43 of the Charter Act of 1813 set aside Rs 1 lakh a year for education in India."}, {"s": "Modern History", "q": "For colonial times in India, which of the following sequence is in proper order – from the lowest to the highest?", "o": ["Munsif's Court, Sadr Amin's Court, Zilla Court, Sadr Diwani Adalat", "Sadr Diwani Adalat, Munsif's Court, Zilla Court, Sadr Amin's Court", "Munsif's Court, Zilla Court, Sadr Amin's Court, Sadr Diwani Adalat", "Sadr Diwani Adalat, Sadr Amin's Court, Zilla Court, Munsif's Court"], "a": 0, "e": "Lowest to highest: Munsif, Sadr Amin, Zilla Court, Sadr Diwani Adalat."}, {"s": "Modern History", "q": "Bhangi was a clan that ruled over a part of:", "o": ["Dakhan", "Rohilkhand", "Kaveri Delta", "Punjab"], "a": 3, "e": "The Bhangi was one of the Sikh misls that ruled parts of Punjab."}, {"s": "Modern History", "q": "\"ekam sat, vipraha bahudha vadanti\" comes from the:", "o": ["Mahabharata", "Ramayana", "Vedas", "Brahmanas"], "a": 2, "e": "'Ekam sat vipra bahudha vadanti' is from the Rig Veda."}, {"s": "Modern History", "q": "Deindustrialisation was the result of:", "o": ["An effort by the colonial rulers to destroy India's economy", "India's industry not being able to adjust to modern industrial production", "Lack of scientific and technical education in India", "India not having easy access to petroleum sources"], "a": 0, "e": "The standard textbook view is that colonial policy and cheap British goods destroyed Indian handicrafts and industry."}, {"s": "Modern History", "q": "Which of the combination is correct?", "o": ["M.K. Gandhi was the editor of the Pratap; V.D. Savarkar founded the National Herald; Jawaharlal Nehru founded the Free India Society; Madan Mohan Malviya was the Chairman of the Hindustan Times; Ganesh Shankar Vidyarthi wrote the Hind Swaraj.", "M.K. Gandhi wrote the Hind Swaraj; V.D. Savarkar founded the Free India Society; Jawaharlal Nehru founded the National Herald; Madan Mohan Malviya was the Chairman of the Hindustan Times; Ganesh Shankar Vidyarthi was the editor of the Pratap.", "M.K. Gandhi wrote the Hind Swaraj; V.D. Savarkar founded the Free India Society; Jawaharlal Nehru founded the National Herald; Madan Mohan Malviya was the editor of the Pratap; Ganesh Shankar Vidyarthi was the Chairman of the Hindustan Times.", "M.K. Gandhi wrote the Hind Swaraj; V.D. Savarkar was the editor of the Pratap; Jawaharlal Nehru founded the National Herald; Madan Mohan Malviya was the Chairman of the Hindustan Times; Ganesh Shankar Vidyarthi founded the Free India Society."], "a": 1, "e": "Gandhi wrote Hind Swaraj. Savarkar founded the Free India Society. Nehru founded the National Herald. Malaviya was chairman of the Hindustan Times. Vidyarthi edited the Pratap."}, {"s": "Modern History", "q": "Which ruler was known as 'but shikan'?", "o": ["Alauddin Khalji", "Sikandar Shah Miri", "Sikandar Lodhi", "Aurangzeb"], "a": 1, "e": "Sikandar Shah Miri of Kashmir was called 'but shikan', the idol breaker."}, {"s": "Modern History", "q": "The five principles of Panchsheel are substantially a reiteration of:", "o": ["The UN Charter", "The Charter of the League of Nations", "The Treaty of Berlin", "The Protocols of Zion"], "a": 0, "e": "Panchsheel (1954) restated the principles of the UN Charter.", "c": 1}, {"s": "Polity", "q": "From which Constitution, Indian Constitution borrowed the provision of Single Citizenship?", "o": ["Australia", "Canada", "USSR", "British"], "a": 3, "e": "Single citizenship came from the British (English) system."}, {"s": "Polity", "q": "Who / which among the following has been given the power by the Constitution of India to impose 'Reasonable Restrictions' on the Fundamental Rights?", "o": ["President of India", "Parliament", "Supreme Court", "High Courts"], "a": 1, "e": "Parliament can set reasonable restrictions on Fundamental Rights by law."}, {"s": "Polity", "q": "Article 21A refers to:", "o": ["Right to Freedom", "Right to Religion", "Right to Education", "Right Against Exploitation"], "a": 2, "e": "Article 21A: right to free and compulsory education for ages 6 to 14."}, {"s": "Polity", "q": "Which of the Rights deals with Right to Vote and to be elected in India?", "o": ["Fundamental Rights", "Natural Rights", "Constitutional Right", "Legal Right"], "a": 2, "e": "The right to vote comes from Article 326, so it is a constitutional right. Some say it is a legal right, so check.", "c": 1}, {"s": "Polity", "q": "Who / Which of the following can abolish a State Legislative Council?", "o": ["Parliament", "Governor", "President", "State Assembly"], "a": 0, "e": "Parliament abolishes or creates a Legislative Council (Article 169) after the State Assembly passes a resolution."}, {"s": "Polity", "q": "Which of the following Articles of the Constitution of India refers to proportional Representation by means of the single transferable vote?", "o": ["Article 53", "Article 54", "Article 54A", "Article 55(3)"], "a": 3, "e": "Article 55(3): the President is elected by proportional representation by the single transferable vote."}, {"s": "Polity", "q": "In which year did the Constitution (99th) Amendment Act come into force?", "o": ["2013", "2014", "2015", "2016"], "a": 2, "e": "The 99th Amendment (NJAC) came into force on 13 April 2015."}, {"s": "Polity", "q": "Which of the following statements is not correct?", "o": ["The Chairman of the UPSC shall be ineligible for further employment under the Government of India or of any State", "A member of the UPSC is eligible for appointment as Chairman of the UPSC or Chairman of any State Commission", "The Chairman of a State Commission shall be eligible for appointment as a member or Chairman of the UPSC or as Chairman of any other State Commission", "A member of the State Commission will be eligible for any other employment under the Government of India or of a State"], "a": 3, "e": "A State Commission member can be made UPSC member or chairman, or a State chairman, but cannot take other government jobs. (D) is wrong."}, {"s": "Polity", "q": "Which of the following Amendments has repealed Articles 19(1)(F) and 31?", "o": ["42nd Amendment", "43rd Amendment", "44th Amendment", "73rd Amendment"], "a": 2, "e": "The 44th Amendment (1978) removed Article 19(1)(f) and Article 31 (right to property)."}, {"s": "Polity", "q": "Who among the following appoints Comptroller and Auditor General of India?", "o": ["President", "Prime Minister", "Chief Justice of the Supreme Court", "Finance Minister of India"], "a": 0, "e": "The President appoints the CAG."}, {"s": "Governance", "q": "Which of the following has submitted 'Right to Information: Master key to Good Governance' report?", "o": ["Sarkaria Commission", "Punchhi Commission", "Administrative Reforms Commission – 1", "Administrative Reforms Commission – 2"], "a": 3, "e": "The Second ARC's first report was 'Right to Information: Master Key to Good Governance'."}, {"s": "Governance", "q": "Which of the following commissions has identified 27 modes of corruption?", "o": ["Vohra Committee", "Central Vigilance Commission", "Santhanam Committee", "Sarkaria Commission"], "a": 2, "e": "The Santhanam Committee (1962) is the likely key. Check, since other bodies also list modes of corruption.", "c": 1}, {"s": "Governance", "q": "How many members are in Finance Commission?", "o": ["A chairman and two other members", "A chairman and three other members", "A chairman and four other members", "A chairman and five other members"], "a": 2, "e": "Finance Commission: a chairman and four other members."}, {"s": "Governance", "q": "Which of the following is the most effective means of citizen's control over administration?", "o": ["Public Opinion", "Election", "Pressure groups", "Advisory Committee"], "a": 1, "e": "Elections are the strongest citizen control, but 'public opinion' is also argued. Treat as unsure.", "c": 1}, {"s": "Governance", "q": "How can a new All India Service be created?", "o": ["By a resolution of the Rajya Sabha", "By an order of the President", "By a resolution of the UPSC", "By an act of the Parliament"], "a": 3, "e": "A new All India Service is created by Parliament by law, after a Rajya Sabha resolution (Article 312)."}, {"s": "Governance", "q": "Which of the following committees laid down the British concept of Civil Service neutrality?", "o": ["Fulton Committee", "Masterman Committee", "Sapru Committee", "Northcote–Trevelyan Committee"], "a": 3, "e": "The Northcote-Trevelyan Report (1854) laid the base of a neutral, merit-based civil service."}, {"s": "Economy", "q": "In which of the Five Year Plans in India, the concept of financial inclusion was included for the first time?", "o": ["8th", "9th", "10th", "11th"], "a": 3, "e": "Financial inclusion was first named in the 11th Plan (2007-12). Check.", "c": 1}, {"s": "Economy", "q": "Which of the following is accountable for the assessment of poverty?", "o": ["HRD Ministry", "Ministry of Defence", "NITI Aayog", "Home Ministry"], "a": 2, "e": "NITI Aayog (earlier Planning Commission) assesses poverty."}, {"s": "Economy", "q": "Who among the following had adopted the strategy of 'Rolling Plan'?", "o": ["Jawaharlal Nehru", "Rajiv Gandhi", "Narendra Modi", "Morarji Desai"], "a": 3, "e": "The Rolling Plan was adopted by the Janata Government under Morarji Desai (1978-80)."}, {"s": "Polity", "q": "Which of the lists contains Economic Planning as a subject?", "o": ["Concurrent List", "State List", "Union List", "Special List"], "a": 0, "e": "Economic and social planning is entry 20 of the Concurrent List."}, {"s": "Polity", "q": "Who is the first Chairperson of the National Human Rights Commission?", "o": ["Justice Ranganath Mishra", "Justice M. N. Venkatachalliah", "Justice J. S. Verma", "Justice K. G. Balakrishnan"], "a": 0, "e": "Justice Ranganath Misra was the first NHRC chairperson (1993)."}, {"s": "Institutions", "q": "Where is the Head-quarter of the International Solar Alliance?", "o": ["Gurugram", "Paris", "Leon", "London"], "a": 0, "e": "The International Solar Alliance has its headquarters at Gurugram, Haryana."}, {"s": "Institutions", "q": "Which country hosted the virtual mode of the Summit meeting of 20th Shanghai Cooperation Organisation (SCO) in November, 2021?", "o": ["China", "Russia", "India", "Kazakhstan"], "a": 2, "e": "India hosted the 20th SCO Council of Heads of Government (virtual, Nov 2021). Check the year and level.", "c": 1}, {"s": "Institutions", "q": "What are the total membership countries of NATO?", "o": ["29", "30", "33", "35"], "a": 1, "e": "NATO had 30 members in 2022. Finland (2023) and Sweden (2024) later joined."}, {"s": "Institutions", "q": "Where is the head-quarter of the NATO?", "o": ["London", "Madrid", "Brussels", "Istanbul"], "a": 2, "e": "NATO headquarters: Brussels, Belgium."}, {"s": "Institutions", "q": "Which country hosted the fifth Summit meeting of BIMSTEC in virtual mode in March, 2022?", "o": ["India", "Sri Lanka", "Bangladesh", "Myanmar"], "a": 1, "e": "Sri Lanka hosted the 5th BIMSTEC Summit (virtual) on 30 March 2022."}, {"s": "Institutions", "q": "Which among the following countries was elected to the UN Security Council as a Non-permanent member in June 2022?", "o": ["Mozambique", "South Korea", "Canada", "Peru"], "a": 0, "e": "Mozambique was elected in June 2022, with Ecuador, Japan, Malta and Switzerland."}, {"s": "Institutions", "q": "How many years does a non-permanent member serve in the UN Security Council?", "o": ["One year", "Two years", "Three years", "Five years"], "a": 1, "e": "Non-permanent UNSC members serve two years."}, {"s": "Institutions", "q": "Which organization vision is to enable 'One World, One Sun, One Grid'?", "o": ["Ministry of New and Renewable Energy", "Power Grid Corporation of India Ltd.", "International Solar Alliance", "Inter-governmental Panel on Climate Change"], "a": 2, "e": "'One Sun, One World, One Grid' is the International Solar Alliance's vision."}, {"s": "Institutions", "q": "With which is the principle of 'Common But Differentiated Responsibilities' associated?", "o": ["Paris Agreement on Climate Change", "BRICS Summit 2022", "NATO", "International Solar Alliance"], "a": 0, "e": "Common but differentiated responsibilities appears in the UNFCCC and the Paris Agreement."}, {"s": "World Geography", "q": "Which one of the following options are not correctly matched with respect to the name of plates and the type of plate boundary?", "o": ["The North American plate and Eurasian plate are diverging plates", "The Nazca plate and South American plates are diverging plates", "The Nazca plate and Pacific plates are exhibiting diverging plate boundary", "Indian-Australian plate and Eurasian plate are converging plates"], "a": 1, "e": "The Nazca and South American plates converge (Andes). So (B) is wrong."}, {"s": "World Geography", "q": "Which one of the following ocean current is found in southern hemisphere?", "o": ["Oyashio Current", "West Wind Drift", "Gulf Stream", "Canaries Current"], "a": 1, "e": "The West Wind Drift is a southern hemisphere current. The others are northern."}, {"s": "World Geography", "q": "Which one of the following is not correctly matched?", "o": ["Prairies → North America", "Pampas → North America", "Veldt → South Africa", "Steppes → European Russia"], "a": 1, "e": "The Pampas are in South America (Argentina), not North America."}, {"s": "World Geography", "q": "Match List-I (Type of Mountain) with List-II (Example):\n(a) Block-mountain — (i) Himalayas\n(b) Old folded mountain — (ii) Black-forest\n(c) Relict mountain — (iii) Scottish Highlands\n(d) Young folded mountain — (iv) Appalachian\nCode (a b c d):", "o": ["iii i ii iv", "iii i iv ii", "ii iv iii i", "ii iv i iii"], "a": 2, "e": "Black Forest: block. Appalachian: old folded. Scottish Highlands: relict. Himalayas: young folded."}, {"s": "World Geography", "q": "Which one of the following regions has the largest number of active volcanoes?", "o": ["Alaska", "Aleutian Islands", "Hawaii Islands", "Iceland"], "a": 1, "e": "The Aleutian Islands arc has the largest number of active volcanoes among the options. Check.", "c": 1}, {"s": "World Geography", "q": "Which one of the following rivers has a \"bird-foot\" delta?", "o": ["Danube", "Mississippi", "Niger", "Nile"], "a": 1, "e": "The Mississippi has a bird-foot delta."}, {"s": "World Geography", "q": "Which one of the following is not correctly matched?", "o": ["Khamsin → North Africa and Arabia", "Bora → Adriatic coast", "Mistral → France", "Samoo → America"], "a": 3, "e": "Samum (Samoo) is a hot wind of the Sahara and Arabia, not America."}, {"s": "World Geography", "q": "Match List-I (Tropical Cyclone) with List-II (Region/Country):\n(a) Baigio — (i) China\n(b) Cyclone — (ii) Philippines\n(c) Hurricane — (iii) Madagascar\n(d) Typhoon — (iv) USA\nCode (a b c d):", "o": ["ii iii i iv", "ii iii iv i", "iii iv i ii", "iii iv ii i"], "a": 1, "e": "Baguio: Philippines. Cyclone: Madagascar (Indian Ocean). Hurricane: USA. Typhoon: China."}, {"s": "World Geography", "q": "Match List-I (Köppen's Symbol) with List-II (Climate):\n(a) BWk — (i) Cold mid-latitude steppe\n(b) BWh — (ii) Hot mid-latitude steppe\n(c) BSh — (iii) Hot low latitude desert\n(d) BSk — (iv) Cold low latitude desert\nCode (a b c d):", "o": ["iv iii ii i", "iv ii iii i", "i iii ii iv", "i ii iii iv"], "a": 0, "e": "BWk: cold desert. BWh: hot desert. BSh: hot steppe. BSk: cold steppe."}, {"s": "World Geography", "q": "The widest continental shelf is found in the:", "o": ["Arctic ocean", "Atlantic ocean", "Indian ocean", "Pacific ocean"], "a": 0, "e": "The widest continental shelf is in the Arctic Ocean (off Siberia)."}, {"s": "India Geography", "q": "Which one of the following geosynclines is the oldest?", "o": ["Delhi geosyncline", "Dharwar geosyncline", "Eastern Ghat geosyncline", "Satpura geosyncline"], "a": 1, "e": "The Dharwar system is the oldest of the geosynclines listed."}, {"s": "India Geography", "q": "Which one of the following rivers does not originate from the Maikal Range?", "o": ["Tapi", "Son", "Narmada", "Mahanadi"], "a": 0, "e": "Narmada and Son rise at Amarkantak (Maikal range). Tapi rises in the Satpura range. Mahanadi rises at Sihawa, so the question is loose. Check.", "c": 1}, {"s": "India Geography", "q": "Which category of the following forests occupy the largest percentage in India?", "o": ["Conifers and pines", "Equatorial evergreen", "Tropical deciduous", "Desert vegetation"], "a": 2, "e": "Tropical deciduous (monsoon) forests cover the largest share of India."}, {"s": "India Geography", "q": "Consider the following statements and select the correct answer using the code given below:\n(i) The Gujarat Plain was formed by the depositional work of parallel consequent rivers\n(ii) The Gujarat Plain contains the Cretaceous lava formations", "o": ["Only (i) is correct", "Only (ii) is correct", "Both (i) and (ii) are correct", "Neither (i) nor (ii) is correct"], "a": 2, "e": "The Gujarat Plain is made by river deposits and has Deccan lava parts. Check statement (ii).", "c": 1}, {"s": "India Geography", "q": "Who among the following scholars did not delineate 'the climatic regions of India'?", "o": ["Blandford, H. E.", "Coppack, J.", "Spate, O. H. K.", "Singh, R. L."], "a": 1, "e": "Blandford, Spate and R. L. Singh all described climatic regions. Coppack is the odd one. Check.", "c": 1}, {"s": "Odisha", "q": "(Odisha) Arrange the rivers in ascending order of their contribution to the formation of coastal plains:", "o": ["The Mahanadi > the Brahmani > the Baitarini > the Rushikulya > the Subarnarekha", "The Mahanadi > the Baitarini > the Brahmani > the Subarnarekha > the Rushikulya", "The Mahanadi > the Rushikulya > the Brahmani > the Baitarini > the Subarnarekha", "The Mahanadi > the Brahmani > the Baitarini > the Subarnarekha > the Rushikulya"], "a": 0, "e": "Mahanadi is biggest, then Brahmani, Baitarani, Rushikulya, Subarnarekha. Check the order.", "c": 1}, {"s": "Odisha", "q": "(Odisha) Match the morphological units of Rolling uplands (List-I) with the correct river basin (List-II):\n(a) The Rajgangpur – Panposh Uplands — (i) Ib Basin\n(b) The Jharsuguda Uplands — (ii) Northern Tel Basin\n(c) The Balangir – Titlagarh – Patnagarh Uplands — (iii) The Sabari Basin\n(d) The Malakanagiri Uplands — (iv) Koel and the Sankh Rivers\nCode (a b c d):", "o": ["iv i ii iii", "i ii iii iv", "iii ii i iv", "ii iii i iv"], "a": 0, "e": "Rajgangpur-Panposh: Koel and Sankh. Jharsuguda: Ib. Balangir-Titlagarh-Patnagarh: Northern Tel. Malkangiri: Sabari."}, {"s": "Odisha", "q": "(Odisha) Ranga Mati and Rugidia soil belongs to which primary soil group in Odisha?", "o": ["Regur Soil", "Laterite Soil", "The Brown Forest Earth", "Yellow Earth"], "a": 3, "e": "Ranga mati and Rugudia are listed under Yellow Earth here. Soil names differ between books, so check.", "c": 1}, {"s": "India Geography", "q": "Which of the following factor is responsible for fluctuation in Monsoon in India?", "o": ["If 2nd equatorial trough does not merge with ITCZ", "Southern Branch of South West Tropical Jet re-establish over Northern India", "Late disappearance of Southern Branch of Subtropical Westerly jet stream from Northern India", "Development of Strong Low Pressure cell over Tibetan Landmass"], "a": 2, "e": "Late withdrawal of the southern branch of the subtropical westerly jet is the standard cause. Check.", "c": 1}, {"s": "India Geography", "q": "Among the following options which mountain pass doesn't belong to the correct state:", "o": ["Bara Lacha la Pass → Himachal Pradesh", "Mana Pass → Uttarakhand", "Jelep La → Arunachal Pradesh", "Nathu La → Sikkim"], "a": 2, "e": "Jelep La is in Sikkim, not Arunachal Pradesh."}, {"s": "Defence", "q": "The Indian National Defence University (INDU) is located at:", "o": ["Dehradun", "New Delhi", "Binola Village, Haryana", "Chennai"], "a": 2, "e": "INDU is at Binola village, Gurugram, Haryana."}, {"s": "Defence", "q": "The present Chief of Air Staff of India is:", "o": ["MM Naravane", "V. R. Chaudhari", "Bipin Rawat", "Hari Kumar"], "a": 1, "e": "V. R. Chaudhari was Chief of the Air Staff in 2022. Naravane was Army chief; Hari Kumar, Navy chief."}, {"s": "Defence", "q": "QUAD comprises of the following countries:", "o": ["USA, UK, Japan and India", "Russia, UK, France, India and Australia", "USA, India, Japan and Australia", "UK, Japan, India and Australia"], "a": 2, "e": "QUAD: USA, India, Japan, Australia."}, {"s": "Defence", "q": "Who is known as the 'Missile Woman of India'?", "o": ["Dr. Tessy Thomas", "Indira Gandhi", "Gunjan Saxena", "Mary Kom"], "a": 0, "e": "Dr Tessy Thomas is the 'Missile Woman of India'."}, {"s": "Defence", "q": "On 28 January, 2022, which helicopter was officially inducted into Indian Naval Ship (INS) Utkrosh at Port Blair:", "o": ["ALH Mk III", "MI-24", "CH-47 Chinook", "AH-64 Apache"], "a": 0, "e": "The ALH Mk III was inducted at INS Utkrosh, Port Blair. Check.", "c": 1}, {"s": "Defence", "q": "The only Air Force Officer to have received the Param Vir Chakra is:", "o": ["Air Commodore Ravish Malhotra", "Flying Officer Nirmal Jit Singh Sekhon", "Sqn. Ldr. Abhinandan Varthaman", "Wing Commander Rakesh Sharma"], "a": 1, "e": "Flying Officer Nirmal Jit Singh Sekhon (1971) is the only Air Force Param Vir Chakra holder."}, {"s": "Defence", "q": "The S-400 Missile Defence System is procured by India from:", "o": ["France", "Russia", "USA", "Israel"], "a": 1, "e": "India buys the S-400 from Russia."}, {"s": "Defence", "q": "In a boost to Atmanirbhar Bharat, which aircraft was given Acceptance of Necessity by the Defence Acquisition Council in June 2022, to be manufactured by HAL?", "o": ["Rafael", "Mirage 2000", "Dornier", "SU-30"], "a": 2, "e": "The DAC cleared HAL's Dornier. Check, since Su-30 orders also came in 2022-23.", "c": 1}, {"s": "Defence", "q": "In January 2022, the Border Roads Organisation carried out the final blast on Sela Tunnel. The tunnel is located in:", "o": ["Meghalaya", "Manipur", "Ladakh", "Arunachal Pradesh"], "a": 3, "e": "Sela Tunnel is in Tawang district, Arunachal Pradesh."}, {"s": "Defence", "q": "The equivalent rank of a Squadron Leader in the Army is:", "o": ["Major", "Brigadier", "Captain", "Subedar Major"], "a": 0, "e": "Squadron Leader equals Major in the Army (and Lieutenant Commander in the Navy)."}, {"s": "Science", "q": "Who were awarded Nobel Prize in Chemistry in 2019 for developing lithium-ion batteries?", "o": ["Benjamin List and David MacMillan", "Emmanuelle Charpentier and Jennifer A. Doudna", "Roger Penrose, Reinhard Genzel and Andrea Ghez", "John B. Goodenough, M. Stanley Whittingham and Akira Yoshino"], "a": 3, "e": "The 2019 Chemistry Nobel for lithium-ion batteries: Goodenough, Whittingham and Yoshino."}, {"s": "Environment", "q": "Which recent online campaign led to declaration of Jaypore Rainforest as National Park in Assam?", "o": ["Siang Bachao Andolan", "Takam Mishing Porin Kebang", "Save Dehing Patkai", "None of these"], "a": 2, "e": "The Save Dehing Patkai campaign led to the Jeypore rainforest being declared a National Park."}, {"s": "Environment", "q": "Which of the following is not a greenhouse gas?", "o": ["O₃", "N₂O", "NO₂", "CFCs"], "a": 2, "e": "NO2 is a pollutant but not counted among the main greenhouse gases. N2O, O3 and CFCs are."}, {"s": "Environment", "q": "Who developed the concept of hotspots?", "o": ["Stuart L. Pimm", "Edward J. Laurent", "John Muir", "Norman Myers"], "a": 3, "e": "Norman Myers developed the hotspot concept (1988)."}, {"s": "Environment", "q": "What are parasitic, photosynthetic plants called?", "o": ["Semiparasites", "Hemiparasites", "Microparasites", "Holoparasites"], "a": 1, "e": "Parasitic plants that still photosynthesise are hemiparasites (mistletoe)."}, {"s": "Environment", "q": "How frequently pollutants are being monitored under National Air Quality Monitoring Programme [NAMP]?", "o": ["Once in a week", "Twice in a week", "Alternate days", "Once in a fortnight"], "a": 1, "e": "NAMP monitors pollutants twice a week."}, {"s": "Environment", "q": "What is the total species diversity across all communities within a geographic area called?", "o": ["Alpha diversity", "Beta diversity", "Gamma diversity", "Delta diversity"], "a": 2, "e": "Gamma diversity is the total diversity across a landscape."}, {"s": "Environment", "q": "Which is the world's largest Solar Park?", "o": ["Benban Solar Park, Egypt", "Bhadla Solar Park, India", "Huanghe Hydropower Hainan Solar Park, China", "Noor Abu Dhabi, United Arab Emirate"], "a": 1, "e": "Bhadla Solar Park (Rajasthan, about 2,245 MW) was named the world's largest in most 2022 lists. Check.", "c": 1}, {"s": "Environment", "q": "What is the modeling approach for evaluating the response of individual species to climate change called?", "o": ["Zero dimension model", "Box model", "General circulation model", "Bioclimatic envelope model"], "a": 3, "e": "Bioclimatic envelope models show how each species responds to climate change."}, {"s": "Environment", "q": "Which of the following have high assimilation efficiencies of over 90 percent?", "o": ["Secondary carnivores", "Herbivores", "Predatory spiders", "Social insects"], "a": 0, "e": "Carnivores absorb most of what they eat (80% and above). Check the 'over 90' wording.", "c": 1}];
+var PASS = {};
+(function(){
+  var SK="aso-ga-mock-2021";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=90*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+  else if(saved && saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="View last result"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); if(st.done) result(); else openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind="";
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q; var pb=$("q-pass"); if(q.p){ pb.hidden=false; pb.querySelector("p").textContent=PASS[q.p]; pb.querySelector("b").textContent="Passage "+q.p+" · read it, then answer"; } else pb.hidden=true;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 100 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save(); result();
+  }
+  function result(){
+    var timeUp=st.timeUp;
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 100</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Current Affairs", "Modern History", "Polity", "Governance", "Economy", "Institutions", "World Geography", "India Geography", "Odisha", "Defence", "Science", "Environment"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO GA MOCK (2021 PAPER) — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / 100 · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please make a redo set from my wrong and skipped questions.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i];
+      var h="Q"+(i+1)+" ["+q.s+"]"+(q.c?" (CHECK: key not verified)":"");
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+(q.p?"[Passage "+q.p+"] ":"")+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+(q.p?'[Passage '+q.p+'] ':'')+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>
