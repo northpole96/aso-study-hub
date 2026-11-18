@@ -30,7 +30,7 @@ button{font:inherit;color:inherit}
 .btn{border:1px solid var(--fg);background:var(--paper);padding:6px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .btn:hover{border-color:var(--blue);color:var(--blue)}
 .btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
-.main{display:grid;grid-template-columns:1fr 600px;min-height:0}
+.main{display:grid;grid-template-columns:1fr 640px;min-height:0}
 .mapbox{position:relative;min-width:0;min-height:0;margin:14px 0 14px 22px;border:1px dashed var(--rule);
   background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:12px 12px}
 .mapbox .fig{position:absolute;left:-1px;top:16px;transform:translateX(-100%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--blue);padding-right:4px}
@@ -44,6 +44,9 @@ svg#map{display:block;width:100%;height:100%;cursor:grab}
 .land,.state,.grat,.inline,.river,.sphere{vector-effect:non-scaling-stroke}
 .hl{fill:var(--blue-soft)!important;stroke:var(--blue)!important;stroke-width:1.4!important}
 .river.hl{fill:none!important;stroke-width:3.2!important;stroke-opacity:1!important}
+.lab text{pointer-events:none;paint-order:stroke;stroke:#fff;stroke-linejoin:round}
+.lab text.cn{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.12em;fill:#4a4a52}
+.lab text.st{font-family:var(--f-serif);font-style:italic;fill:#3f3f46}
 .pin{cursor:pointer}
 .pin circle.o{fill:var(--paper);stroke:var(--blue)}
 .pin circle.i{fill:var(--blue)}
@@ -71,7 +74,7 @@ svg#map{display:block;width:100%;height:100%;cursor:grab}
 .ent.on{border-left-color:var(--blue);background:var(--blue-soft)}
 .ent .no{font-family:var(--f-pixel);color:var(--blue);font-size:20px;line-height:1.2}
 .ent h3{font-size:21px;font-weight:600;line-height:1.25}
-.ent p{grid-column:2;font-size:18px;line-height:1.5}
+.ent p{grid-column:2;font-size:17.5px;line-height:1.55;margin-top:2px}
 .chips{display:inline-flex;gap:6px;margin-left:8px;vertical-align:2px}
 .yr{display:inline-block;background:var(--blue);color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;padding:1px 7px}
 .chk{display:inline-block;border:1px solid var(--warn);color:var(--warn);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;padding:0 6px}
@@ -96,7 +99,9 @@ svg#map{display:block;width:100%;height:100%;cursor:grab}
     <button class="btn" id="b-toc">Contents · C</button>
     <button class="btn" id="b-prev">← Chapter</button>
     <button class="btn" id="b-next">Chapter →</button>
-    <button class="btn" id="b-lab" aria-pressed="true" title="Hide names to test your memory">Names · L</button>
+    <button class="btn" id="b-cn" aria-pressed="false" title="Show country names">Countries · N</button>
+    <button class="btn" id="b-st" aria-pressed="false" title="Show Indian state names">States · S</button>
+    <button class="btn" id="b-lab" aria-pressed="true" title="Hide the names of this chapter's places to test your memory">Place names · L</button>
     <button class="btn" id="b-all" aria-pressed="false" title="Show every place in the guide">All places · A</button>
   </header>
   <div class="main">
@@ -119,7 +124,7 @@ svg#map{display:block;width:100%;height:100%;cursor:grab}
 <div class="foot">Map data: Natural Earth (public domain) · Indian states and boundary: DataMeet (CC BY 2.5 IN)</div>
 <script>
 var CH = __CH__;
-var KEY = "aso-map-guide-1";
+var KEY = "__KEY__";
 var WORLD = __WORLD__;
 var STATES = __STATES__;
 var RIVERS = __RIVERS__;
@@ -128,9 +133,9 @@ var INDIA = __INDIA__;
 <script>
 (function(){
 var $=function(id){return document.getElementById(id)};
-var st={ch:0,on:-1,lab:true,all:false,toc:false};
-try{var s0=JSON.parse(localStorage.getItem(KEY)||"null"); if(s0&&typeof s0.ch==="number"&&s0.ch<CH.length){st.ch=s0.ch; st.lab=s0.lab!==false}}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify({ch:st.ch,lab:st.lab}))}catch(e){}}
+var st={ch:0,on:-1,lab:true,all:false,toc:false,cn:false,sn:false};
+try{var s0=JSON.parse(localStorage.getItem(KEY)||"null"); if(s0&&typeof s0.ch==="number"&&s0.ch<CH.length){st.ch=s0.ch; st.lab=s0.lab!==false; st.cn=!!s0.cn; st.sn=!!s0.sn}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({ch:st.ch,lab:st.lab,cn:st.cn,sn:st.sn}))}catch(e){}}
 
 /* ---------- map ---------- */
 function fixWinding(fc){ (fc.features||[]).forEach(function(f){ var g=f.geometry; if(!g) return;
@@ -150,11 +155,34 @@ var gC=root.append("g").selectAll("path").data(countries).join("path").attr("cla
 var gS=root.append("g").selectAll("path").data(STATES.features).join("path").attr("class","state");
 root.append("path").datum(INDIA).attr("class","inline");
 var gR=root.append("g").selectAll("path").data(RIVERS.features).join("path").attr("class","river");
+var gL=root.append("g").attr("class","lab");
 var gP=root.append("g");
+function biggest(f){var g=f.geometry; if(g.type!=="MultiPolygon") return f; var best=null,ba=-1;
+  g.coordinates.forEach(function(pl){var a=d3.geoArea({type:"Polygon",coordinates:pl}); if(a>ba){ba=a;best=pl}}); return {type:"Feature",geometry:{type:"Polygon",coordinates:best}}}
+var LAB=[];
+function buildLabels(){
+  LAB=[];
+  countries.forEach(function(f){var b=biggest(f); LAB.push({k:"cn",t:f.properties.name,ll:d3.geoCentroid(b),a:path.area(b)})});
+  INDIA.features.forEach(function(f){var b=biggest(f); LAB.push({k:"cn",t:"India",ll:d3.geoCentroid(b),a:path.area(b)})});
+  STATES.features.forEach(function(f){var b=biggest(f); LAB.push({k:"st",t:f.properties.ST_NM,ll:d3.geoCentroid(b),a:path.area(b)})});
+  gL.selectAll("text").data(LAB).join("text").attr("class",function(d){return d.k}).attr("text-anchor","middle")
+    .attr("x",function(d){return proj(d.ll)[0]}).attr("y",function(d){return proj(d.ll)[1]}).text(function(d){return d.t});
+  sizeLabels();
+}
+var lt=null;
+function sizeLabels(){
+  var s=1/K;
+  gL.selectAll("text").style("display",function(d){
+      if(d.k==="cn"&&(!st.cn||(d.t==="India"&&st.sn&&K>3))) return "none";
+      if(d.k==="st"&&!st.sn) return "none";
+      var need=d.k==="cn"?(d.t.length*d.t.length*14+400):(d.t.length*d.t.length*6+150);
+      return d.a*K*K>need?null:"none"})
+    .style("font-size",function(d){return ((d.k==="cn"?10.5:13.5)*s)+"px"}).style("stroke-width",(3*s)+"px");
+}
 function drawBase(){root.selectAll(".sphere,.grat,.land,.state,.inline,.river").attr("d",path)}
 drawBase();
 var K=1;
-var zoom=d3.zoom().scaleExtent([1,80]).clickDistance(5).on("zoom",function(ev){K=ev.transform.k; root.attr("transform",ev.transform); sizePins()});
+var zoom=d3.zoom().scaleExtent([1,80]).clickDistance(5).on("zoom",function(ev){K=ev.transform.k; root.attr("transform",ev.transform); sizePins(); if(!lt) lt=requestAnimationFrame(function(){lt=null; sizeLabels()})});
 svg.call(zoom).on("dblclick.zoom",null);
 function go(t,dur){svg.transition().duration(dur===undefined?700:dur).call(zoom.transform,t)}
 function fitBox(b,pad,maxK,dur){
@@ -171,7 +199,7 @@ $("v-in").onclick=function(){svg.transition().duration(300).call(zoom.scaleBy,1.
 $("v-out").onclick=function(){svg.transition().duration(300).call(zoom.scaleBy,1/1.6)};
 function layout(){
   var w=box.clientWidth,h=box.clientHeight; if(w<50||h<50||(w===W&&h===H)) return;
-  W=w;H=h; svg.attr("viewBox","0 0 "+W+" "+H); proj.fitExtent([[18,18],[W-18,H-18]],{type:"Sphere"}); drawBase(); drawPins(); viewChapter(0);
+  W=w;H=h; svg.attr("viewBox","0 0 "+W+" "+H); proj.fitExtent([[18,18],[W-18,H-18]],{type:"Sphere"}); drawBase(); buildLabels(); drawPins(); viewChapter(0);
 }
 window.addEventListener("resize",layout); window.addEventListener("load",layout); requestAnimationFrame(layout);
 
@@ -251,6 +279,9 @@ $("b-toc").onclick=function(){ if(st.toc) renderGuide(); else renderToc() };
 $("b-prev").onclick=function(){openCh(st.ch-1)}; $("b-next").onclick=function(){openCh(st.ch+1)};
 function setLab(v){st.lab=v; $("b-lab").setAttribute("aria-pressed",v?"true":"false"); save(); sizePins()}
 $("b-lab").onclick=function(){setLab(!st.lab)};
+function setCn(v){st.cn=v; $("b-cn").setAttribute("aria-pressed",v?"true":"false"); save(); sizeLabels()}
+function setSn(v){st.sn=v; $("b-st").setAttribute("aria-pressed",v?"true":"false"); save(); sizeLabels()}
+$("b-cn").onclick=function(){setCn(!st.cn)}; $("b-st").onclick=function(){setSn(!st.sn)};
 function setAll(v){st.all=v; $("b-all").setAttribute("aria-pressed",v?"true":"false"); drawPins(); if(v) viewWorld()}
 $("b-all").onclick=function(){setAll(!st.all)};
 document.addEventListener("keydown",function(e){
@@ -258,13 +289,13 @@ document.addEventListener("keydown",function(e){
   if(k==="arrowright"){openCh(st.ch+1)} else if(k==="arrowleft"){openCh(st.ch-1)}
   else if(k==="arrowdown"||k==="j"){e.preventDefault(); select(Math.min(CH[st.ch].P.length-1,st.on+1),true,true)}
   else if(k==="arrowup"||k==="k"){e.preventDefault(); select(Math.max(0,st.on-1),true,true)}
-  else if(k==="l"){setLab(!st.lab)} else if(k==="a"){setAll(!st.all)} else if(k==="c"){$("b-toc").click()}
+  else if(k==="l"){setLab(!st.lab)} else if(k==="n"){setCn(!st.cn)} else if(k==="s"){setSn(!st.sn)} else if(k==="a"){setAll(!st.all)} else if(k==="c"){$("b-toc").click()}
   else if(k==="w"){viewWorld()} else if(k==="i"){viewIndia()} else if(k==="f"){viewChapter()}
   else if(k==="+"||k==="="){$("v-in").click()} else if(k==="-"){$("v-out").click()}
 });
-$("b-lab").setAttribute("aria-pressed",st.lab?"true":"false");
+$("b-lab").setAttribute("aria-pressed",st.lab?"true":"false"); $("b-cn").setAttribute("aria-pressed",st.cn?"true":"false"); $("b-st").setAttribute("aria-pressed",st.sn?"true":"false");
 window.ASO_MAP={proj:proj,svg:svg.node()};
-renderGuide(); drawPins(); viewChapter(0);
+buildLabels(); renderGuide(); drawPins(); viewChapter(0);
 })();
 </script>
 </body>
