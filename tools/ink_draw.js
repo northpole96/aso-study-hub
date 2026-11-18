@@ -348,7 +348,6 @@
   }
   function doClear() {
     if (!strokes.length) return;
-    if (!window.confirm("Erase ALL drawings on this page?")) return;
     undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
   }
 
