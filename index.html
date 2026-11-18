@@ -309,6 +309,7 @@ var R = [
  {t:"English Mock 03", f:"ASO-English-Mock-Test-2027-3.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-3", n:100, y:"M03"},
  {t:"English Mock 04 · redo", f:"ASO-English-Mock-Test-2027-4.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-4", n:100, y:"M04", main:1},
  {t:"Paper II Mock · 2021 paper", f:"ASO-Paper-II-Mock-2021.html", s:"mock", p:"RE", g:"Paper II mocks", k:"aso-paper2-mock-2021", n:100, y:"P2-21", main:1},
+ {t:"Maths Mock 01", f:"ASO-Maths-Mock-2027-1.html", s:"mock", p:"MA", g:"Paper II mocks", k:"aso-maths-mock-2027-1", n:50, y:"MA01", main:1},
  {t:"GS Mock 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-1", n:100, y:"GS01", main:1},
  {t:"GS Mock 02 · most likely", f:"ASO-GS-Mock-Test-2027-2.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-2", n:100, y:"GS02", main:1},
  {t:"GS Mock 03 · most likely II", f:"ASO-GS-Mock-Test-2027-3.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-3", n:100, y:"GS03", main:1},
@@ -361,7 +362,7 @@ var SYL=[
   {c:"A", n:"Number series"},{c:"A", n:"Alphabet series"},{c:"A", n:"Direction sense"},{c:"A", n:"Coding and decoding"},{c:"A", n:"Number ranking"},{c:"A", n:"Arithmetic reasoning"},{c:"A", n:"Age problems"},
   {c:"B", n:"Non-verbal series"},{c:"B", n:"Mirror images"},{c:"B", n:"Cubes and dice"},{c:"B", n:"Grouping identical figures"},{c:"B", n:"Embedded figures"}]},
  {id:"ma", no:"II", paper:"Paper II (B)", name:"Maths", short:"Maths", q:50, mk:50, time:"1½ hrs with Reasoning", topics:[
-  {c:"a", n:"Arithmetic"},{c:"b", n:"Algebra"},{c:"c", n:"Mensuration, 2D and 3D"},{c:"d", n:"Statistics and probability"}]},
+  {id:"ari", c:"a", n:"Arithmetic", asked:[15,17,44], tags:["Arithmetic"]},{id:"alg", c:"b", n:"Algebra", asked:[15,14,5], tags:["Algebra"]},{id:"men", c:"c", n:"Mensuration, 2D and 3D", asked:[3,3,0], tags:["Mensuration"]},{id:"stp", c:"d", n:"Statistics and probability", asked:[17,16,1], tags:["Statistics & Probability"]}]},
  {id:"en", no:"III", paper:"Paper III (a)", name:"English", short:"English", q:100, mk:100, time:"2 hrs with Odia", topics:[
   {id:"verb", c:"i", n:"Verb", asked:[5,11,3], g:[["Verbs",EG+"#verbs"]], t:[], p:[["2021 Q1–2",E21+"#q1"]], tags:["Verb","Infinitive & gerund","Voice & Narration"]},
   {id:"prep", c:"i", n:"Preposition", asked:[9,15,6], g:[["Prepositions",EG+"#prepositions"]], t:[], p:[["2021 Q53–62",E21+"#q53"]], tags:["Preposition","Prepositions & phrasal verbs","Phrasal verbs"]},
@@ -384,7 +385,7 @@ var SYL=[
 SYL.forEach(function(S){S.topics.forEach(function(t){t.asked=t.asked||null;t.g=t.g||[];t.t=t.t||[];t.p=t.p||[]})});
 var P2="pyq/OPSC-ASO-2021-Reasoning-Maths-Paper-II.html";
 SYL.forEach(function(S){ if(S.id==="re"||S.id==="ma") S.topics.forEach(function(t){
-  t.t=[["Paper II mock","ASO-Paper-II-Mock-2021.html"]];
+  t.t=(S.id==="ma"?[["Maths Mock 01","ASO-Maths-Mock-2027-1.html"]]:[]).concat([["Paper II mock","ASO-Paper-II-Mock-2021.html"]]);
   t.p=[S.id==="re"?["2021 Q1–50",P2+"#reasoning-and-mental-ability-q1-50"]:["2021 Q51–100",P2+"#mathematics-q51-100"]] }) });
 var EXAM=new Date(2027,0,17);
 
