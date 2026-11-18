@@ -211,22 +211,50 @@ footer p{margin:0}
 .navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
 
 /* ---------- pen-tablet drawing mode (tools/ink_draw.js) ---------- */
-#inkc{position:fixed;inset:0;width:100vw;height:100vh;z-index:25;mix-blend-mode:multiply;pointer-events:none}
-#ink{position:fixed;z-index:40;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:calc(var(--side) + 16px);display:flex;align-items:center;flex-wrap:wrap;gap:6px;max-width:calc(100vw - var(--side) - 32px);background:var(--paper);border:1px solid var(--blue);padding:5px}
-#ink .btn{padding:5px 9px;font-size:11px;white-space:nowrap}
-#ink .btn[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
-.ink-tools{display:none;align-items:center;flex-wrap:wrap;gap:6px}
-#ink.open .ink-tools{display:flex}
-.isep{width:1px;height:22px;background:var(--rule);margin:0 2px}
-.isw{width:26px;height:26px;border-radius:50%;border:2px solid var(--paper);background:var(--sw);box-shadow:0 0 0 1px var(--fg);padding:0;cursor:pointer}
-.isw.hi{border-radius:3px;opacity:.85}
-.isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--blue),0 0 0 4px var(--paper),0 0 0 5px var(--blue)}
-body.drawing #up{display:none}
-@media (max-width:1099px){
-  #ink{left:16px;right:16px;max-width:none;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
-  #ink:not(.open){right:auto}
-}
-@media print{#ink,#inkc{display:none}}
+#inkl{position:absolute;left:0;top:0;width:0;height:0;z-index:25;pointer-events:none;mix-blend-mode:multiply}
+.inkt{position:absolute;left:0;pointer-events:none}
+#inki{position:fixed;inset:0;z-index:26;pointer-events:none}
+body.drawing main{-webkit-user-select:none;user-select:none}
+
+/* the rail, snapped to the right edge */
+#ink{position:fixed;z-index:40;right:env(safe-area-inset-right,0px);top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);color:var(--muted)}
+#ink button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#ink svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.igrid{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+
+/* closed: a slim tab with a vertical label, like the FIG_ labels */
+#ink .itab{display:flex;flex-direction:column;align-items:center;gap:10px;width:34px;padding:12px 0 14px;
+  border:1px dashed var(--blue);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+#ink .itab:hover{background-color:var(--blue-soft)}
+.iv{writing-mode:vertical-rl;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+#ink.open .itab{display:none}
+
+/* open: the tool panel */
+.ipanel{display:none;width:62px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+  border:1px solid var(--fg);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.ipanel::-webkit-scrollbar{display:none}
+#ink.open .ipanel{display:block}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:7px 6px 6px 9px;background:var(--fg)}
+.ihead .ik{color:#fff;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:0}
+#ink .ix svg{stroke:#fff;width:14px;height:14px}
+#ink .ix{padding:2px}
+.ig{padding:8px 0 9px;border-top:1px dotted var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ihead + .ig{border-top:0}
+.ik{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.isws{display:flex;flex-direction:column;align-items:center;gap:7px}
+#ink .isw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--rule)}
+#ink .isw.hi{width:30px;height:11px;border-radius:0;opacity:.8}
+#ink .isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.itools{gap:2px}
+#ink .itool{display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;padding:6px 0 5px;border:1px solid transparent}
+#ink .itool:hover{border-color:var(--rule);background:var(--paper)}
+#ink .itool[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.il{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-height:520px){.ig{padding:5px 0 6px;gap:4px}.isws{gap:5px}#ink .itool{padding:4px 0 3px}}
+@media print{#ink,#inkl,#inki{display:none}}
 </style></head><body>
 <div class="bar"><div class="bar-in"><button class="btn" id="navbtn" aria-expanded="false" aria-controls="nav">Contents</button><b>ASO 2027 · HISTORY GUIDE</b></div>
 <nav id="nav"><a href="#start"><span class="n">00</span>Start here</a><div class="navg">Part A · Static</div><a href="#timeline"><span class="n">01</span>The whole story in one timeline</a><a href="#company"><span class="n">02</span>How the British took India (1600–1856)</a><a href="#rulers"><span class="n">03</span>Governors-General, Viceroys and how they ruled</a><a href="#acts"><span class="n">04</span>The Acts, councils and commissions</a><a href="#economy"><span class="n">05</span>Land, trade and money: the economic story</a><a href="#reform"><span class="n">06</span>Reformers, education and the press</a><a href="#revolts"><span class="n">07</span>Revolts before 1857 and the Revolt of 1857</a><a href="#nationalism"><span class="n">08</span>The rise of nationalism (1858–1914)</a><a href="#gandhi"><span class="n">09</span>The Gandhian age, 1915–1934</a><a href="#final"><span class="n">10</span>Provinces, war, Quit India and Independence, 1935–1950</a><a href="#groups"><span class="n">11</span>Muslim politics, caste, labour, peasants and women</a><a href="#odisha"><span class="n">12</span>Odisha in British India and the freedom struggle</a><a href="#recall"><span class="n">13</span>Books, slogans, titles and &quot;firsts&quot;</a><a href="#traps"><span class="n">14</span>The pairs the examiner swaps</a><div class="navg">Part B · News 2025–26</div><a href="#news"><span class="n">15</span>History in the news, 2025 and 2026</a><div class="navg">Last week</div><a href="#rev"><span class="n">16</span>One-page revision and CHECK list</a></nav>
@@ -278,7 +306,7 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
    Ink engine ported from the draw-app project (ink-stroke.ts + ink-canvas.tsx):
    streamlined, pressure-sensitive strokes, Catmull-Rom smoothing, pen/mouse brush,
    pen-eraser end, tablet quirks (flat pressure, missed pointerup, coalesced events).
-   New here: strokes live in PAGE coordinates (they scroll with the text), saved in localStorage,
+   New here: strokes are anchored to the chapter they start in and painted on tiles that scroll with the text, saved in localStorage,
    highlighter, stroke eraser, undo, clear, hide, and "touch scrolls / touch draws". */
 (function () {
   "use strict";
@@ -416,9 +444,30 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     { n: "Yellow highlighter", v: "#ffd400", hi: 1 }, { n: "Green highlighter", v: "#3ddc84", hi: 1 }, { n: "Pink highlighter", v: "#ff6fb5", hi: 1 }
   ];
 
-  /* ---------------- page + state ---------------- */
+  /* ---------------- page layout + state ----------------
+     The ink is painted on canvas TILES that sit inside the page (position:absolute), so they scroll
+     with the text natively, in the same frame. (A fixed canvas repainted on scroll lags one frame
+     behind and looks like parallax.) Only tiles near the screen exist; the rest are dropped.
+     Each stroke is stored relative to the chapter <section> it starts in: x in the column's units
+     (scaled when the column width changes), y from the section top. So opening a Q&A or a new
+     layout moves the ink together with its chapter. */
   var col = document.querySelector("main .col") || document.body;
-  function anchor() { var r = col.getBoundingClientRect(); return { left: r.left + window.scrollX, w: Math.max(1, col.clientWidth) }; }
+  var secs = [].slice.call(document.querySelectorAll("main section[id]"));
+  var L = { left: 0, w: 1, tops: {}, docW: 1, docH: 1 };
+  function measure() {
+    var sx = window.scrollX, sy = window.scrollY, r = col.getBoundingClientRect();
+    L.left = r.left + sx; L.w = Math.max(1, col.clientWidth);
+    L.tops = {};
+    secs.forEach(function (s) { L.tops[s.id] = s.getBoundingClientRect().top + sy; });
+    L.docW = document.documentElement.clientWidth;
+    L.docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  }
+  function topOf(s) { return s.a && L.tops[s.a] != null ? L.tops[s.a] : 0; }
+  function sectionAt(pageY) {
+    var best = null, bt = -1e9;
+    secs.forEach(function (s) { var t = L.tops[s.id]; if (t <= pageY && t > bt) { bt = t; best = s.id; } });
+    return best;
+  }
 
   var strokes = [], undo = [], current = null, activePointer = null, lastKept = null, erasing = false, erased = [];
   var state = { on: false, color: COLORS[0].v, hi: false, eraser: false, touchDraws: false, hidden: false };
@@ -428,71 +477,92 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
   function save() {
     clearTimeout(saveT);
     saveT = setTimeout(function () {
-      try {
-        localStorage.setItem(KEY, JSON.stringify({ v: 1, touchDraws: state.touchDraws, strokes: strokes }));
-      } catch (e) {}
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 2, touchDraws: state.touchDraws, strokes: strokes })); } catch (e) {}
     }, 400);
   }
 
-  /* ---------------- canvas ---------------- */
-  var canvas = document.createElement("canvas");
-  canvas.id = "inkc"; canvas.setAttribute("aria-hidden", "true");
-  var ctx = canvas.getContext("2d");
-  var cache = document.createElement("canvas"), cctx = cache.getContext("2d");
+  /* ---------------- painting ---------------- */
+  var TILE = 512;
+  var layer = document.createElement("div");
+  layer.id = "inkl"; layer.setAttribute("aria-hidden", "true");
+  var live = document.createElement("canvas"), lctx = live.getContext("2d"), liveTop = 0;
+  live.className = "inkt"; live.style.display = "none";
+  layer.appendChild(live);
   var tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
-  var dpr = 1, frame = 0;
+  var tiles = {}, dpr = 1, frame = 0;
 
-  function screenPts(s, an) {
-    var k = an.w / s.w, ox = an.left - window.scrollX, oy = -window.scrollY;
-    return s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: q[2] }; });
-  }
-  function inputOf(s, pts) { return s.pen && s.flat ? pts.map(function (q) { return { x: q.x, y: q.y, p: MOUSE_PRESSURE }; }) : pts; }
-
-  function paint(c, s, an, done) {
-    var pts = inputOf(s, screenPts(s, an));
-    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+  // Paint one stroke onto canvas context c, whose top edge is at page y = top.
+  function paint(c, s, top, done) {
+    var k = L.w / s.w, ox = L.left, oy = topOf(s) - top;
+    var pts = s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: s.pen && s.flat ? MOUSE_PRESSURE : q[2] }; });
     if (s.hi) {
+      var cv = c.canvas;
+      if (tmp.width !== cv.width || tmp.height !== cv.height) { tmp.width = cv.width; tmp.height = cv.height; }
       tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tmp.width, tmp.height);
       tctx.setTransform(dpr, 0, 0, dpr, 0, 0); tctx.fillStyle = s.c;
       paintStroke(tctx, pts, HI, done);
       c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 0.4; c.drawImage(tmp, 0, 0); c.restore();
     } else {
-      c.fillStyle = s.c;
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.fillStyle = s.c;
       paintStroke(c, pts, PEN, done);
     }
   }
+  function yRange(s) { var t = topOf(s); return [t + s.b[1], t + s.b[3]]; }
 
-  function visible(s, an) {
-    var k = an.w / s.w, x0 = an.left - window.scrollX + s.b[0] * k, x1 = an.left - window.scrollX + s.b[2] * k;
-    var y0 = s.b[1] - window.scrollY, y1 = s.b[3] - window.scrollY, pad = 24;
-    return x1 > -pad && x0 < window.innerWidth + pad && y1 > -pad && y0 < window.innerHeight + pad;
-  }
-
-  function rebuild() {
-    var an = anchor();
-    cctx.setTransform(1, 0, 0, 1, 0, 0); cctx.clearRect(0, 0, cache.width, cache.height);
+  function paintTile(t) {
+    t.ctx.setTransform(1, 0, 0, 1, 0, 0); t.ctx.clearRect(0, 0, t.c.width, t.c.height);
     if (state.hidden) return;
-    for (var i = 0; i < strokes.length; i++) if (visible(strokes[i], an)) paint(cctx, strokes[i], an, true);
+    strokes.forEach(function (s) { var y = yRange(s); if (y[1] > t.top && y[0] < t.top + t.h) paint(t.ctx, s, t.top, true); });
   }
-  function render() {
-    frame = 0;
-    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(cache, 0, 0);
-    if (current) paint(ctx, current.s, anchor(), false);
+  function dropTile(i) { var t = tiles[i]; t.c.width = t.c.height = 0; t.c.remove(); delete tiles[i]; }
+  function makeTile(i) {
+    var top = i * TILE, h = Math.min(TILE, L.docH - top);
+    if (h <= 0) return;
+    var c = document.createElement("canvas");
+    c.className = "inkt";
+    c.style.top = top + "px"; c.style.width = L.docW + "px"; c.style.height = h + "px";
+    c.width = Math.max(1, Math.round(L.docW * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var t = tiles[i] = { c: c, ctx: c.getContext("2d"), top: top, h: h };
+    layer.appendChild(c); paintTile(t);
   }
-  function request() { if (!frame) frame = requestAnimationFrame(render); }
-  function redraw() { rebuild(); request(); }
-
-  function resize() {
+  // Keep tiles from one screen above to two screens below the view; drop the rest.
+  function ensureTiles() {
+    var vh = window.innerHeight, sy = window.scrollY, last = Math.ceil(L.docH / TILE) - 1;
+    var lo = Math.max(0, Math.floor((sy - vh) / TILE)), hi = Math.min(last, Math.floor((sy + 2 * vh) / TILE));
+    Object.keys(tiles).forEach(function (i) { if (i < lo - 1 || i > hi + 1) dropTile(i); });
+    for (var i = lo; i <= hi; i++) if (!tiles[i]) makeTile(i);
+  }
+  function repaintAll() { Object.keys(tiles).forEach(function (i) { paintTile(tiles[i]); }); }
+  function rebuild() {
     dpr = window.devicePixelRatio || 1;
-    var w = Math.max(1, Math.round(window.innerWidth * dpr)), h = Math.max(1, Math.round(window.innerHeight * dpr));
-    canvas.width = cache.width = tmp.width = w; canvas.height = cache.height = tmp.height = h;
-    redraw();
+    Object.keys(tiles).forEach(dropTile);
+    measure(); ensureTiles();
   }
+
+  function renderLive() {
+    frame = 0;
+    lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
+    if (current) paint(lctx, current.s, liveTop, false);
+  }
+  function request() { if (!frame) frame = requestAnimationFrame(renderLive); }
+  // The stroke being drawn goes on its own canvas covering the screen at pen-down time.
+  function startLive() {
+    var h = Math.max(1, Math.min(window.innerHeight, L.docH - window.scrollY));
+    liveTop = window.scrollY;
+    live.style.top = liveTop + "px"; live.style.width = L.docW + "px"; live.style.height = h + "px";
+    live.width = Math.round(L.docW * dpr); live.height = Math.round(h * dpr);
+    live.style.display = "block";
+  }
+  function stopLive() { live.style.display = "none"; live.width = live.height = 1; }
 
   /* ---------------- drawing input (from ink-canvas.tsx) ---------------- */
-  function pageOf(e, isPen, an) {
-    return [Math.round((e.clientX + window.scrollX - an.left) * 10) / 10, Math.round((e.clientY + window.scrollY) * 10) / 10,
+  var input = document.createElement("div");
+  input.id = "inki"; input.setAttribute("aria-hidden", "true");
+
+  function pageOf(e, isPen, s) {
+    var k = L.w / s.w;
+    return [Math.round(((e.clientX + window.scrollX - L.left) / k) * 10) / 10,
+      Math.round((e.clientY + window.scrollY - topOf(s)) * 10) / 10,
       isPen ? Math.round(Math.min(1, Math.max(MIN_PEN_PRESSURE, e.pressure * PEN_PRESSURE_BOOST)) * 1000) / 1000 : MOUSE_PRESSURE];
   }
   function notePressure(cur, raw) {
@@ -506,7 +576,6 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     if (prev && prev[0] === pt[0] && prev[1] === pt[1] && prev[2] === pt[2]) return;
     pts.push(pt); lastKept = pt;
   }
-
   function bbox(pts, pad) {
     var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
     pts.forEach(function (q) { x0 = Math.min(x0, q[0]); y0 = Math.min(y0, q[1]); x1 = Math.max(x1, q[0]); y1 = Math.max(y1, q[1]); });
@@ -515,20 +584,17 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
 
   // Stroke eraser: remove every stroke that has a point near the pen.
   function eraseAt(e) {
-    var an = anchor(), px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
+    var px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
     strokes.forEach(function (s) {
-      var k = an.w / s.w, X = (px - an.left) / k;           // pointer in the stroke's own x units
-      if (X < s.b[0] - R || X > s.b[2] + R || py < s.b[1] - R || py > s.b[3] + R) return;
-      var r2 = (R / k) * (R / k), pad = s.hi ? 9 : 2;
+      var k = L.w / s.w, X = (px - L.left) / k, Y = py - topOf(s);
+      if (X < s.b[0] - R || X > s.b[2] + R || Y < s.b[1] - R || Y > s.b[3] + R) return;
+      var r2 = Math.pow(R / k + (s.hi ? 9 : 2), 2);
       for (var i = 0; i < s.pts.length; i++) {
-        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - py;
-        if (dx * dx + dy * dy <= r2 + pad * pad) { hit.push(s); return; }
+        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - Y;
+        if (dx * dx + dy * dy <= r2) { hit.push(s); return; }
       }
     });
-    if (hit.length) {
-      strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; });
-      erased = erased.concat(hit); redraw();
-    }
+    if (hit.length) { strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; }); erased = erased.concat(hit); repaintAll(); }
   }
 
   function onDown(e) {
@@ -537,31 +603,29 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     if (e.pointerType === "touch" && !state.touchDraws) return;
     if (activePointer !== null) endStroke(null);
     e.preventDefault();
-    try { canvas.setPointerCapture(e.pointerId); } catch (x) {}
+    try { input.setPointerCapture(e.pointerId); } catch (x) {}
     activePointer = e.pointerId;
     var isPen = e.pointerType === "pen";
     // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
     erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
     if (erasing) { erased = []; eraseAt(e); return; }
-    var an = anchor();
-    current = {
-      first: null,
-      s: { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: an.w, pts: [pageOf(e, isPen, an)], b: null }
-    };
+    var s = { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: L.w, a: sectionAt(e.clientY + window.scrollY), pts: [], b: null };
+    current = { first: null, s: s };
+    s.pts.push(pageOf(e, isPen, s));
     notePressure(current, e.pressure);
-    lastKept = current.s.pts[0];
-    request();
+    lastKept = s.pts[0];
+    startLive(); request();
   }
   function onMove(e) {
     if (e.pointerId !== activePointer) return;
     if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
     if (erasing) { eraseAt(e); return; }
     if (!current) return;
-    var an = anchor(), evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
-    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, an)); });
+    var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
+    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
     request();
   }
-  function endStroke(e) {
+  function endStroke() {
     activePointer = null;
     if (erasing) {
       erasing = false;
@@ -572,65 +636,93 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
       var s = current.s;
       s.b = bbox(s.pts, s.hi ? 12 : 6);
       strokes.push(s); undo.push({ t: "add", s: s }); current = null;
-      rebuild(); save();
+      var y = yRange(s);
+      Object.keys(tiles).forEach(function (i) { var t = tiles[i]; if (y[1] > t.top && y[0] < t.top + t.h && !state.hidden) paint(t.ctx, s, t.top, true); });
+      save();
     }
-    request();
+    stopLive();
   }
-  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(); }
 
   function doUndo() {
     var a = undo.pop(); if (!a) return;
     if (a.t === "add") strokes = strokes.filter(function (s) { return s !== a.s; });
     else strokes = strokes.concat(a.list);
-    redraw(); save();
+    repaintAll(); save();
   }
   function doClear() {
     if (!strokes.length) return;
     if (!window.confirm("Erase ALL drawings on this page?")) return;
-    undo.push({ t: "erase", list: strokes }); strokes = []; redraw(); save();
+    undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
   }
 
-  /* ---------------- toolbar ---------------- */
+  /* ---------------- toolbar: a rail on the right edge ---------------- */
+  var I = {
+    pen: '<path d="M4 20l1.2-4.6L15.8 4.8a1.7 1.7 0 0 1 2.4 0l1 1a1.7 1.7 0 0 1 0 2.4L8.6 18.8z"/><path d="M14 6.6l3.4 3.4"/>',
+    erase: '<path d="M8.5 19.5L3.8 14.8a1.6 1.6 0 0 1 0-2.3L12.5 3.8a1.6 1.6 0 0 1 2.3 0l5.4 5.4a1.6 1.6 0 0 1 0 2.3l-8 8z"/><path d="M8 9l7 7M8.5 19.5H20"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.5a1.6 1.6 0 0 1 2.5-2L8 15"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeoff: '<path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.5 9.5 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>'
+  };
+  function ic(n) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[n] + "</svg>"; }
+  function tool(id, icon, label, title) {
+    return '<button type="button" class="itool" id="' + id + '" title="' + title + '">' + ic(icon) + '<span class="il">' + label + "</span></button>";
+  }
+
   var bar = document.createElement("div");
-  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools");
-  var sw = COLORS.map(function (c, i) {
-    return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
-  }).join("");
+  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools"); bar.setAttribute("aria-orientation", "vertical");
+  var pens = COLORS.filter(function (c) { return !c.hi; }), his = COLORS.filter(function (c) { return c.hi; });
+  function sw(list) {
+    return list.map(function (c) {
+      var i = COLORS.indexOf(c);
+      return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
+    }).join("");
+  }
   bar.innerHTML =
-    '<button type="button" class="btn" id="inkon" aria-pressed="false" title="Drawing mode (D)">&#9998; Draw</button>' +
-    '<span class="ink-tools" id="inktools">' + sw +
-    '<span class="isep" aria-hidden="true"></span>' +
-    '<button type="button" class="btn" id="inker" aria-pressed="false" title="Erase whole strokes (E). The back end of a pen erases too.">Erase</button>' +
-    '<button type="button" class="btn" id="inkun" title="Undo (Ctrl/Cmd+Z)">Undo</button>' +
-    '<button type="button" class="btn" id="inkcl" title="Erase everything">Clear</button>' +
-    '<button type="button" class="btn" id="inktc" aria-pressed="false" title="Pen and mouse always draw. Choose whether a finger scrolls or draws.">Finger: scroll</button>' +
-    '<button type="button" class="btn" id="inkhd" aria-pressed="false" title="Hide or show the ink">Hide ink</button>' +
-    '</span>';
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D)">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<div class="ipanel" id="inkpanel">' +
+      '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
+      '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
+      '<div class="ig"><span class="ik">Mark</span><div class="isws">' + sw(his) + "</div></div>" +
+      '<div class="ig itools">' +
+        tool("inker", "erase", "Erase", "Erase whole strokes (E). The back end of a pen erases too.") +
+        tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
+        tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
+        tool("inkhd", "eye", "Hide", "Hide or show the ink") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page") +
+      "</div>" +
+    "</div>";
   var $ = function (id) { return bar.querySelector("#" + id); };
 
   function sync() {
     document.body.classList.toggle("drawing", state.on);
     bar.classList.toggle("open", state.on);
-    $("inkon").setAttribute("aria-pressed", state.on); $("inkon").textContent = state.on ? "✎ Drawing: on" : "✎ Draw";
+    $("inkon").setAttribute("aria-pressed", state.on);
     $("inker").setAttribute("aria-pressed", state.eraser);
-    $("inktc").setAttribute("aria-pressed", state.touchDraws); $("inktc").textContent = state.touchDraws ? "Finger: draw" : "Finger: scroll";
-    $("inkhd").setAttribute("aria-pressed", state.hidden); $("inkhd").textContent = state.hidden ? "Show ink" : "Hide ink";
+    $("inktc").setAttribute("aria-pressed", state.touchDraws);
+    $("inktc").querySelector(".il").textContent = state.touchDraws ? "Finger ✎" : "Finger ↕";
+    $("inkhd").setAttribute("aria-pressed", state.hidden);
+    $("inkhd").innerHTML = ic(state.hidden ? "eyeoff" : "eye") + '<span class="il">' + (state.hidden ? "Show" : "Hide") + "</span>";
     [].forEach.call(bar.querySelectorAll(".isw"), function (b) {
       b.setAttribute("aria-pressed", !state.eraser && COLORS[+b.dataset.c].v === state.color);
     });
-    canvas.style.pointerEvents = state.on ? "auto" : "none";
-    canvas.style.touchAction = state.touchDraws ? "none" : "pan-y";
-    canvas.style.cursor = state.on ? (state.eraser ? "cell" : "crosshair") : "";
+    input.style.pointerEvents = state.on ? "auto" : "none";
+    input.style.touchAction = state.touchDraws ? "none" : "pan-y";
+    input.style.cursor = state.on ? (state.eraser ? "cell" : "crosshair") : "";
   }
   bar.addEventListener("click", function (e) {
     var b = e.target.closest("button"); if (!b) return;
     if (b.classList.contains("isw")) { var c = COLORS[+b.dataset.c]; state.color = c.v; state.hi = !!c.hi; state.eraser = false; }
-    else if (b.id === "inkon") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; redraw(); } }
+    else if (b.id === "inkon") { state.on = true; if (state.hidden) { state.hidden = false; repaintAll(); } }
+    else if (b.id === "inkoff") state.on = false;
     else if (b.id === "inker") state.eraser = !state.eraser;
     else if (b.id === "inkun") doUndo();
     else if (b.id === "inkcl") doClear();
     else if (b.id === "inktc") { state.touchDraws = !state.touchDraws; save(); }
-    else if (b.id === "inkhd") { state.hidden = !state.hidden; redraw(); }
+    else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
     sync();
   });
   window.addEventListener("keydown", function (e) {
@@ -640,26 +732,30 @@ var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;request
     }
     if (e.repeat || /input|textarea|select/i.test((e.target && e.target.tagName) || "")) return;
     var k = e.key.toLowerCase();
-    if (k === "d") { state.on = !state.on; sync(); }
+    if (k === "d") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; repaintAll(); } sync(); }
     else if (k === "e" && state.on) { state.eraser = !state.eraser; sync(); }
   });
 
   /* ---------------- wire up ---------------- */
-  document.body.appendChild(canvas);
+  document.body.appendChild(layer);
+  document.body.appendChild(input);
   document.body.appendChild(bar);
-  resize(); sync();
-  window.addEventListener("resize", resize);
+  rebuild(); sync();
+  var rT = 0;
+  function relayout() { clearTimeout(rT); rT = setTimeout(rebuild, 120); }
+  window.addEventListener("resize", relayout);
+  // Page height changes (a Q&A opened, fonts arrived) move the chapters: re-measure and repaint.
+  if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.querySelector("main") || document.body);
+  window.addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   var sT = false;
-  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; redraw(); }); } }, { passive: true });
-  window.addEventListener("blur", function () { if (activePointer !== null) endStroke(null); });
-  canvas.addEventListener("pointerdown", onDown);
+  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
+  window.addEventListener("blur", function () { if (activePointer !== null) endStroke(); });
+  input.addEventListener("pointerdown", onDown);
   // Moves and releases are heard on the whole window: pointer capture can be lost just before the
   // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
   window.addEventListener("pointermove", onMove);
   window.addEventListener("pointerup", onUp);
   window.addEventListener("pointercancel", onUp);
-  // Late layout changes (fonts, images) move the text; repaint once the page has settled.
-  window.addEventListener("load", function () { setTimeout(redraw, 300); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
 })();
 </script></body></html>
