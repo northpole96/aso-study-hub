@@ -1,0 +1,542 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO Algebra</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · Paper II (B) Mathematics · Algebra · Set 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>Algebra</h1>
+<p class="tag">25 questions on the<br><b>nine families of algebra</b><br>asked in 2018 and 2021.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">Algebra was 15 questions in 2018 and 14 in 2021, but only 5 in 2025. It follows one Class 10 template, so the same families come back with new numbers: identities, linear equations, pairs of equations, the roots α and β, nature of roots, quadratic word problems, A.P. and series of fractions. This test has 25 questions across nine families, mixed, so you must spot the family yourself.</p>
+<p class="lead" style="margin-top:14px">Each answer names the family, shows the working, and explains the trap option. Keep rough paper ready; no calculator.</p>
+<div class="rules">
+<div><b>Paper</b><span>25 questions · 30 minutes · 25 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will build a redo set from what you got wrong or skipped.</span></div>
+<div><b>Speed</b><span>About a minute a question. If a sum is not moving, mark it and go on.</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 30 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>25</span> questions</span></div>
+<ol class="bp"><li><span class="n">04</span><span>Identities</span><span class="dots"></span><span class="c">family 1</span></li><li><span class="n">04</span><span>Linear equation, pairs of equations</span><span class="dots"></span><span class="c">families 2 and 3</span></li><li><span class="n">09</span><span>Roots α and β, nature of roots, quadratic problems</span><span class="dots"></span><span class="c">families 4, 5 and 6</span></li><li><span class="n">08</span><span>A.P., series of fractions, polynomials</span><span class="dots"></span><span class="c">families 7, 8 and 9</span></li></ol>
+<p class="src" style="margin-top:14px">Each question is the next angle of an algebra question from the 2018 and 2021 papers. Algebra is topic (b) of the Paper II (B) syllabus (Advt. No. 15 of 2026-27).</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">30:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 25 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · Algebra · Set 01 · built 19 Nov 2026 on the 2018 and 2021 algebra families. Every answer was recomputed by a script (tools/check_maths_alg1.py).</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Algebra", "q": "If x − 1/x = 4, what is the value of x³ − 1/x³?", "o": ["64", "60", "52", "76"], "a": 3, "e": "Family 1 · Identities. Use a³ − b³ = (a − b)³ + 3ab(a − b). Here a = x, b = 1/x, so ab = 1. x³ − 1/x³ = 4³ + 3 × 4 = 64 + 12 = 76. Trap: 64 is only the cube of 4; the +3ab(a − b) part is missed.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If 3x + 2y = 13 and 5x − y = 13, what is the value of 2x + 3y?", "o": ["9", "15", "12", "13"], "a": 2, "e": "Family 3 · Pair of linear equations. From the second, y = 5x − 13. Put it in the first: 3x + 10x − 26 = 13, so 13x = 39 and x = 3, y = 2. Then 2x + 3y = 6 + 6 = 12. Trap: 13 is just the number on the right of the first equation. Finish with what the question asks for, 2x + 3y, not only x and y.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the sum of the first 25 odd numbers (1 + 3 + 5 + ...)?", "o": ["600", "325", "625", "650"], "a": 2, "e": "Family 7 · A.P. Short rule: the sum of the first n odd numbers is n². So 25² = 625. Check with the formula: 25/2 × (2 + 24 × 2) = 12.5 × 50 = 625. Trap: 650 is the sum of the first 25 EVEN numbers, 25 × 26.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "The denominator of a fraction is 3 more than its numerator. If 2 is added to both, the fraction becomes 3/4. What was the fraction?", "o": ["5/8", "6/9", "7/10", "9/12"], "a": 2, "e": "Family 6 · Fraction problem. Let the fraction be x/(x + 3). Then (x + 2)/(x + 5) = 3/4, so 4x + 8 = 3x + 15 and x = 7. The fraction is 7/10. Check: 9/12 = 3/4. Trap: 9/12 is the NEW fraction, not the old one.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the value of (8.7² − 1.3²) ÷ 7.4?", "o": ["9.4", "7.4", "1", "10"], "a": 3, "e": "Family 1 · Identities. a² − b² = (a − b)(a + b). Here a − b = 7.4 and a + b = 10, so the top is 7.4 × 10 and the 7.4 cancels. Answer 10. Never square the decimals one by one; spotting the identity makes it a one-line sum.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If (x − 2) is a factor of x² + kx − 10, what is the value of k?", "o": ["−3", "5", "−5", "3"], "a": 3, "e": "Family 9 · Factor theorem. If (x − 2) is a factor, putting x = 2 gives zero: 4 + 2k − 10 = 0, so 2k = 6 and k = 3. Check: x² + 3x − 10 = (x − 2)(x + 5).", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "5 pens and 3 pencils cost ₹41. 3 pens and 5 pencils cost ₹31. What is the cost of one pen?", "o": ["₹9", "₹5", "₹7", "₹2"], "a": 2, "e": "Family 3 · Pair of linear equations (word problem). Add the two bills: 8 pens + 8 pencils = 72, so one pen + one pencil = 9. Take them away: 2 pens − 2 pencils = 10, so pen − pencil = 5. Then the pen is (9 + 5)/2 = 7 and the pencil is 2. Check: 35 + 6 = 41 and 21 + 10 = 31. Trap: ₹2 is the pencil.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "In an A.P. the 3rd term is 12 and the 7th term is 28. What is the 15th term?", "o": ["64", "60", "56", "48"], "a": 1, "e": "Family 7 · A.P. from two terms. Four steps of d take the 3rd term to the 7th: 4d = 28 − 12 = 16, so d = 4. Then a = 12 − 2 × 4 = 4. The 15th term = 4 + 14 × 4 = 60. Shortcut: 12 more steps of 4 from the 3rd term: 12 + 48 = 60.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "Solve for x: (2x + 3)/5 = (x + 9)/3.", "o": ["12", "36", "18", "24"], "a": 1, "e": "Family 2 · Linear equation. Cross-multiply: 3(2x + 3) = 5(x + 9), so 6x + 9 = 5x + 45 and x = 36. Check: (72 + 3)/5 = 15 and (36 + 9)/3 = 15. Both sides match.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If x + y = 10 and xy = 21, what is the value of x² + y²?", "o": ["79", "42", "100", "58"], "a": 3, "e": "Family 1 · Identities. x² + y² = (x + y)² − 2xy = 100 − 42 = 58. Trap: 100 forgets the 2xy; 79 takes xy once, not twice.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "Find the value of 1/(1×2) + 1/(2×3) + 1/(3×4) + ... + 1/(9×10).", "o": ["10/11", "9/10", "8/9", "1"], "a": 1, "e": "Family 8 · Series of fractions. Split each term: 1/(n(n + 1)) = 1/n − 1/(n + 1). So the sum = (1 − 1/2) + (1/2 − 1/3) + ... + (1/9 − 1/10). Everything in the middle cancels, leaving 1 − 1/10 = 9/10. Rule: the sum up to n terms is n/(n + 1). Trap: 10/11 is for 10 terms.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the nature of the roots of 2x² − 4x + 3 = 0?", "o": ["No real roots", "One real and one imaginary root", "Two distinct real roots", "Two equal real roots"], "a": 0, "e": "Family 5 · Nature of roots. Discriminant D = b² − 4ac = 16 − 24 = −8. D is negative, so there are no real roots. Rule: D > 0 two different real roots, D = 0 two equal roots, D < 0 no real roots.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "Which term of the A.P. 5, 11, 17, ... is 101?", "o": ["15th", "18th", "17th", "16th"], "a": 2, "e": "Family 7 · A.P. Use a + (n − 1)d = 101 with a = 5 and d = 6: (n − 1) × 6 = 96, so n − 1 = 16 and n = 17. Trap: 16 is n − 1. Do not forget to add the 1 back.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If α and β are the roots of x² − 4x + 1 = 0, what is the value of 1/α + 1/β?", "o": ["5", "1/4", "4", "−4"], "a": 2, "e": "Family 4 · Roots α and β. 1/α + 1/β = (α + β)/αβ. Here α + β = 4 and αβ = 1, so the answer is 4/1 = 4. Trap: 1/4 turns the fraction upside down.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the remainder when x³ − 2x² + x − 5 is divided by (x − 2)?", "o": ["−3", "5", "−5", "3"], "a": 0, "e": "Family 9 · Remainder theorem. The remainder on dividing by (x − a) is the value at x = a. Put x = 2: 8 − 8 + 2 − 5 = −3. Trap: 3 and −5 drop a sign or a term.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If x + 1/x = 5, what is the value of x² + 1/x²?", "o": ["25", "23", "27", "21"], "a": 1, "e": "Family 1 · Identities. Square both sides: (x + 1/x)² = x² + 2 + 1/x². So x² + 1/x² = 25 − 2 = 23. Trap: 25 forgets to take away the middle 2. 27 adds 2 instead of taking it away.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "Which quadratic equation has roots 2 and −3?", "o": ["x² + x − 6 = 0", "x² − 5x − 6 = 0", "x² − x − 6 = 0", "x² + x + 6 = 0"], "a": 0, "e": "Family 4 · Forming the equation. Sum of roots = 2 + (−3) = −1 and product = 2 × (−3) = −6. The equation is x² − (sum)x + (product) = 0, i.e. x² + x − 6 = 0. Trap: x² − x − 6 has the sum sign the wrong way.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the 10th term of the A.P. 3, 7, 11, ...?", "o": ["39", "40", "43", "35"], "a": 0, "e": "Family 7 · A.P. nth term = a + (n − 1)d. Here a = 3 and d = 4, so the 10th term = 3 + 9 × 4 = 39. Trap: 43 is the 11th term (using n instead of n − 1 gives 3 + 10 × 4 = 43).", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "Find the roots of 2x² − 5x + 3 = 0.", "o": ["−1 and −3/2", "1 and −3/2", "2 and 3", "1 and 3/2"], "a": 3, "e": "Family 5 · Solving by factors. Split the middle term: 2x² − 2x − 3x + 3 = 2x(x − 1) − 3(x − 1) = (2x − 3)(x − 1). So x = 3/2 or x = 1. Check with sum and product: 1 + 3/2 = 5/2 = −b/a and 1 × 3/2 = 3/2 = c/a.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "For what value of k do the equations 3x + ky = 9 and 6x + 8y = 11 have no solution?", "o": ["8", "4", "6", "3"], "a": 1, "e": "Family 3 · Pair of linear equations (nature of solution). No solution means the lines are parallel: a₁/a₂ = b₁/b₂ ≠ c₁/c₂. Here 3/6 = k/8, so k = 4. Then c₁/c₂ = 9/11, which is not 1/2, so the lines never meet. Likely next: if the last line were 6x + 8y = 18, the same k = 4 would give infinitely many solutions.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the sum of the first 20 terms of the A.P. 5, 8, 11, ...?", "o": ["335", "700", "640", "670"], "a": 3, "e": "Family 7 · A.P. sum. S = n/2 × [2a + (n − 1)d] = 10 × [10 + 19 × 3] = 10 × 67 = 670. Trap: 335 is half the answer; it forgets the 2 in front of a, or the n/2 factor, in the formula.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "The length of a rectangle is 5 m more than its breadth, and its area is 150 m². What is the breadth?", "o": ["10 m", "15 m", "5 m", "12 m"], "a": 0, "e": "Family 6 · Quadratic word problem. Breadth x, length x + 5: x(x + 5) = 150, so x² + 5x − 150 = 0, i.e. (x + 15)(x − 10) = 0. Breadth = 10 m (a length cannot be −15). Length = 15 m. Trap: 15 m is the length.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If α and β are the roots of 2x² − 6x + 3 = 0, what is the value of α² + β²?", "o": ["6", "7.5", "3", "9"], "a": 0, "e": "Family 4 · Roots α and β. For ax² + bx + c = 0: α + β = −b/a = 3 and αβ = c/a = 3/2. α² + β² = (α + β)² − 2αβ = 9 − 3 = 6. Trap: 9 forgets to take away 2αβ.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "The product of two consecutive positive integers is 156. What is the smaller integer?", "o": ["14", "12", "13", "11"], "a": 1, "e": "Family 6 · Quadratic word problem. Let the numbers be x and x + 1. Then x² + x − 156 = 0, i.e. (x + 13)(x − 12) = 0. x = 12 (the −13 is not positive). The numbers are 12 and 13. Trap: 13 is the larger number; check what the question asks.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "For what value of k does x² − 6x + k = 0 have two equal roots?", "o": ["36", "3", "9", "6"], "a": 2, "e": "Family 5 · Nature of roots. Equal roots need the discriminant b² − 4ac = 0. So 36 − 4k = 0 and k = 9. Check: x² − 6x + 9 = (x − 3)², a perfect square. Trap: 36 is b².", "k": "one", "n": false, "c": false}];
+(function(){
+  var SK="aso-maths-algebra-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=30*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 25 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 25</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Algebra"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO ALGEBRA SET 01 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / 25 · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please make the next algebra set from my wrong and skipped questions.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>
