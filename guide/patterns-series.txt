@@ -1,0 +1,121 @@
+#CH start | How to use this sheet | READ FIRST · 1 minute
+This is a one-page list of every rule a number or letter series can follow in the ASO paper. It holds the 52 rules used in Series Sets 01 and 02 and the rules that have not come yet. Similar rules sit together in one group, so you learn them as families, not one by one. Each rule has a short example; the answer is in **bold**.
+
+Read one group, then cover the right-hand column and say the rule of each example out loud. When a rule takes you more than ten seconds to see, mark it and come back. The full method, with worked past questions, is in the **Number Series Guide**.
+
+>KEY:The checking order
+**Look → gaps → signs → split → ratio → powers → terms before → letters.** The groups below follow the same order.
+
+#CH gaps | Gaps | GROUP 1 · write the differences
+Most series are built by adding. Write the difference between each pair of neighbours under the series. The row of gaps is a small series of its own, and it is usually easy.
+
+|Rule|Example|Seen in|
+|---|---|---|
+|Gap grows by a fixed step (+3)|11, 14, 20, 29, 41, **56**|Set 01 Q1|
+|Gap grows by +2|2, 4, 8, 14, 22, 32, **44**|Set 02 Q10|
+|Gap falls by 5|105, 85, 60, 30, **−5**, −45|2021 Q31|
+|Gaps double (1, 2, 4, 8)|3, 4, 6, 10, 18, 34, **66**|Set 01 Q18, Set 02 Q24|
+|Gaps are primes (2, 3, 5, 7, 11)|10, 12, 15, 20, 27, **38**, 51|Set 01 Q27|
+|Gaps of gaps (3, 4, 5)|1, 4, 10, 20, 35, **56**|Set 01 Q9|
+|Gaps of gaps, falling (8, 10, 12)|200, 190, 172, 144, 104, **50**|Set 02 Q22|
+
+#CH updown | Up and down | GROUP 2 · signs, two series, two steps
+When the numbers go up and down, three rules are possible. The gaps may alternate in sign; the series may be two series woven together (odd places and even places); or two different steps may take turns.
+
+|Rule|Example|Seen in|
+|---|---|---|
+|Signs alternate, sizes grow|40, 44, 38, 46, 36, 48, **34**|Set 01 Q3, 2025 Q48|
+|Two series: ×3 and +4|3, 4, 9, 8, 27, 12, **81**|Set 01 Q2|
+|Two series: ×2 and +10|2, 10, 4, 20, 8, 30, 16, **40**|Set 01 Q24|
+|Two series: +2 and −1|1, 10, 3, 9, 5, 8, 7, **7**|Set 02 Q5|
+|Two series: n² and n³|1, 8, 9, 64, 25, 216, **49**|Set 02 Q16, 2025 Q15|
+|Two series: growing gaps and +2|5, 5, 19, 7, 41, 9, **71**|2018 Q14|
+|Two steps in turn: ×3, −3|2, 6, 3, 9, 6, 18, **15**|Set 01 Q13|
+|Two steps in turn: ÷2, ×3|64, 32, 96, 48, 144, 72, **216**|Set 02 Q7|
+|Two steps in turn: reverse digits, −7|13, 31, 24, 42, 35, **53**|Set 02 Q27|
+
+#CH multiply | Multiplying | GROUP 3 · divide each term by the one before
+When the numbers grow fast, find the ratio. If it is a whole number or a simple fraction, that is the rule. If it is close to a whole number but not exact, the rule is "multiply, then add or take away".
+
+|Rule|Example|Seen in|
+|---|---|---|
+|×1.5|64, 96, 144, 216, **324**|Set 01 Q25, Set 02 Q25|
+|×2 + 2|3, 8, 18, 38, 78, **158**|Set 01 Q5|
+|×2 − 1|6, 11, 21, 41, 81, **161**|Set 02 Q2|
+|×2 + 3|1, 5, 13, 29, 61, **125**|Set 02 Q20|
+|×3 + 1|1, 4, 13, 40, 121, **364**|Set 02 Q28|
+|×1, ×2, ×3… (factorials)|1, 1, 2, 6, 24, **120**, 720|Set 01 Q21|
+|×2, ×3, ×4, ×5, ×6|3, 6, 18, 72, 360, **2160**|Set 02 Q14|
+|÷7, ÷6, ÷5… (factorials falling)|5040, 720, 120, 24, **6**, 2|Set 01 Q11|
+|×n − n|3, 2, 2, 3, 8, **35**|Set 01 Q16|
+|×2, ×3, ×5, ×7 (the primes)|1, 2, 6, 30, 210, **2310**|Set 02 Q13|
+
+#CH powers | Squares and cubes | GROUP 4 · is each term near n² or n³?
+These are only visible if you know the squares to 30 and the cubes to 15. A term one more or one less than a square is the hint.
+
+|Rule|Example|Seen in|
+|---|---|---|
+|3n²|3, 12, 27, 48 ⟨CHECK: 2025 Q49 has no official key⟩|2025 Q49|
+|n² + 2|3, 6, 11, 18, 27, **38**|Set 01 Q19|
+|n² − 2|2, 7, 14, 23, 34, **47**, 62|Set 02 Q29|
+|Squares of odd numbers|1, 9, 25, 49, 81, **121**|Set 02 Q4|
+|Squares of primes|4, 9, 25, 49, 121, **169**|Set 01 Q15|
+|Square it, then +1 and −1 in turn|1, 2, 3, 10, **99**, 9802|2018 Q15|
+|n³ + 1|2, 9, 28, 65, **126**, 217|Set 01 Q8|
+|n³ − 1|7, 26, 63, 124, **215**|Set 01 Q28|
+|n³ + n|2, 10, 30, 68, 130, **222**|Set 02 Q6|
+|n³ + n²|2, 12, 36, 80, 150, **252**|Set 02 Q8|
+
+#CH before | Primes and the terms before | GROUP 5 · when no single step works
+Some series follow the prime list, and some build each term from the two or three terms before it. Try these when no gap or ratio fits but the numbers still look related.
+
+|Rule|Example|Seen in|
+|---|---|---|
+|Primes in a row|11, 13, 17, 19, 23, 29, **31**|Set 02 Q30|
+|Products of two primes in a row|6, 15, 35, 77, **143**|Set 02 Q11|
+|Sum of the two before|2, 3, 5, 8, 13, **21**, 34|Set 01 Q12, Set 02 Q1|
+|Product of the two before|1, 2, 2, 4, 8, 32, **256**|Set 01 Q7, Set 02 Q21, 2025 Q50|
+|Sum of the three before|2, 3, 4, 9, 16, 29, **54**|Set 01 Q30|
+
+#CH letters | Letter series | GROUP 6 · turn letters into numbers
+Change each letter to its place (A = 1, Z = 26) and use the groups above. Anchors: **EJOTY** = 5, 10, 15, 20, 25, and opposite letters add to 27.
+
+|Rule|Example|Seen in|
+|---|---|---|
+|Fixed −4|V, R, N, **J**, F, B|2025 Q1|
+|Fixed +3|B, E, H, K, **N**, Q|Set 02 Q26|
+|Skip grows (4, 5, 6)|D, H, M, S, **Z**|Set 01 Q4|
+|Skip grows (2, 3, 4, 5)|A, C, F, J, O, **U**|Set 02 Q3|
+|Skip grows, going back (2, 3, 4, 5, 6)|Z, X, U, **Q**, L, F|Set 01 Q29|
+|Pairs: a letter and its opposite|BY, DW, FU, **HS**|Set 01 Q10|
+|Pairs: two letters in a row, growing skip|AB, DE, HI, MN, **ST**|Set 02 Q19|
+|Letter + number: skip 2, ×3|B3, E9, H27, **K81**|Set 01 Q22|
+|Letter + number: −2, +2|Z1, X3, V5, **T7**|Set 02 Q9|
+
+#CH position | Position and counting | GROUP 7 · not a series, just careful counting
+These came six times in 2018. Work on paper: write the new word or underline the digits before you count.
+
+|Rule|Example|Seen in|
+|---|---|---|
+|kth letter from the right = 27 − k|4th left of 10th from right: Q (17) − 4 = **M**|Set 01 Q14, 2018 Q6|
+|Letter midway between two letters|E (5) and S (19): (5 + 19) ÷ 2 = 12 = **L**|Set 02 Q12|
+|Reverse each half, then count|PRACTICE → CARPECIT, 6th = **C**|Set 01 Q26|
+|Alphabetical order, then count|BRIGHTEN → BEGHINRT, 3rd from right = **N**|Set 02 Q18|
+|Count digits preceded by something|8s after 3 or 5 in 3 8 5 8 1 8 3 8 6 8 5 8: **4**|Set 01 Q20, 2018 Q3|
+|Count digits followed by something|7s before 5 or 9 in 2 7 5 9 7 2 5 7 9 2 7 5: **3**|Set 02 Q17|
+
+#CH notyet | Not used yet | GROUP 8 · the next sets will use these
+These rules are in the Number Series Guide but have not come in a practice set. The next sets will use only these and new rules, so no rule repeats.
+
+|Rule|Example|
+|---|---|
+|Fixed gap|7, 11, 15, 19, **23**|
+|Gaps are squares|2, 3, 7, 16, 32, **57**|
+|Gaps are cubes|5, 6, 14, 41, **105**|
+|Signs alternate, sizes grow by 1|10, 13, 9, 14, 8, **15**|
+|n² + n|2, 6, 12, 20, 30, **42**|
+|n² − 1|0, 3, 8, 15, 24, **35**|
+|n³ − n|0, 6, 24, 60, 120, **210**|
+|n³ − n²|4, 18, **48**, 100, 180|
+|×n + n|2, 3, 8, 27, 112, **565**|
+|×3 − 1|2, 5, 14, 41, **122**|

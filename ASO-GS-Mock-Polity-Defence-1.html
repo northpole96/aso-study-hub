@@ -1,0 +1,543 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO GS Polity and Defence Mock 01</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · General Studies Paper I · Polity and Defence Mock 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>GS Polity + Defence 01</h1>
+<p class="tag">40 questions on<br><b>Constitution and Defence</b><br>syllabus topics (d) and (h).</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This is a short paper on two topics only: the Indian Constitution, syllabus topic (d), and Defence and Indian Armed Forces, topic (h). In the real papers these two gave 21 questions in 2018 (13 + 8), 21 in 2021 (11 + 10) and 30 in 2025 (18 + 12). They are the two steadiest scoring parts of the paper, so they deserve a test of their own. Here are 40 questions, 20 of each, and every one is the next angle of a family the examiner has already asked: schedules, amendments, offices and committees on the Polity side; exercises, operations, ranks, missiles and ships on the Defence side.</p>
+<p class="lead" style="margin-top:14px">About a fifth of the paper is news from 2025 and 2026 (the new Chief Justice, the Vice-President, Vande Mataram, the 2026 exercises, the Rafale-M deal). None of the 40 questions repeats a Polity or Defence question from GS Mock 01 to 04, the Defence Mock, GA Mock 1 or the GA Full Test. Every answer says which past question it grew from and what else to learn in that family.</p>
+<div class="rules">
+<div><b>Paper</b><span>40 questions · 36 minutes · 40 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will build a redo set from what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 36 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>40</span> questions</span></div>
+<ol class="bp"><li><span class="n">06</span><span>Parliament, President and Governor</span><span class="dots"></span><span class="c">Rajya Sabha, ministers, pocket veto, ordinances, Article 356</span></li><li><span class="n">06</span><span>Rights, courts and landmark cases</span><span class="dots"></span><span class="c">Article 21A and 32, collegium, basic structure, anti-defection</span></li><li><span class="n">04</span><span>Schedules, amendments and Preamble</span><span class="dots"></span><span class="c">schedule match, amendment order, Objectives Resolution, Article 40</span></li><li><span class="n">04</span><span>Offices and news</span><span class="dots"></span><span class="c">Attorney General, CJI, Vice-President, Vande Mataram</span></li><li><span class="n">06</span><span>Forces, ranks and awards</span><span class="dots"></span><span class="c">Cariappa, Arjan Singh, rank match, Param Vir Chakra, forces and ministries</span></li><li><span class="n">08</span><span>Weapons, ships and operations</span><span class="dots"></span><span class="c">IGMDP, Prachand, Vikramaditya, Rafale-M, Pokhran, Kargil, Sindoor</span></li><li><span class="n">06</span><span>Exercises and pacts</span><span class="dots"></span><span class="c">AUSTRAHIND, KHANJAR, INDRA, Yudh Abhyas, AUKUS</span></li></ol>
+<p class="src" style="margin-top:14px">The weights follow the official syllabus, topic (h), and the Defence questions of 2018, 2021 and 2025. News is taken mostly from 2025 to October 2026.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">36:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 40 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="qtext" id="q-text"></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · GS Polity and Defence Mock 01 · built 22 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 GA papers. 2026 facts come from the Current Affairs 2026 manual. Questions tagged Check rest on news reports: confirm them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Defence", "q": "INS Vikramaditya, an aircraft carrier of the Indian Navy since 2013, was bought from Russia, where it served under the name:", "o": ["HMS Hermes", "Admiral Gorshkov", "HMS Hercules", "Admiral Kuznetsov"], "a": 1, "e": "India bought the Soviet ship Admiral Gorshkov, had it rebuilt, and commissioned it as INS Vikramaditya in November 2013. HMS Hermes became INS Viraat (retired in 2017) and HMS Hercules became the first INS Vikrant (1961). The new INS Vikrant, built at Cochin Shipyard and commissioned in September 2022, is the first aircraft carrier made in India. An earlier mock asked that fact. The next angle is the ship India bought. India has two carriers working now: Vikramaditya (Russian-origin) and Vikrant (Indian-built).", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Consider the following statements about the President's Rule in a State under Article 356:\n1. It can be imposed when the constitutional machinery of a State fails.\n2. Parliament must approve the proclamation within one month.\n3. In the S. R. Bommai case (1994) the Supreme Court held that the proclamation can be reviewed by the courts.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "Statement 2 is the trap: Parliament has two months, not one, to approve it (Article 356(3)). Statement 1 is right, and statement 3 is right: Bommai (1994) made the use of Article 356 open to judicial review and said that a State Government's majority must be tested on the floor of the House. The President's Rule lasts six months at first and can be extended, six months at a time, up to a total of three years. The 2018 and 2025 papers asked about the Governor and the Emergency in the Constitution; Article 356 is the next link. Learn also Article 352 (National Emergency) and Article 360 (Financial Emergency).", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "During the Kargil War of 1999, the Indian Air Force carried out its operations under the code name:", "o": ["Operation Vijay", "Operation Safed Sagar", "Operation Talwar", "Operation Meghdoot"], "a": 1, "e": "Operation Safed Sagar was the Air Force's part, which began on 26 May 1999. Operation Vijay was the Army's name for the whole campaign. Operation Talwar was the Navy's build-up in the Arabian Sea. Operation Meghdoot (1984) was the Army's capture of the Siachen Glacier. Kargil Vijay Diwas is on 26 July. The 2025 paper asked operations by name (Keller, Olivia, Zero Line) and earlier mocks asked Sindoor and Trident. Learn each operation with its service: Vijay (Army), Safed Sagar (Air Force), Talwar (Navy).", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Under the Tenth Schedule (the anti-defection law), who decides a question of disqualification of a Member of Parliament?", "o": ["The presiding officer of the House (the Speaker or the Chairman)", "The President, on the advice of the Election Commission", "The Supreme Court", "The Ethics Committee of the House"], "a": 0, "e": "The 52nd Amendment (1985) added the Tenth Schedule, and the Speaker or the Chairman decides. In Kihoto Hollohan v. Zachillhu (1992) the Supreme Court upheld this but said that the decision can be reviewed by the courts. The 91st Amendment (2003) removed the old rule that allowed a split by one-third of a party's members; now a merger needs two-thirds. The GA Mock 1 asked which Schedule carries the law, and an earlier mock asked it as a NOT-matched pair. The new angle is who decides. Related: the President decides for the Election Commission matters under Article 103 (office of profit), not for defection.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The Param Vir Chakra, India's highest gallantry award, was designed by:", "o": ["Aruna Asaf Ali", "Savitri Khanolkar", "Durgabai Deshmukh", "Sarojini Naidu"], "a": 1, "e": "Savitri Khanolkar (born Eve Yvonne Maday de Maros in Switzerland) designed the Param Vir Chakra. It was instituted on 26 January 1950 and was made to apply from 15 August 1947. Its first winner was Major Somnath Sharma of the Kumaon Regiment, who fell at Badgam in 1947. The medal shows the Vajra, the thunderbolt weapon of Indra, which myth says was made from the bones of the sage Dadhichi: a sign of the highest sacrifice. The 2021 paper asked the only Air Force officer to win the award (Flying Officer Nirmal Jit Singh Sekhon). The Ashoka Chakra is the peacetime twin.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Which Article of the Directive Principles directs the State to organise village panchayats and give them the powers to work as units of self-government?", "o": ["Article 43", "Article 45", "Article 40", "Article 47"], "a": 2, "e": "Article 40 is a Gandhian Directive Principle. It was the base on which the 73rd Amendment (1992) built the Panchayati Raj Part IX. Article 43 asks for a living wage and cottage industries. Article 45 is about early childhood care (changed by the 86th Amendment), and Article 47 is about nutrition and public health, including prohibition. The 2025 paper asked Article 51 (foreign policy) and the earlier mocks asked Article 44 (Uniform Civil Code) and Article 50. The next set in the Directive Principles is the Gandhian ones: Articles 40, 43, 46 and 48.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "In April 2025 India signed a deal with France for 26 'Rafale Marine' fighter jets. For which service are they meant?", "o": ["The Indian Navy, for its aircraft carriers", "The Indian Air Force, for Ambala", "The Indian Army Aviation Corps", "The Indian Coast Guard"], "a": 0, "e": "The Rafale-M is the sea-going version of the Rafale made by Dassault Aviation of France. The deal, signed on 28 April 2025, was for 22 single-seat and 4 two-seat jets and it was worth about 63,000 crore rupees. The Air Force already flies 36 Rafale, the first squadron of which is based at Ambala. The Air Force retired the last MiG-21 squadron in September 2025. An earlier mock asked the Ambala base. The next angle is the Navy's order.", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "Match List I (Schedule) with List II (Subject):\nList I: a. Sixth Schedule  b. Seventh Schedule  c. Ninth Schedule  d. Eighth Schedule\nList II: 1. Union, State and Concurrent Lists  2. Laws protected from challenge in court (land reform laws)  3. Administration of tribal areas of Assam, Meghalaya, Tripura and Mizoram  4. Languages recognised by the Constitution", "o": ["a-3, b-1, c-2, d-4", "a-3, b-2, c-1, d-4", "a-1, b-3, c-4, d-2", "a-2, b-1, c-3, d-4"], "a": 0, "e": "Sixth Schedule: tribal areas in the four north-eastern States (Autonomous District Councils). Seventh: the three lists. Ninth: added by the First Amendment (1951) to protect land reform laws; the Supreme Court held in I. R. Coelho (2007) that laws put there after 1973 can still be tested against the basic structure. Eighth: 22 languages. The 2025 paper asked the First, Second, Fourth and Fifth Schedules as a NOT-matched question, so this is the next set. Learn them in this order: Third (oaths), Tenth (defection), Eleventh (Panchayats, 29 subjects) and Twelfth (Municipalities, 18 subjects).", "k": "match", "n": false, "c": false}, {"s": "Defence", "q": "Arrange the following in the order in which they took place (earliest first):\nA. The Kargil War\nB. Operation Meghdoot (Siachen)\nC. Pokhran-I nuclear test\nD. Pokhran-II nuclear tests", "o": ["C, B, A, D", "C, B, D, A", "B, C, D, A", "B, C, A, D"], "a": 1, "e": "Pokhran-I: 1974. Operation Meghdoot: 1984. Pokhran-II: May 1998. The Kargil War: May to July 1999, which is why Kargil came less than a year after the 1998 tests. The 2025 paper asked operations as statements and the 2018 and 2021 papers asked years of defence events. Learn the other dates around these: 1962 China war, 1965 and 1971 wars with Pakistan, 2016 surgical strikes, 2019 Balakot and Mission Shakti, 2025 Sindoor.", "k": "order", "n": false, "c": false}, {"s": "Polity", "q": "Under which Article of the Constitution can the Governor of a State promulgate an Ordinance when the State Legislature is not in session?", "o": ["Article 200", "Article 123", "Article 356", "Article 213"], "a": 3, "e": "Article 213 gives the Governor this power, and it is the State twin of Article 123 (the President's ordinance power). An ordinance has the same force as an Act, but it must be placed before the Legislature and it ends six weeks after the Legislature meets again, unless it is passed or withdrawn earlier. A Governor cannot make an ordinance on a matter that needs the President's prior sanction. Article 200 is the Governor's assent to Bills. An earlier mock asked the Governor as statements; the next angle is his legislative power.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "AUKUS, a security pact announced in September 2021, is an agreement among:", "o": ["Australia, Japan and the United States", "Australia, the United Kingdom and the United States", "Australia, India, Japan and the United States", "Canada, the United Kingdom and the United States"], "a": 1, "e": "AUKUS helps Australia build nuclear-powered submarines with US and British help. It is not the Quad. The 2021 paper asked which countries make up the Quad: the USA, India, Japan and Australia. The wrong options here are made from the same names, so the examiner may ask either one. The older 'Five Eyes' is a spy-sharing group of the USA, UK, Canada, Australia and New Zealand. Other groups to know: the Quad (2007, relaunched 2017) and the Malabar naval exercise.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "The Goods and Services Tax (GST) Council, which decides GST rates, was created by which Article, inserted by the 101st Amendment Act, 2016?", "o": ["Article 279A", "Article 324", "Article 148", "Article 280"], "a": 0, "e": "The 101st Amendment (2016) added Article 246A, which lets both Parliament and the State Legislatures make laws on GST, and Article 279A, which creates the GST Council. The Union Finance Minister heads it, and the State Finance Ministers are members. The wrong options are other bodies: Article 280 is the Finance Commission, Article 148 is the Comptroller and Auditor General and Article 324 is the Election Commission. The 2025 paper asked the tax reform that joined many indirect taxes into one (GST). The same set of questions comes back with the Article, the year (the GST began on 1 July 2017) and the Council, so learn all three.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements about military exercises of 2026:\n1. INDRA, the exercise with Russia, was held at Vladivostok.\n2. Yudh Abhyas, the exercise with the USA, was held in Alaska.\nWhich of the statements given above is/are correct?", "o": ["Only 1", "Only 2", "Both 1 and 2", "Neither 1 nor 2"], "a": 0, "e": "Statement 2 is the trap. The 22nd Yudh Abhyas in 2026 was held at Auli in Uttarakhand and Mahajan in Rajasthan. It is held every year by turns in India and in the USA, and Alaska was a venue in an earlier year. INDRA was held at Vladivostok, with a naval phase in the Sea of Japan, and INS Sahyadri took part. The 2025 paper asked exercise questions as three statements. Related: Tiger Triumph (USA, all three services) was at Visakhapatnam, and RAHAT MITRA (first tri-service relief exercise with Myanmar) is the new one of 2026.", "k": "stmt", "n": true, "c": false}, {"s": "Polity", "q": "Article 21A, which makes education a Fundamental Right for children aged 6 to 14 years, was inserted by the:", "o": ["93rd Amendment Act, 2005", "42nd Amendment Act, 1976", "73rd Amendment Act, 1992", "86th Amendment Act, 2002"], "a": 3, "e": "The 86th Amendment of 2002 added Article 21A. The Right to Children to Free and Compulsory Education Act, 2009 gave it effect from 1 April 2010. The same amendment also added a new Fundamental Duty, Article 51A(k): parents must give their child a chance to learn. The 2021 paper asked 'Article 21A refers to', so the number was asked and now the amendment is next. Do not confuse it with the 93rd Amendment (2005), which allowed reservation in private colleges under Article 15(5), or the 73rd Amendment (1992), which is about Panchayats.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Under the Agnipath scheme announced in June 2022, what share of each batch of Agniveers can be taken into the regular cadre after four years?", "o": ["All of them", "Up to 10%", "Up to 25%", "Up to 50%"], "a": 2, "e": "Agniveers are young people, aged 17½ to 21, who serve for four years. At the end, up to a quarter of each batch can be kept for 15 more years as regular soldiers, sailors or airmen; the rest leave with a 'Seva Nidhi' package. The 2021 and 2025 papers asked about recruitment bodies, ranks and academies. A scheme for people joining the forces is the next angle of that family. The Defence Acquisition Council, iDEX (2018) and the Ordnance Factory Board's change in 2021 belong to the other half: how the forces buy and build.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "The Preamble of the Indian Constitution is based on the 'Objectives Resolution', which was moved in the Constituent Assembly on 13 December 1946 by:", "o": ["Rajendra Prasad", "Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "B. R. Ambedkar"], "a": 2, "e": "Jawaharlal Nehru moved the Objectives Resolution, and the Assembly adopted it on 22 January 1947. It laid down the aims of a sovereign republic, justice, liberty and equality. Dr Rajendra Prasad was the President of the Constituent Assembly, and Dr Ambedkar chaired the Drafting Committee. The Preamble came up in 2018 and twice in 2025 ('Secular', 'The Keynote of the Constitutions'). The rest of the family: the Preamble was amended once, by the 42nd Amendment, and in the Berubari case (1960) the Supreme Court held it is not a part of the Constitution, but in Kesavananda Bharati (1973) it held that it is.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Which one of the following pairs (force or body – ministry under which it works) is NOT correctly matched?", "o": ["National Security Guard – Ministry of Home Affairs", "Assam Rifles – Ministry of Home Affairs", "Central Industrial Security Force – Ministry of Home Affairs", "Border Roads Organisation – Ministry of Home Affairs"], "a": 3, "e": "The Border Roads Organisation, set up in 1960, builds roads and tunnels on the borders, such as the Atal Tunnel (2020) and the Sela Tunnel. It is under the Ministry of Defence (it was moved there from the Road Transport Ministry in 2015). The other three are Home Ministry forces. The 2021 paper asked a BRO tunnel (Sela). The 2025 paper asked the Police Academy and the ITBP. Remember it as: roads and ships and the DRDO go with Defence; the Central Armed Police Forces go with Home.", "k": "not", "n": false, "c": false}, {"s": "Polity", "q": "Arrange the following Constitution Amendment Acts in the order of the year in which they were passed (earliest first):\nA. 44th Amendment\nB. 73rd Amendment\nC. 86th Amendment\nD. 42nd Amendment", "o": ["A, D, B, C", "D, B, A, C", "D, A, C, B", "D, A, B, C"], "a": 3, "e": "42nd: 1976 (Emergency, 'Secular' and 'Socialist' added to the Preamble, Fundamental Duties). 44th: 1978 (removed the Right to Property, protected Articles 20 and 21 in an Emergency). 73rd: 1992 (Panchayats). 86th: 2002 (Right to Education). The 2025 paper asked which Amendment added 'Secular' (the 42nd). Learn the amendments as a short ladder: 1st (1951), 42nd (1976), 44th (1978), 52nd (1985), 61st (1988), 73rd and 74th (1992), 86th (2002), 91st (2003), 101st (2016, GST), 106th (2023, women's reservation).", "k": "order", "n": false, "c": false}, {"s": "Defence", "q": "Which one of the following was NOT a missile of the Integrated Guided Missile Development Programme (IGMDP) started in 1983?", "o": ["Nag", "Akash", "BrahMos", "Prithvi"], "a": 2, "e": "The IGMDP, led by Dr A. P. J. Abdul Kalam, built five families of missiles: Prithvi, Agni, Trishul, Akash and Nag. BrahMos is not one of them. It is a joint venture between DRDO and NPO Mashinostroyeniya of Russia, formed in 1998, and its name comes from the rivers Brahmaputra and Moskva. The 2021 paper asked 'Missile Woman of India' (Tessy Thomas), and the 2025 paper asked Pralay. The family of DRDO programmes is the next angle: Prithvi and Agni are surface-to-surface, Akash is surface-to-air and Nag is anti-tank.", "k": "not", "n": false, "c": false}, {"s": "Polity", "q": "Under Article 75(3) of the Constitution, the Council of Ministers is collectively responsible to the:", "o": ["President", "Rajya Sabha", "Supreme Court", "Lok Sabha"], "a": 3, "e": "Collective responsibility means that the whole ministry rises or falls together. It must keep the support of the Lok Sabha. If the Lok Sabha passes a no-confidence motion, every minister has to resign, not only the one who made the mistake. In theory each minister holds office during the President's pleasure (Article 75(2)), but in practice the Lok Sabha decides. This sits with the 'keystone of the cabinet arch' question of an earlier mock, and with the 91st Amendment limit on the size of the ministry. Related: Article 74 says a Council of Ministers headed by the Prime Minister aids and advises the President, and the 44th Amendment lets the President send its advice back once.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The Light Combat Helicopter (LCH) 'Prachand', inducted into the Indian Air Force in October 2022, was designed and built by:", "o": ["Bharat Electronics Limited (BEL)", "Bharat Dynamics Limited (BDL)", "Mazagon Dock Shipbuilders", "Hindustan Aeronautics Limited (HAL)"], "a": 3, "e": "HAL, in Bengaluru, made the LCH Prachand, a twin-engine attack helicopter built for high-altitude fights in places like Siachen. It was formally inducted at Jodhpur on 3 October 2022 and the Army also flies it. BEL makes radars and electronics, BDL makes missiles and Mazagon Dock builds warships and submarines. The 2021 paper asked which helicopter was put in the Navy's INS Utkrosh (the ALH Mk III); the next angle is the Air Force and Army helicopter. Related: HAL also makes the Tejas fighter and the Dhruv helicopter.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Consider the following statements about the Vice-President of India:\n1. The Vice-President is elected by an electoral college of members of both Houses of Parliament, including the nominated members.\n2. C. P. Radhakrishnan was elected Vice-President in September 2025, after Jagdeep Dhankhar resigned in July 2025.\n3. The Vice-President is elected by an open ballot.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "Statement 3 is wrong: the election is by secret ballot, using proportional representation with the single transferable vote (Article 66). Statement 1 is right, and it is the main difference from the President's electoral college, which has only elected members and includes State Assemblies. Statement 2 is right: Dhankhar resigned in July 2025 and the new Vice-President took office in September 2025. The Vice-President is the ex-officio Chairman of the Rajya Sabha and can be removed by a resolution of that House passed by a majority (an earlier mock asked this).", "k": "stmt", "n": true, "c": false}, {"s": "Defence", "q": "Who became the first Indian Commander-in-Chief of the Indian Army, on 15 January 1949?", "o": ["General K. M. Cariappa", "General Sam Manekshaw", "General Rajendrasinhji", "General K. S. Thimayya"], "a": 0, "e": "General (later Field Marshal) K. M. Cariappa took over from the British General Sir Francis Butcher. This is why 15 January is celebrated as Army Day. Cariappa was made a Field Marshal in 1986, and Sam Manekshaw was the first to get the rank, in 1973. Cariappa also appears as an option in the question on who inaugurated the Territorial Army (1949), which is Rajagopalachari. The 2021 paper asked about a first and a 'present' holder in Defence; the same kind of question is 'first Indian' for each service.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Which of the following statements about the Rajya Sabha is NOT correct?\n1. It is a permanent House and is not subject to dissolution.\n2. One-third of its members retire every second year.\n3. It can introduce and reject a Money Bill.\nSelect the correct answer using the code given below:", "o": ["Only 3", "Only 1 and 2", "Only 1", "Only 2"], "a": 0, "e": "Statement 3 is wrong. A Money Bill can be introduced only in the Lok Sabha. The Rajya Sabha can only make recommendations on it and must return it within 14 days; the Lok Sabha may accept or ignore them. Statements 1 and 2 are right: the House is permanent, each member serves six years and one-third retire every second year. The 2025 paper asked an 'exclusive function of the Rajya Sabha' (creating All India Services under Article 312). The rest of that family is the Rajya Sabha's other special powers: a resolution under Article 249 to let Parliament make laws on a State subject, and the two-thirds resolution for a new All India Service.", "k": "not", "n": false, "c": false}, {"s": "Defence", "q": "Match List I (Rank in the Navy or Air Force) with List II (Equal rank in the Army):\nList I: a. Commander (Navy)  b. Rear Admiral (Navy)  c. Group Captain (Air Force)  d. Flight Lieutenant (Air Force)\nList II: 1. Captain  2. Colonel  3. Lieutenant Colonel  4. Major General", "o": ["a-3, b-1, c-2, d-4", "a-3, b-4, c-2, d-1", "a-4, b-3, c-1, d-2", "a-2, b-4, c-3, d-1"], "a": 1, "e": "Commander = Lieutenant Colonel, Rear Admiral = Major General, Group Captain = Colonel, Flight Lieutenant = Captain. The 2018 and 2021 papers asked 'equal rank' questions every time: Squadron Leader = Major in 2021. Earlier mocks asked Captain (Navy) = Colonel and Air Commodore = Brigadier. A tip: Navy and Air Force ranks go up in the same steps as the Army, so learn the Army list (Lieutenant, Captain, Major, Lieutenant Colonel, Colonel, Brigadier, Major General, Lieutenant General, General) and slot in the other two.", "k": "match", "n": false, "c": false}, {"s": "Polity", "q": "After the Supreme Court struck down the National Judicial Appointments Commission (NJAC) law in October 2015, judges of the Supreme Court and High Courts are again appointed through the:", "o": ["Judicial Council headed by the Law Minister", "Union Public Service Commission", "Parliamentary Committee on the Judiciary", "Collegium system"], "a": 3, "e": "The 99th Constitution Amendment (2014) and the NJAC Act tried to give the Government a say in choosing judges through a six-member NJAC. The Supreme Court held in 2015 that this broke the independence of the judiciary, which is part of the basic structure, and the old Collegium (the Chief Justice and the senior-most judges) came back. The 2021 paper asked the year in which the 99th Amendment came into force (2015). The next angle is what happened to it. The Collegium itself grew out of the three 'Judges Cases' (1981, 1993, 1998), so learn those three years too.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Who is the only officer of the Indian Air Force to have reached the five-star rank of Marshal of the Air Force?", "o": ["Idris Hasan Latif", "Arjan Singh", "P. C. Lal", "Subroto Mukerjee"], "a": 1, "e": "Arjan Singh led the Air Force in the 1965 war and was given the rank of Marshal of the Air Force in 2002. The wrong options are other chiefs: Subroto Mukerjee was the first Indian Chief of the Air Staff, in 1954. The Army's five-star rank is Field Marshal (Cariappa and Manekshaw), and the Navy's would be Admiral of the Fleet, which no Indian has got. The 2021 paper asked the only Air Force officer with the Param Vir Chakra; this is the same kind of 'only one' question.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "The Prevention of Insults to National Honour Act, 1971 was amended in 2026 to protect the singing of which song?", "o": ["Jana Gana Mana", "Raghupati Raghav Raja Ram", "Vande Mataram", "Saare Jahan Se Achha"], "a": 2, "e": "The Act of 1971 punishes insults to the National Flag, the Constitution and the National Anthem. The 2026 change brought Vande Mataram under the same protection in the year of its 150th anniversary (the celebration began on 7 November 2025). An earlier mock asked who wrote the song (Bankim Chandra Chatterjee, in Anandamath). The Constituent Assembly gave Vande Mataram an equal status with the National Anthem on 24 January 1950. The 2025 paper asked many questions of the kind 'which body or law deals with what', so know both the Act and its year.", "k": "one", "n": true, "c": false}, {"s": "Defence", "q": "The 5th edition of AUSTRAHIND, the military exercise of India and Australia, was held in October 2026 in which State?", "o": ["Uttarakhand", "Rajasthan", "Kerala", "Odisha"], "a": 2, "e": "AUSTRAHIND is the India–Australia army exercise (the name joins 'Australia' and 'India'), and the 2026 edition was in Kerala. Rajasthan is the usual wrong choice because India's desert exercises are held there. Uttarakhand (Auli) hosted Yudh Abhyas with the USA in 2026. The 2025 paper asked exercises by partner, place and edition (India–Mongolia Nomadic Elephant 17th edition, Desert Flag-10). A good method: for each exercise, learn the partner, the edition number and the 2026 place.", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "Among the three Financial Committees of Parliament, which one has members only from the Lok Sabha?", "o": ["Public Accounts Committee", "None of them; all three have members from both Houses", "Estimates Committee", "Committee on Public Undertakings"], "a": 2, "e": "The Estimates Committee has 30 members, all from the Lok Sabha. The Public Accounts Committee (22 members) and the Committee on Public Undertakings (22 members) both take 15 from the Lok Sabha and 7 from the Rajya Sabha. The Estimates Committee is called a 'continuous economy committee' because it suggests savings in spending. The Public Accounts Committee checks the CAG's reports; an earlier mock asked that the CAG is its 'friend, philosopher and guide'. By convention the Chairman of the Public Accounts Committee is from the Opposition.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "Consider the following statements about the Assam Rifles:\n1. It was raised in 1835 as the Cachar Levy and is the oldest paramilitary force of India.\n2. It is under the administrative control of the Ministry of Defence.\n3. Its Director General is an officer of the Indian Army.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 2, "e": "Statement 2 is wrong. The Assam Rifles is under the Ministry of Home Affairs for its administration and pay, but its operational control is with the Army, and its Director General is a serving Army Lieutenant General. That mix is why it is called 'the Sentinels of the North-East' and 'the Friends of the Hill People'. The 2025 paper asked three-statement questions on the ITBP, and earlier mocks used Assam Rifles in match and order questions. The next angle is who controls it. Compare: the CRPF, BSF, ITBP, CISF, SSB and NSG are all under the Home Ministry.", "k": "stmt", "n": false, "c": false}, {"s": "Polity", "q": "The writ of Habeas Corpus, which means 'to have the body', is issued by a court to:", "o": ["Stop a lower court from going beyond its power", "Bring a detained person before the court to test the detention", "Ask a person by what authority he holds a public office", "Order a public official to do a duty he has failed to do"], "a": 1, "e": "Habeas Corpus protects personal liberty. A person who is arrested, or a friend or relative on his behalf, can ask the court to see whether the detention is legal. Mandamus orders an official to do a duty, Prohibition stops a lower court from going beyond its power, Certiorari quashes an order already made by a lower court and Quo Warranto (asked in an earlier mock) tests a claim to a public office. All five writs are given to the Supreme Court by Article 32, which Dr Ambedkar called the 'heart and soul' of the Constitution, and to the High Courts by the wider Article 226. The 2018 and 2025 papers asked Article 21 and Article 22 type rights, and Habeas Corpus is their court remedy. Article 22 also gives a detained person the right to be produced before a magistrate within 24 hours.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The terror attack of 22 April 2025 that led India to launch Operation Sindoor took place near:", "o": ["Uri, Jammu and Kashmir", "Pulwama, Jammu and Kashmir", "Pathankot, Punjab", "Pahalgam, Jammu and Kashmir"], "a": 3, "e": "Terrorists killed 26 tourists at the Baisaran meadow near Pahalgam. India answered with Operation Sindoor on 7 May 2025, striking terror camps in Pakistan and Pakistan-held Kashmir. The wrong options are earlier attacks: Uri (2016), Pathankot (2016) and Pulwama (2019, answered by the Balakot air strike). The 2025 paper asked operations such as Keller and Olivia, so the cause of a famous operation is a likely next angle. Related: the Operation Sindoor date and the 'Sudarshan Chakra' air shield announced on 15 August 2025.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Consider the following statements about the Attorney General of India:\n1. The Attorney General is appointed by the President and holds office during the President's pleasure.\n2. The Attorney General can speak in Parliament but cannot vote there.\n3. A person must be qualified to be a High Court judge to be appointed Attorney General.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "Statement 3 is the trap. Under Article 76 the Attorney General must be a person qualified to be a judge of the Supreme Court, not a High Court. Statement 1 is right because there is no fixed term. Statement 2 is right because Article 88 lets the Attorney General speak in either House and in its committees, but without a vote. The 2025 paper asked many questions on offices and bodies of the Union (Election Commission, NITI Aayog, Public Service Commissions). The next offices in that family are the Attorney General (Article 76), the Comptroller and Auditor General (Article 148) and the Advocate General of a State (Article 165).", "k": "stmt", "n": false, "c": false}, {"s": "Defence", "q": "India's first nuclear test, carried out on 18 May 1974 at Pokhran, had the code name:", "o": ["Operation Trident", "Operation Vijay", "Operation Shakti", "Smiling Buddha"], "a": 3, "e": "The 1974 test was under Prime Minister Indira Gandhi, and the press was told it was a 'peaceful nuclear explosion'. Operation Shakti is the code of the May 1998 tests (Pokhran-II) under Prime Minister Atal Bihari Vajpayee. Operation Trident was the Navy's attack on Karachi in 1971, and Operation Vijay was the Army's Kargil operation (1999). An earlier mock asked the code name of Pokhran-II; this is the older test of the same family. Related: India's nuclear policy is 'No First Use' and 'credible minimum deterrent'.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Which of the following is NOT a part of the Electoral College that elects the President of India?", "o": ["Elected members of the Legislative Assemblies of Delhi and Puducherry", "Elected members of the Rajya Sabha", "Elected members of the State Legislative Councils", "Elected members of the Lok Sabha"], "a": 2, "e": "Under Article 54 the President is elected by the elected members of both Houses of Parliament and of the Legislative Assemblies of the States, and also of Delhi and Puducherry (added by the 70th Amendment, 1992). Members of Legislative Councils and nominated members take no part. The vote is by proportional representation with the single transferable vote and a secret ballot (Article 55(3), asked in 2021). Compare the Vice-President, whose college is the members of both Houses of Parliament including the nominated ones. Related: a Presidential candidate needs 50 proposers and 50 seconders and a security deposit.", "k": "not", "n": false, "c": false}, {"s": "Defence", "q": "Exercise KHANJAR, an exercise of the Indian Army in 2026, was held at Misamari in Assam. With which country is it held?", "o": ["Uzbekistan", "Kyrgyzstan", "Kazakhstan", "Tajikistan"], "a": 1, "e": "KHANJAR is the exercise with the Kyrgyz Republic, and Misamari is in the Sonitpur district of Assam. The wrong options are the other Central Asian partners and the examiner likes these swaps: KAZIND is with Kazakhstan and DUSTLIK is with Uzbekistan. Learn the three 'K'-and-'D' names together. The 2021 paper asked the Dharma Guardian exercise with Japan, and the 2025 paper asked India–Mongolia. The rest of the family: Nomadic Elephant (Mongolia), Ekuverin (Maldives), Maitree (Thailand), Surya Kiran (Nepal).", "k": "one", "n": true, "c": false}, {"s": "Polity", "q": "When the President neither signs a Bill nor returns it, but keeps it pending for an unlimited time, the President is using the:", "o": ["Qualified veto", "Pocket veto", "Absolute veto", "Suspensive veto"], "a": 1, "e": "India has no time limit in Article 111 for the President to act, so the President can sit on a Bill. This is the 'pocket veto'. It was used by President Zail Singh in 1986 on the Indian Post Office (Amendment) Bill. The absolute veto means the President simply refuses assent. The suspensive veto means the Bill goes back to Parliament once; if Parliament passes it again, the President must sign it. A Governor has the same options for State Bills under Article 200.", "k": "one", "n": false, "c": false}, {"s": "Defence", "q": "The Defence Research and Development Organisation (DRDO), formed in 1958, works under the:", "o": ["Department of Space", "Ministry of Home Affairs", "Ministry of Science and Technology", "Ministry of Defence"], "a": 3, "e": "DRDO is the research arm of the Ministry of Defence. Its head is both the DRDO Chairman and the Secretary of the Department of Defence Research and Development. Its labs make missiles (Agni, Prithvi, Pralay), radars and the Arjun tank. A missile test at Chandipur or at the Dr A. P. J. Abdul Kalam Island in Odisha is always a DRDO test. The 2025 paper asked about DRDO's scramjet test and Pralay; the 2018 paper asked about missile developers. Related: ISRO is under the Department of Space, and BrahMos Aerospace is a joint company of DRDO and Russia.", "k": "one", "n": false, "c": false}, {"s": "Polity", "q": "Justice Surya Kant took oath as the 53rd Chief Justice of India on 24 November 2025. Whom did he succeed?", "o": ["Justice B. R. Gavai", "Justice D. Y. Chandrachud", "Justice U. U. Lalit", "Justice Sanjiv Khanna"], "a": 0, "e": "Justice Gavai, the 52nd CJI, retired on 23 November 2025. The wrong options are earlier Chief Justices: Chandrachud (50th), Khanna (51st) and Lalit (49th). Justice Surya Kant's term runs to 9 February 2027, when he turns 65. The CJI is appointed by the President under Article 124 and, by convention, the senior-most judge is chosen. The 2021 paper asked a 'present' office-holder in Defence and the 2018 paper asked the NHRC chairman. Related 2026 facts: the Supreme Court now has 38 judges including the CJI, after a 2026 law raised the number under Article 124(1).", "k": "one", "n": true, "c": false}];
+(function(){
+  var SK="aso-gs-polity-defence-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=36*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q;
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 40 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 40</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Polity", "Defence"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO GS POLITY + DEFENCE MOCK 01 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / 40 · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please make the next Polity, Defence or GS mock from my wrong and skipped questions.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">2026</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div><div class="qtext">'+esc(q.q)+'</div><ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>

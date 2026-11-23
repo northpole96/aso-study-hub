@@ -1,0 +1,337 @@
+#CH start | Start here | READ FIRST · 4 minutes
+Series questions are the most "learnable" part of Reasoning. They look like puzzles, but the examiner uses only a few patterns, and he uses the same ones again and again. If you learn those patterns and check them in a fixed order, most series questions break in under a minute.
+
+The papers asked **18 series questions** in three years: 9 in 2018, 4 in 2021 and 5 in 2025. Not all of them are number series. Some ask you to count digits in a string, or find a letter's position after the letters of a word are swapped. This guide covers all of them, because the syllabus puts "number series" and "alphabet series" side by side.
+
+|Kind of question|2018|2021|2025|What it looks like|
+|---|---|---|---|---|
+|Find the **wrong** number|0|3|3|"Find the wrong term: 125, 126, 124, 127, 123, 129"|
+|Find the **missing** number|3|0|1|"1, 4, 27, 16, ?, 36, 343"|
+|Alphabet series|0|0|1|"V, R, N, _, F, B"|
+|Letter positions and swaps|3|1|0|"DEPRESSION: swap the 1st and 2nd letters…"|
+|Pairs and counting in a string|3|0|0|"How many 4s are preceded by 7…"|
+
+Read the table from left to right. The **wrong-term** question has grown into the examiner's favourite: six of the last nine number questions. One of them, **1, 3, 12, 25, 48**, came word for word in 2021 and again in 2025 ⟦2021 Q30⟧ ⟦2025 Q49⟧. The 2018-style position and counting questions have faded, but they are cheap marks when they come, so they get one chapter.
+
+>KEY:How to use this guide
+- Read one chapter a day with rough paper. Cover the working and solve each example first.
+- Chapter 1 is the **checking order**. Learn it until you run it without thinking.
+- Then take the practice set on the hub (**Number Series · 30**). It mixes all the patterns, so you must spot the type yourself.
+- Press **Copy answers** at the end and paste the report into the chat. The next set brings back what you missed, with new twins.
+
+>TIP:Draw on the page
+Press D (or tap the DRAW tab on the right) and write the gaps straight under each series. Hold Shift and drag to scroll.
+
+#CH ladder | The checking order | THE METHOD · 2025 Q48, Q50
+A series is a list of numbers made by one rule. Your job is to find the rule. The trouble is that there are many possible rules, and students waste time trying them at random. So use a **fixed order**: try the cheap, common checks first and the rare ones last. Each check takes about ten seconds.
+
+##Step 0: look at how fast it grows
+Before you write anything, look at the size of the numbers. This tells you which check to start with.
+
+|What you see|What it usually means|Start with|
+|---|---|---|
+|Grows slowly and steadily (7, 11, 15, 19)|adding or subtracting|check 1, gaps|
+|Goes up and down (10, 13, 9, 14, 8)|alternating signs, or two series mixed|checks 2 and 3|
+|Grows fast (3, 6, 12, 24)|multiplying|check 4|
+|Jumps to huge numbers (1, 2, 3, 10, 99, 9802)|squares, cubes, or the two terms before it|checks 5 and 6|
+|Letters|change them to numbers|check 7|
+
+##The seven checks
+1. **Gaps.** Write the differences under the series. Are they equal, growing by a fixed step, squares, cubes or primes? If not clean, write the gaps of the gaps.
+2. **Alternating signs.** Do the gaps go +, −, +, −?
+3. **Two series mixed.** Take the odd places (1st, 3rd, 5th…) and the even places (2nd, 4th, 6th…) as two separate series.
+4. **Multiplying.** Divide each term by the one before it. Look for ×2, ×3, or ×1, ×2, ×3, or "×2 + 1".
+5. **Squares and cubes.** Is each term near n², n³, or a mix like n³ − n²?
+6. **The two before it.** Is each term the sum or the product of the two terms before it?
+7. **Letters.** Change each letter to its place in the alphabet (A = 1, Z = 26) and run checks 1 to 6.
+
+@@fig ladder
+
+##Two worked examples from 2025
+**2025 Q48: find the wrong term in 125, 126, 124, 127, 123, 129.** ⟦2025 Q48⟧ The numbers go up and down, so step 0 sends you to check 2. The gaps are +1, −2, +3, −4, +6. The signs alternate and the sizes grow by one, so the last gap should be +5. The right term is 123 + 5 = 128, and **129 is wrong**.
+
+**2025 Q50: find the wrong term in 2, 5, 10, 50, 500, 5000.** ⟦2025 Q50⟧ The numbers jump hugely, so step 0 points to checks 5 and 6. The ratios are ×2.5, ×2, ×5, ×10, ×10, which has no pattern. Try check 6: 2 × 5 = 10, 5 × 10 = 50, 10 × 50 = 500. Each term is the **product of the two before it**. The next term should be 50 × 500 = 25,000, so **5000 is wrong**. Notice the trap: if you only looked at the end, "×10, ×10" feels like a pattern, and you would choose the wrong option.
+
+>WARN:Do not stop at the first pattern you see
+A pattern must fit **every** term (except the one wrong term, in wrong-term questions). Check it on the whole series before you mark. In 2025 Q50, "×10" fits only the last two steps.
+
+>TIP:The 60-second rule
+Each wrong answer costs a quarter mark. If after 60 seconds you have no rule, mark the question with a dot in the margin, move on, and come back at the end. A fresh look often shows the pattern at once.
+
+#CH gaps | Check 1: the gaps | NUMBER SERIES · 2021 Q31, Q32
+Most series in this exam are built by adding. To see the rule, write the **gap** (the difference) between each pair of neighbours in a row under the series. The gaps make their own small series, and that small series is usually easy.
+
+##Equal gaps
+7, 11, 15, 19, ? The gaps are 4, 4, 4. The next term is 19 + 4 = **23**. This is the easiest kind, and the exam rarely asks it alone. But it hides inside harder questions, such as the two-series questions in chapter 3.
+
+##Gaps that grow by a fixed step
+3, 4, 7, 12, 19, ? The gaps are 1, 3, 5, 7. They grow by 2 each time, so the next gap is 9 and the next term is **28**.
+
+The two 2021 wrong-term questions were both this kind.
+
+**2021 Q31: 105, 85, 60, 30, 0, −45, −90.** ⟦2021 Q31⟧ The gaps are −20, −25, −30, −30, −45, −45. They should go −20, −25, −30, −35, −40, −45. The 30 is correct, but 30 − 35 = −5, not 0. Check: −5 − 40 = −45, which matches. So **0 is wrong**; it should be −5.
+
+**2021 Q32: 325, 259, 204, 160, 127, 105, 96.** ⟦2021 Q32⟧ The gaps are 66, 55, 44, 33, 22 and then 9. These are the multiples of 11, falling, so the last gap should be 11. The right term is 105 − 11 = 94. So **96 is wrong**.
+
+##Gaps that are squares, cubes or primes
+When the gaps are not a step series, compare them with the lists you know by heart.
+
+|Series|Gaps|Gaps are|Next|
+|---|---|---|---|
+|2, 3, 7, 16, 32, ?|1, 4, 9, 16|squares 1², 2², 3², 4²|32 + 25 = **57**|
+|5, 6, 14, 41, ?|1, 8, 27|cubes 1³, 2³, 3³|41 + 64 = **105**|
+|4, 6, 9, 14, 21, ?|2, 3, 5, 7|primes|21 + 11 = **32**|
+|2, 3, 5, 9, 17, ?|1, 2, 4, 8|doubling|17 + 16 = **33**|
+
+##Gaps of the gaps
+Sometimes the first row of gaps is still not clear. Then write a second row: the gaps of the gaps.
+
+2, 5, 11, 22, 40, ? First gaps: 3, 6, 11, 18. Second gaps: 3, 5, 7. The second row grows by 2, so its next number is 9. The next first gap is 18 + 9 = 27, and the next term is 40 + 27 = **67**.
+
+@@fig gaps
+
+>KEY:Why the gap row is so powerful
+Adding is the examiner's favourite way to build a series. When he adds a growing number, the gap row shows that number directly. When the series is made by multiplying, the gap row looks messy; that mess is itself a sign to move on to check 4.
+
+>NEXT:Likely next in this family
+?? 8, 15, 29, 50, 78, ? || Gaps 7, 14, 21, 28 (multiples of 7). Next gap 35, so 78 + 35 = 113.
+?? Find the wrong term: 6, 11, 21, 36, 56, 80 || Gaps 5, 10, 15, 20, 24. The last gap should be 25, so the last term should be 81. 80 is wrong.
+?? 1, 2, 6, 15, 31, ? || Gaps 1, 4, 9, 16 (squares). Next gap 25, so 56.
+?? 3, 5, 8, 13, 20, 31, ? || Gaps 2, 3, 5, 7, 11 (primes). Next gap 13, so 44.
+
+#CH alternate | Checks 2 and 3: up-and-down series | NUMBER SERIES · 2025 Q15, Q48 · 2018 Q14
+When the numbers go up and down, two rules are possible. Either the **gaps alternate in sign** (+, −, +, −), or the series is really **two series woven together**: one in the odd places and one in the even places. The test is simple: write the gaps first. If their sizes make a pattern with alternating signs, it is check 2. If not, split the series.
+
+##Check 2: alternating signs
+10, 13, 9, 14, 8, ? The gaps are +3, −4, +5, −6. The sizes grow by one and the signs alternate. The next gap is +7, so the next term is **15**.
+
+The 2025 wrong-term question 125, 126, 124, 127, 123, 129 was this kind (chapter 1).
+
+##Check 3: two series mixed
+Put a small mark over every second term. Read the marked terms as one series and the unmarked terms as another.
+
+**2025 Q15: 1, 4, 27, 16, ?, 36, 343.** ⟦2025 Q15⟧ Odd places: 1, 27, ?, 343. These are 1³, 3³, ?, 7³, so the missing term is 5³ = **125**. Even places: 4, 16, 36 are 2², 4², 6². The two series together are just n² for even n and n³ for odd n.
+
+**2018 Q14: 5, 5, 19, 7, 41, 9, ?** ⟦2018 Q14⟧ Even places: 5, 7, 9, adding 2. Odd places: 5, 19, 41, with gaps 14, 22. The gaps grow by 8, so the next gap is 30 and the missing term is 41 + 30 = **71**.
+
+@@fig split
+
+##Two operations taking turns
+A third kind of up-and-down series uses **two different steps in turn**, such as ×2 and then +3.
+
+3, 6, 9, 18, 21, ? The steps are ×2, +3, ×2, +3. The next step is ×2, so the next term is **42**. This kind does not go up and down, but it has the same "every second step" structure, so look for it when the gaps go small, big, small, big.
+
+>WARN:Where is the missing term?
+In a two-series question, first decide whether the blank is in an odd or an even place. Then work only with that series. Students who work with the wrong one get a neat answer that is one of the options. That is the trap.
+
+>NEXT:Likely next in this family
+?? 2, 1, 6, 4, 12, 9, ? || Odd places 2, 6, 12 (gaps 4, 6, so next gap 8): 20. Even places 1, 4, 9 are squares.
+?? Find the wrong term: 50, 47, 52, 45, 54, 42 || Gaps −3, +5, −7, +9, −12. The last gap should be −11, so the last term should be 43. 42 is wrong.
+?? 4, 9, 16, 27, 36, 81, 64, ? || Even places 9, 27, 81 multiply by 3: 243. Odd places 4, 16, 36, 64 are squares of 2, 4, 6, 8.
+?? 7, 14, 11, 22, 19, ? || Steps ×2, −3 in turn. Next is ×2: 38.
+
+#CH multiply | Check 4: multiplying series | NUMBER SERIES · fast growth
+When the numbers grow fast, divide each term by the one before it. If the answers are whole numbers or simple fractions, you have found the rule.
+
+##Fixed and growing multipliers
+- 3, 6, 12, 24, ? multiplies by 2 each time: **48**.
+- 4, 4, 8, 24, 96, ? multiplies by 1, 2, 3, 4; the next is ×5: **480**.
+- 720, 120, 24, 6, ? divides by 6, 5, 4; the next is ÷3: **2**.
+- 16, 8, 8, 12, 24, ? multiplies by 0.5, 1, 1.5, 2; the next is ×2.5: **60**.
+
+##Multiply, then add
+If the ratio is close to a whole number but not exact, the rule is "multiply, then add (or subtract) something".
+
+|Series|Rule|Next|
+|---|---|---|
+|5, 11, 23, 47, ?|×2 + 1|47 × 2 + 1 = **95**|
+|2, 5, 14, 41, ?|×3 − 1|41 × 3 − 1 = **122**|
+|2, 3, 8, 27, 112, ?|×1+1, ×2+2, ×3+3, ×4+4|112 × 5 + 5 = **565**|
+|1, 2, 6, 21, 88, ?|×1+1, ×2+2, ×3+3, ×4+4|88 × 5 + 5 = **445**|
+
+>TIP:How to spot "×2 + 1"
+Double the term and compare it with the next one. If the leftover is the same every time (here +1), that is the rule. If the leftover grows (+1, +2, +3), it is a "×n + n" type.
+
+>WARN:Check the first step too
+In "×n + n" series the first step is easy to miss: 2 × 1 + 1 = 3. If you start the multiplier at 2, every later step looks wrong.
+
+>NEXT:Likely next in this family
+?? 3, 7, 15, 31, 63, ? || ×2 + 1: 127.
+?? Find the wrong term: 1, 2, 6, 24, 96, 720 || ×2, ×3, ×4, ×5, ×6. 24 × 5 = 120, not 96. 96 is wrong.
+?? 4, 11, 32, 95, ? || ×3 − 1: 95 × 3 − 1 = 284.
+?? 2, 6, 24, 120, ? || ×3, ×4, ×5; next ×6: 720.
+
+#CH powers | Check 5: squares, cubes and powers | NUMBER SERIES · 2018 Q13, Q15 · 2025 Q15
+Many series are squares or cubes in disguise: n², n² + 1, n³ − n and so on. You can only see them if you know the squares up to 30² and the cubes up to 15³ by heart (the tables are in the last chapter). When a term is one more or one less than a square, that is your hint.
+
+##Near-squares and near-cubes
+|Series|It is|Next|
+|---|---|---|
+|2, 5, 10, 17, 26, ?|n² + 1|6² + 1 = **37**|
+|0, 3, 8, 15, 24, ?|n² − 1|6² − 1 = **35**|
+|2, 6, 12, 20, 30, ?|n² + n = n(n + 1)|6 × 7 = **42**|
+|2, 9, 28, 65, 126, ?|n³ + 1|6³ + 1 = **217**|
+|0, 6, 24, 60, 120, ?|n³ − n|6³ − 6 = **210**|
+|4, 9, 25, 49, 121, ?|squares of primes|13² = **169**|
+
+##The 2018 questions
+**2018 Q13: 4, 18, ?, 100, 180, 294, 448.** ⟦2018 Q13⟧ Try n³ − n²: 2³ − 2² = 4, 3³ − 3² = 18, then 4³ − 4² = **48**. Check the rest: 125 − 25 = 100, 216 − 36 = 180, 343 − 49 = 294, 512 − 64 = 448. Every term fits. Another way to see it: n³ − n² = n² × (n − 1), so the terms are 4 × 1, 9 × 2, 16 × 3, 25 × 4…
+
+**2018 Q15: 1, 2, 3, 10, ?, 9802.** ⟦2018 Q15⟧ The jump to 9802 says "square of the term before". 9802 is 99² + 1 (99² = 9801). Work forwards: 1² + 1 = 2, 2² − 1 = 3, 3² + 1 = 10, 10² − 1 = **99**, 99² + 1 = 9802. The rule is "square it, then add 1 and subtract 1 in turn".
+
+>TIP:Spot the last digit
+A square never ends in 2, 3, 7 or 8. If a series of "squares" has a term ending in 7, either it is a near-square (n² + 1, like 26 or 37), or that term is the wrong one.
+
+>NEXT:Likely next in this family
+?? 3, 10, 29, 66, 127, ? || n³ + 2: 6³ + 2 = 218.
+?? Find the wrong term: 1, 8, 27, 64, 124, 216 || Cubes: 5³ = 125, not 124. 124 is wrong.
+?? 3, 8, 24, 48, 120, ? || n² − 1 for n = 2, 3, 5, 7, 11 (the primes); next 13² − 1 = 168.
+?? 2, 5, 26, 677, ? || Square it and add 1: 677² + 1 = 458,330. (The examiner gives it as an option; check only the last digits: 7² ends in 9, plus 1 ends in 0.)
+
+#CH two-before | Check 6: using the two terms before | NUMBER SERIES · 2025 Q50
+Some series cannot be read one step at a time, because each term is made from **the two (or three) terms before it**. The sign is that no single gap or ratio works, but the numbers still look "related". Try adding, then multiplying, the two terms before.
+
+##Sum of the two before
+1, 1, 2, 3, 5, 8, ? Each term is the sum of the two before: 5 + 8 = **13**. Other starts work the same way: 3, 4, 7, 11, 18, ? gives 29.
+
+##Sum of the three before
+1, 2, 3, 6, 11, 20, ? 1 + 2 + 3 = 6, 2 + 3 + 6 = 11, 3 + 6 + 11 = 20, so the next is 6 + 11 + 20 = **37**.
+
+##Product of the two before
+**2025 Q50: 2, 5, 10, 50, 500, 5000.** ⟦2025 Q50⟧ 2 × 5 = 10, 5 × 10 = 50, 10 × 50 = 500, so the next should be 50 × 500 = 25,000. **5000 is wrong.** Product series grow very fast, so they are almost always short (five or six terms).
+
+>NEXT:Likely next in this family
+?? 2, 3, 6, 18, 108, ? || Product of the two before: 18 × 108 = 1944.
+?? Find the wrong term: 4, 5, 9, 14, 23, 38, 60 || Sum of the two before: 14 + 23 = 37, not 38. 38 is wrong (then 23 + 37 = 60 fits).
+?? 1, 3, 4, 8, 15, 27, ? || Sum of the three before: 8 + 15 + 27 = 50.
+
+#CH wrong | The wrong-term question, step by step | THE EXAMINER'S FAVOURITE · 2021 Q30–32 · 2025 Q48–50
+"Find the wrong term" is now the main series question: three in 2021 and three in 2025, all at the end of the series block. It needs one extra skill on top of the checks: finding a rule when **one number is lying to you**.
+
+##The method
+1. Write the gaps (or ratios).
+2. Find the rule from the part of the series that looks clean. Most often the start is clean and the error sits in the middle or the end.
+3. **One wrong number spoils two gaps next to each other**: the gap into it and the gap out of it. Look for two bad gaps side by side. The wrong term sits between them.
+4. Change that term to the right value and check that **both** spoiled gaps now fit.
+
+@@fig wrong
+
+In 2021 Q31 the gaps were −20, −25, −30, **−30, −45**, −45. The two bad gaps sit around the 0, so the 0 is wrong. Change it to −5 and the gaps become −35 and −40, which both fit.
+
+##When only one gap is spoiled
+If the wrong term is the **last** one, only one gap is spoiled (there is no gap after it). That was the case in 2021 Q32 (96 at the end) and 2025 Q48 (129 at the end). So if just the last gap misfits, the last term is wrong.
+
+##The question that came twice: 1, 3, 12, 25, 48
+⟦2021 Q30⟧ ⟦2025 Q49⟧ The options were 3, 12, 25 and 48. This is the hardest of the six, and no official answer key has been published. The best rule we know: **3, 12, 27, 48 are 3 × 1², 3 × 2², 3 × 3², 3 × 4²**, so the series is "three times the squares", and **25 is wrong** (it should be 27). The quick sign is that 3, 12 and 48 are all multiples of 3 and 25 is the only option that is not. ⟨CHECK: no official key; another reading, ×2 + 1 and ×3 + 3 in turn, would make 48 wrong⟩ The first term 1 does not fit 3n² either, but it is not among the options, so the examiner did not mean it to be tested.
+
+>WARN:Wrong-term traps
+- The examiner makes the wrong term **close** to the right one (129 for 128, 96 for 94), so a quick look will not show it. Always compute.
+- Two rules can seem to fit. Pick the one that fits the **most** terms with one change only.
+- If your rule needs two terms changed, it is the wrong rule.
+
+>NEXT:Likely next in this family
+?? Find the wrong term: 3, 9, 27, 81, 242, 729 || ×3 each time. 81 × 3 = 243, not 242. 242 is wrong.
+?? Find the wrong term: 2, 6, 12, 21, 30, 42 || n(n + 1): 1×2, 2×3, 3×4, 4×5 = 20, 5×6, 6×7. 21 is wrong.
+?? Find the wrong term: 1, 4, 9, 15, 25, 36 || Squares: 4² = 16. 15 is wrong.
+?? Find the wrong term: 8, 13, 23, 38, 58, 84 || Gaps 5, 10, 15, 20, 26. The last gap should be 25, so 83. 84 is wrong.
+
+#CH letters | Check 7: alphabet series | ALPHABET SERIES · 2025 Q1
+A letter series is a number series in disguise. Change each letter to its place in the alphabet, solve it as numbers, then change the answer back. The only real skill is doing the changing **fast**, and for that you need a few anchors.
+
+##The anchors
+- **EJOTY**: E = 5, J = 10, O = 15, T = 20, Y = 25. Every letter is one or two steps from an anchor. For example R is two before T, so R = 18.
+- **Opposite letters add to 27**: A–Z, B–Y, C–X, D–W, E–V, F–U, G–T, H–S, I–R, J–Q, K–P, L–O, M–N. The reverse position of a letter is 27 minus its position.
+- **M is 13**, the end of the first half; N = 14 starts the second half.
+- When counting past Z, go back to A: Z + 3 = C (26 + 3 = 29 − 26 = 3).
+
+|Letter|A|B|C|D|E|F|G|H|I|J|K|L|M|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|Place|1|2|3|4|5|6|7|8|9|10|11|12|13|
+|Letter|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|
+|Place|14|15|16|17|18|19|20|21|22|23|24|25|26|
+
+##The 2025 question
+**2025 Q1: V, R, N, _, F, B.** ⟦2025 Q1⟧ V = 22, R = 18, N = 14, F = 6, B = 2. The series falls by 4, so the blank is 14 − 4 = 10 = **J**.
+
+##Other letter patterns
+- **Growing skips**: B, D, G, K, P, ? The gaps are 2, 3, 4, 5, so the next gap is 6: P (16) + 6 = 22 = **V**.
+- **Letter pairs**: AZ, CX, EV, ? The first letters go up by 2 (A, C, E, G) and the second letters are their opposites (Z, X, V, T). Next: **GT**.
+- **Letters and numbers together**: A2, C6, E10, ? The letters skip one; the number is twice the letter's place. Next: **G14**.
+- **Two series mixed**: A, Z, C, X, E, V, ? works like chapter 3: A, C, E, G in the odd places, so **G**.
+
+>NEXT:Likely next in this family
+?? Z, W, S, N, ? || 26, 23, 19, 14: gaps 3, 4, 5. Next gap 6: 8 = H.
+?? BDF, HJL, NPR, ? || Each group is three letters, every second one, carrying on: TVX.
+?? C, F, J, O, ? || 3, 6, 10, 15: gaps 3, 4, 5. Next 21 = U.
+?? KP, LO, MN, ? || The first letter goes forward, the second back; each pair are opposites. Next NM.
+
+#CH position | Letter positions, swaps and counting | 2018 Q2, Q3, Q6, Q25, Q38, Q50 · 2021 Q25
+These questions are not series at all. They test whether you can count carefully under time pressure. They filled six questions in 2018 and one in 2021, then disappeared in 2025. They may come back, and when they do, they are almost free marks if you work on paper.
+
+##"Eighth to the right of the tenth to the left"
+**2018 Q6 type:** in the English alphabet, which letter is eighth to the right of the letter that is tenth to the left of the last but one letter? ⟦2018 Q6⟧ Work from the **end of the sentence backwards**. The last but one letter is Y = 25. Tenth to the left means minus 10: 15 = O. Eighth to the right means plus 8: 23 = **W**. Rule: **left = subtract, right = add**.
+
+##Swapping the letters of a word
+**2018 Q50 type:** in DEPRESSION, swap the 1st and 2nd letters, the 3rd and 4th, and so on. Which letter is seventh from the right? ⟦2018 Q50⟧ Write the word in pairs and swap each pair: DE PR ES SI ON becomes **ED RP SE IS NO**, which is EDRPSEISNO. The word has 10 letters, so seventh from the right is (10 − 7 + 1) = 4th from the left: **P**.
+
+**2018 Q25 type:** DISTURBANCE, swap the first and last letters, the second and tenth, and so on. That simply **reverses** the word: ECNABRUTSID. Then answer the question on the new word. ⟦2018 Q25⟧
+
+>KEY:The position formula
+In a row of N, the kth from the right is the (N − k + 1)th from the left. The same formula comes in ranking questions ("Ravi is 12th from the left in a row of 30").
+
+##Pairs with as many letters between them
+**2018 Q38 type:** how many pairs of letters in a word have as many letters between them in the word as in the alphabet? ⟦2018 Q38⟧ ⟦2018 Q2⟧ It is easy to miscount by eye, so use a small table.
+
+Method: write the position of each letter **in the word** above it and its place **in the alphabet** below it. A pair counts when the difference of word positions equals the difference of alphabet places. In FOREST: F(1, 6), O(2, 15), R(3, 18), E(4, 5), S(5, 19), T(6, 20). Check each pair: R and T differ by 3 in the word and 2 in the alphabet, no; **S and T** differ by 1 and 1, yes; **R and S** differ by 2 in the word but 1 in the alphabet, no; **E and F**: word gap 3, alphabet gap 1, no. FOREST has **one** pair (ST), counting forwards only. Some questions also count pairs read backwards; read the question.
+
+##Counting in a string
+**2018 Q3 type:** how many 4s are preceded by 7 but not followed by 3? ⟦2018 Q3⟧ Go through the string once and **underline every 4**. For each one, look one step left (must be 7) and one step right (must not be 3). Do not look for patterns; just tick. "Preceded by" means immediately before; "followed by" means immediately after.
+
+Example: in 7 4 3 2 7 4 5 7 4 9 4 3, the 4s are at places 2, 6, 9 and 11. Place 2: 7 before, 3 after, no. Place 6: 7 before, 5 after, yes. Place 9: 7 before, 9 after, yes. Place 11: 9 before, no. Answer: **2**.
+
+>NEXT:Likely next in this family
+?? Which letter is 7th to the left of the 12th letter from the right in the alphabet? || 12th from the right = 27 − 12 = 15 = O. 7 to the left = 8 = H.
+?? In MOUNTAIN, swap the 1st and 2nd letters, the 3rd and 4th, and so on. Which letter is 3rd from the left? || MO UN TA IN becomes OM NU AT NI = OMNUATNI. The 3rd letter is N.
+?? In 3 5 8 5 3 8 5 3 5 8, how many 5s are followed by 3? || The 5s at places 2, 4, 7 and 9 are followed by 8, 3, 3 and 8. Answer: 2.
+
+#CH revise | Last-week sheet | REVISION · learn by heart
+Everything in this chapter is for learning by heart. With these tables in your head, checks 4 and 5 take seconds instead of minutes.
+
+##Squares, 1 to 30
+|n|1|2|3|4|5|6|7|8|9|10|
+|---|---|---|---|---|---|---|---|---|---|---|
+|n²|1|4|9|16|25|36|49|64|81|100|
+|n|11|12|13|14|15|16|17|18|19|20|
+|n²|121|144|169|196|225|256|289|324|361|400|
+|n|21|22|23|24|25|26|27|28|29|30|
+|n²|441|484|529|576|625|676|729|784|841|900|
+
+##Cubes, 1 to 15, and powers of 2
+|n|1|2|3|4|5|6|7|8|
+|---|---|---|---|---|---|---|---|---|
+|n³|1|8|27|64|125|216|343|512|
+|n|9|10|11|12|13|14|15| |
+|n³|729|1000|1331|1728|2197|2744|3375| |
+|2ⁿ|2, 4, 8, 16, 32|64, 128, 256|512, 1024| | | | | |
+
+##Primes up to 100
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97. That is 25 primes. 1 is **not** a prime; 2 is the only even prime.
+
+##The checking order in one line
+**Look → gaps → signs → split → ratio → powers → two before → letters.**
+
+>WARN:The traps, all in one place
+- A pattern must fit every term, not just the last two (2025 Q50).
+- In a two-series question, work with the series the blank belongs to.
+- One wrong term spoils two neighbouring gaps; a wrong last term spoils only one.
+- "×n + n" starts with ×1 + 1.
+- A square never ends in 2, 3, 7 or 8.
+- Left = subtract, right = add; kth from the right = (N − k + 1)th from the left.
+- "Preceded by" means immediately before.
+
+>NEXT:What is most likely in January 2027
+- Two or three **wrong-term** questions: gaps, alternating signs, a product or multiply series.
+- One **missing-number** question with two series mixed, or squares and cubes.
+- One **alphabet series** with a fixed or growing skip.
+- A good chance that **1, 3, 12, 25, 48** comes a third time.
+- Position and counting questions less likely, but possible.
