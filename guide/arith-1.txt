@@ -8,7 +8,7 @@ The families are taken in the order of their weight in 2025, the paper that matt
 |---|---|---|---|
 |1|Time and work, pipes|8|done (practice set: Time and Work · 14 types)|
 |2|Speed, trains, races, boats|6|done, chapters 1 to 6 (practice set: Speed and trains · 26)|
-|3|Number system: HCF, LCM, divisibility, remainders, decimals|8 to 11|chapters 7 to 12 (practice set: Number System · 30)|
+|3|Number system: HCF, LCM, divisibility, remainders, decimals|8 to 11|chapters 7 to 14 (practice set: Number System · 30)|
 |4|Percentage, profit and loss, interest|10|next|
 |5|Indices and surds|5|later|
 |6|Ages, partnership, average, clocks, mixtures|about 8|later|

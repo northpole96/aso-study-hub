@@ -1,4 +1,4 @@
-# Number System set 01 (23 Nov 2026): 30 questions for the number-system chapters (7 to 12) of the Arithmetic Guide.
+# Number System set 01 (23 Nov 2026): 30 questions for the number-system chapters (7 to 14) of the Arithmetic Guide.
 # Divisibility, remainders, successive division, last digits, HCF and LCM (with the remainder and fraction types),
 # number facts and decimals, each with a twist. Three past questions word for word (2025 Q71 = 2021 Q93, 2025 Q100, 2018 Q82).
 # Build: python3 .claude/skills/aso-mock/scripts/build.py tools/maths_numsys1_questions.py   (calc re-checks every answer)
@@ -18,7 +18,7 @@ META = dict(
     seed=20261123,
     order="given",
     date="23 Nov 2026",
-    draw="hand-made from the Arithmetic Guide, chapters 7 to 12 (no draw)",
+    draw="hand-made from the Arithmetic Guide, chapters 7 to 14 (no draw)",
     topic="ari",
     intro=[
         "This set goes with the number-system chapters of the Arithmetic Guide. It has thirty questions, one minute each, "
@@ -49,7 +49,7 @@ add(A, "Two numbers are in the ratio 4 : 5 and their L.C.M. is 180. What is the 
 
 add(A, "If the number 85x47 is divisible by 11, then the value of x is:",
     ["5", "6", "4", "3"],
-    "Type: divisibility by 11. Digits in the odd places (from the left): 8 + x + 7 = 15 + x. Even places: 5 + 4 = 9. "
+    "Type: divisibility by 11. Count places from the right. Odd places: 7 + x + 8 = 15 + x. Even places: 5 + 4 = 9. "
     "The difference 6 + x must be 0 or a multiple of 11, so x = 5. Check: 85547 = 11 × 7777. The 11 test is the next angle of 2025 Q100.",
     calc="(85547 % 11 == 0) * 5")
 
