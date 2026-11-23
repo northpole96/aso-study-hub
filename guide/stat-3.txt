@@ -85,42 +85,72 @@ A **deviation** is how far an item is from the mean: item − mean. Take the lis
 >PYQ:2018 Q95
 **Q.** In a class of 100 students there are 70 boys whose average marks in a single subject are 75. If the average mark of the complete class is 72, then the average mark of the girls is:
 (A) 73  (B) 65  (C) 68  (D) 74
-**Answer: B.** Class total 7,200. Boys 70 × 75 = 5,250. Girls 1,950 ÷ 30 = 65.
+**Answer: B.**
+Step 1: the whole class total = 100 students × 72 = 7,200 marks.
+Step 2: the boys' total = 70 × 75 = 5,250 marks.
+Step 3: so the girls' total = 7,200 − 5,250 = 1,950 marks. The number of girls = 100 − 70 = 30.
+Step 4: the girls' average = 1,950 ÷ 30 = 65.
 
 >PYQ:2018 Q96
 **Q.** The mean of 7 variates is 12. If six of them are 5, 13, 9, 17, 14 and 10, the 7th variate is:
 (A) 12  (B) 16  (C) 17  (D) 18
-**Answer: B.** Total 7 × 12 = 84. Six known add to 68. 84 − 68 = 16.
+**Answer: B.**
+Step 1: turn the mean into a total: 7 variates × 12 = 84.
+Step 2: add the six known variates: 5 + 13 = 18, + 9 = 27, + 17 = 44, + 14 = 58, + 10 = 68.
+Step 3: the 7th variate = 84 − 68 = 16.
+Check: (68 + 16) ÷ 7 = 84 ÷ 7 = 12. ✓
 
 >PYQ:2021 Q95
 **Q.** The average of 30 numbers is 12. The average of the first 20 of them is 11 and that of the next 9 is 10. The last number is:
 (A) 60  (B) 45  (C) 50  (D) 40
-**Answer: C.** 360 − (220 + 90) = 50.
+**Answer: C.**
+Step 1: the total of all 30 numbers = 30 × 12 = 360.
+Step 2: the first 20 total 20 × 11 = 220. The next 9 total 9 × 10 = 90. Together 220 + 90 = 310, and they use up 29 numbers.
+Step 3: one number is left: the 30th, the last one. It is 360 − 310 = 50.
 
 >PYQ:2021 Q96
 **Q.** The average of two numbers A and B is 20, that of B and C is 19 and of C and A is 21. What is the value of A?
 (A) 20  (B) 24  (C) 22  (D) 18
-**Answer: C.** A + B = 40, B + C = 38, C + A = 42. Adding, A + B + C = 60. A = 60 − 38 = 22.
+**Answer: C.**
+Step 1: turn each average into a total of two numbers: A + B = 2 × 20 = 40; B + C = 2 × 19 = 38; C + A = 2 × 21 = 42.
+Step 2: add all three lines. Every letter appears twice: 2(A + B + C) = 40 + 38 + 42 = 120, so A + B + C = 60.
+Step 3: A = (A + B + C) − (B + C) = 60 − 38 = 22.
+Check: B = 60 − 42 = 18, and A + B = 22 + 18 = 40. ✓
 
 >PYQ:2021 Q97
 **Q.** Find the sum of deviations of the variate values 3, 4, 6, 7, 8 and 14 from their mean?
 (A) 0  (B) 3  (C) 4  (D) 6
-**Answer: A.** The sum of deviations from the mean is always 0. (Mean 7: −4 −3 −1 + 0 + 1 + 7 = 0.)
+**Answer: A.**
+Step 1: find the mean: 3 + 4 + 6 + 7 + 8 + 14 = 42, and 42 ÷ 6 = 7.
+Step 2: deviations (value − 7): −4, −3, −1, 0, 1, 7.
+Step 3: add them: −4 − 3 − 1 + 0 + 1 + 7 = 0.
+This is not a coincidence. The sum of deviations from the mean is always 0, because the mean is exactly the balance point. So you can answer 0 without any calculation.
 
 >PYQ:2021 Q98
 **Q.** What is the mean of 1st 5 multiple of 7?
 (A) 28  (B) 35  (C) 14  (D) 21
-**Answer: D.** 7, 14, 21, 28, 35: total 105, mean 21 (the middle number).
+**Answer: D.**
+Step 1: the first 5 multiples of 7 are 7, 14, 21, 28, 35.
+Step 2: add them: 7 + 14 + 21 + 28 + 35 = 105.
+Step 3: mean = 105 ÷ 5 = 21.
+Shortcut: the numbers go up by equal steps, so the mean is the middle number, 21.
 
 >PYQ:2021 Q99
 **Q.** Find out the algebraic sum of deviation of a set of P values from their mean:
 (A) P − 1  (B) 0  (C) P  (D) P + 1
-**Answer: B.** Always 0.
+**Answer: B.**
+The sum of deviations from the mean (each value minus the mean) is always 0, for any number of values. The values below the mean give negative deviations and the values above give positive ones, and they cancel exactly. So for P values the answer is 0, not P.
+If you want to see it: take 2, 4, 9. Mean 5. Deviations −3, −1, 4. Sum 0.
 
 >PYQ:2025 Q68
 **Q.** The average weight of 16 boys in a class is 50.25 kgs and that of the remaining 8 boys is 45.15 kgs. Then the average weight of all the boys in the class:
 (A) 47.55 kgs  (B) 48 kgs  (C) 48.55 kgs  (D) 49.25 kgs
-**Answer: C.** (16 × 50.25 + 8 × 45.15) ÷ 24 = (804 + 361.2) ÷ 24 = 48.55.
+**Answer: C.**
+Step 1: the first group's total = 16 × 50.25 = 804 kg.
+Step 2: the second group's total = 8 × 45.15 = 361.2 kg.
+Step 3: all boys: 16 + 8 = 24, total weight 804 + 361.2 = 1,165.2 kg.
+Step 4: average = 1,165.2 ÷ 24 = 48.55 kg.
+Shortcut: the answer lies between 45.15 and 50.25, and nearer 50.25 because that group is bigger. The midpoint of the two is 47.7, so the answer must be above it. That rules out option A (47.55).
 
 >NEXT:Likely next: tap to check yourself
 ?? The mean of 8 numbers is 15. One number, 29, is removed. What is the mean of the rest? || Total 120. Take away 29: 91. Seven numbers left. 91 ÷ 7 = 13.
@@ -171,7 +201,11 @@ The shortcut formula gives the same: Q1 is the ((n + 1) ÷ 4)th item = the 8 ÷ 
 >PYQ:2018 Q100
 **Q.** The lower quartile for the data 9, 11, 15, 19, 17, 13, 7 is:
 (A) 7  (B) 11  (C) 9  (D) 8
-**Answer: C.** In order 7, 9, 11, 13, 15, 17, 19. The lower half is 7, 9, 11, whose middle is 9. (The formula ((n + 1) ÷ 4)th item = 2nd item = 9 agrees.)
+**Answer: C.**
+Step 1: put the data in order: 7, 9, 11, 13, 15, 17, 19. There are 7 values.
+Step 2: the median (the middle value) is the 4th: 13.
+Step 3: the lower quartile Q1 is the middle of the lower half, the values below the median: 7, 9, 11. Its middle is 9.
+Check with the formula: Q1 is the ((n + 1) ÷ 4)th value = (8 ÷ 4) = the 2nd value = 9. ✓
 
 >NEXT:Likely next: tap to check yourself
 ?? Median of 17, 5, 12, 9, 21, 3? || In order 3, 5, 9, 12, 17, 21. Middle two are 9 and 12, so (9 + 12) ÷ 2 = 10.5.
@@ -237,7 +271,11 @@ Mode = 20 + [(36 − 16) ÷ (72 − 16 − 34)] × 10 = 20 + (20 ÷ 22) × 10 = 
 >PYQ:2021 Q100
 **Q.** The median of the following data: Class interval 0–10, 10–20, 20–30, 30–40, 40–50 with frequency 8, 16, 36, 34, 6.
 (A) 27.22  (B) 24  (C) 50  (D) 36
-**Answer: A.** N = 100, N/2 = 50. Cumulative 8, 24, 60: the median class is 20–30. Median = 20 + (50 − 24) ÷ 36 × 10 = 27.22.
+**Answer: A.**
+Step 1: N = 8 + 16 + 36 + 34 + 6 = 100, so N ÷ 2 = 50.
+Step 2: cumulative frequencies: 8, 24, 60, 94, 100. The first total that reaches 50 is 60, in the class 20–30. So that is the median class: L = 20, f = 36, h = 10, and the cf before it is 24.
+Step 3: median = L + [(N/2 − cf) ÷ f] × h = 20 + [(50 − 24) ÷ 36] × 10 = 20 + 260 ÷ 36 = 20 + 7.22 = 27.22.
+In words: we need the 50th item. The classes before this one hold only 24, so we need 26 more from the 36 in this class, which is 26/36 of its width.
 
 >PYQ:2018 Q97 and Q98 · same type
 **Q97.** The median of the following distribution is: (a table of weights 46, 48, 50, 52, 53, 54, 55 with their frequencies) (A) 50  (B) 53  (C) 52  (D) 54
@@ -284,12 +322,21 @@ The HM is for **rates** (speed, price per item). It is the number of items divid
 
 >PYQ:2018 Q94
 **Q.** The G.M. of the numbers 3, 3², 3³, …, 3ⁿ is:
-**Answer: 3^((n + 1)/2).** The powers 1, 2, …, n have mean (n + 1)/2, so the GM is 3 raised to that.
+**Answer: 3^((n + 1)/2).**
+Step 1: the geometric mean of n numbers is the nth root of their product.
+Step 2: multiply the numbers: 3¹ × 3² × 3³ × … × 3ⁿ. When we multiply powers of 3, we add the powers: 3^(1 + 2 + 3 + … + n).
+Step 3: 1 + 2 + … + n = n(n + 1) ÷ 2, so the product is 3^(n(n + 1)/2).
+Step 4: take the nth root, which divides the power by n: 3^((n(n + 1)/2) ÷ n) = 3^((n + 1)/2).
+Check with n = 3: numbers 3, 9, 27. Product 729. Cube root 9 = 3². And (3 + 1)/2 = 2. ✓
 
 >PYQ:2021 Q94
 **Q.** What is the geometric mean of 4 and 16?
 (A) 2  (B) 4  (C) 6  (D) 8
-**Answer: D.** √(4 × 16) = √64 = 8.
+**Answer: D.**
+Step 1: for two numbers the geometric mean is the square root of their product.
+Step 2: 4 × 16 = 64.
+Step 3: √64 = 8.
+Check: 4 × 2 = 8 and 8 × 2 = 16, so 8 sits in the middle in the multiplying sense.
 
 >NEXT:Likely next: tap to check yourself
 ?? GM of 9 and 25? || √225 = 15.
@@ -332,7 +379,11 @@ The answer to learn is **(n² − 1) ÷ 12**. For 1, 2, 3, 4, 5: mean 3, squared
 
 >PYQ:2018 Q99
 **Q.** The variance of the first n natural numbers is:
-**Answer: (n² − 1) ÷ 12 (option A).** Check: n = 5 gives 24/12 = 2.
+**Answer: (n² − 1) ÷ 12 (option A).**
+Step 1: variance is the average of the squared distances from the mean.
+Step 2: the first n natural numbers 1, 2, …, n have mean (n + 1) ÷ 2. Their squared distances add up to n(n² − 1) ÷ 12, so the variance is (n² − 1) ÷ 12. Learn this as a formula.
+Check with n = 5: numbers 1 to 5, mean 3. Squared deviations 4, 1, 0, 1, 4 = 10. Variance 10 ÷ 5 = 2. Formula: (25 − 1) ÷ 12 = 2. ✓
+Check with n = 3: numbers 1, 2, 3, mean 2, squared deviations 1, 0, 1, variance 2/3. Formula: 8 ÷ 12 = 2/3. ✓ The option (n² + 1) ÷ 12 would give 10/12 = 5/6 here and is wrong.
 
 >NEXT:Likely next: tap to check yourself
 ?? Variance of 1 to 9? || (81 − 1) ÷ 12 = 6.67. (In fractions, 20/3.)

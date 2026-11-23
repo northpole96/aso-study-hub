@@ -51,49 +51,79 @@ x is chosen from 1, 2, 3 and y from 1, 4, 9. Find P(xy < 9). List every pair, 3 
 >PYQ:2018 Q79
 **Q.** For an event, if p is the probability of the happening of the event and q is the probability of not happening, then which of the following is true?
 (A) p > q  (B) p + q = 1  (C) p < q  (D) p + q = 0
-**Answer: B.** The event either happens or it does not, so the two chances add to 1.
+**Answer: B.**
+Think of one trial. Either the event happens (chance p) or it does not (chance q). There is no third thing that can happen, so together they must cover every possibility, and every possibility together has probability 1.
+So p + q = 1. The other options fail: p > q or p < q depends on the event, and p + q = 0 would mean nothing can happen.
 
 >PYQ:2018 Q84
 **Q.** Find the chance of picking an even number from the natural numbers 1 to 100:
-**Answer: 1/2.** There are 50 even numbers among the 100, so 50 ÷ 100.
+**Answer: 1/2.**
+Step 1: the sample space is the numbers 1, 2, 3, …, 100. That is 100 outcomes.
+Step 2: favourable outcomes are the even numbers 2, 4, …, 100. They are every second number, so 100 ÷ 2 = 50 of them.
+Step 3: probability = 50 ÷ 100 = 1/2.
 
 >PYQ:2018 Q85
 **Q.** An urn contains a thoroughly mixed set of 10 white, 15 red and 25 black marbles. Determine the probability of drawing a white or a red marble:
-**Answer: 1/2.** Total 10 + 15 + 25 = 50. White or red = 25. 25 ÷ 50 = 1/2.
+**Answer: 1/2.**
+Step 1: total marbles = 10 white + 15 red + 25 black = 50.
+Step 2: the event is white **or** red. These two cannot happen together (one marble has one colour), so we just add: 10 + 15 = 25.
+Step 3: probability = 25 ÷ 50 = 1/2. (Check the other way: not black = 1 − 25/50 = 1/2.)
 
 >PYQ:2018 Q89
 **Q.** A single letter is selected at random from the word PROBABILITY. The probability that it is a vowel is:
-**Answer: 4/11.** The word has 11 letters; the vowels are O, A, I, I = 4.
+**Answer: 4/11.**
+Step 1: write the letters of PROBABILITY one by one: P, R, O, B, A, B, I, L, I, T, Y. That is 11 letters. The B and the I each appear twice, and each place counts as its own outcome.
+Step 2: the vowels (A, E, I, O, U) are O, A, I, I. That is 4.
+Step 3: probability = 4 ÷ 11.
 
 >PYQ:2021 Q79
 **Q.** In a cricket match, a batsman hits a boundary 15 times out of 60 balls he plays. Find the probability that he didn't hit a boundary in next ball:
 (A) 0.75  (B) 0.15  (C) 0.60  (D) 0.18
-**Answer: A.** P(boundary) = 15/60 = 0.25. P(no boundary) = 1 − 0.25 = 0.75.
+**Answer: A.**
+Step 1: the batsman hit a boundary 15 times in 60 balls, so P(boundary) = 15 ÷ 60 = 1/4 = 0.25.
+Step 2: the question asks for **no** boundary, the opposite event. P(no boundary) = 1 − 0.25 = 0.75.
+The trap is option B (0.15): that is not the chance of anything in the question.
 
 >PYQ:2021 Q80
 **Q.** Find the probability that a non-leap year has 53 Sundays:
 (A) 2/7  (B) 5/7  (C) 1/7  (D) 6/7
-**Answer: C.** 365 days = 52 weeks + 1 extra day. That day must be a Sunday: 1/7.
+**Answer: C.**
+Step 1: a non-leap year has 365 days. 365 ÷ 7 = 52 weeks and 1 day left over (52 × 7 = 364).
+Step 2: the 52 full weeks contain exactly 52 Sundays. So the year has 53 Sundays only if the 1 extra day is a Sunday.
+Step 3: the extra day can be any one of the 7 weekdays, all equally likely. So the probability is 1/7. (In a leap year there are 2 extra days, which gives 2/7.)
 
 >PYQ:2021 Q81
 **Q.** If a number is selected from numbers 1 to 25, then find the probability that it is a prime number:
 (A) 3/5  (B) 1/5  (C) 7/25  (D) 9/25
-**Answer: D.** Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23 = 9. So 9/25.
+**Answer: D.**
+Step 1: the numbers 1 to 25 are 25 outcomes.
+Step 2: list the primes (numbers with only two factors, 1 and themselves): 2, 3, 5, 7, 11, 13, 17, 19, 23. Count them: 9. The number 1 is not prime.
+Step 3: probability = 9 ÷ 25.
 
 >PYQ:2021 Q84
 **Q.** A bag contains 3 green, 4 blue and 2 orange marbles. If a marble is picked at random then find the probability of not getting an orange marble:
 (A) 4/9  (B) 7/9  (C) 1/4  (D) 1/3
-**Answer: B.** 9 marbles in all; not orange = 3 + 4 = 7. So 7/9.
+**Answer: B.**
+Step 1: total marbles = 3 green + 4 blue + 2 orange = 9.
+Step 2: the question asks for **not orange**. Count the non-orange marbles: 3 + 4 = 7.
+Step 3: probability = 7 ÷ 9. (Same by the opposite: 1 − 2/9 = 7/9.)
 
 >PYQ:2021 Q85
 **Q.** If x is any number chosen from 1, 2, 3 and y is selected from the numbers 1, 4, 9, then P(xy < 9) = ?
 (A) 2/3  (B) 5/9  (C) 7/9  (D) 1/3
-**Answer: B.** 9 pairs in all. Products below 9: (1,1), (1,4), (2,1), (2,4), (3,1) = 5 pairs. So 5/9.
+**Answer: B.**
+Step 1: x has 3 choices and y has 3 choices, so there are 3 × 3 = 9 pairs, all equally likely.
+Step 2: write each product xy: with x = 1: 1, 4, 9. With x = 2: 2, 8, 18. With x = 3: 3, 12, 27.
+Step 3: products below 9 (strictly less, so 9 itself does not count): 1, 4, 2, 8, 3. That is 5 pairs.
+Step 4: probability = 5 ÷ 9.
 
 >PYQ:2021 Q89
 **Q.** A single letter is drawn at random from the word "ASPIRATION", the probability that it is a vowel is:
 (A) 1/2  (B) 1/3  (C) 1/4  (D) 0
-**Answer: A.** 10 letters; vowels A, I, A, I, O = 5. So 5/10 = 1/2.
+**Answer: A.**
+Step 1: write ASPIRATION letter by letter: A, S, P, I, R, A, T, I, O, N. That is 10 letters.
+Step 2: the vowels are A, I, A, I, O. That is 5.
+Step 3: probability = 5 ÷ 10 = 1/2.
 
 >NEXT:Likely next: tap to check yourself
 ?? A number is chosen from 1 to 30. P(multiple of 5)? || 5, 10, 15, 20, 25, 30 = 6. So 6/30 = 1/5.
@@ -148,26 +178,41 @@ The "ways for each total" pattern, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, is worth lea
 >PYQ:2018 Q80
 **Q.** Two dice are thrown. Find the probability of getting a sum of 6:
 (A) 5/36  (B) 1/36  (C) 1/6  (D) None of these
-**Answer: A.** (1,5) (2,4) (3,3) (4,2) (5,1) = 5 outcomes of 36.
+**Answer: A.**
+Step 1: two dice give 6 × 6 = 36 outcomes, all equally likely.
+Step 2: list the pairs (first die, second die) that add to 6: (1,5), (2,4), (3,3), (4,2), (5,1). That is 5 pairs. Note that (1,5) and (5,1) are different outcomes.
+Step 3: probability = 5 ÷ 36. Option D, "None of these", is not needed.
 
 >PYQ:2018 Q81
 **Q.** Three coins are tossed. Find the probability of all heads:
 (A) 1/8  (B) 3/8  (C) 5/8  (D) 7/8
-**Answer: A.** Only HHH of the 8 outcomes: 1/8.
+**Answer: A.**
+Step 1: each coin can land H or T, so three coins give 2 × 2 × 2 = 8 outcomes.
+Step 2: all heads is the single outcome HHH.
+Step 3: probability = 1 ÷ 8.
 
 >PYQ:2018 Q92
 **Q.** Two dice are thrown simultaneously. The probability of getting a total score of 5 is:
-**Answer: 1/9.** (1,4) (2,3) (3,2) (4,1) = 4 of 36 = 1/9.
+**Answer: 1/9.**
+Step 1: two dice give 36 outcomes.
+Step 2: pairs with total 5: (1,4), (2,3), (3,2), (4,1). That is 4 pairs.
+Step 3: probability = 4 ÷ 36 = 1/9 (divide top and bottom by 4).
 
 >PYQ:2021 Q90
 **Q.** If 4 coins are tossed once then what is the probability of getting exactly 2 heads?
 (A) 7/8  (B) 5/8  (C) 1/2  (D) 3/8
-**Answer: D.** 4 coins have 16 outcomes; exactly 2 heads can happen in 4C2 = 6 ways. 6/16 = 3/8.
+**Answer: D.**
+Step 1: four coins give 2 × 2 × 2 × 2 = 16 outcomes.
+Step 2: count the ways to get exactly 2 heads. We must choose which 2 of the 4 coins show heads: 4C2 = (4 × 3) ÷ (2 × 1) = 6. (Listed: HHTT, HTHT, HTTH, THHT, THTH, TTHH.)
+Step 3: probability = 6 ÷ 16 = 3/8.
 
 >PYQ:2021 Q92
 **Q.** Find the probability of getting a number greater than 3 in rolling of a dice once:
 (A) 1/2  (B) 1/3  (C) 1/4  (D) 1/5
-**Answer: A.** The numbers 4, 5, 6: 3 of 6 = 1/2.
+**Answer: A.**
+Step 1: a die has 6 faces, so 6 outcomes.
+Step 2: greater than 3 means 4, 5 or 6 (3 itself is not greater than 3). That is 3 outcomes.
+Step 3: probability = 3 ÷ 6 = 1/2.
 
 >NEXT:Likely next: tap to check yourself
 ?? Two dice are thrown. P(total 8)? || (2,6) (3,5) (4,4) (5,3) (6,2) = 5/36.
@@ -227,16 +272,27 @@ A pack has **52 cards**: 4 suits (spades and clubs are black, hearts and diamond
 
 >PYQ:2018 Q91
 **Q.** A bag contains 5 brown and 4 white socks. A man pulls out two socks. The probability that they are of the same colour is:
-**Answer: 4/9.** Total ways 9C2 = 36. Both brown 5C2 = 10, both white 4C2 = 6. (10 + 6) ÷ 36 = 16/36 = 4/9.
+**Answer: 4/9.**
+Step 1: 9 socks in all (5 + 4). Choosing 2 of them in any order: 9C2 = (9 × 8) ÷ 2 = 36 ways.
+Step 2: same colour can happen in two separate ways. Both brown: choose 2 of 5, 5C2 = (5 × 4) ÷ 2 = 10. Both white: choose 2 of 4, 4C2 = (4 × 3) ÷ 2 = 6.
+Step 3: "both brown **or** both white" means we add the cases: 10 + 6 = 16.
+Step 4: probability = 16 ÷ 36 = 4/9.
 
 >PYQ:2018 Q93
 **Q.** A bag contains 8 red and 6 blue balls. If 5 balls are drawn at random, what is the probability that 3 are red and 2 are blue?
-**Answer: 60/143 (option A).** Total 14C5 = 2,002. Favourable 8C3 × 6C2 = 56 × 15 = 840. 840/2,002 = 60/143.
+**Answer: 60/143 (option A).**
+Step 1: 14 balls in all (8 + 6). Choosing 5 of them: 14C5 = (14 × 13 × 12 × 11 × 10) ÷ (5 × 4 × 3 × 2 × 1) = 240,240 ÷ 120 = 2,002.
+Step 2: we need 3 red **and** 2 blue. Choose 3 of the 8 red: 8C3 = (8 × 7 × 6) ÷ 6 = 56. Choose 2 of the 6 blue: 6C2 = (6 × 5) ÷ 2 = 15.
+Step 3: the two choices happen together, so we multiply: 56 × 15 = 840.
+Step 4: probability = 840 ÷ 2,002. Divide both by 14: 60 ÷ 143.
 
 >PYQ:2025 Q88
 **Q.** In how many ways can a cricket eleven be chosen out of a batch of 15 players?
 (A) 1365  (B) 1400  (C) 1465  (D) 1395
-**Answer: A.** 15C11 = 15C4 = (15 × 14 × 13 × 12) ÷ 24 = 1,365.
+**Answer: A.**
+Step 1: a team is chosen, so the order does not matter. This is a combination: 15C11.
+Step 2: choosing 11 to play is the same as choosing 4 to leave out, so 15C11 = 15C4.
+Step 3: 15C4 = (15 × 14 × 13 × 12) ÷ (4 × 3 × 2 × 1) = 32,760 ÷ 24 = 1,365.
 
 >NEXT:Likely next: tap to check yourself
 ?? A bag has 6 red and 4 green balls. Two are drawn. P(both green)? || 4C2 ÷ 10C2 = 6 ÷ 45 = 2/15.
@@ -294,12 +350,20 @@ If instead they are mutually exclusive: P(A or B) = 0.4 + 0.5 = 0.9 and P(A and 
 
 >PYQ:2018 Q90
 **Q.** A and B are two events such that P(A) = 0.3 and P(A ∪ B) = 0.8. If A and B are independent then P(B) is:
-**Answer: 5/7.** 0.8 = 0.3 + p − 0.3p, so 0.7p = 0.5 and p = 5/7.
+**Answer: 5/7.**
+Step 1: let P(B) = p. For independent events P(A and B) = P(A) × P(B) = 0.3p.
+Step 2: use the addition rule P(A or B) = P(A) + P(B) − P(A and B): 0.8 = 0.3 + p − 0.3p.
+Step 3: 0.8 − 0.3 = p(1 − 0.3), so 0.5 = 0.7p.
+Step 4: p = 0.5 ÷ 0.7 = 5/7.
 
 >PYQ:2021 Q91
 **Q.** A and B are two independent events such that P(A ∪ B′) = 0.8, and P(A) = 0.3, then P(B) = ?
 (A) 2/7  (B) 2/3  (C) 3/8  (D) 1/8
-**Answer: A.** With q = P(B′): 0.3 + 0.7q = 0.8, so q = 5/7. P(B) = 1 − 5/7 = 2/7.
+**Answer: A.**
+Step 1: if A and B are independent, then A and B′ (B not) are also independent. Let q = P(B′).
+Step 2: P(A or B′) = P(A) + q − P(A) × q = 0.3 + q − 0.3q = 0.3 + 0.7q.
+Step 3: 0.3 + 0.7q = 0.8, so 0.7q = 0.5 and q = 5/7.
+Step 4: the question asks for P(B), not P(B′): P(B) = 1 − 5/7 = 2/7. (Option B, 2/3, is a trap.)
 
 >NEXT:Likely next: tap to check yourself
 ?? A and B are independent, P(A) = 0.2, P(B) = 0.5. Find P(A or B). || 0.2 + 0.5 − 0.1 = 0.6.
