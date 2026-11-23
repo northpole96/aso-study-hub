@@ -1,0 +1,175 @@
+#CH st-median | Median, mode and quartiles | STATISTICS · 2018 Q97 Q98 Q100 · 2021 Q100
+The mean is not the only "middle". Two more are asked, and each has its own job.
+
+- The **median** is the middle item when the list is put in order.
+- The **mode** is the item that occurs **most often**.
+- A **quartile** cuts the ordered list into four equal parts. **Q1** (lower quartile) has a quarter of the items below it. **Q3** (upper quartile) has a quarter above it. The median is Q2.
+
+@@fig central
+
+##Finding the median
+- Step 1: **arrange the numbers in order**, smallest to largest. Skipping this is the one common mistake.
+- Step 2: if the count is **odd**, the median is the middle item, the ((n + 1) ÷ 2)th one.
+- Step 3: if the count is **even**, there are two middle items. Take their average.
+
+Examples:
+- 7, 3, 9, 5, 11 → in order 3, 5, 7, 9, 11. Five items, the 3rd is the middle: **7**.
+- 4, 8, 6, 10 → in order 4, 6, 8, 10. Four items, the middle two are 6 and 8: median = (6 + 8) ÷ 2 = **7**.
+
+##Finding the mode
+Count how often each value occurs. The most frequent one is the mode. In 2, 3, 3, 5, 7, 8, 14 the mode is **3**. A list can have two modes (2, 2, 5, 5, 9) or no mode (all different).
+
+##When to use which
+The figure above shows why there are three measures. The big item 14 pulls the **mean** up to 6, but the **median** (5) and the **mode** (3) do not move. So for things with a few huge values, like house prices or salaries, the median describes the "typical" better than the mean.
+
+>KEY:The link between the three
+For a roughly smooth, one-humped spread: **Mode = 3 × Median − 2 × Mean.** If the mean is 20 and the median is 21, the mode is 63 − 40 = **23**. You can use it to find any one of the three when the other two are given.
+
+##Quartiles ⟦2018 Q100⟧
+Find the lower quartile of 9, 11, 15, 19, 17, 13, 7.
+
+- Step 1: in order: 7, 9, 11, 13, 15, 17, 19. Seven items; the median is 13.
+- Step 2: the **lower half** is the items below the median: 7, 9, 11.
+- Step 3: Q1 is the median of that half: **9**. (The upper half is 15, 17, 19, so Q3 = 17.)
+- The **interquartile range** is Q3 − Q1 = 17 − 9 = 8.
+
+The shortcut formula gives the same: Q1 is the ((n + 1) ÷ 4)th item = the 8 ÷ 4 = 2nd item = 9. ✓ The 2018 question printed the word "range" but its options are single values, so the key 9 fits. ⟨CHECK⟩
+
+>NEXT:Likely next: tap to check yourself
+?? Median of 17, 5, 12, 9, 21, 3? || In order 3, 5, 9, 12, 17, 21. Middle two are 9 and 12, so (9 + 12) ÷ 2 = 10.5.
+?? Mean 17, median 18. Find the mode. || 3 × 18 − 2 × 17 = 54 − 34 = 20.
+?? Mode of 3, 5, 5, 7, 7, 7, 9, 9? || 7 occurs three times.
+?? Upper quartile of 7, 9, 11, 13, 15, 17, 19? || Upper half is 15, 17, 19, so Q3 = 17.
+?? Range of 9, 11, 15, 19, 17, 13, 7? || Largest − smallest = 19 − 7 = 12.
+
+#CH st-group | Grouped data: mean, median and mode from a table | STATISTICS · 2021 Q100 · 2018 Q97 Q98
+When there are many numbers, they are shown in a **frequency table**. Instead of listing 100 marks we write how many students fall in each band. New words:
+
+- A **class** (or **class interval**) is one band, like 20–30.
+- The **frequency** (f) is how many items fall in that class.
+- The **class width** (h) is the band's size: 30 − 20 = 10.
+- The **class mark** (x) is the middle of the class: for 20–30 it is 25.
+- The **cumulative frequency** (cf) is the running total of frequencies.
+- **N** is the total of all the frequencies.
+
+The question we will work all through (⟦2021 Q100⟧):
+
+|Class|0–10|10–20|20–30|30–40|40–50|
+|---|---|---|---|---|---|
+|Frequency f|8|16|36|34|6|
+|Cumulative cf|8|24|60|94|100|
+
+N = 8 + 16 + 36 + 34 + 6 = 100.
+
+@@fig bars
+
+##The median of grouped data
+- Step 1: find N ÷ 2 = 50.
+- Step 2: look down the cumulative column for the **first cf that is 50 or more**. That is 60, so the **median class is 20–30**.
+- Step 3: use the formula.
+
+>KEY:Median (grouped)
+**Median = L + [(N/2 − cf) ÷ f] × h.** Here L is the lower limit of the median class (20), cf is the cumulative frequency of the class **before** it (24), f is the frequency of the median class (36), and h is the class width (10).
+
+Median = 20 + [(50 − 24) ÷ 36] × 10 = 20 + 7.22 = **27.22**. That is option A of the 2021 paper. The idea: we need 50 items, the classes before this one gave only 24, so we take 26 more out of the 36 in the median class, and 26/36 of the way along its width.
+
+##The mean of grouped data
+Take every item in a class to be at its class mark. The class marks here are 5, 15, 25, 35, 45.
+
+- Multiply each class mark by its frequency: 40, 240, 900, 1,190, 270. Total Σfx = 2,640.
+- Mean = Σfx ÷ N = 2,640 ÷ 100 = **26.4**.
+
+A shorter way (the **assumed mean** method) is useful when the numbers are big. Pick a middle class mark as the guess A = 25. Work with the deviations d = x − 25: −20, −10, 0, 10, 20. Then fd = −160, −160, 0, 340, 120, total 140. Mean = A + Σfd ÷ N = 25 + 1.4 = **26.4**. Same answer.
+
+##The mode of grouped data
+The **modal class** is the class with the highest frequency: 20–30 (f = 36). Its neighbours have frequency 16 (before) and 34 (after).
+
+>KEY:Mode (grouped)
+**Mode = L + [(f1 − f0) ÷ (2f1 − f0 − f2)] × h.** Here f1 is the modal class frequency (36), f0 is the one before it (16), f2 is the one after it (34).
+
+Mode = 20 + [(36 − 16) ÷ (72 − 16 − 34)] × 10 = 20 + (20 ÷ 22) × 10 = **29.09**. Check with the link from the last chapter: 3 × 27.22 − 2 × 26.4 = 28.86, close to 29.09, as it should be.
+
+>WARN:Traps in grouped questions
+- If the table is given as 10–19, 20–29, 30–39, the gaps hide the real limits. Subtract 0.5 from every lower limit and add 0.5 to every upper limit before using L. (So 20–29 becomes 19.5–29.5.)
+- cf in the median formula is the one **before** the median class, not the one at it.
+- The 2018 Q97 (median) and Q98 (mode) questions lost their tables in the OCR, so their keys cannot be checked. The method above is how they were built. ⟨CHECK⟩
+
+>NEXT:Likely next: tap to check yourself
+?? Same table: which class is the median class if N = 100 and cf = 8, 24, 60, 94, 100? || N/2 = 50. The first cf that is 50 or more is 60, so 20–30.
+?? Classes 0–10, 10–20, 20–30 with f = 5, 10, 5. Mean? || Marks 5, 15, 25. Σfx = 25 + 150 + 125 = 300. N = 20. Mean = 15.
+?? Classes 0–10, 10–20, 20–30 with f = 5, 10, 5. Median? || N/2 = 10. cf = 5, 15, 20. Median class 10–20. 10 + [(10 − 5) ÷ 10] × 10 = 15.
+?? Modal class of the 2021 table? || The class with the highest frequency, 20–30.
+?? A table gives mean 26.4 and median 27.22. About what is the mode? || 3 × 27.22 − 2 × 26.4 = 28.86.
+
+#CH st-gm | Geometric mean, harmonic mean | STATISTICS · 2018 Q94 · 2021 Q94
+The ordinary mean **adds**. Two other means are asked, and both are used when the numbers are connected by multiplying or by rates. The question slot for these was Q94 in both papers.
+
+##Geometric mean (GM)
+**Multiply** the n numbers and take the nth root.
+
+>KEY:Geometric mean
+**GM = the nth root of (x1 × x2 × … × xn).** For two numbers it is √(a × b).
+
+- ⟦2021 Q94⟧ GM of 4 and 16: √(4 × 16) = √64 = **8**.
+- GM of 2 and 8 is √16 = 4. GM of 2, 4, 8 is the cube root of 64 = **4**.
+- Notice that the GM of two numbers is always in the middle of them in a multiplying sense: 4 × 2 = 8 and 8 × 2 = 16. A GM question therefore usually has numbers that make a clean square or cube.
+
+##The long one: powers of 3 ⟦2018 Q94⟧
+Find the GM of 3, 3², 3³, …, 3ⁿ.
+
+- Step 1: multiply: the powers add up. 3¹ × 3² × … × 3ⁿ = 3^(1 + 2 + … + n) = 3^(n(n + 1)/2).
+- Step 2: take the nth root, which divides the power by n: 3^((n + 1)/2).
+- Answer: **3^((n + 1)/2)**. The power is just the mean of 1, 2, …, n, which is (n + 1)/2. So the shortcut for any list of powers of one number is: **the GM is that number raised to the mean of the powers.**
+
+##Harmonic mean (HM)
+The HM is for **rates** (speed, price per item). It is the number of items divided by the sum of their reciprocals (1 ÷ each).
+
+>KEY:Harmonic mean
+**HM = n ÷ (1/x1 + 1/x2 + … + 1/xn).** For two numbers it is **2ab ÷ (a + b).**
+
+- HM of 40 and 60 = 2 × 40 × 60 ÷ 100 = **48**. This is why a trip at 40 km/h one way and 60 km/h back averages 48 km/h, not 50.
+- The three means always go in this order: **AM ≥ GM ≥ HM**. For 40 and 60: 50, 48.99, 48. For two numbers, **AM × HM = GM²**: 50 × 48 = 2,400 = 40 × 60. ✓
+
+>NEXT:Likely next: tap to check yourself
+?? GM of 9 and 25? || √225 = 15.
+?? GM of 2, 4, 8, 16, 32? || Powers 1 to 5, mean 3. GM = 2³ = 8.
+?? GM of 5 and 20? || √100 = 10.
+?? HM of 3 and 6? || 2 × 3 × 6 ÷ 9 = 4.
+?? AM of two numbers is 10 and GM is 8. What is the HM? || GM² = AM × HM, so HM = 64 ÷ 10 = 6.4.
+
+#CH st-spread | Spread: range, variance and standard deviation | STATISTICS · 2018 Q99 Q100 · 2021 Q97 Q99
+The mean tells where the middle is. **Spread** (also called **dispersion**) tells how far the numbers wander from it. Two classes can both average 50 marks, but one has everyone near 50 and the other has 20s and 80s.
+
+##The measures, from simplest
+- **Range** = largest − smallest. For 7, 9, 11, 13, 15, 17, 19 it is 12.
+- **Mean deviation** is the average of the deviations, ignoring minus signs. (We need to ignore them, because the true sum of deviations is always 0.)
+- **Variance** is the average of the **squared** deviations. Squaring removes the minus signs another way.
+- **Standard deviation (SD)** is the square root of the variance. It is back in the units of the data.
+
+>KEY:Variance and SD
+**Variance = (sum of (x − mean)²) ÷ n.** **SD = √variance.**
+
+##A worked example
+Data: 2, 4, 4, 4, 5, 5, 7, 9.
+
+- Step 1: the mean = 40 ÷ 8 = 5.
+- Step 2: deviations: −3, −1, −1, −1, 0, 0, 2, 4.
+- Step 3: square them: 9, 1, 1, 1, 0, 0, 4, 16. Total 32.
+- Step 4: variance = 32 ÷ 8 = 4. SD = √4 = **2**.
+
+##Variance of the first n natural numbers ⟦2018 Q99⟧
+The answer to learn is **(n² − 1) ÷ 12**. For 1, 2, 3, 4, 5: mean 3, squared deviations 4, 1, 0, 1, 4 = 10, variance 10 ÷ 5 = 2. And (25 − 1) ÷ 12 = 2. ✓ The SD is the square root of this, **√((n² − 1)/12)**. For 1 to 7 the variance is 48 ÷ 12 = 4 and the SD is 2.
+
+##What happens to the spread when the data changes
+- **Add the same number to every item:** the whole list slides along. The spread does not change. Variance and SD stay the same.
+- **Multiply every item by k:** the SD is multiplied by k, and the variance by **k²**.
+
+>TIP:Coefficient of variation
+**CV = (SD ÷ mean) × 100.** It lets you compare two lists of different sizes. A smaller CV means the list is steadier. A list with mean 50 and SD 5 has CV 10%.
+
+>NEXT:Likely next: tap to check yourself
+?? Variance of 1 to 9? || (81 − 1) ÷ 12 = 6.67. (In fractions, 20/3.)
+?? SD of 2, 4, 6, 8, 10? || Mean 6. Squares of deviations: 16, 4, 0, 4, 16 = 40. Variance 8. SD = √8 = 2.83.
+?? The SD of a list is 4. Every item is multiplied by 3 and then 10 is added. New SD? || 4 × 3 = 12. (Adding 10 changes nothing.)
+?? Variance of 5, 5, 5, 5? || 0. All items equal the mean.
+?? Mean deviation of 3, 5, 7? || Mean 5. Deviations 2, 0, 2 (ignore signs). Average = 4/3.
