@@ -30,6 +30,9 @@ css += """
 .chkn{font-style:italic;font-size:.85em;color:var(--warn)}
 .box.next .qas{margin-top:8px}
 .box.next details.qa p{background:var(--blue)}
+.box.pq{background:#fff;border:1px solid var(--blue);border-left:4px solid var(--blue)}
+.box.pq .box-t{color:var(--blue)}
+.box.pq p{margin:6px 0}
 .stats{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
 .hubbtn{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;text-decoration:none}
 .navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
@@ -157,12 +160,12 @@ while i < len(lines):
         t += "</tbody></table></div>"
         cur["parts"].append(t); words(t); continue
     if ln.startswith(">"):
-        m = re.match(r">(KEY|TIP|WARN|CHECK|NEXT):(.*)", ln)
+        m = re.match(r">(KEY|TIP|WARN|CHECK|NEXT|PYQ):(.*)", ln)
         kind, title = m.group(1).lower(), m.group(2).strip()
         i += 1; body = []
         while i < len(lines) and lines[i].strip():
             body.append(lines[i].rstrip()); i += 1
-        out = '<aside class="box %s"><p class="box-t">%s</p>' % ({"next": "next", "key": "key", "tip": "tip", "warn": "warn", "check": "check"}[kind], inline(title))
+        out = '<aside class="box %s"><p class="box-t">%s</p>' % ({"next": "next", "key": "key", "tip": "tip", "warn": "warn", "check": "check", "pyq": "pq"}[kind], inline(title))
         qa = [b for b in body if b.startswith("?? ")]
         if qa:
             out += '<div class="qas">' + "".join(

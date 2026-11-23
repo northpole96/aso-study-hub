@@ -22,7 +22,7 @@ If p is the probability that the event **happens** and q the probability that it
 ⟦2021 Q79⟧ A batsman hits a boundary 15 times in 60 balls. P(boundary) = 15 ÷ 60 = 0.25. P(no boundary) = 1 − 0.25 = **0.75**.
 
 ##Picking from a list
-- ⟦2018 Q84⟧ An even number from 1 to 100: 50 even numbers out of 100, **1/2**. (Options were lost in the OCR. ⟨CHECK⟩)
+- ⟦2018 Q84⟧ An even number from 1 to 100: 50 even numbers out of 100, **1/2**.
 - ⟦2021 Q81⟧ A prime from 1 to 25. Write the primes: 2, 3, 5, 7, 11, 13, 17, 19, 23. There are 9, so **9/25**. (Do not count 1; it is not prime.)
 - ⟦2021 Q84⟧ A bag has 3 green, 4 blue, 2 orange marbles (9 in all). Not orange: 3 + 4 = 7, so **7/9**.
 - ⟦2018 Q85⟧ An urn has 10 white, 15 red, 25 black (50 in all). White or red: 25 ÷ 50 = **1/2**.
@@ -46,6 +46,55 @@ x is chosen from 1, 2, 3 and y from 1, 4, 9. Find P(xy < 9). List every pair, 3 
 - "More than 3" on a die is 4, 5, 6 (not 3). "At least 3" includes 3.
 - If the question says "numbers from 1 to 25", count both ends.
 
+##Past questions of this chapter, word for word
+
+>PYQ:2018 Q79
+**Q.** For an event, if p is the probability of the happening of the event and q is the probability of not happening, then which of the following is true?
+(A) p > q  (B) p + q = 1  (C) p < q  (D) p + q = 0
+**Answer: B.** The event either happens or it does not, so the two chances add to 1.
+
+>PYQ:2018 Q84
+**Q.** Find the chance of picking an even number from the natural numbers 1 to 100:
+**Answer: 1/2.** There are 50 even numbers among the 100, so 50 ÷ 100.
+
+>PYQ:2018 Q85
+**Q.** An urn contains a thoroughly mixed set of 10 white, 15 red and 25 black marbles. Determine the probability of drawing a white or a red marble:
+**Answer: 1/2.** Total 10 + 15 + 25 = 50. White or red = 25. 25 ÷ 50 = 1/2.
+
+>PYQ:2018 Q89
+**Q.** A single letter is selected at random from the word PROBABILITY. The probability that it is a vowel is:
+**Answer: 4/11.** The word has 11 letters; the vowels are O, A, I, I = 4.
+
+>PYQ:2021 Q79
+**Q.** In a cricket match, a batsman hits a boundary 15 times out of 60 balls he plays. Find the probability that he didn't hit a boundary in next ball:
+(A) 0.75  (B) 0.15  (C) 0.60  (D) 0.18
+**Answer: A.** P(boundary) = 15/60 = 0.25. P(no boundary) = 1 − 0.25 = 0.75.
+
+>PYQ:2021 Q80
+**Q.** Find the probability that a non-leap year has 53 Sundays:
+(A) 2/7  (B) 5/7  (C) 1/7  (D) 6/7
+**Answer: C.** 365 days = 52 weeks + 1 extra day. That day must be a Sunday: 1/7.
+
+>PYQ:2021 Q81
+**Q.** If a number is selected from numbers 1 to 25, then find the probability that it is a prime number:
+(A) 3/5  (B) 1/5  (C) 7/25  (D) 9/25
+**Answer: D.** Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23 = 9. So 9/25.
+
+>PYQ:2021 Q84
+**Q.** A bag contains 3 green, 4 blue and 2 orange marbles. If a marble is picked at random then find the probability of not getting an orange marble:
+(A) 4/9  (B) 7/9  (C) 1/4  (D) 1/3
+**Answer: B.** 9 marbles in all; not orange = 3 + 4 = 7. So 7/9.
+
+>PYQ:2021 Q85
+**Q.** If x is any number chosen from 1, 2, 3 and y is selected from the numbers 1, 4, 9, then P(xy < 9) = ?
+(A) 2/3  (B) 5/9  (C) 7/9  (D) 1/3
+**Answer: B.** 9 pairs in all. Products below 9: (1,1), (1,4), (2,1), (2,4), (3,1) = 5 pairs. So 5/9.
+
+>PYQ:2021 Q89
+**Q.** A single letter is drawn at random from the word "ASPIRATION", the probability that it is a vowel is:
+(A) 1/2  (B) 1/3  (C) 1/4  (D) 0
+**Answer: A.** 10 letters; vowels A, I, A, I, O = 5. So 5/10 = 1/2.
+
 >NEXT:Likely next: tap to check yourself
 ?? A number is chosen from 1 to 30. P(multiple of 5)? || 5, 10, 15, 20, 25, 30 = 6. So 6/30 = 1/5.
 ?? A letter is picked from MATHEMATICS. P(it is M)? || Letters: M, A, T, H, E, M, A, T, I, C, S = 11. M appears twice: 2/11.
@@ -67,7 +116,7 @@ The number of ways to get a number of heads follows a pattern. For 4 coins (16 o
 
 So 4 coins, exactly 2 heads: **6/16 = 3/8** ⟦2021 Q90⟧. The ways come from "4 choose 2" = 6 (explained in chapter 3). For 3 coins the row is 1, 3, 3, 1.
 
-- ⟦2018 Q81⟧ Three coins, all heads: 1 way of 8 = **1/8**. (The question number is garbled in the OCR. ⟨CHECK⟩)
+- ⟦2018 Q81⟧ Three coins, all heads: 1 way of 8 = **1/8**.
 - Three coins, at least one head: 1 − P(no head) = 1 − 1/8 = **7/8**.
 - Three coins, exactly 2 heads: 3/8. At least 2 heads: (3 + 1)/8 = **1/2**.
 
@@ -93,6 +142,32 @@ The "ways for each total" pattern, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, is worth lea
 - (2,3) and (3,2) are **different** outcomes when two dice are thrown, so a total of 5 has 4 ways, not 2.
 - "Thrown together" or "thrown once" does not change the count. Still 36.
 - 2018 Q80 had "None of these" as option D, and 5/36 as A. Do not pick D by habit.
+
+##Past questions of this chapter, word for word
+
+>PYQ:2018 Q80
+**Q.** Two dice are thrown. Find the probability of getting a sum of 6:
+(A) 5/36  (B) 1/36  (C) 1/6  (D) None of these
+**Answer: A.** (1,5) (2,4) (3,3) (4,2) (5,1) = 5 outcomes of 36.
+
+>PYQ:2018 Q81
+**Q.** Three coins are tossed. Find the probability of all heads:
+(A) 1/8  (B) 3/8  (C) 5/8  (D) 7/8
+**Answer: A.** Only HHH of the 8 outcomes: 1/8.
+
+>PYQ:2018 Q92
+**Q.** Two dice are thrown simultaneously. The probability of getting a total score of 5 is:
+**Answer: 1/9.** (1,4) (2,3) (3,2) (4,1) = 4 of 36 = 1/9.
+
+>PYQ:2021 Q90
+**Q.** If 4 coins are tossed once then what is the probability of getting exactly 2 heads?
+(A) 7/8  (B) 5/8  (C) 1/2  (D) 3/8
+**Answer: D.** 4 coins have 16 outcomes; exactly 2 heads can happen in 4C2 = 6 ways. 6/16 = 3/8.
+
+>PYQ:2021 Q92
+**Q.** Find the probability of getting a number greater than 3 in rolling of a dice once:
+(A) 1/2  (B) 1/3  (C) 1/4  (D) 1/5
+**Answer: A.** The numbers 4, 5, 6: 3 of 6 = 1/2.
 
 >NEXT:Likely next: tap to check yourself
 ?? Two dice are thrown. P(total 8)? || (2,6) (3,5) (4,4) (5,3) (6,2) = 5/36.
@@ -148,6 +223,21 @@ A pack has **52 cards**: 4 suits (spades and clubs are black, hearts and diamond
 - One card drawn. P(a heart) = 13/52 = **1/4**. P(a king) = 4/52 = 1/13. P(a face card) = 12/52 = 3/13. P(a red card) = **1/2**.
 - P(a king **or** a heart) = (13 + 4 − 1) ÷ 52 = 16/52 = **4/13**. We take away 1 because the king of hearts was counted twice.
 
+##Past questions of this chapter, word for word
+
+>PYQ:2018 Q91
+**Q.** A bag contains 5 brown and 4 white socks. A man pulls out two socks. The probability that they are of the same colour is:
+**Answer: 4/9.** Total ways 9C2 = 36. Both brown 5C2 = 10, both white 4C2 = 6. (10 + 6) ÷ 36 = 16/36 = 4/9.
+
+>PYQ:2018 Q93
+**Q.** A bag contains 8 red and 6 blue balls. If 5 balls are drawn at random, what is the probability that 3 are red and 2 are blue?
+**Answer: 60/143 (option A).** Total 14C5 = 2,002. Favourable 8C3 × 6C2 = 56 × 15 = 840. 840/2,002 = 60/143.
+
+>PYQ:2025 Q88
+**Q.** In how many ways can a cricket eleven be chosen out of a batch of 15 players?
+(A) 1365  (B) 1400  (C) 1465  (D) 1395
+**Answer: A.** 15C11 = 15C4 = (15 × 14 × 13 × 12) ÷ 24 = 1,365.
+
 >NEXT:Likely next: tap to check yourself
 ?? A bag has 6 red and 4 green balls. Two are drawn. P(both green)? || 4C2 ÷ 10C2 = 6 ÷ 45 = 2/15.
 ?? A bag has 4 red, 3 white, 2 black balls. Two are drawn. P(both different colour)? || 1 − P(same). Same: 6 + 3 + 1 = 10 out of 36. So 1 − 10/36 = 26/36 = 13/18.
@@ -199,6 +289,17 @@ If instead they are mutually exclusive: P(A or B) = 0.4 + 0.5 = 0.9 and P(A and 
 
 >WARN:Do not mix them up
 **Independent** and **mutually exclusive** are different. Independent events can both happen (P(A and B) is not 0). Mutually exclusive events can never both happen. If two events with non-zero probabilities are mutually exclusive, they are **not** independent.
+
+##Past questions of this chapter, word for word
+
+>PYQ:2018 Q90
+**Q.** A and B are two events such that P(A) = 0.3 and P(A ∪ B) = 0.8. If A and B are independent then P(B) is:
+**Answer: 5/7.** 0.8 = 0.3 + p − 0.3p, so 0.7p = 0.5 and p = 5/7.
+
+>PYQ:2021 Q91
+**Q.** A and B are two independent events such that P(A ∪ B′) = 0.8, and P(A) = 0.3, then P(B) = ?
+(A) 2/7  (B) 2/3  (C) 3/8  (D) 1/8
+**Answer: A.** With q = P(B′): 0.3 + 0.7q = 0.8, so q = 5/7. P(B) = 1 − 5/7 = 2/7.
 
 >NEXT:Likely next: tap to check yourself
 ?? A and B are independent, P(A) = 0.2, P(B) = 0.5. Find P(A or B). || 0.2 + 0.5 − 0.1 = 0.6.
