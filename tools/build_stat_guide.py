@@ -226,7 +226,7 @@ head = """<!doctype html>
 <nav id="nav">%s</nav>
 <div class="chap" id="chap"><div class="chap-k">Now reading</div><div class="chap-n" id="chapN">Start here</div><div class="chap-bar"><i id="chapBar"></i></div><div class="chap-m"><span><b id="chapPct">0%%</b></span><span id="chapMin"></span></div></div></div>
 <main><div class="col">
-<header class="mast"><h1>Statistics &amp; Probability</h1><p class="tag">Paper II (B) Mathematics,<br><b>every type, every trap</b>, set to<br>the 2018 and 2021 papers.</p></header>
+<header class="mast"><h1>Statistics + Probability</h1><p class="tag">Paper II (B) Mathematics,<br><b>every type, every trap</b>, set to<br>the 2018 and 2021 papers.</p></header>
 <div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
 <div class="stats"><span class="count">%d chapters</span><span class="count">about %s words</span><span class="count">every question of 2018 and 2021</span></div>
 <div class="toc"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>%d</span> chapters</span></div><ol class="toclist">%s</ol></div>
