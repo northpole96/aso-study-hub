@@ -7,12 +7,12 @@ Both blocks are easy marks for one reason: the questions repeat. In both years t
 
 |Block|2018|2021|2025|
 |---|---|---|---|
-|Probability|10 questions|9 questions|Q88 (counting)|
-|Average (mean)|Q95, Q96|Q95, Q96, Q98|Q68|
-|Geometric mean|Q94|Q94|none|
-|Deviations from the mean|none|Q97, Q99|none|
-|Median, mode, quartile|Q97, Q98, Q100|Q100|none|
-|Spread (variance)|Q99|none|none|
+|Probability|10|9|1 (counting)|
+|Average (mean)|2|3|1|
+|Geometric mean|1|1|none|
+|Deviations from the mean|none|2|none|
+|Median, mode, quartile|3|1|none|
+|Spread (variance)|1|none|none|
 
 ##How the guide goes
 Chapters 1 to 4 are probability, the part to study first. Chapters 5 to 9 are statistics. Chapter 10 is a one-page sheet and a list of what is likely to come next. Every chapter starts with the words you need, then the rule with its reason, then worked examples (do each one on rough paper before you read the working), and ends with likely-next questions that you open by tapping.
