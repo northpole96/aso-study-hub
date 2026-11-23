@@ -1,0 +1,199 @@
+#CH ns-divide | Divisibility: test a number without dividing | NUMBER SYSTEM · 2025 Q100
+The number system is the biggest arithmetic group left: about **21 weighted questions** across the three papers, more than any other family. It has four parts: divisibility, remainders, HCF and LCM, and decimals. They all rest on one idea: **what divides what, and what is left over**. This chapter starts with the quickest tool, the divisibility tests. They tell you whether a number divides exactly without doing the division.
+
+##The tests you need
+|Divides by|Test|Example|
+|---|---|---|
+|2|last digit even|5,738 → 8 is even|
+|3|sum of digits divides by 3|5,412 → 5 + 4 + 1 + 2 = 12|
+|4|last two digits divide by 4|7,316 → 16|
+|5|last digit 0 or 5|4,635|
+|8|last three digits divide by 8|9,104 → 104 = 8 × 13|
+|9|sum of digits divides by 9|7,821 → 18|
+|10|last digit 0|3,450|
+|11|(sum of digits in odd places) − (sum in even places) is 0 or a multiple of 11|918,082 → (2 + 0 + 1) − (8 + 8 + 9) = −22|
+
+##Big divisors: split into co-prime parts
+To test 12, 15, 18, 36, 45, 72 or 90, split the divisor into two parts that share no factor (co-prime parts), and test both. **12 = 3 × 4**, 15 = 3 × 5, 18 = 2 × 9, 36 = 4 × 9, 45 = 5 × 9, **72 = 8 × 9**, **90 = 9 × 10**.
+
+The parts must be co-prime. 12 = 2 × 6 does not work: 18 divides by 2 and by 6, but not by 12.
+
+##The 2025 question: unknown digits
+**If the number 653xy is divisible by 90, then (x + y) = ?** ⟦2025 Q100⟧ 90 = 9 × 10. Divisible by 10 means y = 0. Divisible by 9 means the digit sum 6 + 5 + 3 + x + 0 = 14 + x is a multiple of 9, so x = 4. **x + y = 4.**
+
+The next angle is the same number with **72 = 8 × 9**. Then 3xy (the last three digits) must divide by 8, and 14 + x + y by 9, so x + y is 4 or 13. That gives two answers (65304 and 65376), so the examiner will add a hint such as "y = 4". With y = 4: 3x4 divides by 8 for x = 0, 4 or 8, and 18 + x divides by 9 for x = 0 or 9. Only **x = 0** passes both.
+
+>TIP:7, 11 and 13 together
+7 × 11 × 13 = **1001**. So any six-digit number made by writing a three-digit number twice (such as 386386 = 386 × 1001) divides by 7, 11 and 13.
+
+>NEXT:Likely next in this chapter
+?? If 85x47 is divisible by 11, what is x? || Odd places from the left: 8 + x + 7 = 15 + x. Even places: 5 + 4 = 9. The difference 6 + x must be 0 or 11, so x = 5 (85547 = 11 × 7777).
+?? If 7x52y is divisible by 45 and y = 5, what is x? || 45 = 5 × 9. y = 5 is fine for 5. Digit sum 7 + x + 5 + 2 + 5 = 19 + x must divide by 9, so x = 8.
+?? Is 2,345,678 divisible by 4? || Last two digits 78. 78 ÷ 4 leaves 2. No.
+
+#CH ns-rem | Remainders: least number to add or take away | NUMBER SYSTEM · 2025 Q56, Q70 · 2018 Q52 · 2021 Q82
+A remainder is what is left after division. Every number can be written as **number = divisor × quotient + remainder**, and the remainder is always smaller than the divisor. Four question types grow from this one line.
+
+##Least number to take away or add
+**What least number must be subtracted from 1672 to obtain a number which is completely divisible by 17?** ⟦2025 Q56⟧ 1672 = 17 × 98 + 6. Take away the remainder: **6**.
+
+To **add**, take the remainder from the divisor. 1672 needs 17 − 6 = **11** more to reach 1683 = 17 × 99.
+
+**What least number of five digits is exactly divisible by 41?** ⟦2018 Q52⟧ The smallest five-digit number is 10,000. 10,000 = 41 × 243 + 37, so add 41 − 37 = 4: **10,004**. For the **largest** four-digit number, start at 9,999 and take away the remainder: the largest four-digit multiple of 88 is 9,999 − 55 = **9,944**.
+
+##How many multiples between two numbers
+**How many natural numbers are there between 23 and 100 which are exactly divisible by 6?** ⟦2021 Q82⟧ The first is 24 and the last is 96. Count = (last − first) ÷ 6 + 1 = 72 ÷ 6 + 1 = **13**. The "+ 1" counts the first one; leaving it out is the classic trap.
+
+##Successive division
+**A number was divided successively in order by 4, 5 and 6. The remainders were respectively 2, 3 and 4. The number is:** ⟦2025 Q70⟧ "Successively" means: divide the number by 4, then divide the **quotient** by 5, then that quotient by 6.
+
+Work **backwards** from the last remainder. Start with 4 (the last remainder, taking the last quotient as 0). Multiply by the divisor before it and add its remainder: 4 × 5 + 3 = 23. Again: 23 × 4 + 2 = **94**. So 94 is the smallest such number. Every number 94 + 120k also works (120 = 4 × 5 × 6), which is why the 2025 answer was **214** = 94 + 120. Check: 214 ÷ 4 = 53 r 2; 53 ÷ 5 = 10 r 3; 10 ÷ 6 = 1 r 4.
+
+@@fig succ
+
+##Using a remainder again
+A number divided by 899 leaves 63. What does it leave when divided by 29? Since 899 = 29 × 31, the number is (29 × 31 × q) + 63. The first part divides by 29, so the answer is 63 ÷ 29, which leaves **5**. This only works when the new divisor is a **factor** of the old one.
+
+##Last digit of a power
+The last digit of 7, 7², 7³, 7⁴ goes 7, 9, 3, 1 and then repeats every 4. To find the last digit of 7⁹⁵, divide the power by 4: 95 leaves 3, so the last digit is the 3rd in the cycle: **3**.
+
+|Last digit|Cycle|
+|---|---|
+|2|2, 4, 8, 6|
+|3|3, 9, 7, 1|
+|7|7, 9, 3, 1|
+|8|8, 4, 2, 6|
+|4|4, 6|
+|9|9, 1|
+|0, 1, 5, 6|always the same|
+
+If the power divides by 4 exactly, take the **4th** member of the cycle (2⁸ ends in 6, not 2).
+
+>NEXT:Likely next in this chapter
+?? Least number to be added to 3,000 to make it divisible by 19? || 3,000 = 19 × 157 + 17. Add 19 − 17 = 2.
+?? A number divided successively by 3 and 5 leaves 1 and 4. The least such number? || Backwards: 4 × 3 + 1 = 13. Check: 13 ÷ 3 = 4 r 1; 4 ÷ 5 = 0 r 4.
+?? Last digit of 3⁴⁰? || 40 divides by 4 exactly, so take the 4th in 3, 9, 7, 1: the last digit is 1.
+
+#CH ns-hcf | HCF and LCM | NUMBER SYSTEM · 2025 Q61, Q79, Q84 · 2018 Q53, Q82 · 2021 Q52, Q53
+The **HCF** (highest common factor) is the biggest number that divides all the given numbers. The **LCM** (lowest common multiple) is the smallest number that all of them divide. The key to every question is to decide which one is asked. **"Largest measure", "greatest number that divides", "biggest size" → HCF. "Together again", "least number divisible by", "smallest number" → LCM.**
+
+##Finding them with prime factors
+Write each number as a product of prime powers. **HCF takes the lowest power** of each common prime; **LCM takes the highest power** of every prime.
+
+@@fig hcflcm
+
+For two numbers only: **HCF × LCM = first × second**. Check: 12 × 144 = 1728 = 36 × 48. This rule does **not** work for three numbers.
+
+##"Together again": LCM
+**Four devices beep every 30 minutes, 1 hour, 1½ hours and 1 hour 45 minutes. All beeped together at 12 noon. They will again beep together at:** ⟦2025 Q61⟧ Change everything to minutes: 30, 60, 90 and 105. LCM = 2² × 3² × 5 × 7 = 1260 minutes = 21 hours. 12 noon + 21 hours = **9 a.m.**
+
+##"Largest measure": HCF
+**Three containers hold 496, 403 and 713 litres. What biggest measure can measure all of them exactly?** ⟦2025 Q84⟧ 496 = 31 × 16, 403 = 31 × 13, 713 = 31 × 23. The HCF is **31 litres**. The twist the examiner may add: "how many such measures are needed in all?" 16 + 13 + 23 = 52.
+
+##Numbers from a ratio
+**Two numbers are in the ratio 15 : 11 and their HCF is 13. The numbers are:** ⟦2025 Q79⟧ Write them as 15x and 11x; since 15 and 11 share no factor, the HCF is x = 13. The numbers are **195 and 143**. If the LCM is given instead: for 4 : 5 with LCM 180, the LCM is 4 × 5 × x = 20x = 180, so x = 9 and the numbers are 36 and 45.
+
+##Remainder questions with HCF and LCM
+|The question says|Answer|Example|
+|---|---|---|
+|least number that leaves the **same remainder r** when divided by a, b, c|LCM + r|by 6, 9, 15 leaving 4: 90 + 4 = 94|
+|least number that leaves remainders **each k less** than the divisors|LCM − k|by 4, 5, 6 leaving 3, 4, 5: 60 − 1 = 59|
+|largest number that divides a, b, c leaving the **same remainder**|HCF of the differences|43, 91, 183 → HCF(48, 92) = 4|
+|largest number that divides a and b leaving remainders p and q|HCF(a − p, b − q)|1657 and 2037 leaving 6 and 5 → HCF(1651, 2032) = 127|
+|least number to **add** so a number divides by a, b, c|LCM − remainder|2497 by 3, 4, 5, 6: LCM 60, 2497 leaves 37, add **23** ⟦2018 Q82⟧|
+|smallest 3-digit number divisible by a and b|first 3-digit multiple of the LCM|6 and 12: LCM 12, so **108** ⟦2021 Q52⟧|
+
+##HCF and LCM of fractions
+**HCF of fractions = HCF of the tops ÷ LCM of the bottoms. LCM of fractions = LCM of the tops ÷ HCF of the bottoms.** Write each fraction in its lowest terms first.
+
+**What is the HCF of 1/5, 2/7 and 3/11?** ⟦2021 Q53⟧ HCF(1, 2, 3) = 1; LCM(5, 7, 11) = 385. The HCF is **1/385**. 2018 asked the same with 9/10, 12/25, 18/35 and 21/40: HCF(9, 12, 18, 21) = 3 and LCM(10, 25, 35, 40) = 1400, so **3/1400**. ⟦2018 Q53⟧
+
+>WARN:HCF or LCM?
+The most common mistake is to pick the wrong one. Ask yourself: is the answer **bigger** than the given numbers (LCM: a time, a total) or **smaller** (HCF: a size, a measure)? The HCF can never be bigger than the smallest number, and the LCM can never be smaller than the biggest.
+
+>NEXT:Likely next in this chapter
+?? Bells toll every 9, 12 and 15 seconds and start together. How many times do they toll together in 30 minutes, counting the start? || LCM = 180 s = 3 minutes. 30 ÷ 3 = 10, plus the start: 11 times.
+?? HCF is 12, LCM is 336 and one number is 48. The other? || 12 × 336 ÷ 48 = 84.
+?? LCM of 2/3, 4/9 and 5/6? || LCM(2, 4, 5) = 20; HCF(3, 9, 6) = 3. Answer 20/3.
+
+#CH ns-props | Number facts: consecutive numbers, digits and factors | NUMBER SYSTEM · 2021 Q93 = 2025 Q71
+Some questions test what you know about numbers themselves: consecutive numbers, the digits of a two-digit number, and how many factors a number has. The examiner repeated one of these **word for word**, so it is worth learning the shortcut.
+
+##Consecutive numbers and the difference of squares
+**What is the sum of two consecutive even numbers, the difference of whose squares is 84?** ⟦2021 Q93⟧ ⟦2025 Q71⟧ The long way: (n + 2)² − n² = 4n + 4 = 84, so n = 20, the numbers are 20 and 22, and the sum is **42**.
+
+The shortcut comes from a² − b² = (a + b)(a − b). For **consecutive** numbers the difference is 1, so the difference of squares **equals the sum**. For consecutive **even** or **odd** numbers the difference is 2, so the difference of squares is **twice the sum**. Here 84 ÷ 2 = 42 at once.
+
+- Three consecutive numbers (or even, or odd numbers) add up to **3 × the middle one**. Sum 138 of three consecutive even numbers: the middle is 46, so they are 44, 46, 48.
+- Sum of the first n natural numbers = n(n + 1) ÷ 2. Sum of the first n odd numbers = **n²**.
+
+##Two-digit numbers and their reverses
+A two-digit number with digits a and b is **10a + b**, not ab. Its reverse is 10b + a. So:
+- number − reverse = **9 × (a − b)**
+- number + reverse = **11 × (a + b)**
+
+Example: a number is 4 times the sum of its digits, and adding 27 reverses its digits. 10a + b = 4(a + b) gives b = 2a. Adding 27 reverses it, so 9(b − a) = 27 and b − a = 3. Then a = 3, b = 6, and the number is **36**.
+
+##How many factors
+Write the number as prime powers, add 1 to each power, and multiply. 72 = 2³ × 3², so it has (3 + 1)(2 + 1) = **12** factors: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72.
+
+>NEXT:Likely next in this chapter
+?? Two consecutive odd numbers; the difference of their squares is 64. The larger number? || Twice the sum is 64, so the sum is 32: the numbers are 15 and 17. Larger 17.
+?? The difference between a two-digit number and its reverse is 54. The difference of its digits? || 9 × (a − b) = 54, so 6.
+?? How many factors does 360 have? || 360 = 2³ × 3² × 5. (3 + 1)(2 + 1)(1 + 1) = 24.
+
+#CH ns-dec | Decimals, recurring decimals and roots | NUMBER SYSTEM · 2018 Q54, Q56 · 2021 Q54, Q56, Q63
+2018 and 2021 each opened the maths section with decimal questions: a product in standard form, a sum of recurring decimals and a square root. They are quick marks if you know three small rules.
+
+##Multiplying decimals: count the places
+Multiply the numbers as if there were no points, then put back as many decimal places as the two numbers had together.
+
+**0.04 × 0.0162 = ?** ⟦2018 Q54⟧ 4 × 162 = 648. Decimal places: 2 + 4 = 6, so 0.000648 = **6.48 × 10⁻⁴**. In 2021 it came again with new digits: 0.03 × 0.0165 = 0.000495 = **4.95 × 10⁻⁴** ⟦2021 Q54⟧. **Standard form** means one digit before the point, times a power of 10; count how many places the point moved to the right to get the negative power.
+
+##Recurring decimals to fractions
+A bar over digits means they repeat forever: 0.444… is written 0.4 with a bar.
+- **All digits repeat:** put the repeating digits over as many 9s. 0.444… = 4/9; 0.3737… = 37/99.
+- **Some digits do not repeat:** (all the digits − the non-repeating part) over as many 9s as repeating digits, followed by as many 0s as non-repeating digits. 0.3666… = (36 − 3)/90 = 33/90 = **11/30**.
+
+**0.6868… + 0.7373… = ?** ⟦2021 Q56⟧ 68/99 + 73/99 = 141/99 = 1 42/99 = **1.4242…** Add recurring decimals as fractions, never digit by digit.
+
+##Square roots of decimals
+Pair the decimal places. √1.5625: 15625 = 125², and 4 decimal places become 2, so **1.25** ⟦2021 Q63⟧. √0.000064: 64 = 8², and 6 places become 3: **0.008**. A decimal with an **odd** number of places is not a perfect square as it stands: √0.0009 = 0.03, but √0.009 is not a simple decimal.
+
+>TIP:Fractions to know as decimals
+1/8 = 0.125 · 3/8 = 0.375 · 5/8 = 0.625 · 7/8 = 0.875 · 1/6 = 0.1666… · 1/12 = 0.0833… · 1/11 = 0.0909… · 1/7 = 0.142857 repeating.
+
+>NEXT:Likely next in this chapter
+?? 0.006 × 0.25 in standard form? || 6 × 25 = 150, with 3 + 2 = 5 places: 0.00150 = 1.5 × 10⁻³.
+?? 0.444… + 0.3737… = ? || 44/99 + 37/99 = 81/99 = 0.8181…
+?? √0.0169 = ? || 169 = 13², 4 places become 2: 0.13.
+
+#CH ns-sheet | One-page sheet and traps | NUMBER SYSTEM · revision
+Everything from the number-system chapters on one page.
+
+|Question says|Do this|
+|---|---|
+|divisible by 72, 90, 45…|split into co-prime parts (8 × 9, 9 × 10, 5 × 9) and test both|
+|least number to take away|the remainder|
+|least number to add|divisor − remainder|
+|how many multiples between|(last − first) ÷ divisor **+ 1**|
+|divided successively|work backwards: remainder × divisor before + its remainder|
+|last digit of a power|cycle of 4: power ÷ 4, use the remainder (0 → 4th)|
+|together again, least number divisible|LCM|
+|largest measure, greatest number that divides|HCF|
+|same remainder r|LCM + r|
+|remainders each k short|LCM − k|
+|largest divisor leaving the same remainder|HCF of the differences|
+|HCF / LCM of fractions|HCF tops ÷ LCM bottoms / LCM tops ÷ HCF bottoms|
+|two numbers: HCF × LCM|= their product|
+|consecutive even/odd, difference of squares D|sum = D ÷ 2|
+|number of factors|prime powers, add 1 to each, multiply|
+|recurring 0.ab…|ab/99; mixed: (all − non-repeating)/(9s then 0s)|
+
+>WARN:The traps
+- 12 = 2 × 6 is not a valid split; the parts must be co-prime (3 × 4).
+- In successive division the smallest answer may not be an option; add the product of the divisors (94 → 214).
+- "Between 23 and 100" counts from the first multiple inside, and the "+ 1" is easy to forget.
+- HCF × LCM = product works for **two** numbers only.
+- A two-digit number is 10a + b, not a × b.
+- If the power divides by 4, the last digit is the 4th in its cycle, not the first.

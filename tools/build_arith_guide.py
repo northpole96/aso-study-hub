@@ -97,9 +97,44 @@ def fig_avg():
     s += '<text class="lb" x="10" y="150">240 km ÷ 5 h = 48 km/h, not 50</text>'
     return s + "</svg>"
 
+def fig_succ():
+    s = '<svg viewBox="0 0 520 190" role="img" aria-label="Successive division by 4, 5 and 6, worked backwards from the last remainder">'
+    s += '<text class="ttl" x="10" y="18">DIVIDE BY 4, THEN 5, THEN 6 · REMAINDERS 2, 3, 4</text>'
+    rows = [("94", "÷ 4", "23", "r 2"), ("23", "÷ 5", "4", "r 3"), ("4", "÷ 6", "0", "r 4")]
+    for k, (a, d, q, r) in enumerate(rows):
+        y = 52 + k * 40
+        s += '<rect class="%s" x="30" y="%d" width="60" height="26"/>' % ("bl" if k == 0 else "ln", y - 18)
+        s += '<text class="%s" x="60" y="%d" text-anchor="middle">%s</text>' % ("lbrv" if k == 0 else "lb", y, a)
+        s += '<text class="lb" x="125" y="%d" text-anchor="middle">%s</text>' % (y, d)
+        s += '<path class="hz" d="M150 %d L200 %d"/>' % (y - 5, y - 5)
+        s += '<text class="lb" x="230" y="%d" text-anchor="middle">%s</text><text class="ttl" x="290" y="%d">%s</text>' % (y, q, y, r)
+        if k < 2: s += '<path class="dt" d="M230 %d L230 %d L60 %d L60 %d" fill="none"/>' % (y + 6, y + 12, y + 12, y + 22)
+    s += '<text class="lbs" x="330" y="52">BACKWARDS:</text>'
+    s += '<text class="lbs" x="330" y="76">4 × 5 + 3 = 23</text><text class="lbs" x="330" y="96">23 × 4 + 2 = 94</text>'
+    s += '<text class="lbs" x="330" y="124">then + 120 (= 4 × 5 × 6)</text><text class="lbs" x="330" y="144">94, 214, 334 …</text>'
+    s += '<text class="lbs" x="10" y="180">each quotient is divided by the next divisor</text>'
+    return s + "</svg>"
+
+def fig_hcflcm():
+    s = '<svg viewBox="0 0 520 190" role="img" aria-label="HCF takes the lowest power of each prime and LCM the highest">'
+    s += '<text class="ttl" x="10" y="18">36 AND 48 AS PRIME POWERS</text>'
+    s += '<text class="lb" x="150" y="48" text-anchor="middle">POWER OF 2</text><text class="lb" x="330" y="48" text-anchor="middle">POWER OF 3</text>'
+    data = [("36", "2²", "3²"), ("48", "2⁴", "3¹")]
+    for k, (n, a, b) in enumerate(data):
+        y = 80 + k * 34
+        s += '<text class="lb" x="20" y="%d">%s</text>' % (y, n)
+        s += '<rect class="ln" x="110" y="%d" width="80" height="24"/><text class="lb" x="150" y="%d" text-anchor="middle">%s</text>' % (y - 17, y, a)
+        s += '<rect class="ln" x="290" y="%d" width="80" height="24"/><text class="lb" x="330" y="%d" text-anchor="middle">%s</text>' % (y - 17, y, b)
+    s += '<line class="hz" x1="10" y1="134" x2="510" y2="134"/>'
+    s += '<text class="ttl" x="20" y="158">HCF</text><text class="lb" x="150" y="158" text-anchor="middle">lower: 2²</text><text class="lb" x="330" y="158" text-anchor="middle">lower: 3¹</text><text class="lb" x="500" y="158" text-anchor="end">= 12</text>'
+    s += '<text class="ttl" x="20" y="182">LCM</text><text class="lb" x="150" y="182" text-anchor="middle">higher: 2⁴</text><text class="lb" x="330" y="182" text-anchor="middle">higher: 3²</text><text class="lb" x="500" y="182" text-anchor="end">= 144</text>'
+    return s + "</svg>"
+
 FIGS = {"trains": lambda: fig("FIG_002", "WHAT A TRAIN COVERS", fig_trains(), "A pole has no length; a platform and another train add their lengths."),
         "boat": lambda: fig("FIG_003", "WITH AND AGAINST", fig_boat(), "The stream helps one way and hurts the other by the same amount."),
-        "avg": lambda: fig("FIG_001", "AVERAGE SPEED", fig_avg(), "Equal distances, unequal times: the slow part lasts longer.")}
+        "avg": lambda: fig("FIG_001", "AVERAGE SPEED", fig_avg(), "Equal distances, unequal times: the slow part lasts longer."),
+        "succ": lambda: fig("FIG_004", "SUCCESSIVE DIVISION", fig_succ(), "Work backwards from the last remainder; add the product of the divisors for the next answers."),
+        "hcflcm": lambda: fig("FIG_005", "HCF AND LCM", fig_hcflcm(), "HCF takes the lowest power of each common prime; LCM takes the highest power of every prime.")}
 
 # ---------------------------------------------------------------- inline
 def inline(t):
