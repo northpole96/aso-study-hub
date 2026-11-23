@@ -1,211 +1,267 @@
-#CH pr-words | Probability: the words and the one formula | PROBABILITY · 2018 Q79 Q84 Q89 · 2021 Q79 Q80 Q81 Q84 Q89
-Probability is the maths of chance. It gave 10 questions in 2018 and 9 in 2021, so it is the biggest block in this guide. Every one of them uses the same formula. The skill is counting correctly.
+#CH st-mean | Average (mean): the most asked statistics idea | STATISTICS · 2018 Q95 Q96 · 2021 Q95 Q96 Q98 · 2025 Q68
+We start with words, because the whole block is built from them.
 
-##The words
-- An **experiment** is something we do whose result is not fixed: toss a coin, throw a die, pick a marble from a bag.
-- An **outcome** is one possible result: heads, or the number 4, or the red marble.
-- The **sample space** is the list of **all** possible outcomes. Tossing one coin: {H, T}. Throwing one die: {1, 2, 3, 4, 5, 6}.
-- An **event** is the result we are interested in: "an even number", "a prime", "a vowel".
-- **Favourable outcomes** are the outcomes that make the event happen.
-- A **die** is the cube with 1 to 6 dots. More than one are **dice**.
-- All outcomes are taken as **equally likely** (the coin is fair, the die is fair, the pick is at random).
+- **Data** is just the list of numbers we are given: marks of five students, ages in a family, weights of boys.
+- A **variate** (or **observation**, or **item**) is one number of the list. If the list is 12, 15, 18, then 15 is one variate.
+- **Frequency** tells how many times a value occurs.
+- The **mean** (also called the **average**) is what each item would be if the total were shared equally.
 
->KEY:The formula
-**P(event) = number of favourable outcomes ÷ total number of outcomes.** Count both with care, then write the fraction.
+##The one formula
+Add all the items and divide by how many there are.
 
-##What the answer can be
-A probability is always between **0 and 1**. 0 means it cannot happen (a 7 on one die). 1 means it must happen (a number from 1 to 6 on one die). You can write it as a fraction, a decimal or a percentage. If you get 1.2 or −0.3, you have made a mistake.
+>KEY:Mean
+**Mean = total ÷ count.** The other way round, which you will use more: **total = mean × count.**
 
-##The event and its opposite ⟦2018 Q79⟧
-If p is the probability that the event **happens** and q the probability that it **does not**, then **p + q = 1**. This is the answer to 2018 Q79 (option B). It gives the commonest shortcut in probability: **P(not E) = 1 − P(E).**
+Example: marks 12, 15, 18, 20, 25. Total = 90. Count = 5. Mean = 90 ÷ 5 = **18**.
 
-⟦2021 Q79⟧ A batsman hits a boundary 15 times in 60 balls. P(boundary) = 15 ÷ 60 = 0.25. P(no boundary) = 1 − 0.25 = **0.75**.
+Nearly every exam question is solved by moving between the mean and the total. So the first habit is: **turn each average into a total.**
 
-##Picking from a list
-- ⟦2018 Q84⟧ An even number from 1 to 100: 50 even numbers out of 100, **1/2**. (Options were lost in the OCR. ⟨CHECK⟩)
-- ⟦2021 Q81⟧ A prime from 1 to 25. Write the primes: 2, 3, 5, 7, 11, 13, 17, 19, 23. There are 9, so **9/25**. (Do not count 1; it is not prime.)
-- ⟦2021 Q84⟧ A bag has 3 green, 4 blue, 2 orange marbles (9 in all). Not orange: 3 + 4 = 7, so **7/9**.
-- ⟦2018 Q85⟧ An urn has 10 white, 15 red, 25 black (50 in all). White or red: 25 ÷ 50 = **1/2**.
+##Type 1: one item is missing ⟦2018 Q96⟧
+The mean of 7 variates is 12. Six of them are 5, 13, 9, 17, 14 and 10. Find the 7th.
 
-##Picking a letter from a word ⟦2018 Q89⟧ ⟦2021 Q89⟧
-Write the letters down one by one and count them **with repeats**.
+- Step 1: turn the average into a total. 12 × 7 = 84.
+- Step 2: add the six known items: 5 + 13 + 9 + 17 + 14 + 10 = 68.
+- Step 3: the 7th item is what is left: 84 − 68 = **16**.
 
-- PROBABILITY: P, R, O, B, A, B, I, L, I, T, Y is 11 letters. Vowels (A, E, I, O, U): O, A, I, I = 4. Probability **4/11**.
-- ASPIRATION: A, S, P, I, R, A, T, I, O, N is 10 letters. Vowels: A, I, A, I, O = 5. Probability 5/10 = **1/2**.
+The OCR of the 2018 paper says "sum is 12", which cannot be true (the six items alone add to 68). It is the mean that is 12. ⟨CHECK⟩
 
-The trap is to count the repeated letters once. Count each letter place as one outcome.
+##Type 2: two groups joined into one ⟦2018 Q95⟧ ⟦2025 Q68⟧
+This is the one type that came in all three years. A class of 100 students has 70 boys with an average of 75 marks. The average of the whole class is 72. Find the average of the girls.
 
-##The calendar question ⟦2021 Q80⟧
-A year has 365 days = 52 weeks (364 days) + **1 extra day**. Each of the 52 weeks has one Sunday, so the question is whether the one extra day is a Sunday. It could be any of the 7 days, so the probability of 53 Sundays is **1/7**. In a **leap year** there are **2** extra days, so 2 of the 7 possible pairs contain a Sunday: **2/7**.
+- Step 1: the whole class total = 100 × 72 = 7,200.
+- Step 2: the boys' total = 70 × 75 = 5,250.
+- Step 3: the girls' total = 7,200 − 5,250 = 1,950. There are 100 − 70 = 30 girls.
+- Step 4: the girls' average = 1,950 ÷ 30 = **65**.
 
-##Two numbers picked together ⟦2021 Q85⟧
-x is chosen from 1, 2, 3 and y from 1, 4, 9. Find P(xy < 9). List every pair, 3 × 3 = 9 pairs: (1,1)=1, (1,4)=4, (1,9)=9, (2,1)=2, (2,4)=8, (2,9)=18, (3,1)=3, (3,4)=12, (3,9)=27. Products below 9: 1, 4, 2, 8, 3, so 5 pairs. Answer **5/9**.
+The 2025 version went the other way round. 16 boys average 50.25 kg and the other 8 boys average 45.15 kg. The average of all 24 is (16 × 50.25 + 8 × 45.15) ÷ 24 = (804 + 361.2) ÷ 24 = **48.55 kg**.
 
->WARN:Traps in the counting
-- Count **1** as not prime and **0** as even.
-- "More than 3" on a die is 4, 5, 6 (not 3). "At least 3" includes 3.
-- If the question says "numbers from 1 to 25", count both ends.
+>TIP:A shortcut for two groups
+The combined mean always lies **between** the two group means, and **closer to the bigger group**. For 16 boys and 8 boys the sizes are 2 : 1. The gap between the means is 50.25 − 45.15 = 5.1. The mean is nearer the bigger group (the 16 boys), so it sits one part in three of the gap **below** 50.25. 5.1 ÷ 3 = 1.7, and 50.25 − 1.7 = **48.55**. Same answer, no big multiplication.
+
+##Type 3: parts of a list ⟦2021 Q95⟧
+The average of 30 numbers is 12. The average of the first 20 is 11 and of the next 9 is 10. Find the last number.
+
+- Total of 30 numbers = 30 × 12 = 360.
+- First 20 = 20 × 11 = 220. Next 9 = 9 × 10 = 90. Together 310.
+- 20 + 9 = 29 numbers are used, so one number is left: 360 − 310 = **50**.
+
+##Type 4: pairs of averages ⟦2021 Q96⟧
+The average of A and B is 20, of B and C is 19, of C and A is 21. Find A.
+
+- Turn each average into a total of two: A + B = 40, B + C = 38, C + A = 42.
+- Add all three: 2(A + B + C) = 120, so A + B + C = 60.
+- A = 60 − (B + C) = 60 − 38 = **22**.
+
+The same trick finds B (60 − 42 = 18) and C (60 − 40 = 20). Check: B + C = 18 + 20 = 38. ✓
+
+##Type 5: the mean of a pattern ⟦2021 Q98⟧
+When numbers go up by equal steps, the mean is simply the **middle** one, which is also the **average of the first and the last**.
+
+- The first 5 multiples of 7 are 7, 14, 21, 28, 35. The middle is 21, so the mean is **21**. (Check: total 105 ÷ 5 = 21.)
+- The mean of the first n natural numbers is **(n + 1) ÷ 2**. For 1 to 9 it is 5.
+- The mean of the first n even numbers (2, 4, 6…) is **n + 1**. For the first 10 it is 11.
+- The mean of the first n odd numbers (1, 3, 5…) is **n**. For the first 8 it is 8.
+
+##Type 6: the sum of deviations ⟦2021 Q97⟧ ⟦2021 Q99⟧
+A **deviation** is how far an item is from the mean: item − mean. Take the list 3, 4, 6, 7, 8, 14. The total is 42 and the mean is 7. The deviations are −4, −3, −1, 0, 1, 7. Add them: **0**.
+
+>KEY:Always zero
+**The sum of deviations from the mean is always 0**, for any list. The items below the mean cancel the items above it. Both 2021 questions (Q97 and Q99, which asked it for "P values") have the answer 0. If you see this question, do not calculate; write 0.
+
+##Type 7: what happens when the list changes
+- **Add a number to every item:** the mean goes up by that number. (Marks 10, 20, 30 have mean 20. Add 5 to each, the mean is 25.)
+- **Multiply every item:** the mean is multiplied too.
+- **One item is replaced:** the total changes by the difference, so the mean changes by (difference ÷ count). Ten numbers have a mean of 20. One 15 is replaced by 45. The total rises by 30, so the mean rises by 30 ÷ 10 = 3, to **23**.
+- **A new item joins:** five numbers average 20 (total 100). A sixth number, 32, joins. The new mean is 132 ÷ 6 = **22**.
+- **An item leaves:** five numbers average 20 and one of them is 30. The other four total 100 − 30 = 70, so they average **17.5**.
+
+>WARN:Traps in mean questions
+- Do not average two averages by just adding and halving. 50 boys at 80 and 10 girls at 60 do **not** average 70. The mean is (4,000 + 600) ÷ 60 = 76.67.
+- Count the items carefully. "From 5 to 25" has 21 whole numbers, not 20.
+- The question may say "average" or "mean". They are the same word here.
 
 >NEXT:Likely next: tap to check yourself
-?? A number is chosen from 1 to 30. P(multiple of 5)? || 5, 10, 15, 20, 25, 30 = 6. So 6/30 = 1/5.
-?? A letter is picked from MATHEMATICS. P(it is M)? || Letters: M, A, T, H, E, M, A, T, I, C, S = 11. M appears twice: 2/11.
-?? P(a leap year has 53 Mondays)? || 2/7.
-?? A number is chosen from 1 to 20. P(prime)? || 2, 3, 5, 7, 11, 13, 17, 19 = 8. 8/20 = 2/5.
-?? A bag has 5 red, 4 white, 3 green. P(not white)? || 8/12 = 2/3.
+?? The mean of 8 numbers is 15. One number, 29, is removed. What is the mean of the rest? || Total 120. Take away 29: 91. Seven numbers left. 91 ÷ 7 = 13.
+?? The average age of 6 persons is 30. A seventh person aged 44 joins. What is the new average? || Total 180 + 44 = 224. 224 ÷ 7 = 32.
+?? 40 students average 60 marks and 10 students average 85. What is the average of all 50? || (2,400 + 850) ÷ 50 = 65.
+?? The mean of 12 numbers is 25. Each is multiplied by 3 and then 4 is added. New mean? || 25 × 3 + 4 = 79.
+?? The mean of the first 10 even numbers? || n + 1 = 11. (Check: 2 + 4 + … + 20 = 110, and 110 ÷ 10 = 11.)
 
-#CH pr-coin | Coins and dice: count with a table | PROBABILITY · 2018 Q80 Q81 Q92 · 2021 Q90 Q92
-Coins and dice came in both papers, so we make a little table once and read every answer from it.
+#CH st-median | Median, mode and quartiles | STATISTICS · 2018 Q97 Q98 Q100 · 2021 Q100
+The mean is not the only "middle". Two more are asked, and each has its own job.
 
-##Coins
-One coin has 2 outcomes. Two coins have 2 × 2 = 4. Three coins have 2 × 2 × 2 = 8. **n coins have 2ⁿ outcomes.**
+- The **median** is the middle item when the list is put in order.
+- The **mode** is the item that occurs **most often**.
+- A **quartile** cuts the ordered list into four equal parts. **Q1** (lower quartile) has a quarter of the items below it. **Q3** (upper quartile) has a quarter above it. The median is Q2.
 
-The number of ways to get a number of heads follows a pattern. For 4 coins (16 outcomes in all):
+@@fig central
 
-|Heads|0|1|2|3|4|
+##Finding the median
+- Step 1: **arrange the numbers in order**, smallest to largest. Skipping this is the one common mistake.
+- Step 2: if the count is **odd**, the median is the middle item, the ((n + 1) ÷ 2)th one.
+- Step 3: if the count is **even**, there are two middle items. Take their average.
+
+Examples:
+- 7, 3, 9, 5, 11 → in order 3, 5, 7, 9, 11. Five items, the 3rd is the middle: **7**.
+- 4, 8, 6, 10 → in order 4, 6, 8, 10. Four items, the middle two are 6 and 8: median = (6 + 8) ÷ 2 = **7**.
+
+##Finding the mode
+Count how often each value occurs. The most frequent one is the mode. In 2, 3, 3, 5, 7, 8, 14 the mode is **3**. A list can have two modes (2, 2, 5, 5, 9) or no mode (all different).
+
+##When to use which
+The figure above shows why there are three measures. The big item 14 pulls the **mean** up to 6, but the **median** (5) and the **mode** (3) do not move. So for things with a few huge values, like house prices or salaries, the median describes the "typical" better than the mean.
+
+>KEY:The link between the three
+For a roughly smooth, one-humped spread: **Mode = 3 × Median − 2 × Mean.** If the mean is 20 and the median is 21, the mode is 63 − 40 = **23**. You can use it to find any one of the three when the other two are given.
+
+##Quartiles ⟦2018 Q100⟧
+Find the lower quartile of 9, 11, 15, 19, 17, 13, 7.
+
+- Step 1: in order: 7, 9, 11, 13, 15, 17, 19. Seven items; the median is 13.
+- Step 2: the **lower half** is the items below the median: 7, 9, 11.
+- Step 3: Q1 is the median of that half: **9**. (The upper half is 15, 17, 19, so Q3 = 17.)
+- The **interquartile range** is Q3 − Q1 = 17 − 9 = 8.
+
+The shortcut formula gives the same: Q1 is the ((n + 1) ÷ 4)th item = the 8 ÷ 4 = 2nd item = 9. ✓ The 2018 question printed the word "range" but its options are single values, so the key 9 fits. ⟨CHECK⟩
+
+>NEXT:Likely next: tap to check yourself
+?? Median of 17, 5, 12, 9, 21, 3? || In order 3, 5, 9, 12, 17, 21. Middle two are 9 and 12, so (9 + 12) ÷ 2 = 10.5.
+?? Mean 17, median 18. Find the mode. || 3 × 18 − 2 × 17 = 54 − 34 = 20.
+?? Mode of 3, 5, 5, 7, 7, 7, 9, 9? || 7 occurs three times.
+?? Upper quartile of 7, 9, 11, 13, 15, 17, 19? || Upper half is 15, 17, 19, so Q3 = 17.
+?? Range of 9, 11, 15, 19, 17, 13, 7? || Largest − smallest = 19 − 7 = 12.
+
+#CH st-group | Grouped data: mean, median and mode from a table | STATISTICS · 2021 Q100 · 2018 Q97 Q98
+When there are many numbers, they are shown in a **frequency table**. Instead of listing 100 marks we write how many students fall in each band. New words:
+
+- A **class** (or **class interval**) is one band, like 20–30.
+- The **frequency** (f) is how many items fall in that class.
+- The **class width** (h) is the band's size: 30 − 20 = 10.
+- The **class mark** (x) is the middle of the class: for 20–30 it is 25.
+- The **cumulative frequency** (cf) is the running total of frequencies.
+- **N** is the total of all the frequencies.
+
+The question we will work all through (⟦2021 Q100⟧):
+
+|Class|0–10|10–20|20–30|30–40|40–50|
 |---|---|---|---|---|---|
-|Ways|1|4|6|4|1|
+|Frequency f|8|16|36|34|6|
+|Cumulative cf|8|24|60|94|100|
 
-So 4 coins, exactly 2 heads: **6/16 = 3/8** ⟦2021 Q90⟧. The ways come from "4 choose 2" = 6 (explained in chapter 8). For 3 coins the row is 1, 3, 3, 1.
+N = 8 + 16 + 36 + 34 + 6 = 100.
 
-- ⟦2018 Q81⟧ Three coins, all heads: 1 way of 8 = **1/8**. (The question number is garbled in the OCR. ⟨CHECK⟩)
-- Three coins, at least one head: 1 − P(no head) = 1 − 1/8 = **7/8**.
-- Three coins, exactly 2 heads: 3/8. At least 2 heads: (3 + 1)/8 = **1/2**.
+@@fig bars
 
-##One die
-Six equally likely outcomes. ⟦2021 Q92⟧ More than 3 means 4, 5, 6: 3 of 6 = **1/2**. An even number: 1/2. A number divisible by 3 (3, 6): 1/3.
+##The median of grouped data
+- Step 1: find N ÷ 2 = 50.
+- Step 2: look down the cumulative column for the **first cf that is 50 or more**. That is 60, so the **median class is 20–30**.
+- Step 3: use the formula.
 
-##Two dice: draw the table
-There are 6 × 6 = 36 outcomes. The figure shows them all, each cell holding the **total** of the two dice. Read the answer by counting the cells.
+>KEY:Median (grouped)
+**Median = L + [(N/2 − cf) ÷ f] × h.** Here L is the lower limit of the median class (20), cf is the cumulative frequency of the class **before** it (24), f is the frequency of the median class (36), and h is the class width (10).
 
-@@fig dice
+Median = 20 + [(50 − 24) ÷ 36] × 10 = 20 + 7.22 = **27.22**. That is option A of the 2021 paper. The idea: we need 50 items, the classes before this one gave only 24, so we take 26 more out of the 36 in the median class, and 26/36 of the way along its width.
 
-- ⟦2018 Q92⟧ Total 5: (1,4) (2,3) (3,2) (4,1), 4 cells of 36 = **1/9**.
-- ⟦2018 Q80⟧ Total 6: (1,5) (2,4) (3,3) (4,2) (5,1), 5 cells = **5/36**.
-- Total 7: 6 cells = **1/6**, the likeliest total.
-- Total 9: (3,6) (4,5) (5,4) (6,3) = 4/36 = **1/9**.
-- A **doublet** (same number on both): (1,1)…(6,6) = 6/36 = **1/6**.
-- Total at least 10: totals 10, 11, 12 have 3 + 2 + 1 = 6 ways: **1/6**.
-- Total at most 4: totals 2, 3, 4 have 1 + 2 + 3 = 6 ways: **1/6**.
+##The mean of grouped data
+Take every item in a class to be at its class mark. The class marks here are 5, 15, 25, 35, 45.
 
-The "ways for each total" pattern, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, is worth learning. It saves drawing the table.
+- Multiply each class mark by its frequency: 40, 240, 900, 1,190, 270. Total Σfx = 2,640.
+- Mean = Σfx ÷ N = 2,640 ÷ 100 = **26.4**.
 
->WARN:Traps with dice
-- (2,3) and (3,2) are **different** outcomes when two dice are thrown, so a total of 5 has 4 ways, not 2.
-- "Thrown together" or "thrown once" does not change the count. Still 36.
-- 2018 Q80 had "None of these" as option D, and 5/36 as A. Do not pick D by habit.
+A shorter way (the **assumed mean** method) is useful when the numbers are big. Pick a middle class mark as the guess A = 25. Work with the deviations d = x − 25: −20, −10, 0, 10, 20. Then fd = −160, −160, 0, 340, 120, total 140. Mean = A + Σfd ÷ N = 25 + 1.4 = **26.4**. Same answer.
 
->NEXT:Likely next: tap to check yourself
-?? Two dice are thrown. P(total 8)? || (2,6) (3,5) (4,4) (5,3) (6,2) = 5/36.
-?? Two dice. P(total is a prime number)? || Primes: 2, 3, 5, 7, 11. Ways 1 + 2 + 4 + 6 + 2 = 15. So 15/36 = 5/12.
-?? Three coins. P(at least two tails)? || 1/2.
-?? Two coins. P(one head and one tail)? || HT, TH = 2/4 = 1/2.
-?? Two dice. P(first die is 3 and the second is even)? || The first is fixed at 3 and the second is 2, 4 or 6: 3/36 = 1/12.
-?? A die is thrown. P(a number less than 5)? || 1, 2, 3, 4 = 4/6 = 2/3.
+##The mode of grouped data
+The **modal class** is the class with the highest frequency: 20–30 (f = 36). Its neighbours have frequency 16 (before) and 34 (after).
 
-#CH pr-bag | Bags, socks, balls and cards: choosing without looking | PROBABILITY · 2018 Q91 Q93 Q85 · 2021 Q84 · 2025 Q88
-When several things are drawn from a bag, listing is too slow. We use **combinations**, the number of ways to **choose** a few from many when the order does not matter.
+>KEY:Mode (grouped)
+**Mode = L + [(f1 − f0) ÷ (2f1 − f0 − f2)] × h.** Here f1 is the modal class frequency (36), f0 is the one before it (16), f2 is the one after it (34).
 
-##Combinations: nCr
-**nCr** means "the number of ways to choose r things from n". Read it as "n choose r".
+Mode = 20 + [(36 − 16) ÷ (72 − 16 − 34)] × 10 = 20 + (20 ÷ 22) × 10 = **29.09**. Check with the link from the last chapter: 3 × 27.22 − 2 × 26.4 = 28.86, close to 29.09, as it should be.
 
->KEY:The formula
-**nCr = n × (n − 1) × … (r terms) ÷ r!** where r! (r factorial) means r × (r − 1) × … × 1. So 5C2 = (5 × 4) ÷ (2 × 1) = 10, and 9C2 = (9 × 8) ÷ 2 = 36.
-
-- **nCr = nC(n − r).** 15C11 is the same as 15C4 (choose the 4 to leave out) = (15 × 14 × 13 × 12) ÷ 24 = **1,365** ⟦2025 Q88⟧.
-- nC0 = nC(n) = 1. nC1 = n.
-- 14C5 = (14 × 13 × 12 × 11 × 10) ÷ 120 = 2,002.
-
-##Bag type 1: two items, same colour ⟦2018 Q91⟧
-A bag has 5 brown and 4 white socks. Two are pulled out. Find P(same colour).
-
-- Step 1: total ways to pick 2 of the 9 socks: 9C2 = 36.
-- Step 2: both brown: 5C2 = 10. Both white: 4C2 = 6. Same colour: 10 + 6 = 16.
-- Step 3: P = 16 ÷ 36 = **4/9**.
-
-The word "or" (both brown **or** both white) means we **add** the two counts.
-
-##Bag type 2: some of each colour ⟦2018 Q93⟧
-A bag has 8 red and 6 blue balls. Five are drawn. Find P(3 red and 2 blue).
-
-- Total ways: 14C5 = 2,002.
-- Favourable: choose 3 of the 8 reds (8C3 = 56) **and** 2 of the 6 blues (6C2 = 15). The word "and" means we **multiply**: 56 × 15 = 840.
-- P = 840 ÷ 2,002 = **60/143** (divide top and bottom by 14).
-
->KEY:Add for "or", multiply for "and"
-Different **cases** (both brown or both white) are **added**. Different **choices that happen together** (3 reds and 2 blues) are **multiplied**.
-
-##Bag type 3: two draws one after another
-**Without replacement** means the first item is not put back, so the bag has one less. A bag has 5 red and 3 blue marbles. Two are drawn. P(both red)?
-
-- By choosing: 5C2 ÷ 8C2 = 10 ÷ 28 = **5/14**.
-- By steps: P(first red) = 5/8; then 4 reds are left among 7: 4/7. Multiply: 5/8 × 4/7 = 20/56 = **5/14**. Same.
-
-**With replacement** the item goes back, so the bag is the same for the second draw: P(both red) = 5/8 × 5/8 = 25/64.
-
-##Cards
-A pack has **52 cards**: 4 suits (spades and clubs are black, hearts and diamonds are red), 13 cards in each suit (A, 2 to 10, J, Q, K). The **face cards** are J, Q, K: 12 in all. There are 4 aces, 4 kings and 26 red cards.
-
-- One card drawn. P(a heart) = 13/52 = **1/4**. P(a king) = 4/52 = 1/13. P(a face card) = 12/52 = 3/13. P(a red card) = **1/2**.
-- P(a king **or** a heart) = (13 + 4 − 1) ÷ 52 = 16/52 = **4/13**. We take away 1 because the king of hearts was counted twice.
+>WARN:Traps in grouped questions
+- If the table is given as 10–19, 20–29, 30–39, the gaps hide the real limits. Subtract 0.5 from every lower limit and add 0.5 to every upper limit before using L. (So 20–29 becomes 19.5–29.5.)
+- cf in the median formula is the one **before** the median class, not the one at it.
+- The 2018 Q97 (median) and Q98 (mode) questions lost their tables in the OCR, so their keys cannot be checked. The method above is how they were built. ⟨CHECK⟩
 
 >NEXT:Likely next: tap to check yourself
-?? A bag has 6 red and 4 green balls. Two are drawn. P(both green)? || 4C2 ÷ 10C2 = 6 ÷ 45 = 2/15.
-?? A bag has 4 red, 3 white, 2 black balls. Two are drawn. P(both different colour)? || 1 − P(same). Same: 6 + 3 + 1 = 10 out of 36. So 1 − 10/36 = 26/36 = 13/18.
-?? In how many ways can a committee of 3 be chosen from 8 people? || 8C3 = 56.
-?? One card from a pack. P(a queen or a spade)? || (4 + 13 − 1) ÷ 52 = 16/52 = 4/13.
-?? A basket has 12 good and 3 bad apples. One is taken. P(good)? || 12/15 = 4/5.
-?? Same bag as the 2018 sock question (5 brown, 4 white), but 3 socks are pulled. P(all brown)? || 5C3 ÷ 9C3 = 10 ÷ 84 = 5/42.
+?? Same table: which class is the median class if N = 100 and cf = 8, 24, 60, 94, 100? || N/2 = 50. The first cf that is 50 or more is 60, so 20–30.
+?? Classes 0–10, 10–20, 20–30 with f = 5, 10, 5. Mean? || Marks 5, 15, 25. Σfx = 25 + 150 + 125 = 300. N = 20. Mean = 15.
+?? Classes 0–10, 10–20, 20–30 with f = 5, 10, 5. Median? || N/2 = 10. cf = 5, 15, 20. Median class 10–20. 10 + [(10 − 5) ÷ 10] × 10 = 15.
+?? Modal class of the 2021 table? || The class with the highest frequency, 20–30.
+?? A table gives mean 26.4 and median 27.22. About what is the mode? || 3 × 27.22 − 2 × 26.4 = 28.86.
 
-#CH pr-two | Two events: AND, OR and independent events | PROBABILITY · 2018 Q90 · 2021 Q91
-Some questions give the probability of **two events** A and B and ask for the chance of both, or either.
+#CH st-gm | Geometric mean, harmonic mean | STATISTICS · 2018 Q94 · 2021 Q94
+The ordinary mean **adds**. Two other means are asked, and both are used when the numbers are connected by multiplying or by rates. The question slot for these was Q94 in both papers.
 
-##The words
-- **A ∪ B** (read "A or B") is the event that **at least one** of them happens.
-- **A ∩ B** (read "A and B") is the event that **both** happen.
-- **B′** (read "B not") means B does not happen. P(B′) = 1 − P(B).
-- Two events are **mutually exclusive** if they cannot happen together (one die: "a 2" and "a 5"). Then P(A and B) = 0.
-- Two events are **independent** if one does not change the chance of the other (two separate coin tosses).
+##Geometric mean (GM)
+**Multiply** the n numbers and take the nth root.
 
-##The two rules
+>KEY:Geometric mean
+**GM = the nth root of (x1 × x2 × … × xn).** For two numbers it is √(a × b).
 
->KEY:Addition and multiplication
-**P(A or B) = P(A) + P(B) − P(A and B).** We take off the "both" part because adding counted it twice. If A and B are mutually exclusive, the last part is 0.
-**If A and B are independent: P(A and B) = P(A) × P(B).**
+- ⟦2021 Q94⟧ GM of 4 and 16: √(4 × 16) = √64 = **8**.
+- GM of 2 and 8 is √16 = 4. GM of 2, 4, 8 is the cube root of 64 = **4**.
+- Notice that the GM of two numbers is always in the middle of them in a multiplying sense: 4 × 2 = 8 and 8 × 2 = 16. A GM question therefore usually has numbers that make a clean square or cube.
 
-##Worked: find P(B) ⟦2018 Q90⟧
-A and B are independent. P(A) = 0.3 and P(A or B) = 0.8. Find P(B).
+##The long one: powers of 3 ⟦2018 Q94⟧
+Find the GM of 3, 3², 3³, …, 3ⁿ.
 
-- Let P(B) = p. Then P(A and B) = 0.3 × p.
-- P(A or B) = 0.3 + p − 0.3p = 0.3 + 0.7p.
-- Set it equal to 0.8: 0.7p = 0.5, so p = 5/7. Answer **5/7**.
+- Step 1: multiply: the powers add up. 3¹ × 3² × … × 3ⁿ = 3^(1 + 2 + … + n) = 3^(n(n + 1)/2).
+- Step 2: take the nth root, which divides the power by n: 3^((n + 1)/2).
+- Answer: **3^((n + 1)/2)**. The power is just the mean of 1, 2, …, n, which is (n + 1)/2. So the shortcut for any list of powers of one number is: **the GM is that number raised to the mean of the powers.**
 
-##The twisted twin ⟦2021 Q91⟧
-The next paper asked almost the same, but with **A or B′**: P(A) = 0.3, P(A ∪ B′) = 0.8, A and B independent. Then A and B′ are also independent. Let P(B′) = q.
+##Harmonic mean (HM)
+The HM is for **rates** (speed, price per item). It is the number of items divided by the sum of their reciprocals (1 ÷ each).
 
-- P(A or B′) = 0.3 + q − 0.3q = 0.3 + 0.7q = 0.8, so q = 5/7.
-- P(B) = 1 − q = 1 − 5/7 = **2/7**.
+>KEY:Harmonic mean
+**HM = n ÷ (1/x1 + 1/x2 + … + 1/xn).** For two numbers it is **2ab ÷ (a + b).**
 
-So the twist is just one extra step at the end: from P(B′) to P(B). Read whether the question uses B or B′.
-
-##More checks to be able to do
-Let P(A) = 0.4 and P(B) = 0.5, independent.
-
-- P(A and B) = 0.4 × 0.5 = **0.2**.
-- P(A or B) = 0.4 + 0.5 − 0.2 = **0.7**.
-- P(neither) = 1 − 0.7 = **0.3**. (Or 0.6 × 0.5 = 0.3.)
-- P(exactly one) = 0.7 − 0.2 = **0.5**.
-
-If instead they are mutually exclusive: P(A or B) = 0.4 + 0.5 = 0.9 and P(A and B) = 0.
-
->WARN:Do not mix them up
-**Independent** and **mutually exclusive** are different. Independent events can both happen (P(A and B) is not 0). Mutually exclusive events can never both happen. If two events with non-zero probabilities are mutually exclusive, they are **not** independent.
+- HM of 40 and 60 = 2 × 40 × 60 ÷ 100 = **48**. This is why a trip at 40 km/h one way and 60 km/h back averages 48 km/h, not 50.
+- The three means always go in this order: **AM ≥ GM ≥ HM**. For 40 and 60: 50, 48.99, 48. For two numbers, **AM × HM = GM²**: 50 × 48 = 2,400 = 40 × 60. ✓
 
 >NEXT:Likely next: tap to check yourself
-?? A and B are independent, P(A) = 0.2, P(B) = 0.5. Find P(A or B). || 0.2 + 0.5 − 0.1 = 0.6.
-?? A and B are independent, P(A) = 0.4 and P(A or B) = 0.7. Find P(B). || 0.4 + p − 0.4p = 0.7, so 0.6p = 0.3 and p = 1/2.
-?? P(A) = 0.3 and P(B) = 0.4 are mutually exclusive. P(A or B)? || 0.7.
-?? P(A) = 0.6. What is the probability that A does not happen? || 0.4.
-?? A and B independent, P(A) = 0.5, P(A or B′) = 0.8. Find P(B). || 0.5 + 0.5q = 0.8, so q = 0.6 and P(B) = 0.4.
+?? GM of 9 and 25? || √225 = 15.
+?? GM of 2, 4, 8, 16, 32? || Powers 1 to 5, mean 3. GM = 2³ = 8.
+?? GM of 5 and 20? || √100 = 10.
+?? HM of 3 and 6? || 2 × 3 × 6 ÷ 9 = 4.
+?? AM of two numbers is 10 and GM is 8. What is the HM? || GM² = AM × HM, so HM = 64 ÷ 10 = 6.4.
+
+#CH st-spread | Spread: range, variance and standard deviation | STATISTICS · 2018 Q99 Q100 · 2021 Q97 Q99
+The mean tells where the middle is. **Spread** (also called **dispersion**) tells how far the numbers wander from it. Two classes can both average 50 marks, but one has everyone near 50 and the other has 20s and 80s.
+
+##The measures, from simplest
+- **Range** = largest − smallest. For 7, 9, 11, 13, 15, 17, 19 it is 12.
+- **Mean deviation** is the average of the deviations, ignoring minus signs. (We need to ignore them, because the true sum of deviations is always 0.)
+- **Variance** is the average of the **squared** deviations. Squaring removes the minus signs another way.
+- **Standard deviation (SD)** is the square root of the variance. It is back in the units of the data.
+
+>KEY:Variance and SD
+**Variance = (sum of (x − mean)²) ÷ n.** **SD = √variance.**
+
+##A worked example
+Data: 2, 4, 4, 4, 5, 5, 7, 9.
+
+- Step 1: the mean = 40 ÷ 8 = 5.
+- Step 2: deviations: −3, −1, −1, −1, 0, 0, 2, 4.
+- Step 3: square them: 9, 1, 1, 1, 0, 0, 4, 16. Total 32.
+- Step 4: variance = 32 ÷ 8 = 4. SD = √4 = **2**.
+
+##Variance of the first n natural numbers ⟦2018 Q99⟧
+The answer to learn is **(n² − 1) ÷ 12**. For 1, 2, 3, 4, 5: mean 3, squared deviations 4, 1, 0, 1, 4 = 10, variance 10 ÷ 5 = 2. And (25 − 1) ÷ 12 = 2. ✓ The SD is the square root of this, **√((n² − 1)/12)**. For 1 to 7 the variance is 48 ÷ 12 = 4 and the SD is 2.
+
+##What happens to the spread when the data changes
+- **Add the same number to every item:** the whole list slides along. The spread does not change. Variance and SD stay the same.
+- **Multiply every item by k:** the SD is multiplied by k, and the variance by **k²**.
+
+>TIP:Coefficient of variation
+**CV = (SD ÷ mean) × 100.** It lets you compare two lists of different sizes. A smaller CV means the list is steadier. A list with mean 50 and SD 5 has CV 10%.
+
+>NEXT:Likely next: tap to check yourself
+?? Variance of 1 to 9? || (81 − 1) ÷ 12 = 6.67. (In fractions, 20/3.)
+?? SD of 2, 4, 6, 8, 10? || Mean 6. Squares of deviations: 16, 4, 0, 4, 16 = 40. Variance 8. SD = √8 = 2.83.
+?? The SD of a list is 4. Every item is multiplied by 3 and then 10 is added. New SD? || 4 × 3 = 12. (Adding 10 changes nothing.)
+?? Variance of 5, 5, 5, 5? || 0. All items equal the mean.
+?? Mean deviation of 3, 5, 7? || Mean 5. Deviations 2, 0, 2 (ignore signs). Average = 4/3.
 
 #CH sheet | One-page sheet, likely next questions and CHECK list | REVISION · last week
 ##Formulas on one page
@@ -269,9 +325,10 @@ In both years the same slots were used and new numbers put in. Likely next:
 - **Probability:** a total on two dice (6, 8 or 9), three coins, cards (aces, face cards), a bag with 3 colours drawn two at a time, two independent events with a twist, a leap-year question.
 
 >CHECK:CHECK list for this guide
-- **2018 Q97 and Q98** (median and mode): the tables were lost in the scan, so there is no key. Use the method in chapter 3.
+- **2018 Q97 and Q98** (median and mode): the tables were lost in the scan, so there is no key. Use the method in chapter 7.
 - **2018 Q94, Q90, Q91, Q92 and Q96**: the options were lost; the keys are computed by us. Q96 says "sum" in the OCR but must mean mean.
 - **2018 Q81** (three coins): the question number is garbled in the OCR.
 - **2018 Q100**: the question says "range", the options are single values; we took it as the lower quartile. Both quartile methods give 9.
 - **2018 Q65** is missing from the scan; it might be a quadratic question.
 - **2027 template:** this guide assumes the 2027 paper follows 2018 and 2021 and not 2025.
+
