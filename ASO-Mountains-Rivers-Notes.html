@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mountains and Rivers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.62 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-weight:400;margin:0;line-height:1.2}
+p{margin:0}
+b,strong{font-weight:600}
+.page{max-width:820px;margin:0 auto;padding:28px 16px 40px}
+.mono,.eyebrow,.yr,.chk{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+.util{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,250px);gap:16px 32px;align-items:end;margin-top:18px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:2.55rem;line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:.98rem;line-height:1.5}
+@media (max-width:640px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}.mast h1{font-size:2rem}}
+.orn{margin:14px 0 4px;height:10px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:10px;letter-spacing:.3em;line-height:10px;opacity:.7}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:22px 30px;align-items:start;padding-top:18px}
+@media (max-width:640px){.hero{grid-template-columns:1fr}}
+.lead{text-align:justify;hyphens:auto}
+.lead+.lead{margin-top:10px}
+.dropcap::first-letter{float:left;font-size:3.9em;line-height:.82;padding:5px 7px 0 0}
+.chk{display:inline-block;font-size:8.5px;color:var(--warn);border:1px dashed currentColor;padding:0 4px;margin-left:3px;vertical-align:1px;line-height:1.6}
+.yr{display:inline-block;font-size:8.5px;color:var(--blue);border:1px solid var(--blue);padding:0 4px;margin-right:4px;vertical-align:1px;line-height:1.6;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* grid-paper box (text only, no images) */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:18px 30px 18px 30px;break-inside:avoid}
+.fl,.fr{position:absolute;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em;font-size:8.5px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:8px;top:10px;transform:rotate(180deg)}
+.fr{right:8px;top:10px}
+.fig .k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.ladder{list-style:none;margin:8px 0 0;padding:0}
+.ladder li{display:flex;align-items:baseline;gap:8px;padding:4px 0;border-bottom:1px dotted var(--rule);font-size:.95rem;line-height:1.35}
+.ladder li:last-child{border-bottom:0}
+.ladder .n{font-family:var(--f-pixel);color:var(--blue);font-size:.95rem;min-width:1.6em}
+.ladder .v{margin-left:auto;font-family:var(--f-mono);font-size:10px;color:var(--muted);white-space:nowrap}
+
+/* contents */
+.toc{padding-top:26px}
+.tochead{display:flex;align-items:center;gap:12px}
+.tochead h2{font-size:1.15rem;white-space:nowrap}
+.tochead .line{flex:1;height:1px;background:var(--fg)}
+.tochead .r{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:14px 0 0;padding:0;columns:2 300px;column-gap:36px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:7px;padding:3px 0;font-size:.95rem}
+.toclist .n{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);min-width:2em}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.toclist .c{font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.sec{padding-top:30px}
+.sectrule{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:9.5px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sec h2{font-size:1.75rem}
+.intro{margin-top:8px;text-align:justify;hyphens:auto}
+.intro::first-letter{float:left;font-size:3.3em;line-height:.82;padding:5px 7px 0 0}
+p.more{margin-top:8px;text-align:justify;hyphens:auto}
+h3.sub{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin:18px 0 4px;display:flex;align-items:center;gap:10px;break-after:avoid}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+
+.rows{margin-top:6px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(120px,170px) minmax(0,1fr);gap:2px 18px;padding:6px 0;border-bottom:1px dotted var(--muted);break-inside:avoid;font-size:.96rem;line-height:1.48}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+.r3 .row{grid-template-columns:minmax(110px,150px) minmax(0,150px) minmax(0,1fr)}
+.head>div{font-family:var(--f-mono);font-size:9.5px!important;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400!important}
+@media (max-width:600px){.row,.r3 .row{grid-template-columns:1fr}.head{display:none}}
+
+.trap{margin-top:12px;border:1px dashed var(--blue);background:var(--paper);padding:9px 14px;font-size:.95rem;break-inside:avoid}
+.trap b:first-child{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:5px}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+
+/* asked + likely */
+.asked{margin-top:12px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding:8px 0 9px;break-inside:avoid}
+.asked h3{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:5px 0 0;padding:0;list-style:none;display:grid;gap:4px}
+.asked li{font-size:.94rem;padding-left:14px;position:relative;line-height:1.45}
+.asked li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;background:var(--fg)}
+.qa{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--fg);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:640px){.qa{grid-template-columns:1fr}}
+.qa li{padding:8px 12px 8px 0;border-bottom:1px dotted var(--muted);break-inside:avoid;min-width:0}
+.qa li:nth-child(odd){border-right:1px dotted var(--rule)}
+.qa li:nth-child(even){padding-left:12px;padding-right:0}
+.qa .q{font-size:.95rem;line-height:1.4}
+.qa .q .n{font-family:var(--f-mono);font-size:9.5px;color:var(--muted);margin-right:5px}
+.qa .a{margin-top:4px;border-left:2px solid var(--blue);padding-left:8px;font-size:.92rem;line-height:1.45}
+.qa .a b{color:var(--blue);font-weight:600}
+
+.hooks{counter-reset:h;list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--fg)}
+.hooks li{counter-increment:h;display:grid;grid-template-columns:2.2em minmax(0,1fr);padding:6px 0;border-bottom:1px dotted var(--muted);font-size:.96rem;line-height:1.45;break-inside:avoid}
+.hooks li::before{content:counter(h,decimal-leading-zero);font-family:var(--f-pixel);color:var(--blue);font-size:.9rem}
+footer{padding-top:22px;font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+@page{size:A4;margin:13mm 12mm 14mm}
+@media print{
+  body{background:#fff;font-size:11.4pt}
+  .page{max-width:none;padding:0}
+  .pb{break-before:page}
+  h2,.sectrule{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="util"><span>OPSC ASO · Paper I · Topic (f) + (e)</span><span>Notes · 22 Nov 2026</span></div>
+
+<header class="mast">
+  <h1>MOUNTAINS AND RIVERS.</h1>
+  <p class="tag">India and Odisha, with the world records worth knowing. <b>Hills, passes, rivers, dams</b> and the traps OPSC sets.</p>
+</header>
+<div class="orn">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+
+<div class="hero">
+  <div>
+    <p class="lead dropcap">India's land tells two stories. In the north stand the <b>Himalayas</b>, young mountains that are still rising, and their rivers are fed by snow, so they flow all year. In the south lies the <b>Peninsula</b>, an old and worn block of hard rock, and its rivers are fed only by rain, so many run thin in summer.</p>
+    <p class="lead">Odisha sits where the Eastern Ghats meet the sea. Its hills hold the minerals, and its rivers build the coastal plain. That is why OPSC asks two to five Odisha land questions in every paper. These notes follow the official syllabus line <i>"Physical Geography of India &amp; Odisha"</i>, with a short world page from line (e). Each part ends with Odisha, then the past questions and what is likely next.</p>
+  </div>
+  <figure class="fig">
+    <span class="fl">FIG_001</span><span class="fr">Highest peaks</span>
+    <div class="k">Four "highest" answers</div>
+    <ol class="ladder">
+      <li><span class="n">1</span><span>Kanchenjunga · India (Sikkim)</span><span class="v">8,586 m</span></li>
+      <li><span class="n">2</span><span>Nanda Devi · wholly in India</span><span class="v">7,816 m</span></li>
+      <li><span class="n">3</span><span>Anamudi · Peninsula (Kerala)</span><span class="v">2,695 m</span></li>
+      <li><span class="n">4</span><span>Deomali · Odisha (Koraput)</span><span class="v">1,672 m</span></li>
+    </ol>
+    <div class="k" style="margin-top:12px">Four big rivers</div>
+    <ol class="ladder">
+      <li><span class="n">G</span><span>Ganga · longest in India</span><span class="v">2,525 km</span></li>
+      <li><span class="n">G</span><span>Godavari · longest peninsular</span><span class="v">~1,465 km</span></li>
+      <li><span class="n">N</span><span>Narmada · longest west-flowing</span><span class="v">~1,312 km</span></li>
+      <li><span class="n">M</span><span>Mahanadi · Odisha's main river</span><span class="v">~851 km</span></li>
+    </ol>
+  </figure>
+</div>
+
+<nav class="toc">
+  <div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>10</span> parts</span></div>
+  <ol class="toclist">
+    <li><span class="n">01</span>The Himalayas<span class="dots"></span><span class="c">5 belts</span></li>
+    <li><span class="n">02</span>Mountain passes<span class="dots"></span><span class="c">22 passes</span></li>
+    <li><span class="n">03</span>Peninsular ranges<span class="dots"></span><span class="c">7 ranges</span></li>
+    <li><span class="n">04</span>Odisha hills<span class="dots"></span><span class="c">9 hills</span></li>
+    <li><span class="n">05</span>Himalayan rivers<span class="dots"></span><span class="c">3 systems</span></li>
+    <li><span class="n">06</span>Peninsular rivers<span class="dots"></span><span class="c">east · west</span></li>
+    <li><span class="n">07</span>Odisha rivers, dams, falls<span class="dots"></span><span class="c">16 rivers</span></li>
+    <li><span class="n">08</span>World mountains and rivers<span class="dots"></span><span class="c">records</span></li>
+    <li><span class="n">09</span>Asked before · likely next<span class="dots"></span><span class="c">20 Q</span></li>
+    <li><span class="n">10</span>Memory hooks · CHECK list<span class="dots"></span><span class="c">last week</span></li>
+  </ol>
+</nav>
+
+<!-- 01 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>01</b> · Mountains · India</span><span class="line"></span></div>
+  <h2>The Himalayas.</h2>
+  <p class="intro">The Himalayas are <b>young fold mountains</b>. "Fold" means they were made when the Indian plate pushed into the Eurasian plate and the rock layers crumpled up like a rug pushed against a wall. They run about 2,400 km in an arc from the Indus in the west to the Brahmaputra in the east. Think of them as parallel belts, and learn them from the plains upward: the lowest belt is nearest to you, the highest is farthest.</p>
+  <div class="rows r3" style="margin-top:10px">
+    <div class="row head"><div>Belt</div><div>Height</div><div>What to remember</div></div>
+    <div class="row"><div>Shiwaliks (outer)</div><div>900–1,100 m</div><div>The youngest and lowest belt, made of loose river gravel. Between the Shiwaliks and the Lesser Himalaya lie flat valleys called <b>Duns</b>: Dehradun, Kotli Dun, Patli Dun.</div></div>
+    <div class="row"><div>Himachal (Lesser)</div><div>3,700–4,500 m</div><div>Ranges: <b>Pir Panjal</b> (the longest), <b>Dhauladhar</b>, <b>Mahabharat</b> (Nepal), <b>Mussoorie</b>. Hill stations: Shimla, Mussoorie, Nainital, Darjeeling. The Kashmir, Kangra and Kullu valleys are here.</div></div>
+    <div class="row"><div>Himadri (Greater)</div><div>avg ~6,000 m</div><div>The highest and most continuous belt, with snow all year. Everest (Nepal), <b>Kanchenjunga</b> (8,586 m, Sikkim) and <b>Nanda Devi</b> (7,816 m, Uttarakhand). The Ganga and Yamuna glaciers start here.</div></div>
+    <div class="row"><div>Trans-Himalaya</div><div>north of Himadri</div><div><b>Karakoram</b>, <b>Ladakh</b> and <b>Zaskar</b> ranges. <b>K2 (Godwin Austen, 8,611 m)</b> is in the Karakoram, in Indian-claimed land under Pakistani control. Siachen glacier lies here.</div></div>
+    <div class="row"><div>Purvanchal (east)</div><div>lower hills</div><div>Where the Himalaya bends south along the Myanmar border: <b>Patkai Bum</b>, <b>Naga hills</b> (Saramati peak), <b>Manipur hills</b> and <b>Mizo (Lushai) hills</b>.</div></div>
+  </div>
+  <div class="trap"><b>Trap</b> "Highest peak in India": NCERT names <b>K2</b>, because India counts PoK as its own. Many other books say <b>Kanchenjunga</b>. In the exam, pick K2 if it is an option; if it is not, pick Kanchenjunga. <span class="chk">Check</span></div>
+  <div class="trap"><b>Trap</b> The <b>Garo, Khasi and Jaintia hills</b> of Meghalaya are <b>not</b> Himalayan. They are a broken-off piece of the old peninsular plateau (the Meghalaya plateau). Mawsynram and Cherrapunji, the wettest places, sit on them.</div>
+</section>
+
+<!-- 02 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>02</b> · Mountains · India</span><span class="line"></span></div>
+  <h2>Mountain passes.</h2>
+  <p class="intro">A pass is a low gap in a range that people can cross. OPSC asked a "which pass is in the wrong state?" question in 2021, so learn every pass with its state, and with what it joins. The easy way is to walk the border from west to east: Ladakh, Himachal, Uttarakhand, Sikkim, Arunachal. Many of these passes are also in defence news, because they face China.</p>
+  <div class="rows r3" style="margin-top:10px">
+    <div class="row head"><div>Pass</div><div>State / UT</div><div>Joins, and why it matters</div></div>
+    <div class="row"><div>Karakoram Pass</div><div>Ladakh</div><div>Ladakh to Xinjiang (China), the old Silk Road route.</div></div>
+    <div class="row"><div>Khardung La</div><div>Ladakh</div><div>Leh to the Nubra valley and Siachen; one of the highest motorable roads.</div></div>
+    <div class="row"><div>Zoji La</div><div>Ladakh</div><div>Srinagar to Leh (NH-1). The Zojila tunnel is being built under it.</div></div>
+    <div class="row"><div>Banihal</div><div>J&amp;K</div><div>Crosses the <b>Pir Panjal</b>; Jammu to Srinagar. The Jawahar tunnel and Banihal rail tunnel run under it.</div></div>
+    <div class="row"><div>Pir Panjal Pass</div><div>J&amp;K</div><div>The old Mughal Road from Jammu to Kashmir.</div></div>
+    <div class="row"><div>Rohtang</div><div>Himachal</div><div>Kullu–Manali to Lahaul–Spiti. The <b>Atal Tunnel</b> (2020, about 9 km) runs under it.</div></div>
+    <div class="row"><div>Bara-lacha La</div><div>Himachal</div><div>Manali–Leh road. The Chandra and Bhaga rivers (they form the Chenab) rise near it. <span class="yr">2021 Q80</span></div></div>
+    <div class="row"><div>Shipki La</div><div>Himachal</div><div>Himachal to Tibet. The <b>Sutlej</b> enters India here. A border-trade point.</div></div>
+    <div class="row"><div>Mana, Niti</div><div>Uttarakhand</div><div>Uttarakhand to Tibet; Mana is near Badrinath. <span class="yr">2021 Q80</span></div></div>
+    <div class="row"><div>Lipulekh</div><div>Uttarakhand</div><div>Tri-junction of India, Nepal and China; the <b>Kailash Mansarovar Yatra</b> route. Nepal disputes the area.</div></div>
+    <div class="row"><div>Nathu La</div><div>Sikkim</div><div>Gangtok to Tibet's Chumbi valley; border trade and the second Yatra route. <span class="yr">2021 Q80</span></div></div>
+    <div class="row"><div>Jelep La</div><div>Sikkim</div><div>Near Nathu La, also to the Chumbi valley. <b>Not</b> Arunachal, which was the 2021 trap. <span class="yr">2021 Q80</span></div></div>
+    <div class="row"><div>Bom Di La</div><div>Arunachal</div><div>On the road to Tawang (West Kameng).</div></div>
+    <div class="row"><div>Se La</div><div>Arunachal</div><div>Inside India, on the Tawang road. The <b>Sela tunnel</b> opened in 2024.</div></div>
+    <div class="row"><div>Bum La</div><div>Arunachal</div><div>Tawang to Tibet; a border-meeting point with China.</div></div>
+    <div class="row"><div>Diphu (Dihang)</div><div>Arunachal</div><div>Near the India–China–Myanmar tri-junction.</div></div>
+    <div class="row"><div>Pangsau</div><div>Arunachal</div><div>To Myanmar; the old Stilwell (Ledo) Road of World War II.</div></div>
+  </div>
+  <h3 class="sub">Passes in the peninsula</h3>
+  <p class="more">The Western Ghats are a near-unbroken wall, so the few gaps carry the roads and railways from the coast inland. <b>Thal Ghat</b> joins Mumbai and Nashik, <b>Bhor Ghat</b> joins Mumbai and Pune, and <b>Pal Ghat (Palakkad Gap)</b> joins Kerala and Tamil Nadu, between the Nilgiris and the Anaimalai. Further south, the <b>Shencottah Gap</b> crosses into Kerala near Kollam.</p>
+  <div class="trap"><b>2025 news</b> The Kailash Mansarovar Yatra restarted in 2025 through Lipulekh and Nathu La, and India and China agreed to reopen border trade through <b>Lipulekh, Shipki La and Nathu La</b>. Expect one of these three in a "which pass" question. <span class="chk">Check</span></div>
+</section>
+
+<!-- 03 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>03</b> · Mountains · India</span><span class="line"></span></div>
+  <h2>Peninsular ranges.</h2>
+  <p class="intro">The ranges of the south are <b>old</b>. They are not new folds but worn stumps of very old mountains (residual mountains) or the raised edges of broken blocks of land (block mountains). That is why they are low and round-topped. OPSC asked in 2018 where the oldest rocks are: the answer was the <b>Aravallis</b>.</p>
+  <div class="rows r3" style="margin-top:10px">
+    <div class="row head"><div>Range</div><div>Highest point</div><div>What to remember</div></div>
+    <div class="row"><div>Aravalli</div><div>Guru Shikhar 1,722 m</div><div>Among the oldest fold ranges in the world, from Gujarat to Delhi. Guru Shikhar is on Mount Abu, Rajasthan. <span class="yr">2018 Q47</span></div></div>
+    <div class="row"><div>Vindhya</div><div>low, ~ 700 m</div><div>Forms the north wall of the Narmada valley; the old line between North and South India.</div></div>
+    <div class="row"><div>Satpura</div><div>Dhupgarh 1,350 m</div><div>Between the Narmada and the Tapi. Dhupgarh is in the Mahadeo hills near <b>Pachmarhi</b>. The <b>Maikal hills</b> at its east end hold <b>Amarkantak</b>, source of the Narmada and the Son.</div></div>
+    <div class="row"><div>Western Ghats (Sahyadri)</div><div>Anamudi 2,695 m</div><div>High and continuous, running close to the west coast. Anamudi (Anaimalai hills, Kerala) is the highest peak south of the Himalaya. A UNESCO World Heritage Site (2012).</div></div>
+    <div class="row"><div>Nilgiris</div><div>Doddabetta 2,637 m</div><div>Where the Western and Eastern Ghats meet (Tamil Nadu). Ooty is here.</div></div>
+    <div class="row"><div>Southern hills</div><div>—</div><div>North to south: <b>Nilgiri → Anaimalai → Palani</b> (Kodaikanal) <b>→ Cardamom</b>. The Cardamom hills are closest to Kanyakumari. <span class="yr">2025 Q12</span></div></div>
+    <div class="row"><div>Eastern Ghats</div><div>see trap</div><div>Low and <b>broken</b>, cut into pieces by the Mahanadi, Godavari, Krishna and Kaveri. Parts: the Odisha hills, Nallamala, Javadi, Shevaroy (Yercaud).</div></div>
+  </div>
+  <div class="trap"><b>Trap</b> "Highest peak of the Eastern Ghats": NCERT gives <b>Mahendragiri (1,501 m, Odisha)</b>. Other books give <b>Jindhagada (about 1,690 m)</b> or <b>Arma Konda (about 1,680 m)</b>, both in Andhra, and some give <b>Deomali</b>. Since OPSC is an Odisha exam, look for Mahendragiri or Deomali in the options first. <span class="chk">Check</span></div>
+</section>
+
+<!-- 04 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>04</b> · Mountains · Odisha</span><span class="line"></span></div>
+  <h2>Odisha hills.</h2>
+  <p class="intro">Odisha has four land regions: the northern plateau, the Eastern Ghats hills, the central tableland, and the coastal plain. The hills run from Mayurbhanj in the north to Koraput in the south. Learn each hill with its <b>district</b> and the <b>one story</b> attached to it, because OPSC questions always come with that story: a god, a tribe, a mineral or a court case.</p>
+  <div class="rows r3" style="margin-top:10px">
+    <div class="row head"><div>Hill</div><div>District · height</div><div>The story to remember</div></div>
+    <div class="row"><div>Deomali</div><div>Koraput · ~1,672 m</div><div><b>Highest peak in Odisha</b>, in the Chandragiri–Pottangi range. Bauxite country.</div></div>
+    <div class="row"><div>Mahendragiri</div><div>Gajapati · 1,501 m</div><div>Linked to <b>Parashurama</b>, with old temples on top. Second highest in Odisha; rich in medicinal plants.</div></div>
+    <div class="row"><div>Malayagiri</div><div>Angul (Pallahara) · ~1,187 m</div><div>Highest point of the northern part of the state.</div></div>
+    <div class="row"><div>Meghasani</div><div>Mayurbhanj · ~1,165 m</div><div>Highest peak of <b>Similipal</b>. Similipal is a tiger reserve and biosphere reserve; the Budhabalanga and Salandi rise here.</div></div>
+    <div class="row"><div>Gandhamardan</div><div>Bargarh – Balangir</div><div>Called a "treasure of herbs", with the <b>Nrusinghanath</b> and <b>Harishankar</b> temples on its two sides. Local people stopped bauxite mining here in the 1980s.</div></div>
+    <div class="row"><div>Niyamgiri</div><div>Kalahandi – Rayagada</div><div>Sacred to the <b>Dongria Kondh</b>. In 2013 the Supreme Court let the <b>gram sabhas</b> decide on Vedanta's bauxite mine, and they said no.</div></div>
+    <div class="row"><div>Khandadhar</div><div>Sundargarh – Keonjhar</div><div>Iron-ore hills, with the Khandadhar waterfall.</div></div>
+    <div class="row"><div>Gonasika</div><div>Keonjhar</div><div>Source of the <b>Baitarani</b> (the spring comes out from a rock shaped like a cow's nose, "go-nasika").</div></div>
+    <div class="row"><div>Kapilas</div><div>Dhenkanal</div><div>Shiva temple hill and a wildlife area near Dhenkanal.</div></div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>05</b> · Rivers · India</span><span class="line"></span></div>
+  <h2>Himalayan rivers.</h2>
+  <p class="intro">Himalayan rivers are <b>perennial</b>: they flow all year, because they get melting snow in summer and rain in the monsoon. They are older than the mountains themselves (antecedent rivers), so they cut deep gorges through them. In the plains they meander and build huge flat plains. There are three systems: the Indus, the Ganga and the Brahmaputra.</p>
+
+  <h3 class="sub">Indus system</h3>
+  <p class="more">The <b>Indus</b> rises in Tibet near <b>Lake Mansarovar</b>, flows through Ladakh, and turns south into Pakistan. Its five eastern tributaries give Punjab its name ("five waters"): <b>Jhelum, Chenab, Ravi, Beas and Sutlej</b>, joining it on the <b>left bank</b>. The Jhelum rises at <b>Verinag</b> and passes through <b>Wular Lake</b>; the Chenab forms where the Chandra and Bhaga meet at Tandi; the Sutlej rises at <b>Rakas Tal</b> and enters India at Shipki La; the <b>Bhakra Nangal</b> dam is on it. Under the <b>Indus Waters Treaty (1960)</b> India got the three eastern rivers (Ravi, Beas, Sutlej) and Pakistan the three western ones (Indus, Jhelum, Chenab). India put the treaty "in abeyance" in April 2025 after the Pahalgam attack.</p>
+
+  <h3 class="sub">Ganga system</h3>
+  <p class="more">The <b>Ganga</b> (2,525 km) is the longest river in India. It is formed by two streams: the <b>Bhagirathi</b> from the <b>Gangotri glacier</b> (Gaumukh) and the <b>Alaknanda</b>, which meet at <b>Devprayag</b>. On the Alaknanda lie the five "prayags" (meeting points): Vishnuprayag, Nandprayag, Karnaprayag, Rudraprayag and Devprayag. The Ganga is India's national river.</p>
+  <div class="two" style="margin-top:8px">
+    <div class="fig"><span class="fl">FIG_002</span><span class="fr">Left bank</span>
+      <div class="k">From the Himalaya (north)</div>
+      <ol class="ladder">
+        <li><span class="n">·</span><span>Ramganga, Gomti</span></li>
+        <li><span class="n">·</span><span>Ghaghara</span></li>
+        <li><span class="n">·</span><span>Gandak</span></li>
+        <li><span class="n">·</span><span>Kosi · "Sorrow of Bihar"</span></li>
+        <li><span class="n">·</span><span>Mahananda (last one)</span></li>
+      </ol></div>
+    <div class="fig"><span class="fl">FIG_003</span><span class="fr">Right bank</span>
+      <div class="k">From the Peninsula (south)</div>
+      <ol class="ladder">
+        <li><span class="n">·</span><span>Yamuna · meets at Prayagraj</span></li>
+        <li><span class="n">·</span><span>Chambal, Betwa, Ken, Sind → Yamuna</span></li>
+        <li><span class="n">·</span><span>Son · from Amarkantak</span></li>
+        <li><span class="n">·</span><span>Damodar → Hooghly ("Sorrow of Bengal")</span></li>
+      </ol></div>
+  </div>
+  <p class="more">The <b>Yamuna</b> rises at <b>Yamunotri</b> and is the Ganga's longest tributary. In Bangladesh the Ganga is called the <b>Padma</b>; it joins the Brahmaputra and then the Meghna to build the <b>Sundarbans delta</b>, the largest delta in the world.</p>
+
+  <h3 class="sub">Brahmaputra system</h3>
+  <p class="more">The <b>Brahmaputra</b> rises from the <b>Chemayungdung glacier</b> near Mansarovar. It has three names: <b>Tsangpo</b> in Tibet, <b>Siang or Dihang</b> in Arunachal, and <b>Jamuna</b> in Bangladesh. In Assam it joins the Dibang and the Lohit and flows as a very wide, braided river. <b>Majuli</b> in Assam is the largest river island in India. Right-bank tributaries: Subansiri, Kameng (Jia Bharali), Manas, Sankosh. Left-bank: Dibang, Lohit, Burhi Dihing, Dhansiri.</p>
+  <div class="trap"><b>News</b> China started building a very large dam on the lower Tsangpo (Medog, near the Great Bend) in July 2025. India's answer is the planned <b>Siang Upper Multipurpose Project</b> in Arunachal. <span class="chk">Check</span></div>
+</section>
+
+<!-- 06 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>06</b> · Rivers · India</span><span class="line"></span></div>
+  <h2>Peninsular rivers.</h2>
+  <p class="intro">Peninsular rivers are <b>seasonal</b>: they are fed by rain only, so they shrink in summer. They flow in old, wide, shallow valleys. Because the Western Ghats are near the west coast, the main water-divide is in the west, and most big rivers flow <b>east into the Bay of Bengal</b>, where they build <b>deltas</b>. Only two big rivers, the Narmada and the Tapi, flow <b>west into the Arabian Sea</b>. They run in <b>rift valleys</b> (long cracks where land has sunk), move fast, and form <b>estuaries</b> instead of deltas.</p>
+  <div class="rows r3" style="margin-top:10px">
+    <div class="row head"><div>River</div><div>Rises at</div><div>What to remember</div></div>
+    <div class="row"><div>Mahanadi (E)</div><div>Sihawa, Dhamtari (Chhattisgarh)</div><div>Odisha's river; see part 07. It does <b>not</b> rise at Amarkantak. <span class="yr">2021 Q72</span></div></div>
+    <div class="row"><div>Godavari (E)</div><div>Trimbakeshwar, Nashik</div><div>Longest peninsular river (~1,465 km), the <b>"Dakshin Ganga"</b>. Tributaries: Pranhita, Manjira, and two from Odisha, the <b>Indravati</b> and the <b>Sabari (Kolab)</b>.</div></div>
+    <div class="row"><div>Krishna (E)</div><div>Mahabaleshwar</div><div>Tributaries: Tungabhadra, Bhima, Koyna, Musi. Dams: Srisailam, Nagarjuna Sagar.</div></div>
+    <div class="row"><div>Kaveri (E)</div><div>Talakaveri, Kodagu</div><div>Called the "Dakshin Bharat ki Ganga" of Tamil Nadu. Shivasamudram falls, KRS and Mettur dams. A long Karnataka–Tamil Nadu water dispute.</div></div>
+    <div class="row"><div>Narmada (W)</div><div>Amarkantak (Maikal)</div><div>Longest west-flowing river; runs between the Vindhya and the Satpura. Dhuandhar falls (Jabalpur), Sardar Sarovar dam (Gujarat).</div></div>
+    <div class="row"><div>Tapi (W)</div><div>Multai, Betul (Satpura)</div><div>Runs south of the Satpura; Ukai dam; reaches the sea at Surat. <span class="yr">2021 Q72</span></div></div>
+    <div class="row"><div>Mahi, Sabarmati (W)</div><div>MP / Rajasthan</div><div>The Mahi crosses the <b>Tropic of Cancer twice</b>.</div></div>
+    <div class="row"><div>Luni</div><div>Aravalli, near Ajmer</div><div>Ends in the Rann of Kutch without reaching the sea (inland drainage); its water turns salty.</div></div>
+  </div>
+  <div class="trap"><b>Trap</b> Amarkantak gives the <b>Narmada</b> (west) and the <b>Son</b> (north to the Ganga). The <b>Tapi</b> and the <b>Mahanadi</b> do not rise there, though the Mahanadi rises nearby. This was 2021 Q72.</div>
+</section>
+
+<!-- 07 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>07</b> · Rivers · Odisha</span><span class="line"></span></div>
+  <h2>Odisha rivers, dams and falls.</h2>
+  <p class="intro">Odisha's coastal plain is a <b>"hexadeltaic"</b> plain: it is built by the deltas of six rivers. From north to south: <b>Subarnarekha, Budhabalanga, Baitarani, Brahmani, Mahanadi and Rushikulya</b>. OPSC asked what "hexadeltaic" means in 2025, and asked the order of their share in 2021 (Mahanadi largest, Rushikulya smallest). In the south, other rivers rise in Odisha but flow out to the Godavari or into Andhra.</p>
+
+  <h3 class="sub">The Mahanadi</h3>
+  <p class="more">The <b>Mahanadi</b> (about 851 km) rises near <b>Sihawa in Dhamtari, Chhattisgarh</b>, so its upper basin is in Chhattisgarh, and the two states have a water dispute (a tribunal was set up in 2018). Its main tributaries are the <b>Seonath</b> (its longest, in Chhattisgarh), the <b>Hasdeo</b>, <b>Mand</b>, <b>Ib</b> and <b>Tel</b>. The <b>Hirakud Dam</b> near Sambalpur (opened 1957) is one of the longest earthen dams in the world, and its reservoir is a <b>Ramsar site</b> (2021). <b>Cuttack</b> stands at the head of the delta, where the river splits into the <b>Kathajodi</b>, <b>Birupa</b>, <b>Devi</b>, <b>Daya</b> and <b>Bhargavi</b>. It reaches the sea near <b>Paradip (False Point)</b>.</p>
+
+  <h3 class="sub">River by river</h3>
+  <div class="rows r3">
+    <div class="row head"><div>River</div><div>Rises at</div><div>What to remember</div></div>
+    <div class="row"><div>Brahmani</div><div>Sankh + South Koel, at Vedavyas near Rourkela</div><div>Second biggest in Odisha. <b>Rengali dam</b>. Joins the Baitarani at the <b>Dhamra</b> mouth; <b>Bhitarkanika</b> mangroves are in this delta.</div></div>
+    <div class="row"><div>Baitarani</div><div>Gonasika hills, Keonjhar</div><div>Forms part of the Odisha–Jharkhand border; a holy river (Jajpur). Joins the Brahmani at Dhamra.</div></div>
+    <div class="row"><div>Subarnarekha</div><div>Nagri, near Ranchi</div><div>"Streak of gold". Flows through Jharkhand, West Bengal and Balasore; Hundru falls is on it.</div></div>
+    <div class="row"><div>Budhabalanga</div><div>Similipal</div><div>Flows past Baripada and Balasore. Barehipani falls is on it.</div></div>
+    <div class="row"><div>Salandi</div><div>Similipal</div><div>Hadagarh dam; a tributary of the Baitarani in Bhadrak.</div></div>
+    <div class="row"><div>Rushikulya</div><div>Daringbadi hills, Kandhamal</div><div>Small river of Ganjam; reaches the sea near Purunabandha. Its mouth is a <b>mass-nesting site</b> of olive ridley turtles. <span class="yr">2025 Q27</span></div></div>
+    <div class="row"><div>Devi</div><div>A Mahanadi branch</div><div>Its mouth (Puri) is the third olive ridley nesting site. <span class="yr">2018 Q62</span></div></div>
+    <div class="row"><div>Vamsadhara</div><div>Kalahandi</div><div>Flows into Andhra; an Odisha–Andhra water dispute (tribunal).</div></div>
+    <div class="row"><div>Nagavali</div><div>Kalahandi</div><div>Also called Langulya; flows into Andhra.</div></div>
+    <div class="row"><div>Indravati</div><div>Thuamul Rampur, Kalahandi</div><div>Flows west to the <b>Godavari</b>; Upper Indravati project; Chitrakote falls (Chhattisgarh).</div></div>
+    <div class="row"><div>Sabari (Kolab)</div><div>Sinkaram hills, Koraput</div><div>Joins the Godavari; <b>Upper Kolab</b> dam.</div></div>
+    <div class="row"><div>Machkund (Sileru)</div><div>Koraput</div><div><b>Duduma falls</b>; Balimela dam; a Godavari tributary.</div></div>
+  </div>
+
+  <h3 class="sub">Falls and lakes</h3>
+  <p class="more">The highest waterfall in Odisha is <b>Barehipani</b> in Similipal (about 399 m) <span class="chk">Check</span>; <b>Joranda</b> is close by. <b>Khandadhar</b> (Sundargarh) and <b>Duduma</b> (Koraput) are the other big ones. <b>Chilika</b> is a <b>lagoon</b>: a shallow body of salty water cut off from the sea by a sandbar that the waves built. It is Asia's largest brackish-water lagoon, fed by the Mahanadi branches <b>Daya and Bhargavi</b>, and it was India's first Ramsar site in 1981 (with Keoladeo). <span class="yr">2018 Q45</span></p>
+</section>
+
+<!-- 08 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>08</b> · Syllabus line (e) · World</span><span class="line"></span></div>
+  <h2>World mountains and rivers.</h2>
+  <p class="intro">Line (e) of the syllabus, "World Physical Geography", is asked as <b>records and odd facts</b>: the river that crosses the equator twice (2025), the river with a bird-foot delta (2021). Learn each record with its rivals, because the wrong options are always the rivals.</p>
+  <div class="two" style="margin-top:10px">
+    <div class="rows">
+      <div class="row"><div>Highest peak</div><div><b>Everest</b> 8,849 m (Nepal–China). Second: K2.</div></div>
+      <div class="row"><div>Longest range</div><div><b>Andes</b> (South America, ~7,000 km). Highest there: <b>Aconcagua</b>.</div></div>
+      <div class="row"><div>Continent tops</div><div>Kilimanjaro (Africa), Denali (N. America), Elbrus (Europe), Vinson (Antarctica).</div></div>
+      <div class="row"><div>Young fold ranges</div><div>Himalaya, Alps, Andes, Rockies, Atlas. Old: Appalachian, Urals, Aravalli.</div></div>
+      <div class="row"><div>Largest plateau</div><div><b>Tibet</b>, "the roof of the world".</div></div>
+    </div>
+    <div class="rows">
+      <div class="row"><div>Longest river</div><div><b>Nile</b> (~6,650 km). Largest by water flow: <b>Amazon</b>.</div></div>
+      <div class="row"><div>Equator twice</div><div><b>Congo</b>, also the deepest river. <span class="yr">2025 Q80</span></div></div>
+      <div class="row"><div>Bird-foot delta</div><div><b>Mississippi</b>. The Nile's delta is arc-shaped. <span class="yr">2021 Q66</span></div></div>
+      <div class="row"><div>Most countries</div><div><b>Danube</b>, through 10 countries.</div></div>
+      <div class="row"><div>Lakes</div><div>Largest: <b>Caspian Sea</b>. Deepest and oldest: <b>Baikal</b>. Largest freshwater: <b>Superior</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>09</b> · Past papers · predictions</span><span class="line"></span></div>
+  <h2>Asked before, likely next.</h2>
+  <div class="asked">
+    <h3>Asked in 2018, 2021 and 2025</h3>
+    <ul>
+      <li><span class="yr">2018 Q47</span>Oldest rocks: the Aravallis.</li>
+      <li><span class="yr">2018 Q45</span>Why Chilika is a lagoon: waves built a sandbar across it.</li>
+      <li><span class="yr">2018 Q62</span>Olive ridley mass-nesting sites: Gahirmatha, Rushikulya, Devi mouth (not the Daya).</li>
+      <li><span class="yr">2021 Q72</span>Not from the Maikal range: the Tapi.</li>
+      <li><span class="yr">2021 Q80</span>Pass in the wrong state: Jelep La is in Sikkim, not Arunachal.</li>
+      <li><span class="yr">2021 Q76</span>Rivers by share of the Odisha coastal plain: Mahanadi first, Rushikulya last.</li>
+      <li><span class="yr">2025 Q12</span>Hills closest to Kanyakumari: the Cardamom hills.</li>
+      <li><span class="yr">2025 Q16</span>"Hexadeltaic" plain: built by six rivers.</li>
+      <li><span class="yr">2025 Q27</span>Operation Olivia, 6.98 lakh turtles: Rushikulya.</li>
+      <li><span class="yr">2025 Q94</span>Hirakud canals water Sambalpur, Cuttack and Puri, not Keonjhar.</li>
+    </ul>
+  </div>
+  <h3 class="sub">Likely next · cover the answer and test yourself</h3>
+  <ol class="qa">
+    <li><div class="q"><span class="n">01</span>Which pass is <b>not</b> in Himachal: Rohtang, Shipki La, Bara-lacha La, Zoji La?</div><div class="a"><b>Zoji La</b> (Ladakh).</div></li>
+    <li><div class="q"><span class="n">02</span>Through which pass does the Sutlej enter India?</div><div class="a"><b>Shipki La</b>.</div></li>
+    <li><div class="q"><span class="n">03</span>Which pass is on the Kailash Mansarovar route in Uttarakhand?</div><div class="a"><b>Lipulekh</b>.</div></li>
+    <li><div class="q"><span class="n">04</span>The highest peak lying wholly in India?</div><div class="a"><b>Nanda Devi</b> (7,816 m).</div></li>
+    <li><div class="q"><span class="n">05</span>Highest peak of the Satpura range?</div><div class="a"><b>Dhupgarh</b>, near Pachmarhi.</div></li>
+    <li><div class="q"><span class="n">06</span>Where do the Eastern and Western Ghats meet?</div><div class="a">The <b>Nilgiri hills</b>.</div></li>
+    <li><div class="q"><span class="n">07</span>Which is the highest peak in Odisha?</div><div class="a"><b>Deomali</b>, Koraput.</div></li>
+    <li><div class="q"><span class="n">08</span>Mahendragiri (Gajapati) is linked to which figure?</div><div class="a"><b>Parashurama</b>.</div></li>
+    <li><div class="q"><span class="n">09</span>Niyamgiri hills are home to which tribe?</div><div class="a">The <b>Dongria Kondh</b>.</div></li>
+    <li><div class="q"><span class="n">10</span>Which two rivers form the Brahmani?</div><div class="a"><b>Sankh and South Koel</b>, at Vedavyas.</div></li>
+    <li><div class="q"><span class="n">11</span>Which Odisha river flows into the Godavari: Indravati, Baitarani, Salandi, Rushikulya?</div><div class="a"><b>Indravati</b> (also the Sabari).</div></li>
+    <li><div class="q"><span class="n">12</span>Where does the Baitarani rise?</div><div class="a"><b>Gonasika hills</b>, Keonjhar.</div></li>
+    <li><div class="q"><span class="n">13</span>Which city stands at the head of the Mahanadi delta?</div><div class="a"><b>Cuttack</b>.</div></li>
+    <li><div class="q"><span class="n">14</span>Which is the highest waterfall in Odisha?</div><div class="a"><b>Barehipani</b>, Similipal.</div></li>
+    <li><div class="q"><span class="n">15</span>Why do the Narmada and Tapi form estuaries, not deltas?</div><div class="a">They run fast through <b>rift valleys</b> on hard rock, so silt is not dropped.</div></li>
+    <li><div class="q"><span class="n">16</span>Which river is called "Dakshin Ganga"?</div><div class="a">The <b>Godavari</b>.</div></li>
+    <li><div class="q"><span class="n">17</span>The Brahmaputra is called what in Arunachal?</div><div class="a"><b>Siang / Dihang</b> (Tsangpo in Tibet, Jamuna in Bangladesh).</div></li>
+    <li><div class="q"><span class="n">18</span>Under the Indus Waters Treaty, which rivers went to India?</div><div class="a">The eastern three: <b>Ravi, Beas, Sutlej</b>.</div></li>
+    <li><div class="q"><span class="n">19</span>Which river crosses the Tropic of Cancer twice?</div><div class="a">The <b>Mahi</b>.</div></li>
+    <li><div class="q"><span class="n">20</span>Which is the deepest lake in the world?</div><div class="a"><b>Baikal</b> (Russia).</div></li>
+  </ol>
+</section>
+
+<!-- 10 -->
+<section class="sec">
+  <div class="sectrule"><span class="eyebrow"><b>10</b> · Last week</span><span class="line"></span></div>
+  <h2>Memory hooks.</h2>
+  <ol class="hooks">
+    <li><span><b>Four highest:</b> Kanchenjunga in India, Nanda Devi wholly in India, Anamudi in the peninsula, Deomali in Odisha.</span></li>
+    <li><span><b>Himalaya from the plains up:</b> Shiwalik → Himachal → Himadri → Trans-Himalaya. "Shy Him Hides Tibet."</span></li>
+    <li><span><b>Passes west to east:</b> Ladakh (Karakoram, Khardung, Zoji) → J&amp;K (Banihal) → Himachal (Rohtang, Bara-lacha, Shipki) → Uttarakhand (Mana, Niti, Lipulekh) → Sikkim (Nathu, Jelep) → Arunachal (Bom Di, Se, Bum, Diphu).</span></li>
+    <li><span><b>Southern hills, north to south:</b> Nilgiri, Anaimalai, Palani, Cardamom. "No Ant Picks Cardamom."</span></li>
+    <li><span><b>West-flowing pair:</b> Narmada and Tapi, rift valleys, estuaries. Everything big else goes east and makes a delta.</span></li>
+    <li><span><b>Amarkantak gives two:</b> Narmada and Son. Not the Tapi (Multai), not the Mahanadi (Sihawa).</span></li>
+    <li><span><b>Six deltas of Odisha, north to south:</b> Subarnarekha, Budhabalanga, Baitarani, Brahmani, Mahanadi, Rushikulya.</span></li>
+    <li><span><b>Three turtle beaches:</b> Gahirmatha, Rushikulya, Devi mouth.</span></li>
+    <li><span><b>Mahanadi in one line:</b> Sihawa → Hirakud (Sambalpur) → Cuttack (delta head) → Paradip.</span></li>
+  </ol>
+  <h3 class="sub">CHECK list · unverified or disputed</h3>
+  <ul style="margin:6px 0 0;padding-left:1.1em;font-size:.95rem">
+    <li>Highest peak in India: K2 (NCERT, India's claim) or Kanchenjunga.</li>
+    <li>Highest peak of the Eastern Ghats: Mahendragiri (NCERT), Jindhagada or Arma Konda.</li>
+    <li>Barehipani height (about 399 m in most sources).</li>
+    <li>2025 border-trade and Yatra reopening through Lipulekh, Shipki La and Nathu La.</li>
+    <li>China's Medog dam on the Tsangpo (work started July 2025) and India's Siang project.</li>
+  </ul>
+</section>
+
+<footer>OPSC ASO · Mountains and Rivers · India, Odisha and the world · Notes from standard textbooks; no official answer key · Light mode only</footer>
+</div>
+</body>
+</html>
