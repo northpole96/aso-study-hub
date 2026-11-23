@@ -8,10 +8,14 @@ The number system is the biggest arithmetic group left: about **21 weighted ques
 |3|sum of digits divides by 3|5,412 → 5 + 4 + 1 + 2 = 12|
 |4|last two digits divide by 4|7,316 → 16|
 |5|last digit 0 or 5|4,635|
+|6|divides by both 2 and 3 (even, and digit sum divides by 3)|5,412 → even, and 5 + 4 + 1 + 2 = 12|
 |8|last three digits divide by 8|9,104 → 104 = 8 × 13|
 |9|sum of digits divides by 9|7,821 → 18|
 |10|last digit 0|3,450|
-|11|(sum of digits in odd places) − (sum in even places) is 0 or a multiple of 11|918,082 → (2 + 0 + 1) − (8 + 8 + 9) = −22|
+|11|count places **from the left**: (sum of digits in odd places) − (sum in even places) is 0 or a multiple of 11|918,082 → (9 + 8 + 8) − (1 + 0 + 2) = 22|
+
+>TIP:11: left or right?
+For the yes-or-no test you may count the places from the left or from the right. Changing the side only swaps the two sums, so the difference changes sign (22 becomes −22) and is still a multiple of 11. Counting from the left is easier because you read the number that way. Only if a question asks for the **remainder** on division by 11 must you count from the right (the units digit is place 1).
 
 ##Big divisors: split into co-prime parts
 To test 12, 15, 18, 36, 45, 72 or 90, split the divisor into two parts that share no factor (co-prime parts), and test both. **12 = 3 × 4**, 15 = 3 × 5, 18 = 2 × 9, 36 = 4 × 9, 45 = 5 × 9, **72 = 8 × 9**, **90 = 9 × 10**.
