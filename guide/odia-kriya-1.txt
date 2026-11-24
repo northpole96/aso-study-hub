@@ -1,0 +1,437 @@
+#CH start | Start here: the verb in the Odia paper | କ୍ରିୟା · 86 QUESTIONS
+**କ୍ରିୟା** (kriya) means **verb**: the word that tells what someone does, or what happens. In the Odia paper it is the biggest grammar topic. In the three papers of 2018, 2021 and 2025 the examiner asked **86 verb questions**: 37 in 2018, 21 in 2021 and 28 in 2025. That is more than one mark in every four of the grammar block. The official syllabus lists it first: "ବ୍ୟାକରଣ: କ୍ରିୟା".
+
+This guide is written in simple English, but every term is given in Odia too, because the question paper uses the Odia word. Learn each term as a pair, for example **ଅସମାପିକା = non-finite verb**. The questions are about **names, rules and examples**. They do not ask you to write long answers, so the best way to win marks is to know the exact name for each thing.
+
+##The nine families
+Every verb question in the three papers fits one of nine families. Here is how often each was asked, and the chapter that covers it.
+|Chapter|Family|Qs asked|2018 / 2021 / 2025|
+|---|---|---|---|
+|1|The words you need first: ଧାତୁ, ବିଭକ୍ତି, ବିକରଣ|(in every family)||
+|2|ଧାତୁ: complete or incomplete, and where it comes from|12|1 / 4 / 7|
+|3|କ୍ରିୟା ବିଭକ୍ତି: what the ending tells you|11|4 / 3 / 4|
+|4|ସମାପିକା and ଅସମାପିକା|9|4 / 3 / 2|
+|5|ଦ୍ୱିରୁକ୍ତି (doubling) of the ଅସମାପିକା|5|5 / 0 / 0|
+|6|Kinds of verb: ଏକକ, ମିଶ୍ର, ଯୌଗିକ, ସହାୟକ, ଧ୍ୱନ୍ୟାତ୍ମକ|21|11 / 3 / 7|
+|7|ନାମଧାତୁ: verbs made from nouns|8|2 / 3 / 3|
+|8|ପ୍ରେରଣାର୍ଥକ: "make someone do it"|6|3 / 1 / 2|
+|9|ସକର୍ମକ, ଅକର୍ମକ, ଦ୍ୱିକର୍ମକ: the object|7|2 / 4 / 1|
+|10|ନାସ୍ତ୍ୟର୍ଥକ: the negative verb|7|5 / 0 / 2|
+|11|Last-week sheet and CHECK list||
+
+>KEY:What to learn first
+Chapters 6 and 2 are worth the most: 33 questions between them. Then chapters 3, 4 and 7. Chapter 5 (doubling) has not been asked since 2018, so read it last.
+
+>WARN:The key is a book's key, not OPSC's
+OPSC has not published answer keys that we could fetch. Every answer in this guide is the key from the Udyam IAS book of past papers, checked against standard grammar. Where the book's keys disagree with each other or with grammar, the page shows a **CHECK** tag. Four chapters have one. Do not learn a CHECK answer as certain.
+
+>TIP:How to use this guide
+Read one chapter. Cover the answers of the **Past questions** table and try each one. Then tap the **Check yourself** answers. Do the chapters in this order: 1, 6, 2, 3, 4, 7, 8, 9, 10, 5, 11.
+
+#CH words | 1. The words you need first | WORDS · DHATU, BIBHAKTI, BIKARANA
+Almost every verb question uses three small words. If you know them, the questions become easy.
+
+##ଧାତୁ (dhatu): the root
+Take any verb: **କରିବା** (to do), **ଖାଇଲା** (ate), **ଦେଖୁଛି** (is seeing). Remove the endings and what is left is the **root**: **କର୍**, **ଖା**, **ଦେଖ୍**. The Odia grammar book calls this root the **ଧାତୁ**. In the 2025 paper the question was: "କ୍ରିୟାପଦର ମୂଳରୂପକୁ ପାରଂପରିକ ବ୍ୟାକରଣରେ ______ କୁହାଯାଏ", and the answer is **ଧାତୁ** ⟦2025 Q57⟧.
+
+A root written with a small mark under the last letter, like **କର୍**, **ପଢ଼୍**, **ଦେଖ୍**, ends in a consonant. This mark is the **halant** (the "dead" sign). It means the last letter has no vowel. The dictionary lists roots this way.
+
+##ବିଭକ୍ତି (bibhakti): the ending
+The ending joined to the root is the **କ୍ରିୟା ବିଭକ୍ତି**. It tells us who does the work and how many people do it. So:
+**ଧାତୁ + ବିଭକ୍ତି = କ୍ରିୟାପଦ** (the verb word).
+The 2021 paper asked how many endings a verb needs, and the word used was **ଅନ୍ୟୂନ** (at least). A verb word has at least **one** ending ⟦2021 Q82⟧.
+
+##ବିକରଣ (bikarana): the sign in the middle
+Sometimes a small piece sits between the root and the ending. It tells the **tense** (time). This piece is the **ବିକରଣ**. Look at **ଖେଳିବେ** (will play):
+- ଧାତୁ = **ଖେଳ୍**
+- ବିକରଣ = **ଇବ୍** (this shows the future)
+- ବିଭକ୍ତି = **ଏ**
+The 2021 paper asked exactly this: the ବିକରଣ of ‘ଖେଳିବେ’ is **ଇବ୍** ⟦2021 Q71⟧. Not ଖେଳ (that is the root), not ଏ (that is the ending).
+
+A verb that has one ବିକରଣ is called **ସବିକରଣ**. The question was: "ସବିକରଣ କ୍ରିୟା ପଦରେ ______ ବିକରଣ ଥାଏ", answer **ଗୋଟିଏ** (one) ⟦2018 Q31⟧.
+
+##The one picture to keep
+>KEY:Splitting a verb into three
+ଖେଳିବେ = **ଖେଳ୍** (root, ଧାତୁ) + **ଇବ୍** (tense sign, ବିକରଣ) + **ଏ** (person and number, ବିଭକ୍ତି).
+ଦେଖୁଥିଲା = **ଦେଖ୍** + **ଉଥିଲ୍** (past continuous) + **ଆ** (he / she, one person).
+If a question gives you a verb and asks "which part is what", split it exactly like this.
+
+##Two old names: ସିଦ୍ଧ and ସାଧ୍ୟ
+Traditional Odia grammar has two names for a verb in two states:
+- **ସିଦ୍ଧ କ୍ରିୟା**: the verb used like a **noun**, such as **କରିବା** (the doing), **ଯିବା** (the going). It gives **no** tense, person or number ⟦2021 Q46⟧. Another name for it is **କ୍ରିୟାବାଚକ ବିଶେଷ୍ୟ**.
+- **ସାଧ୍ୟ କ୍ରିୟା**: the real working verb that **does** show tense, person and number, such as **କରେ**, **କଲେ** ⟦2025 Q31⟧.
+Do not confuse them. The 2021 question asks for the one that shows **nothing**: ସିଦ୍ଧ. The 2025 question asks for the one that shows **everything**: ସାଧ୍ୟ.
+
+>NEXT:Check yourself and likely next
+?? ‘ଖାଉଛି’: what is the ଧାତୁ?||ଖା. The ending is ଉଛି and the ‘ଇ’ at the end is the ବିଭକ୍ତି.
+?? In ‘ଖେଳିବେ’, which part is the ବିକରଣ?||ଇବ୍. It shows the future tense.
+?? Which verb gives no tense, person or number: କରିବା or କଲା?||କରିବା. It is a ସିଦ୍ଧ କ୍ରିୟା (verb used as a noun).
+?? Likely next: In ‘ଯିବେ’ name the ଧାତୁ, ବିକରଣ and ବିଭକ୍ତି.||ଯା (root), ଇବ୍ (future sign), ଏ (ending). The root ‘ଯା’ changes its look to ‘ଯି’ before ‘ଇ’. ⟨CHECK; the exact split of ଯିବେ is not printed in the papers, learn the pattern, not this word⟩
+?? Likely next: What is the name of the verb as the dictionary lists it?||ଧାତୁ, with the halant, for example ପଢ଼୍, କର୍.
+
+#CH dhatu | 2. ଧାତୁ: complete or incomplete, and where it comes from | 12 QUESTIONS · 2025 ASKED 7
+Two kinds of question come from the root. First: **is the root complete or incomplete in form?** Second: **which language did the root come from?**
+
+##Complete and incomplete form (ପୂର୍ଣ୍ଣରୂପ, ଅପୂର୍ଣ୍ଣରୂପ)
+Some roots end with a consonant that carries a halant: **କର୍**, **ପଢ଼୍**, **ଦେଖ୍**. Other roots end in a **vowel sign**: **ଯା**, **ଖା**, **ଦେ**, **ନେ**. The book calls the second group **ଅପୂର୍ଣ୍ଣରୂପ** (incomplete form) roots.
+- ‘ଯା’ is an **ଅପୂର୍ଣ୍ଣରୂପ** ଧାତୁ ⟦2018 Q38⟧ ⟦2025 Q39⟧. The two questions are the same question, seven years apart.
+- ‘ଶୋ’, ‘ପଢ଼୍’ and ‘କର୍’ were the wrong options in 2018. ⟨CHECK; ଶୋ also ends in a vowel sign, so by the rule above it looks incomplete too. The book's key still says ଯା. Learn ‘ଯା’ as the safe example.⟩
+
+##Where does a root come from? Four kinds
+Odia roots come from four sources. Learn the four names and one example each.
+|Kind|Meaning|Example|
+|---|---|---|
+|ତତ୍ସମ (tatsama)|Taken from Sanskrit **without any change**|ଭଜ୍, ବନ୍ଧ୍, ଭିଦ୍, କୁଟ୍|
+|ତଦ୍ଭବ (tadbhaba)|Born from a Sanskrit root, but the **sound changed**|ଦେଖ୍ ← ଦୃଶ୍, ହେ ← ଭୂ|
+|ଦେଶଜ (deshaja)|Born in the land itself, **no Sanskrit parent**|ଭୁଲ୍|
+|ବୈଦେଶିକ (baideshika)|Taken from a **foreign** language (Persian, Arabic, English)|ବଦଳ୍, ପାସ୍|
+How to remember: ତତ୍ସମ = "same as that" (same as Sanskrit). ତଦ୍ଭବ = "born from that". ଦେଶଜ = "born in the country". ବୈଦେଶିକ = "from abroad".
+
+##The roots the examiner has asked about
+Each of these has been asked. Learn the pairs: the Odia root and its Sanskrit parent.
+|Odia word|Sanskrit parent|Year|
+|---|---|---|
+|ଦେଖ୍ (see)|ଦୃଶ୍|⟦2021 Q43⟧ ⟨CHECK; see below⟩|
+|ପଚାରିବା (ask)|ପୃଚ୍ଛ୍|⟦2025 Q36⟧|
+|ଲିପିବା (to smear, to plaster)|ଲିମ୍ପ୍|⟦2025 Q37⟧|
+|ହେବା (to be, to become)|ଭୂ|⟦2025 Q63⟧|
+|ଧାରି (the ଣିଜନ୍ତ form)|root ‘ଧୃ’|⟦2021 Q94⟧|
+|ଜାଜ୍ୱଲ୍ୟ (shining brightly)|ଜ୍ୱଲ୍ + doubling (ଅତିଶୟାର୍ଥକ ଧାତୁ)|⟦2021 Q56⟧|
+Look at the question in 2025: "ମୂଳ ସଂସ୍କୃତ ‘ଲିମ୍ପ୍’ ଧାତୁରୁ ଉତ୍ପନ୍ନ ଓଡ଼ିଆ ଧାତୁଟି" and the answer is **ଲିପିବା**, not ଲେଖିବା (to write). The two look alike, but ‘ଲେଖିବା’ comes from ‘ଲିଖ୍’.
+
+##Which are ଦେଶଜ and which are ତତ୍ସମ?
+- 2021 asked "କେଉଁଟି ଦେଶଜ ଧାତୁ ?" with options ଭଜ୍, ବନ୍ଧ୍, ଭିଦ୍, ଭୁଲ୍. The answer is **ଭୁଲ୍** ⟦2021 Q45⟧. The other three are Sanskrit roots.
+- 2025 asked the same thing with options କିଣିବା, ଚାହିଁବା, ଭାଳିବା, ମାଜିବା ⟦2025 Q38⟧. OPSC marked this question **Not valued**, so it will not count again; the book's key was not trusted. Do not spend time on it.
+- 2025 also asked "କୁଟିବା ଧାତୁର ମୂଳ ରୂପ ______ ଧାତୁ" and the key is **ତତ୍ସମ** ⟦2025 Q70⟧: ‘କୁଟ୍’ is itself a Sanskrit root. ⟨CHECK; ‘କୁଟିବା’ is the Odia word, so ‘ତଦ୍ଭବ’ is also arguable. The key says ତତ୍ସମ.⟩
+
+>WARN:ଦେଖ୍ comes from ଦୃଶ୍
+The 2021 question was "‘ଦେଖ୍’ ଧାତୁ ମୂଳ ସଂସ୍କୃତ ______ ଧାତୁରୁ ଆସିଛି" with the options ଦା, ଧୃ, ଖାଦ୍, ଦୃଶ୍. The book's key is **ଦୃଶ୍** and that is also standard grammar (ଦୃଶ୍ = to see). The scan of this question was unclear, so we mark it ⟨CHECK; learn ଦୃଶ୍⟩.
+
+>KEY:A quick way to answer origin questions
+If the verb is the same word as in Sanskrit, the answer is ତତ୍ସମ. If it sounds like a changed Sanskrit word and you can name the parent (ଦୃଶ୍ ‑ ଦେଖ୍, ଭୂ ‑ ହେବା), it is ତଦ୍ଭବ. If you cannot find any Sanskrit parent and the word is a village word, it is ଦେଶଜ.
+
+>NEXT:Check yourself and likely next
+?? ‘ଖା’ is which kind of root by form?||ଅପୂର୍ଣ୍ଣରୂପ. It ends in a vowel sign, like ‘ଯା’.
+?? Which is the Sanskrit parent of ‘ହେବା’?||ଭୂ.
+?? ଭୁଲ୍, ଭଜ୍, ବନ୍ଧ୍: which is ଦେଶଜ?||ଭୁଲ୍.
+?? What is the old Odia name for the root of a verb?||ଧାତୁ.
+?? Likely next: ‘ଶୁଣିବା’ comes from which Sanskrit root?||ଶ୍ରୁ. ⟨CHECK; standard grammar, not yet asked⟩
+?? Likely next: ‘ଲେଖିବା’ comes from which Sanskrit root?||ଲିଖ୍. ⟨CHECK; standard grammar, not yet asked⟩
+?? Likely next: ‘କରିବା’ comes from which Sanskrit root?||କୃ. ⟨CHECK; standard grammar, not yet asked⟩
+?? Likely next: ‘ପଚାରିବା’ is ତତ୍ସମ or ତଦ୍ଭବ?||ତଦ୍ଭବ, because the sound changed from ପୃଚ୍ଛ୍.
+
+#CH bibhakti | 3. କ୍ରିୟା ବିଭକ୍ତି: what the ending tells you | 11 QUESTIONS · EVERY YEAR
+##The rule: the ending shows PERSON and NUMBER
+The ending of an Odia verb tells you two things: **ପୁରୁଷ** (person: I, you, he) and **ବଚନ** (number: one, or many). It does **not** tell you the gender. The same verb is used for a man and a woman: ‘ସେ ଯାଏ’ is both "he goes" and "she goes".
+
+This one rule answers many questions:
+- "କ୍ରିୟା ବିଭକ୍ତି କହିଲେ କ'ଣ ବୁଝାଏ ?" Answer: **କ୍ରିୟାପଦ କେଉଁ ପୁରୁଷ ଓ ବଚନରେ ରହିଛି** ⟦2025 Q40⟧.
+- "______ ରୁ କ୍ରିୟାପଦର ପୁରୁଷ ଓ ବଚନ ଜଣାପଡ଼େ" Answer: **ବିଭକ୍ତି** ⟦2021 Q73⟧.
+- "‘ଖାଉଛି’ କ୍ରିୟାପଦରେ ‘ଇ’ ବିଭକ୍ତି ______ କୁ ସୂଚାଉଛି" Answer: **ପୁରୁଷ ଓ ବଚନ** ⟦2025 Q41⟧.
+- "‘ଦେଖୁଥିଲା’ କ୍ରିୟାପଦରେ ‘ଆ’ ______ ସୂଚକ ପ୍ରତ୍ୟୟ" Answer: **ପୁରୁଷ ଓ ବଚନ** ⟦2018 Q24⟧.
+- "କ୍ରିୟା ପଦ ସହିତ ଯେଉଁ ପ୍ରତ୍ୟୟ ଯୁକ୍ତ ହୁଏ, ତାହାକୁ ______ କୁହାଯାଏ" Answer: **କ୍ରିୟା ବିଭକ୍ତି** ⟦2018 Q44⟧.
+
+##A whole verb shows time, person and number
+Careful here. The **ending alone** shows person and number. But the **whole verb word** shows three things: ‘ପଢ଼ୁଥିଲି’ shows **କାଳ** (time: past continuous), **ପୁରୁଷ** (first person: I) and **ବଚନ** (one). So the answer to "‘ପଢ଼ୁଥିଲି’ କ୍ରିୟା ପଦରୁ ______ ର ଧାରଣା ମିଳୁଛି" is **କାଳ, ପୁରୁଷ ଓ ବଚନ** ⟦2018 Q19⟧. Read the question: "the ending" gives person and number; "the whole verb" gives all three.
+
+##The common endings: who is doing the work
+Read the endings of one verb, ‘କରିବା’ (to do), in three tenses. The little table is the heart of the chapter.
+|Who|Present (ସାଧାରଣ)|Present continuous|Past (ସାଧାରଣ)|
+|---|---|---|---|
+|ମୁଁ (I)|କରେ|କରୁଛି|କଲି|
+|ଆମେ (we)|କରୁ|କରୁଛୁ|କଲୁ|
+|ତୁ (you, close)|କରୁ|କରୁଛୁ|କଲୁ|
+|ତୁମେ (you)|କର|କରୁଛ|କଲ|
+|ସେ (he, she)|କରେ|କରୁଛି|କଲା|
+|ସେମାନେ (they)|କରନ୍ତି|କରୁଛନ୍ତି|କଲେ|
+|ଆପଣ (you, respect)|କରନ୍ତି|କରୁଛନ୍ତି|କଲେ|
+The question in 2025 asked "‘ଅନ୍ତି’ କ୍ରିୟା ବିଭକ୍ତିରୁ ______ ରୂପ ଜଣାପଡ଼େ", with the answer **ତୃତୀୟ ପୁରୁଷ ବହୁବଚନ** (third person, many) ⟦2025 Q50⟧: ସେମାନେ କରନ୍ତି. The words are: ପ୍ରଥମ ପୁରୁଷ = I and we (the speaker); ଦ୍ୱିତୀୟ ପୁରୁଷ = you; ତୃତୀୟ ପୁରୁଷ = he, she, they. ⟨CHECK; Odia books number the persons differently from English. In the question, ଅନ୍ତି = "they", and the key calls that ତୃତୀୟ.⟩
+
+##‘ଣି’, ‘ଟି’, ‘ହେ’, ‘ତ’ are not verb endings
+Two questions are about small filler words that sit at the end of the verb.
+- "‘ଣି’ ପ୍ରତ୍ୟୟ କ୍ରିୟାପଦ ______ ଯୁକ୍ତ ହୁଏ": answer **ଶେଷରେ** (at the end) ⟦2018 Q27⟧.
+- "______ ଏକ ପାଦପୂରଣାର୍ଥକ ପ୍ରତ୍ୟୟ ନୁହେଁ": answer **ଣି** ⟦2025 Q58⟧. The other options ‘ଟି’, ‘ହେ’, ‘ତ’ are **ପାଦପୂରଣାର୍ଥକ** (filler, used only to complete the line or the beat).
+So ‘ଣି’ goes at the end of a verb (‘ଯିବଣି ?’ = will you go?) and it is a **question** marker, not a filler. ⟨CHECK; the book gives no note. This reading fits both keys.⟩
+
+>NEXT:Check yourself and likely next
+?? ‘ଲେଖୁଛି’: the last ‘ଇ’ tells what?||ପୁରୁଷ ଓ ବଚନ (first person, one: "I am writing").
+?? ‘ସେମାନେ ଯାଆନ୍ତି’: which ending shows the number?||ଅନ୍ତି. It shows many people (ବହୁବଚନ).
+?? Does the Odia verb change with the gender of the subject?||No. ‘ସେ ଯାଏ’ is for both. ⟦2018 Q9⟧ and ⟦2021 Q39⟧ asked this.
+?? What does ‘ପଢ଼ୁଥିଲା’ show?||କାଳ (past continuous), ପୁରୁଷ (third) and ବଚନ (one).
+?? Likely next: ‘ଆମେ ଖେଳିଲୁ’: what does ‘ଲୁ’ show?||ପ୍ରଥମ ପୁରୁଷ ବହୁବଚନ (we) in the past. The ‘ଲ’ shows past time, ‘ଉ’ shows we.
+?? Likely next: ‘ତୁମେ ଯାଅ’ shows which person?||ଦ୍ୱିତୀୟ ପୁରୁଷ (you).
+
+#CH finite | 4. ସମାପିକା and ଅସମାପିକା | 9 QUESTIONS · EVERY YEAR
+##The two kinds
+- **ସମାପିକା କ୍ରିୟା** (finite verb): it **ends** the sentence. It shows tense, person and number. Example: ‘ସେ ବହି ପଢ଼ିଲା’. The verb ‘ପଢ଼ିଲା’ ends the idea.
+- **ଅସମାପିକା କ୍ରିୟା** (non-finite verb): it **does not end** the sentence. The sentence still waits for a ସମାପିକା after it. Example: ‘ସେ ବହି ପଢ଼ି ଶୋଇଲା’. Here ‘ପଢ଼ି’ is ଅସମାପିକା; ‘ଶୋଇଲା’ is the ସମାପିକା.
+Easy test: **every sentence needs exactly one ସମାପିକା.** A sentence can have several ଅସମାପିକା.
+
+The 2025 paper gave the clue words: "ଯେଉଁ କ୍ରିୟାପଦରୁ କାଳ, ପୁରୁଷ ଓ ବଚନ ପ୍ରଭୃତିର ଧାରଣା ମିଳେ" is ସାଧ୍ୟ (ସମାପିକା) ⟦2025 Q31⟧. In 2021 "ଏକାଧିକ ପଦରେ ପ୍ରକାଶିତ କ୍ରିୟା" is a **ମିଶ୍ର** verb (chapter 6) ⟦2021 Q38⟧. Do not mix the two clues up.
+
+##How to spot an ଅସମାପିକା: the three endings
+Look at the last letters of the verb:
+|Ending|Example|What it means|
+|---|---|---|
+|**‑ଇ**|ଦେଖି, ଧରି, ଖାଇ|the action is **finished** (ସଂପନ୍ନ ସୂଚକ)|
+|**‑ଉ ‑ଉ** (doubled)|ବସୁବସୁ, ଯାଉଯାଉ|the action is **still going** (ଅସଂପନ୍ନ ସୂଚକ)|
+|**‑ଅନ୍ତେ, ‑ଲେ**|କହନ୍ତେ, ଗଲେ|time or condition ("when", "if")|
+Past questions that use the table:
+- ‘ସେ କ୍ରିକେଟ ଦେଖି ଫେରୁଛି’: ‘ଦେଖି’ is a **ସଂପନ୍ନ ସୂଚକ ଅସମାପିକା** ⟦2018 Q45⟧.
+- ‘ସୈନ୍ୟମାନେ ଅସ୍ତ୍ର ଧରି ଯୁଦ୍ଧକୁ ଗଲେ’: ‘ଧରି’ is **ଅସମାପିକା** ⟦2021 Q67⟧.
+- ‘ସେ କହନ୍ତେ ପିଲାଟି ଦୌଡ଼ିଲା’: ‘କହନ୍ତେ’ is the ଅସମାପିକା; the options ‘ଇଲା’ and ‘ଦୌଡ଼ିଲା’ are the finite part ⟦2018 Q39⟧.
+- ‘ପିଟୁଥିଲା’: the part ‘ପିଟୁ’ is in **ଅସମାପିକା** form ⟦2018 Q20⟧. A verb like ‘ପିଟୁଥିଲା’ is built from an ଅସମାପିକା (ପିଟୁ) plus a helping verb (ଥିଲା); you will meet this in chapter 6.
+
+##Questions about the ending (ପ୍ରତ୍ୟୟ)
+- "ଅସମାପିକା କ୍ରିୟାପଦରେ ______ ପ୍ରତ୍ୟୟ ପ୍ରୟୋଗ କରାଯାଏ": answer **ଇ** ⟦2025 Q46⟧ (the options ଅନ୍ତି, ଅ, ଉଛି are all ସମାପିକା endings).
+- "ଧାତୁସହ କେଉଁ ବିଭକ୍ତି ଯୁକ୍ତ ହେଲେ ଅସମାପିକା କ୍ରିୟା ହୁଏ ?": answer **ଉ** ⟦2021 Q85⟧ (the doubled ‘ଉ’ of ‘ଯାଉଯାଉ’). ⟨CHECK; the two keys give ‘ଇ’ in 2025 and ‘ଉ’ in 2021. Both are real ଅସମାପିକା endings, but the options of each question have only one of them. Read the options.⟩
+- "ଧାତୁରେ ଅସମାପିକା କ୍ରିୟା ବିଭକ୍ତି ______": answer **ଯୁକ୍ତ ହୋଇପାରେ** (may be joined) ⟦2021 Q49⟧.
+- "ଇକାରାନ୍ତ ଅସମାପିକା କ୍ରିୟା ସହ ______ ଅସମାପିକା କ୍ରିୟା ମଧ୍ୟ ସଂଯୁକ୍ତ ହୋଇପାରେ": answer **କରି** ⟦2025 Q49⟧. ‘ଇକାରାନ୍ତ’ means "ending in ‘ଇ’". Example: ‘ଧରିକରି’, ‘ଖାଇକରି’.
+
+##Which word is the verb of the sentence?
+A simple trap: "ଗଙ୍ଗା ନଦୀର ପାଣି ପବିତ୍ର ଅଟେ" has the verb **ଅଟେ** (is) ⟦2018 Q52⟧. ‘ପବିତ୍ର’ is an adjective. A verb can be as small as ‘ଅଟେ’ or ‘ହେଲା’.
+
+>KEY:One line to remember
+‘‑ଇ’ and ‘‑ଉ ‑ଉ’ at the end of a verb: ଅସମାପିକା. A full ending like ‘‑ଲା, ‑ଲେ, ‑ଛି, ‑ନ୍ତି’ that closes the sentence: ସମାପିକା.
+
+>NEXT:Check yourself and likely next
+?? ‘ସେ ଭାତ ଖାଇ ବିଦ୍ୟାଳୟକୁ ଗଲା’: name the ସମାପିକା and the ଅସମାପିକା.||ସମାପିକା: ଗଲା. ଅସମାପିକା: ଖାଇ.
+?? ‘ସେ ହସି ହସି କହିଲା’: which is ଅସମାପିକା?||‘ହସି ହସି’ (doubled, so "while laughing").
+?? Does an ଅସମାପିକା verb show tense?||No. It shows no tense, person or number.
+?? ‘ବସୁବସୁ’ is which kind?||ଅସମାପିକା ‑ଅସଂପନ୍ନ (the action is going on).
+?? Likely next: Name the ଅସମାପିକା in ‘ବର୍ଷା ହେଲେ ମେଳା ବନ୍ଦ ହେବ’.||ହେଲେ (‑ଲେ shows "if").
+?? Likely next: ‘ସେ ଆସିବାକୁ ଇଚ୍ଛା କଲା’: is ‘ଆସିବା’ a ସମାପିକା?||No. It is a verb used as a noun (ସିଦ୍ଧ).
+
+#CH redup | 5. ଦ୍ୱିରୁକ୍ତି: doubling the ଅସମାପିକା | 5 QUESTIONS · ALL IN 2018
+All five questions were asked in **2018** and none since. They are a small family, but a repeat is possible, because the examiner often repeats old lines word for word.
+
+##What doubling does
+When you say an ଅସମାପିକା twice, a new meaning comes out. ‘ବସି’ becomes ‘ବସି ବସି’; ‘ବସୁ’ becomes ‘ବସୁବସୁ’.
+- Doubling the ‘ଉ’ form (‘ଯାଉଯାଉ’, ‘ବସୁବସୁ’) makes an **ଅସମାପିକା କ୍ରିୟା** again ⟦2018 Q23⟧ ⟦2018 Q64⟧.
+- Doubling the ‘ଇ’ form (‘ବସି ବସି’, ‘ଧରି ଧରି’) gives a **ସଂପନ୍ନତା ସୂଚକ ଅସମାପିକା** ⟦2018 Q35⟧. Of ‘ବସୁବସୁ’, ‘ବସି ବସି’, ‘ବସିଲା’, ‘ବସିଥିଲା’, only ‘ବସି ବସି’ is the answer.
+- Doubling an ଅସମାପିକା gives a word that works as a **କ୍ରିୟା ବିଶେଷଣ** (it describes how the action happens): ‘ସେ ଯାଉଯାଉ କହିଲା’ ⟦2018 Q36⟧. ⟨CHECK; two keys of this family (Q23, Q36) can look alike. Q23 and Q64 say the doubled ‘ଉ’ gives ଅସମାପିକା, Q36 says the result works as an adverb. Both statements hold, but read the options.⟩
+- ‘ମରାମରି’ (fighting till death) is a verb of this doubled kind, and the key calls it **ଅସମାପିକା** ⟦2018 Q37⟧. ‘ମରାମରି’, ‘ଗଡ଼ାଗଡ଼ି’, ‘ଧରାଧରି’ all follow the same pattern: two verb words joined with ‘ଆ’ and ‘ଇ’.
+
+>NEXT:Check yourself and likely next
+?? ‘ଯାଉଯାଉ’: which part of the verb is doubled?||The ‘ଉ’ form.
+?? ‘ଧରାଧରି’ is which kind of verb?||A doubled ଅସମାପିକା form (it means "each holding the other").
+?? Likely next: ‘ହସିହସି’ shows the action as finished or still going?||It shows the action finished or complete (ସଂପନ୍ନ). ⟨CHECK; the book names ‘‑ଇ ‑ଇ’ as ସଂପନ୍ନ in Q35⟩
+
+#CH kinds | 6. The kinds of verb | 21 QUESTIONS · THE BIGGEST FAMILY
+This is the family with the most questions, and 2018 asked 11 of them. A verb can be split by how it is **built**. Learn the eight names below and one example for each.
+
+##ଏକକ (ଅମିଶ୍ର) ବା ସରଳ: the plain verb
+One ଧାତୁ plus one or more endings makes a **ଏକକ କ୍ରିୟା**. ‘ଖାଇଲେ’, ‘ଶୋଇବା’, ‘ଯାଏ’ are all plain verbs. The 2018 question: "ଗୋଟିଏ ଧାତୁ ଓ ଗୋଟିଏ ବିଭକ୍ତିକୁ ନେଇ ଗଠିତ ହୁଏ ______ କ୍ରିୟା ପଦ" and the answer is **ଏକକ** ⟦2018 Q55⟧. ‘ସେ ଆମ ଘରେ ଖାଇଲେ’: ‘ଖାଇଲେ’ is an **ଅମିଶ୍ର** (plain) verb ⟦2018 Q40⟧.
+
+##ମିଶ୍ର କ୍ରିୟା: a noun or adjective plus a verb
+Some verbs need **two or more words** to say one action. A noun, an adjective or a word like it joins with a small verb such as **କର**, **ହୁଅ**, **ଦିଅ**.
+- ‘ଆହାର କରୁଥିଲେ’ (were eating): ‘ଆହାର’ is a noun, ‘କରୁଥିଲେ’ is the verb. Together they are a **ମିଶ୍ର** verb.
+- ‘ଅବତରଣ କରିବା’ (to land, to descend) is a **ମିଶ୍ର** verb ⟦2025 Q59⟧. The other options ‘ଶୋଇବା’, ‘ନୋହିବା’ and ‘ଶୁଆଇବା’ are one-word verbs.
+- The 2021 clue: "ଏକାଧିକ ପଦରେ ପ୍ରକାଶିତ କ୍ରିୟା" is a **ମିଶ୍ର** verb ⟦2021 Q38⟧.
+- Can a ମିଶ୍ର verb be turned into a plain one? **Yes**, in many cases ⟦2025 Q43⟧: ‘ସ୍ନାନ କରିବା’ (to bathe) can be said ‘ନାହିବା’. ⟨CHECK; the key says "ହଁ" (yes); the example is ours, not the book's.⟩
+- One more trap: in ‘ଋଷିମାନେ ବଣର ଫଳମୂଳ ଆହାର କରୁଥିଲେ’ the question asks for the **ଯୌଗିକ** verb, and the book's key picks only ‘କରୁଥିଲେ’ ⟦2021 Q79⟧. ⟨CHECK; ‘ଆହାର କରୁଥିଲେ’ is a ମିଶ୍ର verb, not a ଯୌଗିକ one. This key looks wrong. Do not learn it.⟩
+
+##ଯୌଗିକ କ୍ରିୟା: two verbs working as one
+A **ଯୌଗିକ** verb has **two verbs together**. The first is an ଅସମାପିକା (ending in ‘ଇ’, chapter 4). The second is a **helping verb** that carries the ending. ‘ଖାଇଦେଲା’ = ‘ଖାଇ’ + ‘ଦେଲା’. ‘ପଡ଼ିଗଲେ’ = ‘ପଡ଼ି’ + ‘ଗଲେ’.
+- "ଯୌଗିକ କ୍ରିୟା ପଦର ପ୍ରଥମ କ୍ରିୟାଟି ସର୍ବଦା ______ ରୂପ ବିଶିଷ୍ଟ": **ଅସମାପିକା** ⟦2018 Q25⟧ ⟦2025 Q66⟧. Same question, seven years apart.
+- ‘ପଡ଼ିଗଲେ’ is a **ଯୌଗିକ** verb ⟦2025 Q64⟧.
+- ‘ଖାଇଦେଇ ଯାଆନ୍ତୁ’ has **three** ଧାତୁ: ଖା, ଦେ, ଯା ⟦2025 Q42⟧.
+Do not mix this up with ମିଶ୍ର: a ମିଶ୍ର verb joins a **noun** and a verb; a ଯୌଗିକ verb joins **two verbs**.
+
+##ସହାୟକ and ସାହାଯ୍ୟକାରୀ: two different helpers
+This pair is asked often. They sound alike, but they are two groups.
+|Group|What it is|Examples|
+|---|---|---|
+|**ସହାୟକ କ୍ରିୟା** (auxiliary)|a small verb that helps to show **tense**: the forms of ‘ଥା’, ‘ଅଛ’, ‘ହୁ’|ଯାଉ**ଥିବ**, ଖାଉ**ଅଛି**|
+|**ସାହାଯ୍ୟକାରୀ କ୍ରିୟା** (helper, ଯୌଗିକ)|a verb that follows an ‘ଇ’ verb and adds **colour**: ଦେ, ନେ, ପଡ଼, ଉଠ, ବସ, ସାର, ପାର…|ଖାଇ**ଦେଲା**, ଖାଇ**ସାରିଲା**|
+- ‘ଯାଉଥିବ’: ‘ଥା’ is a **ସହାୟକ** verb ⟦2018 Q32⟧.
+- ‘ଖାଇଦେଲା’: ‘ଦେଲା’ is a **ସାହାଯ୍ୟକାରୀ** verb ⟦2018 Q41⟧.
+- "______ ଏକ ସାହାଯ୍ୟକାରୀ କ୍ରିୟା": **ଖାଇ ସାରିଲା** ⟦2018 Q66⟧. The others (ଖାଇଲା, ଖାଉଅଛି, ଖାଇଥିବ) are plain or use only a ସହାୟକ.
+- "ଓଡ଼ିଆ କ୍ରିୟାପଦରେ ______ ଟି ସହାୟକ କ୍ରିୟା ସଂଯୁକ୍ତ ହୋଇଥାଏ": OPSC marked this one **Not valued** ⟦2025 Q33⟧. Skip it.
+
+##ଧ୍ୱନ୍ୟାତ୍ମକ କ୍ରିୟା: a verb made from a sound
+Some verbs come from the **sound** of an action: ‘କଡ଼ମଡ଼’ (crunching), ‘ସଡ଼ସଡ଼’ (rustling), ‘ଝରଝର’ (pouring). Joined to a small verb, they make a **ଧ୍ୱନ୍ୟାତ୍ମକ** (also ଧ୍ୱନ୍ୟନୁକାରୀ) verb.
+- ‘ସେ ଦାନ୍ତ କଡ଼ମଡ଼ କଲେ’ uses a **ଧ୍ୱନ୍ୟାତ୍ମକ** verb ⟦2018 Q34⟧.
+- ‘ସଡ଼ସଡ଼ ହେବା’ is a ଧ୍ୱନ୍ୟାତ୍ମକ verb ⟦2018 Q67⟧. The other options ‘ଯାଉଯାଉ’, ‘ଧରିଧରି’ and ‘ଗଡ଼ାଗଡ଼ି ହେଲେ’ are doubled forms from chapter 5.
+
+##ଆଭିମୁଖ୍ୟ: the "about to" sense
+Two questions from 2018 use the word **ଆଭିମୁଖ୍ୟ** (facing, leaning towards, "about to"). The book keys: "କ୍ରିୟା ପଦ ମଧ୍ୟରେ ଆଭିମୁଖ୍ୟ ବାଚକ ପ୍ରତ୍ୟୟ **ଯୁକ୍ତ ଥାଏ**" ⟦2018 Q13⟧, and "ଆଭିମୁଖ୍ୟଯୁକ୍ତ କ୍ରିୟାପଦ ସର୍ବଦା **ଯୌଗିକ କ୍ରିୟା** ହୋଇଥାଏ" ⟦2018 Q42⟧. ⟨CHECK; the book gives no note and the term is not in our other sources. Learn the two lines as they stand.⟩
+
+>KEY:The decision chain
+Look at the verb. **One word, one root?** → ଏକକ (ଅମିଶ୍ର). **Noun + verb?** → ମିଶ୍ର. **Two verbs, first ends in ‘ଇ’?** → ଯୌଗିକ. **Made from a sound?** → ଧ୍ୱନ୍ୟାତ୍ମକ. **Made from a noun or adjective with no ‘କର’?** → ନାମଧାତୁ (chapter 7).
+
+>NEXT:Check yourself and likely next
+?? ‘ଶୁଣିଦେଲା’: is it ମିଶ୍ର or ଯୌଗିକ?||ଯୌଗିକ. Two verbs: ଶୁଣି and ଦେଲା.
+?? ‘ସ୍ନାନ କରିବା’: is it ମିଶ୍ର or ଯୌଗିକ?||ମିଶ୍ର. ‘ସ୍ନାନ’ is a noun.
+?? In ‘ଯାଉଥିଲା’ the word ‘ଥିଲା’ is which kind of helper?||ସହାୟକ.
+?? In ‘ଲେଖି ସାରିଲା’ the word ‘ସାରିଲା’ is which kind of helper?||ସାହାଯ୍ୟକାରୀ.
+?? What is the first verb of a ଯୌଗିକ କ୍ରିୟା?||ଅସମାପିକା.
+?? Likely next: Is ‘ଝରଝର ହେଲା’ ଧ୍ୱନ୍ୟାତ୍ମକ or ମିଶ୍ର?||ଧ୍ୱନ୍ୟାତ୍ମକ (made from the sound ‘ଝରଝର’).
+?? Likely next: How many ଧାତୁ are in ‘ବସିପଡ଼ିଲା’?||Two: ବସ୍ and ପଡ଼୍.
+?? Likely next: Which has a noun inside: ‘କାମ କଲା’ or ‘ଖାଇଲା’?||କାମ କଲା. It is a ମିଶ୍ର verb.
+
+#CH nama | 7. ନାମଧାତୁ: a verb made from a noun | 8 QUESTIONS · EVERY YEAR
+A **ନାମଧାତୁ** is a verb made from a **noun** (ବିଶେଷ୍ୟ) or an **adjective** (ବିଶେଷଣ) by adding an ending such as ‘ଇ’ or ‘ଏଇ’ ‑ with no ‘କର’ or ‘ହୁଅ’ in between.
+- ‘ଅଟକ’ (a halt, noun) → ‘ଅଟକିବା’ (to stop) ⟦2018 Q54⟧.
+- ‘ଅଙ୍କୁର’ (a sprout, noun) → ‘ଅଙ୍କୁରିବା’ (to sprout) ⟦2021 Q91⟧.
+- ‘ଆଗ’ (front, ahead) → ‘ଆଗେଇବା’ (to go ahead) ⟦2021 Q95⟧. The question asked for the word the ନାମଧାତୁ ‘ଆଗେଇବା’ comes from, and the answer is **ଆଗ**.
+- ‘ଖନ’ (digging) → ‘ଖନେଇବା’ (to dig) ⟦2025 Q48⟧.
+- ‘ହୁଗୁଳ’ (slow, from the adjective) → ‘ହୁଗୁଳେଇବା’ (to slow down) ⟦2025 Q67⟧.
+The key of 2025 Q67 calls ‘ହୁଗୁଳ’ a ବିଶେଷଣ; the other options were ବିଶେଷ୍ୟ, ସର୍ବନାମ, ବଚନ.
+
+##The rule questions
+- "ଯେଉଁ କ୍ରିୟାପଦ ବିଶେଷ୍ୟ ବା ବିଶେଷଣ ଶବ୍ଦରୁ ଗଠିତ ହୋଇଥାଏ, ତାହାକୁ ______ କ୍ରିୟାପଦ କୁହାଯାଏ": **ନାମଧାତୁ** ⟦2021 Q77⟧.
+- "ନାମ ଧାତୁ କ୍ରିୟା ______ ରୁ ବିଶେଷଣ ଗଠିତ ହୋଇଥାଏ": options include ‘ବିଶେଷ୍ୟ ଓ ବିଶେଷଣ’ ⟦2018 Q50⟧. The question wording is garbled in the book, but the key means: ନାମଧାତୁ is made from **ବିଶେଷ୍ୟ ଓ ବିଶେଷଣ**.
+- "ନାମଧାତୁ କ୍ରିୟାପଦ ______ ଶବ୍ଦରୁ ଗଠିତ": **ବିଶେଷଣ** was the key ⟦2025 Q47⟧ (the other options were ଅବ୍ୟୟ, କାଳ, ବଚନ). Read the options: if both ବିଶେଷ୍ୟ and ବିଶେଷଣ are there, the best answer is "both".
+- ‘ଅଙ୍କୁର’ ‑ the 2021 option words were ‘ପ୍ରୟୋଜନ’, ‘ଣିଜନ୍ତ’, ‘ସନନ୍ତ’ and ‘ନାମ’; the answer is **ନାମ** (name) ⟦2021 Q91⟧: a ନାମ ଧାତୁ.
+
+>WARN:Do not confuse ନାମଧାତୁ with ମିଶ୍ର
+‘ଖନ କରିବା’ is ମିଶ୍ର (noun + କର). ‘ଖନେଇବା’ is ନାମଧାତୁ (the noun has turned into a verb by itself). If the small verb is still there, it is ମିଶ୍ର.
+
+>NEXT:Check yourself and likely next
+?? ‘ଲଜ୍ଜାଇବା’ is made from which word?||ଲଜ୍ଜା (noun). It is a ନାମଧାତୁ. ⟨CHECK; our example, not in the papers⟩
+?? ‘ଅନ୍ଧାର’ → ?||‘ଅନ୍ଧାରିବା’ (to grow dark). Noun to verb.
+?? ‘ଛୋଟ’ is an adjective. ‘ଛୋଟେଇବା’ is which kind of verb?||ନାମଧାତୁ (from an adjective).
+?? Likely next: What does ‘ନାମ’ in ‘ନାମଧାତୁ’ mean?||"Name", meaning noun (ବିଶେଷ୍ୟ).
+?? Likely next: ‘ହାତେଇବା’ comes from?||‘ହାତ’ (noun). It is a ନାମଧାତୁ. ⟨CHECK; our example, not in the papers⟩
+
+#CH prerana | 8. ପ୍ରେରଣାର୍ଥକ: "make someone do it" | 6 QUESTIONS · 2025 ASKED 2
+##What it is
+**ପ୍ରେରଣା** means "urging". A ପ୍ରେରଣାର୍ଥକ କ୍ରିୟା shows that the doer **makes another person do** the work. Compare:
+- ସେ ଖାଏ. (He eats.) Plain verb.
+- ମା ପିଲାକୁ **ଖୁଆନ୍ତି**. (Mother makes the child eat; she feeds him.) ପ୍ରେରଣାର୍ଥକ verb.
+The question: "ଯେଉଁ କ୍ରିୟା ଦ୍ୱାରା କିଛି କରାଇବା ଅର୍ଥ ପ୍ରକାଶିତ ହୁଏ, ତାହା ______" and the answer is **ପ୍ରେରଣାର୍ଥକ କ୍ରିୟା** ⟦2018 Q63⟧.
+
+##Two doers, and their names
+A ପ୍ରେରଣାର୍ଥକ sentence has two doers:
+- the one who **orders or causes** the action is the **ପ୍ରଯୋଜକ କର୍ତ୍ତା**;
+- the one who **actually does** it is the **ପ୍ରଯୁଜ୍ୟ କର୍ତ୍ତା**.
+In ‘ମା ପିଲାକୁ ଖୁଆନ୍ତି’, ‘ମା’ is the ପ୍ରଯୋଜକ କର୍ତ୍ତା. The 2021 question: "ଯେଉଁ କର୍ତ୍ତା ନିଜେ କ୍ରିୟା ସମ୍ପାଦନ ନ କରି ଅନ୍ୟଦ୍ୱାରା କରାଏ, ତାହାକୁ ______ କୁହାଯାଏ", answer **ପ୍ରଯୋଜକ କର୍ତ୍ତା** ⟦2021 Q33⟧. The options ‘ପ୍ରଯୁଜ୍ୟ କର୍ତ୍ତା’ and ‘ପ୍ରଯୋଜକ କର୍ତ୍ତା’ look very alike. Remember: **ଜକ = the Jockey who drives**; the driver is ପ୍ରଯୋଜକ.
+
+##How the verb is made: the root changes
+The ପ୍ରେରଣାର୍ଥକ verb is made by changing the root:
+|Plain root|ପ୍ରେରଣାର୍ଥକ root|Meaning|
+|---|---|---|
+|ଖା|ଖୁଆ|feed|
+|ପଢ଼୍|ପଢ଼ା (ପଢ଼ାଇ)|teach|
+|ଶୋ|ଶୁଆ|put to sleep|
+The 2018 question: "‘ଖା’ ଧାତୁରୁ ‘ଖୁଆ’ ______ ଧାତୁ ଗଠିତ" and the answer is **ପ୍ରେରଣାର୍ଥକ** ⟦2018 Q58⟧. In ‘ଶୁଆଇବା’ of 2025 Q59 the same change is visible.
+
+##Which ending makes it? The keys disagree
+Three questions ask which ending makes a ପ୍ରେରଣାର୍ଥକ verb, and the book gives three different keys:
+- ‘ଆ’ ଓ ‘ଇ’ ⟦2018 Q30⟧
+- ‘ଅ’, ‘ଆ’ ଏବଂ ‘ଏ’ ⟦2025 Q51⟧
+- ‘ଏ’ ⟦2025 Q65⟧
+⟨CHECK; the three keys cannot all be right together. In plain grammar, the ପ୍ରେରଣାର୍ଥକ verb takes ‘ଆ’ (ଖୁଆ, ପଢ଼ା), and the ending ‘ଇ’ then follows (ପଢ଼ାଇବା). If the options of a question include ‘ଆ’, pick it. Do not argue with the paper; choose the option with ‘ଆ’.⟩
+
+>NEXT:Check yourself and likely next
+?? ‘ମା ପିଲାକୁ ଖୁଆଇଲେ’: who is the ପ୍ରଯୋଜକ କର୍ତ୍ତା?||ମା.
+?? And who is the ପ୍ରଯୁଜ୍ୟ କର୍ତ୍ତା?||ପିଲା.
+?? Make the ପ୍ରେରଣାର୍ଥକ of ‘ଦେଖିବା’.||ଦେଖାଇବା (to show). ⟨CHECK; standard grammar⟩
+?? Likely next: ‘ଶୁଆଇବା’ is which kind?||ପ୍ରେରଣାର୍ଥକ (from ଶୋ).
+?? Likely next: ‘ପଢ଼ାଇବା’ means?||To teach (to make someone read).
+
+#CH object | 9. ସକର୍ମକ, ଅକର୍ମକ, ଦ୍ୱିକର୍ମକ | 7 QUESTIONS · 2021 ASKED 4
+##The test: ask "what?"
+A verb is **ସକର୍ମକ** (transitive) if it has a **କର୍ମ** (object), the thing the work falls on. It is **ଅକର୍ମକ** (intransitive) if it has none.
+Simple test: ask the verb "**କଣ?**" (what?). If you can answer, it is ସକର୍ମକ. If you cannot, it is ଅକର୍ମକ.
+- ସେ ବହି **ପଢ଼ୁଛି**. What does he read? ‘ବହି’. → ସକର୍ମକ.
+- ପବନ ଧୀରେ **ବହୁଛି**. What does the wind flow? Nothing. → ଅକର୍ମକ ⟦2021 Q78⟧.
+The 2018 question: "ଯେଉଁ କ୍ରିୟାରେ କର୍ମ ନ ଥାଏ, ତାହାକୁ ______ କ୍ରିୟା କୁହାଯାଏ", answer **ଅକର୍ମକ** ⟦2018 Q48⟧. ‘ନିଷ୍କର୍ମକ’ and ‘କର୍ମହୀନ’ are made-up distractors.
+
+##The verbs the examiner chose as ଅକର୍ମକ
+- ‘ପଢ଼ିବା’, ‘ଦଳିବା’, ‘ମାରିବା’, ‘କାଶିବା’: the ଅକର୍ମକ one is **କାଶିବା** (to cough) ⟦2018 Q33⟧.
+- ‘ଜଣାଇବା’, ‘ବାଟେଇବା’, ‘ଶୋଉଅଛି’, ‘ପଛଉଛି’: the ଅକର୍ମକ one is **ଶୋଉଅଛି** (is sleeping) ⟦2025 Q54⟧. This is the same question as 2018 Q33.
+Learn the pattern: verbs of body or state (କାଶିବା, ଶୋଇବା, ହସିବା, ବହିବା, ଜନ୍ମିବା, ମରିବା) have no object.
+
+##ଦ୍ୱିକର୍ମକ: two objects
+A **ଦ୍ୱିକର୍ମକ** verb has **two** objects. One is a **person** and one is a **thing**.
+‘ଶିକ୍ଷକ ଛାତ୍ରକୁ ପ୍ରଶ୍ନ ପଚାରିଲେ’: the verb has ‘ଛାତ୍ରକୁ’ (person) and ‘ପ୍ରଶ୍ନ’ (thing).
+- The **ମୁଖ୍ୟ କର୍ମ** (main object) is the **thing**: ‘ପ୍ରଶ୍ନ’ ⟦2021 Q99⟧.
+- The **ଗୌଣ କର୍ମ** (minor object) is the **person**: ‘ଛାତ୍ରକୁ’. The question "କେଉଁ କର୍ମ ଗୌଣ ?" is answered **ପ୍ରାଣୀବାଚକ** (naming a living being) ⟦2021 Q61⟧.
+- "କେତେକ ସକର୍ମକ କ୍ରିୟା ବ୍ୟବହାରରେ ଦ୍ୱିକର୍ମକ ହୁଏ": **ଠିକ୍** ⟦2021 Q98⟧. Some, not all.
+
+>KEY:Main object = thing. Minor object = person.
+In ‘ଗୌଣ’ think "ଗୌ-ଣ = गौण = secondary". The living being is secondary; the thing is main.
+
+>NEXT:Check yourself and likely next
+?? ‘ସେ ହସିଲା’: ସକର୍ମକ or ଅକର୍ମକ?||ଅକର୍ମକ. Nothing is laughed.
+?? ‘ମୁଁ ଆମ୍ବ ଖାଉଛି’: ସକର୍ମକ or ଅକର୍ମକ?||ସକର୍ମକ. ‘ଆମ୍ବ’ is the object.
+?? ‘ବାପା ମତେ ବହି ଦେଲେ’: name the two objects.||ମତେ (person, ଗୌଣ କର୍ମ) and ବହି (thing, ମୁଖ୍ୟ କର୍ମ).
+?? Likely next: Is ‘ଜନ୍ମିବା’ ସକର୍ମକ or ଅକର୍ମକ?||ଅକର୍ମକ.
+?? Likely next: Is ‘ବାଟେଇବା’ ସକର୍ମକ?||Yes. It has an object (‘ବାଟ’ is the road).
+
+#CH neg | 10. ନାସ୍ତ୍ୟର୍ଥକ: the negative verb | 7 QUESTIONS · 2018 ASKED 5
+##The three little words: ‘ନ’, ‘ନାହିଁ’, ‘ନୁହେଁ’
+A **ନାସ୍ତ୍ୟର୍ଥକ** (negative, "meaning not") verb says that something is **not** done or **not** so. Odia has three small words for it.
+|Word|Use|Example|
+|---|---|---|
+|**ନ**|a **prefix** (ପୂର୍ବ ପ୍ରତ୍ୟୟ) placed **before** an ଅସମାପିକା verb|ସେ **ନ** ଖାଇ ଗଲା|
+|**ନାହିଁ**|a **suffix** (ପର ପ୍ରତ୍ୟୟ) placed **after** a ସମାପିକା verb|ସେ ଖାଏ **ନାହିଁ**|
+|**ନୁହେଁ**|a negative **verb** by itself ("is not")|ଏହା ଆମ୍ବ **ନୁହେଁ**|
+
+##What the papers said
+- "କ୍ରିୟା ପଦରେ ‘ନ’ ଏକ ନାସ୍ତିବାଚକ ______": **ପ୍ରତ୍ୟୟ** ⟦2018 Q29⟧.
+- ‘ଖାଉନଥିବି’: ‘ନ’ is a **ନାସ୍ତ୍ୟର୍ଥକ ପ୍ରତ୍ୟୟ** ⟦2018 Q49⟧. The trap option is **ଅସ୍ତ୍ୟର୍ଥକ ପ୍ରତ୍ୟୟ**; ଅସ୍ତ୍ୟ means "is" and ନାସ୍ତ୍ୟ means "is not".
+- "‘ନ’, ପୂର୍ବପ୍ରତ୍ୟୟ ଭାବେ ______ କ୍ରିୟା ସହିତ ସଂଯୁକ୍ତ ହୋଇପାରେ": **ଅସମାପିକା** ⟦2018 Q47⟧. The 2025 version: "ନାସ୍ତି ଅର୍ଥ ସୂଚାଇବା ନିମନ୍ତେ ଅସମାପିକ କ୍ରିୟା ସହିତ ______ ପ୍ରତ୍ୟୟ ବ୍ୟବହାର": **ନ** ⟦2025 Q61⟧.
+- "ସମାପିକା କ୍ରିୟା ସହିତ ______ ପର ପ୍ରତ୍ୟୟ ସଂଯୁକ୍ତ ହୁଏ": **ନାହିଁ** ⟦2018 Q65⟧.
+- "______ ଏକ ନାସ୍ତ୍ୟାର୍ଥକ କ୍ରିୟା": **ନୁହେଁ** ⟦2025 Q52⟧: it is the only one of the three that is a verb in itself.
+- The sixth question: "ନ ମଧ୍ୟ ପ୍ରତ୍ୟୟଭାବେ ______ କାଳରେ ବ୍ୟବହୃତ ହୁଏ ନାହିଁ" ⟦2018 Q62⟧ was marked **Not valued** by OPSC. Skip it.
+
+>KEY:The two-line summary
+‘ନ’ = prefix for ଅସମାପିକା. ‘ନାହିଁ’ = suffix for ସମାପିକା. ‘ନୁହେଁ’ = a verb by itself.
+
+>NEXT:Check yourself and likely next
+?? Which negative word goes before the verb: ‘ନ’ or ‘ନାହିଁ’?||‘ନ’.
+?? Fix the placing: ‘ସେ ନ ଖାଏ’.||‘ସେ ଖାଏ ନାହିଁ’. ‘ନ’ goes only with ଅସମାପିକା (‘ନ ଖାଇ’). ⟨CHECK; ‘ସେ ନ ଖାଏ’ is also used in speech, but the exam rule is as stated⟩
+?? Which of ‘ନ’, ‘ନାହିଁ’, ‘ନୁହେଁ’ is itself a verb?||‘ନୁହେଁ’.
+?? Likely next: ‘ନ’ in ‘ନ ଯାଇ’ is a prefix with which verb form?||ଅସମାପିକା (‘ଯାଇ’ ends in ‘ଇ’).
+?? Likely next: Is ‘ଥିଲା ନାହିଁ’ ସମାପିକା or ଅସମାପିକା?||The verb ‘ଥିଲା’ is ସମାପିକା, and ‘ନାହିଁ’ is the suffix after it.
+
+#CH last | 11. Last-week sheet and CHECK list | LAST WEEK
+##One-page sheet
+|Topic|Remember|Asked|
+|---|---|---|
+|ଧାତୁ|root of the verb; halant at the end; ‘ଯା’ is ଅପୂର୍ଣ୍ଣରୂପ|⟦2018 Q38⟧ ⟦2025 Q39⟧ ⟦2025 Q57⟧|
+|ବିଭକ୍ତି|ending: shows **ପୁରୁଷ and ବଚନ**; at least one in every verb|⟦2025 Q40⟧ ⟦2021 Q73⟧ ⟦2021 Q82⟧|
+|ବିକରଣ|the middle sign: ଖେଳ୍ + **ଇବ୍** + ଏ|⟦2021 Q71⟧ ⟦2018 Q31⟧|
+|ସିଦ୍ଧ|verb as noun, no tense, person or number|⟦2021 Q46⟧|
+|ସାଧ୍ୟ|real verb with tense, person, number|⟦2025 Q31⟧|
+|ସମାପିକା|ends the sentence|⟦2018 Q52⟧|
+|ଅସମାପିକା|‑ଇ, ‑ଉ ‑ଉ, ‑ଅନ୍ତେ; the sentence goes on|⟦2018 Q39⟧ ⟦2021 Q67⟧|
+|ଏକକ / ଅମିଶ୍ର|one root, one ending|⟦2018 Q55⟧ ⟦2018 Q40⟧|
+|ମିଶ୍ର|noun + verb|⟦2025 Q59⟧ ⟦2021 Q38⟧|
+|ଯୌଗିକ|ଅସମାପିକା + helper; first verb is ଅସମାପିକା|⟦2018 Q25⟧ ⟦2025 Q66⟧ ⟦2025 Q64⟧|
+|ସହାୟକ|ଥା, ଅଛ (tense helpers)|⟦2018 Q32⟧|
+|ସାହାଯ୍ୟକାରୀ|ଦେ, ନେ, ସାର… after an ‘ଇ’ verb|⟦2018 Q41⟧ ⟦2018 Q66⟧|
+|ଧ୍ୱନ୍ୟାତ୍ମକ|made from a sound: କଡ଼ମଡ଼, ସଡ଼ସଡ଼|⟦2018 Q34⟧ ⟦2018 Q67⟧|
+|ନାମଧାତୁ|noun or adjective turned into a verb: ଅଟକ → ଅଟକିବା|⟦2021 Q77⟧ ⟦2025 Q47⟧|
+|ପ୍ରେରଣାର୍ଥକ|"make someone do": ଖା → ଖୁଆ; ପ୍ରଯୋଜକ କର୍ତ୍ତା drives|⟦2018 Q63⟧ ⟦2021 Q33⟧|
+|ଅକର୍ମକ|no object: କାଶିବା, ଶୋଇବା, ବହିବା|⟦2018 Q33⟧ ⟦2025 Q54⟧|
+|ଦ୍ୱିକର୍ମକ|two objects; thing = main, person = minor|⟦2021 Q99⟧ ⟦2021 Q61⟧|
+|ନ / ନାହିଁ / ନୁହେଁ|prefix / suffix / verb|⟦2018 Q65⟧ ⟦2025 Q52⟧|
+
+##Root origin pairs (learn by heart)
+- ଦେଖ୍ ← **ଦୃଶ୍**  ·  ପଚାର୍ ← **ପୃଚ୍ଛ୍**  ·  ଲିପିବା ← **ଲିମ୍ପ୍**  ·  ହେବା ← **ଭୂ**  ·  ଭୁଲ୍ = **ଦେଶଜ**  ·  ଭଜ୍, ବନ୍ଧ୍, ଭିଦ୍ = **ତତ୍ସମ**
+
+##The exam habits
+- **Underline** the clue word: "ଅସମାପିକା", "ମିଶ୍ର", "ଯୌଗିକ", "ସହାୟକ" look alike when you are in a hurry.
+- For any verb in a sentence, ask first: is it a **noun + verb** (ମିଶ୍ର) or **two verbs** (ଯୌଗିକ)?
+- When the keys of the book disagree (chapter 8), choose the option that agrees with the **grammar** and with the first word of the question.
+- **Skip** the questions OPSC marked Not valued: 2018 Q62, 2025 Q33, 2025 Q38.
+
+##The CHECK list: do not learn these as certain
+|Question|Why|
+|---|---|
+|⟦2021 Q43⟧ ଦେଖ୍ ← ଦୃଶ୍|scan of the question unclear; key and grammar agree|
+|⟦2021 Q79⟧ ଯୌଗିକ in ‘ଆହାର କରୁଥିଲେ’|key looks wrong: this is ମିଶ୍ର|
+|⟦2018 Q30⟧ ⟦2025 Q51⟧ ⟦2025 Q65⟧ ପ୍ରେରଣାର୍ଥକ ending|three different keys|
+|⟦2018 Q13⟧ ⟦2018 Q42⟧ ଆଭିମୁଖ୍ୟ|no note; learn the two lines|
+|⟦2018 Q23⟧ ⟦2018 Q36⟧ doubling|read the options|
+|⟦2025 Q46⟧ ⟦2021 Q85⟧ ଅସମାପିକା ending|‘ଇ’ in one, ‘ଉ’ in the other|
+|⟦2025 Q50⟧ person names|Odia and English count the persons differently|
+|⟦2025 Q70⟧ କୁଟିବା|ତତ୍ସମ in the key; ତଦ୍ଭବ is also arguable|
+|⟦2018 Q38⟧ ‘ଶୋ’ also ends in a vowel sign|learn ‘ଯା’ as the safe example|
+
+>KEY:What comes next
+Next we make a **30-question Kriya practice set** from these nine families, with twins for every chapter. Send the **Copy answers** report after it and we make a redo set and a small guide for what is still wrong. After Kriya, the next syllabus topics are ‘କାଳ’ (tense), ‘କ୍ରିୟା ବିଶେଷଣ’ (adverb) and ‘କର୍ତ୍ତା-କ୍ରିୟା ସମ୍ବନ୍ଧ’ (subject-verb).

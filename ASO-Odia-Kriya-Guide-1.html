@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO Odia Kriya Guide 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference manual. A fixed contents column on the left (wide screens), and a single
+   reading column of ~760px where prose, tables and grid-paper FIG boxes of blue line art alternate. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b; --warn-soft:#fdf1e8;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  --side:272px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18.5px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+strong,b{font-weight:600}
+p{margin:12px 0}
+ul,ol{padding-left:1.25em;margin:12px 0}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+
+/* ---------- side contents ---------- */
+.bar{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:30;background:var(--bg);border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 0 calc(14px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+.bar-in{display:flex;flex-direction:column;gap:12px;padding:0 20px 14px;border-bottom:1px dotted var(--muted)}
+.bar-in b{font-family:var(--f-pixel);color:var(--blue);font-size:15px;line-height:1.25;font-weight:400;order:-1}
+#navbtn{display:none}
+.btn{border:1px solid var(--rule);background:var(--paper);padding:3px 9px;cursor:pointer;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-radius:2px}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;gap:3px}
+#nav{overflow-y:auto;flex:1;padding:10px 0}
+#nav a{display:flex;gap:10px;align-items:baseline;padding:4px 20px;text-decoration:none;font-size:15.5px;line-height:1.35;color:var(--fg)}
+#nav a .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2.2em}
+#nav a:hover{color:var(--blue)}
+#nav a.on{color:var(--blue)}
+#nav a.on .n{color:var(--blue)}
+.chap{flex-shrink:0;margin:12px 20px 4px;padding-top:12px;border-top:1px dotted var(--muted)}
+.chap-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chap-n{font-size:15px;line-height:20px;height:20px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chap-bar{height:6px;border:1px solid var(--blue);background:var(--paper)}
+.chap-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .15s}
+.chap-m{display:flex;justify-content:space-between;gap:8px;margin-top:6px;height:14px;line-height:14px;white-space:nowrap;overflow:hidden;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.chap-m b{color:var(--blue);font-weight:400}
+@media (max-width:1099px){
+  .chap{margin:0;padding:6px max(16px, env(safe-area-inset-right,0px)) 6px max(16px, env(safe-area-inset-left,0px));border-top:1px dotted var(--muted);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+  .chap-k{display:none}
+  .chap-n{margin:0;font-size:13px}
+  .chap-bar{grid-column:1/-1;order:3;height:4px}
+  .chap-m{margin:0}
+  .chap-m #chapPct{display:none}
+}
+.prog{position:relative;flex-shrink:0;margin:26px 20px 4px;height:6px;border:1px solid var(--fg);background:var(--paper)}
+.prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.prog::before{content:"CHAPTERS STUDIED";position:absolute;left:-1px;bottom:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+main{margin-left:var(--side);padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 110px}
+.col{max-width:800px;margin:0 auto}
+
+@media (max-width:1099px){
+  .bar{position:sticky;top:env(safe-area-inset-top,0px);inset:auto;width:auto;border-right:0;border-bottom:1px solid var(--rule);padding:8px 0 0;display:block}
+  .bar-in{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px;padding:0 max(16px, env(safe-area-inset-right,0px)) 8px max(16px, env(safe-area-inset-left,0px));border-bottom:0}
+  .bar-in b{order:0;font-size:12px;flex:1}
+  #navbtn{display:inline-block;order:-1}
+  #nav{display:none;max-height:70vh;border-top:1px dotted var(--muted)}
+  #nav.open{display:block}
+  .prog{margin:0;border-width:1px 0 0;height:3px}
+  .prog::before{display:none}
+  main{margin-left:0}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}
+}
+
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:20px 40px;align-items:end}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2rem,5vw,3.6rem);line-height:1.02}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:760px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 6px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:28px 40px;align-items:start;padding-block:24px 8px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .fig{max-width:420px}}
+.dropcap::first-letter{float:left;font-size:4em;line-height:.82;padding:6px 8px 0 0}
+.count{display:inline-block;margin-top:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px}
+
+/* contents */
+.toc{padding-block:48px 8px}
+.tochead{display:flex;align-items:center;gap:14px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:28px 0 0;padding:0}
+.toclist li{display:flex;align-items:baseline;gap:8px;padding:3px 0;margin:0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-transform:uppercase}
+@media (max-width:520px){.toclist .c{display:none}}
+
+/* ---------- chapters ---------- */
+section{padding-block:76px 8px;scroll-margin-top:12px}
+@media (max-width:1099px){section{scroll-margin-top:64px}}
+.sectrule{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sectrule .line{flex:1;height:1px;background:var(--fg);min-width:30px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.done{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.done input{accent-color:var(--blue);width:14px;height:14px;margin:0}
+section>h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:12px 0 18px}
+section>h2+p::first-letter{float:left;font-size:3.5em;line-height:.82;padding:6px 8px 0 0}
+section h3{font-size:1.45rem;margin:46px 0 8px;display:flex;gap:12px;align-items:baseline}
+section h3 .h3n{font-family:var(--f-mono);font-size:12px;color:var(--blue);letter-spacing:.06em;min-width:2.6em}
+
+.pyq{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* boxes */
+.box{margin:26px 0;padding:14px 18px;background:var(--paper);border:1px solid var(--rule)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box-t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.box ul{list-style:none;padding:0}
+.box li{padding-left:16px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;background:var(--fg)}
+.box.asked{background:transparent;border:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding:12px 0}
+.box.asked li{font-size:.98rem}
+.box.tip,.box.key{border:1px dashed var(--blue)}
+.box.tip .box-t,.box.key .box-t{color:var(--blue)}
+.box.key{background:var(--blue-soft)}
+.box.warn{border:1px dashed var(--warn);background:var(--warn-soft)}
+.box.warn .box-t{color:var(--warn)}
+.box.check{border:1px dotted var(--warn)}
+.box.check .box-t{color:var(--warn)}
+.box.fix{border:1px solid var(--rule);border-left:3px solid var(--blue)}
+.box.next{border:1px solid var(--fg);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.box.next .box-t{color:var(--fg)}
+.qas{counter-reset:q;border-top:1px solid var(--rule)}
+details.qa{border-bottom:1px dotted var(--muted);counter-increment:q}
+details.qa summary{list-style:none;cursor:pointer;padding:8px 30px 8px 38px;position:relative;font-size:1rem;line-height:1.45}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::before{content:"Q" counter(q,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+details.qa summary::after{content:"+";position:absolute;right:4px;top:6px;font-family:var(--f-mono);color:var(--blue);font-size:16px}
+details.qa[open] summary::after{content:"−"}
+details.qa summary:hover{color:var(--blue)}
+details.qa p{margin:0 0 10px 38px;padding:6px 12px;background:var(--blue);color:var(--on-blue);font-size:.98rem}
+
+/* tables */
+.tw{overflow-x:auto;margin:16px 0}
+table.t{width:100%;border-collapse:collapse;font-size:16.5px;line-height:1.5;margin:0}
+.t th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--fg);border-top:1px solid var(--fg)}
+.t td{padding:8px 12px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;text-align:left}
+.t td:first-child{font-weight:600}
+@media (max-width:640px){
+  table.t,.t tbody,.t tr,.t td{display:block;width:100%}
+  .t thead{display:none}
+  .t tr{border-top:1px solid var(--fg);padding:8px 0}
+  .t td{border:0;padding:2px 0}
+  .t td:not(:first-child)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+}
+
+/* figures */
+.figwrap{margin:30px 0 26px}
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible}
+.fl,.fr,.fy{position:absolute;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1}
+.fl,.fr{writing-mode:vertical-rl}
+.fl{left:10px;top:12px;transform:rotate(180deg)}
+.fr{right:10px;top:12px}
+.fy{right:12px;bottom:9px}
+.figcap{font-size:.95rem;font-style:italic;color:var(--muted);margin:8px 0 0}
+.figcap b{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--blue);font-weight:400;margin-right:6px}
+@media (max-width:560px){.fig{padding:26px 22px}.fl,.fr,.fy{font-size:8.5px}.fl{left:6px}.fr{right:6px}.fy{right:8px;bottom:6px}}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .grid{fill:none;stroke:var(--rule);stroke-width:1}
+.fig svg .hz{stroke:var(--blue);stroke-width:1.2}
+.fig svg .hl{stroke:var(--blue);stroke-width:.9}
+.fig svg .hd{fill:var(--blue)}
+.fig svg text{font-family:var(--f-mono);letter-spacing:.05em}
+.fig svg .lb{font-size:11px;fill:var(--blue)}
+.fig svg .lbm{font-size:11px;fill:var(--muted)}
+.fig svg .lbs{font-size:9.5px;fill:var(--muted)}
+.fig svg .ttl{font-size:10px;fill:var(--muted);letter-spacing:.1em}
+.fig svg .lbrv{font-size:11px;fill:var(--on-blue)}
+.fig svg .lbsrv{font-size:9.5px;fill:var(--on-blue)}
+.fig svg .big{font-family:var(--f-pixel);font-size:22px;fill:var(--blue)}
+.fig svg .bigrv{font-family:var(--f-pixel);font-size:19px;fill:var(--on-blue)}
+
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--fg);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+footer p{margin:0}
+#up{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;border-color:var(--blue);color:var(--blue);padding:6px 10px}
+
+:root{--f-serif:"EB Garamond","Noto Sans Oriya","Iowan Old Style",Georgia,serif}
+
+.chk{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--warn);border:1px dotted var(--warn);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;background:var(--warn-soft)}
+.chkn{font-style:italic;font-size:.85em;color:var(--warn)}
+.box.next .qas{margin-top:8px}
+.box.next details.qa p{background:var(--blue)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
+.hubbtn{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;text-decoration:none}
+.rule{display:flex;gap:10px;align-items:baseline;scroll-margin-top:70px}
+.rule .h3n{white-space:nowrap;min-width:5.2em}
+.wr{margin:10px 0 14px;border-left:2px solid var(--blue);padding:2px 0 2px 12px}
+.wr-r{display:flex;gap:10px;align-items:baseline;margin:3px 0;line-height:1.45}
+.wr-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;min-width:5.6em;flex:none}
+.wr-r.no .wr-k{color:var(--muted)}.wr-r.no .wr-s{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(110,110,115,.55)}
+.wr-r.ok .wr-k{color:var(--blue)}
+.ri td:first-child a{font-family:var(--f-mono);font-size:12px;color:var(--blue);text-decoration:none}
+.navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
+
+/* ---------- pen-tablet drawing mode (tools/ink_draw.js) ---------- */
+#inkl{position:absolute;left:0;top:0;width:0;height:0;z-index:25;pointer-events:none;mix-blend-mode:multiply}
+.inkt{position:absolute;left:0;pointer-events:none}
+#inki{position:fixed;inset:0;z-index:26;pointer-events:none}
+body.drawing main{-webkit-user-select:none;user-select:none}
+
+/* the rail, snapped to the right edge */
+#ink{position:fixed;z-index:40;right:env(safe-area-inset-right,0px);top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);color:var(--muted)}
+#ink button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#ink svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.igrid{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+
+/* closed: a slim tab with a vertical label, like the FIG_ labels */
+#ink .itab{display:flex;flex-direction:column;align-items:center;gap:10px;width:34px;padding:12px 0 14px;
+  border:1px dashed var(--blue);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+#ink .itab:hover{background-color:var(--blue-soft)}
+.iv{writing-mode:vertical-rl;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+#ink.open .itab{display:none}
+
+/* open: the tool panel */
+.ipanel{display:none;width:62px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+  border:1px solid var(--fg);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.ipanel::-webkit-scrollbar{display:none}
+#ink.open .ipanel{display:block}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:7px 6px 6px 9px;background:var(--fg)}
+.ihead .ik{color:#fff;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:0}
+#ink .ix svg{stroke:#fff;width:14px;height:14px}
+#ink .ix{padding:2px}
+.ig{padding:8px 0 9px;border-top:1px dotted var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ihead + .ig{border-top:0}
+.ik{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.isws{display:flex;flex-direction:column;align-items:center;gap:7px}
+#ink .isw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--rule)}
+#ink .isw.hi{width:30px;height:11px;border-radius:0;opacity:.8}
+#ink .isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.itools{gap:2px}
+#ink .itool{display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;padding:6px 0 5px;border:1px solid transparent}
+#ink .itool:hover{border-color:var(--rule);background:var(--paper)}
+#ink .itool[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.il{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-height:520px){.ig{padding:5px 0 6px;gap:4px}.isws{gap:5px}#ink .itool{padding:4px 0 3px}}
+@media print{#ink,#inkl,#inki{display:none}}
+</style></head><body>
+<div class="bar"><div class="bar-in"><button class="btn" id="navbtn" aria-expanded="false" aria-controls="nav">Contents</button><b>ASO 2027 · ODIA · KRIYA</b></div>
+<nav id="nav"><a href="#start"><span class="n">00</span>Start here: the verb in the Odia paper</a><div class="navg">The nine families</div><a href="#words"><span class="n">01</span>1. The words you need first</a><a href="#dhatu"><span class="n">02</span>2. ଧାତୁ: complete or incomplete, and where it comes from</a><a href="#bibhakti"><span class="n">03</span>3. କ୍ରିୟା ବିଭକ୍ତି: what the ending tells you</a><a href="#finite"><span class="n">04</span>4. ସମାପିକା and ଅସମାପିକା</a><a href="#redup"><span class="n">05</span>5. ଦ୍ୱିରୁକ୍ତି: doubling the ଅସମାପିକା</a><a href="#kinds"><span class="n">06</span>6. The kinds of verb</a><a href="#nama"><span class="n">07</span>7. ନାମଧାତୁ: a verb made from a noun</a><a href="#prerana"><span class="n">08</span>8. ପ୍ରେରଣାର୍ଥକ: &quot;make someone do it&quot;</a><a href="#object"><span class="n">09</span>9. ସକର୍ମକ, ଅକର୍ମକ, ଦ୍ୱିକର୍ମକ</a><a href="#neg"><span class="n">10</span>10. ନାସ୍ତ୍ୟର୍ଥକ: the negative verb</a><div class="navg">Last week</div><a href="#last"><span class="n">11</span>11. Last-week sheet and CHECK list</a></nav>
+<div class="chap" id="chap"><div class="chap-k">Now reading</div><div class="chap-n" id="chapN">Start here</div><div class="chap-bar"><i id="chapBar"></i></div><div class="chap-m"><span><b id="chapPct">0%</b></span><span id="chapMin"></span></div></div></div>
+<main><div class="col">
+<header class="mast"><h1>Odia Kriya</h1><p class="tag">The <b>verb (କ୍ରିୟା)</b> in nine families,<br>built from all <b>86 verb questions</b><br>of 2018, 2021 and 2025.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="stats"><span class="count">11 chapters</span><span class="count">about 5,400 words</span><span class="count">86 past questions</span><span class="count">Paper III · Odia</span></div>
+<div class="toc"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>11</span> chapters</span></div><ol class="toclist"><li><span class="n">00.</span><a href="#start">Start here: the verb in the Odia paper</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">01.</span><a href="#words">1. The words you need first</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">02.</span><a href="#dhatu">2. ଧାତୁ: complete or incomplete, and where it comes from</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">03.</span><a href="#bibhakti">3. କ୍ରିୟା ବିଭକ୍ତି: what the ending tells you</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">04.</span><a href="#finite">4. ସମାପିକା and ଅସମାପିକା</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">05.</span><a href="#redup">5. ଦ୍ୱିରୁକ୍ତି: doubling the ଅସମାପିକା</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">06.</span><a href="#kinds">6. The kinds of verb</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">07.</span><a href="#nama">7. ନାମଧାତୁ: a verb made from a noun</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">08.</span><a href="#prerana">8. ପ୍ରେରଣାର୍ଥକ: &quot;make someone do it&quot;</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">09.</span><a href="#object">9. ସକର୍ମକ, ଅକର୍ମକ, ଦ୍ୱିକର୍ମକ</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">10.</span><a href="#neg">10. ନାସ୍ତ୍ୟର୍ଥକ: the negative verb</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">11.</span><a href="#last">11. Last-week sheet and CHECK list</a><span class="dots"></span><span class="c">3 min</span></li></ol></div>
+<section id="start"><div class="sectrule"><span class="eyebrow">Chapter <b>00</b> · କ୍ରିୟା · 86 QUESTIONS</span><span class="line"></span></div><h2>Start here: the verb in the Odia paper</h2><p><strong>କ୍ରିୟା</strong> (kriya) means <strong>verb</strong>: the word that tells what someone does, or what happens. In the Odia paper it is the biggest grammar topic. In the three papers of 2018, 2021 and 2025 the examiner asked <strong>86 verb questions</strong>: 37 in 2018, 21 in 2021 and 28 in 2025. That is more than one mark in every four of the grammar block. The official syllabus lists it first: "ବ୍ୟାକରଣ: କ୍ରିୟା".</p><p>This guide is written in simple English, but every term is given in Odia too, because the question paper uses the Odia word. Learn each term as a pair, for example <strong>ଅସମାପିକା = non-finite verb</strong>. The questions are about <strong>names, rules and examples</strong>. They do not ask you to write long answers, so the best way to win marks is to know the exact name for each thing.</p><h3><span class="h3n">0.1</span>The nine families</h3><p>Every verb question in the three papers fits one of nine families. Here is how often each was asked, and the chapter that covers it.</p><div class="tw"><table class="t"><thead><tr><th>Chapter</th><th>Family</th><th>Qs asked</th><th>2018 / 2021 / 2025</th></tr></thead><tbody><tr><td data-l="Chapter">1</td><td data-l="Family">The words you need first: ଧାତୁ, ବିଭକ୍ତି, ବିକରଣ</td><td data-l="Qs asked">(in every family)</td><td data-l="2018 / 2021 / 2025"></td></tr><tr><td data-l="Chapter">2</td><td data-l="Family">ଧାତୁ: complete or incomplete, and where it comes from</td><td data-l="Qs asked">12</td><td data-l="2018 / 2021 / 2025">1 / 4 / 7</td></tr><tr><td data-l="Chapter">3</td><td data-l="Family">କ୍ରିୟା ବିଭକ୍ତି: what the ending tells you</td><td data-l="Qs asked">11</td><td data-l="2018 / 2021 / 2025">4 / 3 / 4</td></tr><tr><td data-l="Chapter">4</td><td data-l="Family">ସମାପିକା and ଅସମାପିକା</td><td data-l="Qs asked">9</td><td data-l="2018 / 2021 / 2025">4 / 3 / 2</td></tr><tr><td data-l="Chapter">5</td><td data-l="Family">ଦ୍ୱିରୁକ୍ତି (doubling) of the ଅସମାପିକା</td><td data-l="Qs asked">5</td><td data-l="2018 / 2021 / 2025">5 / 0 / 0</td></tr><tr><td data-l="Chapter">6</td><td data-l="Family">Kinds of verb: ଏକକ, ମିଶ୍ର, ଯୌଗିକ, ସହାୟକ, ଧ୍ୱନ୍ୟାତ୍ମକ</td><td data-l="Qs asked">21</td><td data-l="2018 / 2021 / 2025">11 / 3 / 7</td></tr><tr><td data-l="Chapter">7</td><td data-l="Family">ନାମଧାତୁ: verbs made from nouns</td><td data-l="Qs asked">8</td><td data-l="2018 / 2021 / 2025">2 / 3 / 3</td></tr><tr><td data-l="Chapter">8</td><td data-l="Family">ପ୍ରେରଣାର୍ଥକ: "make someone do it"</td><td data-l="Qs asked">6</td><td data-l="2018 / 2021 / 2025">3 / 1 / 2</td></tr><tr><td data-l="Chapter">9</td><td data-l="Family">ସକର୍ମକ, ଅକର୍ମକ, ଦ୍ୱିକର୍ମକ: the object</td><td data-l="Qs asked">7</td><td data-l="2018 / 2021 / 2025">2 / 4 / 1</td></tr><tr><td data-l="Chapter">10</td><td data-l="Family">ନାସ୍ତ୍ୟର୍ଥକ: the negative verb</td><td data-l="Qs asked">7</td><td data-l="2018 / 2021 / 2025">5 / 0 / 2</td></tr><tr><td data-l="Chapter">11</td><td data-l="Family">Last-week sheet and CHECK list</td><td data-l="Qs asked"></td><td data-l="2018 / 2021 / 2025"></td></tr></tbody></table></div><aside class="box key"><p class="box-t">What to learn first</p><p>Chapters 6 and 2 are worth the most: 33 questions between them. Then chapters 3, 4 and 7. Chapter 5 (doubling) has not been asked since 2018, so read it last.</p></aside><aside class="box warn"><p class="box-t">The key is a book's key, not OPSC's</p><p>OPSC has not published answer keys that we could fetch. Every answer in this guide is the key from the Udyam IAS book of past papers, checked against standard grammar. Where the book's keys disagree with each other or with grammar, the page shows a <strong>CHECK</strong> tag. Four chapters have one. Do not learn a CHECK answer as certain.</p></aside><aside class="box tip"><p class="box-t">How to use this guide</p><p>Read one chapter. Cover the answers of the <strong>Past questions</strong> table and try each one. Then tap the <strong>Check yourself</strong> answers. Do the chapters in this order: 1, 6, 2, 3, 4, 7, 8, 9, 10, 5, 11.</p></aside></section>
+<section id="words"><div class="sectrule"><span class="eyebrow">Chapter <b>01</b> · WORDS · DHATU, BIBHAKTI, BIKARANA</span><span class="line"></span></div><h2>1. The words you need first</h2><p>Almost every verb question uses three small words. If you know them, the questions become easy.</p><h3><span class="h3n">1.1</span>ଧାତୁ (dhatu): the root</h3><p>Take any verb: <strong>କରିବା</strong> (to do), <strong>ଖାଇଲା</strong> (ate), <strong>ଦେଖୁଛି</strong> (is seeing). Remove the endings and what is left is the <strong>root</strong>: <strong>କର୍</strong>, <strong>ଖା</strong>, <strong>ଦେଖ୍</strong>. The Odia grammar book calls this root the <strong>ଧାତୁ</strong>. In the 2025 paper the question was: "କ୍ରିୟାପଦର ମୂଳରୂପକୁ ପାରଂପରିକ ବ୍ୟାକରଣରେ ______ କୁହାଯାଏ", and the answer is <strong>ଧାତୁ</strong> <span class="pyq">2025 Q57</span>.</p><p>A root written with a small mark under the last letter, like <strong>କର୍</strong>, <strong>ପଢ଼୍</strong>, <strong>ଦେଖ୍</strong>, ends in a consonant. This mark is the <strong>halant</strong> (the "dead" sign). It means the last letter has no vowel. The dictionary lists roots this way.</p><h3><span class="h3n">1.2</span>ବିଭକ୍ତି (bibhakti): the ending</h3><p>The ending joined to the root is the <strong>କ୍ରିୟା ବିଭକ୍ତି</strong>. It tells us who does the work and how many people do it. So: <strong>ଧାତୁ + ବିଭକ୍ତି = କ୍ରିୟାପଦ</strong> (the verb word). The 2021 paper asked how many endings a verb needs, and the word used was <strong>ଅନ୍ୟୂନ</strong> (at least). A verb word has at least <strong>one</strong> ending <span class="pyq">2021 Q82</span>.</p><h3><span class="h3n">1.3</span>ବିକରଣ (bikarana): the sign in the middle</h3><p>Sometimes a small piece sits between the root and the ending. It tells the <strong>tense</strong> (time). This piece is the <strong>ବିକରଣ</strong>. Look at <strong>ଖେଳିବେ</strong> (will play):</p><ul><li>ଧାତୁ = <strong>ଖେଳ୍</strong></li><li>ବିକରଣ = <strong>ଇବ୍</strong> (this shows the future)</li><li>ବିଭକ୍ତି = <strong>ଏ</strong></li></ul><p>The 2021 paper asked exactly this: the ବିକରଣ of ‘ଖେଳିବେ’ is <strong>ଇବ୍</strong> <span class="pyq">2021 Q71</span>. Not ଖେଳ (that is the root), not ଏ (that is the ending).</p><p>A verb that has one ବିକରଣ is called <strong>ସବିକରଣ</strong>. The question was: "ସବିକରଣ କ୍ରିୟା ପଦରେ ______ ବିକରଣ ଥାଏ", answer <strong>ଗୋଟିଏ</strong> (one) <span class="pyq">2018 Q31</span>.</p><h3><span class="h3n">1.4</span>The one picture to keep</h3><aside class="box key"><p class="box-t">Splitting a verb into three</p><p>ଖେଳିବେ = <strong>ଖେଳ୍</strong> (root, ଧାତୁ) + <strong>ଇବ୍</strong> (tense sign, ବିକରଣ) + <strong>ଏ</strong> (person and number, ବିଭକ୍ତି).</p><p>ଦେଖୁଥିଲା = <strong>ଦେଖ୍</strong> + <strong>ଉଥିଲ୍</strong> (past continuous) + <strong>ଆ</strong> (he / she, one person).</p><p>If a question gives you a verb and asks "which part is what", split it exactly like this.</p></aside><h3><span class="h3n">1.5</span>Two old names: ସିଦ୍ଧ and ସାଧ୍ୟ</h3><p>Traditional Odia grammar has two names for a verb in two states:</p><ul><li><strong>ସିଦ୍ଧ କ୍ରିୟା</strong>: the verb used like a <strong>noun</strong>, such as <strong>କରିବା</strong> (the doing), <strong>ଯିବା</strong> (the going). It gives <strong>no</strong> tense, person or number <span class="pyq">2021 Q46</span>. Another name for it is <strong>କ୍ରିୟାବାଚକ ବିଶେଷ୍ୟ</strong>.</li><li><strong>ସାଧ୍ୟ କ୍ରିୟା</strong>: the real working verb that <strong>does</strong> show tense, person and number, such as <strong>କରେ</strong>, <strong>କଲେ</strong> <span class="pyq">2025 Q31</span>.</li></ul><p>Do not confuse them. The 2021 question asks for the one that shows <strong>nothing</strong>: ସିଦ୍ଧ. The 2025 question asks for the one that shows <strong>everything</strong>: ସାଧ୍ୟ.</p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ଖାଉଛି’: what is the ଧାତୁ?</summary><p>ଖା. The ending is ଉଛି and the ‘ଇ’ at the end is the ବିଭକ୍ତି.</p></details><details class="qa"><summary>In ‘ଖେଳିବେ’, which part is the ବିକରଣ?</summary><p>ଇବ୍. It shows the future tense.</p></details><details class="qa"><summary>Which verb gives no tense, person or number: କରିବା or କଲା?</summary><p>କରିବା. It is a ସିଦ୍ଧ କ୍ରିୟା (verb used as a noun).</p></details><details class="qa"><summary>Likely next: In ‘ଯିବେ’ name the ଧାତୁ, ବିକରଣ and ବିଭକ୍ତି.</summary><p>ଯା (root), ଇବ୍ (future sign), ଏ (ending). The root ‘ଯା’ changes its look to ‘ଯି’ before ‘ଇ’. <span class="chk">CHECK</span> <i class="chkn">the exact split of ଯିବେ is not printed in the papers, learn the pattern, not this word</i></p></details><details class="qa"><summary>Likely next: What is the name of the verb as the dictionary lists it?</summary><p>ଧାତୁ, with the halant, for example ପଢ଼୍, କର୍.</p></details></div></aside></section>
+<section id="dhatu"><div class="sectrule"><span class="eyebrow">Chapter <b>02</b> · 12 QUESTIONS · 2025 ASKED 7</span><span class="line"></span></div><h2>2. ଧାତୁ: complete or incomplete, and where it comes from</h2><p>Two kinds of question come from the root. First: <strong>is the root complete or incomplete in form?</strong> Second: <strong>which language did the root come from?</strong></p><h3><span class="h3n">2.1</span>Complete and incomplete form (ପୂର୍ଣ୍ଣରୂପ, ଅପୂର୍ଣ୍ଣରୂପ)</h3><p>Some roots end with a consonant that carries a halant: <strong>କର୍</strong>, <strong>ପଢ଼୍</strong>, <strong>ଦେଖ୍</strong>. Other roots end in a <strong>vowel sign</strong>: <strong>ଯା</strong>, <strong>ଖା</strong>, <strong>ଦେ</strong>, <strong>ନେ</strong>. The book calls the second group <strong>ଅପୂର୍ଣ୍ଣରୂପ</strong> (incomplete form) roots.</p><ul><li>‘ଯା’ is an <strong>ଅପୂର୍ଣ୍ଣରୂପ</strong> ଧାତୁ <span class="pyq">2018 Q38</span> <span class="pyq">2025 Q39</span>. The two questions are the same question, seven years apart.</li><li>‘ଶୋ’, ‘ପଢ଼୍’ and ‘କର୍’ were the wrong options in 2018. <span class="chk">CHECK</span> <i class="chkn">ଶୋ also ends in a vowel sign, so by the rule above it looks incomplete too. The book's key still says ଯା. Learn ‘ଯା’ as the safe example.</i></li></ul><h3><span class="h3n">2.2</span>Where does a root come from? Four kinds</h3><p>Odia roots come from four sources. Learn the four names and one example each.</p><div class="tw"><table class="t"><thead><tr><th>Kind</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td data-l="Kind">ତତ୍ସମ (tatsama)</td><td data-l="Meaning">Taken from Sanskrit <strong>without any change</strong></td><td data-l="Example">ଭଜ୍, ବନ୍ଧ୍, ଭିଦ୍, କୁଟ୍</td></tr><tr><td data-l="Kind">ତଦ୍ଭବ (tadbhaba)</td><td data-l="Meaning">Born from a Sanskrit root, but the <strong>sound changed</strong></td><td data-l="Example">ଦେଖ୍ ← ଦୃଶ୍, ହେ ← ଭୂ</td></tr><tr><td data-l="Kind">ଦେଶଜ (deshaja)</td><td data-l="Meaning">Born in the land itself, <strong>no Sanskrit parent</strong></td><td data-l="Example">ଭୁଲ୍</td></tr><tr><td data-l="Kind">ବୈଦେଶିକ (baideshika)</td><td data-l="Meaning">Taken from a <strong>foreign</strong> language (Persian, Arabic, English)</td><td data-l="Example">ବଦଳ୍, ପାସ୍</td></tr></tbody></table></div><p>How to remember: ତତ୍ସମ = "same as that" (same as Sanskrit). ତଦ୍ଭବ = "born from that". ଦେଶଜ = "born in the country". ବୈଦେଶିକ = "from abroad".</p><h3><span class="h3n">2.3</span>The roots the examiner has asked about</h3><p>Each of these has been asked. Learn the pairs: the Odia root and its Sanskrit parent.</p><div class="tw"><table class="t"><thead><tr><th>Odia word</th><th>Sanskrit parent</th><th>Year</th></tr></thead><tbody><tr><td data-l="Odia word">ଦେଖ୍ (see)</td><td data-l="Sanskrit parent">ଦୃଶ୍</td><td data-l="Year"><span class="pyq">2021 Q43</span> <span class="chk">CHECK</span> <i class="chkn">see below</i></td></tr><tr><td data-l="Odia word">ପଚାରିବା (ask)</td><td data-l="Sanskrit parent">ପୃଚ୍ଛ୍</td><td data-l="Year"><span class="pyq">2025 Q36</span></td></tr><tr><td data-l="Odia word">ଲିପିବା (to smear, to plaster)</td><td data-l="Sanskrit parent">ଲିମ୍ପ୍</td><td data-l="Year"><span class="pyq">2025 Q37</span></td></tr><tr><td data-l="Odia word">ହେବା (to be, to become)</td><td data-l="Sanskrit parent">ଭୂ</td><td data-l="Year"><span class="pyq">2025 Q63</span></td></tr><tr><td data-l="Odia word">ଧାରି (the ଣିଜନ୍ତ form)</td><td data-l="Sanskrit parent">root ‘ଧୃ’</td><td data-l="Year"><span class="pyq">2021 Q94</span></td></tr><tr><td data-l="Odia word">ଜାଜ୍ୱଲ୍ୟ (shining brightly)</td><td data-l="Sanskrit parent">ଜ୍ୱଲ୍ + doubling (ଅତିଶୟାର୍ଥକ ଧାତୁ)</td><td data-l="Year"><span class="pyq">2021 Q56</span></td></tr></tbody></table></div><p>Look at the question in 2025: "ମୂଳ ସଂସ୍କୃତ ‘ଲିମ୍ପ୍’ ଧାତୁରୁ ଉତ୍ପନ୍ନ ଓଡ଼ିଆ ଧାତୁଟି" and the answer is <strong>ଲିପିବା</strong>, not ଲେଖିବା (to write). The two look alike, but ‘ଲେଖିବା’ comes from ‘ଲିଖ୍’.</p><h3><span class="h3n">2.4</span>Which are ଦେଶଜ and which are ତତ୍ସମ?</h3><ul><li>2021 asked "କେଉଁଟି ଦେଶଜ ଧାତୁ ?" with options ଭଜ୍, ବନ୍ଧ୍, ଭିଦ୍, ଭୁଲ୍. The answer is <strong>ଭୁଲ୍</strong> <span class="pyq">2021 Q45</span>. The other three are Sanskrit roots.</li><li>2025 asked the same thing with options କିଣିବା, ଚାହିଁବା, ଭାଳିବା, ମାଜିବା <span class="pyq">2025 Q38</span>. OPSC marked this question <strong>Not valued</strong>, so it will not count again; the book's key was not trusted. Do not spend time on it.</li><li>2025 also asked "କୁଟିବା ଧାତୁର ମୂଳ ରୂପ ______ ଧାତୁ" and the key is <strong>ତତ୍ସମ</strong> <span class="pyq">2025 Q70</span>: ‘କୁଟ୍’ is itself a Sanskrit root. <span class="chk">CHECK</span> <i class="chkn">‘କୁଟିବା’ is the Odia word, so ‘ତଦ୍ଭବ’ is also arguable. The key says ତତ୍ସମ.</i></li></ul><aside class="box warn"><p class="box-t">ଦେଖ୍ comes from ଦୃଶ୍</p><p>The 2021 question was "‘ଦେଖ୍’ ଧାତୁ ମୂଳ ସଂସ୍କୃତ ______ ଧାତୁରୁ ଆସିଛି" with the options ଦା, ଧୃ, ଖାଦ୍, ଦୃଶ୍. The book's key is <strong>ଦୃଶ୍</strong> and that is also standard grammar (ଦୃଶ୍ = to see). The scan of this question was unclear, so we mark it <span class="chk">CHECK</span> <i class="chkn">learn ଦୃଶ୍</i>.</p></aside><aside class="box key"><p class="box-t">A quick way to answer origin questions</p><p>If the verb is the same word as in Sanskrit, the answer is ତତ୍ସମ. If it sounds like a changed Sanskrit word and you can name the parent (ଦୃଶ୍ ‑ ଦେଖ୍, ଭୂ ‑ ହେବା), it is ତଦ୍ଭବ. If you cannot find any Sanskrit parent and the word is a village word, it is ଦେଶଜ.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ଖା’ is which kind of root by form?</summary><p>ଅପୂର୍ଣ୍ଣରୂପ. It ends in a vowel sign, like ‘ଯା’.</p></details><details class="qa"><summary>Which is the Sanskrit parent of ‘ହେବା’?</summary><p>ଭୂ.</p></details><details class="qa"><summary>ଭୁଲ୍, ଭଜ୍, ବନ୍ଧ୍: which is ଦେଶଜ?</summary><p>ଭୁଲ୍.</p></details><details class="qa"><summary>What is the old Odia name for the root of a verb?</summary><p>ଧାତୁ.</p></details><details class="qa"><summary>Likely next: ‘ଶୁଣିବା’ comes from which Sanskrit root?</summary><p>ଶ୍ରୁ. <span class="chk">CHECK</span> <i class="chkn">standard grammar, not yet asked</i></p></details><details class="qa"><summary>Likely next: ‘ଲେଖିବା’ comes from which Sanskrit root?</summary><p>ଲିଖ୍. <span class="chk">CHECK</span> <i class="chkn">standard grammar, not yet asked</i></p></details><details class="qa"><summary>Likely next: ‘କରିବା’ comes from which Sanskrit root?</summary><p>କୃ. <span class="chk">CHECK</span> <i class="chkn">standard grammar, not yet asked</i></p></details><details class="qa"><summary>Likely next: ‘ପଚାରିବା’ is ତତ୍ସମ or ତଦ୍ଭବ?</summary><p>ତଦ୍ଭବ, because the sound changed from ପୃଚ୍ଛ୍.</p></details></div></aside></section>
+<section id="bibhakti"><div class="sectrule"><span class="eyebrow">Chapter <b>03</b> · 11 QUESTIONS · EVERY YEAR</span><span class="line"></span></div><h2>3. କ୍ରିୟା ବିଭକ୍ତି: what the ending tells you</h2><h3><span class="h3n">3.1</span>The rule: the ending shows PERSON and NUMBER</h3><p>The ending of an Odia verb tells you two things: <strong>ପୁରୁଷ</strong> (person: I, you, he) and <strong>ବଚନ</strong> (number: one, or many). It does <strong>not</strong> tell you the gender. The same verb is used for a man and a woman: ‘ସେ ଯାଏ’ is both "he goes" and "she goes".</p><p>This one rule answers many questions:</p><ul><li>"କ୍ରିୟା ବିଭକ୍ତି କହିଲେ କ'ଣ ବୁଝାଏ ?" Answer: <strong>କ୍ରିୟାପଦ କେଉଁ ପୁରୁଷ ଓ ବଚନରେ ରହିଛି</strong> <span class="pyq">2025 Q40</span>.</li><li>"______ ରୁ କ୍ରିୟାପଦର ପୁରୁଷ ଓ ବଚନ ଜଣାପଡ଼େ" Answer: <strong>ବିଭକ୍ତି</strong> <span class="pyq">2021 Q73</span>.</li><li>"‘ଖାଉଛି’ କ୍ରିୟାପଦରେ ‘ଇ’ ବିଭକ୍ତି ______ କୁ ସୂଚାଉଛି" Answer: <strong>ପୁରୁଷ ଓ ବଚନ</strong> <span class="pyq">2025 Q41</span>.</li><li>"‘ଦେଖୁଥିଲା’ କ୍ରିୟାପଦରେ ‘ଆ’ ______ ସୂଚକ ପ୍ରତ୍ୟୟ" Answer: <strong>ପୁରୁଷ ଓ ବଚନ</strong> <span class="pyq">2018 Q24</span>.</li><li>"କ୍ରିୟା ପଦ ସହିତ ଯେଉଁ ପ୍ରତ୍ୟୟ ଯୁକ୍ତ ହୁଏ, ତାହାକୁ ______ କୁହାଯାଏ" Answer: <strong>କ୍ରିୟା ବିଭକ୍ତି</strong> <span class="pyq">2018 Q44</span>.</li></ul><h3><span class="h3n">3.2</span>A whole verb shows time, person and number</h3><p>Careful here. The <strong>ending alone</strong> shows person and number. But the <strong>whole verb word</strong> shows three things: ‘ପଢ଼ୁଥିଲି’ shows <strong>କାଳ</strong> (time: past continuous), <strong>ପୁରୁଷ</strong> (first person: I) and <strong>ବଚନ</strong> (one). So the answer to "‘ପଢ଼ୁଥିଲି’ କ୍ରିୟା ପଦରୁ ______ ର ଧାରଣା ମିଳୁଛି" is <strong>କାଳ, ପୁରୁଷ ଓ ବଚନ</strong> <span class="pyq">2018 Q19</span>. Read the question: "the ending" gives person and number; "the whole verb" gives all three.</p><h3><span class="h3n">3.3</span>The common endings: who is doing the work</h3><p>Read the endings of one verb, ‘କରିବା’ (to do), in three tenses. The little table is the heart of the chapter.</p><div class="tw"><table class="t"><thead><tr><th>Who</th><th>Present (ସାଧାରଣ)</th><th>Present continuous</th><th>Past (ସାଧାରଣ)</th></tr></thead><tbody><tr><td data-l="Who">ମୁଁ (I)</td><td data-l="Present (ସାଧାରଣ)">କରେ</td><td data-l="Present continuous">କରୁଛି</td><td data-l="Past (ସାଧାରଣ)">କଲି</td></tr><tr><td data-l="Who">ଆମେ (we)</td><td data-l="Present (ସାଧାରଣ)">କରୁ</td><td data-l="Present continuous">କରୁଛୁ</td><td data-l="Past (ସାଧାରଣ)">କଲୁ</td></tr><tr><td data-l="Who">ତୁ (you, close)</td><td data-l="Present (ସାଧାରଣ)">କରୁ</td><td data-l="Present continuous">କରୁଛୁ</td><td data-l="Past (ସାଧାରଣ)">କଲୁ</td></tr><tr><td data-l="Who">ତୁମେ (you)</td><td data-l="Present (ସାଧାରଣ)">କର</td><td data-l="Present continuous">କରୁଛ</td><td data-l="Past (ସାଧାରଣ)">କଲ</td></tr><tr><td data-l="Who">ସେ (he, she)</td><td data-l="Present (ସାଧାରଣ)">କରେ</td><td data-l="Present continuous">କରୁଛି</td><td data-l="Past (ସାଧାରଣ)">କଲା</td></tr><tr><td data-l="Who">ସେମାନେ (they)</td><td data-l="Present (ସାଧାରଣ)">କରନ୍ତି</td><td data-l="Present continuous">କରୁଛନ୍ତି</td><td data-l="Past (ସାଧାରଣ)">କଲେ</td></tr><tr><td data-l="Who">ଆପଣ (you, respect)</td><td data-l="Present (ସାଧାରଣ)">କରନ୍ତି</td><td data-l="Present continuous">କରୁଛନ୍ତି</td><td data-l="Past (ସାଧାରଣ)">କଲେ</td></tr></tbody></table></div><p>The question in 2025 asked "‘ଅନ୍ତି’ କ୍ରିୟା ବିଭକ୍ତିରୁ ______ ରୂପ ଜଣାପଡ଼େ", with the answer <strong>ତୃତୀୟ ପୁରୁଷ ବହୁବଚନ</strong> (third person, many) <span class="pyq">2025 Q50</span>: ସେମାନେ କରନ୍ତି. The words are: ପ୍ରଥମ ପୁରୁଷ = I and we (the speaker); ଦ୍ୱିତୀୟ ପୁରୁଷ = you; ତୃତୀୟ ପୁରୁଷ = he, she, they. <span class="chk">CHECK</span> <i class="chkn">Odia books number the persons differently from English. In the question, ଅନ୍ତି = "they", and the key calls that ତୃତୀୟ.</i></p><h3><span class="h3n">3.4</span>‘ଣି’, ‘ଟି’, ‘ହେ’, ‘ତ’ are not verb endings</h3><p>Two questions are about small filler words that sit at the end of the verb.</p><ul><li>"‘ଣି’ ପ୍ରତ୍ୟୟ କ୍ରିୟାପଦ ______ ଯୁକ୍ତ ହୁଏ": answer <strong>ଶେଷରେ</strong> (at the end) <span class="pyq">2018 Q27</span>.</li><li>"______ ଏକ ପାଦପୂରଣାର୍ଥକ ପ୍ରତ୍ୟୟ ନୁହେଁ": answer <strong>ଣି</strong> <span class="pyq">2025 Q58</span>. The other options ‘ଟି’, ‘ହେ’, ‘ତ’ are <strong>ପାଦପୂରଣାର୍ଥକ</strong> (filler, used only to complete the line or the beat).</li></ul><p>So ‘ଣି’ goes at the end of a verb (‘ଯିବଣି ?’ = will you go?) and it is a <strong>question</strong> marker, not a filler. <span class="chk">CHECK</span> <i class="chkn">the book gives no note. This reading fits both keys.</i></p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ଲେଖୁଛି’: the last ‘ଇ’ tells what?</summary><p>ପୁରୁଷ ଓ ବଚନ (first person, one: "I am writing").</p></details><details class="qa"><summary>‘ସେମାନେ ଯାଆନ୍ତି’: which ending shows the number?</summary><p>ଅନ୍ତି. It shows many people (ବହୁବଚନ).</p></details><details class="qa"><summary>Does the Odia verb change with the gender of the subject?</summary><p>No. ‘ସେ ଯାଏ’ is for both. <span class="pyq">2018 Q9</span> and <span class="pyq">2021 Q39</span> asked this.</p></details><details class="qa"><summary>What does ‘ପଢ଼ୁଥିଲା’ show?</summary><p>କାଳ (past continuous), ପୁରୁଷ (third) and ବଚନ (one).</p></details><details class="qa"><summary>Likely next: ‘ଆମେ ଖେଳିଲୁ’: what does ‘ଲୁ’ show?</summary><p>ପ୍ରଥମ ପୁରୁଷ ବହୁବଚନ (we) in the past. The ‘ଲ’ shows past time, ‘ଉ’ shows we.</p></details><details class="qa"><summary>Likely next: ‘ତୁମେ ଯାଅ’ shows which person?</summary><p>ଦ୍ୱିତୀୟ ପୁରୁଷ (you).</p></details></div></aside></section>
+<section id="finite"><div class="sectrule"><span class="eyebrow">Chapter <b>04</b> · 9 QUESTIONS · EVERY YEAR</span><span class="line"></span></div><h2>4. ସମାପିକା and ଅସମାପିକା</h2><h3><span class="h3n">4.1</span>The two kinds</h3><ul><li><strong>ସମାପିକା କ୍ରିୟା</strong> (finite verb): it <strong>ends</strong> the sentence. It shows tense, person and number. Example: ‘ସେ ବହି ପଢ଼ିଲା’. The verb ‘ପଢ଼ିଲା’ ends the idea.</li><li><strong>ଅସମାପିକା କ୍ରିୟା</strong> (non-finite verb): it <strong>does not end</strong> the sentence. The sentence still waits for a ସମାପିକା after it. Example: ‘ସେ ବହି ପଢ଼ି ଶୋଇଲା’. Here ‘ପଢ଼ି’ is ଅସମାପିକା; ‘ଶୋଇଲା’ is the ସମାପିକା.</li></ul><p>Easy test: <strong>every sentence needs exactly one ସମାପିକା.</strong> A sentence can have several ଅସମାପିକା.</p><p>The 2025 paper gave the clue words: "ଯେଉଁ କ୍ରିୟାପଦରୁ କାଳ, ପୁରୁଷ ଓ ବଚନ ପ୍ରଭୃତିର ଧାରଣା ମିଳେ" is ସାଧ୍ୟ (ସମାପିକା) <span class="pyq">2025 Q31</span>. In 2021 "ଏକାଧିକ ପଦରେ ପ୍ରକାଶିତ କ୍ରିୟା" is a <strong>ମିଶ୍ର</strong> verb (chapter 6) <span class="pyq">2021 Q38</span>. Do not mix the two clues up.</p><h3><span class="h3n">4.2</span>How to spot an ଅସମାପିକା: the three endings</h3><p>Look at the last letters of the verb:</p><div class="tw"><table class="t"><thead><tr><th>Ending</th><th>Example</th><th>What it means</th></tr></thead><tbody><tr><td data-l="Ending"><strong>‑ଇ</strong></td><td data-l="Example">ଦେଖି, ଧରି, ଖାଇ</td><td data-l="What it means">the action is <strong>finished</strong> (ସଂପନ୍ନ ସୂଚକ)</td></tr><tr><td data-l="Ending"><strong>‑ଉ ‑ଉ</strong> (doubled)</td><td data-l="Example">ବସୁବସୁ, ଯାଉଯାଉ</td><td data-l="What it means">the action is <strong>still going</strong> (ଅସଂପନ୍ନ ସୂଚକ)</td></tr><tr><td data-l="Ending"><strong>‑ଅନ୍ତେ, ‑ଲେ</strong></td><td data-l="Example">କହନ୍ତେ, ଗଲେ</td><td data-l="What it means">time or condition ("when", "if")</td></tr></tbody></table></div><p>Past questions that use the table:</p><ul><li>‘ସେ କ୍ରିକେଟ ଦେଖି ଫେରୁଛି’: ‘ଦେଖି’ is a <strong>ସଂପନ୍ନ ସୂଚକ ଅସମାପିକା</strong> <span class="pyq">2018 Q45</span>.</li><li>‘ସୈନ୍ୟମାନେ ଅସ୍ତ୍ର ଧରି ଯୁଦ୍ଧକୁ ଗଲେ’: ‘ଧରି’ is <strong>ଅସମାପିକା</strong> <span class="pyq">2021 Q67</span>.</li><li>‘ସେ କହନ୍ତେ ପିଲାଟି ଦୌଡ଼ିଲା’: ‘କହନ୍ତେ’ is the ଅସମାପିକା; the options ‘ଇଲା’ and ‘ଦୌଡ଼ିଲା’ are the finite part <span class="pyq">2018 Q39</span>.</li><li>‘ପିଟୁଥିଲା’: the part ‘ପିଟୁ’ is in <strong>ଅସମାପିକା</strong> form <span class="pyq">2018 Q20</span>. A verb like ‘ପିଟୁଥିଲା’ is built from an ଅସମାପିକା (ପିଟୁ) plus a helping verb (ଥିଲା); you will meet this in chapter 6.</li></ul><h3><span class="h3n">4.3</span>Questions about the ending (ପ୍ରତ୍ୟୟ)</h3><ul><li>"ଅସମାପିକା କ୍ରିୟାପଦରେ ______ ପ୍ରତ୍ୟୟ ପ୍ରୟୋଗ କରାଯାଏ": answer <strong>ଇ</strong> <span class="pyq">2025 Q46</span> (the options ଅନ୍ତି, ଅ, ଉଛି are all ସମାପିକା endings).</li><li>"ଧାତୁସହ କେଉଁ ବିଭକ୍ତି ଯୁକ୍ତ ହେଲେ ଅସମାପିକା କ୍ରିୟା ହୁଏ ?": answer <strong>ଉ</strong> <span class="pyq">2021 Q85</span> (the doubled ‘ଉ’ of ‘ଯାଉଯାଉ’). <span class="chk">CHECK</span> <i class="chkn">the two keys give ‘ଇ’ in 2025 and ‘ଉ’ in 2021. Both are real ଅସମାପିକା endings, but the options of each question have only one of them. Read the options.</i></li><li>"ଧାତୁରେ ଅସମାପିକା କ୍ରିୟା ବିଭକ୍ତି ______": answer <strong>ଯୁକ୍ତ ହୋଇପାରେ</strong> (may be joined) <span class="pyq">2021 Q49</span>.</li><li>"ଇକାରାନ୍ତ ଅସମାପିକା କ୍ରିୟା ସହ ______ ଅସମାପିକା କ୍ରିୟା ମଧ୍ୟ ସଂଯୁକ୍ତ ହୋଇପାରେ": answer <strong>କରି</strong> <span class="pyq">2025 Q49</span>. ‘ଇକାରାନ୍ତ’ means "ending in ‘ଇ’". Example: ‘ଧରିକରି’, ‘ଖାଇକରି’.</li></ul><h3><span class="h3n">4.4</span>Which word is the verb of the sentence?</h3><p>A simple trap: "ଗଙ୍ଗା ନଦୀର ପାଣି ପବିତ୍ର ଅଟେ" has the verb <strong>ଅଟେ</strong> (is) <span class="pyq">2018 Q52</span>. ‘ପବିତ୍ର’ is an adjective. A verb can be as small as ‘ଅଟେ’ or ‘ହେଲା’.</p><aside class="box key"><p class="box-t">One line to remember</p><p>‘‑ଇ’ and ‘‑ଉ ‑ଉ’ at the end of a verb: ଅସମାପିକା. A full ending like ‘‑ଲା, ‑ଲେ, ‑ଛି, ‑ନ୍ତି’ that closes the sentence: ସମାପିକା.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ସେ ଭାତ ଖାଇ ବିଦ୍ୟାଳୟକୁ ଗଲା’: name the ସମାପିକା and the ଅସମାପିକା.</summary><p>ସମାପିକା: ଗଲା. ଅସମାପିକା: ଖାଇ.</p></details><details class="qa"><summary>‘ସେ ହସି ହସି କହିଲା’: which is ଅସମାପିକା?</summary><p>‘ହସି ହସି’ (doubled, so "while laughing").</p></details><details class="qa"><summary>Does an ଅସମାପିକା verb show tense?</summary><p>No. It shows no tense, person or number.</p></details><details class="qa"><summary>‘ବସୁବସୁ’ is which kind?</summary><p>ଅସମାପିକା ‑ଅସଂପନ୍ନ (the action is going on).</p></details><details class="qa"><summary>Likely next: Name the ଅସମାପିକା in ‘ବର୍ଷା ହେଲେ ମେଳା ବନ୍ଦ ହେବ’.</summary><p>ହେଲେ (‑ଲେ shows "if").</p></details><details class="qa"><summary>Likely next: ‘ସେ ଆସିବାକୁ ଇଚ୍ଛା କଲା’: is ‘ଆସିବା’ a ସମାପିକା?</summary><p>No. It is a verb used as a noun (ସିଦ୍ଧ).</p></details></div></aside></section>
+<section id="redup"><div class="sectrule"><span class="eyebrow">Chapter <b>05</b> · 5 QUESTIONS · ALL IN 2018</span><span class="line"></span></div><h2>5. ଦ୍ୱିରୁକ୍ତି: doubling the ଅସମାପିକା</h2><p>All five questions were asked in <strong>2018</strong> and none since. They are a small family, but a repeat is possible, because the examiner often repeats old lines word for word.</p><h3><span class="h3n">5.1</span>What doubling does</h3><p>When you say an ଅସମାପିକା twice, a new meaning comes out. ‘ବସି’ becomes ‘ବସି ବସି’; ‘ବସୁ’ becomes ‘ବସୁବସୁ’.</p><ul><li>Doubling the ‘ଉ’ form (‘ଯାଉଯାଉ’, ‘ବସୁବସୁ’) makes an <strong>ଅସମାପିକା କ୍ରିୟା</strong> again <span class="pyq">2018 Q23</span> <span class="pyq">2018 Q64</span>.</li><li>Doubling the ‘ଇ’ form (‘ବସି ବସି’, ‘ଧରି ଧରି’) gives a <strong>ସଂପନ୍ନତା ସୂଚକ ଅସମାପିକା</strong> <span class="pyq">2018 Q35</span>. Of ‘ବସୁବସୁ’, ‘ବସି ବସି’, ‘ବସିଲା’, ‘ବସିଥିଲା’, only ‘ବସି ବସି’ is the answer.</li><li>Doubling an ଅସମାପିକା gives a word that works as a <strong>କ୍ରିୟା ବିଶେଷଣ</strong> (it describes how the action happens): ‘ସେ ଯାଉଯାଉ କହିଲା’ <span class="pyq">2018 Q36</span>. <span class="chk">CHECK</span> <i class="chkn">two keys of this family (Q23, Q36) can look alike. Q23 and Q64 say the doubled ‘ଉ’ gives ଅସମାପିକା, Q36 says the result works as an adverb. Both statements hold, but read the options.</i></li><li>‘ମରାମରି’ (fighting till death) is a verb of this doubled kind, and the key calls it <strong>ଅସମାପିକା</strong> <span class="pyq">2018 Q37</span>. ‘ମରାମରି’, ‘ଗଡ଼ାଗଡ଼ି’, ‘ଧରାଧରି’ all follow the same pattern: two verb words joined with ‘ଆ’ and ‘ଇ’.</li></ul><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ଯାଉଯାଉ’: which part of the verb is doubled?</summary><p>The ‘ଉ’ form.</p></details><details class="qa"><summary>‘ଧରାଧରି’ is which kind of verb?</summary><p>A doubled ଅସମାପିକା form (it means "each holding the other").</p></details><details class="qa"><summary>Likely next: ‘ହସିହସି’ shows the action as finished or still going?</summary><p>It shows the action finished or complete (ସଂପନ୍ନ). <span class="chk">CHECK</span> <i class="chkn">the book names ‘‑ଇ ‑ଇ’ as ସଂପନ୍ନ in Q35</i></p></details></div></aside></section>
+<section id="kinds"><div class="sectrule"><span class="eyebrow">Chapter <b>06</b> · 21 QUESTIONS · THE BIGGEST FAMILY</span><span class="line"></span></div><h2>6. The kinds of verb</h2><p>This is the family with the most questions, and 2018 asked 11 of them. A verb can be split by how it is <strong>built</strong>. Learn the eight names below and one example for each.</p><h3><span class="h3n">6.1</span>ଏକକ (ଅମିଶ୍ର) ବା ସରଳ: the plain verb</h3><p>One ଧାତୁ plus one or more endings makes a <strong>ଏକକ କ୍ରିୟା</strong>. ‘ଖାଇଲେ’, ‘ଶୋଇବା’, ‘ଯାଏ’ are all plain verbs. The 2018 question: "ଗୋଟିଏ ଧାତୁ ଓ ଗୋଟିଏ ବିଭକ୍ତିକୁ ନେଇ ଗଠିତ ହୁଏ ______ କ୍ରିୟା ପଦ" and the answer is <strong>ଏକକ</strong> <span class="pyq">2018 Q55</span>. ‘ସେ ଆମ ଘରେ ଖାଇଲେ’: ‘ଖାଇଲେ’ is an <strong>ଅମିଶ୍ର</strong> (plain) verb <span class="pyq">2018 Q40</span>.</p><h3><span class="h3n">6.2</span>ମିଶ୍ର କ୍ରିୟା: a noun or adjective plus a verb</h3><p>Some verbs need <strong>two or more words</strong> to say one action. A noun, an adjective or a word like it joins with a small verb such as <strong>କର</strong>, <strong>ହୁଅ</strong>, <strong>ଦିଅ</strong>.</p><ul><li>‘ଆହାର କରୁଥିଲେ’ (were eating): ‘ଆହାର’ is a noun, ‘କରୁଥିଲେ’ is the verb. Together they are a <strong>ମିଶ୍ର</strong> verb.</li><li>‘ଅବତରଣ କରିବା’ (to land, to descend) is a <strong>ମିଶ୍ର</strong> verb <span class="pyq">2025 Q59</span>. The other options ‘ଶୋଇବା’, ‘ନୋହିବା’ and ‘ଶୁଆଇବା’ are one-word verbs.</li><li>The 2021 clue: "ଏକାଧିକ ପଦରେ ପ୍ରକାଶିତ କ୍ରିୟା" is a <strong>ମିଶ୍ର</strong> verb <span class="pyq">2021 Q38</span>.</li><li>Can a ମିଶ୍ର verb be turned into a plain one? <strong>Yes</strong>, in many cases <span class="pyq">2025 Q43</span>: ‘ସ୍ନାନ କରିବା’ (to bathe) can be said ‘ନାହିବା’. <span class="chk">CHECK</span> <i class="chkn">the key says "ହଁ" (yes); the example is ours, not the book's.</i></li><li>One more trap: in ‘ଋଷିମାନେ ବଣର ଫଳମୂଳ ଆହାର କରୁଥିଲେ’ the question asks for the <strong>ଯୌଗିକ</strong> verb, and the book's key picks only ‘କରୁଥିଲେ’ <span class="pyq">2021 Q79</span>. <span class="chk">CHECK</span> <i class="chkn">‘ଆହାର କରୁଥିଲେ’ is a ମିଶ୍ର verb, not a ଯୌଗିକ one. This key looks wrong. Do not learn it.</i></li></ul><h3><span class="h3n">6.3</span>ଯୌଗିକ କ୍ରିୟା: two verbs working as one</h3><p>A <strong>ଯୌଗିକ</strong> verb has <strong>two verbs together</strong>. The first is an ଅସମାପିକା (ending in ‘ଇ’, chapter 4). The second is a <strong>helping verb</strong> that carries the ending. ‘ଖାଇଦେଲା’ = ‘ଖାଇ’ + ‘ଦେଲା’. ‘ପଡ଼ିଗଲେ’ = ‘ପଡ଼ି’ + ‘ଗଲେ’.</p><ul><li>"ଯୌଗିକ କ୍ରିୟା ପଦର ପ୍ରଥମ କ୍ରିୟାଟି ସର୍ବଦା ______ ରୂପ ବିଶିଷ୍ଟ": <strong>ଅସମାପିକା</strong> <span class="pyq">2018 Q25</span> <span class="pyq">2025 Q66</span>. Same question, seven years apart.</li><li>‘ପଡ଼ିଗଲେ’ is a <strong>ଯୌଗିକ</strong> verb <span class="pyq">2025 Q64</span>.</li><li>‘ଖାଇଦେଇ ଯାଆନ୍ତୁ’ has <strong>three</strong> ଧାତୁ: ଖା, ଦେ, ଯା <span class="pyq">2025 Q42</span>.</li></ul><p>Do not mix this up with ମିଶ୍ର: a ମିଶ୍ର verb joins a <strong>noun</strong> and a verb; a ଯୌଗିକ verb joins <strong>two verbs</strong>.</p><h3><span class="h3n">6.4</span>ସହାୟକ and ସାହାଯ୍ୟକାରୀ: two different helpers</h3><p>This pair is asked often. They sound alike, but they are two groups.</p><div class="tw"><table class="t"><thead><tr><th>Group</th><th>What it is</th><th>Examples</th></tr></thead><tbody><tr><td data-l="Group"><strong>ସହାୟକ କ୍ରିୟା</strong> (auxiliary)</td><td data-l="What it is">a small verb that helps to show <strong>tense</strong>: the forms of ‘ଥା’, ‘ଅଛ’, ‘ହୁ’</td><td data-l="Examples">ଯାଉ<strong>ଥିବ</strong>, ଖାଉ<strong>ଅଛି</strong></td></tr><tr><td data-l="Group"><strong>ସାହାଯ୍ୟକାରୀ କ୍ରିୟା</strong> (helper, ଯୌଗିକ)</td><td data-l="What it is">a verb that follows an ‘ଇ’ verb and adds <strong>colour</strong>: ଦେ, ନେ, ପଡ଼, ଉଠ, ବସ, ସାର, ପାର…</td><td data-l="Examples">ଖାଇ<strong>ଦେଲା</strong>, ଖାଇ<strong>ସାରିଲା</strong></td></tr></tbody></table></div><ul><li>‘ଯାଉଥିବ’: ‘ଥା’ is a <strong>ସହାୟକ</strong> verb <span class="pyq">2018 Q32</span>.</li><li>‘ଖାଇଦେଲା’: ‘ଦେଲା’ is a <strong>ସାହାଯ୍ୟକାରୀ</strong> verb <span class="pyq">2018 Q41</span>.</li><li>"______ ଏକ ସାହାଯ୍ୟକାରୀ କ୍ରିୟା": <strong>ଖାଇ ସାରିଲା</strong> <span class="pyq">2018 Q66</span>. The others (ଖାଇଲା, ଖାଉଅଛି, ଖାଇଥିବ) are plain or use only a ସହାୟକ.</li><li>"ଓଡ଼ିଆ କ୍ରିୟାପଦରେ ______ ଟି ସହାୟକ କ୍ରିୟା ସଂଯୁକ୍ତ ହୋଇଥାଏ": OPSC marked this one <strong>Not valued</strong> <span class="pyq">2025 Q33</span>. Skip it.</li></ul><h3><span class="h3n">6.5</span>ଧ୍ୱନ୍ୟାତ୍ମକ କ୍ରିୟା: a verb made from a sound</h3><p>Some verbs come from the <strong>sound</strong> of an action: ‘କଡ଼ମଡ଼’ (crunching), ‘ସଡ଼ସଡ଼’ (rustling), ‘ଝରଝର’ (pouring). Joined to a small verb, they make a <strong>ଧ୍ୱନ୍ୟାତ୍ମକ</strong> (also ଧ୍ୱନ୍ୟନୁକାରୀ) verb.</p><ul><li>‘ସେ ଦାନ୍ତ କଡ଼ମଡ଼ କଲେ’ uses a <strong>ଧ୍ୱନ୍ୟାତ୍ମକ</strong> verb <span class="pyq">2018 Q34</span>.</li><li>‘ସଡ଼ସଡ଼ ହେବା’ is a ଧ୍ୱନ୍ୟାତ୍ମକ verb <span class="pyq">2018 Q67</span>. The other options ‘ଯାଉଯାଉ’, ‘ଧରିଧରି’ and ‘ଗଡ଼ାଗଡ଼ି ହେଲେ’ are doubled forms from chapter 5.</li></ul><h3><span class="h3n">6.6</span>ଆଭିମୁଖ୍ୟ: the "about to" sense</h3><p>Two questions from 2018 use the word <strong>ଆଭିମୁଖ୍ୟ</strong> (facing, leaning towards, "about to"). The book keys: "କ୍ରିୟା ପଦ ମଧ୍ୟରେ ଆଭିମୁଖ୍ୟ ବାଚକ ପ୍ରତ୍ୟୟ <strong>ଯୁକ୍ତ ଥାଏ</strong>" <span class="pyq">2018 Q13</span>, and "ଆଭିମୁଖ୍ୟଯୁକ୍ତ କ୍ରିୟାପଦ ସର୍ବଦା <strong>ଯୌଗିକ କ୍ରିୟା</strong> ହୋଇଥାଏ" <span class="pyq">2018 Q42</span>. <span class="chk">CHECK</span> <i class="chkn">the book gives no note and the term is not in our other sources. Learn the two lines as they stand.</i></p><aside class="box key"><p class="box-t">The decision chain</p><p>Look at the verb. <strong>One word, one root?</strong> → ଏକକ (ଅମିଶ୍ର). <strong>Noun + verb?</strong> → ମିଶ୍ର. <strong>Two verbs, first ends in ‘ଇ’?</strong> → ଯୌଗିକ. <strong>Made from a sound?</strong> → ଧ୍ୱନ୍ୟାତ୍ମକ. <strong>Made from a noun or adjective with no ‘କର’?</strong> → ନାମଧାତୁ (chapter 7).</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ଶୁଣିଦେଲା’: is it ମିଶ୍ର or ଯୌଗିକ?</summary><p>ଯୌଗିକ. Two verbs: ଶୁଣି and ଦେଲା.</p></details><details class="qa"><summary>‘ସ୍ନାନ କରିବା’: is it ମିଶ୍ର or ଯୌଗିକ?</summary><p>ମିଶ୍ର. ‘ସ୍ନାନ’ is a noun.</p></details><details class="qa"><summary>In ‘ଯାଉଥିଲା’ the word ‘ଥିଲା’ is which kind of helper?</summary><p>ସହାୟକ.</p></details><details class="qa"><summary>In ‘ଲେଖି ସାରିଲା’ the word ‘ସାରିଲା’ is which kind of helper?</summary><p>ସାହାଯ୍ୟକାରୀ.</p></details><details class="qa"><summary>What is the first verb of a ଯୌଗିକ କ୍ରିୟା?</summary><p>ଅସମାପିକା.</p></details><details class="qa"><summary>Likely next: Is ‘ଝରଝର ହେଲା’ ଧ୍ୱନ୍ୟାତ୍ମକ or ମିଶ୍ର?</summary><p>ଧ୍ୱନ୍ୟାତ୍ମକ (made from the sound ‘ଝରଝର’).</p></details><details class="qa"><summary>Likely next: How many ଧାତୁ are in ‘ବସିପଡ଼ିଲା’?</summary><p>Two: ବସ୍ and ପଡ଼୍.</p></details><details class="qa"><summary>Likely next: Which has a noun inside: ‘କାମ କଲା’ or ‘ଖାଇଲା’?</summary><p>କାମ କଲା. It is a ମିଶ୍ର verb.</p></details></div></aside></section>
+<section id="nama"><div class="sectrule"><span class="eyebrow">Chapter <b>07</b> · 8 QUESTIONS · EVERY YEAR</span><span class="line"></span></div><h2>7. ନାମଧାତୁ: a verb made from a noun</h2><p>A <strong>ନାମଧାତୁ</strong> is a verb made from a <strong>noun</strong> (ବିଶେଷ୍ୟ) or an <strong>adjective</strong> (ବିଶେଷଣ) by adding an ending such as ‘ଇ’ or ‘ଏଇ’ ‑ with no ‘କର’ or ‘ହୁଅ’ in between.</p><ul><li>‘ଅଟକ’ (a halt, noun) → ‘ଅଟକିବା’ (to stop) <span class="pyq">2018 Q54</span>.</li><li>‘ଅଙ୍କୁର’ (a sprout, noun) → ‘ଅଙ୍କୁରିବା’ (to sprout) <span class="pyq">2021 Q91</span>.</li><li>‘ଆଗ’ (front, ahead) → ‘ଆଗେଇବା’ (to go ahead) <span class="pyq">2021 Q95</span>. The question asked for the word the ନାମଧାତୁ ‘ଆଗେଇବା’ comes from, and the answer is <strong>ଆଗ</strong>.</li><li>‘ଖନ’ (digging) → ‘ଖନେଇବା’ (to dig) <span class="pyq">2025 Q48</span>.</li><li>‘ହୁଗୁଳ’ (slow, from the adjective) → ‘ହୁଗୁଳେଇବା’ (to slow down) <span class="pyq">2025 Q67</span>.</li></ul><p>The key of 2025 Q67 calls ‘ହୁଗୁଳ’ a ବିଶେଷଣ; the other options were ବିଶେଷ୍ୟ, ସର୍ବନାମ, ବଚନ.</p><h3><span class="h3n">7.1</span>The rule questions</h3><ul><li>"ଯେଉଁ କ୍ରିୟାପଦ ବିଶେଷ୍ୟ ବା ବିଶେଷଣ ଶବ୍ଦରୁ ଗଠିତ ହୋଇଥାଏ, ତାହାକୁ ______ କ୍ରିୟାପଦ କୁହାଯାଏ": <strong>ନାମଧାତୁ</strong> <span class="pyq">2021 Q77</span>.</li><li>"ନାମ ଧାତୁ କ୍ରିୟା ______ ରୁ ବିଶେଷଣ ଗଠିତ ହୋଇଥାଏ": options include ‘ବିଶେଷ୍ୟ ଓ ବିଶେଷଣ’ <span class="pyq">2018 Q50</span>. The question wording is garbled in the book, but the key means: ନାମଧାତୁ is made from <strong>ବିଶେଷ୍ୟ ଓ ବିଶେଷଣ</strong>.</li><li>"ନାମଧାତୁ କ୍ରିୟାପଦ ______ ଶବ୍ଦରୁ ଗଠିତ": <strong>ବିଶେଷଣ</strong> was the key <span class="pyq">2025 Q47</span> (the other options were ଅବ୍ୟୟ, କାଳ, ବଚନ). Read the options: if both ବିଶେଷ୍ୟ and ବିଶେଷଣ are there, the best answer is "both".</li><li>‘ଅଙ୍କୁର’ ‑ the 2021 option words were ‘ପ୍ରୟୋଜନ’, ‘ଣିଜନ୍ତ’, ‘ସନନ୍ତ’ and ‘ନାମ’; the answer is <strong>ନାମ</strong> (name) <span class="pyq">2021 Q91</span>: a ନାମ ଧାତୁ.</li></ul><aside class="box warn"><p class="box-t">Do not confuse ନାମଧାତୁ with ମିଶ୍ର</p><p>‘ଖନ କରିବା’ is ମିଶ୍ର (noun + କର). ‘ଖନେଇବା’ is ନାମଧାତୁ (the noun has turned into a verb by itself). If the small verb is still there, it is ମିଶ୍ର.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ଲଜ୍ଜାଇବା’ is made from which word?</summary><p>ଲଜ୍ଜା (noun). It is a ନାମଧାତୁ. <span class="chk">CHECK</span> <i class="chkn">our example, not in the papers</i></p></details><details class="qa"><summary>‘ଅନ୍ଧାର’ → ?</summary><p>‘ଅନ୍ଧାରିବା’ (to grow dark). Noun to verb.</p></details><details class="qa"><summary>‘ଛୋଟ’ is an adjective. ‘ଛୋଟେଇବା’ is which kind of verb?</summary><p>ନାମଧାତୁ (from an adjective).</p></details><details class="qa"><summary>Likely next: What does ‘ନାମ’ in ‘ନାମଧାତୁ’ mean?</summary><p>"Name", meaning noun (ବିଶେଷ୍ୟ).</p></details><details class="qa"><summary>Likely next: ‘ହାତେଇବା’ comes from?</summary><p>‘ହାତ’ (noun). It is a ନାମଧାତୁ. <span class="chk">CHECK</span> <i class="chkn">our example, not in the papers</i></p></details></div></aside></section>
+<section id="prerana"><div class="sectrule"><span class="eyebrow">Chapter <b>08</b> · 6 QUESTIONS · 2025 ASKED 2</span><span class="line"></span></div><h2>8. ପ୍ରେରଣାର୍ଥକ: &quot;make someone do it&quot;</h2><h3><span class="h3n">8.1</span>What it is</h3><p><strong>ପ୍ରେରଣା</strong> means "urging". A ପ୍ରେରଣାର୍ଥକ କ୍ରିୟା shows that the doer <strong>makes another person do</strong> the work. Compare:</p><ul><li>ସେ ଖାଏ. (He eats.) Plain verb.</li><li>ମା ପିଲାକୁ <strong>ଖୁଆନ୍ତି</strong>. (Mother makes the child eat; she feeds him.) ପ୍ରେରଣାର୍ଥକ verb.</li></ul><p>The question: "ଯେଉଁ କ୍ରିୟା ଦ୍ୱାରା କିଛି କରାଇବା ଅର୍ଥ ପ୍ରକାଶିତ ହୁଏ, ତାହା ______" and the answer is <strong>ପ୍ରେରଣାର୍ଥକ କ୍ରିୟା</strong> <span class="pyq">2018 Q63</span>.</p><h3><span class="h3n">8.2</span>Two doers, and their names</h3><p>A ପ୍ରେରଣାର୍ଥକ sentence has two doers:</p><ul><li>the one who <strong>orders or causes</strong> the action is the <strong>ପ୍ରଯୋଜକ କର୍ତ୍ତା</strong>;</li><li>the one who <strong>actually does</strong> it is the <strong>ପ୍ରଯୁଜ୍ୟ କର୍ତ୍ତା</strong>.</li></ul><p>In ‘ମା ପିଲାକୁ ଖୁଆନ୍ତି’, ‘ମା’ is the ପ୍ରଯୋଜକ କର୍ତ୍ତା. The 2021 question: "ଯେଉଁ କର୍ତ୍ତା ନିଜେ କ୍ରିୟା ସମ୍ପାଦନ ନ କରି ଅନ୍ୟଦ୍ୱାରା କରାଏ, ତାହାକୁ ______ କୁହାଯାଏ", answer <strong>ପ୍ରଯୋଜକ କର୍ତ୍ତା</strong> <span class="pyq">2021 Q33</span>. The options ‘ପ୍ରଯୁଜ୍ୟ କର୍ତ୍ତା’ and ‘ପ୍ରଯୋଜକ କର୍ତ୍ତା’ look very alike. Remember: <strong>ଜକ = the Jockey who drives</strong>; the driver is ପ୍ରଯୋଜକ.</p><h3><span class="h3n">8.3</span>How the verb is made: the root changes</h3><p>The ପ୍ରେରଣାର୍ଥକ verb is made by changing the root:</p><div class="tw"><table class="t"><thead><tr><th>Plain root</th><th>ପ୍ରେରଣାର୍ଥକ root</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Plain root">ଖା</td><td data-l="ପ୍ରେରଣାର୍ଥକ root">ଖୁଆ</td><td data-l="Meaning">feed</td></tr><tr><td data-l="Plain root">ପଢ଼୍</td><td data-l="ପ୍ରେରଣାର୍ଥକ root">ପଢ଼ା (ପଢ଼ାଇ)</td><td data-l="Meaning">teach</td></tr><tr><td data-l="Plain root">ଶୋ</td><td data-l="ପ୍ରେରଣାର୍ଥକ root">ଶୁଆ</td><td data-l="Meaning">put to sleep</td></tr></tbody></table></div><p>The 2018 question: "‘ଖା’ ଧାତୁରୁ ‘ଖୁଆ’ ______ ଧାତୁ ଗଠିତ" and the answer is <strong>ପ୍ରେରଣାର୍ଥକ</strong> <span class="pyq">2018 Q58</span>. In ‘ଶୁଆଇବା’ of 2025 Q59 the same change is visible.</p><h3><span class="h3n">8.4</span>Which ending makes it? The keys disagree</h3><p>Three questions ask which ending makes a ପ୍ରେରଣାର୍ଥକ verb, and the book gives three different keys:</p><ul><li>‘ଆ’ ଓ ‘ଇ’ <span class="pyq">2018 Q30</span></li><li>‘ଅ’, ‘ଆ’ ଏବଂ ‘ଏ’ <span class="pyq">2025 Q51</span></li><li>‘ଏ’ <span class="pyq">2025 Q65</span></li></ul><p><span class="chk">CHECK</span> <i class="chkn">the three keys cannot all be right together. In plain grammar, the ପ୍ରେରଣାର୍ଥକ verb takes ‘ଆ’ (ଖୁଆ, ପଢ଼ା), and the ending ‘ଇ’ then follows (ପଢ଼ାଇବା). If the options of a question include ‘ଆ’, pick it. Do not argue with the paper; choose the option with ‘ଆ’.</i></p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ମା ପିଲାକୁ ଖୁଆଇଲେ’: who is the ପ୍ରଯୋଜକ କର୍ତ୍ତା?</summary><p>ମା.</p></details><details class="qa"><summary>And who is the ପ୍ରଯୁଜ୍ୟ କର୍ତ୍ତା?</summary><p>ପିଲା.</p></details><details class="qa"><summary>Make the ପ୍ରେରଣାର୍ଥକ of ‘ଦେଖିବା’.</summary><p>ଦେଖାଇବା (to show). <span class="chk">CHECK</span> <i class="chkn">standard grammar</i></p></details><details class="qa"><summary>Likely next: ‘ଶୁଆଇବା’ is which kind?</summary><p>ପ୍ରେରଣାର୍ଥକ (from ଶୋ).</p></details><details class="qa"><summary>Likely next: ‘ପଢ଼ାଇବା’ means?</summary><p>To teach (to make someone read).</p></details></div></aside></section>
+<section id="object"><div class="sectrule"><span class="eyebrow">Chapter <b>09</b> · 7 QUESTIONS · 2021 ASKED 4</span><span class="line"></span></div><h2>9. ସକର୍ମକ, ଅକର୍ମକ, ଦ୍ୱିକର୍ମକ</h2><h3><span class="h3n">9.1</span>The test: ask "what?"</h3><p>A verb is <strong>ସକର୍ମକ</strong> (transitive) if it has a <strong>କର୍ମ</strong> (object), the thing the work falls on. It is <strong>ଅକର୍ମକ</strong> (intransitive) if it has none. Simple test: ask the verb "<strong>କଣ?</strong>" (what?). If you can answer, it is ସକର୍ମକ. If you cannot, it is ଅକର୍ମକ.</p><ul><li>ସେ ବହି <strong>ପଢ଼ୁଛି</strong>. What does he read? ‘ବହି’. → ସକର୍ମକ.</li><li>ପବନ ଧୀରେ <strong>ବହୁଛି</strong>. What does the wind flow? Nothing. → ଅକର୍ମକ <span class="pyq">2021 Q78</span>.</li></ul><p>The 2018 question: "ଯେଉଁ କ୍ରିୟାରେ କର୍ମ ନ ଥାଏ, ତାହାକୁ ______ କ୍ରିୟା କୁହାଯାଏ", answer <strong>ଅକର୍ମକ</strong> <span class="pyq">2018 Q48</span>. ‘ନିଷ୍କର୍ମକ’ and ‘କର୍ମହୀନ’ are made-up distractors.</p><h3><span class="h3n">9.2</span>The verbs the examiner chose as ଅକର୍ମକ</h3><ul><li>‘ପଢ଼ିବା’, ‘ଦଳିବା’, ‘ମାରିବା’, ‘କାଶିବା’: the ଅକର୍ମକ one is <strong>କାଶିବା</strong> (to cough) <span class="pyq">2018 Q33</span>.</li><li>‘ଜଣାଇବା’, ‘ବାଟେଇବା’, ‘ଶୋଉଅଛି’, ‘ପଛଉଛି’: the ଅକର୍ମକ one is <strong>ଶୋଉଅଛି</strong> (is sleeping) <span class="pyq">2025 Q54</span>. This is the same question as 2018 Q33.</li></ul><p>Learn the pattern: verbs of body or state (କାଶିବା, ଶୋଇବା, ହସିବା, ବହିବା, ଜନ୍ମିବା, ମରିବା) have no object.</p><h3><span class="h3n">9.3</span>ଦ୍ୱିକର୍ମକ: two objects</h3><p>A <strong>ଦ୍ୱିକର୍ମକ</strong> verb has <strong>two</strong> objects. One is a <strong>person</strong> and one is a <strong>thing</strong>. ‘ଶିକ୍ଷକ ଛାତ୍ରକୁ ପ୍ରଶ୍ନ ପଚାରିଲେ’: the verb has ‘ଛାତ୍ରକୁ’ (person) and ‘ପ୍ରଶ୍ନ’ (thing).</p><ul><li>The <strong>ମୁଖ୍ୟ କର୍ମ</strong> (main object) is the <strong>thing</strong>: ‘ପ୍ରଶ୍ନ’ <span class="pyq">2021 Q99</span>.</li><li>The <strong>ଗୌଣ କର୍ମ</strong> (minor object) is the <strong>person</strong>: ‘ଛାତ୍ରକୁ’. The question "କେଉଁ କର୍ମ ଗୌଣ ?" is answered <strong>ପ୍ରାଣୀବାଚକ</strong> (naming a living being) <span class="pyq">2021 Q61</span>.</li><li>"କେତେକ ସକର୍ମକ କ୍ରିୟା ବ୍ୟବହାରରେ ଦ୍ୱିକର୍ମକ ହୁଏ": <strong>ଠିକ୍</strong> <span class="pyq">2021 Q98</span>. Some, not all.</li></ul><aside class="box key"><p class="box-t">Main object = thing. Minor object = person.</p><p>In ‘ଗୌଣ’ think "ଗୌ-ଣ = गौण = secondary". The living being is secondary; the thing is main.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>‘ସେ ହସିଲା’: ସକର୍ମକ or ଅକର୍ମକ?</summary><p>ଅକର୍ମକ. Nothing is laughed.</p></details><details class="qa"><summary>‘ମୁଁ ଆମ୍ବ ଖାଉଛି’: ସକର୍ମକ or ଅକର୍ମକ?</summary><p>ସକର୍ମକ. ‘ଆମ୍ବ’ is the object.</p></details><details class="qa"><summary>‘ବାପା ମତେ ବହି ଦେଲେ’: name the two objects.</summary><p>ମତେ (person, ଗୌଣ କର୍ମ) and ବହି (thing, ମୁଖ୍ୟ କର୍ମ).</p></details><details class="qa"><summary>Likely next: Is ‘ଜନ୍ମିବା’ ସକର୍ମକ or ଅକର୍ମକ?</summary><p>ଅକର୍ମକ.</p></details><details class="qa"><summary>Likely next: Is ‘ବାଟେଇବା’ ସକର୍ମକ?</summary><p>Yes. It has an object (‘ବାଟ’ is the road).</p></details></div></aside></section>
+<section id="neg"><div class="sectrule"><span class="eyebrow">Chapter <b>10</b> · 7 QUESTIONS · 2018 ASKED 5</span><span class="line"></span></div><h2>10. ନାସ୍ତ୍ୟର୍ଥକ: the negative verb</h2><h3><span class="h3n">10.1</span>The three little words: ‘ନ’, ‘ନାହିଁ’, ‘ନୁହେଁ’</h3><p>A <strong>ନାସ୍ତ୍ୟର୍ଥକ</strong> (negative, "meaning not") verb says that something is <strong>not</strong> done or <strong>not</strong> so. Odia has three small words for it.</p><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Use</th><th>Example</th></tr></thead><tbody><tr><td data-l="Word"><strong>ନ</strong></td><td data-l="Use">a <strong>prefix</strong> (ପୂର୍ବ ପ୍ରତ୍ୟୟ) placed <strong>before</strong> an ଅସମାପିକା verb</td><td data-l="Example">ସେ <strong>ନ</strong> ଖାଇ ଗଲା</td></tr><tr><td data-l="Word"><strong>ନାହିଁ</strong></td><td data-l="Use">a <strong>suffix</strong> (ପର ପ୍ରତ୍ୟୟ) placed <strong>after</strong> a ସମାପିକା verb</td><td data-l="Example">ସେ ଖାଏ <strong>ନାହିଁ</strong></td></tr><tr><td data-l="Word"><strong>ନୁହେଁ</strong></td><td data-l="Use">a negative <strong>verb</strong> by itself ("is not")</td><td data-l="Example">ଏହା ଆମ୍ବ <strong>ନୁହେଁ</strong></td></tr></tbody></table></div><h3><span class="h3n">10.2</span>What the papers said</h3><ul><li>"କ୍ରିୟା ପଦରେ ‘ନ’ ଏକ ନାସ୍ତିବାଚକ ______": <strong>ପ୍ରତ୍ୟୟ</strong> <span class="pyq">2018 Q29</span>.</li><li>‘ଖାଉନଥିବି’: ‘ନ’ is a <strong>ନାସ୍ତ୍ୟର୍ଥକ ପ୍ରତ୍ୟୟ</strong> <span class="pyq">2018 Q49</span>. The trap option is <strong>ଅସ୍ତ୍ୟର୍ଥକ ପ୍ରତ୍ୟୟ</strong>; ଅସ୍ତ୍ୟ means "is" and ନାସ୍ତ୍ୟ means "is not".</li><li>"‘ନ’, ପୂର୍ବପ୍ରତ୍ୟୟ ଭାବେ ______ କ୍ରିୟା ସହିତ ସଂଯୁକ୍ତ ହୋଇପାରେ": <strong>ଅସମାପିକା</strong> <span class="pyq">2018 Q47</span>. The 2025 version: "ନାସ୍ତି ଅର୍ଥ ସୂଚାଇବା ନିମନ୍ତେ ଅସମାପିକ କ୍ରିୟା ସହିତ ______ ପ୍ରତ୍ୟୟ ବ୍ୟବହାର": <strong>ନ</strong> <span class="pyq">2025 Q61</span>.</li><li>"ସମାପିକା କ୍ରିୟା ସହିତ ______ ପର ପ୍ରତ୍ୟୟ ସଂଯୁକ୍ତ ହୁଏ": <strong>ନାହିଁ</strong> <span class="pyq">2018 Q65</span>.</li><li>"______ ଏକ ନାସ୍ତ୍ୟାର୍ଥକ କ୍ରିୟା": <strong>ନୁହେଁ</strong> <span class="pyq">2025 Q52</span>: it is the only one of the three that is a verb in itself.</li><li>The sixth question: "ନ ମଧ୍ୟ ପ୍ରତ୍ୟୟଭାବେ ______ କାଳରେ ବ୍ୟବହୃତ ହୁଏ ନାହିଁ" <span class="pyq">2018 Q62</span> was marked <strong>Not valued</strong> by OPSC. Skip it.</li></ul><aside class="box key"><p class="box-t">The two-line summary</p><p>‘ନ’ = prefix for ଅସମାପିକା. ‘ନାହିଁ’ = suffix for ସମାପିକା. ‘ନୁହେଁ’ = a verb by itself.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Which negative word goes before the verb: ‘ନ’ or ‘ନାହିଁ’?</summary><p>‘ନ’.</p></details><details class="qa"><summary>Fix the placing: ‘ସେ ନ ଖାଏ’.</summary><p>‘ସେ ଖାଏ ନାହିଁ’. ‘ନ’ goes only with ଅସମାପିକା (‘ନ ଖାଇ’). <span class="chk">CHECK</span> <i class="chkn">‘ସେ ନ ଖାଏ’ is also used in speech, but the exam rule is as stated</i></p></details><details class="qa"><summary>Which of ‘ନ’, ‘ନାହିଁ’, ‘ନୁହେଁ’ is itself a verb?</summary><p>‘ନୁହେଁ’.</p></details><details class="qa"><summary>Likely next: ‘ନ’ in ‘ନ ଯାଇ’ is a prefix with which verb form?</summary><p>ଅସମାପିକା (‘ଯାଇ’ ends in ‘ଇ’).</p></details><details class="qa"><summary>Likely next: Is ‘ଥିଲା ନାହିଁ’ ସମାପିକା or ଅସମାପିକା?</summary><p>The verb ‘ଥିଲା’ is ସମାପିକା, and ‘ନାହିଁ’ is the suffix after it.</p></details></div></aside></section>
+<section id="last"><div class="sectrule"><span class="eyebrow">Chapter <b>11</b> · LAST WEEK</span><span class="line"></span></div><h2>11. Last-week sheet and CHECK list</h2><h3><span class="h3n">11.1</span>One-page sheet</h3><div class="tw"><table class="t"><thead><tr><th>Topic</th><th>Remember</th><th>Asked</th></tr></thead><tbody><tr><td data-l="Topic">ଧାତୁ</td><td data-l="Remember">root of the verb; halant at the end; ‘ଯା’ is ଅପୂର୍ଣ୍ଣରୂପ</td><td data-l="Asked"><span class="pyq">2018 Q38</span> <span class="pyq">2025 Q39</span> <span class="pyq">2025 Q57</span></td></tr><tr><td data-l="Topic">ବିଭକ୍ତି</td><td data-l="Remember">ending: shows <strong>ପୁରୁଷ and ବଚନ</strong>; at least one in every verb</td><td data-l="Asked"><span class="pyq">2025 Q40</span> <span class="pyq">2021 Q73</span> <span class="pyq">2021 Q82</span></td></tr><tr><td data-l="Topic">ବିକରଣ</td><td data-l="Remember">the middle sign: ଖେଳ୍ + <strong>ଇବ୍</strong> + ଏ</td><td data-l="Asked"><span class="pyq">2021 Q71</span> <span class="pyq">2018 Q31</span></td></tr><tr><td data-l="Topic">ସିଦ୍ଧ</td><td data-l="Remember">verb as noun, no tense, person or number</td><td data-l="Asked"><span class="pyq">2021 Q46</span></td></tr><tr><td data-l="Topic">ସାଧ୍ୟ</td><td data-l="Remember">real verb with tense, person, number</td><td data-l="Asked"><span class="pyq">2025 Q31</span></td></tr><tr><td data-l="Topic">ସମାପିକା</td><td data-l="Remember">ends the sentence</td><td data-l="Asked"><span class="pyq">2018 Q52</span></td></tr><tr><td data-l="Topic">ଅସମାପିକା</td><td data-l="Remember">‑ଇ, ‑ଉ ‑ଉ, ‑ଅନ୍ତେ; the sentence goes on</td><td data-l="Asked"><span class="pyq">2018 Q39</span> <span class="pyq">2021 Q67</span></td></tr><tr><td data-l="Topic">ଏକକ / ଅମିଶ୍ର</td><td data-l="Remember">one root, one ending</td><td data-l="Asked"><span class="pyq">2018 Q55</span> <span class="pyq">2018 Q40</span></td></tr><tr><td data-l="Topic">ମିଶ୍ର</td><td data-l="Remember">noun + verb</td><td data-l="Asked"><span class="pyq">2025 Q59</span> <span class="pyq">2021 Q38</span></td></tr><tr><td data-l="Topic">ଯୌଗିକ</td><td data-l="Remember">ଅସମାପିକା + helper; first verb is ଅସମାପିକା</td><td data-l="Asked"><span class="pyq">2018 Q25</span> <span class="pyq">2025 Q66</span> <span class="pyq">2025 Q64</span></td></tr><tr><td data-l="Topic">ସହାୟକ</td><td data-l="Remember">ଥା, ଅଛ (tense helpers)</td><td data-l="Asked"><span class="pyq">2018 Q32</span></td></tr><tr><td data-l="Topic">ସାହାଯ୍ୟକାରୀ</td><td data-l="Remember">ଦେ, ନେ, ସାର… after an ‘ଇ’ verb</td><td data-l="Asked"><span class="pyq">2018 Q41</span> <span class="pyq">2018 Q66</span></td></tr><tr><td data-l="Topic">ଧ୍ୱନ୍ୟାତ୍ମକ</td><td data-l="Remember">made from a sound: କଡ଼ମଡ଼, ସଡ଼ସଡ଼</td><td data-l="Asked"><span class="pyq">2018 Q34</span> <span class="pyq">2018 Q67</span></td></tr><tr><td data-l="Topic">ନାମଧାତୁ</td><td data-l="Remember">noun or adjective turned into a verb: ଅଟକ → ଅଟକିବା</td><td data-l="Asked"><span class="pyq">2021 Q77</span> <span class="pyq">2025 Q47</span></td></tr><tr><td data-l="Topic">ପ୍ରେରଣାର୍ଥକ</td><td data-l="Remember">"make someone do": ଖା → ଖୁଆ; ପ୍ରଯୋଜକ କର୍ତ୍ତା drives</td><td data-l="Asked"><span class="pyq">2018 Q63</span> <span class="pyq">2021 Q33</span></td></tr><tr><td data-l="Topic">ଅକର୍ମକ</td><td data-l="Remember">no object: କାଶିବା, ଶୋଇବା, ବହିବା</td><td data-l="Asked"><span class="pyq">2018 Q33</span> <span class="pyq">2025 Q54</span></td></tr><tr><td data-l="Topic">ଦ୍ୱିକର୍ମକ</td><td data-l="Remember">two objects; thing = main, person = minor</td><td data-l="Asked"><span class="pyq">2021 Q99</span> <span class="pyq">2021 Q61</span></td></tr><tr><td data-l="Topic">ନ / ନାହିଁ / ନୁହେଁ</td><td data-l="Remember">prefix / suffix / verb</td><td data-l="Asked"><span class="pyq">2018 Q65</span> <span class="pyq">2025 Q52</span></td></tr></tbody></table></div><h3><span class="h3n">11.2</span>Root origin pairs (learn by heart)</h3><ul><li>ଦେଖ୍ ← <strong>ଦୃଶ୍</strong> · ପଚାର୍ ← <strong>ପୃଚ୍ଛ୍</strong> · ଲିପିବା ← <strong>ଲିମ୍ପ୍</strong> · ହେବା ← <strong>ଭୂ</strong> · ଭୁଲ୍ = <strong>ଦେଶଜ</strong> · ଭଜ୍, ବନ୍ଧ୍, ଭିଦ୍ = <strong>ତତ୍ସମ</strong></li></ul><h3><span class="h3n">11.3</span>The exam habits</h3><ul><li><strong>Underline</strong> the clue word: "ଅସମାପିକା", "ମିଶ୍ର", "ଯୌଗିକ", "ସହାୟକ" look alike when you are in a hurry.</li><li>For any verb in a sentence, ask first: is it a <strong>noun + verb</strong> (ମିଶ୍ର) or <strong>two verbs</strong> (ଯୌଗିକ)?</li><li>When the keys of the book disagree (chapter 8), choose the option that agrees with the <strong>grammar</strong> and with the first word of the question.</li><li><strong>Skip</strong> the questions OPSC marked Not valued: 2018 Q62, 2025 Q33, 2025 Q38.</li></ul><h3><span class="h3n">11.4</span>The CHECK list: do not learn these as certain</h3><div class="tw"><table class="t"><thead><tr><th>Question</th><th>Why</th></tr></thead><tbody><tr><td data-l="Question"><span class="pyq">2021 Q43</span> ଦେଖ୍ ← ଦୃଶ୍</td><td data-l="Why">scan of the question unclear; key and grammar agree</td></tr><tr><td data-l="Question"><span class="pyq">2021 Q79</span> ଯୌଗିକ in ‘ଆହାର କରୁଥିଲେ’</td><td data-l="Why">key looks wrong: this is ମିଶ୍ର</td></tr><tr><td data-l="Question"><span class="pyq">2018 Q30</span> <span class="pyq">2025 Q51</span> <span class="pyq">2025 Q65</span> ପ୍ରେରଣାର୍ଥକ ending</td><td data-l="Why">three different keys</td></tr><tr><td data-l="Question"><span class="pyq">2018 Q13</span> <span class="pyq">2018 Q42</span> ଆଭିମୁଖ୍ୟ</td><td data-l="Why">no note; learn the two lines</td></tr><tr><td data-l="Question"><span class="pyq">2018 Q23</span> <span class="pyq">2018 Q36</span> doubling</td><td data-l="Why">read the options</td></tr><tr><td data-l="Question"><span class="pyq">2025 Q46</span> <span class="pyq">2021 Q85</span> ଅସମାପିକା ending</td><td data-l="Why">‘ଇ’ in one, ‘ଉ’ in the other</td></tr><tr><td data-l="Question"><span class="pyq">2025 Q50</span> person names</td><td data-l="Why">Odia and English count the persons differently</td></tr><tr><td data-l="Question"><span class="pyq">2025 Q70</span> କୁଟିବା</td><td data-l="Why">ତତ୍ସମ in the key; ତଦ୍ଭବ is also arguable</td></tr><tr><td data-l="Question"><span class="pyq">2018 Q38</span> ‘ଶୋ’ also ends in a vowel sign</td><td data-l="Why">learn ‘ଯା’ as the safe example</td></tr></tbody></table></div><aside class="box key"><p class="box-t">What comes next</p><p>Next we make a <strong>30-question Kriya practice set</strong> from these nine families, with twins for every chapter. Send the <strong>Copy answers</strong> report after it and we make a redo set and a small guide for what is still wrong. After Kriya, the next syllabus topics are ‘କାଳ’ (tense), ‘କ୍ରିୟା ବିଶେଷଣ’ (adverb) and ‘କର୍ତ୍ତା-କ୍ରିୟା ସମ୍ବନ୍ଧ’ (subject-verb).</p></aside></section></div></main>
+<button class="btn" id="up" aria-label="Back to top">Top</button>
+<footer><div class="col"><p>OPSC ASO 2027 · Odia Kriya Guide 1 · built 24 Nov 2026 from the 86 verb questions of the 2018, 2021 and 2025 Odia papers (Udyam IAS book keys, not OPSC keys) and standard Odia grammar. Explanations are in English; the wording and the extra examples are this guide’s own.</p><p>Tags marked CHECK are answers that keys or grammar books disagree on: confirm them before the exam.</p></div></footer>
+<script>
+(function(){
+var nav=document.getElementById('nav'),btn=document.getElementById('navbtn'),links=[].slice.call(nav.querySelectorAll('a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+btn.onclick=function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+document.getElementById('up').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+var cn=document.getElementById('chapN'),cb=document.getElementById('chapBar'),cp=document.getElementById('chapPct');
+function spy(){
+  var y=window.scrollY+120,idx=0;
+  for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) idx=i; }
+  var s=secs[idx],top=s.offsetTop,h=s.offsetHeight,p=Math.max(0,Math.min(1,(window.scrollY+100-top)/Math.max(1,h-window.innerHeight*0.5)));
+  links.forEach(function(a,j){a.classList.toggle('on',j===idx)});
+  cn.textContent=links[idx].textContent.replace(/^\d+/,'');
+  cb.style.width=Math.round(p*100)+'%';cp.textContent=Math.round(p*100)+'%';
+}
+var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){spy();tk=false})}},{passive:true});spy();
+})();
+</script><script>window.ASO_INK_KEY='aso-ink-odia-kriya1-2027';</script>
+<script>
+/* Pen-tablet drawing mode for the ASO guides.
+   Ink engine ported from the draw-app project (ink-stroke.ts + ink-canvas.tsx):
+   streamlined, pressure-sensitive strokes, Catmull-Rom smoothing, pen/mouse brush,
+   pen-eraser end, tablet quirks (flat pressure, missed pointerup, coalesced events).
+   New here: strokes are anchored to the chapter they start in and painted on tiles that scroll with the text, saved in localStorage,
+   highlighter, stroke eraser, undo, clear, hide, and "touch scrolls / touch draws". */
+(function () {
+  "use strict";
+  var KEY = window.ASO_INK_KEY || "aso-ink-" + location.pathname;
+
+  /* ---------------- ink engine (from ink-stroke.ts) ---------------- */
+  var PRESSURE_RATE = 0.275, DENSE_SPACING = 3, SAMPLE_SPACING = 0.75, WIDTH_STEP = 0.04;
+
+  function densify(pts, emit) {
+    var n = pts.length;
+    function knot(a, b) { return Math.max(1e-4, Math.sqrt(Math.hypot(b.x - a.x, b.y - a.y))); }
+    for (var i = 0; i < n - 1; i++) {
+      var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n - 1, i + 2)];
+      var steps = Math.max(1, Math.ceil(Math.hypot(p2.x - p1.x, p2.y - p1.y) / DENSE_SPACING));
+      var t1 = p0 === p1 ? 1e-4 : knot(p0, p1);
+      var t2 = t1 + knot(p1, p2);
+      var t3 = t2 + (p3 === p2 ? 1e-4 : knot(p2, p3));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, t = t1 + (t2 - t1) * u;
+        var lerp = function (a, b, ta, tb) { return ((tb - t) * a + (t - ta) * b) / (tb - ta); };
+        var ax1 = lerp(p0.x, p1.x, 0, t1), ay1 = lerp(p0.y, p1.y, 0, t1);
+        var ax2 = lerp(p1.x, p2.x, t1, t2), ay2 = lerp(p1.y, p2.y, t1, t2);
+        var ax3 = lerp(p2.x, p3.x, t2, t3), ay3 = lerp(p2.y, p3.y, t2, t3);
+        var bx1 = lerp(ax1, ax2, 0, t2), by1 = lerp(ay1, ay2, 0, t2);
+        var bx2 = lerp(ax2, ax3, t1, t3), by2 = lerp(ay2, ay3, t1, t3);
+        emit(lerp(bx1, bx2, t1, t2), lerp(by1, by2, t1, t2), p1.p + (p2.p - p1.p) * u);
+      }
+    }
+  }
+
+  function steady(input, brush, isComplete) {
+    var n = input.length;
+    if (n === 0) return [];
+    var size = brush.size, first = input[0], firstP = first.p, i = 1, minD2 = Math.pow(size / 3, 2);
+    while (i < n && Math.pow(input[i].x - first.x, 2) + Math.pow(input[i].y - first.y, 2) <= minD2) {
+      firstP = Math.max(firstP, input[i].p); i++;
+    }
+    var out = [{ x: first.x, y: first.y, p: firstP, dist: 0, run: 0 }];
+    var lag = Math.max(0.1, brush.streamline * size), px = first.x, py = first.y, run = 0, k = 1;
+    function take(ix, iy, ip, exact) {
+      var x = ix, y = iy;
+      if (!exact) {
+        var a = 1 - Math.exp(-Math.hypot(ix - px, iy - py) / lag);
+        x = px + (ix - px) * a; y = py + (iy - py) * a;
+      }
+      if (Math.abs(x - px) < 1e-4 && Math.abs(y - py) < 1e-4) return;
+      var d = Math.hypot(x - px, y - py);
+      run += d;
+      if (k++ < 4 && run < size) return;
+      out.push({ x: x, y: y, p: ip, dist: d, run: run });
+      px = x; py = y;
+    }
+    var kept = [first].concat(input.slice(i));
+    densify(kept, function (x, y, p) { take(x, y, p, false); });
+    if (isComplete && n > 1) { var last = input[n - 1]; take(last.x, last.y, last.p, true); }
+    return out;
+  }
+
+  function widths(pts, brush) {
+    var size = brush.size, thinning = brush.thinning, sim = brush.simulatePressure, easing = brush.easing, n = pts.length;
+    function radius(p) { return Math.max(0.05, size * easing(0.5 - thinning * (0.5 - p))); }
+    var total = pts[n - 1].run;
+    if (!sim && total < size) {
+      var max = pts.reduce(function (m, q) { return Math.max(m, q.p); }, 0.5);
+      return pts.map(function () { return radius(max); });
+    }
+    function step(prev, q) {
+      var sp = Math.min(1, q.dist / size), target = sim ? Math.min(1, 1 - sp) : q.p;
+      return Math.min(1, prev + (target - prev) * sp * PRESSURE_RATE);
+    }
+    var prev = sim ? 0.5 : pts[0].p;
+    for (var j = 0; j < n; j++) {
+      var q = pts[j];
+      if (q.run > size * 5) break;
+      var sp = Math.min(1, q.dist / size);
+      var p = sim ? Math.min(1, prev + (Math.min(1, 1 - sp) - prev) * sp * PRESSURE_RATE)
+                  : Math.min(1, prev + (q.p - prev) * 0.5);
+      prev += (p - prev) * 0.5;
+    }
+    return pts.map(function (q) { prev = step(prev, q); return radius(prev); });
+  }
+
+  function paintStroke(ctx, input, brush, isComplete) {
+    var pts = steady(input, brush, isComplete);
+    if (pts.length === 0) return;
+    var r = widths(pts, brush);
+    if (pts.length === 1) { ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, r[0], 0, Math.PI * 2); ctx.fill(); return; }
+    ctx.save();
+    ctx.strokeStyle = ctx.fillStyle; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    var runWidth = -1;
+    function wOf(rad) { return Math.max(WIDTH_STEP, Math.round((2 * rad) / WIDTH_STEP) * WIDTH_STEP); }
+    function begin(x, y, w) { runWidth = w; ctx.beginPath(); ctx.moveTo(x, y); }
+    function end() { ctx.lineWidth = runWidth; ctx.stroke(); }
+    begin(pts[0].x, pts[0].y, wOf(r[0]));
+    function emit(x, y, rad) {
+      var w = wOf(rad);
+      ctx.lineTo(x, y);
+      if (w !== runWidth) { end(); begin(x, y, w); }
+    }
+    function line(x0, y0, r0, x1, y1, r1) {
+      var steps = Math.max(1, Math.ceil(Math.hypot(x1 - x0, y1 - y0) / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) { var u = s / steps; emit(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, r0 + (r1 - r0) * u); }
+    }
+    var n = pts.length;
+    function mid(i) { return { x: (pts[i].x + pts[i + 1].x) / 2, y: (pts[i].y + pts[i + 1].y) / 2, r: (r[i] + r[i + 1]) / 2 }; }
+    var a = mid(0);
+    line(pts[0].x, pts[0].y, r[0], a.x, a.y, a.r);
+    for (var i = 1; i < n - 1; i++) {
+      var c = pts[i], b = mid(i);
+      var approx = Math.hypot(c.x - a.x, c.y - a.y) + Math.hypot(b.x - c.x, b.y - c.y);
+      var steps = Math.max(1, Math.ceil(approx / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, w = 1 - u;
+        emit(w * w * a.x + 2 * w * u * c.x + u * u * b.x, w * w * a.y + 2 * w * u * c.y + u * u * b.y,
+             w * w * a.r + 2 * w * u * r[i] + u * u * b.r);
+      }
+      a = b;
+    }
+    line(a.x, a.y, a.r, pts[n - 1].x, pts[n - 1].y, r[n - 1]);
+    end();
+    ctx.restore();
+  }
+
+  /* ---------------- brushes (from ink-canvas.tsx) ---------------- */
+  var PEN_WIDTH_SCALE = 0.54;
+  function penEasing(t) { return (t * 0.65 + Math.sin((t * Math.PI) / 2) * 0.35) * PEN_WIDTH_SCALE; }
+  var PEN = { size: 4.6, thinning: 0.62, streamline: 0.62, simulatePressure: false, easing: penEasing };
+  var HI = { size: 18, thinning: 0, streamline: 0.35, simulatePressure: false, easing: function () { return 0.5; } };
+  var PEN_PRESSURE_BOOST = 1.25, MIN_PEN_PRESSURE = 0.025, MOUSE_PRESSURE = 0.5, PEN_MIN_STEP = 1;
+  var useCoalesced = !/iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  var COLORS = [
+    { n: "Black", v: "#111111" }, { n: "Blue", v: "#2b4cff" }, { n: "Red", v: "#dc2626" }, { n: "Green", v: "#15803d" },
+    { n: "Yellow highlighter", v: "#ffd400", hi: 1 }, { n: "Green highlighter", v: "#3ddc84", hi: 1 }, { n: "Pink highlighter", v: "#ff6fb5", hi: 1 }
+  ];
+
+  /* ---------------- page layout + state ----------------
+     The ink is painted on canvas TILES that sit inside the page (position:absolute), so they scroll
+     with the text natively, in the same frame. (A fixed canvas repainted on scroll lags one frame
+     behind and looks like parallax.) Only tiles near the screen exist; the rest are dropped.
+     Each stroke is stored relative to the chapter <section> it starts in: x in the column's units
+     (scaled when the column width changes), y from the section top. So opening a Q&A or a new
+     layout moves the ink together with its chapter. */
+  var col = document.querySelector("main .col") || document.body;
+  var secs = [].slice.call(document.querySelectorAll("main section[id]"));
+  var L = { left: 0, w: 1, tops: {}, docW: 1, docH: 1 };
+  function measure() {
+    var sx = window.scrollX, sy = window.scrollY, r = col.getBoundingClientRect();
+    L.left = r.left + sx; L.w = Math.max(1, col.clientWidth);
+    L.tops = {};
+    secs.forEach(function (s) { L.tops[s.id] = s.getBoundingClientRect().top + sy; });
+    L.docW = document.documentElement.clientWidth;
+    L.docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  }
+  function topOf(s) { return s.a && L.tops[s.a] != null ? L.tops[s.a] : 0; }
+  function sectionAt(pageY) {
+    var best = null, bt = -1e9;
+    secs.forEach(function (s) { var t = L.tops[s.id]; if (t <= pageY && t > bt) { bt = t; best = s.id; } });
+    return best;
+  }
+
+  var strokes = [], undo = [], current = null, activePointer = null, lastKept = null, erasing = false, erased = [];
+  var state = { on: false, color: COLORS[0].v, hi: false, eraser: false, touchDraws: false, hidden: false };
+  try { var sv = JSON.parse(localStorage.getItem(KEY) || "null"); if (sv && sv.strokes) strokes = sv.strokes; if (sv && sv.touchDraws) state.touchDraws = true; } catch (e) {}
+
+  var saveT = 0;
+  function save() {
+    clearTimeout(saveT);
+    saveT = setTimeout(function () {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 2, touchDraws: state.touchDraws, strokes: strokes })); } catch (e) {}
+    }, 400);
+  }
+
+  /* ---------------- painting ---------------- */
+  var TILE = 512;
+  var layer = document.createElement("div");
+  layer.id = "inkl"; layer.setAttribute("aria-hidden", "true");
+  var live = document.createElement("canvas"), lctx = live.getContext("2d"), liveTop = 0;
+  live.className = "inkt"; live.style.display = "none";
+  layer.appendChild(live);
+  var tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
+  var tiles = {}, dpr = 1, frame = 0;
+
+  // Paint one stroke onto canvas context c, whose top edge is at page y = top.
+  function paint(c, s, top, done) {
+    var k = L.w / s.w, ox = L.left, oy = topOf(s) - top;
+    var pts = s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: s.pen && s.flat ? MOUSE_PRESSURE : q[2] }; });
+    if (s.hi) {
+      var cv = c.canvas;
+      if (tmp.width !== cv.width || tmp.height !== cv.height) { tmp.width = cv.width; tmp.height = cv.height; }
+      tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tmp.width, tmp.height);
+      tctx.setTransform(dpr, 0, 0, dpr, 0, 0); tctx.fillStyle = s.c;
+      paintStroke(tctx, pts, HI, done);
+      c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 0.4; c.drawImage(tmp, 0, 0); c.restore();
+    } else {
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.fillStyle = s.c;
+      paintStroke(c, pts, PEN, done);
+    }
+  }
+  function yRange(s) { var t = topOf(s); return [t + s.b[1], t + s.b[3]]; }
+
+  function paintTile(t) {
+    t.ctx.setTransform(1, 0, 0, 1, 0, 0); t.ctx.clearRect(0, 0, t.c.width, t.c.height);
+    if (state.hidden) return;
+    strokes.forEach(function (s) { var y = yRange(s); if (y[1] > t.top && y[0] < t.top + t.h) paint(t.ctx, s, t.top, true); });
+  }
+  function dropTile(i) { var t = tiles[i]; t.c.width = t.c.height = 0; t.c.remove(); delete tiles[i]; }
+  function makeTile(i) {
+    var top = i * TILE, h = Math.min(TILE, L.docH - top);
+    if (h <= 0) return;
+    var c = document.createElement("canvas");
+    c.className = "inkt";
+    c.style.top = top + "px"; c.style.width = L.docW + "px"; c.style.height = h + "px";
+    c.width = Math.max(1, Math.round(L.docW * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var t = tiles[i] = { c: c, ctx: c.getContext("2d"), top: top, h: h };
+    layer.appendChild(c); paintTile(t);
+  }
+  // Keep tiles from one screen above to two screens below the view; drop the rest.
+  function ensureTiles() {
+    var vh = window.innerHeight, sy = window.scrollY, last = Math.ceil(L.docH / TILE) - 1;
+    var lo = Math.max(0, Math.floor((sy - vh) / TILE)), hi = Math.min(last, Math.floor((sy + 2 * vh) / TILE));
+    Object.keys(tiles).forEach(function (i) { if (i < lo - 1 || i > hi + 1) dropTile(i); });
+    for (var i = lo; i <= hi; i++) if (!tiles[i]) makeTile(i);
+  }
+  function repaintAll() { Object.keys(tiles).forEach(function (i) { paintTile(tiles[i]); }); }
+  function rebuild() {
+    dpr = window.devicePixelRatio || 1;
+    Object.keys(tiles).forEach(dropTile);
+    measure(); ensureTiles();
+  }
+
+  function renderLive() {
+    frame = 0;
+    lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
+    if (current) paint(lctx, current.s, liveTop, false);
+  }
+  function request() { if (!frame) frame = requestAnimationFrame(renderLive); }
+  // The stroke being drawn goes on its own canvas covering the screen at pen-down time.
+  function startLive() {
+    var h = Math.max(1, Math.min(window.innerHeight, L.docH - window.scrollY));
+    liveTop = window.scrollY;
+    live.style.top = liveTop + "px"; live.style.width = L.docW + "px"; live.style.height = h + "px";
+    live.width = Math.round(L.docW * dpr); live.height = Math.round(h * dpr);
+    live.style.display = "block";
+  }
+  function stopLive() { live.style.display = "none"; live.width = live.height = 1; }
+
+  /* ---------------- drawing input (from ink-canvas.tsx) ---------------- */
+  var input = document.createElement("div");
+  input.id = "inki"; input.setAttribute("aria-hidden", "true");
+
+  function pageOf(e, isPen, s) {
+    var k = L.w / s.w;
+    return [Math.round(((e.clientX + window.scrollX - L.left) / k) * 10) / 10,
+      Math.round((e.clientY + window.scrollY - topOf(s)) * 10) / 10,
+      isPen ? Math.round(Math.min(1, Math.max(MIN_PEN_PRESSURE, e.pressure * PEN_PRESSURE_BOOST)) * 1000) / 1000 : MOUSE_PRESSURE];
+  }
+  function notePressure(cur, raw) {
+    if (!cur.s.pen || raw === 0) return;
+    if (cur.first === null) cur.first = raw; else if (raw !== cur.first) cur.s.flat = false;
+  }
+  function addPoint(cur, pt) {
+    var pts = cur.s.pts;
+    if (cur.s.pen && lastKept && Math.hypot(pt[0] - lastKept[0], pt[1] - lastKept[1]) < PEN_MIN_STEP) { pts[pts.length - 1] = pt; return; }
+    var prev = pts[pts.length - 1];
+    if (prev && prev[0] === pt[0] && prev[1] === pt[1] && prev[2] === pt[2]) return;
+    pts.push(pt); lastKept = pt;
+  }
+  function bbox(pts, pad) {
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    pts.forEach(function (q) { x0 = Math.min(x0, q[0]); y0 = Math.min(y0, q[1]); x1 = Math.max(x1, q[0]); y1 = Math.max(y1, q[1]); });
+    return [x0 - pad, y0 - pad, x1 + pad, y1 + pad];
+  }
+
+  // Stroke eraser: remove every stroke that has a point near the pen.
+  function eraseAt(e) {
+    var px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
+    strokes.forEach(function (s) {
+      var k = L.w / s.w, X = (px - L.left) / k, Y = py - topOf(s);
+      if (X < s.b[0] - R || X > s.b[2] + R || Y < s.b[1] - R || Y > s.b[3] + R) return;
+      var r2 = Math.pow(R / k + (s.hi ? 9 : 2), 2);
+      for (var i = 0; i < s.pts.length; i++) {
+        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - Y;
+        if (dx * dx + dy * dy <= r2) { hit.push(s); return; }
+      }
+    });
+    if (hit.length) { strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; }); erased = erased.concat(hit); repaintAll(); }
+  }
+
+  function onDown(e) {
+    if (!state.on) return;
+    if (e.pointerType === "mouse" && e.button !== 0 && e.button !== 5) return;
+    if (e.pointerType === "touch" && !state.touchDraws) return;
+    if (activePointer !== null) endStroke(null);
+    e.preventDefault();
+    try { input.setPointerCapture(e.pointerId); } catch (x) {}
+    activePointer = e.pointerId;
+    var isPen = e.pointerType === "pen";
+    // Shift held: the pen drags the page like a hand tool instead of drawing.
+    if (e.shiftKey) { panning = { y: e.clientY, x: e.clientX }; lastTap = null; input.style.cursor = "grabbing"; return; }
+    // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
+    erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
+    if (erasing) { erased = []; eraseAt(e); return; }
+    var s = { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: L.w, a: sectionAt(e.clientY + window.scrollY), pts: [], b: null };
+    current = { first: null, s: s };
+    s.pts.push(pageOf(e, isPen, s));
+    notePressure(current, e.pressure);
+    lastKept = s.pts[0];
+    downTime = e.timeStamp; downX = e.clientX; downY = e.clientY;
+    startLive(); request();
+  }
+  function onMove(e) {
+    if (e.pointerId !== activePointer) return;
+    if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
+    if (panning) {
+      // The page follows the pen: drag up to read further down.
+      // "instant": the page has scroll-behavior:smooth, which would make the drag lag.
+      window.scrollBy({ left: panning.x - e.clientX, top: panning.y - e.clientY, behavior: "instant" });
+      panning.x = e.clientX; panning.y = e.clientY;
+      return;
+    }
+    if (erasing) { eraseAt(e); return; }
+    if (!current) return;
+    var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
+    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
+    request();
+  }
+  // Double-tap to clear (as in draw-app). The browser's own dblclick uses the system's very tight
+  // distance limit, so taps are detected here with a looser one.
+  var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
+  var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  var panning = null, shiftDown = false;
+  function setCursor() {
+    input.style.cursor = !state.on ? "" : panning ? "grabbing" : shiftDown ? "grab" : state.eraser ? "cell" : "crosshair";
+  }
+  // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
+  // (or forgets the last one if this was a real stroke).
+  function isDoubleTap(s, e) {
+    var p0 = s.pts[0];
+    var isTap = !!e && e.type === "pointerup" && e.timeStamp - downTime <= TAP_MAX_TIME &&
+      s.pts.every(function (q) { return Math.hypot(q[0] - p0[0], q[1] - p0[1]) <= TAP_MAX_MOVE; });
+    if (!isTap) { lastTap = null; return false; }
+    if (lastTap && downTime - lastTap.time <= DOUBLE_TAP_TIME && Math.hypot(downX - lastTap.x, downY - lastTap.y) <= DOUBLE_TAP_DISTANCE) {
+      return true;
+    }
+    lastTap = { x: downX, y: downY, time: e.timeStamp, s: s };
+    return false;
+  }
+
+  function endStroke(e) {
+    activePointer = null;
+    if (panning) { panning = null; setCursor(); return; }
+    if (erasing) {
+      erasing = false; lastTap = null;
+      if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
+      erased = []; return;
+    }
+    if (current && isDoubleTap(current.s, e)) {
+      // Drop the dot the first tap left, then clear; Undo brings back the page as it was.
+      var dot = lastTap.s; lastTap = null; current = null;
+      var u = undo[undo.length - 1];
+      if (u && u.t === "add" && u.s === dot) { undo.pop(); strokes = strokes.filter(function (x) { return x !== dot; }); }
+      doClear(); repaintAll(); stopLive();
+      return;
+    }
+    if (current) {
+      var s = current.s;
+      s.b = bbox(s.pts, s.hi ? 12 : 6);
+      strokes.push(s); undo.push({ t: "add", s: s }); current = null;
+      var y = yRange(s);
+      Object.keys(tiles).forEach(function (i) { var t = tiles[i]; if (y[1] > t.top && y[0] < t.top + t.h && !state.hidden) paint(t.ctx, s, t.top, true); });
+      save();
+    }
+    stopLive();
+  }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
+
+  function doUndo() {
+    var a = undo.pop(); if (!a) return;
+    if (a.t === "add") strokes = strokes.filter(function (s) { return s !== a.s; });
+    else strokes = strokes.concat(a.list);
+    repaintAll(); save();
+  }
+  function doClear() {
+    if (!strokes.length) return;
+    undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
+  }
+
+  /* ---------------- toolbar: a rail on the right edge ---------------- */
+  var I = {
+    pen: '<path d="M4 20l1.2-4.6L15.8 4.8a1.7 1.7 0 0 1 2.4 0l1 1a1.7 1.7 0 0 1 0 2.4L8.6 18.8z"/><path d="M14 6.6l3.4 3.4"/>',
+    erase: '<path d="M8.5 19.5L3.8 14.8a1.6 1.6 0 0 1 0-2.3L12.5 3.8a1.6 1.6 0 0 1 2.3 0l5.4 5.4a1.6 1.6 0 0 1 0 2.3l-8 8z"/><path d="M8 9l7 7M8.5 19.5H20"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.5a1.6 1.6 0 0 1 2.5-2L8 15"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeoff: '<path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.5 9.5 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>'
+  };
+  function ic(n) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[n] + "</svg>"; }
+  function tool(id, icon, label, title) {
+    return '<button type="button" class="itool" id="' + id + '" title="' + title + '">' + ic(icon) + '<span class="il">' + label + "</span></button>";
+  }
+
+  var bar = document.createElement("div");
+  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools"); bar.setAttribute("aria-orientation", "vertical");
+  var pens = COLORS.filter(function (c) { return !c.hi; }), his = COLORS.filter(function (c) { return c.hi; });
+  function sw(list) {
+    return list.map(function (c) {
+      var i = COLORS.indexOf(c);
+      return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
+    }).join("");
+  }
+  bar.innerHTML =
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D). Hold Shift and drag to scroll.">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<div class="ipanel" id="inkpanel">' +
+      '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
+      '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
+      '<div class="ig"><span class="ik">Mark</span><div class="isws">' + sw(his) + "</div></div>" +
+      '<div class="ig itools">' +
+        tool("inker", "erase", "Erase", "Erase whole strokes (E). The back end of a pen erases too.") +
+        tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
+        tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
+        tool("inkhd", "eye", "Hide", "Hide or show the ink") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (or double-tap the page). Undo brings it back.") +
+      "</div>" +
+    "</div>";
+  var $ = function (id) { return bar.querySelector("#" + id); };
+
+  function sync() {
+    document.body.classList.toggle("drawing", state.on);
+    bar.classList.toggle("open", state.on);
+    $("inkon").setAttribute("aria-pressed", state.on);
+    $("inker").setAttribute("aria-pressed", state.eraser);
+    $("inktc").setAttribute("aria-pressed", state.touchDraws);
+    $("inktc").querySelector(".il").textContent = state.touchDraws ? "Finger ✎" : "Finger ↕";
+    $("inkhd").setAttribute("aria-pressed", state.hidden);
+    $("inkhd").innerHTML = ic(state.hidden ? "eyeoff" : "eye") + '<span class="il">' + (state.hidden ? "Show" : "Hide") + "</span>";
+    [].forEach.call(bar.querySelectorAll(".isw"), function (b) {
+      b.setAttribute("aria-pressed", !state.eraser && COLORS[+b.dataset.c].v === state.color);
+    });
+    input.style.pointerEvents = state.on ? "auto" : "none";
+    input.style.touchAction = state.touchDraws ? "none" : "pan-y";
+    setCursor();
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.classList.contains("isw")) { var c = COLORS[+b.dataset.c]; state.color = c.v; state.hi = !!c.hi; state.eraser = false; }
+    else if (b.id === "inkon") { state.on = true; if (state.hidden) { state.hidden = false; repaintAll(); } }
+    else if (b.id === "inkoff") state.on = false;
+    else if (b.id === "inker") state.eraser = !state.eraser;
+    else if (b.id === "inkun") doUndo();
+    else if (b.id === "inkcl") doClear();
+    else if (b.id === "inktc") { state.touchDraws = !state.touchDraws; save(); }
+    else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
+    sync();
+  });
+  // Hold Shift to scroll by dragging: the cursor turns into a hand while Shift is down.
+  function onShift(e) { if (e.key === "Shift") { shiftDown = e.type === "keydown"; if (!panning) setCursor(); } }
+  window.addEventListener("keydown", onShift);
+  window.addEventListener("keyup", onShift);
+  window.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      if ((e.key === "z" || e.key === "Z") && state.on && !e.shiftKey) { e.preventDefault(); doUndo(); }
+      return;
+    }
+    if (e.repeat || /input|textarea|select/i.test((e.target && e.target.tagName) || "")) return;
+    var k = e.key.toLowerCase();
+    if (k === "d") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; repaintAll(); } sync(); }
+    else if (k === "e" && state.on) { state.eraser = !state.eraser; sync(); }
+  });
+
+  /* ---------------- wire up ---------------- */
+  document.body.appendChild(layer);
+  document.body.appendChild(input);
+  document.body.appendChild(bar);
+  rebuild(); sync();
+  var rT = 0;
+  function relayout() { clearTimeout(rT); rT = setTimeout(rebuild, 120); }
+  window.addEventListener("resize", relayout);
+  // Page height changes (a Q&A opened, fonts arrived) move the chapters: re-measure and repaint.
+  if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.querySelector("main") || document.body);
+  window.addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  var sT = false;
+  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
+  window.addEventListener("blur", function () { shiftDown = false; if (activePointer !== null) endStroke(); setCursor(); });
+  input.addEventListener("pointerdown", onDown);
+  // Moves and releases are heard on the whole window: pointer capture can be lost just before the
+  // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
+  window.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerup", onUp);
+  window.addEventListener("pointercancel", onUp);
+})();
+</script></body></html>
