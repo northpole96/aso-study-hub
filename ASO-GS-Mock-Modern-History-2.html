@@ -1,0 +1,549 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO GS Modern History Mock 02</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.pass{margin-top:14px;border-left:2px solid var(--blue);padding:10px 14px;background:var(--paper);font-size:1rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+details.pass summary{cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.qfig{margin-top:14px;border:1px dashed var(--rule);padding:12px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.qfig svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · General Studies Paper I · Modern History Mock 02</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>GS History 02</h1>
+<p class="tag">100 sibling questions on<br><b>British rule and the freedom struggle</b><br>neighbours of Mock 01.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This mock is the sibling set of Modern History Mock 01. If Mock 01 asked when the Dandi March began, this mock asks about the movements next to it: the Non-Cooperation Movement, the Rowlatt Satyagraha, the Cripps Mission. Each question has the same shape as its original but tests a different member of the same family. The examiner often does this: the Ilbert Bill came in 2018 and again in 2025, and the 2025 paper asked three Congress-session questions on three different sessions.</p>
+<p class="lead" style="margin-top:14px">No original got a fixed number of siblings. A family with many well-known neighbours (the Congress sessions, the newspapers, the Viceroys, the 1857 centres) got many questions. A family with no real neighbours got none. No answer here repeats a Mock 01 answer. The key is from standard textbooks, as there is no official key. Three questions carry CHECK.</p>
+<div class="rules">
+<div><b>Paper</b><span>100 questions · 90 minutes · 100 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will bring back what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 90 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>100</span> questions</span></div>
+<ol class="bp"><li><span class="n">100</span><span>Modern History</span><span class="dots"></span><span class="c"></span></li></ol>
+<p class="src" style="margin-top:14px">Topic counts follow the 2018, 2021 and 2025 papers (2021 and 2025 weighted fully, 2018 at half) and the official syllabus.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">90:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 100 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="pass" id="q-pass" hidden></div>
+<div class="qtext" id="q-text"></div>
+<div class="qfig" id="q-fig" hidden></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · ASO GS Modern History Mock 02 · built 24 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 papers. Questions tagged Check rest on facts that could not be confirmed: check them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Modern History", "q": "Motilal Nehru started which English daily at Allahabad in 1919?", "o": ["The Pioneer", "The Independent", "The Leader", "National Herald"], "a": 1, "e": "Why: The Independent was Motilal's paper, started in 1919. The Leader was started by Madan Mohan Malaviya (1909) at Allahabad, and the Pioneer was a British paper. Nehru started the National Herald in 1938. Sibling of: 'Nehru founded the National Herald' (2021 Q28). Family: Hindustan Times (1924); Pratap (Ganesh Shankar Vidyarthi, Kanpur).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Sarda Act of 1929 was passed to stop:", "o": ["Female infanticide", "Child marriage", "Sati", "Polygamy among Muslims"], "a": 1, "e": "Why: the Child Marriage Restraint Act (1929) set the minimum age at 14 for girls and 18 for boys. Harbilas Sarda moved it. Sibling of: the Widow Remarriage Act 1856 and the 1829 sati ban. Family: Age of Consent Act 1891; Special Marriage Act 1872.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Bal Gangadhar Tilak was sent to the Mandalay jail in 1908 for writings in his paper:", "o": ["Indian Mirror", "Bande Mataram", "Kesari", "Mahratta"], "a": 2, "e": "Why: Tilak's articles in Kesari on the Muzaffarpur bomb were called seditious, and he got six years in Mandalay (Burma). In 1897 he had first been jailed for sedition too. Sibling of: the Kesari – Tilak pair and the Censorship and Press Acts. Family: in Mandalay he wrote Gita Rahasya.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The 'Bombay Chronicle' (1910), a nationalist paper, was started by:", "o": ["G. K. Gokhale", "Pherozeshah Mehta", "Tilak", "Dadabhai Naoroji"], "a": 1, "e": "Why: Mehta started it and it was edited by B. G. Horniman, an Englishman who backed Indian freedom. The Government deported Horniman during the First World War. Sibling of: 'Bombay Times was founded by...' (2025 Q64). Bombay Times was a British paper and became the Times of India. Family: Pherozeshah Mehta, 'Lion of Bombay', was one of the founders of the Congress.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Brahmo Samaj was founded in 1828 by:", "o": ["Keshab Chandra Sen", "Dayananda Saraswati", "Raja Ram Mohan Roy", "Debendranath Tagore"], "a": 2, "e": "Why: Ram Mohan Roy started it as the Brahmo Sabha in 1828. Debendranath Tagore and Keshab Chandra Sen led it later. Sibling of: Prarthana Samaj and Arya Samaj pairs in the reform question. Family: Roy also started Sambad Kaumudi and fought sati.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Which of the following was NOT a member of the Cabinet Mission of 1946?", "o": ["Lord Pethick-Lawrence", "A. V. Alexander", "Sir Stafford Cripps", "Lord Wavell"], "a": 3, "e": "Why: the Cabinet Mission had three British Cabinet ministers: Pethick-Lawrence (Secretary of State), Cripps and A. V. Alexander. Lord Wavell was the Viceroy at the time, and he met the Mission but was not a member. Sibling of: the Cripps Mission (1942), because Cripps came twice. Family: the Mission proposed a three-tier Union with groups A, B and C, a Constituent Assembly and an Interim Government.", "k": "not", "n": false, "c": false}, {"s": "Modern History", "q": "The Rowlatt Act of 1919 allowed the Government to:", "o": ["Collect extra land revenue in war time", "Jail a person without trial for up to two years", "Ban all newspapers in Indian languages", "Appoint only British judges in the High Courts"], "a": 1, "e": "Why: the Act (Anarchical and Revolutionary Crimes Act) let the Government hold suspects without trial, which gave the slogan 'No dalil, no vakil, no appeal'. Gandhi began the Rowlatt Satyagraha against it in April 1919. Sibling of: Chauri Chaura (the end of Non-Cooperation) and the Gandhi movements in an order question (2018 Q87). Family: Rowlatt 1919, Jallianwala Bagh 1919, Non-Cooperation 1920.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The British Indian Association (1851), an early political body, was formed at:", "o": ["Poona", "Bombay", "Madras", "Calcutta"], "a": 3, "e": "Why: it was the first political body of its kind and had zamindars as members. Debendranath Tagore was its first secretary. Sibling of: the Indian Association (1876, Calcutta) and the Madras Mahajana Sabha (1884). Family: the Bombay Association (1852); the Poona Sarvajanik Sabha (1870).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Macaulay's Minute of 1835 supported the use of which language in higher education?", "o": ["Persian", "English", "Sanskrit", "Arabic"], "a": 1, "e": "Why: it settled the debate between the Orientalists and Anglicists in favour of English, and Bentinck agreed. Macaulay wanted a class 'Indian in blood but English in taste'. Sibling of: Wood's Despatch, 1854, and the Charter Act of 1813 (2021 Q23). Family: the 1813 Act gave one lakh rupees a year for education.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who was chosen as the first individual satyagrahi in 1940?", "o": ["Rajendra Prasad", "Maulana Azad", "Vinoba Bhave", "Jawaharlal Nehru"], "a": 2, "e": "Why: after the August Offer was rejected, Gandhi chose select people to protest one by one. Vinoba Bhave (at Paunar) was the first and Nehru the second. Sibling of: the Quit India movement (the mass movement that followed in 1942). Family: the August Offer by Linlithgow (1940), Individual Satyagraha (1940–41), Cripps (1942).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "'The Hindu' was started in 1878 at:", "o": ["Madras", "Poona", "Calcutta", "Bombay"], "a": 0, "e": "Why: it began as a weekly at Madras, and G. Subramania Iyer and others were among its founders. It later became a daily. Iyer also started the Tamil paper Swadesamitran. Sibling of: 'Hindu was founded by G. Subramania Iyer' (2025 Q64). Family: Madras Mahajana Sabha (1884); The Hindu's early support for Moderate causes.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Regulating Act of 1773 made the Governor of Bengal the:", "o": ["Chief Justice of Calcutta", "Governor-General of India", "Governor-General of Bengal", "Viceroy of India"], "a": 2, "e": "Why: Warren Hastings became the first Governor-General of Bengal, with a Council of four. The Act also set up the Supreme Court at Calcutta (1774). Bentinck was the first Governor-General of India after 1833. Sibling of: the Supreme Court and Elijah Impey (2025 Q45). Family: the Act of 1773 was the first Parliament move to control the Company.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "On which day did the Muslim League observe 'Direct Action Day' in 1946?", "o": ["9 August 1946", "14 August 1947", "26 January 1946", "16 August 1946"], "a": 3, "e": "Why: the League withdrew its acceptance of the Cabinet Mission plan and called for Direct Action on 16 August 1946. Riots broke out in Calcutta. Sibling of: the Cabinet Mission and the 1946 timeline. Family: Interim Government (September 1946, Nehru as Vice-President of the Viceroy's Council); Mountbatten Plan (3 June 1947).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Queen Victoria's Proclamation of 1858 was read out at a Durbar at Allahabad by:", "o": ["Lord Lytton", "Lord Ripon", "Lord Dalhousie", "Lord Canning"], "a": 3, "e": "Why: Canning read it on 1 November 1858. It promised no more annexations and equal treatment, and it respected religion. Sibling of: the 1858 Act that ended the Company. Family: Canning, the 'Clemency Canning', was both the last Governor-General and the first Viceroy.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Hunter Committee (1919) was appointed to inquire into which event?", "o": ["The Chauri Chaura violence", "The Jallianwala Bagh massacre", "The Rowlatt Satyagraha", "The Moplah rebellion"], "a": 1, "e": "Why: after General Dyer's firing at Amritsar on 13 April 1919, the Government named the Hunter Committee. The Congress set up its own committee under Motilal Nehru, and Gandhi was on it. The 'Hunter Commission' of 1882 on education is the trap. Sibling of: Chauri Chaura, the other violent event that shaped Gandhi's movements. Family: Tagore gave up his knighthood and Gandhi his Kaiser-i-Hind medal after it.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Royal Indian Navy mutiny of February 1946 began on which ship, at which port?", "o": ["HMIS Godavari, Calcutta", "HMIS Hindustan, Madras", "HMIS Bahadur, Karachi", "HMIS Talwar, Bombay"], "a": 3, "e": "Why: ratings on HMIS Talwar in Bombay struck on 18 February 1946 over food and racial treatment. The revolt spread to many ports. It shook the British, who saw that even the forces could no longer be relied on. Sibling of: the INA trials of the same winter. Family: the trials, the naval mutiny and the Cabinet Mission together pushed the date of independence closer.", "k": "one", "n": false, "c": true}, {"s": "Modern History", "q": "Gandhi began his journal 'Indian Opinion' in 1903 in which country?", "o": ["Burma", "England", "India", "South Africa"], "a": 3, "e": "Why: Gandhi started Indian Opinion at Durban to tell the Indian community's story. He later edited Young India and Navajivan in India, and Harijan from 1933. Sibling of: 'Young India was published by Gandhi' (2025 Q64). Family: Gandhi's books: Hind Swaraj (1909), My Experiments with Truth, Satyagraha in South Africa.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who unfurled an Indian national flag at the International Socialist Congress at Stuttgart in 1907?", "o": ["Madam Bhikaji Cama", "Annie Besant", "Sarojini Naidu", "Aruna Asaf Ali"], "a": 0, "e": "Why: Madam Cama raised the flag and called for freedom. She worked with the India House group in Europe. Sibling of: the first national flag hoisting (2018 Q89). Family: Aruna Asaf Ali hoisted the flag at Gowalia Tank in 1942.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Swaraj Party (1923), formed to contest the Councils, was founded by:", "o": ["Tilak and Gokhale", "Gandhi and Patel", "Jinnah and Ali brothers", "C. R. Das and Motilal Nehru"], "a": 3, "e": "Why: after Non-Cooperation ended, a group inside the Congress led by C. R. Das and Motilal Nehru, called the 'Pro-Changers', wanted to enter the Legislative Councils to fight the Government from within. Gandhi's group, the 'No-Changers', opposed it. Sibling of: Chauri Chaura (which ended Non-Cooperation). Family: the Swaraj Party won seats in the 1923 elections; Vithalbhai Patel became Speaker of the Central Assembly.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "'India Wins Freedom', an account of the last years of British rule, was written by:", "o": ["Maulana Abul Kalam Azad", "Rajendra Prasad", "Sardar Patel", "Jawaharlal Nehru"], "a": 0, "e": "Why: Azad wrote it with Humayun Kabir's help and kept thirty pages sealed until 1988. Nehru's 'Discovery of India' was a different book. Sibling of: 'Discovery of India – Nehru' in the book pairs. Family: Nehru's 'An Autobiography'; Rajendra Prasad's 'India Divided'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who announced in February 1947 that Britain would leave India by June 1948?", "o": ["Lord Mountbatten", "Ramsay MacDonald", "Clement Attlee", "Winston Churchill"], "a": 2, "e": "Why: the British Prime Minister Clement Attlee gave this in the House of Commons on 20 February 1947 and named Mountbatten as the new Viceroy. Mountbatten then moved the date forward to 15 August 1947. Sibling of: the Cripps Mission and Cabinet Mission, other British moves of the war and post-war years. Family: Ramsay MacDonald announced the Communal Award in 1932, and Churchill was the wartime Prime Minister.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The August Offer of 1940, which promised a Constituent body after the war, was made by Viceroy:", "o": ["Lord Linlithgow", "Lord Wavell", "Lord Willingdon", "Lord Irwin"], "a": 0, "e": "Why: Linlithgow made the offer on 8 August 1940. The Congress rejected it, and the Individual Satyagraha followed. Sibling of: the Cripps Mission (1942) and Quit India (August 1942). Family: Linlithgow was Viceroy 1936–43; Wavell 1943–47; Mountbatten 1947.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Indian Universities Act of 1904 was passed under Viceroy:", "o": ["Lord Hardinge", "Lord Minto", "Lord Curzon", "Lord Lytton"], "a": 2, "e": "Why: after the Raleigh Commission of 1902, Curzon gave the Government more control over universities. Indians said it cut their freedom. Sibling of: the Partition of Bengal, another Curzon act of the same period. Family: Curzon's Archaeological Survey and the Police Commission.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Utkal Dipika, an early Odia weekly (1866), was started at:", "o": ["Sambalpur", "Balasore", "Puri", "Cuttack"], "a": 3, "e": "Why: it began at Cuttack in 1866 under the leadership of Gauri Shankar Ray, and helped to spread the idea of a united Odisha. Bodhadayini (1861, Balasore) is often called the first Odia paper. Sibling of: Utkal Dipika in the press family (Kesari, Mahratta, Bengalee, Al-Hilal). Family: Madhusudan Das and the Utkal Sammilani later used it.", "k": "one", "n": false, "c": true}, {"s": "Modern History", "q": "The special session of the Congress at Calcutta in September 1920 that approved Non-Cooperation was presided over by:", "o": ["Lala Lajpat Rai", "C. Vijayaraghavachariar", "C. R. Das", "Motilal Nehru"], "a": 0, "e": "Why: Lajpat Rai presided over the special Calcutta session where Gandhi's resolution on Non-Cooperation was passed. The Nagpur session in December 1920 under C. Vijayaraghavachariar confirmed it. Sibling of: Lahore 1929 (Nehru) and Lucknow 1916 (Mazumdar). Family: C. R. Das first opposed the plan at Calcutta, then supported it at Nagpur.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Non-Cooperation Movement was formally launched on:", "o": ["1 August 1920", "13 April 1919", "12 March 1930", "8 August 1942"], "a": 0, "e": "Why: the movement began on 1 August 1920, the day Tilak died. Gandhi gave back his Kaiser-i-Hind medal that day. The Congress approved it at the special Calcutta session in September 1920 and confirmed it at Nagpur in December. Sibling of: the Dandi date (2018 Q32) and the order of movements (2018 Q87). Family: 13 April 1919 is Jallianwala Bagh; 12 March 1930 is Dandi; 8 August 1942 is the Quit India resolution.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who was the first Indian to hold the office of Governor-General of independent India?", "o": ["Sardar Patel", "C. Rajagopalachari", "Rajendra Prasad", "Lord Mountbatten"], "a": 1, "e": "Why: Mountbatten was the last Viceroy and the first Governor-General of free India. When he left in June 1948, Rajagopalachari (Rajaji) took over and remained till January 1950. Sibling of: the first Viceroy (Canning) and other 'firsts'. Family: Rajendra Prasad became the first President in 1950.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who commanded the Rani of Jhansi Regiment of the Indian National Army?", "o": ["Sarojini Naidu", "Kasturba Gandhi", "Aruna Asaf Ali", "Lakshmi Sahgal (Swaminadhan)"], "a": 3, "e": "Why: Captain Lakshmi, a doctor from Madras, commanded the women's regiment that Bose founded in 1943. Sibling of: Rani Lakshmibai of Jhansi (1857), whose name it bore. Family: the INA; 'Chalo Delhi'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The system of dual control over the Company by the Board of Control and the Court of Directors began with:", "o": ["The Charter Act of 1833", "The Act of 1858", "Pitt's India Act, 1784", "The Regulating Act, 1773"], "a": 2, "e": "Why: Pitt's India Act made the Board of Control (a Crown body) watch the Company's political work, while the Directors kept trade and patronage. The Act of 1858 ended both. Sibling of: the Acts matched with their features (2025 Q76). Family: Regulating Act 1773; Pitt's Act 1784; Charter Acts 1813, 1833, 1853.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who among the following was NOT tried in the first Red Fort INA trials (1945–46)?", "o": ["Mohan Singh", "P. K. Sahgal", "Gurbaksh Singh Dhillon", "Shah Nawaz Khan"], "a": 0, "e": "Why: the first trial held a Muslim (Shah Nawaz Khan), a Hindu (Sahgal) and a Sikh (Dhillon) together, so the country stood united behind them. Mohan Singh had formed the first INA in 1942 and was not in this trial. Sibling of: Bose and the INA (2018 Q33, the Provisional Government in Singapore). Family: Bhulabhai Desai led the defence; Nehru put on his lawyer's gown for the first time in years.", "k": "not", "n": false, "c": false}, {"s": "Modern History", "q": "Annie Besant started her Home Rule League in 1916 at:", "o": ["Poona", "Lucknow", "Adyar, Madras", "Calcutta"], "a": 2, "e": "Why: Besant's League began in September 1916 at Adyar (Madras). Tilak's League began at Belgaum/Poona in April 1916. Both asked for self-government within the Empire during the First World War. Sibling of: the Lucknow 1916 session, which saw Moderates and Extremists meet again. Family: Besant's paper New India; Tilak's slogan 'Swaraj is my birthright'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Yugantar (1906), the Bengali revolutionary weekly, was started by:", "o": ["Aurobindo Ghose alone", "Surendranath Banerjee", "Barindra Kumar Ghosh and Bhupendranath Datta", "Bipin Chandra Pal"], "a": 2, "e": "Why: Barindra Kumar Ghosh, Aurobindo's brother, and Bhupendranath Datta, Vivekananda's brother, began Yugantar in Calcutta. It taught revolutionary ideas and led to the Alipore bomb case of 1908. Sibling of: Bande Mataram (Bipin Chandra Pal and Aurobindo). Family: Anushilan Samiti; Sandhya (Brahmabandhab Upadhyay).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "By the Treaty of Deogaon (1803), the British took Cuttack from:", "o": ["Raghuji Bhonsle II", "Daulat Rao Sindhia", "Tipu Sultan", "Baji Rao II"], "a": 0, "e": "Why: the Bhonsle ruler of Nagpur gave up Cuttack and Balasore after the Second Anglo-Maratha War. This was the start of British rule in Odisha. Sibling of: the Treaty of Bassein (2018 Q71) and the other treaties of 1802–03. Family: Orissa province 1936; Utkal Divas on 1 April.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Raja Ram Mohan Roy's Bengali weekly (1821) was:", "o": ["Sambad Kaumudi", "Mirat-ul-Akhbar", "Dig-Darshan", "Bengal Gazette"], "a": 0, "e": "Why: Sambad Kaumudi was a Bengali weekly. His Persian paper was Mirat-ul-Akhbar. James Hicky's Bengal Gazette (1780) was the first newspaper in India. Sibling of: the press and press-law family (1799, 1823, 1835). Family: Roy stopped Mirat-ul-Akhbar in 1823 in protest against the licensing ordinance.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Gandhi first used a fast as a weapon in India during which struggle?", "o": ["The Dandi March (1930)", "The Ahmedabad mill strike (1918)", "The Champaran satyagraha (1917)", "The Kheda satyagraha (1918)"], "a": 1, "e": "Why: in the Ahmedabad mill strike, workers wanted a 35 per cent rise, and Gandhi fasted to keep them firm. The mill-owners gave in. The three early struggles are often mixed up, so remember Champaran as indigo, Ahmedabad as the fast and Kheda as the tax. Sibling of: Champaran and indigo. Family: Ahmedabad Textile Labour Association (Gandhi, 2018 Q67); Kheda in Gujarat.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Gopabandhu Das started which Odia newspaper in 1919?", "o": ["Bodhadayini", "The Samaja", "Utkal Dipika", "Asha"], "a": 1, "e": "Why: The Samaja began at Satyabadi and later moved to Cuttack. Gopabandhu ('Utkalmani') also ran the Satyabadi school at Sakhigopal. Sibling of: Utkal Dipika. Family: Gopabandhu Das was elected to the Bihar and Orissa Council in 1917.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Tilak's papers Kesari and Mahratta were published in which languages?", "o": ["English and Marathi", "Marathi and English", "Marathi and Gujarati", "Hindi and English"], "a": 1, "e": "Why: Kesari (1881) was the Marathi paper and Mahratta the English paper. Tilak and Agarkar began them together, and later Tilak ran them alone. They were the basis of his case for sedition. Sibling of: Kesari – Tilak, a pair from the press question. Family: Tilak was jailed in 1897 and sent to Mandalay in 1908.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Kunwar Singh of Jagdishpur led the revolt of 1857 in which present-day State?", "o": ["Madhya Pradesh", "Odisha", "Bihar", "Uttar Pradesh"], "a": 2, "e": "Why: Kunwar Singh was an aged zamindar of Jagdishpur (Arrah). He fought until April 1858 and died soon after a victory. Sibling of: 'Revolt at Jagdishpur – Kunwar Singh' (2025 Q75), now asked as a place. Family: the other Bihar leader to name is Amar Singh, his brother.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Chandrashekhar Azad died in 1931 in a shoot-out at Alfred Park in:", "o": ["Allahabad", "Kanpur", "Delhi", "Lahore"], "a": 0, "e": "Why: surrounded by police, he shot himself with his last bullet. He had sworn to remain 'Azad' (free). Sibling of: the Kakori case (HRA) and Bhagat Singh. Family: Azad led the HSRA after Bismil's execution.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Lahore Resolution (Pakistan Resolution) of March 1940 was moved by:", "o": ["Muhammad Ali Jinnah", "Liaquat Ali Khan", "A. K. Fazlul Huq", "Chaudhry Rahmat Ali"], "a": 2, "e": "Why: the Bengal Premier A. K. Fazlul Huq moved it at the Muslim League session, which Jinnah presided over. The Congress called it a call to break up the country. Sibling of: the Lahore Congress (1929). Family: Rahmat Ali coined the name 'Pakistan' in 1933.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who led the revolt of 1857 at Faizabad?", "o": ["Maulvi Ahmadullah Shah", "Bakht Khan", "Nana Sahib", "Khan Bahadur Khan"], "a": 0, "e": "Why: Ahmadullah Shah, the Maulvi of Faizabad, was a leader of the Lucknow revolt too, and he was killed in 1858. Sibling of: Bareilly (Khan Bahadur Khan) and Delhi (Bakht Khan). Family: Awadh and Rohilkhand were the heart of the revolt.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Which of the following was NOT a Moderate leader of the early Congress?", "o": ["Dadabhai Naoroji", "G. K. Gokhale", "Pherozeshah Mehta", "Bal Gangadhar Tilak"], "a": 3, "e": "Why: Tilak was an Extremist, who wanted more than petitions. The Moderates believed in constitutional methods and prayers to the British Government. Sibling of: the Servants of India Society (Gokhale) and the Indian Association (Surendranath Banerjee). Family: Moderates: Naoroji, Gokhale, Mehta, Banerjee, Bonnerjee. Extremists: Lal, Bal, Pal.", "k": "not", "n": false, "c": false}, {"s": "Modern History", "q": "Arrange these events in order of time:\n(i) The Poona Pact\n(ii) The Jallianwala Bagh massacre\n(iii) The Nehru Report\n(iv) The Chauri Chaura incident", "o": ["ii, iii, iv, i", "iv, ii, iii, i", "ii, iv, i, iii", "ii, iv, iii, i"], "a": 3, "e": "Why: Jallianwala Bagh 1919, Chauri Chaura 1922, Nehru Report 1928, Poona Pact 1932. Sibling of: the order of four movements (2018 Q87). Family: Rowlatt 1919, Swaraj Party 1923, Simon Commission 1927, Dandi 1930.", "k": "order", "n": false, "c": false}, {"s": "Modern History", "q": "Maulana Abul Kalam Azad started which Urdu weekly in 1912?", "o": ["Comrade", "Hamdard", "Al-Hilal", "Zamindar"], "a": 2, "e": "Why: Al-Hilal, in Calcutta, spoke against British rule and was banned by the Government in 1914. Azad then started Al-Balagh. Comrade (English) and Hamdard (Urdu) were Muhammad Ali's papers. Sibling of: the Bande Mataram, Comrade and Mooknayak pairs in the NOT-correct press question. Family: Azad wrote 'India Wins Freedom' and became Congress president in 1923 at 35.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Bhagat Singh and his comrades killed the police officer Saunders in December 1928 to avenge the death of:", "o": ["Chittaranjan Das", "Lala Lajpat Rai", "Khudiram Bose", "Tilak"], "a": 1, "e": "Why: the lathi-charge at Lahore killed Lajpat Rai (Simon Commission protest). The HSRA shot Saunders. Sibling of: the Lajpat Rai question and the Chittagong raid (1930). Family: HSRA led by Chandrashekhar Azad as commander.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Nehru Report of 1928 was drawn up by a committee headed by:", "o": ["Motilal Nehru", "C. R. Das", "Tej Bahadur Sapru", "Jawaharlal Nehru"], "a": 0, "e": "Why: an All Parties Conference chose Motilal Nehru to chair the committee, which answered Lord Birkenhead's challenge to frame a Constitution. The report demanded Dominion status and no separate electorates. Sibling of: the Simon Commission, which it replied to. Family: Jinnah's Fourteen Points (1929) answered it; the Congress at Calcutta 1928 accepted it.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Eram firing of 1942, in which freedom fighters were killed, took place in which district of Odisha?", "o": ["Cuttack", "Puri", "Jagatsinghpur", "Balasore"], "a": 2, "e": "Why: the police fired on a peaceful procession at Eram on 28 September 1942, during Quit India. About twenty-nine people died. Sibling of: the Quit India resolution. Family: Bhubaneswar's Ekamra; the Mahatab group's role in Quit India.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Sati was made illegal in 1829 under the Governor-General:", "o": ["Lord Dalhousie", "Lord Cornwallis", "Lord Canning", "Lord William Bentinck"], "a": 3, "e": "Why: Bentinck passed the Regulation XVII of 1829 with Ram Mohan Roy's support. He also suppressed thagi and used English in higher education. Sibling of: the Widow Remarriage Act (Vidyasagar, 1856). Family: Bentinck was the first Governor-General of India (1833).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Consider the following statements about the Swadeshi Movement:\n1. It began with the Rowlatt Satyagraha.\n2. It included a boycott of British goods.\n3. Rabindranath Tagore promoted 'Rakhi Bandhan' during it.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 1, "e": "Why: the Swadeshi and boycott movement began after the Partition of Bengal (October 1905), not after the Rowlatt Act (1919), so statement 1 is false. Statements 2 and 3 are true. Sibling of: the Partition of Bengal (Curzon) and Lal–Bal–Pal. Family: the boycott resolution in Calcutta Town Hall (7 August 1905); National Council of Education.", "k": "stmt", "n": false, "c": false}, {"s": "Modern History", "q": "The Paika Rebellion of 1817 in Odisha was led by:", "o": ["Chakra Bisoyi", "Surendra Sai", "Madhusudan Das", "Bakshi Jagabandhu Bidyadhar"], "a": 3, "e": "Why: Bakshi Jagabandhu, the commander of the Gajapati King's army (the Paikas), led the rising in Khurda against the British land policy. Surendra Sai fought in Sambalpur in 1857, and Chakra Bisoyi in Ghumsur. Sibling of: Surendra Sai and Sambalpur (1857). Family: the Odisha Government now calls the 1817 rising the 'first war of independence'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Theosophical Society of India has its headquarters at:", "o": ["Adyar, Madras", "Belur", "Pondicherry", "Pune"], "a": 0, "e": "Why: Madame Blavatsky and Colonel Olcott started the Society at New York in 1875 and moved to Adyar in 1882. Annie Besant became its president in 1907. Sibling of: Annie Besant's Home Rule League at Adyar. Family: Central Hindu College at Banaras (Besant).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who headed the Boundary Commission that drew the line between India and Pakistan in 1947?", "o": ["Sir Stafford Cripps", "Cyril Radcliffe", "Lord Mountbatten", "Lord Wavell"], "a": 1, "e": "Why: Cyril Radcliffe, a British lawyer, was named chairman of the two Boundary Commissions (Punjab and Bengal). The 'Radcliffe Line' was made public on 17 August 1947, two days after independence. Sibling of: the Poona Pact and Gandhi–Irwin Pact on the 'pact or plan' side of the freedom story. Family: Mountbatten Plan (3 June 1947); Indian Independence Act (18 July 1947 by royal assent).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The first railway line in India (1853) ran between:", "o": ["Madras and Arakkonam", "Calcutta and Hooghly", "Delhi and Agra", "Bombay and Thane"], "a": 3, "e": "Why: the 34 km line from Bombay (Bori Bunder) to Thane opened on 16 April 1853 under Dalhousie. He is also called the 'Father of Indian Railways'. Sibling of: Doctrine of Lapse (Dalhousie). Family: telegraph (1851), Post Office Act 1854, Wood's Despatch 1854.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Match the title with the leader:\nList I\na. Lok Nayak\nb. Bharat Kokila\nc. Gurudev\nd. Lauh Purush\nList II\n1. Rabindranath Tagore\n2. Sardar Patel\n3. Jayaprakash Narayan\n4. Sarojini Naidu", "o": ["a-3, b-4, c-1, d-2", "a-4, b-3, c-1, d-2", "a-3, b-4, c-2, d-1", "a-3, b-1, c-4, d-2"], "a": 0, "e": "Why: JP is 'Lok Nayak', Sarojini Naidu is the 'Nightingale of India' (Bharat Kokila), Tagore is 'Gurudev' and Patel is the 'Iron Man' (Lauh Purush). Sibling of: the titles question (Utkal Gourav, Punjab Kesari, Frontier Gandhi, Deshbandhu). Family: Lokmanya – Tilak; Netaji – Bose; Bapu – Gandhi.", "k": "match", "n": false, "c": false}, {"s": "Modern History", "q": "The Dandi March of March 1930 began from which place?", "o": ["Sevagram, Wardha", "Champaran, Bihar", "Sabarmati Ashram, Ahmedabad", "Bardoli, Gujarat"], "a": 2, "e": "Why: Gandhi and 78 followers left the Sabarmati Ashram on 12 March 1930 and walked about 240 miles to Dandi, where he broke the salt law on 6 April. Sevagram came later (1936) and Bardoli is linked to the 1928 farmers' satyagraha. Sibling of: the date of the Dandi March (2018 Q32). Family: salt tax, Civil Disobedience Movement 1930, Gandhi-Irwin Pact 1931; in Odisha the salt law was broken at Inchudi.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Queen Victoria was proclaimed Empress of India at the Delhi Durbar of 1877 under:", "o": ["Lord Lytton", "Lord Ripon", "Lord Curzon", "Lord Dufferin"], "a": 0, "e": "Why: Lytton held the Durbar while a famine was killing millions. Curzon held his own Durbar in 1903 for Edward VII. Sibling of: the Ilbert Bill question (Ripon, 2018 Q86 and 2025 Q10). Family: Lytton passed the Vernacular Press Act and the Arms Act in 1878.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who was the first woman President of the Indian National Congress?", "o": ["Annie Besant", "Sucheta Kripalani", "Nellie Sengupta", "Sarojini Naidu"], "a": 0, "e": "Why: Annie Besant presided at Calcutta in 1917, soon after she started her Home Rule League. Sarojini Naidu was the first Indian woman (1925), and Nellie Sengupta (1933) was the first Indian-born woman after her. Sibling of: the first Indian woman president (Sarojini Naidu). Family: Besant was Irish and a leader of the Theosophical Society; she was jailed in 1917.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "'Amrita Bazar Patrika' changed from a Bengali to an English paper in 1878 to avoid which law?", "o": ["The Rowlatt Act", "The Indian Press Act of 1910", "The Arms Act", "The Vernacular Press Act"], "a": 3, "e": "Why: the Vernacular Press Act (1878) only controlled Indian-language papers, so the Ghosh brothers (Sisir Kumar and Motilal) turned their paper into an English one overnight. Sibling of: 'Amrita Bazar Patrika was founded by Sisir Kumar Ghosh' (2025 Q64) and the Vernacular Press Act. Family: the Act was passed by Lytton and repealed by Ripon in 1882.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The idea of a separate Muslim State in north-west India was put forward by Muhammad Iqbal in his presidential address to the Muslim League at Allahabad in:", "o": ["1906", "1930", "1947", "1940"], "a": 1, "e": "Why: Iqbal spoke of such a State in December 1930. Jinnah's Lahore Resolution came ten years later. Sibling of: the Lahore Resolution (1940). Family: Iqbal wrote 'Sare Jahan Se Accha'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "'The Economic History of India', a work that criticised British economic policy, was written by:", "o": ["Justice Ranade", "G. K. Gokhale", "Dadabhai Naoroji", "R. C. Dutt"], "a": 3, "e": "Why: Romesh Chunder Dutt wrote it in 1901–03 and used British records to show how the Drain of Wealth and heavy revenue ruined the farmers. He presided over the Congress in 1899. Sibling of: Naoroji's 'Poverty and Un-British Rule in India', the other great work on the drain. Family: the Drain of Wealth theory; the Famine Commissions of 1880, 1898 and 1901.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "In 1911, the announcement that the capital would move from Calcutta to Delhi was made at a Durbar under Viceroy:", "o": ["Lord Minto", "Lord Hardinge", "Lord Chelmsford", "Lord Curzon"], "a": 1, "e": "Why: King George V announced it at the Delhi Durbar of December 1911. The partition of Bengal was undone in the same announcement. A bomb was thrown at Hardinge in 1912. Sibling of: Partition of Bengal (Curzon). Family: New Delhi was built by Lutyens and Baker and inaugurated in 1931.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Match the books with their authors:\nList I\na. India Divided\nb. Unhappy India\nc. The Indian Struggle\nd. The Life Divine\nList II\n1. Aurobindo Ghose\n2. Lala Lajpat Rai\n3. Rajendra Prasad\n4. Subhas Chandra Bose", "o": ["a-3, b-2, c-4, d-1", "a-2, b-3, c-4, d-1", "a-3, b-2, c-1, d-4", "a-3, b-4, c-2, d-1"], "a": 0, "e": "Why: Rajendra Prasad wrote 'India Divided' (1946); Lajpat Rai wrote 'Unhappy India' as a reply to Katherine Mayo's 'Mother India'; Bose wrote 'The Indian Struggle' and Aurobindo wrote 'The Life Divine'. Sibling of: the book and author pairs in 2021 Q28 and 2018 Q25. Family: Gandhi's 'Hind Swaraj'; Savarkar's 'The Indian War of Independence'; Tilak's 'Gita Rahasya'.", "k": "match", "n": false, "c": false}, {"s": "Modern History", "q": "The Hunter Commission of 1882 stressed:", "o": ["University reform", "Primary education and private effort", "Technical education", "Women's education only"], "a": 1, "e": "Why: W. W. Hunter's Commission said primary and secondary schools should be handled by local bodies and private people. The 1919 'Hunter Committee' on Jallianwala Bagh is a different body. Sibling of: the Sadler Commission (1917) and Hartog Committee (1929) in 2025 Q81. Family: Raleigh Commission 1902; Sargent Plan 1944.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Consider the following statements about the Government of India Act, 1935:\n1. It introduced provincial autonomy.\n2. It provided for an All-India Federation.\n3. It abolished the office of the Secretary of State for India.\nWhich of the statements given above is/are correct?", "o": ["Only 1 and 2", "Only 2 and 3", "Only 1 and 3", "1, 2 and 3"], "a": 0, "e": "Why: the Act gave autonomy to the provinces and planned a Federation of provinces and princely states, which never began because the princes did not join. The Secretary of State stayed until 1947, but his Council was dropped. So statements 1 and 2 are true and 3 is false. Sibling of: the Act that created provincial autonomy and the Federal Court (2025 Q38). Family: Burma separated in 1937; Orissa and Sind created in 1936; the Federal Court was set up at Delhi in 1937.", "k": "stmt", "n": false, "c": false}, {"s": "Modern History", "q": "The Congress split into the Moderates and the Extremists at Surat in 1907. Who presided over that session?", "o": ["Dadabhai Naoroji", "Surendranath Banerjee", "Lala Lajpat Rai", "Rash Behari Ghosh"], "a": 3, "e": "Why: the Extremists wanted Lala Lajpat Rai as president, the Moderates wanted Rash Behari Ghosh, and the session ended in a clash. Tilak was shut out of the Congress until 1916. Sibling of: the Lucknow 1916 president (Ambika Charan Mazumdar), which brought them back. Family: Naoroji's 1906 Calcutta address first named 'swaraj' as the goal.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Muhammadan Anglo-Oriental (MAO) College at Aligarh was founded in 1875 by:", "o": ["Aga Khan", "Muhammad Iqbal", "Sir Syed Ahmad Khan", "Badruddin Tyabji"], "a": 2, "e": "Why: Sir Syed wanted Muslims to take up modern English learning. The college later became the Aligarh Muslim University (1920). Sibling of: the Central National Mohammedan Association (2025 Q57). Family: the Aligarh Movement; Sir Syed's paper, the Tahzib-ul-Akhlaq.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The immediate cause of the Revolt of 1857 was the introduction of:", "o": ["The Vernacular Press Act", "Cartridges greased with animal fat for the Enfield rifle", "The Permanent Settlement", "The Doctrine of Lapse"], "a": 1, "e": "Why: the sepoys had to bite the cartridges, and they thought the grease was cow and pig fat. That hurt both Hindus and Muslims. Lapse, taxes and the annexation of Awadh were the long-term causes. Sibling of: 'where was the revolt kindled?' (2018 Q29). Family: Mangal Pandey, Meerut (10 May 1857), Delhi, Kanpur.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Tantia Tope was the general of which leader of 1857?", "o": ["Bahadur Shah Zafar", "Begum Hazrat Mahal", "Kunwar Singh", "Nana Sahib"], "a": 3, "e": "Why: Nana Sahib, the adopted son of the last Peshwa, was the leader at Kanpur, and Tantia Tope led his army. Tope later joined Lakshmibai. Sibling of: 'Revolt at Kanpur – Nana Sahib' in the wrongly matched question (2025 Q75). Family: Tope was captured and hanged in April 1859.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Jinnah's Fourteen Points of 1929 were presented in reply to:", "o": ["The Simon Commission Report", "The Communal Award", "The Nehru Report", "The Cripps Proposals"], "a": 2, "e": "Why: the Nehru Report gave up separate electorates, which the League opposed. Jinnah put his demands as fourteen points in March 1929. Sibling of: the Nehru Report. Family: the League's Lahore Resolution (1940) and Iqbal's Allahabad address (1930).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The All India Muslim League was formed at Dhaka in 1906. Which man hosted the meeting?", "o": ["Muhammad Ali Jinnah", "Nawab Salimullah", "Sir Syed Ahmad Khan", "Aga Khan"], "a": 1, "e": "Why: the Nawab of Dhaka, Khwaja Salimullah, hosted it and was a founder. The Aga Khan was its first president. Jinnah joined in 1913. Sibling of: the Central National Mohammedan Association (2025 Q57). Family: the 1909 Act gave Muslims separate electorates.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "In Odisha, the Salt Satyagraha of 1930 was held at:", "o": ["Sambalpur", "Inchudi, Balasore", "Puri", "Cuttack"], "a": 1, "e": "Why: volunteers led by Gopabandhu Choudhury and Acharya Harihar Das made salt at Inchudi on the coast. The movement spread to Kujang and Chandbali. Sibling of: Dandi (2018 Q32). Family: Gandhi first visited Odisha in 1921, at Cuttack.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Ambedkar's Mahad Satyagraha (1927) was for the right of the depressed classes to:", "o": ["Vote in elections", "Carry arms", "Use the water of the Chavdar Tank", "Enter the Jagannath temple"], "a": 2, "e": "Why: it asserted the right to draw water from a public tank at Mahad (Maharashtra). Later he led the Kalaram Temple entry movement at Nashik (1930). Sibling of: the Poona Pact. Family: Ambedkar's Bahishkrit Hitakarini Sabha (1924).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Partition of Bengal was annulled in:", "o": ["1911", "1909", "1905", "1919"], "a": 0, "e": "Why: George V announced at the Delhi Durbar that the partition was cancelled, and the capital moved to Delhi. Bihar and Orissa were separated from Bengal in 1912. Sibling of: the Curzon–partition question. Family: 1912 gave Bihar and Orissa a separate province, a step toward Odisha's own province in 1936.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Which was the first session of the Congress to be held in a village?", "o": ["Ramgarh, 1940", "Faizpur, 1936", "Haripura, 1938", "Tripuri, 1939"], "a": 1, "e": "Why: the Faizpur session (Maharashtra), presided over by Nehru, was in a village. Gandhi wanted the Congress to go closer to the farmers. Haripura (1938) was also rural, but Faizpur came first. Sibling of: Tripuri 1939 (Bose defeated Pattabhi Sitaramayya). Family: the 1936–37 elections under the 1935 Act; Nehru's agrarian programme.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Vernacular Press Act of 1878 was repealed in 1882 under:", "o": ["Lord Ripon", "Lord Curzon", "Lord Lytton", "Lord Canning"], "a": 0, "e": "Why: Lytton passed it to control the papers in Indian languages. Ripon repealed it and gave local self-government (1882). This is the same Ripon as in the Ilbert Bill question. Sibling of: the Censorship Act of 1799 (2025 Q30) and Metcalfe's 1835 act. Family: Lytton: Delhi Durbar 1877, Arms Act 1878.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "'Satyarth Prakash', the main book of the Arya Samaj, was written by:", "o": ["Swami Vivekananda", "Ram Mohan Roy", "Dayananda Saraswati", "Keshab Chandra Sen"], "a": 2, "e": "Why: Dayananda wrote it in Hindi, and it called for a return to the Vedas. He founded the Arya Samaj at Bombay in 1875. Sibling of: the Arya Samaj – Dayananda pair. Family: DAV schools; the 'Back to the Vedas' call; shuddhi.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who was the first Muslim President of the Indian National Congress (1887)?", "o": ["Badruddin Tyabji", "Sir Syed Ahmad Khan", "Muhammad Ali Jinnah", "Rahimtulla Sayani"], "a": 0, "e": "Why: Badruddin Tyabji presided at Madras in 1887. Sir Syed Ahmad Khan opposed the Congress and told Muslims to stay away. Sibling of: the first woman and first Indian woman president (Annie Besant and Sarojini Naidu). Family: Rahimtulla Sayani presided in 1896 and Maulana Azad in 1923 (youngest) and 1940–46.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "'Gulamgiri' (1873), which attacked caste, was written by:", "o": ["B. R. Ambedkar", "M. G. Ranade", "Jyotirao Phule", "Dayananda Saraswati"], "a": 2, "e": "Why: Phule wrote it in Marathi, and he founded the Satyashodhak Samaj in 1873. He started a girls' school in Pune in 1848 with his wife, Savitribai. Sibling of: Satyashodhak Samaj – Phule. Family: Ambedkar's Mooknayak (1920).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Kheda Satyagraha of 1918 was a protest for:", "o": ["The end of the indigo system", "Wages for mill workers", "Freedom of the press", "Remission of land revenue after a failed crop"], "a": 3, "e": "Why: the crops in Kheda (Gujarat) failed, but the Government still asked for the revenue. Gandhi and Sardar Patel led the farmers to refuse to pay until it was waived for the poor. Sibling of: Champaran, where the issue was indigo. Family: Champaran 1917 (indigo), Ahmedabad 1918 (wages), Kheda 1918 (revenue), Bardoli 1928 (revenue, Patel gained the name 'Sardar').", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Which sepoy of the 34th Native Infantry attacked British officers at Barrackpore on 29 March 1857?", "o": ["Tantia Tope", "Bakht Khan", "Shah Nawaz Khan", "Mangal Pandey"], "a": 3, "e": "Why: Pandey was hanged in April 1857, but the main revolt began at Meerut on 10 May. 2018 Q29 asked where the revolt was 'kindled' (Meerut). Sibling of: the place of the first outbreak. Family: the cause was the greased cartridge; Barrackpore was near Calcutta.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who, with Bhagat Singh, threw bombs in the Central Legislative Assembly on 8 April 1929?", "o": ["Sukhdev", "Rajguru", "Chandrashekhar Azad", "Batukeshwar Dutt"], "a": 3, "e": "Why: they threw harmless bombs and leaflets to protest the Public Safety and Trade Disputes Bills and then gave themselves up. Sukhdev and Rajguru were hanged with Bhagat Singh in 1931. Sibling of: the Chittagong raid and Kakori (Mock 01). Family: HSRA formed in 1928; Lahore Conspiracy Case.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Swami Vivekananda spoke at the Parliament of Religions at Chicago in which year?", "o": ["1893", "1897", "1905", "1875"], "a": 0, "e": "Why: in September 1893 he spoke of tolerance. He founded the Ramakrishna Mission in 1897 to serve people. Sibling of: Ramakrishna Mission – Vivekananda. Family: Belur Math; Ramakrishna Paramhansa.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Khilafat Movement (1919–24) in India was led by:", "o": ["Muhammad Iqbal and Jinnah", "Sir Syed and Aga Khan", "Maulana Azad and Hakim Ajmal Khan", "Muhammad Ali and Shaukat Ali"], "a": 3, "e": "Why: the Ali brothers led it to back the Caliph of Turkey, and Gandhi joined it to unite Hindus and Muslims. It faded after Turkey ended the Caliphate in 1924. Sibling of: the Non-Cooperation Movement, which it joined. Family: Muhammad Ali also published the Comrade.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Rabindranath Tagore gave up his knighthood in 1919 as a protest against:", "o": ["The Simon Commission", "The Jallianwala Bagh massacre", "The Partition of Bengal", "The Rowlatt Act"], "a": 1, "e": "Why: Tagore wrote to the Viceroy saying he wished to stand 'shorn of all special distinctions' with his countrymen after the Amritsar firing. He had won the Nobel Prize in 1913 for Gitanjali. Sibling of: Anandamath and Neel Darpan (Bengali writings of the freedom struggle). Family: Tagore wrote the national anthem and the song 'Amar Sonar Bangla'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The great Odisha famine of 1866 is called:", "o": ["Bengal famine", "Doji Bara", "The Chalisa famine", "Na'anka Durbhiksha"], "a": 3, "e": "Why: it began in 1865 and was worst in 1866, the 'Na'anka' (the year 9 in the Odia calendar). Nearly a third of the people of Odisha died. It led to the first Famine Commission thinking. Sibling of: the Famine Commission of 1880 (Strachey). Family: Utkal Dipika wrote about it.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "In the Mahalwari system, revenue was settled with:", "o": ["Each peasant individually", "The Company's agent", "The village community through its headmen", "The zamindar of a district"], "a": 2, "e": "Why: the Mahalwari system (Holt Mackenzie, 1822) took the village or 'mahal' as the unit for the North-West Provinces. Zamindars were the Permanent Settlement's unit and individual farmers were the Ryotwari unit. Sibling of: the Ryotwari question (2025 Q88) and Permanent Settlement. Family: three land systems: Zamindari, Ryotwari, Mahalwari.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Cripps Mission of 1942 offered India:", "o": ["Provincial autonomy only", "Dominion status after the war and a Constituent Assembly", "A single federal Parliament with no princes", "Complete independence at once"], "a": 1, "e": "Why: Sir Stafford Cripps came in March 1942 as Japan neared India. The offer was Dominion status once the war ended and a Constituent Assembly, and each province could stay out. Gandhi called it a 'post-dated cheque on a failing bank'. Sibling of: the Quit India resolution (August 1942), which followed its failure. Family: August Offer 1940, Cripps 1942, Quit India 1942, Wavell Plan 1945, Cabinet Mission 1946.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who handed over the leadership of the Indian Independence League to Subhas Chandra Bose in 1943?", "o": ["Mohan Singh", "Shah Nawaz Khan", "Lala Har Dayal", "Rash Behari Bose"], "a": 3, "e": "Why: Rash Behari Bose, who had lived in Japan since 1915, led the League and gave the lead to Subhas Bose in Singapore in July 1943. Sibling of: Bose's Provisional Government (2018 Q33). Family: First INA (Mohan Singh, 1942); Second INA (Bose, 1943).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "After the Revolt of 1857, the last Mughal emperor, Bahadur Shah Zafar, was exiled to:", "o": ["Rangoon", "Port Blair", "Calcutta", "Mandalay"], "a": 0, "e": "Why: Hodson captured him at Humayun's Tomb in September 1857. He was tried, sent to Rangoon and died there in 1862. His sons were shot. Sibling of: the Delhi centre of 1857 and Bakht Khan. Family: Tilak was sent to Mandalay and the Andamans held the Cellular Jail.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "India House in London (1905), a centre for Indian revolutionaries, was founded by:", "o": ["Madan Lal Dhingra", "Shyamji Krishna Varma", "V. D. Savarkar", "Lala Har Dayal"], "a": 1, "e": "Why: Shyamji Krishna Varma started India House and the paper 'The Indian Sociologist'. Savarkar later joined; Dhingra shot Curzon Wyllie in 1909. Sibling of: the Ghadar Party at San Francisco (2018 Q30) and Savarkar's Free India Society. Family: Madam Cama, Virendranath Chattopadhyaya.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who presided over the Karachi session of the Congress in 1931?", "o": ["Motilal Nehru", "Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "Madan Mohan Malaviya"], "a": 1, "e": "Why: Patel presided in March 1931, days after the Gandhi-Irwin Pact, and the session endorsed the Pact. The Fundamental Rights and Economic Programme resolution was also passed there. 2025's Q31 had 'Motilal Nehru' as the false option (he had died in 1931). Sibling of: the Lahore president (2025 Q54, 2025 Q31). Family: this was the only Congress session Patel presided over.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who became the first Congress Premier of Odisha in 1937?", "o": ["Krushna Chandra Gajapati", "Biswanath Das", "Nabakrushna Choudhury", "Harekrushna Mahatab"], "a": 1, "e": "Why: after the 1937 elections the Congress took office in Odisha and Biswanath Das was Premier. Gajapati was the first Premier of the new province in 1936 (before the elections). Mahatab was Premier in 1946. Sibling of: the creation of the province of Orissa in 1936. Family: Sir John Hubback was the first Governor.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Lala Lajpat Rai was fatally injured in a lathi-charge in 1928 while leading a protest against:", "o": ["The Salt Tax", "The Rowlatt Act", "The Simon Commission", "The Partition of Bengal"], "a": 2, "e": "Why: the Simon Commission had no Indian member. At Lahore, the police beat Lajpat Rai and he died on 17 November 1928. Bhagat Singh and others then killed Saunders in revenge. Sibling of: 2025 Q96 (statements about Lala Lajpat Rai). Family: 'The day of my death will be the last day of British rule' is attributed to him; the slogan 'Simon Go Back'.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who led the revolt of 1857 at Lucknow?", "o": ["Maulvi Ahmadullah", "Rani Lakshmibai", "Begum Hazrat Mahal", "Liaquat Ali"], "a": 2, "e": "Why: Hazrat Mahal, wife of the Nawab Wajid Ali Shah, put her son Birjis Qadr on the throne after Awadh was annexed. Colin Campbell took Lucknow in March 1858. Sibling of: 'Revolt at Faizabad – Hazrat Mahal' in 2025 Q75, where it was wrongly placed. Family: Awadh annexed in 1856; its soldiers made up much of the Bengal Army.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Irwin Declaration of October 1929 stated that:", "o": ["India would be given complete independence in one year", "Separate electorates would end", "Dominion status was the goal of British policy for India", "The Simon Commission would be dissolved"], "a": 2, "e": "Why: Lord Irwin said on 31 October 1929 that the natural issue of India's progress was Dominion status. A Round Table Conference would follow. The Congress answered at Lahore with Poorna Swaraj. Sibling of: the Poorna Swaraj date (2025 Q54) and the Gandhi–Irwin Pact. Family: Nehru Report (1928); Simon Commission (1927); Round Table Conferences (1930–32).", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Ghumsur rising of 1835–36 in Odisha was led by:", "o": ["Chakra Bisoyi", "Bakshi Jagabandhu", "Surendra Sai", "Dora Bisoyi"], "a": 0, "e": "Why: the Kandhas of Ghumsur resisted British rule, and Chakra Bisoyi became a symbol of tribal resistance. Sibling of: the Paika Rebellion and the Sambalpur rising. Family: the Kandha revolts against the Meriah (human sacrifice) rules.", "k": "one", "n": false, "c": true}, {"s": "Modern History", "q": "Which Congress session of December 1927 first passed a resolution for 'complete independence', and who presided over it?", "o": ["Motilal Nehru at Calcutta", "Gandhi at Belgaum", "M. A. Ansari at Madras", "Jawaharlal Nehru at Lahore"], "a": 2, "e": "Why: the Madras session of 1927 under Dr M. A. Ansari first passed a resolution for complete independence, and also decided to boycott the Simon Commission. Poorna Swaraj in 1929 only made it formal. Sibling of: the Poorna Swaraj date (2025 Q54) and the Lahore president. Family: Calcutta 1928 (Motilal) gave the Government one year to accept Dominion status.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The Communal Award of 1932 was announced by:", "o": ["Ramsay MacDonald", "Clement Attlee", "Lord Willingdon", "Winston Churchill"], "a": 0, "e": "Why: the British Prime Minister Ramsay MacDonald gave separate electorates to the depressed classes, Muslims and others. Gandhi fasted against it and the Poona Pact followed. Sibling of: the Poona Pact, the move that undid it. Family: the Third Round Table Conference (1932); the Government of India Act 1935.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "Who was the first Indian to be elected to the British House of Commons (1892)?", "o": ["Surendranath Banerjee", "Pherozeshah Mehta", "Dadabhai Naoroji", "W. C. Bonnerjee"], "a": 2, "e": "Why: Naoroji won the Finsbury Central seat as a Liberal. Lal Mohan Ghosh had been defeated in 1885. Sibling of: 'Poverty and Un-British Rule in India' (his book). Family: Naoroji presided over the Congress in 1886, 1893 and 1906.", "k": "one", "n": false, "c": false}, {"s": "Modern History", "q": "The 'Lal-Bal-Pal' trio of the Extremists was made up of:", "o": ["Lala Har Dayal, Balwantrai and Pal", "Lalji Mehrotra, Gokhale and Pal", "Lalmohan Ghosh, Tilak and Pherozeshah Mehta", "Lala Lajpat Rai, Tilak and Bipin Chandra Pal"], "a": 3, "e": "Why: Lal (Lajpat Rai, Punjab), Bal (Tilak, Maharashtra) and Pal (Bipin Chandra Pal, Bengal) were the leading Extremists during the Swadeshi days. Sibling of: the titles of leaders (Punjab Kesari, Lokmanya). Family: the Moderates were Naoroji, Gokhale and Mehta.", "k": "one", "n": false, "c": false}];
+(function(){
+  var SK="aso-gs-history-2";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=90*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",fig:"Figure",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q; var pz=$("q-pass"); pz.hidden=!q.p; pz.textContent=q.p||""; var fz=$("q-fig"); fz.hidden=!q.f; fz.innerHTML=q.f||"";
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 100 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 100</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Modern History"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO GS MODERN HISTORY MOCK 02 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / "+N+" · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please bring my wrong and skipped questions back in the next mock.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div>'+(q.p?'<details class="pass"><summary>Passage</summary>'+esc(q.p)+'</details>':'')+'<div class="qtext">'+esc(q.q)+'</div>'+(q.f?'<div class="qfig">'+q.f+'</div>':'')+'<ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>
