@@ -13,15 +13,15 @@ META = dict(
     key="aso-english-mock-2027-7",
     code="M07",
     out="ASO-English-Mock-Test-2027-7.html",
-    minutes=60,
+    minutes=45,
     seed=20261124,
     order="given",
     date="24 Nov 2026",
     draw="python3 scripts/draw.py english --seed 724815",
     intro=[
-        "This full English paper follows the 2021 booklet: a mixed grammar opener, then blocks of drills (six parts of speech, "
+        "This full English paper (45 minutes) follows the 2021 booklet: a mixed grammar opener, then blocks of drills (six parts of speech, "
         "vocabulary, ten prepositions, ten articles, five tenses, ten agreement questions) and one reading passage. "
-        "Sentence rearrangement is kept small (4 questions, as you asked), and the level is moderate: one clear rule per question.",
+        "Sentence rearrangement is kept small (4 questions, as you asked), and the level is moderate: one clear rule per question. About a third of the questions are a little longer and wordier, like real exam sentences.",
         "Three questions are exact past questions, because OPSC repeats itself: 2025 Q2 (clear), 2025 Q51 (contrary) and "
         "2021 Q38 (She lives in an apartment). The passage is on Chilika Lake. Every explanation names the rule and the past question it grew from.",
     ],
@@ -37,29 +37,29 @@ NA = "No article"
 IMP = "Choose how the part in brackets can be improved. If no change is needed, choose 'No improvement'.\n"
 
 # ================================================================ Block 1 · mixed grammar opener (20)
-add(VB, "Visitors ____ feed the animals in the zoo. It is against the rules.",
+add(VB, "Visitors who come to the city zoo on weekends ____ feed the animals, because the zoo staff say that outside food can make them seriously ill.",
     ["must not", "need not", "would", "might"],
     "'Must not' = a ban, as on a sign. 'Need not' means it is not necessary (the trap). Would and might do not give an order. "
     "Grew from 2021 Q2 (People ____ walk on grass = mustn't). Family: modals of duty and ban.")
-add(P, "Many children are afraid ____ the dark.",
+add(P, "Many young children who sleep alone for the first time are afraid ____ the dark, and they often ask their parents to leave a small light on.",
     ["of", "from", "at", "with"],
     "Afraid of. Adjective + preposition pairs must be learnt as pairs. Grew from 2021 Q9 and Q54 ('Different from', 'Bored with'): same family, new adjective.")
-add(ER, IMP + "The teacher asked the students (to not make) noise in the library.",
+add(ER, IMP + "Before the examination began, the teacher politely asked all the students (to not make) any noise in the library.",
     ["not to make", "don't to make", "to no make", "No improvement"],
     "The 'not' comes before 'to' in a negative infinitive: not to make. 'To not make' is a common slip. Grew from 2021 Q12–16 (sentence improvement, five questions).")
-add(AD, "The flowers in this garden smell ____.",
+add(AD, "After the first shower of the monsoon, the flowers in our school garden smell ____ and attract many bees and butterflies.",
     ["sweet", "sweetly", "sweeten", "sweetness"],
     "After linking verbs (smell, taste, look, feel, sound) we use an adjective, not an adverb: smell sweet. "
     "2025 tested this adjective/adverb choice (felt tired, looked dull).")
-add(VB, "He insisted on ____ the bill himself.",
+add(VB, "Although his friends had offered to share the cost of the dinner, he insisted on ____ the bill himself.",
     ["paying", "to pay", "pay", "paid"],
     "A preposition (on) is followed by the -ing form: insisted on paying. Compare 2025 'prevent … from + -ing'. "
     "Same family: verb + preposition + gerund.")
-add(T, "By the time the police arrived, the thief ____ away.",
+add(T, "By the time the police arrived at the shop late at night, the thief ____ away with all the money.",
     ["had run", "has run", "ran", "was running"],
     "Two past actions: the one that happened first (running away) goes in the past perfect. 'By the time' + past tells you so. "
     "Grew from 2025 (past perfect: The train had left before she started).")
-add(P, "The match was ____ because of the heavy rain.",
+add(P, "The final match of the inter-school tournament was ____ because of the heavy rain that continued for the whole afternoon.",
     ["called off", "called on", "called up", "called at"],
     "Called off = cancelled. Called on = visited; called up = telephoned or ordered to join. Phrasal verbs are learnt as whole units. "
     "Grew from 2025 phrasal verbs (called for, look into, turned out).")
@@ -70,23 +70,23 @@ add(ER, IMP + "I (am knowing) him for ten years.",
 add(VB, "Change into passive voice: The police will arrest the thief soon.\nThe thief ____ by the police soon.",
     ["will be arrested", "will arrested", "is arrested", "would arrest"],
     "Passive of the simple future: will + be + past participle. Grew from 2021 Q1 (will be cleaned): same form, a new verb (will be arrested).")
-add(AD, "No sooner did the teacher enter the class ____ the noise stopped.",
+add(AD, "No sooner did the new teacher enter the noisy class on the first day of school ____ the noise stopped completely.",
     ["than", "when", "then", "that"],
     "No sooner … than; Hardly … when. The word order after 'No sooner' is inverted (did the teacher enter). "
     "Inversion openers were four questions in 2025.")
-add(VB, "She is looking forward to ____ her grandparents this summer.",
+add(VB, "Since her school will close for two months in May, she is looking forward to ____ her grandparents in the village this summer.",
     ["meeting", "meet", "met", "to meet"],
     "In 'look forward to', the 'to' is a preposition, so the verb takes -ing: looking forward to meeting. The same trap works with 'object to' and 'be used to'. "
     "Grew from 2025 gerund/infinitive questions (seen going, denied having been).")
-add(P, "She was born ____ 15 August 1999.",
+add(P, "According to her birth certificate, which her father showed at the school office, she was born ____ 15 August 1999.",
     ["on", "in", "at", "by"],
     "On + a date or a day (on Monday, on 15 August); in + month or year; at + a clock time. "
     "Grew from 2021 prepositions of time (Q53–62).")
-add(ER, IMP + "I will call you (when I will reach) home.",
+add(ER, IMP + "Please do not worry about me; I will call you (when I will reach) home safely this evening.",
     ["when I reach", "when I reached", "when I would reach", "No improvement"],
     "After when, if, before, after, until, we do not use 'will' in the time clause: will call … when I reach. "
     "Same idea as the first conditional, which 2025 and 2018 asked.")
-add(T, "My sister usually ____ tea in the morning, but today she is drinking coffee.",
+add(T, "My younger sister usually ____ tea with her breakfast in the morning, but today she is drinking coffee because we have run out of tea.",
     ["drinks", "drink", "is drinking", "drank"],
     "'Usually' shows a habit, so the simple present: drinks (third person -s). 'Today she is drinking' is the contrasting present continuous. "
     "Grew from 2021 Q25 and 2025 present-tense questions.")
@@ -94,7 +94,7 @@ add(VB, "She denied ____ the window.",
     ["breaking", "to break", "break", "broke"],
     "Deny, enjoy, avoid, finish, mind, suggest are followed by -ing, not 'to'. "
     "Grew from 2025 'denied having been'. Same family, simpler form.")
-add(AD, "She was ____ tired that she could not stand.",
+add(AD, "After walking for nearly six hours in the hot sun without any rest, she was ____ tired that she could not stand.",
     ["so", "such", "very", "too"],
     "So + adjective + that. 'Such' is used with a noun (such a tired girl). 'Too' has no 'that' clause after it. "
     "Intensifier family: 2018 Q27 and 2025 (very few … exceptionally).")
@@ -104,17 +104,17 @@ add(ER, IMP + "He is (senior than) me by two years.",
 add(P, "The shopkeeper was angry ____ the boy for breaking the glass.",
     ["with", "of", "to", "from"],
     "Angry with a person, angry at (or about) a thing. Grew from 2021 prepositions after adjectives (Q54–62).")
-add(VB, "The teacher made the students ____ the poem by heart.",
+add(VB, "To prepare for the annual day programme, the teacher made all the students ____ the long poem by heart.",
     ["learn", "to learn", "learning", "learnt"],
     "After make, let, see, hear + object, the verb stays in its bare form (no 'to'): made the students learn. "
     "In the passive the 'to' returns: The students were made to learn. Grew from 2021 Q6 (seen going).")
-add(ER, IMP + "She prefers tea (than coffee).",
+add(ER, IMP + "My mother never drinks coffee in the evening because she prefers tea (than coffee) at that time.",
     ["to coffee", "from coffee", "than the coffee", "No improvement"],
     "Prefer X to Y. Never 'than'. Asked in the 2018 and 2021 papers in other words.")
 
 # ================================================================ Block 2 · parts of speech (6)
 POS = "Choose the correct part of speech for the word in bracket:\n"
-add(PS, POS + "He is (quite) sure about the answer.",
+add(PS, POS + "After checking his notes twice, he is (quite) sure about the answer.",
     ["Adverb", "Adjective", "Conjunction", "Preposition"],
     "'Quite' tells us how sure he is, so it modifies the adjective 'sure'. A word that modifies an adjective, verb or another adverb is an adverb. "
     "Grew from 2021 Q17–22 (direct part-of-speech questions).")
@@ -122,7 +122,7 @@ add(PS, POS + "The cat jumped (over) the wall.",
     ["Preposition", "Adverb", "Conjunction", "Adjective"],
     "'Over' stands before a noun phrase (the wall) and shows its place: a preposition. The same word is an adverb when nothing follows it (The plane flew over). "
     "2021 Q18 asked 'for' in the same way.")
-add(PS, POS + "She was (friendly) to everyone in the class.",
+add(PS, POS + "Although she was new in the school, she was (friendly) to everyone in the class.",
     ["Adjective", "Adverb", "Noun", "Verb"],
     "'Friendly' ends in -ly but describes 'she', so it is an adjective (the trap in 2021 Q19, 'costly'). "
     "Other -ly adjectives: lovely, lonely, silly, elderly.")
@@ -201,7 +201,7 @@ add(AD, "Of all the girls in the class, Meena is the ____.",
 # ================================================================ Block 5 · vocabulary (16)
 SYN = "Select the word that has the same meaning as the word in the bracket:\n"
 ANT = "Choose the word most opposite in meaning to "
-add(SY, SYN + "The speaker's (candid) remarks surprised the audience.",
+add(SY, SYN + "The retired judge spoke at the college function, and his (candid) remarks about the failures of the system surprised the audience.",
     ["frank", "rude", "loud", "careful"],
     "Candid = open and honest, even when it is not pleasant. Rude and loud describe manner, not honesty. "
     "Grew from 2021 Q41–42 (intrigue, fondling): the bracket word in a sentence.")
@@ -213,7 +213,7 @@ add(V, "His explanation was so ____ that everyone understood the difficult conce
     ["clear", "complicated", "confusing", "vague"],
     "Everyone understood, so the explanation was clear. The other three words all say it was hard to follow. "
     "Exact past question: 2025 Q2.", src="2025 Q2")
-add(SY, SYN + "The magician's tricks (enthralled) the children.",
+add(SY, SYN + "At the birthday party, the magician's clever tricks (enthralled) the children, and nobody could look away from the stage.",
     ["fascinated", "bored", "frightened", "confused"],
     "Enthral = hold the attention completely, fascinate. Grew from 2021 Q41 (intrigue).")
 add(AN, ANT + "SCARCE:",
@@ -223,7 +223,7 @@ add(V, "We are unhappy because the results of the experiment are ____ to our exp
     ["contrary", "consistent", "supportive", "expected"],
     "'Contrary to' = opposite to, which fits 'unhappy because'. Consistent, supportive and expected would make us happy. "
     "Exact past question: 2025 Q51.", src="2025 Q51")
-add(SY, SYN + "The officer tried to (pacify) the angry crowd.",
+add(SY, SYN + "The police officer spoke softly and tried to (pacify) the angry crowd that had gathered outside the factory gate.",
     ["calm", "excite", "warn", "ignore"],
     "Pacify = make calm and peaceful (from 'peace'). Its opposite is excite or anger. Same family as 2021 Q41–42.")
 add(AN, ANT + "ARROGANT:",
@@ -233,7 +233,7 @@ add(V, "The new teacher was so ____ that even the shyest student felt free to as
     ["approachable", "aloof", "strict", "forgetful"],
     "Approachable = easy to talk to. 'Shyest student felt free' is the clue; aloof (cold, distant) is the opposite. "
     "2025 asked 'unlike the pessimism of his brothers' in the same way: the clue is inside the sentence.")
-add(SY, SYN + "The new rule will (curb) the use of plastic bags.",
+add(SY, SYN + "To protect the rivers and the sea, the government has announced a new rule that will (curb) the use of plastic bags.",
     ["restrict", "increase", "allow", "praise"],
     "Curb = control or limit (a curb on a road keeps traffic in). Increase and allow are opposites. "
     "Same family as 2021 Q41–42.")
@@ -244,7 +244,7 @@ add(V, "In the sentence 'The teacher asked him to address the class', the word '
     ["speak to", "write a letter to", "find the place of", "greet with a bow"],
     "Address as a verb = speak formally to a group. The noun 'address' is the place where one lives. "
     "Grew from 2018 word-meaning questions (a word with many meanings).")
-add(SY, SYN + "The minister gave a (vague) reply to the question.",
+add(SY, SYN + "When the reporter asked about the date of the new bridge, the minister gave a (vague) reply and avoided naming any month.",
     ["unclear", "loud", "quick", "honest"],
     "Vague = not clear or exact. Honest is the opposite idea. Same family as 2021 Q41–42.")
 add(AN, ANT + "HOSTILE:",
@@ -258,10 +258,10 @@ add(SY, "Select the pair of synonyms:\n(I) Brave  (II) Cowardly  (III) Fearless 
     "Brave and fearless both mean 'without fear'. Cowardly and timid are the other pair. Grew from 2021 Q50–52 (pairs of synonyms).")
 
 # ================================================================ Block 6 · prepositions (10)
-add(P, "The success of the project depends ____ teamwork.",
+add(P, "The success of the new bridge project in the district depends ____ teamwork, honest planning and good use of money.",
     ["on", "of", "at", "to"],
     "Depend on, never 'depend of'. Verb + preposition pairs are asked every year (2021 Q53–62; 2025 'lies in', 'focuses on').")
-add(P, "She is envious ____ her friend's success.",
+add(P, "Although she smiled at the party, she was secretly envious ____ her friend's success in the entrance examination.",
     ["of", "at", "about", "to"],
     "Envious of, jealous of. Grew from 2021 Q54 (adjective + preposition).")
 add(P, "The meeting was held ____ the school hall ____ Monday. The principal congratulated the winners ____ their success.",
@@ -272,19 +272,19 @@ add(P, "____ the strong wind, the boat reached the shore safely.",
     ["Despite", "Although", "In spite", "Because"],
     "Despite + noun phrase. Although needs a clause; 'in spite' needs 'of'; 'because' gives a reason, not a contrast. "
     "Family: phrase prepositions (despite, in spite of, because of, in view of).")
-add(P, "The teacher divided the sweets ____ the children equally.",
+add(P, "On the last day of the school year, the teacher divided the box of sweets ____ the children equally so that no one felt left out.",
     ["among", "between", "with", "by"],
     "Among = three or more things or people; between = two. Grew from 2021 Q53–62 (prepositions in sentences).")
-add(P, "Your idea is similar ____ mine.",
+add(P, "After reading both essays carefully, the teacher said that your idea is very similar ____ mine.",
     ["to", "with", "from", "than"],
     "Similar to, different from. Grew from 2018 Q87 and 2021 Q9 (According to, Different from, Based on).")
-add(P, "I have been waiting for you ____ two hours.",
+add(P, "I have been standing at the railway station gate waiting for you ____ two hours, and I am very tired now.",
     ["for", "since", "from", "by"],
     "For + a length of time; since + a point of time. Grew from 2021 prepositions of time (Q53–62).")
 add(P, "She is married ____ a doctor and is very proud ____ him.",
     ["to, of", "with, at", "to, for", "by, about"],
     "Married to; proud of. Two blanks in one sentence, as in 2021 Q7.")
-add(P, "The police are looking ____ the missing child.",
+add(P, "The police, with the help of the villagers and a few dogs, are looking ____ the missing child near the forest.",
     ["for", "into", "after", "at"],
     "Look for = search. Look into = investigate; look after = take care of. 2025 asked 'look into'. Learn the phrasal verbs as a set.")
 add(P, "She apologised ____ the teacher ____ being late.",
@@ -293,21 +293,21 @@ add(P, "She apologised ____ the teacher ____ being late.",
 
 # ================================================================ Block 7 · articles (10)
 def art(q, o, e): add(AR, q, o, e)
-art("She is ____ honest girl.", ["an", "a", "the", NA],
+art("Everyone in the village trusts her, because she is ____ honest girl who has never told a lie.", ["an", "a", "the", NA],
     "The rule is the SOUND, not the spelling: honest begins with a vowel sound (the h is silent), so 'an'. Grew from 2021 Q63–72 and 2025 (an honour).")
 art("____ Indus flows through Ladakh.", ["The", "A", "An", NA],
     "The goes with rivers, seas, oceans and mountain ranges (the Indus, the Pacific, the Alps). Grew from 2021 and 2025 'the Amazon rainforest'.")
-art("It was ____ one-day match.", ["a", "an", "the", NA],
+art("The stadium was full on Sunday because it was ____ one-day match between India and Australia.", ["a", "an", "the", NA],
     "'One' begins with the consonant sound 'w', so 'a one-day match'. Same sound rule as 'a unique', 'a European' (2021 and 2025).")
 art("____ time is more valuable than money.", [NA, "The", "A", "An"],
     "No article before an abstract noun used in a general sense (time, honesty, beauty). Grew from 2021 zero-article questions.")
-art("Rohit is ____ best batsman in our team.", ["the", "a", "an", NA],
+art("Among all the players who have joined our college cricket team this year, Rohit is ____ best batsman.", ["the", "a", "an", NA],
     "The goes with superlatives: the best, the tallest. Grew from 2021 and 2025 superlatives.")
 art("He is ____ MP from Odisha.", ["an", "a", "the", NA],
     "MP is read 'em-pee', which starts with a vowel sound, so 'an MP'. Same as 'an MLA', 'an SI'. Grew from 2021 and 2025 a/an questions (an MLA).")
 art("____ Himalayas are the highest mountain range in the world.", ["The", "A", "An", NA],
     "Mountain ranges and plural names take 'the' (the Himalayas, the Andes); a single peak does not (Mount Everest). Grew from 2021 article questions (Q63–72).")
-art("We have ____ lunch at one o'clock.", [NA, "the", "a", "an"],
+art("In our hostel, the bell rings loudly at noon, and we have ____ lunch at one o'clock in the big dining hall.", [NA, "the", "a", "an"],
     "No article before meals (breakfast, lunch, dinner). Grew from 2021 zero-article questions.")
 art("He is ____ European and ____ M.A. from Calcutta University.", ["a, an", "an, a", "a, a", "an, an"],
     "European begins with 'y' (consonant sound), so 'a'. M.A. begins with 'em' (vowel sound), so 'an'. Two blanks in one sentence; the sound trap from 2025.")
@@ -315,7 +315,7 @@ art("She plays ____ guitar in the school band.", ["the", "a", "an", NA],
     "The goes with musical instruments (the guitar, the violin). Grew from 2021 specific-article questions.")
 
 # ================================================================ Block 8 · tenses (5)
-add(T, "I have never ____ such a beautiful place.",
+add(T, "I have travelled to many hill stations with my family, but I have never ____ such a beautiful place.",
     ["seen", "saw", "see", "been seeing"],
     "Have + past participle: have never seen. 'Never … before' with no time named takes the present perfect. Grew from 2018 Q15 and 2025 'I have had no trouble so far'.")
 add(T, "Sachin Tendulkar ____ his first Test century in 1990.",
@@ -324,7 +324,7 @@ add(T, "Sachin Tendulkar ____ his first Test century in 1990.",
 add(T, "By the time you reach home, I ____ dinner.",
     ["will have cooked", "will cook", "have cooked", "cooked"],
     "'By the time you reach' = a future deadline: the future perfect (will have + past participle). Grew from 2021 Q73–76 (future perfect).")
-add(T, "It ____ since morning, so the roads are wet.",
+add(T, "It ____ since early morning without any break, so all the roads in the town are wet and muddy.",
     ["has been raining", "is raining", "rains", "had rained"],
     "'Since morning' + the action goes on up to now: present perfect continuous. Grew from 2018 and 2025 (has been living … for five years).")
 add(T, "When ____ you last visit your village?",
@@ -359,19 +359,19 @@ add(RE, RP + "\n".join("%s: %s" % (l, p) for l, p in zip("PQRS", [
 add(SV, "The captain, along with his players, ____ welcomed at the airport.",
     ["was", "were", "are", "have been"],
     "'Along with' does not make the subject plural. The verb agrees with the first subject (captain), so 'was'. Grew from 2021 and 2025 'as well as' questions.")
-add(SV, "A collection of old coins ____ kept in the museum.",
+add(SV, "A rare collection of old coins from the Gupta and Mauryan periods ____ kept in the state museum.",
     ["is", "are", "were", "have been"],
     "The subject is 'collection' (one thing), not 'coins'. A plural noun after 'of' does not change the verb. Grew from 2021 and 2025 collective-noun questions.")
 add(SV, "A pair of trousers ____ lying on the bed.",
     ["is", "are", "were", "have been"],
     "'A pair' is singular: a pair of trousers IS. Without 'pair', trousers is plural (The trousers are). Grew from the 2021 agreement block.")
-add(SV, "Many a student ____ failed in this subject.",
+add(SV, "Many a student in the final year of the course ____ failed in this subject because of weak practice.",
     ["has", "have", "are", "were"],
     "Many a + singular noun takes a singular verb, though the meaning is 'many'. Grew from 2021 Q83–92.")
 add(SV, "The price of vegetables ____ risen sharply this month.",
     ["has", "have", "are", "were"],
     "The subject is 'price' (singular). 'Of vegetables' only describes it. The plural noun next to the verb is the trap. Grew from 2025 Q68 ('rules has become').")
-add(SV, "Every boy and girl in the school ____ the national anthem.",
+add(SV, "Every boy and girl in this small village school ____ the national anthem very well.",
     ["knows", "know", "are knowing", "have known"],
     "Every + singular noun(s), even joined by 'and', takes a singular verb. Grew from 2021 Q24 and 2025 'everyone feels'.")
 add(SV, "My spectacles ____ on the desk.",
@@ -383,7 +383,7 @@ add(SV, "Either Meera or her cousins ____ coming to the party.",
 add(SV, "One of the books on the shelf ____ missing.",
     ["is", "are", "were", "have been"],
     "The subject is 'one' (singular). 'Of the books' only tells which one. Grew from 2021 Q83–92.")
-add(SV, "Eating too many sweets ____ bad for your teeth.",
+add(SV, "Doctors often warn that eating too many sweets and chocolates every day ____ bad for your teeth.",
     ["is", "are", "were", "have been"],
     "A gerund phrase as a subject is singular: Eating … IS. Grew from 2021 gerund-subject questions (public speaking is a skill).")
 
