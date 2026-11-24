@@ -1,0 +1,549 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO Odia Mock 01</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Noto Sans Oriya","Kohinoor Odia","Odia Sangam MN","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.pass{margin-top:14px;border-left:2px solid var(--blue);padding:10px 14px;background:var(--paper);font-size:1rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+details.pass summary{cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.qfig{margin-top:14px;border:1px dashed var(--rule);padding:12px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.qfig svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · Paper III (B) · ଓଡ଼ିଆ · Mock 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>Odia Mock 01</h1>
+<p class="tag">100 Odia questions drawn by probability<br>from the <b>2018, 2021 and 2025</b> papers.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This is the first full Odia paper in the set: 100 questions in the order of the real booklet (correct spelling, synonyms, antonyms, then a grammar block of subject-verb relation, tense, verb and adverb, then sentence rewriting and one passage). Every question is the next angle of a question asked in 2018, 2021 or 2025, and four are exact old questions.</p>
+<p class="lead" style="margin-top:14px">Spelling, synonyms and antonyms come first because they are about a third of every real paper. The verb is the biggest grammar block (29 questions). Questions marked Check rest on a grammar book&#x27;s naming that may differ from another book, so treat them with care.</p>
+<div class="rules">
+<div><b>Paper</b><span>100 questions · 45 minutes · 100 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will bring back what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 45 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>100</span> questions</span></div>
+<ol class="bp"><li><span class="n">13</span><span>Spelling</span><span class="dots"></span><span class="c"></span></li><li><span class="n">12</span><span>Synonyms</span><span class="dots"></span><span class="c"></span></li><li><span class="n">13</span><span>Antonyms</span><span class="dots"></span><span class="c"></span></li><li><span class="n">29</span><span>Verb</span><span class="dots"></span><span class="c"></span></li><li><span class="n">08</span><span>Tense</span><span class="dots"></span><span class="c"></span></li><li><span class="n">03</span><span>Adverb</span><span class="dots"></span><span class="c"></span></li><li><span class="n">10</span><span>Subject-verb</span><span class="dots"></span><span class="c"></span></li><li><span class="n">05</span><span>Passage</span><span class="dots"></span><span class="c"></span></li><li><span class="n">07</span><span>Sentence rewriting</span><span class="dots"></span><span class="c"></span></li></ol>
+<p class="src" style="margin-top:14px">Topic counts follow the 2018, 2021 and 2025 Odia papers with 2018 and 2021 at full weight (the pattern years) and 2025 at 0.7. Questions outside the printed syllabus (noun, pronoun, sandhi) are left out. The key is the book&#x27;s key (Udyam IAS), not OPSC&#x27;s.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">45:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 100 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="pass" id="q-pass" hidden></div>
+<div class="qtext" id="q-text"></div>
+<div class="qfig" id="q-fig" hidden></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · ASO Odia Mock 01 · built 24 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 papers. Questions tagged Check rest on facts that could not be confirmed: check them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ଅନିର୍ବାର୍ଯ୍ୟ", "ଅନିର୍ବାଯ୍ୟ", "ଅନିବାର୍ଯ୍ୟ", "ଅନୀବାର୍ଯ୍ୟ"], "a": 2, "e": "Past question (2021 Q1), asked again. ‘ଅନିବାର୍ଯ୍ୟ’ ଠିକ୍ । ‘ନି’ରେ ହ୍ରସ୍ୱ ଇ-କାର ଓ ଶେଷରେ ‘ର୍ଯ୍ୟ’; ଅଧିକା ‘ର୍’ ବସେ ନାହିଁ । (୨୦୧୮ Q79 ଓ ୨୦୨୧ Q1 ଦୁଇଥର ଆସିଛି ।)", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ପରିକ୍ଷା", "ପରୀକ୍ଶା", "ପରୀକ୍ଷା", "ପରିକ୍ଶା"], "a": 2, "e": "‘ପରୀକ୍ଷା’ ଠିକ୍ । ‘ପ’ ପରେ ଦୀର୍ଘ ‘ରୀ’ ଓ ‘କ୍ଷ’ ଲାଗେ; ‘ଶ’ ନୁହେଁ । ହ୍ରସ୍ୱ-ଦୀର୍ଘ ଭୁଲ ଏହି ବିଭାଗର ପ୍ରଧାନ ଫାଶ (୨୦୨୫ Q1-10) ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ପୂର୍ଣ୍ଣିମା", "ପୂର୍ଣିମା", "ପୂର୍ଣ୍ଣୀମା", "ପୁର୍ଣ୍ଣିମା"], "a": 0, "e": "‘ପୂର୍ଣ୍ଣିମା’ ଠିକ୍ । ଆରମ୍ଭରେ ଦୀର୍ଘ ‘ପୂ’, ମଝିରେ ‘ର୍ଣ୍ଣ’ ଓ ‘ମା’ ପୂର୍ବରେ ହ୍ରସ୍ୱ ‘ନି’ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ଆଶ୍ଚର୍ଜ୍ୟ", "ଆଶ୍ଛର୍ଯ୍ୟ", "ଆଶ୍ଚର୍ୟ", "ଆଶ୍ଚର୍ଯ୍ୟ"], "a": 3, "e": "‘ଆଶ୍ଚର୍ଯ୍ୟ’ ଠିକ୍ । ‘ଶ୍ଚ’ ଓ ‘ର୍ଯ୍ୟ’ ଦୁଇଟି ଯୁକ୍ତାକ୍ଷର ଅଛି ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ଅତିଥି", "ଅତୀଥୀ", "ଅତିଥୀ", "ଅତୀଥି"], "a": 0, "e": "‘ଅତିଥି’ ଠିକ୍ । ଦୁଇଟିଯାକ ଇ-କାର ହ୍ରସ୍ୱ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ମନିଷୀ", "ମନୀଷୀ", "ମନିଷି", "ମନୀଷି"], "a": 1, "e": "‘ମନୀଷୀ’ ଠିକ୍ । ଦୁଇଟି ଯାକ ଦୀର୍ଘ ଈ-କାର ଅଛି (ମନୀଷା + ଈ) ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ପ୍ରତୀକ୍ଶା", "ପ୍ରତିକ୍ଷା", "ପ୍ରତିକ୍ଶା", "ପ୍ରତୀକ୍ଷା"], "a": 3, "e": "‘ପ୍ରତୀକ୍ଷା’ ଠିକ୍ (ଅପେକ୍ଷା କରିବା) । ‘ତୀ’ ଦୀର୍ଘ ଓ ‘କ୍ଷ’ ଲାଗେ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ସହୁଦୟ", "ସହରୁଦୟ", "ସହ୍ରିଦୟ", "ସହୃଦୟ"], "a": 3, "e": "‘ସହୃଦୟ’ ଠିକ୍ । ‘ହୃ’ରେ ଋ-କାର ମାତ୍ରା ଲାଗେ (ସହ + ହୃଦୟ) ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ଗ୍ରୀଷ୍ମ", "ଗ୍ରିଷ୍ମ", "ଗ୍ରିସ୍ମ", "ଗ୍ରୀସ୍ମ"], "a": 0, "e": "‘ଗ୍ରୀଷ୍ମ’ ଠିକ୍ । ‘ଗ୍ରୀ’ ଦୀର୍ଘ ଓ ‘ଷ୍ମ’ ଲାଗେ; ‘ସ୍ମ’ ନୁହେଁ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ଅଭୀଜ୍ଞତା", "ଅଭିଜ୍ନତା", "ଅଭିଗ୍ୟତା", "ଅଭିଜ୍ଞତା"], "a": 3, "e": "‘ଅଭିଜ୍ଞତା’ ଠିକ୍ । ‘ଜ୍ଞ’ ଯୁକ୍ତାକ୍ଷର ଓ ‘ଭି’ ହ୍ରସ୍ୱ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ନିଃସ୍ୱାର୍ଥ", "ନିସ୍ୱାର୍ଥ", "ନିଶ୍ସ୍ୱାର୍ଥ", "ନିଃସ୍ୱାର୍ଧ"], "a": 0, "e": "‘ନିଃସ୍ୱାର୍ଥ’ ଠିକ୍ । ‘ନିଃ’ ପରେ ବିସର୍ଗ ଲାଗେ ଏବଂ ଶେଷରେ ‘ର୍ଥ’ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ସମିକ୍ଶା", "ସମିକ୍ଷା", "ସମୀକ୍ଷା", "ସମୀକ୍ଶା"], "a": 2, "e": "‘ସମୀକ୍ଷା’ ଠିକ୍ । ‘ମୀ’ ଦୀର୍ଘ ଓ ‘କ୍ଷ’ ଲାଗେ ।", "k": "one", "n": false, "c": false}, {"s": "Spelling", "q": "ଠିକ୍ ଶବ୍ଦ (ଉତ୍ତର) ଚିହ୍ନଟ କର ।", "o": ["ସାମର୍ତ୍ଥ୍ୟ", "ସାମର୍ଥ୍ୟା", "ସାମର୍ଥ", "ସାମର୍ଥ୍ୟ"], "a": 3, "e": "‘ସାମର୍ଥ୍ୟ’ ଠିକ୍ । ଶେଷରେ ‘ର୍ଥ୍ୟ’ ଯୁକ୍ତାକ୍ଷର ଲାଗେ (ଅନିବାର୍ଯ୍ୟ ପରି) ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ସିଂହ’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ତୁରଙ୍ଗ", "ଦ୍ୱିରଦ", "ଭୁଜଙ୍ଗ", "ମୃଗେନ୍ଦ୍ର"], "a": 3, "e": "‘ମୃଗେନ୍ଦ୍ର’ ସିଂହର ନାମ (ମୃଗର ରାଜା) । ଭୁଜଙ୍ଗ ସାପ, ଦ୍ୱିରଦ ହାତୀ, ତୁରଙ୍ଗ ଘୋଡ଼ା । ପଶୁପକ୍ଷୀ ପ୍ରତିଶବ୍ଦ ଯେପରି ‘ସାପ’ (୨୦୧୮, ୨୦୨୫) ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ବିଷ୍ଣୁ’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଜନାର୍ଦ୍ଦନ", "ପୁରନ୍ଦର", "ଗଜାନନ", "ପିନାକୀ"], "a": 0, "e": "‘ଜନାର୍ଦ୍ଦନ’ ବିଷ୍ଣୁଙ୍କ ନାମ । ପିନାକୀ ଶିବ, ପୁରନ୍ଦର ଇନ୍ଦ୍ର, ଗଜାନନ ଗଣେଶ । (‘ଗଣପତି’, ‘ଶିବ’ ପୂର୍ବ ବର୍ଷରେ ଆସିଥିଲା ।)", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ସୂର୍ଯ୍ୟ’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଦିବାକର", "ଅନିଳ", "ନିଶାକର", "ବାରିଦ"], "a": 0, "e": "‘ଦିବାକର’ ସୂର୍ଯ୍ୟ (ଦିବସ କରେ ଯିଏ) । ନିଶାକର ଚନ୍ଦ୍ର, ଅନିଳ ପବନ, ବାରିଦ ମେଘ । (‘ଭାସ୍କର’, ‘ଚନ୍ଦ୍ର’ ପୂର୍ବରୁ ଆସିଛି ।)", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ସମୁଦ୍ର’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ପାରାବାର", "ଶୈଳ", "ସରସୀ", "ତଟିନୀ"], "a": 0, "e": "‘ପାରାବାର’ ସମୁଦ୍ର । ସରସୀ ପୋଖରୀ, ତଟିନୀ ନଦୀ, ଶୈଳ ପର୍ବତ । ସାଗର, ଉଦଧି, ଜଳଧି ମଧ୍ୟ ସମୁଦ୍ର ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ଘୋଡ଼ା’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଉରଗ", "ଦ୍ୱିପ", "ଅଶ୍ୱ", "ଖଗ"], "a": 2, "e": "‘ଅଶ୍ୱ’ ଘୋଡ଼ା । ଦ୍ୱିପ ହାତୀ, ଉରଗ ସାପ, ଖଗ ପକ୍ଷୀ ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ନଦୀ’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ନିର୍ଝର", "ବାରିଧି", "ସରୋବର", "ତଟିନୀ"], "a": 3, "e": "‘ତଟିନୀ’ ନଦୀ । ସରୋବର ହ୍ରଦ, ବାରିଧି ସମୁଦ୍ର, ନିର୍ଝର ଝରଣା । ସରିତା, ତରଙ୍ଗିଣୀ ମଧ୍ୟ ନଦୀ ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ଲକ୍ଷ୍ମୀ’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଶାରଦା", "ଭାରତୀ", "କମଳା", "ଭବାନୀ"], "a": 2, "e": "‘କମଳା’ ଲକ୍ଷ୍ମୀଙ୍କ ନାମ । ଭାରତୀ ଓ ଶାରଦା ସରସ୍ୱତୀ, ଭବାନୀ ପାର୍ବତୀ ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ରାତ୍ରି’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଦିବସ", "ଯାମିନୀ", "ଉଷା", "ସନ୍ଧ୍ୟା"], "a": 1, "e": "‘ଯାମିନୀ’ ରାତ୍ରି । ଉଷା ଭୋର, ଦିବସ ଦିନ, ସନ୍ଧ୍ୟା ସଞ୍ଜ । ରଜନୀ, ଶର୍ବରୀ, ନିଶା ମଧ୍ୟ ରାତ୍ରି ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ପୁତ୍ର’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଅଗ୍ରଜ", "ସୁତ", "ଭାର୍ଯ୍ୟା", "ଦୁହିତା"], "a": 1, "e": "‘ସୁତ’ ପୁତ୍ର । ଦୁହିତା ଝିଅ, ଅଗ୍ରଜ ବଡ଼ଭାଇ, ଭାର୍ଯ୍ୟା ସ୍ତ୍ରୀ । ‘ତନୟା’ (ଝିଅ) ୨୦୧୮ରେ ଆସିଥିଲା ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ଗଛ’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଖଗ", "ପାଦପ", "ଭୂଧର", "କୁଞ୍ଜର"], "a": 1, "e": "‘ପାଦପ’ ଗଛ (ପାଦରେ ପିଇଥାଏ) । ଖଗ ପକ୍ଷୀ, ଭୂଧର ପର୍ବତ, କୁଞ୍ଜର ହାତୀ । ତରୁ, ବୃକ୍ଷ ମଧ୍ୟ ଗଛ ।", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ଯିଏ ସବୁ ଜାଣନ୍ତି’ ଏହି ବାକ୍ୟାଂଶର ଏକ ଶବ୍ଦ :", "o": ["ସର୍ବମଙ୍ଗଳ", "ସର୍ବଜ୍ଞ", "ସର୍ବବ୍ୟାପୀ", "ସର୍ବଭକ୍ଷୀ"], "a": 1, "e": "‘ସର୍ବଜ୍ଞ’ ଅର୍ଥ ସବୁ ଜାଣିଥିବା ବ୍ୟକ୍ତି । ସର୍ବବ୍ୟାପୀ ସବୁଠି ଥିବା, ସର୍ବଭକ୍ଷୀ ସବୁ ଖାଉଥିବା । (ଏକ ଶବ୍ଦ: ସିଲାବସ୍‌ରେ ଥିଲେ ହେଁ ଏପର୍ଯ୍ୟନ୍ତ ଆସିନାହିଁ ।)", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "‘ବିଜୁଳି’ର ପ୍ରତିଶବ୍ଦ :", "o": ["ଅମ୍ବୁଦ", "ଶଶାଙ୍କ", "ସମୀରଣ", "ତଡ଼ିତ୍"], "a": 3, "e": "‘ତଡ଼ିତ୍’ ବିଜୁଳି । ଅମ୍ବୁଦ ମେଘ, ସମୀରଣ ପବନ, ଶଶାଙ୍କ ଚନ୍ଦ୍ର । ବିଦ୍ୟୁତ୍, ସୌଦାମିନୀ ମଧ୍ୟ ବିଜୁଳି ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ଉନ୍ନତି’ର ବିପରୀତ :", "o": ["ପ୍ରଗତି", "ଉତ୍ଥାନ", "ବିକାଶ", "ଅବନତି"], "a": 3, "e": "‘ଅବନତି’ ଉନ୍ନତିର ବିପରୀତ । ଉତ୍ଥାନ, ପ୍ରଗତି ଓ ବିକାଶ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ଜ୍ଞାନ’ର ବିପରୀତ :", "o": ["ଅଜ୍ଞାନ", "ସଜ୍ଞାନ", "ବିଜ୍ଞାନ", "ସଂଜ୍ଞା"], "a": 0, "e": "‘ଅଜ୍ଞାନ’ ଜ୍ଞାନର ବିପରୀତ । ‘ଅ’ ଉପସର୍ଗ ଯୋଗ ହୋଇଛି (୨୦୧୮ Q96, ୨୦୨୫ Q18-19 ପରି) । ବିଜ୍ଞାନ ବିପରୀତ ନୁହେଁ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ସୃଷ୍ଟି’ର ବିପରୀତ :", "o": ["ନିର୍ମାଣ", "ପ୍ରଳୟ", "ରଚନା", "ଉତ୍ପତ୍ତି"], "a": 1, "e": "‘ପ୍ରଳୟ’ ସୃଷ୍ଟିର ବିପରୀତ (ବିନାଶ) । ଅନ୍ୟମାନେ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ସମ୍ପଦ’ର ବିପରୀତ :", "o": ["ଐଶ୍ୱର୍ଯ୍ୟ", "ବିପଦ", "ଧନ", "ବିଭବ"], "a": 1, "e": "‘ବିପଦ’ ସମ୍ପଦର ବିପରୀତ । ଧନ, ଐଶ୍ୱର୍ଯ୍ୟ, ବିଭବ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ମୋଟା’ର ବିପରୀତ :", "o": ["ଛୋଟ", "ପତଳା", "ବଡ଼", "ଲମ୍ବା"], "a": 1, "e": "‘ପତଳା’ ମୋଟାର ବିପରୀତ । ଏଇଟି ଦେଶୀ ଶବ୍ଦ ଯୋଡ଼ି (ଡେଙ୍ଗା-ଗେଡ଼ା, ନିଅଣ୍ଟ-ବଳକା ପରି) ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ବିଜୟ’ର ବିପରୀତ :", "o": ["ବିଜିତ", "ସଫଳତା", "ଜୟ", "ପରାଜୟ"], "a": 3, "e": "‘ପରାଜୟ’ ବିଜୟର ବିପରୀତ । ଜୟ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ସମ୍ମାନ’ର ବିପରୀତ :", "o": ["ଅଭିମାନ", "ପ୍ରମାଣ", "ଉପମାନ", "ଅପମାନ"], "a": 3, "e": "‘ଅପମାନ’ ସମ୍ମାନର ବିପରୀତ । ‘ଅପ’ ଉପସର୍ଗରେ ଅର୍ଥ ଓଲଟି ଯାଏ । ଉପମାନ ତୁଳନା, ଅଭିମାନ ଗର୍ବ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ସ୍ତୁତି’ର ବିପରୀତ :", "o": ["ପ୍ରଶଂସା", "ବନ୍ଦନା", "ଗୁଣଗାନ", "ନିନ୍ଦା"], "a": 3, "e": "‘ନିନ୍ଦା’ ସ୍ତୁତିର ବିପରୀତ । ପ୍ରଶଂସା, ବନ୍ଦନା, ଗୁଣଗାନ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ପ୍ରାଚୀନ’ର ବିପରୀତ :", "o": ["ପୁରାତନ", "ନବୀନ", "ଆଦିମ", "ସନାତନ"], "a": 1, "e": "‘ନବୀନ’ ପ୍ରାଚୀନର ବିପରୀତ । ପୁରାତନ, ଆଦିମ, ସନାତନ ପୁରୁଣା ଅର୍ଥର ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ନ୍ୟାୟ’ର ବିପରୀତ :", "o": ["ସନ୍ନ୍ୟାୟ", "ନ୍ୟାସ", "ଅନ୍ୟାୟ", "ଅନ୍ୟ"], "a": 2, "e": "‘ଅନ୍ୟାୟ’ ନ୍ୟାୟର ବିପରୀତ । ‘ନ୍ୟାସ’ ଗଚ୍ଛିତ ରଖିବା; ଅର୍ଥ ଭିନ୍ନ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ଲାଭ’ର ବିପରୀତ :", "o": ["ଉପାର୍ଜନ", "ମୁନାଫା", "କ୍ଷତି", "ଆୟ"], "a": 2, "e": "‘କ୍ଷତି’ ଲାଭର ବିପରୀତ । ମୁନାଫା, ଉପାର୍ଜନ, ଆୟ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ଶସ୍ତା’ର ବିପରୀତ :", "o": ["ସରଳ", "ବଡ଼", "ମହଙ୍ଗା", "ଶୀଘ୍ର"], "a": 2, "e": "‘ମହଙ୍ଗା’ ଶସ୍ତାର ବିପରୀତ (ଦେଶୀ ଯୋଡ଼ି) ।", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "‘ଉତ୍ତମ’ର ବିପରୀତ :", "o": ["ଉତ୍କୃଷ୍ଟ", "ଶ୍ରେଷ୍ଠ", "ଉତ୍ତୁଙ୍ଗ", "ଅଧମ"], "a": 3, "e": "‘ଅଧମ’ ଉତ୍ତମର ବିପରୀତ । ଉତ୍କୃଷ୍ଟ ଓ ଶ୍ରେଷ୍ଠ ସମାନାର୍ଥକ ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "ପିଲାଟି ଘରକୁ ଯାଉଛି । ଏହି ବାକ୍ୟରେ ‘ଯା’ ଧାତୁର ପରିବର୍ତ୍ତନର କାରଣ :", "o": ["କର୍ତ୍ତା ପଦର ବଚନ", "କର୍ତ୍ତା ପଦର ପୁରୁଷ", "କର୍ତ୍ତା ପଦର ଲିଙ୍ଗ", "କର୍ତ୍ତା ପଦର ପୁରୁଷ ଓ ବଚନ"], "a": 3, "e": "Past question (2018 Q10), asked again. କ୍ରିୟା ‘ଯାଉଛି’ କର୍ତ୍ତା ‘ପିଲାଟି’ର ପୁରୁଷ ଓ ବଚନ ଅନୁସରଣ କରେ; ଲିଙ୍ଗ ଅନୁସାରେ ବଦଳେ ନାହିଁ । (କର୍ତ୍ତା-କ୍ରିୟା ପ୍ରଶ୍ନ ୨୦୧୮ରେ ୧୧ଟି ଥିଲା ।)", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ସେମାନେ ଖେଳ ପଡ଼ିଆରେ ______ ।’ ଉପଯୁକ୍ତ କ୍ରିୟାପଦଟି ବାଛ :", "o": ["ଖେଳୁଛ", "ଖେଳୁଛି", "ଖେଳୁଛୁ", "ଖେଳୁଛନ୍ତି"], "a": 3, "e": "‘ସେମାନେ’ ତୃତୀୟ ପୁରୁଷ ବହୁବଚନ; ତେଣୁ କ୍ରିୟା ‘ଖେଳୁଛନ୍ତି’ ହେବ ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ବାଳକଟି ପଢ଼ୁଛି’ ଓ ‘ବାଳିକାଟି ପଢ଼ୁଛି’ — ଦୁଇ ବାକ୍ୟରେ କ୍ରିୟା ସମାନ ହେବାର କାରଣ କ’ଣ ?", "o": ["ଓଡ଼ିଆ କ୍ରିୟା କର୍ତ୍ତାର ଲିଙ୍ଗ ଅନୁସାରେ ବଦଳେ ନାହିଁ", "ଦୁଇଟିଯାକ କର୍ତ୍ତା ପୁଂଲିଙ୍ଗ", "ଓଡ଼ିଆ କ୍ରିୟା କର୍ତ୍ତାର ଲିଙ୍ଗ ଅନୁସାରେ ବଦଳେ", "ଦୁଇଟିଯାକ ବାକ୍ୟ ଭୂତକାଳର"], "a": 0, "e": "ଓଡ଼ିଆରେ କ୍ରିୟାପଦ କର୍ତ୍ତାର ଲିଙ୍ଗ ନେଇ ବଦଳେ ନାହିଁ (୨୦୧୮ Q9 = ୨୦୨୧ Q39) ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ପରିଶ୍ରମୀ ଛାତ୍ରଟି ପରୀକ୍ଷାରେ କୃତକାର୍ଯ୍ୟ ହେଲା’ — ଏହି ବାକ୍ୟର କର୍ତ୍ତା ପଦ କେଉଁଟି ?", "o": ["ପରୀକ୍ଷାରେ", "ପରିଶ୍ରମୀ", "ଛାତ୍ରଟି", "କୃତକାର୍ଯ୍ୟ"], "a": 2, "e": "କ୍ରିୟା ପୂର୍ବରୁ ‘କିଏ’ ପ୍ରଶ୍ନ କଲେ ‘ଛାତ୍ରଟି’ ମିଳେ; ସେ କର୍ତ୍ତା । ‘ପରିଶ୍ରମୀ’ ତାହାର ବିଶେଷଣ । (୨୦୨୫ Q56) ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ମୁଁ କାଲି ସ୍କୁଲରୁ ଘରକୁ ______ ।’ (ସାଧାରଣ ଅତୀତ) ଠିକ୍ କ୍ରିୟାପଦଟି ବାଛ :", "o": ["ଫେରିଲ", "ଫେରିଲା", "ଫେରିଲେ", "ଫେରିଲି"], "a": 3, "e": "‘ମୁଁ’ ପ୍ରଥମ ପୁରୁଷ ଏକବଚନ; ଅତୀତ କ୍ରିୟା ‘ଫେରିଲି’ ହେବ (୨୦୧୮ Q17 ‘ଶୁଣିଲି’ ପରି) ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ଗୁରୁ ଶିଷ୍ୟକୁ ବିଦ୍ୟା ଦେଲେ’ — ଏହି ବାକ୍ୟରେ ଉଦ୍ଦେଶ୍ୟ କିଏ ?", "o": ["ବିଦ୍ୟା", "ଗୁରୁ", "ଶିଷ୍ୟକୁ", "ଦେଲେ"], "a": 1, "e": "ଯାହାଙ୍କ ବିଷୟରେ କିଛି କୁହାଯାଏ ସେ ଉଦ୍ଦେଶ୍ୟ (କର୍ତ୍ତା) । ଏଠି ‘ଗୁରୁ’ । ‘ଶିଷ୍ୟକୁ ବିଦ୍ୟା ଦେଲେ’ ବିଧେୟ ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ବାଘଟି ଜଙ୍ଗଲରେ ବୁଲୁଛି’ — ଏହି ବାକ୍ୟର ବିଧେୟ ଅଂଶ କେଉଁଟି ?", "o": ["ଜଙ୍ଗଲରେ", "ଜଙ୍ଗଲରେ ବୁଲୁଛି", "ବାଘଟି", "ବାଘଟି ଜଙ୍ଗଲରେ"], "a": 1, "e": "କର୍ତ୍ତା ସମ୍ପର୍କରେ ଯାହା କୁହାଯାଏ ସେ ବିଧେୟ । ‘ବାଘଟି’ ଉଦ୍ଦେଶ୍ୟ; ‘ଜଙ୍ଗଲରେ ବୁଲୁଛି’ ବିଧେୟ (୨୦୧୮ Q7) ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ଆପଣ କାଲି ଆମ ଘରକୁ ______ ।’ ଶୂନ୍ୟସ୍ଥାନରେ କେଉଁ କ୍ରିୟାପଦ ବସିବ ? (ସାଧାରଣ ଭବିଷ୍ୟତ)", "o": ["ଆସିବ", "ଆସିବେ", "ଆସିବି", "ଆସିବୁ"], "a": 1, "e": "‘ଆପଣ’ ସମ୍ମାନାର୍ଥକ; କ୍ରିୟା ବହୁବଚନ ରୂପ ‘ଆସିବେ’ ନିଏ । ‘ଆସିବ’ ‘ତୁମେ’ ସହିତ ବସେ ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ତୁମେ ଆସନ୍ତାକାଲି ଆମ ସହିତ ______ ।’ (ସାଧାରଣ ଭବିଷ୍ୟତ) ଠିକ୍ କ୍ରିୟା :", "o": ["ଯିବେ", "ଯିବୁ", "ଯିବ", "ଯିବି"], "a": 2, "e": "‘ତୁମେ’ ଦ୍ୱିତୀୟ ପୁରୁଷ; ଭବିଷ୍ୟତରେ କ୍ରିୟା ‘ଯିବ’ ହୁଏ (୨୦୧୮ Q15 ଖେଳିବ/ଖେଳିବେ/ଖେଳିବୁ/ଖେଳିବି ପରି) ।", "k": "one", "n": false, "c": false}, {"s": "Subject-verb", "q": "‘ରାମର ବହି ଟେବୁଲ ଉପରେ ଅଛି’ — ଏହି ବାକ୍ୟରେ କ୍ରିୟା ସହିତ ଅନ୍ୱୟ ନଥିବା ପଦ କେଉଁଟି ?", "o": ["ରାମର", "ଅଛି", "ଟେବୁଲ", "ବହି"], "a": 0, "e": "‘ରାମର’ ସମ୍ବନ୍ଧ ପଦ; ଏହା ‘ବହି’ ସହିତ ଯୋଡ଼ା, କ୍ରିୟା ସହିତ ସିଧା ଅନ୍ୱିତ ନୁହେଁ (୨୦୨୧ Q66 = ୨୦୨୫ Q69) ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "‘ଇବ’ ପ୍ରତ୍ୟୟ ______ କାଳ ସୂଚକ ।", "o": ["ଅତୀତ", "ବର୍ତ୍ତମାନ", "ଭବିଷ୍ୟତ", "ସଂପନ୍ନ ଅତୀତ"], "a": 2, "e": "‘ଇବ’ ଭବିଷ୍ୟତ (ଖାଇବ, ଯିବ) । ‘ଇଲ’ ଅତୀତ (୨୦୧୮ Q56) ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "‘ଖାଉଛି’ କ୍ରିୟାପଦଟି କେଉଁ କାଳ ସୂଚକ ?", "o": ["ସଂପନ୍ନ ବର୍ତ୍ତମାନ", "ଅସଂପନ୍ନ ଭବିଷ୍ୟତ", "ସଂପନ୍ନ ଅତୀତ", "ଅସଂପନ୍ନ ବର୍ତ୍ତମାନ"], "a": 3, "e": "‘ଉଛି’ କ୍ରିୟା ଚାଲିଛି ବୋଲି ଜଣାଏ, ତେଣୁ ଅସଂପନ୍ନ ବର୍ତ୍ତମାନ । ‘ଖାଇଛି’ ସଂପନ୍ନ ବର୍ତ୍ତମାନ ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "‘ସେ ଖାଇଲାଣି’ ବାକ୍ୟରେ ‘ଣି’ ପ୍ରତ୍ୟୟ କେଉଁ ଅର୍ଥରେ ବ୍ୟବହୃତ ?", "o": ["ସର୍ତ୍ତ", "ଅନୁଜ୍ଞା", "ସମାପ୍ତି", "ସମ୍ଭାବ୍ୟ ସମାପ୍ତି"], "a": 2, "e": "‘ଖାଇଲାଣି’ରେ ଖାଇବା କାମ ସରିଯାଇଛି; ‘ଣି’ ସମାପ୍ତି ବୁଝାଏ । ଭବିଷ୍ୟତରେ ‘ଖାଇବଣି’ ସମ୍ଭାବ୍ୟ ସମାପ୍ତି (୨୦୧୮ Q43) ।", "k": "one", "n": false, "c": true}, {"s": "Tense", "q": "‘ସେ ବହି ପଢ଼ିଥିଲା’ — ‘ଇଥିଲା’ ______ କାଳ ସୂଚକ ।", "o": ["ସଂପନ୍ନ ବର୍ତ୍ତମାନ", "ସଂପନ୍ନ ଅତୀତ", "ସାଧାରଣ ଅତୀତ", "ଅସଂପନ୍ନ ଅତୀତ"], "a": 1, "e": "‘ଇଥିଲା’ କାମ ଅତୀତରେ ସରିଥିବା ବୁଝାଏ; ସଂପନ୍ନ ଅତୀତ (୨୦୧୮ Q16 ‘ପଢ଼ିଥିଲ’) ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "‘ସେ ଖାଉଥିଲା’ କେଉଁ କାଳସୂଚକ ?", "o": ["ସଂପନ୍ନ ଅତୀତ", "ଅସଂପନ୍ନ ଅତୀତ", "ଅସଂପନ୍ନ ଭବିଷ୍ୟତ", "ସାଧାରଣ ଅତୀତ"], "a": 1, "e": "‘ଉଥିଲା’ ଅତୀତରେ କାମ ଚାଲୁଥିଲା ବୋଲି ଜଣାଏ; ଅସଂପନ୍ନ ଅତୀତ ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "‘ସେମାନେ କାଲି ଆସିବେ’ — କ୍ରିୟାପଦର କାଳ ନିର୍ଣ୍ଣୟ କର ।", "o": ["ସାଧାରଣ ଭବିଷ୍ୟତ", "ସାଧାରଣ ବର୍ତ୍ତମାନ", "ସଂପନ୍ନ ଭବିଷ୍ୟତ", "ସାଧାରଣ ଅତୀତ"], "a": 0, "e": "‘ଆସିବେ’ ସାଧାରଣ ଭବିଷ୍ୟତ (୨୦୧୮ Q15 ‘ଖେଳିବେ’) ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "‘ପିଲାମାନେ ଖେଳିଛନ୍ତି’ — କେଉଁ କାଳରୂପ ?", "o": ["ସଂପନ୍ନ ଅତୀତ", "ଅସଂପନ୍ନ ବର୍ତ୍ତମାନ", "ସଂପନ୍ନ ବର୍ତ୍ତମାନ", "ସାଧାରଣ ବର୍ତ୍ତମାନ"], "a": 2, "e": "‘ଇଛନ୍ତି’ କାମ ସରିଯାଇଛି ବୋଲି ବର୍ତ୍ତମାନରେ ଜଣାଏ; ସଂପନ୍ନ ବର୍ତ୍ତମାନ (୨୦୧୮ Q57 ‘ଯାଇଛନ୍ତି’) ।", "k": "one", "n": false, "c": false}, {"s": "Tense", "q": "ଓଡ଼ିଆ ବ୍ୟାକରଣରେ କାଳ ମୂଳତଃ କେତୋଟି ?", "o": ["ପାଞ୍ଚୋଟି", "ଚାରୋଟି", "ଦୁଇଟି", "ତିନୋଟି"], "a": 3, "e": "କାଳ ତିନୋଟି: ଅତୀତ, ବର୍ତ୍ତମାନ, ଭବିଷ୍ୟତ । ପ୍ରତ୍ୟେକର ସାଧାରଣ, ଅସଂପନ୍ନ ଓ ସଂପନ୍ନ ରୂପ ଅଛି ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "ସେ ଦାନ୍ତ କଡ଼ମଡ଼ କଲେ, ଏ ବାକ୍ୟରେ ______ କ୍ରିୟା ବ୍ୟବହୃତ ।", "o": ["ଧ୍ୱନ୍ୟାତ୍ମକ କ୍ରିୟା", "ଅମିଶ୍ର କ୍ରିୟା", "ପ୍ରଯୋଜକ କ୍ରିୟା", "କେଉଁଟି ନୁହଁ"], "a": 0, "e": "Past question (2018 Q34), asked again. ‘କଡ଼ମଡ଼’ ଶବ୍ଦର ଅନୁକରଣରୁ ଗଢ଼ା କ୍ରିୟା ଧ୍ୱନ୍ୟାତ୍ମକ କ୍ରିୟା । (କ୍ରିୟାର ପ୍ରକାର ତିନି ବର୍ଷରେ ୨୧ ଥର ଆସିଛି ।)", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଖାଇବସିଲା’ କ୍ରିୟାପଦରେ ‘ବସିଲା’ ଏକ ______ କ୍ରିୟା ।", "o": ["ସହାୟକ", "ଅମିଶ୍ର", "ସାହାଯ୍ୟକାରୀ", "ମିଶ୍ର"], "a": 2, "e": "‘ଖାଇ’ ମୁଖ୍ୟ କ୍ରିୟା ଓ ‘ବସିଲା’ ତାକୁ ସାହାଯ୍ୟ କରେ; ଏଇଟି ଯୌଗିକ କ୍ରିୟା (୨୦୧୮ Q41 ‘ଖାଇଦେଲା’ ପରି) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "କେଉଁଟି ମିଶ୍ର କ୍ରିୟାପଦ ?", "o": ["ଆରମ୍ଭ କରିବା", "ଦେଖିବା", "ଲେଖିବା", "ଉଠିବା"], "a": 0, "e": "ମିଶ୍ର କ୍ରିୟା ଏକାଧିକ ପଦରେ ଗଢ଼ା: ‘ଆରମ୍ଭ’ (ବିଶେଷ୍ୟ) + ‘କରିବା’ (୨୦୨୫ Q59 ‘ଅବତରଣ କରିବା’) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "କେଉଁଟି ଯୌଗିକ କ୍ରିୟା ?", "o": ["ଖାଉଛି", "ଗଲା", "ଉଠିଯିବ", "ହସିଲା"], "a": 2, "e": "‘ଉଠିଯିବ’ = ‘ଉଠି’ (ଅସମାପିକା) + ‘ଯିବ’ (ସମାପିକା) । ଯୌଗିକ କ୍ରିୟାର ପ୍ରଥମ କ୍ରିୟା ଅସମାପିକା (୨୦୧୮ Q25 = ୨୦୨୫ Q66) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "ବର୍ତ୍ତମାନ କାଳରେ ଓଡ଼ିଆ କ୍ରିୟାପଦରେ ସାଧାରଣତଃ କେଉଁ ସହାୟକ କ୍ରିୟା ଯୁକ୍ତ ହୁଏ ?", "o": ["ଯା", "ଅଛ୍", "ଥା", "ହୁଅ"], "a": 1, "e": "ବର୍ତ୍ତମାନରେ ‘ଅଛ୍’ (ଖାଉଅଛି) । ଅତୀତ ଓ ଭବିଷ୍ୟତରେ ‘ଥା’ (ଖାଉଥିଲା, ଖାଉଥିବ) (୨୦୨୫ Q35) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଆମେ ଖେଳୁଛୁ’ ବାକ୍ୟରେ କ୍ରିୟା ବିଭକ୍ତି ‘ଉ’ କେଉଁ ପୁରୁଷ ଓ ବଚନ ସୂଚାଏ ?", "o": ["ଦ୍ୱିତୀୟ ପୁରୁଷ ଏକବଚନ", "ପ୍ରଥମ ପୁରୁଷ ବହୁବଚନ", "ପ୍ରଥମ ପୁରୁଷ ଏକବଚନ", "ତୃତୀୟ ପୁରୁଷ ବହୁବଚନ"], "a": 1, "e": "‘ଆମେ’ ପ୍ରଥମ ପୁରୁଷ ବହୁବଚନ; ତାହା ସହ କ୍ରିୟା ‘ଉ’ ବିଭକ୍ତି ନିଏ (ଖେଳିବୁ, ଖେଳୁଛୁ) ।", "k": "one", "n": false, "c": true}, {"s": "Verb", "q": "‘ମୁଁ ଖେଳେଁ’ — କ୍ରିୟାପଦର ‘ଏଁ’ ବିଭକ୍ତି ଦ୍ୱାରା କ’ଣ ଜଣାଯାଏ ?", "o": ["ଦ୍ୱିତୀୟ ପୁରୁଷ ବହୁବଚନ", "ତୃତୀୟ ପୁରୁଷ ଏକବଚନ", "ପ୍ରଥମ ପୁରୁଷ ବହୁବଚନ", "ପ୍ରଥମ ପୁରୁଷ ଏକବଚନ"], "a": 3, "e": "‘ଏଁ’ ସାଧାରଣ ବର୍ତ୍ତମାନରେ ପ୍ରଥମ ପୁରୁଷ ଏକବଚନର ବିଭକ୍ତି (୨୦୧୮ Q14) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ସେ ଖାଇଲା’ ଓ ‘ସେମାନେ ଖାଇଲେ’ — କ୍ରିୟାପଦର ବିଭକ୍ତି ବଦଳିବାର କାରଣ କ’ଣ ?", "o": ["କର୍ତ୍ତାର ଲିଙ୍ଗ ବଦଳିଛି", "କର୍ମ ବଦଳିଛି", "କର୍ତ୍ତାର ବଚନ ବଦଳିଛି", "କାଳ ବଦଳିଛି"], "a": 2, "e": "ଦୁଇଟିଯାକ ଅତୀତ କାଳ; କର୍ତ୍ତା ଏକବଚନରୁ ବହୁବଚନ ହେଲା, ତେଣୁ ‘ଲା’ ଠାରୁ ‘ଲେ’ ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଯାଆନ୍ତୁ’ କ୍ରିୟାପଦରେ ‘ଅନ୍ତୁ’ ବିଭକ୍ତି କେଉଁ ଅର୍ଥ ପ୍ରକାଶ କରେ ?", "o": ["ସମ୍ଭାବନା", "ଇଚ୍ଛା ନାହିଁ", "ଅନୁଜ୍ଞା", "ନିଶ୍ଚୟ"], "a": 2, "e": "‘ଅନ୍ତୁ’ ଆଦେଶ ବା ଅନୁରୋଧ (ଅନୁଜ୍ଞା) ବୁଝାଏ (‘ଆପଣ ଆସନ୍ତୁ’) (୨୦୨୫ Q42 ‘ଯାଆନ୍ତୁ’) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଖାଇବ’ କ୍ରିୟାପଦର ବିକରଣ ଚିହ୍ନିତ କର :", "o": ["ଇବ୍", "ଖା", "ଅ", "ଖାଇ"], "a": 0, "e": "‘ଖାଇବ’ = ଖା (ଧାତୁ) + ଇବ୍ (ବିକରଣ) + ଅ (ବିଭକ୍ତି) । ‘ଖେଳିବେ’ରେ ଇବ୍ (୨୦୨୧ Q71) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "ଧାତୁସହ କେଉଁ ବିଭକ୍ତି ଯୁକ୍ତ ହେଲେ ଅସମାପିକା କ୍ରିୟା ହୁଏ ?", "o": ["ରୁ", "କୁ", "ଉ", "ର"], "a": 2, "e": "Past question (2021 Q85), asked again. ଧାତୁରେ ‘ଉ’ ଯୋଗ କଲେ ଅସମାପିକା କ୍ରିୟା ହୁଏ (ଯାଉ, ବସୁ) । ସମାପିକା/ଅସମାପିକା ୨୦୧୮ରେ ୪, ୨୦୨୧ରେ ୩, ୨୦୨୫ରେ ୨ ଥର ଆସିଛି ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ସେ ହସି ହସି କହିଲା’ — ‘ହସି ହସି’ କେଉଁ କ୍ରିୟା ?", "o": ["ପ୍ରେରଣାର୍ଥକ", "ସମାପିକା", "ସହାୟକ", "ଅସମାପିକା"], "a": 3, "e": "ବାକ୍ୟ ଶେଷ କରୁନାହିଁ; ମୁଖ୍ୟ କ୍ରିୟା ‘କହିଲା’ । ତେଣୁ ‘ହସି ହସି’ ଅସମାପିକା (୨୦୧୮ Q35 ‘ବସି ବସି’) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ସେ ଘରକୁ ଯାଇ ଖାଇଲା’ — ଏହି ବାକ୍ୟର ସମାପିକା କ୍ରିୟା କେଉଁଟି ?", "o": ["ଖାଇଲା", "ସେ", "ଯାଇ", "ଘରକୁ"], "a": 0, "e": "ଯେଉଁ କ୍ରିୟା ବାକ୍ୟକୁ ଶେଷ କରେ ସେ ସମାପିକା; ‘ଯାଇ’ ଅସମାପିକା (୨୦୧୮ Q52, ଓ Q20 ପରି) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "କେଉଁଟି ଅସମାପିକା କ୍ରିୟା ?", "o": ["ଖାଇବ", "ଖାଉଛି", "ଖାଇଲା", "ଖାଇ"], "a": 3, "e": "‘ଇ’ ଅନ୍ତ ରୂପ (ଖାଇ) ଅସମାପିକା । ଅନ୍ୟମାନେ ସମାପିକା (୨୦୨୫ Q46) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଲଜ୍ଜାଇବା’ କ୍ରିୟାପଦଟି ______ ଶବ୍ଦରୁ ଗଠିତ ।", "o": ["ବିଶେଷ୍ୟ", "ସର୍ବନାମ", "ବିଶେଷଣ", "ଅବ୍ୟୟ"], "a": 0, "e": "‘ଲଜ୍ଜା’ ବିଶେଷ୍ୟ; ଏଥିରୁ ନାମଧାତୁ ‘ଲଜ୍ଜାଇବା’ ଗଢ଼ା (୨୦୨୧ Q91 ‘ଅଙ୍କୁର → ଅଙ୍କୁରିବା’) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "ନାମଧାତୁ ‘ଗରମାଇବା’ର ବିଶେଷଣ ପଦ ______ ।", "o": ["ଗର୍ମ୍", "ଗରମ", "ଗରମା", "ଗରମାଇ"], "a": 1, "e": "‘ଗରମ’ ବିଶେଷଣରୁ ‘ଗରମାଇବା’ ଧାତୁ ଗଢ଼ା (୨୦୨୧ Q95 ‘ଆଗ → ଆଗେଇବା’, ୨୦୨୫ Q67) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "କେଉଁଟି ନାମଧାତୁ କ୍ରିୟା ନୁହେଁ ?", "o": ["ଅଙ୍କୁରିବା", "ଲଜ୍ଜାଇବା", "ଖାଇବା", "ଗରମାଇବା"], "a": 2, "e": "‘ଖାଇବା’ ‘ଖା’ ଧାତୁରୁ ଗଢ଼ା, ବିଶେଷ୍ୟ ବା ବିଶେଷଣରୁ ନୁହେଁ । ଅନ୍ୟମାନେ ନାମଧାତୁ ।", "k": "not", "n": false, "c": false}, {"s": "Verb", "q": "କେଉଁଟି ସକର୍ମକ କ୍ରିୟା ?", "o": ["ଖାଇବା", "ଦୌଡ଼ିବା", "ଶୋଇବା", "ହସିବା"], "a": 0, "e": "‘ସେ ଭାତ ଖାଏ’ — କର୍ମ ଦରକାର; ତେଣୁ ଖାଇବା ସକର୍ମକ । ଅନ୍ୟମାନେ ଅକର୍ମକ (୨୦୧୮ Q33 = ୨୦୨୫ Q54) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଗୁରୁ ଶିଷ୍ୟକୁ ବିଦ୍ୟା ଦେଲେ’ — ଏହି ବାକ୍ୟର ମୁଖ୍ୟ କର୍ମ ଚିହ୍ନଟ କର :", "o": ["ଦେଲେ", "ବିଦ୍ୟା", "ଶିଷ୍ୟକୁ", "ଗୁରୁ"], "a": 1, "e": "ଦ୍ୱିକର୍ମକ କ୍ରିୟାରେ ପ୍ରାଣୀବାଚକ କର୍ମ (ଶିଷ୍ୟ) ଗୌଣ, ଅପ୍ରାଣୀବାଚକ (ବିଦ୍ୟା) ମୁଖ୍ୟ (୨୦୨୧ Q61, Q99) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ପିଲାଟି ହସୁଛି’ — ‘ହସୁଛି’ କେଉଁ ଧରଣର କ୍ରିୟା ?", "o": ["ଦ୍ୱିକର୍ମକ", "ଅକର୍ମକ", "ସକର୍ମକ", "ପ୍ରେରଣାର୍ଥକ"], "a": 1, "e": "ଏଥିରେ କର୍ମ ନାହିଁ; ଅକର୍ମକ (୨୦୨୧ Q78 ‘ବହୁଛି’) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ପଢ଼’ ଧାତୁର ପ୍ରେରଣାର୍ଥକ ରୂପ କେଉଁଟି ?", "o": ["ପଢ଼ା", "ପଢ଼ୁ", "ପଢ଼ୁଥା", "ପଢ଼ି"], "a": 0, "e": "ଧାତୁ ସହ ‘ଆ’ ଯୋଗ କଲେ ପ୍ରେରଣାର୍ଥକ (ପଢ଼ାଏ, ପଢ଼ାନ୍ତି) । ‘ଖା → ଖୁଆ’ (୨୦୧୮ Q58) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "କେଉଁଟି ପ୍ରେରଣାର୍ଥକ କ୍ରିୟାପଦ ?", "o": ["ଶୋଇବା", "ଶୁଖିବା", "ଶୁଆଇବା", "ଶୁଣିବା"], "a": 2, "e": "‘ଶୋଇବା’ର ପ୍ରେରଣାର୍ଥକ ‘ଶୁଆଇବା’ (ଅନ୍ୟକୁ ଶୁଆଇବା) । ପ୍ରେରଣାର୍ଥକ ୨୦୧୮ରେ ୩ଥର ଆସିଥିଲା ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଶୁଣିବା’ ଧାତୁ ମୂଳ ସଂସ୍କୃତ ______ ଧାତୁରୁ ଆସିଛି ।", "o": ["ଶୁଣ୍", "ଶ୍ରୀ", "ଶୂ", "ଶ୍ରୁ"], "a": 3, "e": "‘ଶୁଣିବା’ ସଂସ୍କୃତ ‘ଶ୍ରୁ’ ଧାତୁରୁ (୨୦୨୧ Q43 ‘ଦେଖ୍ ← ଦୃଶ୍’, ୨୦୨୫ Q36 ‘ପଚାରିବା ← ପ୍ରଚ୍ଛ୍’) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଲେଖିବା’ ଧାତୁ ମୂଳ ସଂସ୍କୃତ ______ ଧାତୁରୁ ଆସିଛି ।", "o": ["ଲୀଖ୍", "ଲିଖ୍", "ଲେଖ୍", "ଲଖ୍"], "a": 1, "e": "‘ଲେଖିବା’ ସଂସ୍କୃତ ‘ଲିଖ୍’ ଧାତୁରୁ ଆସିଛି ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଦେବା’ ଧାତୁ ମୂଳ ସଂସ୍କୃତ ______ ଧାତୁରୁ ଆସିଛି ।", "o": ["ଦା", "ଦେ୍", "ଦୀ", "ଦୃ"], "a": 0, "e": "‘ଦେବା’ ସଂସ୍କୃତ ‘ଦା’ ଧାତୁରୁ ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଭଜିବା’ ଧାତୁର ମୂଳ ରୂପ ______ ଧାତୁ ।", "o": ["ତତ୍ସମ", "ବୈଦେଶିକ", "ଦେଶଜ", "ତଦ୍ଭବ"], "a": 0, "e": "‘ଭଜ୍’ ସଂସ୍କୃତ ଧାତୁ; ଓଡ଼ିଆରେ ସେହିପରି ଥିବାରୁ ତତ୍ସମ (୨୦୨୧ Q45; ୨୦୨୫ Q70 ‘କୁଟିବା’ ତତ୍ସମ) । ଧାତୁର ନାମ ବ୍ୟାକରଣ ପୁସ୍ତକ ଅନୁସାରେ ଭିନ୍ନ ହୋଇପାରେ ।", "k": "one", "n": false, "c": true}, {"s": "Verb", "q": "‘ପିଇବା’ ଧାତୁ ମୂଳ ସଂସ୍କୃତ ______ ଧାତୁରୁ ଆସିଛି ।", "o": ["ପୃ", "ପୀ", "ପୂ", "ପା"], "a": 3, "e": "‘ପିଇବା’ ସଂସ୍କୃତ ‘ପା’ (ପିବତି) ଧାତୁରୁ ଆସିଛି ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ଏ ମୋର ବହି ______ ।’ ଶୂନ୍ୟସ୍ଥାନରେ କ’ଣ ବସିବ ?", "o": ["ନଥିଲା", "ନ", "ନୁହେଁ", "ନାହିଁ"], "a": 2, "e": "‘ଏ ମୋର ବହି ନୁହେଁ’ — ‘ଅଟେ’ ର ନାସ୍ତି ରୂପ ‘ନୁହେଁ’ (୨୦୨୫ Q52) । ‘ନାହିଁ’ କ୍ରିୟା ପରେ ବସେ (୨୦୧୮ Q65) ।", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "‘ସେ ଆଜି ସ୍କୁଲ ଯିବ ନାହିଁ’ — ‘ନାହିଁ’ କ’ଣ ସୂଚାଏ ?", "o": ["ନାସ୍ତି ଅର୍ଥ", "ଅତୀତ କାଳ", "ପ୍ରଶ୍ନ", "ଆଦେଶ"], "a": 0, "e": "‘ନାହିଁ’ ନାସ୍ତ୍ୟର୍ଥକ; ବାକ୍ୟକୁ ନେତିବାଚକ କରେ (୨୦୧୮ Q65, ୨୦୨୫ Q61) ।", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "______ ଏକ କ୍ରିୟା ବିଶେଷଣ ପଦ ।", "o": ["ଲମ୍ବା ବାଟ", "ସରୁ ସୂତା", "ଜୋରରେ ବର୍ଷୁଛି", "ମିଠା ଆମ୍ବ"], "a": 2, "e": "‘ଜୋରରେ’ କ୍ରିୟା ‘ବର୍ଷୁଛି’ର ଗୁଣ ଦର୍ଶାଏ; କ୍ରିୟା ବିଶେଷଣ । ଅନ୍ୟଗୁଡ଼ିକ ବିଶେଷ୍ୟକୁ ବିଶେଷିତ କରନ୍ତି (୨୦୨୫ Q53, Q62, Q68) ।", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "କ୍ରିୟା ବିଶେଷଣ ______ କୁ ବିଶେଷିତ କରେ ।", "o": ["ବିଶେଷ୍ୟକୁ", "ସର୍ବନାମକୁ", "ଅବ୍ୟୟକୁ", "କ୍ରିୟାକୁ"], "a": 3, "e": "ଯେଉଁ ପଦ କ୍ରିୟାର ଗୁଣ ବା ଅବସ୍ଥା ଦର୍ଶାଏ ତାହା କ୍ରିୟା ବିଶେଷଣ (୨୦୧୮ Q18) ।", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "‘ସେ ଖୁବ୍ ଜୋରରେ ଦୌଡ଼ିଲା’ — କେଉଁଟି କ୍ରିୟା ବିଶେଷଣର ବିଶେଷଣ ?", "o": ["ଜୋରରେ", "ସେ", "ଦୌଡ଼ିଲା", "ଖୁବ୍"], "a": 3, "e": "‘ଜୋରରେ’ କ୍ରିୟା ବିଶେଷଣ; ‘ଖୁବ୍’ ତାହାକୁ ବିଶେଷିତ କରୁଛି (୨୦୨୧ Q34 ‘ଅତି ଧୀରେ’) ।", "k": "one", "n": false, "c": false}, {"s": "Sentence rewriting", "q": "‘ସୂର୍ଯ୍ୟୋଦୟରେ ପକ୍ଷୀମାନେ ଗାଆନ୍ତି’ — ଏହାର ରୂପାନ୍ତରିତ ଜଟିଳ ବାକ୍ୟଟି ଚିହ୍ନଟ କର ।", "o": ["ସୂର୍ଯ୍ୟ ଉଦୟ ହୁଏ ଏବଂ ପକ୍ଷୀମାନେ ଗାଆନ୍ତି", "ଯେତେବେଳେ ସୂର୍ଯ୍ୟ ଉଦୟ ହୁଏ, ସେତେବେଳେ ପକ୍ଷୀମାନେ ଗାଆନ୍ତି", "ସୂର୍ଯ୍ୟ ଉଦୟ ହୁଏ, ମାତ୍ର ପକ୍ଷୀମାନେ ଗାଆନ୍ତି ନାହିଁ", "ସୂର୍ଯ୍ୟ ଉଦୟ ହେଲେ ହେଁ ପକ୍ଷୀମାନେ ଗାଆନ୍ତି"], "a": 1, "e": "ଜଟିଳ ବାକ୍ୟରେ ଏକ ମୁଖ୍ୟ ଓ ଏକ ଆଶ୍ରିତ ବାକ୍ୟ ଥାଏ; ‘ଯେତେବେଳେ…ସେତେବେଳେ’ ସେଇ ଯୋଡ଼ା । ‘ଏବଂ’ ଯୌଗିକ ବାକ୍ୟ ଗଢ଼େ (୨୦୨୫ Q71–73) ।", "k": "one", "n": false, "c": false}, {"s": "Sentence rewriting", "q": "‘ସେ ଧନୀ, ମାତ୍ର ସୁଖୀ ନୁହେଁ’ — ଏହାର ରୂପାନ୍ତରିତ ସରଳ ବାକ୍ୟଟି ଚିହ୍ନଟ କର ।", "o": ["ଯଦି ସେ ଧନୀ, ତେବେ ସେ ସୁଖୀ ନୁହେଁ", "ସେ ଧନୀ ଏବଂ ସେ ସୁଖୀ", "ଧନୀ ହେଲେ ହେଁ ସେ ସୁଖୀ ନୁହେଁ", "ଯେହେତୁ ସେ ଧନୀ, ତେଣୁ ସେ ସୁଖୀ ନୁହେଁ"], "a": 2, "e": "ଏକ ହିଁ କ୍ରିୟା ଥାଇ ‘ମାତ୍ର’ର ଅର୍ଥ ‘ହେଲେ ହେଁ’ ଦ୍ୱାରା ପ୍ରକାଶ ପାଏ; ସେଇଟି ସରଳ ବାକ୍ୟ (୨୦୨୫ Q79) ।", "k": "one", "n": false, "c": true}, {"s": "Sentence rewriting", "q": "‘ଯଦି ବର୍ଷା ହେବ, ତେବେ ଖେଳ ହେବ ନାହିଁ’ — ଏହାର ରୂପାନ୍ତରିତ ସରଳ ବାକ୍ୟଟି ଚିହ୍ନଟ କର ।", "o": ["ବର୍ଷା ହେବ ଏବଂ ଖେଳ ହେବ ନାହିଁ", "ବର୍ଷା ହେଲେ ଖେଳ ହେବ ନାହିଁ", "ଯେତେବେଳେ ବର୍ଷା ହେବ, ସେତେବେଳେ ଖେଳ ହେବ ନାହିଁ", "ବର୍ଷା ନ ହେଲେ ଖେଳ ହେବ"], "a": 1, "e": "‘ଯଦି…ତେବେ’ ବାକ୍ୟକୁ ସଂକ୍ଷେପ କରି ‘ହେଲେ’ ବ୍ୟବହାର କଲେ ସରଳ ବାକ୍ୟ ହୁଏ । ‘ଯେତେବେଳେ…ସେତେବେଳେ’ ଜଟିଳ ଅଟେ ।", "k": "one", "n": false, "c": false}, {"s": "Sentence rewriting", "q": "‘ସେ ଘରକୁ ଯାଇ ଖାଇଲା’ — ଏହାର ରୂପାନ୍ତରିତ ଯୌଗିକ ବାକ୍ୟଟି ଚିହ୍ନଟ କର ।", "o": ["ସେ ଘରକୁ ଗଲା ଏବଂ ଖାଇଲା", "ସେ ଘରକୁ ଗଲା କି ?", "ଯଦି ସେ ଘରକୁ ଯାଏ, ତେବେ ଖାଏ", "ଯେତେବେଳେ ସେ ଘରକୁ ଗଲା, ସେତେବେଳେ ଖାଇଲା"], "a": 0, "e": "ଦୁଇଟି ସମାନ କ୍ରିୟାକୁ ‘ଏବଂ’ ଦ୍ୱାରା ଯୋଡ଼ିଲେ ଯୌଗିକ ବାକ୍ୟ ହୁଏ (୨୦୨୫ Q74) ।", "k": "one", "n": false, "c": false}, {"s": "Sentence rewriting", "q": "‘ହାୟ! ଏ ଦୃଶ୍ୟ କେତେ ସୁନ୍ଦର’ — ଏହା କେଉଁ ପ୍ରକାରର ବାକ୍ୟ ?", "o": ["ବିବୃତିସୂଚକ", "ବିସ୍ମୟସୂଚକ", "ଆଦେଶାତ୍ମକ", "ପ୍ରଶ୍ନସୂଚକ"], "a": 1, "e": "ଆନନ୍ଦ ବା ବିସ୍ମୟ ପ୍ରକାଶ କରୁଥିବା ବାକ୍ୟ ବିସ୍ମୟସୂଚକ (୨୦୨୫ Q86, Q90) ।", "k": "one", "n": false, "c": false}, {"s": "Sentence rewriting", "q": "‘ମୋହନ କହିଲା, “ମୁଁ ବହି ପଢ଼ୁଛି”’ — ଏହାର ପରୋକ୍ଷ ଉକ୍ତିଟି ଚିହ୍ନଟ କର ।", "o": ["ମୋହନ କହିଲା ଯେ ସେ ବହି ପଢ଼ୁଛି", "ମୋହନ କହିଲା, ସେ ବହି ପଢ଼ୁଛି କି ?", "ମୋହନ କହିଲା ଯେ ତୁମେ ବହି ପଢ଼ୁଛ", "ମୋହନ କହିଲା ଯେ ମୁଁ ବହି ପଢ଼ୁଛି"], "a": 0, "e": "ପ୍ରତ୍ୟକ୍ଷ ଉକ୍ତିର ପ୍ରଥମ ପୁରୁଷ ‘ମୁଁ’ ପରୋକ୍ଷ ଉକ୍ତିରେ ତୃତୀୟ ପୁରୁଷ ‘ସେ’ ହୁଏ; ‘ଯେ’ ବ୍ୟବହୃତ ହୁଏ (୨୦୨୫ Q88–89) ।", "k": "one", "n": false, "c": false}, {"s": "Sentence rewriting", "q": "‘ଭଗବାନ ତୁମର ମଙ୍ଗଳ କରନ୍ତୁ’ — ଏହା କେଉଁ ପ୍ରକାରର ବାକ୍ୟ ?", "o": ["ବିବୃତିସୂଚକ", "କାମନାମୂଳକ", "ପ୍ରଶ୍ନସୂଚକ", "ବିସ୍ମୟସୂଚକ"], "a": 1, "e": "ଇଚ୍ଛା ବା ଶୁଭକାମନା ଜଣାଉଥିବା ବାକ୍ୟ କାମନାମୂଳକ (୨୦୨୫ Q81 ‘ପ୍ରଜା ସୁଖରେ ରହନ୍ତୁ’) ।", "k": "one", "n": false, "c": false}, {"s": "Passage", "q": "ରାମଚନ୍ଦ୍ର କିଏ ଥିଲେ ?", "o": ["ଜଣେ ଚାଷୀ", "ଜଣେ ଶିକ୍ଷକ", "ଜଣେ ମାଛୁଆ", "ଜଣେ ବ୍ୟବସାୟୀ"], "a": 0, "e": "ଅନୁଚ୍ଛେଦର ପ୍ରଥମ ବାକ୍ୟରେ ଅଛି: ‘ରାମଚନ୍ଦ୍ର ନାମକ ଜଣେ ଚାଷୀ’ ।", "k": "one", "n": false, "c": false, "p": "ଗୋଟିଏ ଗାଁରେ ରାମଚନ୍ଦ୍ର ନାମକ ଜଣେ ଚାଷୀ ରହୁଥିଲେ । ସେ ପ୍ରତିଦିନ ସକାଳୁ ଉଠି ଖେତକୁ ଯାଆନ୍ତି ଓ ସଞ୍ଜ ଯାଏ କାମ କରନ୍ତି । ଥରେ ଅତ୍ୟଧିକ ବର୍ଷା ହେବାରୁ ତାଙ୍କ ଖେତର ଧାନ ପାଣିରେ ବୁଡ଼ିଗଲା । ଗାଁ ଲୋକେ ଭାବିଲେ, ଏଥର ସେ ହାରମାନିବେ । କିନ୍ତୁ ରାମଚନ୍ଦ୍ର ଭାଙ୍ଗି ପଡ଼ିଲେ ନାହିଁ । ପାଣି ଶୁଖିବା ପରେ ସେ ପୁଣି ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ । କିଛି ଦିନରେ ଖେତ ପୁଣି ସବୁଜ ହୋଇଉଠିଲା । ଏଥର ସେ ଭଲ ଫସଲ ପାଇଲେ । ଗାଁ ଲୋକେ ତାଙ୍କର ସାହସ ଓ ଧୈର୍ଯ୍ୟର ପ୍ରଶଂସା କଲେ ।"}, {"s": "Passage", "q": "ରାମଚନ୍ଦ୍ରଙ୍କ ଖେତର ଧାନ କାହିଁକି ନଷ୍ଟ ହେଲା ?", "o": ["ଅତ୍ୟଧିକ ବର୍ଷା ପାଇଁ", "ମହାମାରୀ ପାଇଁ", "ବିନା ବର୍ଷାରେ ଶୁଖିବା ପାଇଁ", "ପୋକ ଲାଗିବା ପାଇଁ"], "a": 0, "e": "ଅନୁଚ୍ଛେଦରେ ଅଛି: ‘ଅତ୍ୟଧିକ ବର୍ଷା ହେବାରୁ…ଧାନ ପାଣିରେ ବୁଡ଼ିଗଲା’ ।", "k": "one", "n": false, "c": false, "p": "ଗୋଟିଏ ଗାଁରେ ରାମଚନ୍ଦ୍ର ନାମକ ଜଣେ ଚାଷୀ ରହୁଥିଲେ । ସେ ପ୍ରତିଦିନ ସକାଳୁ ଉଠି ଖେତକୁ ଯାଆନ୍ତି ଓ ସଞ୍ଜ ଯାଏ କାମ କରନ୍ତି । ଥରେ ଅତ୍ୟଧିକ ବର୍ଷା ହେବାରୁ ତାଙ୍କ ଖେତର ଧାନ ପାଣିରେ ବୁଡ଼ିଗଲା । ଗାଁ ଲୋକେ ଭାବିଲେ, ଏଥର ସେ ହାରମାନିବେ । କିନ୍ତୁ ରାମଚନ୍ଦ୍ର ଭାଙ୍ଗି ପଡ଼ିଲେ ନାହିଁ । ପାଣି ଶୁଖିବା ପରେ ସେ ପୁଣି ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ । କିଛି ଦିନରେ ଖେତ ପୁଣି ସବୁଜ ହୋଇଉଠିଲା । ଏଥର ସେ ଭଲ ଫସଲ ପାଇଲେ । ଗାଁ ଲୋକେ ତାଙ୍କର ସାହସ ଓ ଧୈର୍ଯ୍ୟର ପ୍ରଶଂସା କଲେ ।"}, {"s": "Passage", "q": "ପାଣି ଶୁଖିବା ପରେ ରାମଚନ୍ଦ୍ର କ’ଣ କଲେ ?", "o": ["ଖେତ ବିକିଦେଲେ", "କାମ ବନ୍ଦ କଲେ", "ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ", "ଗାଁ ଛାଡ଼ିଦେଲେ"], "a": 2, "e": "ଅନୁଚ୍ଛେଦରେ ଅଛି: ‘ସେ ପୁଣି ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ’ ।", "k": "one", "n": false, "c": false, "p": "ଗୋଟିଏ ଗାଁରେ ରାମଚନ୍ଦ୍ର ନାମକ ଜଣେ ଚାଷୀ ରହୁଥିଲେ । ସେ ପ୍ରତିଦିନ ସକାଳୁ ଉଠି ଖେତକୁ ଯାଆନ୍ତି ଓ ସଞ୍ଜ ଯାଏ କାମ କରନ୍ତି । ଥରେ ଅତ୍ୟଧିକ ବର୍ଷା ହେବାରୁ ତାଙ୍କ ଖେତର ଧାନ ପାଣିରେ ବୁଡ଼ିଗଲା । ଗାଁ ଲୋକେ ଭାବିଲେ, ଏଥର ସେ ହାରମାନିବେ । କିନ୍ତୁ ରାମଚନ୍ଦ୍ର ଭାଙ୍ଗି ପଡ଼ିଲେ ନାହିଁ । ପାଣି ଶୁଖିବା ପରେ ସେ ପୁଣି ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ । କିଛି ଦିନରେ ଖେତ ପୁଣି ସବୁଜ ହୋଇଉଠିଲା । ଏଥର ସେ ଭଲ ଫସଲ ପାଇଲେ । ଗାଁ ଲୋକେ ତାଙ୍କର ସାହସ ଓ ଧୈର୍ଯ୍ୟର ପ୍ରଶଂସା କଲେ ।"}, {"s": "Passage", "q": "ଅନୁଚ୍ଛେଦରେ ରାମଚନ୍ଦ୍ରଙ୍କଠାରେ କେଉଁ ଗୁଣ ପ୍ରକାଶ ପାଇଛି ?", "o": ["ଆଳସ୍ୟ", "ଅହଂକାର", "ଧୈର୍ଯ୍ୟ ଓ ସାହସ", "ଲୋଭ"], "a": 2, "e": "ସେ ବିପଦରେ ଭାଙ୍ଗି ପଡ଼ିଲେ ନାହିଁ ଓ ପୁଣି ଚେଷ୍ଟା କଲେ; ଗାଁ ଲୋକେ ମଧ୍ୟ ‘ସାହସ ଓ ଧୈର୍ଯ୍ୟ’ର ପ୍ରଶଂସା କଲେ ।", "k": "one", "n": false, "c": false, "p": "ଗୋଟିଏ ଗାଁରେ ରାମଚନ୍ଦ୍ର ନାମକ ଜଣେ ଚାଷୀ ରହୁଥିଲେ । ସେ ପ୍ରତିଦିନ ସକାଳୁ ଉଠି ଖେତକୁ ଯାଆନ୍ତି ଓ ସଞ୍ଜ ଯାଏ କାମ କରନ୍ତି । ଥରେ ଅତ୍ୟଧିକ ବର୍ଷା ହେବାରୁ ତାଙ୍କ ଖେତର ଧାନ ପାଣିରେ ବୁଡ଼ିଗଲା । ଗାଁ ଲୋକେ ଭାବିଲେ, ଏଥର ସେ ହାରମାନିବେ । କିନ୍ତୁ ରାମଚନ୍ଦ୍ର ଭାଙ୍ଗି ପଡ଼ିଲେ ନାହିଁ । ପାଣି ଶୁଖିବା ପରେ ସେ ପୁଣି ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ । କିଛି ଦିନରେ ଖେତ ପୁଣି ସବୁଜ ହୋଇଉଠିଲା । ଏଥର ସେ ଭଲ ଫସଲ ପାଇଲେ । ଗାଁ ଲୋକେ ତାଙ୍କର ସାହସ ଓ ଧୈର୍ଯ୍ୟର ପ୍ରଶଂସା କଲେ ।"}, {"s": "Passage", "q": "ଏହି ଅନୁଚ୍ଛେଦରୁ କେଉଁ ଶିକ୍ଷା ମିଳେ ?", "o": ["ଚାଷ ଛାଡ଼ି ଅନ୍ୟ କାମ କରିବା ଉଚିତ", "ବିପଦରେ ହାର ନମାନି ପୁଣି ଉଦ୍ୟମ କରିବା ଉଚିତ", "ଗାଁ ଲୋକଙ୍କ କଥା ଶୁଣିବା ଉଚିତ ନୁହେଁ", "ବର୍ଷା ଦିନେ ଚାଷ କରିବା ଉଚିତ ନୁହେଁ"], "a": 1, "e": "ଅନୁଚ୍ଛେଦର ମୂଳ କଥା ହେଲା ବିପଦରେ ଧୈର୍ଯ୍ୟ ଧରି ପୁଣି ଆରମ୍ଭ କରିବା (୨୦୨୫ Q94, Q98 ପରି ଗୁଣ/ଶିକ୍ଷା ପ୍ରଶ୍ନ) ।", "k": "one", "n": false, "c": false, "p": "ଗୋଟିଏ ଗାଁରେ ରାମଚନ୍ଦ୍ର ନାମକ ଜଣେ ଚାଷୀ ରହୁଥିଲେ । ସେ ପ୍ରତିଦିନ ସକାଳୁ ଉଠି ଖେତକୁ ଯାଆନ୍ତି ଓ ସଞ୍ଜ ଯାଏ କାମ କରନ୍ତି । ଥରେ ଅତ୍ୟଧିକ ବର୍ଷା ହେବାରୁ ତାଙ୍କ ଖେତର ଧାନ ପାଣିରେ ବୁଡ଼ିଗଲା । ଗାଁ ଲୋକେ ଭାବିଲେ, ଏଥର ସେ ହାରମାନିବେ । କିନ୍ତୁ ରାମଚନ୍ଦ୍ର ଭାଙ୍ଗି ପଡ଼ିଲେ ନାହିଁ । ପାଣି ଶୁଖିବା ପରେ ସେ ପୁଣି ମାଟି ସଜାଡ଼ି ନୂଆ ଧାନ ବୁଣିଲେ । କିଛି ଦିନରେ ଖେତ ପୁଣି ସବୁଜ ହୋଇଉଠିଲା । ଏଥର ସେ ଭଲ ଫସଲ ପାଇଲେ । ଗାଁ ଲୋକେ ତାଙ୍କର ସାହସ ଓ ଧୈର୍ଯ୍ୟର ପ୍ରଶଂସା କଲେ ।"}];
+(function(){
+  var SK="aso-odia-mock-2027-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=45*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice", locked=prac && a>=0;
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",fig:"Figure",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q; var pz=$("q-pass"); pz.hidden=!q.p; pz.textContent=q.p||""; var fz=$("q-fig"); fz.hidden=!q.f; fz.innerHTML=q.f||"";
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 100 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 100</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Spelling", "Synonyms", "Antonyms", "Verb", "Tense", "Adverb", "Subject-verb", "Passage", "Sentence rewriting"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO ODIA MOCK 01 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / "+N+" · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please bring my wrong and skipped questions back in the next mock.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div>'+(q.p?'<details class="pass"><summary>Passage</summary>'+esc(q.p)+'</details>':'')+'<div class="qtext">'+esc(q.q)+'</div>'+(q.f?'<div class="qfig">'+q.f+'</div>':'')+'<ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+</body>
