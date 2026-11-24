@@ -1,0 +1,398 @@
+#CH start | Start here: your 16 weak questions | YOUR SCORE · Mock 07
+You scored **80.75 out of 100** on English Mock 07: 84 right, 13 wrong and 3 skipped. That is a good score. The 16 questions you missed are not 16 different problems. They fall into **eight small ideas**, and each idea is a short chapter in this guide. Learn the eight ideas and almost all of these questions will not hurt you again.
+
+Every chapter has the same four steps. First comes the **fundamental**: the rule in plain words, and the reason it works. Then comes **your question**: what you picked, what was right, and why the wrong option looked tempting. Then a few **more examples**, and last a **Check yourself** box with tap-to-open answers and the questions most likely to come next in the real exam.
+
+##Which chapter fixes which question
+|Chapter|Idea|Your questions|
+|---|---|---|
+|1|Infinitives: when "to" is used and when it is dropped|Q3, Q19|
+|2|Parts of speech: the job of the word decides|Q21, Q24, Q25|
+|3|If-sentences: the "if" part never takes will|Q33, Q35|
+|4|Since and for|Q31|
+|5|Uncountable nouns (furniture and its family)|Q32|
+|6|Agreement: four traps with the verb|Q39, Q86, Q87, Q88|
+|7|Articles: meals and other places with no article|Q74|
+|8|Prepositions: envious of, in the hall, on Monday|Q58, Q59|
+
+>KEY:What your score tells us
+Your mistakes are mostly on **small rules with a trap**, not on big topics. Vocabulary, adverbs, synonyms, antonyms, comprehension and rearrangement were all perfect or near perfect. Agreement (4 wrong) and parts of speech (3 missed) cost the most. Fix those two chapters first.
+
+>TIP:How to use this guide
+Read one chapter, then tap the Check yourself answers without looking. Come back to the same chapter after two days. The next mock will bring these 16 questions back with new twins, so a quick second look at the "Your question" boxes is the best revision.
+
+#CH inf | 1. Infinitives: "to" or no "to" | WEAK SPOT · Q3, Q19
+An **infinitive** is the base form of a verb, usually with the word **to** in front: to make, to learn, to go. Two questions in Mock 07 were about the small word "to". In Q3 you kept a wrong form, and in Q19 you added a "to" that must not be there.
+
+##The negative infinitive: not to + verb
+When you want to say "do not" about an infinitive, the word **not** goes **before to**. We say "asked him **not to** make noise", never "asked him to not make noise". The reason is simple. In "to make", the word "to" belongs to the verb like a hat. The word "not" stands in front of the whole thing and cancels it.
+✗ The teacher asked the students to not make noise.
+✓ The teacher asked the students not to make noise.
+✗ She told me to not worry.
+✓ She told me not to worry.
+
+>WARN:Your question (Mock 07 Q3)
+The sentence was: "Before the examination began, the teacher politely asked all the students (to not make) any noise in the library." You chose **No improvement**. The right answer was **not to make**. The trap: "to not make" sounds natural in everyday speech, so it feels fine. The exam follows the textbook rule, which is "not to".
+
+##The bare infinitive: no "to" after some verbs
+After a few verbs, the next verb comes **without "to"**. This is called the **bare infinitive**. The main ones are:
+- **make** someone do: The teacher made the students learn.
+- **let** someone do: Her father let her go.
+- **see, hear, watch, notice** someone do: I saw him leave.
+- **modal verbs** (can, could, may, might, must, shall, should, will, would): He must go.
+- **had better, would rather**: You had better go. I would rather stay.
+
+The reason is old English habit, so do not look for logic. Just remember the short list: **make, let, see, hear + modals**.
+
+>WARN:Your question (Mock 07 Q19)
+"To prepare for the annual day programme, the teacher made all the students ____ the long poem by heart." You chose **to learn**. The right answer was **learn**. The trap: most verbs ("asked", "told", "wanted", "allowed") do take "to", so "to learn" looks safe. But **made** is on the bare-infinitive list.
+
+##The passive brings the "to" back
+When "make" or "see" is turned into the passive, the "to" returns. This is a favourite exam trap.
+✓ The teacher made the students learn the poem. (active, no to)
+✓ The students were made to learn the poem. (passive, to returns)
+✓ I saw him enter. / He was seen to enter.
+
+##Which verbs take what
+|After this verb|Next verb looks like|Example|
+|---|---|---|
+|make, let, see, hear, modals|bare: learn|She made him **wait**.|
+|ask, tell, want, allow, advise, order|to + verb: to learn|She told him **to wait**.|
+|enjoy, avoid, finish, deny, mind, suggest|-ing: learning|He denied **breaking** it.|
+|a preposition (look forward to, insist on)|-ing: learning|I look forward to **meeting** you.|
+
+>NEXT:Check yourself and likely next
+?? Fill in: "The doctor advised him ____ sweets." (to avoid / avoid / avoiding)||to avoid. "Advise" takes to + verb.
+?? Fill in: "Her mother did not let her ____ out at night." (to go / go / going)||go. "Let" takes the bare infinitive.
+?? Fill in: "The boys were made ____ the ground." (clean / to clean / cleaning)||to clean. After the passive of "make", the "to" returns.
+?? Choose the right one: "He told me not to be late." or "He told me to not be late."||The first. "Not to" is the exam form.
+?? Likely next: "I would rather ____ at home than go out." (stay / to stay / staying)||stay. "Would rather" is followed by the bare form.
+
+#CH pos | 2. Parts of speech: the job decides | WEAK SPOT · Q21, Q24, Q25
+A **part of speech** tells us what **job** a word does in a sentence. The same word can do different jobs in different sentences. So you can never name the part of speech by looking at the word alone. You must look at **what it does here**. Three of your questions (Q21, Q24, Q25) were about this one idea. The 2021 paper had seven direct questions of this kind ⟦2021 Q17–22⟧, so expect one or two again.
+
+##The eight parts in one table
+|Part|Its job|Example|
+|---|---|---|
+|Noun|names a person, place, thing or idea|school, honesty|
+|Pronoun|stands in place of a noun|he, everyone, who|
+|Verb|shows action or state|run, is|
+|Adjective|describes a **noun** or pronoun|a **difficult** question|
+|Adverb|describes a **verb, adjective or another adverb**|**quite** sure, runs **fast**|
+|Preposition|shows the place or relation of a **noun** to something else|**over** the wall|
+|Conjunction|joins words or clauses|and, but, **until**, because|
+|Interjection|a cry of feeling|Alas! Wow!|
+
+##Trap 1: an adverb can describe an adjective (Q21)
+Many students think an adverb only describes a verb. It can also describe an adjective, as in "He is **quite** sure". The word "sure" is an adjective. The word "quite" tells us **how** sure. So "quite" is an **adverb**. The same is true for very, too, so, rather, extremely, fairly, almost.
+✗ "Quite" is an adjective, because it comes before the adjective "sure".
+✓ "Quite" is an adverb, because it tells how much (how sure).
+
+>WARN:Your question (Mock 07 Q21)
+"After checking his notes twice, he is (quite) sure about the answer." You chose **Adjective**, the answer was **Adverb**. Test to use: ask "does this word describe a noun?" If it describes an **adjective** or a verb, it is an adverb.
+
+##Trap 2: gerund, participle and infinitive (Q24)
+Three verb forms do the work of other parts of speech.
+|Form|Looks like|Works as|Example|
+|---|---|---|---|
+|Gerund|verb + -ing|a **noun**|**Swimming** is a good exercise.|
+|Participle|verb + -ing or -ed|an **adjective**|a **drowning** man; the **broken** window|
+|Infinitive|to + verb|noun, adjective or adverb|Eat **to live**.|
+
+The test: can you replace the word with "it" or "this"? "**Swimming** is a good exercise" becomes "**It** is a good exercise". It works, so "swimming" is acting as a noun: a **gerund**. In "a drowning man", "drowning" describes the man, so it is a **participle**.
+
+>WARN:Your question (Mock 07 Q24, skipped)
+"(Swimming) is a good exercise." The answer was **Gerund**. If you skip, you lose nothing, but this question is the same as 2021 Q20 and Q22. Learn the table above and you will answer it in five seconds.
+
+##Trap 3: until is a conjunction when a clause follows (Q25)
+Some words can be a **preposition** or a **conjunction**. The test is what comes **after** the word.
+- A **noun or noun phrase** after it: it is a **preposition**. "I will wait **until Monday**."
+- A **full clause** (a subject and a verb) after it: it is a **conjunction**. "I will wait **until you come back**."
+The same split works for before, after, since, as and for.
+✓ He left **before** noon. (preposition: noon is a noun)
+✓ He left **before** I arrived. (conjunction: "I arrived" is a clause)
+
+>WARN:Your question (Mock 07 Q25)
+"I will wait (until) you come back." You chose **Preposition**; the answer was **Conjunction**, because "you come back" is a clause.
+
+>NEXT:Check yourself and likely next
+?? Name the part of speech: "She is (very) kind."||Adverb. It describes the adjective "kind".
+?? Name the part of speech: "A (running) horse is a lovely sight."||Participle. It describes the noun "horse".
+?? Name the part of speech: "(Running) keeps you fit."||Gerund. It is the subject, so it works as a noun.
+?? Name the part of speech: "I stayed home (because) it was raining."||Conjunction. A clause follows.
+?? Likely next: "He worked (hard) all day." (adjective or adverb?)||Adverb here, because it describes the verb "worked". In "a hard task" it would be an adjective. The same word can do both jobs.
+?? Likely next: "The (lovely) girl smiled." Part of speech?||Adjective. A word ending in -ly is not always an adverb: lovely, friendly, costly, lonely are adjectives.
+
+#CH cond | 3. If-sentences: the "if" part never takes will | WEAK SPOT · Q33, Q35
+A **conditional sentence** has two parts: the **if part** (the condition) and the **result part**. Which verb forms we use depends on how real the condition is. Two of your questions were about this (Q33, skipped, and Q35).
+
+##The four types
+|Type|Meaning|If part|Result part|Example|
+|---|---|---|---|---|
+|Zero|always true|simple present|simple present|If you heat ice, it **melts**.|
+|First|real, possible in the future|simple present|will + verb|If it **rains**, we **will stay** home.|
+|Second|unreal or unlikely now|simple past|would + verb|If I **knew** the answer, I **would tell** you.|
+|Third|impossible, it is past|had + V3|would have + V3|If she **had known**, she **would have come**.|
+
+##The two big rules
+**Rule A: the "if" part never takes will or would** in types 1 and 2. We do not say "if it will rain". The word "will" belongs only to the result part. This is why Q33 had its error in the first segment: "If it will rain tomorrow" is wrong; it should be "If it rains tomorrow". The same is true for "when, as soon as, before, after, until" with a future meaning.
+✗ If it will rain tomorrow, we shall cancel the picnic.
+✓ If it rains tomorrow, we shall cancel the picnic.
+✗ I will call you when I will reach home.
+✓ I will call you when I reach home.
+
+**Rule B: the verb tells you the type.** Look at the **result part first**. If it has "would", the "if" part must be in the **simple past** (type 2). If it has "would have", the "if" part must be in the past perfect (type 3).
+
+>WARN:Your question (Mock 07 Q35)
+"If I ____ the answer, I would tell you." You chose **had known**; the answer was **knew**. The result part says "would tell" (not "would have told"), so this is type 2 and the if part is the simple past: **knew**. "Had known" would need "would have told". The trap: "had known" feels more correct because it sounds more "past". But the tense of the result decides.
+
+##Was or were?
+In type 2, use **were** for every person: "If I **were** you", "If he **were** here". This is the form the examiner expects. The 2025 paper asked conditionals in the same family ("Had she known", "If I had been you").
+
+>TIP:A note on Q33
+In Q33 you skipped. Skipping costs nothing, but you can answer it: look at each segment for a will/would in the "if" part. [If it will rain] is the only one. Always scan the **if part first**.
+
+>NEXT:Check yourself and likely next
+?? Fill in: "If he ____ harder, he would pass." (works / worked / had worked)||worked. Result has "would pass", so type 2: simple past.
+?? Fill in: "If I ____ rich, I would buy a car." (am / was / were)||were. Type 2 takes "were" for every person.
+?? Fill in: "If she had left early, she ____ the train." (will catch / would catch / would have caught)||would have caught. The if part is past perfect, so type 3.
+?? Fix the error: "If it will be sunny, we will go out."||If it is sunny, we will go out. No will in the if part.
+?? Likely next: "Had she known, she would have been there." This is type 3 with "if" dropped. Which word moves?||"Had" moves to the front. "Had she known" = "If she had known".
+
+#CH since | 4. Since and for | WEAK SPOT · Q31
+**Since** and **for** both talk about time, and both go with the present perfect: "I have lived here since 2020" or "I have lived here for five years". The difference is simple.
+|Word|Goes with|Example|
+|---|---|---|
+|since|a **point** of time (a moment when it began)|since 2020, since Monday, since morning, since I was ten|
+|for|a **length** of time (how long)|for five years, for two hours, for a week|
+
+A good trick: if you can put a **calendar or clock word** after it, use since. If you can put a **number of units**, use for.
+✗ I have lived here since five years.
+✓ I have lived here for five years.
+✓ I have lived here since 2020.
+✗ She is teaching here since 2015.
+✓ She has been teaching here since 2015.
+
+##Why "since" needs the present perfect
+"Since" says the action began in the past and is **still going on**. So the verb must connect past to present: has / have + V3, or has / have been + -ing. We cannot say "is teaching since" because "is teaching" has no link to the past.
+
+>WARN:Your question (Mock 07 Q31)
+"Which of the following sentences is NOT correct?" You chose the sentence "I have lived here for five years", which is **correct**. The wrong one was "I have lived here **since five years**". The question asked for the **wrong** sentence, and you may have read it as "which is correct". Read the stem twice when it says NOT, INCORRECT or EXCEPT. Circle the word NOT with your pencil.
+
+>NEXT:Check yourself and likely next
+?? Fill in: "He has been absent ____ Monday." (for / since / from)||since. Monday is a point of time.
+?? Fill in: "They have known each other ____ ten years." (for / since / from)||for. Ten years is a length.
+?? Which is wrong: "I have been waiting since two hours."||It is wrong. It should be "for two hours".
+?? Likely next: "It is five years ____ I saw him." (since / for / from)||since. The pattern "It is + length of time + since + past" is common.
+
+#CH unc | 5. Uncountable nouns: furniture and its family | WEAK SPOT · Q32
+A **countable noun** can be counted one by one: one pen, two pens. An **uncountable noun** is seen as a mass and cannot be counted with numbers: water, rice, advice. Uncountable nouns have **no plural** (no -s) and take a **singular verb**. They never take "a" or "an".
+
+##The ones English learners get wrong
+Some of these nouns are countable in other languages, including Odia and Hindi, which is why they fool us. In English they are uncountable:
+|Word|Right|Wrong|
+|---|---|---|
+|furniture|The furniture **is** old.|furnitures, furniture are|
+|information|This information **is** useful.|informations|
+|advice|His advice **was** good.|advices, an advice|
+|luggage / baggage|My luggage **has** arrived.|luggages|
+|news|The news **is** good.|The news are|
+|knowledge, equipment, evidence, scenery|Equipment is costly.|equipments|
+|hair, bread, rice, money, homework, work|Her hair **is** long.|hairs (for the whole head)|
+
+##How to say "one" or "some" of them
+We use a measure word: **a piece of** furniture, **a piece of** advice, **an item of** news, **a bit of** information, **two pieces of** luggage. We use **much** (not many), and **some** or **any**.
+✗ I need an advice and many informations.
+✓ I need some advice and a lot of information.
+✗ She bought many furnitures.
+✓ She bought a lot of furniture.
+
+>WARN:Your question (Mock 07 Q32)
+"Choose the sentence that is free from error." You chose "The furniture in the room **are** old." The right answer was "The furniture in the room **is** old." The trap: the word "room" and the idea of many chairs and tables make "are" feel right. Furniture is one **mass** noun, so the verb is singular.
+
+>NEXT:Check yourself and likely next
+?? Fix it: "The informations are very useful."||The information is very useful.
+?? Fill in: "The news ____ shocking." (was / were)||was. News is singular in form and meaning.
+?? Fix it: "Give me an advice."||Give me some advice. (or: a piece of advice)
+?? Fill in: "How ____ luggage do you have?" (many / much)||much. Luggage is uncountable.
+?? Likely next: "Mathematics ____ my favourite subject." (is / are)||is. Names of subjects ending in -s (mathematics, physics, economics) are singular. Also news, measles, politics.
+
+#CH agr | 6. Agreement: four traps with the verb | WEAK SPOT · Q39, Q86, Q87, Q88
+**Subject–verb agreement** means the verb must match its subject: a singular subject takes a singular verb (is, was, has), a plural subject takes a plural verb (are, were, have). Four of your wrong answers were here, so this is the most important chapter. The basic rule is easy. The trouble is **finding the real subject**. In each of your four questions, another word stood right next to the verb and fooled you.
+
+##The method: find the subject first
+1. Cross out any phrase that starts with **of, along with, together with, as well as, with, in addition to**.
+2. What is left is the real subject.
+3. Decide singular or plural for that word alone.
+4. Choose the verb to match.
+
+##Trap 1: "along with" does not make a plural (Q86)
+Words like **along with, together with, as well as, with, besides** only add extra information. They do not change the subject. The verb agrees with the **first** noun.
+✗ The captain, along with his players, were welcomed at the airport.
+✓ The captain, along with his players, **was** welcomed at the airport. ⟦2021 Q83–92⟧
+Cross out "along with his players" and you see: "The captain ___ welcomed." So **was**.
+
+>WARN:Your question (Mock 07 Q86)
+You chose **are**. The right answer was **was**. This family was asked in both 2021 and 2025 ("as well as"), so it is likely to come again.
+
+##Trap 2: a plural noun after "of" is not the subject (Q87)
+In "a collection **of old coins**", the subject is **collection**. The words "of old coins" only describe it. This is the oldest trap in grammar.
+✗ A rare collection of old coins are kept in the museum.
+✓ A rare collection of old coins **is** kept in the museum.
+✓ The price of vegetables **has** risen.
+✓ One of the books **is** missing.
+
+>WARN:Your question (Mock 07 Q87)
+You chose **are** because "coins" is plural and sits right before the verb. The subject is **collection**, so the verb is **is**.
+
+##Trap 3: "a pair of" is one thing (Q88)
+In "a pair of trousers", the subject is **pair**. So the verb is singular: "A pair of trousers **is** lying on the bed." Without "a pair of", words like **trousers, scissors, spectacles, pants, shorts** are always plural: "The trousers **are** on the bed."
+|Phrase|Verb|
+|---|---|
+|A pair of scissors|**is** on the table|
+|The scissors|**are** on the table|
+|My spectacles|**are** broken|
+|A pair of my spectacles|**is** broken|
+
+>WARN:Your question (Mock 07 Q88)
+You chose **are**. The right answer was **is**, because the question said "A **pair** of trousers".
+
+##Trap 4: two nouns that make one idea (Q39)
+When **and** joins two words that together name **one thing**, the verb is singular. Examples: bread and butter, rice and curry, fish and chips, curd and rice. When **and** joins two separate persons or things, the verb is plural: "The doctor and the nurse **are** in the room."
+✓ Rice and curry **is** his favourite meal. (one dish)
+✓ Bread and butter **is** my usual breakfast. (one meal)
+✓ Rama and Shyama **are** friends. (two people)
+
+>CHECK:Rice and curry
+The key says "is", because rice and curry is one meal. But many speakers say "are", so this question can be argued. Treat it as a low-priority item. The safe habit is: if the two nouns clearly make one dish or idea, use is.
+
+##The quick table
+|If the sentence has|The subject is|Verb|
+|---|---|---|
+|X **along with / as well as / with** Y|X|matches X|
+|a **collection / number / group of** Y|collection (singular)|is|
+|**a pair of** Y|pair|is|
+|**the number of** Y|number|is|
+|**a number of** Y|Y (many)|are|
+|X **and** Y (one idea)|one thing|is|
+|X **and** Y (two things)|two things|are|
+|Each / every / one of / neither of|singular|is|
+
+>NEXT:Check yourself and likely next
+?? Fill in: "The teacher, as well as her students, ____ present." (was / were)||was. "As well as" does not add to the subject.
+?? Fill in: "A bunch of keys ____ on the table." (is / are)||is. The subject is bunch.
+?? Fill in: "A number of students ____ absent." (is / are)||are. "A number of" means many, so plural. (But "The number of students is large": singular.)
+?? Fill in: "The quality of these mangoes ____ poor." (is / are)||is. The subject is quality.
+?? Fill in: "Bread and jam ____ on the plate." (is / are)||⟨CHECK; either is heard in speech⟩ The exam usually treats a common food pair as one idea, so "is".
+?? Likely next: "Each of the boys ____ a bat." (has / have)||has. Each is always singular.
+
+#CH art | 7. Articles: meals have no article | WEAK SPOT · Q74
+Articles are **a, an** and **the**. The best rule list is short. Use **a/an** for "any one" of something countable, use **the** for something known or one of a kind, and use **no article** in a group of places listed below. In Q74 you added "the" where no article is needed.
+
+##No article before meals
+Say **breakfast, lunch, dinner, supper** without an article when you mean the meal in a general sense.
+✗ We have the lunch at one o'clock.
+✓ We have lunch at one o'clock.
+✓ What did you have for breakfast?
+
+The reason: a meal here is like an activity (as "we play cricket"), not a particular thing. But when you point to **one particular** meal, an article returns: "**The** lunch she cooked was delicious." or "It was **a** heavy lunch."
+
+>WARN:Your question (Mock 07 Q74)
+"In our hostel, the bell rings loudly at noon, and we have ____ lunch at one o'clock in the big dining hall." You chose **the**; the answer was **No article**. The trap: the sentence is full of specific words (the bell, the big dining hall), which pulls "the" in. But "have lunch" is the habit of eating the meal.
+
+##The other no-article places
+|Use no article before|Example|
+|---|---|
+|meals|have lunch, after dinner|
+|games and sports|play cricket, play hockey|
+|languages|speak Odia, learn English|
+|names of people, cities, states|Odisha, Cuttack, Rama|
+|single peaks and lakes|Mount Everest, Chilika Lake|
+|general plural or mass nouns|I like dogs. Time is money.|
+|go to school, college, hospital, church, prison, bed (main purpose)|He goes to school.|
+|abstract nouns in a general sense|Honesty is the best policy.|
+
+##Where "the" is a must
+Rivers, seas, oceans, mountain ranges, deserts and island groups: the Mahanadi, the Bay of Bengal, the Himalayas, the Thar. Also **superlatives** (the best), **musical instruments** (the violin) and one-of-a-kind things (the sun). Note the pair: "Mount Everest" (no article) but "the Himalayas" (with).
+
+>NEXT:Check yourself and likely next
+?? Fill in: "She plays ____ hockey for the state." (the / a / no article)||No article. Games take no article.
+?? Fill in: "He is the best player in ____ team." (the / a / no article)||the. A specific team; "the best" also needs the.
+?? Fill in: "____ Mahanadi flows through Cuttack." (The / A / No article)||The. Rivers take "the".
+?? Fill in: "____ Chilika Lake is in Odisha." (The / No article)||No article. A single lake takes none.
+?? Likely next: "He goes to ____ hospital every Sunday to visit a friend." (the / no article)||the. He goes as a visitor, not as a patient, so the article returns.
+
+#CH prep | 8. Prepositions: envious of, in the hall, on Monday | WEAK SPOT · Q58, Q59
+A **preposition** is a small word that links a noun to the rest of the sentence: of, in, on, at, for, to. They have **no logic you can derive**. They are habits of English, and you learn them in pairs. Q58 and Q59 were about pairs you already half know.
+
+##Envious of: adjective + preposition (Q58)
+Many adjectives go with one fixed preposition. Learn the pair as one word.
+|Adjective|Takes|Example|
+|---|---|---|
+|envious, jealous, afraid, proud, fond, capable, aware, short|**of**|She is envious **of** her friend's success.|
+|good, bad, quick, clever, weak, surprised, angry (at a thing)|**at**|He is good **at** maths.|
+|angry (with a person), pleased, satisfied, bored, busy|**with**|The shopkeeper was angry **with** the boy.|
+|different, free, safe|**from**|Your idea is different **from** mine.|
+|similar, kind, rude, polite, loyal, married|**to**|She is married **to** a doctor.|
+|eligible, fit, famous, responsible, sorry|**for**|He is famous **for** his honesty.|
+
+>WARN:Your question (Mock 07 Q58)
+"She was secretly envious ____ her friend's success." You chose **about**; the answer was **of**. "About" is common after "worried, anxious, excited", so it looked right. Remember: **envious of, jealous of, proud of, afraid of**.
+
+##In, on, at: the three place and time words (Q59, skipped)
+The question was: "The meeting was held ____ the school hall ____ Monday. The principal congratulated the winners ____ their success." The right option was **in, on, on**. Take them one by one:
+|Blank|Rule|Answer|
+|---|---|---|
+|1. the school hall|**in** = inside a closed place or area|in|
+|2. Monday|**on** = days and dates|on|
+|3. congratulated the winners ____ success|congratulate someone **on** something|on|
+
+The time rule in one line: **at** a clock time (at 6 o'clock), **on** a day or date (on Monday, on 15 August), **in** a month, year or season (in June, in 1999, in winter).
+|Time|Preposition|
+|---|---|
+|clock time|**at** 5 p.m., at noon, at night|
+|day or date|**on** Monday, on my birthday|
+|month, year, season|**in** June, in 2027, in summer|
+|part of a day|**in** the morning, in the evening (but at night)|
+
+##Verbs with fixed prepositions that appear with "on"
+congratulate **on**, depend **on**, rely **on**, insist **on**, focus **on**, agree **on** (a plan), but agree **with** (a person) and agree **to** (a proposal).
+
+>NEXT:Check yourself and likely next
+?? Fill in: "He is very proud ____ his son." (of / about / at)||of. Proud of.
+?? Fill in: "She is good ____ painting." (in / at / on)||at. Good at.
+?? Fill in: "The film starts ____ 7 p.m. ____ Sunday." (at, on / on, at / in, on)||at, on. At a clock time; on a day.
+?? Fill in: "I congratulated him ____ his success." (for / on / about)||on. Congratulate on.
+?? Likely next: "My birthday is ____ 12 May." (in / on / at)||on. A date takes on. (But "in May" for the month alone.)
+
+#CH last | Last-week sheet: your 16 in one page | LAST WEEK
+This is the whole guide on one page. Read it every day for the next week.
+
+##One line for each wrong or skipped question
+|Q|Mistake|The fix in one line|
+|---|---|---|
+|Q3|chose "No improvement" for "to not make"|The negative infinitive is **not to + verb**.|
+|Q19|chose "to learn" after "made"|**make, let, see, hear, modals** + bare verb. No "to".|
+|Q21|called "quite" an adjective|A word that describes an adjective is an **adverb**.|
+|Q24|skipped "Swimming is a good exercise"|-ing word working as a noun = **gerund**; describing a noun = participle.|
+|Q25|called "until you come back" a preposition|A clause follows = **conjunction**. A noun follows = preposition.|
+|Q31|read NOT as "correct"|**Underline NOT**. Since = point of time; for = length of time.|
+|Q32|"The furniture are old"|**Furniture, information, advice, luggage, news**: singular, no -s.|
+|Q33|skipped "If it will rain"|The **if part never takes will** in type 1.|
+|Q35|chose "had known" for "would tell"|Look at the result part: **would** = if part in simple past.|
+|Q39|"Rice and curry are"|Two nouns, one dish = singular. ⟨CHECK; debatable, some accept are⟩|
+|Q58|"envious about"|**Envious of**, jealous of, proud of, afraid of.|
+|Q59|skipped in/on/on|**in** a place, **on** a day, congratulate **on**.|
+|Q74|"have the lunch"|**No article** before meals.|
+|Q86|"The captain along with his players are"|**Along with / as well as** do not change the subject.|
+|Q87|"A collection of old coins are"|The subject is the **collection**, not the "coins".|
+|Q88|"A pair of trousers are"|**A pair of** is singular. Without "pair", trousers are plural.|
+
+##The four habits that would have saved most of these marks
+- **Underline** NOT, INCORRECT and EXCEPT in the question.
+- In every agreement question, **cross out** the "of / along with / as well as" phrase and find the real subject.
+- In every "if" question, **read the result part first**.
+- When two options both look right, ask which small rule the examiner is testing. It is almost always one of the eight in this guide.
+
+>KEY:What comes next
+The next English mock will bring back all 16 of these questions and add a new twin for each, with fresh sentences. If you get the twin right and the original wrong, that is a good sign: you learnt the rule, not the sentence. After that mock, paste the report again and we make the next small guide from whatever is still wrong.

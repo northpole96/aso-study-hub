@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO English Weak-Spots Guide 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference manual. A fixed contents column on the left (wide screens), and a single
+   reading column of ~760px where prose, tables and grid-paper FIG boxes of blue line art alternate. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b; --warn-soft:#fdf1e8;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  --side:272px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18.5px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+strong,b{font-weight:600}
+p{margin:12px 0}
+ul,ol{padding-left:1.25em;margin:12px 0}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+
+/* ---------- side contents ---------- */
+.bar{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:30;background:var(--bg);border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 0 calc(14px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+.bar-in{display:flex;flex-direction:column;gap:12px;padding:0 20px 14px;border-bottom:1px dotted var(--muted)}
+.bar-in b{font-family:var(--f-pixel);color:var(--blue);font-size:15px;line-height:1.25;font-weight:400;order:-1}
+#navbtn{display:none}
+.btn{border:1px solid var(--rule);background:var(--paper);padding:3px 9px;cursor:pointer;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-radius:2px}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;gap:3px}
+#nav{overflow-y:auto;flex:1;padding:10px 0}
+#nav a{display:flex;gap:10px;align-items:baseline;padding:4px 20px;text-decoration:none;font-size:15.5px;line-height:1.35;color:var(--fg)}
+#nav a .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2.2em}
+#nav a:hover{color:var(--blue)}
+#nav a.on{color:var(--blue)}
+#nav a.on .n{color:var(--blue)}
+.chap{flex-shrink:0;margin:12px 20px 4px;padding-top:12px;border-top:1px dotted var(--muted)}
+.chap-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chap-n{font-size:15px;line-height:20px;height:20px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chap-bar{height:6px;border:1px solid var(--blue);background:var(--paper)}
+.chap-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .15s}
+.chap-m{display:flex;justify-content:space-between;gap:8px;margin-top:6px;height:14px;line-height:14px;white-space:nowrap;overflow:hidden;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.chap-m b{color:var(--blue);font-weight:400}
+@media (max-width:1099px){
+  .chap{margin:0;padding:6px max(16px, env(safe-area-inset-right,0px)) 6px max(16px, env(safe-area-inset-left,0px));border-top:1px dotted var(--muted);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+  .chap-k{display:none}
+  .chap-n{margin:0;font-size:13px}
+  .chap-bar{grid-column:1/-1;order:3;height:4px}
+  .chap-m{margin:0}
+  .chap-m #chapPct{display:none}
+}
+.prog{position:relative;flex-shrink:0;margin:26px 20px 4px;height:6px;border:1px solid var(--fg);background:var(--paper)}
+.prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.prog::before{content:"CHAPTERS STUDIED";position:absolute;left:-1px;bottom:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+main{margin-left:var(--side);padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 110px}
+.col{max-width:800px;margin:0 auto}
+
+@media (max-width:1099px){
+  .bar{position:sticky;top:env(safe-area-inset-top,0px);inset:auto;width:auto;border-right:0;border-bottom:1px solid var(--rule);padding:8px 0 0;display:block}
+  .bar-in{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px;padding:0 max(16px, env(safe-area-inset-right,0px)) 8px max(16px, env(safe-area-inset-left,0px));border-bottom:0}
+  .bar-in b{order:0;font-size:12px;flex:1}
+  #navbtn{display:inline-block;order:-1}
+  #nav{display:none;max-height:70vh;border-top:1px dotted var(--muted)}
+  #nav.open{display:block}
+  .prog{margin:0;border-width:1px 0 0;height:3px}
+  .prog::before{display:none}
+  main{margin-left:0}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}
+}
+
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:20px 40px;align-items:end}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2rem,5vw,3.6rem);line-height:1.02}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:760px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 6px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:28px 40px;align-items:start;padding-block:24px 8px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .fig{max-width:420px}}
+.dropcap::first-letter{float:left;font-size:4em;line-height:.82;padding:6px 8px 0 0}
+.count{display:inline-block;margin-top:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px}
+
+/* contents */
+.toc{padding-block:48px 8px}
+.tochead{display:flex;align-items:center;gap:14px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:28px 0 0;padding:0}
+.toclist li{display:flex;align-items:baseline;gap:8px;padding:3px 0;margin:0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-transform:uppercase}
+@media (max-width:520px){.toclist .c{display:none}}
+
+/* ---------- chapters ---------- */
+section{padding-block:76px 8px;scroll-margin-top:12px}
+@media (max-width:1099px){section{scroll-margin-top:64px}}
+.sectrule{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sectrule .line{flex:1;height:1px;background:var(--fg);min-width:30px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.done{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.done input{accent-color:var(--blue);width:14px;height:14px;margin:0}
+section>h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:12px 0 18px}
+section>h2+p::first-letter{float:left;font-size:3.5em;line-height:.82;padding:6px 8px 0 0}
+section h3{font-size:1.45rem;margin:46px 0 8px;display:flex;gap:12px;align-items:baseline}
+section h3 .h3n{font-family:var(--f-mono);font-size:12px;color:var(--blue);letter-spacing:.06em;min-width:2.6em}
+
+.pyq{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* boxes */
+.box{margin:26px 0;padding:14px 18px;background:var(--paper);border:1px solid var(--rule)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box-t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.box ul{list-style:none;padding:0}
+.box li{padding-left:16px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;background:var(--fg)}
+.box.asked{background:transparent;border:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding:12px 0}
+.box.asked li{font-size:.98rem}
+.box.tip,.box.key{border:1px dashed var(--blue)}
+.box.tip .box-t,.box.key .box-t{color:var(--blue)}
+.box.key{background:var(--blue-soft)}
+.box.warn{border:1px dashed var(--warn);background:var(--warn-soft)}
+.box.warn .box-t{color:var(--warn)}
+.box.check{border:1px dotted var(--warn)}
+.box.check .box-t{color:var(--warn)}
+.box.fix{border:1px solid var(--rule);border-left:3px solid var(--blue)}
+.box.next{border:1px solid var(--fg);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.box.next .box-t{color:var(--fg)}
+.qas{counter-reset:q;border-top:1px solid var(--rule)}
+details.qa{border-bottom:1px dotted var(--muted);counter-increment:q}
+details.qa summary{list-style:none;cursor:pointer;padding:8px 30px 8px 38px;position:relative;font-size:1rem;line-height:1.45}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::before{content:"Q" counter(q,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+details.qa summary::after{content:"+";position:absolute;right:4px;top:6px;font-family:var(--f-mono);color:var(--blue);font-size:16px}
+details.qa[open] summary::after{content:"−"}
+details.qa summary:hover{color:var(--blue)}
+details.qa p{margin:0 0 10px 38px;padding:6px 12px;background:var(--blue);color:var(--on-blue);font-size:.98rem}
+
+/* tables */
+.tw{overflow-x:auto;margin:16px 0}
+table.t{width:100%;border-collapse:collapse;font-size:16.5px;line-height:1.5;margin:0}
+.t th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--fg);border-top:1px solid var(--fg)}
+.t td{padding:8px 12px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;text-align:left}
+.t td:first-child{font-weight:600}
+@media (max-width:640px){
+  table.t,.t tbody,.t tr,.t td{display:block;width:100%}
+  .t thead{display:none}
+  .t tr{border-top:1px solid var(--fg);padding:8px 0}
+  .t td{border:0;padding:2px 0}
+  .t td:not(:first-child)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+}
+
+/* figures */
+.figwrap{margin:30px 0 26px}
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible}
+.fl,.fr,.fy{position:absolute;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1}
+.fl,.fr{writing-mode:vertical-rl}
+.fl{left:10px;top:12px;transform:rotate(180deg)}
+.fr{right:10px;top:12px}
+.fy{right:12px;bottom:9px}
+.figcap{font-size:.95rem;font-style:italic;color:var(--muted);margin:8px 0 0}
+.figcap b{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--blue);font-weight:400;margin-right:6px}
+@media (max-width:560px){.fig{padding:26px 22px}.fl,.fr,.fy{font-size:8.5px}.fl{left:6px}.fr{right:6px}.fy{right:8px;bottom:6px}}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .grid{fill:none;stroke:var(--rule);stroke-width:1}
+.fig svg .hz{stroke:var(--blue);stroke-width:1.2}
+.fig svg .hl{stroke:var(--blue);stroke-width:.9}
+.fig svg .hd{fill:var(--blue)}
+.fig svg text{font-family:var(--f-mono);letter-spacing:.05em}
+.fig svg .lb{font-size:11px;fill:var(--blue)}
+.fig svg .lbm{font-size:11px;fill:var(--muted)}
+.fig svg .lbs{font-size:9.5px;fill:var(--muted)}
+.fig svg .ttl{font-size:10px;fill:var(--muted);letter-spacing:.1em}
+.fig svg .lbrv{font-size:11px;fill:var(--on-blue)}
+.fig svg .lbsrv{font-size:9.5px;fill:var(--on-blue)}
+.fig svg .big{font-family:var(--f-pixel);font-size:22px;fill:var(--blue)}
+.fig svg .bigrv{font-family:var(--f-pixel);font-size:19px;fill:var(--on-blue)}
+
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--fg);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+footer p{margin:0}
+#up{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;border-color:var(--blue);color:var(--blue);padding:6px 10px}
+
+.chk{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--warn);border:1px dotted var(--warn);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;background:var(--warn-soft)}
+.chkn{font-style:italic;font-size:.85em;color:var(--warn)}
+.box.next .qas{margin-top:8px}
+.box.next details.qa p{background:var(--blue)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
+.hubbtn{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;text-decoration:none}
+.rule{display:flex;gap:10px;align-items:baseline;scroll-margin-top:70px}
+.rule .h3n{white-space:nowrap;min-width:5.2em}
+.wr{margin:10px 0 14px;border-left:2px solid var(--blue);padding:2px 0 2px 12px}
+.wr-r{display:flex;gap:10px;align-items:baseline;margin:3px 0;line-height:1.45}
+.wr-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;min-width:5.6em;flex:none}
+.wr-r.no .wr-k{color:var(--muted)}.wr-r.no .wr-s{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(110,110,115,.55)}
+.wr-r.ok .wr-k{color:var(--blue)}
+.ri td:first-child a{font-family:var(--f-mono);font-size:12px;color:var(--blue);text-decoration:none}
+.navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
+
+/* ---------- pen-tablet drawing mode (tools/ink_draw.js) ---------- */
+#inkl{position:absolute;left:0;top:0;width:0;height:0;z-index:25;pointer-events:none;mix-blend-mode:multiply}
+.inkt{position:absolute;left:0;pointer-events:none}
+#inki{position:fixed;inset:0;z-index:26;pointer-events:none}
+body.drawing main{-webkit-user-select:none;user-select:none}
+
+/* the rail, snapped to the right edge */
+#ink{position:fixed;z-index:40;right:env(safe-area-inset-right,0px);top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);color:var(--muted)}
+#ink button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#ink svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.igrid{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+
+/* closed: a slim tab with a vertical label, like the FIG_ labels */
+#ink .itab{display:flex;flex-direction:column;align-items:center;gap:10px;width:34px;padding:12px 0 14px;
+  border:1px dashed var(--blue);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+#ink .itab:hover{background-color:var(--blue-soft)}
+.iv{writing-mode:vertical-rl;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+#ink.open .itab{display:none}
+
+/* open: the tool panel */
+.ipanel{display:none;width:62px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+  border:1px solid var(--fg);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.ipanel::-webkit-scrollbar{display:none}
+#ink.open .ipanel{display:block}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:7px 6px 6px 9px;background:var(--fg)}
+.ihead .ik{color:#fff;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:0}
+#ink .ix svg{stroke:#fff;width:14px;height:14px}
+#ink .ix{padding:2px}
+.ig{padding:8px 0 9px;border-top:1px dotted var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ihead + .ig{border-top:0}
+.ik{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.isws{display:flex;flex-direction:column;align-items:center;gap:7px}
+#ink .isw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--rule)}
+#ink .isw.hi{width:30px;height:11px;border-radius:0;opacity:.8}
+#ink .isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.itools{gap:2px}
+#ink .itool{display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;padding:6px 0 5px;border:1px solid transparent}
+#ink .itool:hover{border-color:var(--rule);background:var(--paper)}
+#ink .itool[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.il{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-height:520px){.ig{padding:5px 0 6px;gap:4px}.isws{gap:5px}#ink .itool{padding:4px 0 3px}}
+@media print{#ink,#inkl,#inki{display:none}}
+</style></head><body>
+<div class="bar"><div class="bar-in"><button class="btn" id="navbtn" aria-expanded="false" aria-controls="nav">Contents</button><b>ASO 2027 · WEAK SPOTS 1</b></div>
+<nav id="nav"><a href="#start"><span class="n">00</span>Start here: your 16 weak questions</a><div class="navg">Eight weak spots</div><a href="#inf"><span class="n">01</span>1. Infinitives: &quot;to&quot; or no &quot;to&quot;</a><a href="#pos"><span class="n">02</span>2. Parts of speech: the job decides</a><a href="#cond"><span class="n">03</span>3. If-sentences: the &quot;if&quot; part never takes will</a><a href="#since"><span class="n">04</span>4. Since and for</a><a href="#unc"><span class="n">05</span>5. Uncountable nouns: furniture and its family</a><a href="#agr"><span class="n">06</span>6. Agreement: four traps with the verb</a><a href="#art"><span class="n">07</span>7. Articles: meals have no article</a><a href="#prep"><span class="n">08</span>8. Prepositions: envious of, in the hall, on Monday</a><div class="navg">Last week</div><a href="#last"><span class="n">09</span>Last-week sheet: your 16 in one page</a></nav>
+<div class="chap" id="chap"><div class="chap-k">Now reading</div><div class="chap-n" id="chapN">Start here</div><div class="chap-bar"><i id="chapBar"></i></div><div class="chap-m"><span><b id="chapPct">0%</b></span><span id="chapMin"></span></div></div></div>
+<main><div class="col">
+<header class="mast"><h1>Weak Spots 1</h1><p class="tag">Eight small guides built from the <b>16 questions</b><br>you got wrong or skipped<br>in English Mock 07.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="stats"><span class="count">9 chapters</span><span class="count">about 5,000 words</span><span class="count">Mock 07 · 16 questions</span><span class="count">Paper III · English</span></div>
+<div class="toc"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>9</span> chapters</span></div><ol class="toclist"><li><span class="n">00.</span><a href="#start">Start here: your 16 weak questions</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">01.</span><a href="#inf">1. Infinitives: &quot;to&quot; or no &quot;to&quot;</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">02.</span><a href="#pos">2. Parts of speech: the job decides</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">03.</span><a href="#cond">3. If-sentences: the &quot;if&quot; part never takes will</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">04.</span><a href="#since">4. Since and for</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">05.</span><a href="#unc">5. Uncountable nouns: furniture and its family</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">06.</span><a href="#agr">6. Agreement: four traps with the verb</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">07.</span><a href="#art">7. Articles: meals have no article</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">08.</span><a href="#prep">8. Prepositions: envious of, in the hall, on Monday</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">09.</span><a href="#last">Last-week sheet: your 16 in one page</a><span class="dots"></span><span class="c">3 min</span></li></ol></div>
+<section id="start"><div class="sectrule"><span class="eyebrow">Chapter <b>00</b> · YOUR SCORE · Mock 07</span><span class="line"></span></div><h2>Start here: your 16 weak questions</h2><p>You scored <strong>80.75 out of 100</strong> on English Mock 07: 84 right, 13 wrong and 3 skipped. That is a good score. The 16 questions you missed are not 16 different problems. They fall into <strong>eight small ideas</strong>, and each idea is a short chapter in this guide. Learn the eight ideas and almost all of these questions will not hurt you again.</p><p>Every chapter has the same four steps. First comes the <strong>fundamental</strong>: the rule in plain words, and the reason it works. Then comes <strong>your question</strong>: what you picked, what was right, and why the wrong option looked tempting. Then a few <strong>more examples</strong>, and last a <strong>Check yourself</strong> box with tap-to-open answers and the questions most likely to come next in the real exam.</p><h3><span class="h3n">0.1</span>Which chapter fixes which question</h3><div class="tw"><table class="t"><thead><tr><th>Chapter</th><th>Idea</th><th>Your questions</th></tr></thead><tbody><tr><td data-l="Chapter">1</td><td data-l="Idea">Infinitives: when "to" is used and when it is dropped</td><td data-l="Your questions">Q3, Q19</td></tr><tr><td data-l="Chapter">2</td><td data-l="Idea">Parts of speech: the job of the word decides</td><td data-l="Your questions">Q21, Q24, Q25</td></tr><tr><td data-l="Chapter">3</td><td data-l="Idea">If-sentences: the "if" part never takes will</td><td data-l="Your questions">Q33, Q35</td></tr><tr><td data-l="Chapter">4</td><td data-l="Idea">Since and for</td><td data-l="Your questions">Q31</td></tr><tr><td data-l="Chapter">5</td><td data-l="Idea">Uncountable nouns (furniture and its family)</td><td data-l="Your questions">Q32</td></tr><tr><td data-l="Chapter">6</td><td data-l="Idea">Agreement: four traps with the verb</td><td data-l="Your questions">Q39, Q86, Q87, Q88</td></tr><tr><td data-l="Chapter">7</td><td data-l="Idea">Articles: meals and other places with no article</td><td data-l="Your questions">Q74</td></tr><tr><td data-l="Chapter">8</td><td data-l="Idea">Prepositions: envious of, in the hall, on Monday</td><td data-l="Your questions">Q58, Q59</td></tr></tbody></table></div><aside class="box key"><p class="box-t">What your score tells us</p><p>Your mistakes are mostly on <strong>small rules with a trap</strong>, not on big topics. Vocabulary, adverbs, synonyms, antonyms, comprehension and rearrangement were all perfect or near perfect. Agreement (4 wrong) and parts of speech (3 missed) cost the most. Fix those two chapters first.</p></aside><aside class="box tip"><p class="box-t">How to use this guide</p><p>Read one chapter, then tap the Check yourself answers without looking. Come back to the same chapter after two days. The next mock will bring these 16 questions back with new twins, so a quick second look at the "Your question" boxes is the best revision.</p></aside></section>
+<section id="inf"><div class="sectrule"><span class="eyebrow">Chapter <b>01</b> · WEAK SPOT · Q3, Q19</span><span class="line"></span></div><h2>1. Infinitives: &quot;to&quot; or no &quot;to&quot;</h2><p>An <strong>infinitive</strong> is the base form of a verb, usually with the word <strong>to</strong> in front: to make, to learn, to go. Two questions in Mock 07 were about the small word "to". In Q3 you kept a wrong form, and in Q19 you added a "to" that must not be there.</p><h3><span class="h3n">1.1</span>The negative infinitive: not to + verb</h3><p>When you want to say "do not" about an infinitive, the word <strong>not</strong> goes <strong>before to</strong>. We say "asked him <strong>not to</strong> make noise", never "asked him to not make noise". The reason is simple. In "to make", the word "to" belongs to the verb like a hat. The word "not" stands in front of the whole thing and cancels it.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The teacher asked the students to not make noise.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The teacher asked the students not to make noise.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">She told me to not worry.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">She told me not to worry.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q3)</p><p>The sentence was: "Before the examination began, the teacher politely asked all the students (to not make) any noise in the library." You chose <strong>No improvement</strong>. The right answer was <strong>not to make</strong>. The trap: "to not make" sounds natural in everyday speech, so it feels fine. The exam follows the textbook rule, which is "not to".</p></aside><h3><span class="h3n">1.2</span>The bare infinitive: no "to" after some verbs</h3><p>After a few verbs, the next verb comes <strong>without "to"</strong>. This is called the <strong>bare infinitive</strong>. The main ones are:</p><ul><li><strong>make</strong> someone do: The teacher made the students learn.</li><li><strong>let</strong> someone do: Her father let her go.</li><li><strong>see, hear, watch, notice</strong> someone do: I saw him leave.</li><li><strong>modal verbs</strong> (can, could, may, might, must, shall, should, will, would): He must go.</li><li><strong>had better, would rather</strong>: You had better go. I would rather stay.</li></ul><p>The reason is old English habit, so do not look for logic. Just remember the short list: <strong>make, let, see, hear + modals</strong>.</p><aside class="box warn"><p class="box-t">Your question (Mock 07 Q19)</p><p>"To prepare for the annual day programme, the teacher made all the students ____ the long poem by heart." You chose <strong>to learn</strong>. The right answer was <strong>learn</strong>. The trap: most verbs ("asked", "told", "wanted", "allowed") do take "to", so "to learn" looks safe. But <strong>made</strong> is on the bare-infinitive list.</p></aside><h3><span class="h3n">1.3</span>The passive brings the "to" back</h3><p>When "make" or "see" is turned into the passive, the "to" returns. This is a favourite exam trap.</p><div class="wr"><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The teacher made the students learn the poem. (active, no to)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The students were made to learn the poem. (passive, to returns)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I saw him enter. / He was seen to enter.</span></div></div><h3><span class="h3n">1.4</span>Which verbs take what</h3><div class="tw"><table class="t"><thead><tr><th>After this verb</th><th>Next verb looks like</th><th>Example</th></tr></thead><tbody><tr><td data-l="After this verb">make, let, see, hear, modals</td><td data-l="Next verb looks like">bare: learn</td><td data-l="Example">She made him <strong>wait</strong>.</td></tr><tr><td data-l="After this verb">ask, tell, want, allow, advise, order</td><td data-l="Next verb looks like">to + verb: to learn</td><td data-l="Example">She told him <strong>to wait</strong>.</td></tr><tr><td data-l="After this verb">enjoy, avoid, finish, deny, mind, suggest</td><td data-l="Next verb looks like">-ing: learning</td><td data-l="Example">He denied <strong>breaking</strong> it.</td></tr><tr><td data-l="After this verb">a preposition (look forward to, insist on)</td><td data-l="Next verb looks like">-ing: learning</td><td data-l="Example">I look forward to <strong>meeting</strong> you.</td></tr></tbody></table></div><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "The doctor advised him ____ sweets." (to avoid / avoid / avoiding)</summary><p>to avoid. "Advise" takes to + verb.</p></details><details class="qa"><summary>Fill in: "Her mother did not let her ____ out at night." (to go / go / going)</summary><p>go. "Let" takes the bare infinitive.</p></details><details class="qa"><summary>Fill in: "The boys were made ____ the ground." (clean / to clean / cleaning)</summary><p>to clean. After the passive of "make", the "to" returns.</p></details><details class="qa"><summary>Choose the right one: "He told me not to be late." or "He told me to not be late."</summary><p>The first. "Not to" is the exam form.</p></details><details class="qa"><summary>Likely next: "I would rather ____ at home than go out." (stay / to stay / staying)</summary><p>stay. "Would rather" is followed by the bare form.</p></details></div></aside></section>
+<section id="pos"><div class="sectrule"><span class="eyebrow">Chapter <b>02</b> · WEAK SPOT · Q21, Q24, Q25</span><span class="line"></span></div><h2>2. Parts of speech: the job decides</h2><p>A <strong>part of speech</strong> tells us what <strong>job</strong> a word does in a sentence. The same word can do different jobs in different sentences. So you can never name the part of speech by looking at the word alone. You must look at <strong>what it does here</strong>. Three of your questions (Q21, Q24, Q25) were about this one idea. The 2021 paper had seven direct questions of this kind <span class="pyq">2021 Q17–22</span>, so expect one or two again.</p><h3><span class="h3n">2.1</span>The eight parts in one table</h3><div class="tw"><table class="t"><thead><tr><th>Part</th><th>Its job</th><th>Example</th></tr></thead><tbody><tr><td data-l="Part">Noun</td><td data-l="Its job">names a person, place, thing or idea</td><td data-l="Example">school, honesty</td></tr><tr><td data-l="Part">Pronoun</td><td data-l="Its job">stands in place of a noun</td><td data-l="Example">he, everyone, who</td></tr><tr><td data-l="Part">Verb</td><td data-l="Its job">shows action or state</td><td data-l="Example">run, is</td></tr><tr><td data-l="Part">Adjective</td><td data-l="Its job">describes a <strong>noun</strong> or pronoun</td><td data-l="Example">a <strong>difficult</strong> question</td></tr><tr><td data-l="Part">Adverb</td><td data-l="Its job">describes a <strong>verb, adjective or another adverb</strong></td><td data-l="Example"><strong>quite</strong> sure, runs <strong>fast</strong></td></tr><tr><td data-l="Part">Preposition</td><td data-l="Its job">shows the place or relation of a <strong>noun</strong> to something else</td><td data-l="Example"><strong>over</strong> the wall</td></tr><tr><td data-l="Part">Conjunction</td><td data-l="Its job">joins words or clauses</td><td data-l="Example">and, but, <strong>until</strong>, because</td></tr><tr><td data-l="Part">Interjection</td><td data-l="Its job">a cry of feeling</td><td data-l="Example">Alas! Wow!</td></tr></tbody></table></div><h3><span class="h3n">2.2</span>Trap 1: an adverb can describe an adjective (Q21)</h3><p>Many students think an adverb only describes a verb. It can also describe an adjective, as in "He is <strong>quite</strong> sure". The word "sure" is an adjective. The word "quite" tells us <strong>how</strong> sure. So "quite" is an <strong>adverb</strong>. The same is true for very, too, so, rather, extremely, fairly, almost.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">"Quite" is an adjective, because it comes before the adjective "sure".</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">"Quite" is an adverb, because it tells how much (how sure).</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q21)</p><p>"After checking his notes twice, he is (quite) sure about the answer." You chose <strong>Adjective</strong>, the answer was <strong>Adverb</strong>. Test to use: ask "does this word describe a noun?" If it describes an <strong>adjective</strong> or a verb, it is an adverb.</p></aside><h3><span class="h3n">2.3</span>Trap 2: gerund, participle and infinitive (Q24)</h3><p>Three verb forms do the work of other parts of speech.</p><div class="tw"><table class="t"><thead><tr><th>Form</th><th>Looks like</th><th>Works as</th><th>Example</th></tr></thead><tbody><tr><td data-l="Form">Gerund</td><td data-l="Looks like">verb + -ing</td><td data-l="Works as">a <strong>noun</strong></td><td data-l="Example"><strong>Swimming</strong> is a good exercise.</td></tr><tr><td data-l="Form">Participle</td><td data-l="Looks like">verb + -ing or -ed</td><td data-l="Works as">an <strong>adjective</strong></td><td data-l="Example">a <strong>drowning</strong> man; the <strong>broken</strong> window</td></tr><tr><td data-l="Form">Infinitive</td><td data-l="Looks like">to + verb</td><td data-l="Works as">noun, adjective or adverb</td><td data-l="Example">Eat <strong>to live</strong>.</td></tr></tbody></table></div><p>The test: can you replace the word with "it" or "this"? "<strong>Swimming</strong> is a good exercise" becomes "<strong>It</strong> is a good exercise". It works, so "swimming" is acting as a noun: a <strong>gerund</strong>. In "a drowning man", "drowning" describes the man, so it is a <strong>participle</strong>.</p><aside class="box warn"><p class="box-t">Your question (Mock 07 Q24, skipped)</p><p>"(Swimming) is a good exercise." The answer was <strong>Gerund</strong>. If you skip, you lose nothing, but this question is the same as 2021 Q20 and Q22. Learn the table above and you will answer it in five seconds.</p></aside><h3><span class="h3n">2.4</span>Trap 3: until is a conjunction when a clause follows (Q25)</h3><p>Some words can be a <strong>preposition</strong> or a <strong>conjunction</strong>. The test is what comes <strong>after</strong> the word.</p><ul><li>A <strong>noun or noun phrase</strong> after it: it is a <strong>preposition</strong>. "I will wait <strong>until Monday</strong>."</li><li>A <strong>full clause</strong> (a subject and a verb) after it: it is a <strong>conjunction</strong>. "I will wait <strong>until you come back</strong>."</li></ul><p>The same split works for before, after, since, as and for.</p><div class="wr"><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">He left <strong>before</strong> noon. (preposition: noon is a noun)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">He left <strong>before</strong> I arrived. (conjunction: "I arrived" is a clause)</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q25)</p><p>"I will wait (until) you come back." You chose <strong>Preposition</strong>; the answer was <strong>Conjunction</strong>, because "you come back" is a clause.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Name the part of speech: "She is (very) kind."</summary><p>Adverb. It describes the adjective "kind".</p></details><details class="qa"><summary>Name the part of speech: "A (running) horse is a lovely sight."</summary><p>Participle. It describes the noun "horse".</p></details><details class="qa"><summary>Name the part of speech: "(Running) keeps you fit."</summary><p>Gerund. It is the subject, so it works as a noun.</p></details><details class="qa"><summary>Name the part of speech: "I stayed home (because) it was raining."</summary><p>Conjunction. A clause follows.</p></details><details class="qa"><summary>Likely next: "He worked (hard) all day." (adjective or adverb?)</summary><p>Adverb here, because it describes the verb "worked". In "a hard task" it would be an adjective. The same word can do both jobs.</p></details><details class="qa"><summary>Likely next: "The (lovely) girl smiled." Part of speech?</summary><p>Adjective. A word ending in -ly is not always an adverb: lovely, friendly, costly, lonely are adjectives.</p></details></div></aside></section>
+<section id="cond"><div class="sectrule"><span class="eyebrow">Chapter <b>03</b> · WEAK SPOT · Q33, Q35</span><span class="line"></span></div><h2>3. If-sentences: the &quot;if&quot; part never takes will</h2><p>A <strong>conditional sentence</strong> has two parts: the <strong>if part</strong> (the condition) and the <strong>result part</strong>. Which verb forms we use depends on how real the condition is. Two of your questions were about this (Q33, skipped, and Q35).</p><h3><span class="h3n">3.1</span>The four types</h3><div class="tw"><table class="t"><thead><tr><th>Type</th><th>Meaning</th><th>If part</th><th>Result part</th><th>Example</th></tr></thead><tbody><tr><td data-l="Type">Zero</td><td data-l="Meaning">always true</td><td data-l="If part">simple present</td><td data-l="Result part">simple present</td><td data-l="Example">If you heat ice, it <strong>melts</strong>.</td></tr><tr><td data-l="Type">First</td><td data-l="Meaning">real, possible in the future</td><td data-l="If part">simple present</td><td data-l="Result part">will + verb</td><td data-l="Example">If it <strong>rains</strong>, we <strong>will stay</strong> home.</td></tr><tr><td data-l="Type">Second</td><td data-l="Meaning">unreal or unlikely now</td><td data-l="If part">simple past</td><td data-l="Result part">would + verb</td><td data-l="Example">If I <strong>knew</strong> the answer, I <strong>would tell</strong> you.</td></tr><tr><td data-l="Type">Third</td><td data-l="Meaning">impossible, it is past</td><td data-l="If part">had + V3</td><td data-l="Result part">would have + V3</td><td data-l="Example">If she <strong>had known</strong>, she <strong>would have come</strong>.</td></tr></tbody></table></div><h3><span class="h3n">3.2</span>The two big rules</h3><p><strong>Rule A: the "if" part never takes will or would</strong> in types 1 and 2. We do not say "if it will rain". The word "will" belongs only to the result part. This is why Q33 had its error in the first segment: "If it will rain tomorrow" is wrong; it should be "If it rains tomorrow". The same is true for "when, as soon as, before, after, until" with a future meaning.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">If it will rain tomorrow, we shall cancel the picnic.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">If it rains tomorrow, we shall cancel the picnic.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">I will call you when I will reach home.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I will call you when I reach home.</span></div></div><p><strong>Rule B: the verb tells you the type.</strong> Look at the <strong>result part first</strong>. If it has "would", the "if" part must be in the <strong>simple past</strong> (type 2). If it has "would have", the "if" part must be in the past perfect (type 3).</p><aside class="box warn"><p class="box-t">Your question (Mock 07 Q35)</p><p>"If I ____ the answer, I would tell you." You chose <strong>had known</strong>; the answer was <strong>knew</strong>. The result part says "would tell" (not "would have told"), so this is type 2 and the if part is the simple past: <strong>knew</strong>. "Had known" would need "would have told". The trap: "had known" feels more correct because it sounds more "past". But the tense of the result decides.</p></aside><h3><span class="h3n">3.3</span>Was or were?</h3><p>In type 2, use <strong>were</strong> for every person: "If I <strong>were</strong> you", "If he <strong>were</strong> here". This is the form the examiner expects. The 2025 paper asked conditionals in the same family ("Had she known", "If I had been you").</p><aside class="box tip"><p class="box-t">A note on Q33</p><p>In Q33 you skipped. Skipping costs nothing, but you can answer it: look at each segment for a will/would in the "if" part. [If it will rain] is the only one. Always scan the <strong>if part first</strong>.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "If he ____ harder, he would pass." (works / worked / had worked)</summary><p>worked. Result has "would pass", so type 2: simple past.</p></details><details class="qa"><summary>Fill in: "If I ____ rich, I would buy a car." (am / was / were)</summary><p>were. Type 2 takes "were" for every person.</p></details><details class="qa"><summary>Fill in: "If she had left early, she ____ the train." (will catch / would catch / would have caught)</summary><p>would have caught. The if part is past perfect, so type 3.</p></details><details class="qa"><summary>Fix the error: "If it will be sunny, we will go out."</summary><p>If it is sunny, we will go out. No will in the if part.</p></details><details class="qa"><summary>Likely next: "Had she known, she would have been there." This is type 3 with "if" dropped. Which word moves?</summary><p>"Had" moves to the front. "Had she known" = "If she had known".</p></details></div></aside></section>
+<section id="since"><div class="sectrule"><span class="eyebrow">Chapter <b>04</b> · WEAK SPOT · Q31</span><span class="line"></span></div><h2>4. Since and for</h2><p><strong>Since</strong> and <strong>for</strong> both talk about time, and both go with the present perfect: "I have lived here since 2020" or "I have lived here for five years". The difference is simple.</p><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Goes with</th><th>Example</th></tr></thead><tbody><tr><td data-l="Word">since</td><td data-l="Goes with">a <strong>point</strong> of time (a moment when it began)</td><td data-l="Example">since 2020, since Monday, since morning, since I was ten</td></tr><tr><td data-l="Word">for</td><td data-l="Goes with">a <strong>length</strong> of time (how long)</td><td data-l="Example">for five years, for two hours, for a week</td></tr></tbody></table></div><p>A good trick: if you can put a <strong>calendar or clock word</strong> after it, use since. If you can put a <strong>number of units</strong>, use for.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">I have lived here since five years.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I have lived here for five years.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I have lived here since 2020.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">She is teaching here since 2015.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">She has been teaching here since 2015.</span></div></div><h3><span class="h3n">4.1</span>Why "since" needs the present perfect</h3><p>"Since" says the action began in the past and is <strong>still going on</strong>. So the verb must connect past to present: has / have + V3, or has / have been + -ing. We cannot say "is teaching since" because "is teaching" has no link to the past.</p><aside class="box warn"><p class="box-t">Your question (Mock 07 Q31)</p><p>"Which of the following sentences is NOT correct?" You chose the sentence "I have lived here for five years", which is <strong>correct</strong>. The wrong one was "I have lived here <strong>since five years</strong>". The question asked for the <strong>wrong</strong> sentence, and you may have read it as "which is correct". Read the stem twice when it says NOT, INCORRECT or EXCEPT. Circle the word NOT with your pencil.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "He has been absent ____ Monday." (for / since / from)</summary><p>since. Monday is a point of time.</p></details><details class="qa"><summary>Fill in: "They have known each other ____ ten years." (for / since / from)</summary><p>for. Ten years is a length.</p></details><details class="qa"><summary>Which is wrong: "I have been waiting since two hours."</summary><p>It is wrong. It should be "for two hours".</p></details><details class="qa"><summary>Likely next: "It is five years ____ I saw him." (since / for / from)</summary><p>since. The pattern "It is + length of time + since + past" is common.</p></details></div></aside></section>
+<section id="unc"><div class="sectrule"><span class="eyebrow">Chapter <b>05</b> · WEAK SPOT · Q32</span><span class="line"></span></div><h2>5. Uncountable nouns: furniture and its family</h2><p>A <strong>countable noun</strong> can be counted one by one: one pen, two pens. An <strong>uncountable noun</strong> is seen as a mass and cannot be counted with numbers: water, rice, advice. Uncountable nouns have <strong>no plural</strong> (no -s) and take a <strong>singular verb</strong>. They never take "a" or "an".</p><h3><span class="h3n">5.1</span>The ones English learners get wrong</h3><p>Some of these nouns are countable in other languages, including Odia and Hindi, which is why they fool us. In English they are uncountable:</p><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right</th><th>Wrong</th></tr></thead><tbody><tr><td data-l="Word">furniture</td><td data-l="Right">The furniture <strong>is</strong> old.</td><td data-l="Wrong">furnitures, furniture are</td></tr><tr><td data-l="Word">information</td><td data-l="Right">This information <strong>is</strong> useful.</td><td data-l="Wrong">informations</td></tr><tr><td data-l="Word">advice</td><td data-l="Right">His advice <strong>was</strong> good.</td><td data-l="Wrong">advices, an advice</td></tr><tr><td data-l="Word">luggage / baggage</td><td data-l="Right">My luggage <strong>has</strong> arrived.</td><td data-l="Wrong">luggages</td></tr><tr><td data-l="Word">news</td><td data-l="Right">The news <strong>is</strong> good.</td><td data-l="Wrong">The news are</td></tr><tr><td data-l="Word">knowledge, equipment, evidence, scenery</td><td data-l="Right">Equipment is costly.</td><td data-l="Wrong">equipments</td></tr><tr><td data-l="Word">hair, bread, rice, money, homework, work</td><td data-l="Right">Her hair <strong>is</strong> long.</td><td data-l="Wrong">hairs (for the whole head)</td></tr></tbody></table></div><h3><span class="h3n">5.2</span>How to say "one" or "some" of them</h3><p>We use a measure word: <strong>a piece of</strong> furniture, <strong>a piece of</strong> advice, <strong>an item of</strong> news, <strong>a bit of</strong> information, <strong>two pieces of</strong> luggage. We use <strong>much</strong> (not many), and <strong>some</strong> or <strong>any</strong>.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">I need an advice and many informations.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I need some advice and a lot of information.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">She bought many furnitures.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">She bought a lot of furniture.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q32)</p><p>"Choose the sentence that is free from error." You chose "The furniture in the room <strong>are</strong> old." The right answer was "The furniture in the room <strong>is</strong> old." The trap: the word "room" and the idea of many chairs and tables make "are" feel right. Furniture is one <strong>mass</strong> noun, so the verb is singular.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fix it: "The informations are very useful."</summary><p>The information is very useful.</p></details><details class="qa"><summary>Fill in: "The news ____ shocking." (was / were)</summary><p>was. News is singular in form and meaning.</p></details><details class="qa"><summary>Fix it: "Give me an advice."</summary><p>Give me some advice. (or: a piece of advice)</p></details><details class="qa"><summary>Fill in: "How ____ luggage do you have?" (many / much)</summary><p>much. Luggage is uncountable.</p></details><details class="qa"><summary>Likely next: "Mathematics ____ my favourite subject." (is / are)</summary><p>is. Names of subjects ending in -s (mathematics, physics, economics) are singular. Also news, measles, politics.</p></details></div></aside></section>
+<section id="agr"><div class="sectrule"><span class="eyebrow">Chapter <b>06</b> · WEAK SPOT · Q39, Q86, Q87, Q88</span><span class="line"></span></div><h2>6. Agreement: four traps with the verb</h2><p><strong>Subject–verb agreement</strong> means the verb must match its subject: a singular subject takes a singular verb (is, was, has), a plural subject takes a plural verb (are, were, have). Four of your wrong answers were here, so this is the most important chapter. The basic rule is easy. The trouble is <strong>finding the real subject</strong>. In each of your four questions, another word stood right next to the verb and fooled you.</p><h3><span class="h3n">6.1</span>The method: find the subject first</h3><p>1. Cross out any phrase that starts with <strong>of, along with, together with, as well as, with, in addition to</strong>. 2. What is left is the real subject. 3. Decide singular or plural for that word alone. 4. Choose the verb to match.</p><h3><span class="h3n">6.2</span>Trap 1: "along with" does not make a plural (Q86)</h3><p>Words like <strong>along with, together with, as well as, with, besides</strong> only add extra information. They do not change the subject. The verb agrees with the <strong>first</strong> noun.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The captain, along with his players, were welcomed at the airport.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The captain, along with his players, <strong>was</strong> welcomed at the airport. <span class="pyq">2021 Q83–92</span></span></div></div><p>Cross out "along with his players" and you see: "The captain ___ welcomed." So <strong>was</strong>.</p><aside class="box warn"><p class="box-t">Your question (Mock 07 Q86)</p><p>You chose <strong>are</strong>. The right answer was <strong>was</strong>. This family was asked in both 2021 and 2025 ("as well as"), so it is likely to come again.</p></aside><h3><span class="h3n">6.3</span>Trap 2: a plural noun after "of" is not the subject (Q87)</h3><p>In "a collection <strong>of old coins</strong>", the subject is <strong>collection</strong>. The words "of old coins" only describe it. This is the oldest trap in grammar.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">A rare collection of old coins are kept in the museum.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">A rare collection of old coins <strong>is</strong> kept in the museum.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The price of vegetables <strong>has</strong> risen.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">One of the books <strong>is</strong> missing.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q87)</p><p>You chose <strong>are</strong> because "coins" is plural and sits right before the verb. The subject is <strong>collection</strong>, so the verb is <strong>is</strong>.</p></aside><h3><span class="h3n">6.4</span>Trap 3: "a pair of" is one thing (Q88)</h3><p>In "a pair of trousers", the subject is <strong>pair</strong>. So the verb is singular: "A pair of trousers <strong>is</strong> lying on the bed." Without "a pair of", words like <strong>trousers, scissors, spectacles, pants, shorts</strong> are always plural: "The trousers <strong>are</strong> on the bed."</p><div class="tw"><table class="t"><thead><tr><th>Phrase</th><th>Verb</th></tr></thead><tbody><tr><td data-l="Phrase">A pair of scissors</td><td data-l="Verb"><strong>is</strong> on the table</td></tr><tr><td data-l="Phrase">The scissors</td><td data-l="Verb"><strong>are</strong> on the table</td></tr><tr><td data-l="Phrase">My spectacles</td><td data-l="Verb"><strong>are</strong> broken</td></tr><tr><td data-l="Phrase">A pair of my spectacles</td><td data-l="Verb"><strong>is</strong> broken</td></tr></tbody></table></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q88)</p><p>You chose <strong>are</strong>. The right answer was <strong>is</strong>, because the question said "A <strong>pair</strong> of trousers".</p></aside><h3><span class="h3n">6.5</span>Trap 4: two nouns that make one idea (Q39)</h3><p>When <strong>and</strong> joins two words that together name <strong>one thing</strong>, the verb is singular. Examples: bread and butter, rice and curry, fish and chips, curd and rice. When <strong>and</strong> joins two separate persons or things, the verb is plural: "The doctor and the nurse <strong>are</strong> in the room."</p><div class="wr"><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Rice and curry <strong>is</strong> his favourite meal. (one dish)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Bread and butter <strong>is</strong> my usual breakfast. (one meal)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Rama and Shyama <strong>are</strong> friends. (two people)</span></div></div><aside class="box check"><p class="box-t">Rice and curry</p><p>The key says "is", because rice and curry is one meal. But many speakers say "are", so this question can be argued. Treat it as a low-priority item. The safe habit is: if the two nouns clearly make one dish or idea, use is.</p></aside><h3><span class="h3n">6.6</span>The quick table</h3><div class="tw"><table class="t"><thead><tr><th>If the sentence has</th><th>The subject is</th><th>Verb</th></tr></thead><tbody><tr><td data-l="If the sentence has">X <strong>along with / as well as / with</strong> Y</td><td data-l="The subject is">X</td><td data-l="Verb">matches X</td></tr><tr><td data-l="If the sentence has">a <strong>collection / number / group of</strong> Y</td><td data-l="The subject is">collection (singular)</td><td data-l="Verb">is</td></tr><tr><td data-l="If the sentence has"><strong>a pair of</strong> Y</td><td data-l="The subject is">pair</td><td data-l="Verb">is</td></tr><tr><td data-l="If the sentence has"><strong>the number of</strong> Y</td><td data-l="The subject is">number</td><td data-l="Verb">is</td></tr><tr><td data-l="If the sentence has"><strong>a number of</strong> Y</td><td data-l="The subject is">Y (many)</td><td data-l="Verb">are</td></tr><tr><td data-l="If the sentence has">X <strong>and</strong> Y (one idea)</td><td data-l="The subject is">one thing</td><td data-l="Verb">is</td></tr><tr><td data-l="If the sentence has">X <strong>and</strong> Y (two things)</td><td data-l="The subject is">two things</td><td data-l="Verb">are</td></tr><tr><td data-l="If the sentence has">Each / every / one of / neither of</td><td data-l="The subject is">singular</td><td data-l="Verb">is</td></tr></tbody></table></div><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "The teacher, as well as her students, ____ present." (was / were)</summary><p>was. "As well as" does not add to the subject.</p></details><details class="qa"><summary>Fill in: "A bunch of keys ____ on the table." (is / are)</summary><p>is. The subject is bunch.</p></details><details class="qa"><summary>Fill in: "A number of students ____ absent." (is / are)</summary><p>are. "A number of" means many, so plural. (But "The number of students is large": singular.)</p></details><details class="qa"><summary>Fill in: "The quality of these mangoes ____ poor." (is / are)</summary><p>is. The subject is quality.</p></details><details class="qa"><summary>Fill in: "Bread and jam ____ on the plate." (is / are)</summary><p><span class="chk">CHECK</span> <i class="chkn">either is heard in speech</i> The exam usually treats a common food pair as one idea, so "is".</p></details><details class="qa"><summary>Likely next: "Each of the boys ____ a bat." (has / have)</summary><p>has. Each is always singular.</p></details></div></aside></section>
+<section id="art"><div class="sectrule"><span class="eyebrow">Chapter <b>07</b> · WEAK SPOT · Q74</span><span class="line"></span></div><h2>7. Articles: meals have no article</h2><p>Articles are <strong>a, an</strong> and <strong>the</strong>. The best rule list is short. Use <strong>a/an</strong> for "any one" of something countable, use <strong>the</strong> for something known or one of a kind, and use <strong>no article</strong> in a group of places listed below. In Q74 you added "the" where no article is needed.</p><h3><span class="h3n">7.1</span>No article before meals</h3><p>Say <strong>breakfast, lunch, dinner, supper</strong> without an article when you mean the meal in a general sense.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">We have the lunch at one o'clock.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">We have lunch at one o'clock.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">What did you have for breakfast?</span></div></div><p>The reason: a meal here is like an activity (as "we play cricket"), not a particular thing. But when you point to <strong>one particular</strong> meal, an article returns: "<strong>The</strong> lunch she cooked was delicious." or "It was <strong>a</strong> heavy lunch."</p><aside class="box warn"><p class="box-t">Your question (Mock 07 Q74)</p><p>"In our hostel, the bell rings loudly at noon, and we have ____ lunch at one o'clock in the big dining hall." You chose <strong>the</strong>; the answer was <strong>No article</strong>. The trap: the sentence is full of specific words (the bell, the big dining hall), which pulls "the" in. But "have lunch" is the habit of eating the meal.</p></aside><h3><span class="h3n">7.2</span>The other no-article places</h3><div class="tw"><table class="t"><thead><tr><th>Use no article before</th><th>Example</th></tr></thead><tbody><tr><td data-l="Use no article before">meals</td><td data-l="Example">have lunch, after dinner</td></tr><tr><td data-l="Use no article before">games and sports</td><td data-l="Example">play cricket, play hockey</td></tr><tr><td data-l="Use no article before">languages</td><td data-l="Example">speak Odia, learn English</td></tr><tr><td data-l="Use no article before">names of people, cities, states</td><td data-l="Example">Odisha, Cuttack, Rama</td></tr><tr><td data-l="Use no article before">single peaks and lakes</td><td data-l="Example">Mount Everest, Chilika Lake</td></tr><tr><td data-l="Use no article before">general plural or mass nouns</td><td data-l="Example">I like dogs. Time is money.</td></tr><tr><td data-l="Use no article before">go to school, college, hospital, church, prison, bed (main purpose)</td><td data-l="Example">He goes to school.</td></tr><tr><td data-l="Use no article before">abstract nouns in a general sense</td><td data-l="Example">Honesty is the best policy.</td></tr></tbody></table></div><h3><span class="h3n">7.3</span>Where "the" is a must</h3><p>Rivers, seas, oceans, mountain ranges, deserts and island groups: the Mahanadi, the Bay of Bengal, the Himalayas, the Thar. Also <strong>superlatives</strong> (the best), <strong>musical instruments</strong> (the violin) and one-of-a-kind things (the sun). Note the pair: "Mount Everest" (no article) but "the Himalayas" (with).</p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "She plays ____ hockey for the state." (the / a / no article)</summary><p>No article. Games take no article.</p></details><details class="qa"><summary>Fill in: "He is the best player in ____ team." (the / a / no article)</summary><p>the. A specific team; "the best" also needs the.</p></details><details class="qa"><summary>Fill in: "____ Mahanadi flows through Cuttack." (The / A / No article)</summary><p>The. Rivers take "the".</p></details><details class="qa"><summary>Fill in: "____ Chilika Lake is in Odisha." (The / No article)</summary><p>No article. A single lake takes none.</p></details><details class="qa"><summary>Likely next: "He goes to ____ hospital every Sunday to visit a friend." (the / no article)</summary><p>the. He goes as a visitor, not as a patient, so the article returns.</p></details></div></aside></section>
+<section id="prep"><div class="sectrule"><span class="eyebrow">Chapter <b>08</b> · WEAK SPOT · Q58, Q59</span><span class="line"></span></div><h2>8. Prepositions: envious of, in the hall, on Monday</h2><p>A <strong>preposition</strong> is a small word that links a noun to the rest of the sentence: of, in, on, at, for, to. They have <strong>no logic you can derive</strong>. They are habits of English, and you learn them in pairs. Q58 and Q59 were about pairs you already half know.</p><h3><span class="h3n">8.1</span>Envious of: adjective + preposition (Q58)</h3><p>Many adjectives go with one fixed preposition. Learn the pair as one word.</p><div class="tw"><table class="t"><thead><tr><th>Adjective</th><th>Takes</th><th>Example</th></tr></thead><tbody><tr><td data-l="Adjective">envious, jealous, afraid, proud, fond, capable, aware, short</td><td data-l="Takes"><strong>of</strong></td><td data-l="Example">She is envious <strong>of</strong> her friend's success.</td></tr><tr><td data-l="Adjective">good, bad, quick, clever, weak, surprised, angry (at a thing)</td><td data-l="Takes"><strong>at</strong></td><td data-l="Example">He is good <strong>at</strong> maths.</td></tr><tr><td data-l="Adjective">angry (with a person), pleased, satisfied, bored, busy</td><td data-l="Takes"><strong>with</strong></td><td data-l="Example">The shopkeeper was angry <strong>with</strong> the boy.</td></tr><tr><td data-l="Adjective">different, free, safe</td><td data-l="Takes"><strong>from</strong></td><td data-l="Example">Your idea is different <strong>from</strong> mine.</td></tr><tr><td data-l="Adjective">similar, kind, rude, polite, loyal, married</td><td data-l="Takes"><strong>to</strong></td><td data-l="Example">She is married <strong>to</strong> a doctor.</td></tr><tr><td data-l="Adjective">eligible, fit, famous, responsible, sorry</td><td data-l="Takes"><strong>for</strong></td><td data-l="Example">He is famous <strong>for</strong> his honesty.</td></tr></tbody></table></div><aside class="box warn"><p class="box-t">Your question (Mock 07 Q58)</p><p>"She was secretly envious ____ her friend's success." You chose <strong>about</strong>; the answer was <strong>of</strong>. "About" is common after "worried, anxious, excited", so it looked right. Remember: <strong>envious of, jealous of, proud of, afraid of</strong>.</p></aside><h3><span class="h3n">8.2</span>In, on, at: the three place and time words (Q59, skipped)</h3><p>The question was: "The meeting was held ____ the school hall ____ Monday. The principal congratulated the winners ____ their success." The right option was <strong>in, on, on</strong>. Take them one by one:</p><div class="tw"><table class="t"><thead><tr><th>Blank</th><th>Rule</th><th>Answer</th></tr></thead><tbody><tr><td data-l="Blank">1. the school hall</td><td data-l="Rule"><strong>in</strong> = inside a closed place or area</td><td data-l="Answer">in</td></tr><tr><td data-l="Blank">2. Monday</td><td data-l="Rule"><strong>on</strong> = days and dates</td><td data-l="Answer">on</td></tr><tr><td data-l="Blank">3. congratulated the winners ____ success</td><td data-l="Rule">congratulate someone <strong>on</strong> something</td><td data-l="Answer">on</td></tr></tbody></table></div><p>The time rule in one line: <strong>at</strong> a clock time (at 6 o'clock), <strong>on</strong> a day or date (on Monday, on 15 August), <strong>in</strong> a month, year or season (in June, in 1999, in winter).</p><div class="tw"><table class="t"><thead><tr><th>Time</th><th>Preposition</th></tr></thead><tbody><tr><td data-l="Time">clock time</td><td data-l="Preposition"><strong>at</strong> 5 p.m., at noon, at night</td></tr><tr><td data-l="Time">day or date</td><td data-l="Preposition"><strong>on</strong> Monday, on my birthday</td></tr><tr><td data-l="Time">month, year, season</td><td data-l="Preposition"><strong>in</strong> June, in 2027, in summer</td></tr><tr><td data-l="Time">part of a day</td><td data-l="Preposition"><strong>in</strong> the morning, in the evening (but at night)</td></tr></tbody></table></div><h3><span class="h3n">8.3</span>Verbs with fixed prepositions that appear with "on"</h3><p>congratulate <strong>on</strong>, depend <strong>on</strong>, rely <strong>on</strong>, insist <strong>on</strong>, focus <strong>on</strong>, agree <strong>on</strong> (a plan), but agree <strong>with</strong> (a person) and agree <strong>to</strong> (a proposal).</p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "He is very proud ____ his son." (of / about / at)</summary><p>of. Proud of.</p></details><details class="qa"><summary>Fill in: "She is good ____ painting." (in / at / on)</summary><p>at. Good at.</p></details><details class="qa"><summary>Fill in: "The film starts ____ 7 p.m. ____ Sunday." (at, on / on, at / in, on)</summary><p>at, on. At a clock time; on a day.</p></details><details class="qa"><summary>Fill in: "I congratulated him ____ his success." (for / on / about)</summary><p>on. Congratulate on.</p></details><details class="qa"><summary>Likely next: "My birthday is ____ 12 May." (in / on / at)</summary><p>on. A date takes on. (But "in May" for the month alone.)</p></details></div></aside></section>
+<section id="last"><div class="sectrule"><span class="eyebrow">Chapter <b>09</b> · LAST WEEK</span><span class="line"></span></div><h2>Last-week sheet: your 16 in one page</h2><p>This is the whole guide on one page. Read it every day for the next week.</p><h3><span class="h3n">9.1</span>One line for each wrong or skipped question</h3><div class="tw"><table class="t"><thead><tr><th>Q</th><th>Mistake</th><th>The fix in one line</th></tr></thead><tbody><tr><td data-l="Q">Q3</td><td data-l="Mistake">chose "No improvement" for "to not make"</td><td data-l="The fix in one line">The negative infinitive is <strong>not to + verb</strong>.</td></tr><tr><td data-l="Q">Q19</td><td data-l="Mistake">chose "to learn" after "made"</td><td data-l="The fix in one line"><strong>make, let, see, hear, modals</strong> + bare verb. No "to".</td></tr><tr><td data-l="Q">Q21</td><td data-l="Mistake">called "quite" an adjective</td><td data-l="The fix in one line">A word that describes an adjective is an <strong>adverb</strong>.</td></tr><tr><td data-l="Q">Q24</td><td data-l="Mistake">skipped "Swimming is a good exercise"</td><td data-l="The fix in one line">-ing word working as a noun = <strong>gerund</strong>; describing a noun = participle.</td></tr><tr><td data-l="Q">Q25</td><td data-l="Mistake">called "until you come back" a preposition</td><td data-l="The fix in one line">A clause follows = <strong>conjunction</strong>. A noun follows = preposition.</td></tr><tr><td data-l="Q">Q31</td><td data-l="Mistake">read NOT as "correct"</td><td data-l="The fix in one line"><strong>Underline NOT</strong>. Since = point of time; for = length of time.</td></tr><tr><td data-l="Q">Q32</td><td data-l="Mistake">"The furniture are old"</td><td data-l="The fix in one line"><strong>Furniture, information, advice, luggage, news</strong>: singular, no -s.</td></tr><tr><td data-l="Q">Q33</td><td data-l="Mistake">skipped "If it will rain"</td><td data-l="The fix in one line">The <strong>if part never takes will</strong> in type 1.</td></tr><tr><td data-l="Q">Q35</td><td data-l="Mistake">chose "had known" for "would tell"</td><td data-l="The fix in one line">Look at the result part: <strong>would</strong> = if part in simple past.</td></tr><tr><td data-l="Q">Q39</td><td data-l="Mistake">"Rice and curry are"</td><td data-l="The fix in one line">Two nouns, one dish = singular. <span class="chk">CHECK</span> <i class="chkn">debatable, some accept are</i></td></tr><tr><td data-l="Q">Q58</td><td data-l="Mistake">"envious about"</td><td data-l="The fix in one line"><strong>Envious of</strong>, jealous of, proud of, afraid of.</td></tr><tr><td data-l="Q">Q59</td><td data-l="Mistake">skipped in/on/on</td><td data-l="The fix in one line"><strong>in</strong> a place, <strong>on</strong> a day, congratulate <strong>on</strong>.</td></tr><tr><td data-l="Q">Q74</td><td data-l="Mistake">"have the lunch"</td><td data-l="The fix in one line"><strong>No article</strong> before meals.</td></tr><tr><td data-l="Q">Q86</td><td data-l="Mistake">"The captain along with his players are"</td><td data-l="The fix in one line"><strong>Along with / as well as</strong> do not change the subject.</td></tr><tr><td data-l="Q">Q87</td><td data-l="Mistake">"A collection of old coins are"</td><td data-l="The fix in one line">The subject is the <strong>collection</strong>, not the "coins".</td></tr><tr><td data-l="Q">Q88</td><td data-l="Mistake">"A pair of trousers are"</td><td data-l="The fix in one line"><strong>A pair of</strong> is singular. Without "pair", trousers are plural.</td></tr></tbody></table></div><h3><span class="h3n">9.2</span>The four habits that would have saved most of these marks</h3><ul><li><strong>Underline</strong> NOT, INCORRECT and EXCEPT in the question.</li><li>In every agreement question, <strong>cross out</strong> the "of / along with / as well as" phrase and find the real subject.</li><li>In every "if" question, <strong>read the result part first</strong>.</li><li>When two options both look right, ask which small rule the examiner is testing. It is almost always one of the eight in this guide.</li></ul><aside class="box key"><p class="box-t">What comes next</p><p>The next English mock will bring back all 16 of these questions and add a new twin for each, with fresh sentences. If you get the twin right and the original wrong, that is a good sign: you learnt the rule, not the sentence. After that mock, paste the report again and we make the next small guide from whatever is still wrong.</p></aside></section></div></main>
+<button class="btn" id="up" aria-label="Back to top">Top</button>
+<footer><div class="col"><p>OPSC ASO 2027 · English Weak Spots Guide 1 · built 24 Nov 2026 from the wrong and skipped answers of English Mock 07; the rules come from the Grammar Guide, the 2018, 2021 and 2025 papers and standard grammar. The wording and all examples are this guide’s own.</p><p>Tags marked CHECK are answers that keys or grammar books disagree on: confirm them before the exam.</p></div></footer>
+<script>
+(function(){
+var nav=document.getElementById('nav'),btn=document.getElementById('navbtn'),links=[].slice.call(nav.querySelectorAll('a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+btn.onclick=function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+document.getElementById('up').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+var cn=document.getElementById('chapN'),cb=document.getElementById('chapBar'),cp=document.getElementById('chapPct');
+function spy(){
+  var y=window.scrollY+120,idx=0;
+  for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) idx=i; }
+  var s=secs[idx],top=s.offsetTop,h=s.offsetHeight,p=Math.max(0,Math.min(1,(window.scrollY+100-top)/Math.max(1,h-window.innerHeight*0.5)));
+  links.forEach(function(a,j){a.classList.toggle('on',j===idx)});
+  cn.textContent=links[idx].textContent.replace(/^\d+/,'');
+  cb.style.width=Math.round(p*100)+'%';cp.textContent=Math.round(p*100)+'%';
+}
+var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){spy();tk=false})}},{passive:true});spy();
+})();
+</script><script>window.ASO_INK_KEY='aso-ink-weak1-2027';</script>
+<script>
+/* Pen-tablet drawing mode for the ASO guides.
+   Ink engine ported from the draw-app project (ink-stroke.ts + ink-canvas.tsx):
+   streamlined, pressure-sensitive strokes, Catmull-Rom smoothing, pen/mouse brush,
+   pen-eraser end, tablet quirks (flat pressure, missed pointerup, coalesced events).
+   New here: strokes are anchored to the chapter they start in and painted on tiles that scroll with the text, saved in localStorage,
+   highlighter, stroke eraser, undo, clear, hide, and "touch scrolls / touch draws". */
+(function () {
+  "use strict";
+  var KEY = window.ASO_INK_KEY || "aso-ink-" + location.pathname;
+
+  /* ---------------- ink engine (from ink-stroke.ts) ---------------- */
+  var PRESSURE_RATE = 0.275, DENSE_SPACING = 3, SAMPLE_SPACING = 0.75, WIDTH_STEP = 0.04;
+
+  function densify(pts, emit) {
+    var n = pts.length;
+    function knot(a, b) { return Math.max(1e-4, Math.sqrt(Math.hypot(b.x - a.x, b.y - a.y))); }
+    for (var i = 0; i < n - 1; i++) {
+      var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n - 1, i + 2)];
+      var steps = Math.max(1, Math.ceil(Math.hypot(p2.x - p1.x, p2.y - p1.y) / DENSE_SPACING));
+      var t1 = p0 === p1 ? 1e-4 : knot(p0, p1);
+      var t2 = t1 + knot(p1, p2);
+      var t3 = t2 + (p3 === p2 ? 1e-4 : knot(p2, p3));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, t = t1 + (t2 - t1) * u;
+        var lerp = function (a, b, ta, tb) { return ((tb - t) * a + (t - ta) * b) / (tb - ta); };
+        var ax1 = lerp(p0.x, p1.x, 0, t1), ay1 = lerp(p0.y, p1.y, 0, t1);
+        var ax2 = lerp(p1.x, p2.x, t1, t2), ay2 = lerp(p1.y, p2.y, t1, t2);
+        var ax3 = lerp(p2.x, p3.x, t2, t3), ay3 = lerp(p2.y, p3.y, t2, t3);
+        var bx1 = lerp(ax1, ax2, 0, t2), by1 = lerp(ay1, ay2, 0, t2);
+        var bx2 = lerp(ax2, ax3, t1, t3), by2 = lerp(ay2, ay3, t1, t3);
+        emit(lerp(bx1, bx2, t1, t2), lerp(by1, by2, t1, t2), p1.p + (p2.p - p1.p) * u);
+      }
+    }
+  }
+
+  function steady(input, brush, isComplete) {
+    var n = input.length;
+    if (n === 0) return [];
+    var size = brush.size, first = input[0], firstP = first.p, i = 1, minD2 = Math.pow(size / 3, 2);
+    while (i < n && Math.pow(input[i].x - first.x, 2) + Math.pow(input[i].y - first.y, 2) <= minD2) {
+      firstP = Math.max(firstP, input[i].p); i++;
+    }
+    var out = [{ x: first.x, y: first.y, p: firstP, dist: 0, run: 0 }];
+    var lag = Math.max(0.1, brush.streamline * size), px = first.x, py = first.y, run = 0, k = 1;
+    function take(ix, iy, ip, exact) {
+      var x = ix, y = iy;
+      if (!exact) {
+        var a = 1 - Math.exp(-Math.hypot(ix - px, iy - py) / lag);
+        x = px + (ix - px) * a; y = py + (iy - py) * a;
+      }
+      if (Math.abs(x - px) < 1e-4 && Math.abs(y - py) < 1e-4) return;
+      var d = Math.hypot(x - px, y - py);
+      run += d;
+      if (k++ < 4 && run < size) return;
+      out.push({ x: x, y: y, p: ip, dist: d, run: run });
+      px = x; py = y;
+    }
+    var kept = [first].concat(input.slice(i));
+    densify(kept, function (x, y, p) { take(x, y, p, false); });
+    if (isComplete && n > 1) { var last = input[n - 1]; take(last.x, last.y, last.p, true); }
+    return out;
+  }
+
+  function widths(pts, brush) {
+    var size = brush.size, thinning = brush.thinning, sim = brush.simulatePressure, easing = brush.easing, n = pts.length;
+    function radius(p) { return Math.max(0.05, size * easing(0.5 - thinning * (0.5 - p))); }
+    var total = pts[n - 1].run;
+    if (!sim && total < size) {
+      var max = pts.reduce(function (m, q) { return Math.max(m, q.p); }, 0.5);
+      return pts.map(function () { return radius(max); });
+    }
+    function step(prev, q) {
+      var sp = Math.min(1, q.dist / size), target = sim ? Math.min(1, 1 - sp) : q.p;
+      return Math.min(1, prev + (target - prev) * sp * PRESSURE_RATE);
+    }
+    var prev = sim ? 0.5 : pts[0].p;
+    for (var j = 0; j < n; j++) {
+      var q = pts[j];
+      if (q.run > size * 5) break;
+      var sp = Math.min(1, q.dist / size);
+      var p = sim ? Math.min(1, prev + (Math.min(1, 1 - sp) - prev) * sp * PRESSURE_RATE)
+                  : Math.min(1, prev + (q.p - prev) * 0.5);
+      prev += (p - prev) * 0.5;
+    }
+    return pts.map(function (q) { prev = step(prev, q); return radius(prev); });
+  }
+
+  function paintStroke(ctx, input, brush, isComplete) {
+    var pts = steady(input, brush, isComplete);
+    if (pts.length === 0) return;
+    var r = widths(pts, brush);
+    if (pts.length === 1) { ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, r[0], 0, Math.PI * 2); ctx.fill(); return; }
+    ctx.save();
+    ctx.strokeStyle = ctx.fillStyle; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    var runWidth = -1;
+    function wOf(rad) { return Math.max(WIDTH_STEP, Math.round((2 * rad) / WIDTH_STEP) * WIDTH_STEP); }
+    function begin(x, y, w) { runWidth = w; ctx.beginPath(); ctx.moveTo(x, y); }
+    function end() { ctx.lineWidth = runWidth; ctx.stroke(); }
+    begin(pts[0].x, pts[0].y, wOf(r[0]));
+    function emit(x, y, rad) {
+      var w = wOf(rad);
+      ctx.lineTo(x, y);
+      if (w !== runWidth) { end(); begin(x, y, w); }
+    }
+    function line(x0, y0, r0, x1, y1, r1) {
+      var steps = Math.max(1, Math.ceil(Math.hypot(x1 - x0, y1 - y0) / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) { var u = s / steps; emit(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, r0 + (r1 - r0) * u); }
+    }
+    var n = pts.length;
+    function mid(i) { return { x: (pts[i].x + pts[i + 1].x) / 2, y: (pts[i].y + pts[i + 1].y) / 2, r: (r[i] + r[i + 1]) / 2 }; }
+    var a = mid(0);
+    line(pts[0].x, pts[0].y, r[0], a.x, a.y, a.r);
+    for (var i = 1; i < n - 1; i++) {
+      var c = pts[i], b = mid(i);
+      var approx = Math.hypot(c.x - a.x, c.y - a.y) + Math.hypot(b.x - c.x, b.y - c.y);
+      var steps = Math.max(1, Math.ceil(approx / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, w = 1 - u;
+        emit(w * w * a.x + 2 * w * u * c.x + u * u * b.x, w * w * a.y + 2 * w * u * c.y + u * u * b.y,
+             w * w * a.r + 2 * w * u * r[i] + u * u * b.r);
+      }
+      a = b;
+    }
+    line(a.x, a.y, a.r, pts[n - 1].x, pts[n - 1].y, r[n - 1]);
+    end();
+    ctx.restore();
+  }
+
+  /* ---------------- brushes (from ink-canvas.tsx) ---------------- */
+  var PEN_WIDTH_SCALE = 0.54;
+  function penEasing(t) { return (t * 0.65 + Math.sin((t * Math.PI) / 2) * 0.35) * PEN_WIDTH_SCALE; }
+  var PEN = { size: 4.6, thinning: 0.62, streamline: 0.62, simulatePressure: false, easing: penEasing };
+  var HI = { size: 18, thinning: 0, streamline: 0.35, simulatePressure: false, easing: function () { return 0.5; } };
+  var PEN_PRESSURE_BOOST = 1.25, MIN_PEN_PRESSURE = 0.025, MOUSE_PRESSURE = 0.5, PEN_MIN_STEP = 1;
+  var useCoalesced = !/iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  var COLORS = [
+    { n: "Black", v: "#111111" }, { n: "Blue", v: "#2b4cff" }, { n: "Red", v: "#dc2626" }, { n: "Green", v: "#15803d" },
+    { n: "Yellow highlighter", v: "#ffd400", hi: 1 }, { n: "Green highlighter", v: "#3ddc84", hi: 1 }, { n: "Pink highlighter", v: "#ff6fb5", hi: 1 }
+  ];
+
+  /* ---------------- page layout + state ----------------
+     The ink is painted on canvas TILES that sit inside the page (position:absolute), so they scroll
+     with the text natively, in the same frame. (A fixed canvas repainted on scroll lags one frame
+     behind and looks like parallax.) Only tiles near the screen exist; the rest are dropped.
+     Each stroke is stored relative to the chapter <section> it starts in: x in the column's units
+     (scaled when the column width changes), y from the section top. So opening a Q&A or a new
+     layout moves the ink together with its chapter. */
+  var col = document.querySelector("main .col") || document.body;
+  var secs = [].slice.call(document.querySelectorAll("main section[id]"));
+  var L = { left: 0, w: 1, tops: {}, docW: 1, docH: 1 };
+  function measure() {
+    var sx = window.scrollX, sy = window.scrollY, r = col.getBoundingClientRect();
+    L.left = r.left + sx; L.w = Math.max(1, col.clientWidth);
+    L.tops = {};
+    secs.forEach(function (s) { L.tops[s.id] = s.getBoundingClientRect().top + sy; });
+    L.docW = document.documentElement.clientWidth;
+    L.docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  }
+  function topOf(s) { return s.a && L.tops[s.a] != null ? L.tops[s.a] : 0; }
+  function sectionAt(pageY) {
+    var best = null, bt = -1e9;
+    secs.forEach(function (s) { var t = L.tops[s.id]; if (t <= pageY && t > bt) { bt = t; best = s.id; } });
+    return best;
+  }
+
+  var strokes = [], undo = [], current = null, activePointer = null, lastKept = null, erasing = false, erased = [];
+  var state = { on: false, color: COLORS[0].v, hi: false, eraser: false, touchDraws: false, hidden: false };
+  try { var sv = JSON.parse(localStorage.getItem(KEY) || "null"); if (sv && sv.strokes) strokes = sv.strokes; if (sv && sv.touchDraws) state.touchDraws = true; } catch (e) {}
+
+  var saveT = 0;
+  function save() {
+    clearTimeout(saveT);
+    saveT = setTimeout(function () {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 2, touchDraws: state.touchDraws, strokes: strokes })); } catch (e) {}
+    }, 400);
+  }
+
+  /* ---------------- painting ---------------- */
+  var TILE = 512;
+  var layer = document.createElement("div");
+  layer.id = "inkl"; layer.setAttribute("aria-hidden", "true");
+  var live = document.createElement("canvas"), lctx = live.getContext("2d"), liveTop = 0;
+  live.className = "inkt"; live.style.display = "none";
+  layer.appendChild(live);
+  var tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
+  var tiles = {}, dpr = 1, frame = 0;
+
+  // Paint one stroke onto canvas context c, whose top edge is at page y = top.
+  function paint(c, s, top, done) {
+    var k = L.w / s.w, ox = L.left, oy = topOf(s) - top;
+    var pts = s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: s.pen && s.flat ? MOUSE_PRESSURE : q[2] }; });
+    if (s.hi) {
+      var cv = c.canvas;
+      if (tmp.width !== cv.width || tmp.height !== cv.height) { tmp.width = cv.width; tmp.height = cv.height; }
+      tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tmp.width, tmp.height);
+      tctx.setTransform(dpr, 0, 0, dpr, 0, 0); tctx.fillStyle = s.c;
+      paintStroke(tctx, pts, HI, done);
+      c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 0.4; c.drawImage(tmp, 0, 0); c.restore();
+    } else {
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.fillStyle = s.c;
+      paintStroke(c, pts, PEN, done);
+    }
+  }
+  function yRange(s) { var t = topOf(s); return [t + s.b[1], t + s.b[3]]; }
+
+  function paintTile(t) {
+    t.ctx.setTransform(1, 0, 0, 1, 0, 0); t.ctx.clearRect(0, 0, t.c.width, t.c.height);
+    if (state.hidden) return;
+    strokes.forEach(function (s) { var y = yRange(s); if (y[1] > t.top && y[0] < t.top + t.h) paint(t.ctx, s, t.top, true); });
+  }
+  function dropTile(i) { var t = tiles[i]; t.c.width = t.c.height = 0; t.c.remove(); delete tiles[i]; }
+  function makeTile(i) {
+    var top = i * TILE, h = Math.min(TILE, L.docH - top);
+    if (h <= 0) return;
+    var c = document.createElement("canvas");
+    c.className = "inkt";
+    c.style.top = top + "px"; c.style.width = L.docW + "px"; c.style.height = h + "px";
+    c.width = Math.max(1, Math.round(L.docW * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var t = tiles[i] = { c: c, ctx: c.getContext("2d"), top: top, h: h };
+    layer.appendChild(c); paintTile(t);
+  }
+  // Keep tiles from one screen above to two screens below the view; drop the rest.
+  function ensureTiles() {
+    var vh = window.innerHeight, sy = window.scrollY, last = Math.ceil(L.docH / TILE) - 1;
+    var lo = Math.max(0, Math.floor((sy - vh) / TILE)), hi = Math.min(last, Math.floor((sy + 2 * vh) / TILE));
+    Object.keys(tiles).forEach(function (i) { if (i < lo - 1 || i > hi + 1) dropTile(i); });
+    for (var i = lo; i <= hi; i++) if (!tiles[i]) makeTile(i);
+  }
+  function repaintAll() { Object.keys(tiles).forEach(function (i) { paintTile(tiles[i]); }); }
+  function rebuild() {
+    dpr = window.devicePixelRatio || 1;
+    Object.keys(tiles).forEach(dropTile);
+    measure(); ensureTiles();
+  }
+
+  function renderLive() {
+    frame = 0;
+    lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
+    if (current) paint(lctx, current.s, liveTop, false);
+  }
+  function request() { if (!frame) frame = requestAnimationFrame(renderLive); }
+  // The stroke being drawn goes on its own canvas covering the screen at pen-down time.
+  function startLive() {
+    var h = Math.max(1, Math.min(window.innerHeight, L.docH - window.scrollY));
+    liveTop = window.scrollY;
+    live.style.top = liveTop + "px"; live.style.width = L.docW + "px"; live.style.height = h + "px";
+    live.width = Math.round(L.docW * dpr); live.height = Math.round(h * dpr);
+    live.style.display = "block";
+  }
+  function stopLive() { live.style.display = "none"; live.width = live.height = 1; }
+
+  /* ---------------- drawing input (from ink-canvas.tsx) ---------------- */
+  var input = document.createElement("div");
+  input.id = "inki"; input.setAttribute("aria-hidden", "true");
+
+  function pageOf(e, isPen, s) {
+    var k = L.w / s.w;
+    return [Math.round(((e.clientX + window.scrollX - L.left) / k) * 10) / 10,
+      Math.round((e.clientY + window.scrollY - topOf(s)) * 10) / 10,
+      isPen ? Math.round(Math.min(1, Math.max(MIN_PEN_PRESSURE, e.pressure * PEN_PRESSURE_BOOST)) * 1000) / 1000 : MOUSE_PRESSURE];
+  }
+  function notePressure(cur, raw) {
+    if (!cur.s.pen || raw === 0) return;
+    if (cur.first === null) cur.first = raw; else if (raw !== cur.first) cur.s.flat = false;
+  }
+  function addPoint(cur, pt) {
+    var pts = cur.s.pts;
+    if (cur.s.pen && lastKept && Math.hypot(pt[0] - lastKept[0], pt[1] - lastKept[1]) < PEN_MIN_STEP) { pts[pts.length - 1] = pt; return; }
+    var prev = pts[pts.length - 1];
+    if (prev && prev[0] === pt[0] && prev[1] === pt[1] && prev[2] === pt[2]) return;
+    pts.push(pt); lastKept = pt;
+  }
+  function bbox(pts, pad) {
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    pts.forEach(function (q) { x0 = Math.min(x0, q[0]); y0 = Math.min(y0, q[1]); x1 = Math.max(x1, q[0]); y1 = Math.max(y1, q[1]); });
+    return [x0 - pad, y0 - pad, x1 + pad, y1 + pad];
+  }
+
+  // Stroke eraser: remove every stroke that has a point near the pen.
+  function eraseAt(e) {
+    var px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
+    strokes.forEach(function (s) {
+      var k = L.w / s.w, X = (px - L.left) / k, Y = py - topOf(s);
+      if (X < s.b[0] - R || X > s.b[2] + R || Y < s.b[1] - R || Y > s.b[3] + R) return;
+      var r2 = Math.pow(R / k + (s.hi ? 9 : 2), 2);
+      for (var i = 0; i < s.pts.length; i++) {
+        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - Y;
+        if (dx * dx + dy * dy <= r2) { hit.push(s); return; }
+      }
+    });
+    if (hit.length) { strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; }); erased = erased.concat(hit); repaintAll(); }
+  }
+
+  function onDown(e) {
+    if (!state.on) return;
+    if (e.pointerType === "mouse" && e.button !== 0 && e.button !== 5) return;
+    if (e.pointerType === "touch" && !state.touchDraws) return;
+    if (activePointer !== null) endStroke(null);
+    e.preventDefault();
+    try { input.setPointerCapture(e.pointerId); } catch (x) {}
+    activePointer = e.pointerId;
+    var isPen = e.pointerType === "pen";
+    // Shift held: the pen drags the page like a hand tool instead of drawing.
+    if (e.shiftKey) { panning = { y: e.clientY, x: e.clientX }; lastTap = null; input.style.cursor = "grabbing"; return; }
+    // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
+    erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
+    if (erasing) { erased = []; eraseAt(e); return; }
+    var s = { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: L.w, a: sectionAt(e.clientY + window.scrollY), pts: [], b: null };
+    current = { first: null, s: s };
+    s.pts.push(pageOf(e, isPen, s));
+    notePressure(current, e.pressure);
+    lastKept = s.pts[0];
+    downTime = e.timeStamp; downX = e.clientX; downY = e.clientY;
+    startLive(); request();
+  }
+  function onMove(e) {
+    if (e.pointerId !== activePointer) return;
+    if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
+    if (panning) {
+      // The page follows the pen: drag up to read further down.
+      // "instant": the page has scroll-behavior:smooth, which would make the drag lag.
+      window.scrollBy({ left: panning.x - e.clientX, top: panning.y - e.clientY, behavior: "instant" });
+      panning.x = e.clientX; panning.y = e.clientY;
+      return;
+    }
+    if (erasing) { eraseAt(e); return; }
+    if (!current) return;
+    var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
+    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
+    request();
+  }
+  // Double-tap to clear (as in draw-app). The browser's own dblclick uses the system's very tight
+  // distance limit, so taps are detected here with a looser one.
+  var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
+  var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  var panning = null, shiftDown = false;
+  function setCursor() {
+    input.style.cursor = !state.on ? "" : panning ? "grabbing" : shiftDown ? "grab" : state.eraser ? "cell" : "crosshair";
+  }
+  // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
+  // (or forgets the last one if this was a real stroke).
+  function isDoubleTap(s, e) {
+    var p0 = s.pts[0];
+    var isTap = !!e && e.type === "pointerup" && e.timeStamp - downTime <= TAP_MAX_TIME &&
+      s.pts.every(function (q) { return Math.hypot(q[0] - p0[0], q[1] - p0[1]) <= TAP_MAX_MOVE; });
+    if (!isTap) { lastTap = null; return false; }
+    if (lastTap && downTime - lastTap.time <= DOUBLE_TAP_TIME && Math.hypot(downX - lastTap.x, downY - lastTap.y) <= DOUBLE_TAP_DISTANCE) {
+      return true;
+    }
+    lastTap = { x: downX, y: downY, time: e.timeStamp, s: s };
+    return false;
+  }
+
+  function endStroke(e) {
+    activePointer = null;
+    if (panning) { panning = null; setCursor(); return; }
+    if (erasing) {
+      erasing = false; lastTap = null;
+      if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
+      erased = []; return;
+    }
+    if (current && isDoubleTap(current.s, e)) {
+      // Drop the dot the first tap left, then clear; Undo brings back the page as it was.
+      var dot = lastTap.s; lastTap = null; current = null;
+      var u = undo[undo.length - 1];
+      if (u && u.t === "add" && u.s === dot) { undo.pop(); strokes = strokes.filter(function (x) { return x !== dot; }); }
+      doClear(); repaintAll(); stopLive();
+      return;
+    }
+    if (current) {
+      var s = current.s;
+      s.b = bbox(s.pts, s.hi ? 12 : 6);
+      strokes.push(s); undo.push({ t: "add", s: s }); current = null;
+      var y = yRange(s);
+      Object.keys(tiles).forEach(function (i) { var t = tiles[i]; if (y[1] > t.top && y[0] < t.top + t.h && !state.hidden) paint(t.ctx, s, t.top, true); });
+      save();
+    }
+    stopLive();
+  }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
+
+  function doUndo() {
+    var a = undo.pop(); if (!a) return;
+    if (a.t === "add") strokes = strokes.filter(function (s) { return s !== a.s; });
+    else strokes = strokes.concat(a.list);
+    repaintAll(); save();
+  }
+  function doClear() {
+    if (!strokes.length) return;
+    undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
+  }
+
+  /* ---------------- toolbar: a rail on the right edge ---------------- */
+  var I = {
+    pen: '<path d="M4 20l1.2-4.6L15.8 4.8a1.7 1.7 0 0 1 2.4 0l1 1a1.7 1.7 0 0 1 0 2.4L8.6 18.8z"/><path d="M14 6.6l3.4 3.4"/>',
+    erase: '<path d="M8.5 19.5L3.8 14.8a1.6 1.6 0 0 1 0-2.3L12.5 3.8a1.6 1.6 0 0 1 2.3 0l5.4 5.4a1.6 1.6 0 0 1 0 2.3l-8 8z"/><path d="M8 9l7 7M8.5 19.5H20"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.5a1.6 1.6 0 0 1 2.5-2L8 15"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeoff: '<path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.5 9.5 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>'
+  };
+  function ic(n) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[n] + "</svg>"; }
+  function tool(id, icon, label, title) {
+    return '<button type="button" class="itool" id="' + id + '" title="' + title + '">' + ic(icon) + '<span class="il">' + label + "</span></button>";
+  }
+
+  var bar = document.createElement("div");
+  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools"); bar.setAttribute("aria-orientation", "vertical");
+  var pens = COLORS.filter(function (c) { return !c.hi; }), his = COLORS.filter(function (c) { return c.hi; });
+  function sw(list) {
+    return list.map(function (c) {
+      var i = COLORS.indexOf(c);
+      return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
+    }).join("");
+  }
+  bar.innerHTML =
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D). Hold Shift and drag to scroll.">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<div class="ipanel" id="inkpanel">' +
+      '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
+      '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
+      '<div class="ig"><span class="ik">Mark</span><div class="isws">' + sw(his) + "</div></div>" +
+      '<div class="ig itools">' +
+        tool("inker", "erase", "Erase", "Erase whole strokes (E). The back end of a pen erases too.") +
+        tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
+        tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
+        tool("inkhd", "eye", "Hide", "Hide or show the ink") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (or double-tap the page). Undo brings it back.") +
+      "</div>" +
+    "</div>";
+  var $ = function (id) { return bar.querySelector("#" + id); };
+
+  function sync() {
+    document.body.classList.toggle("drawing", state.on);
+    bar.classList.toggle("open", state.on);
+    $("inkon").setAttribute("aria-pressed", state.on);
+    $("inker").setAttribute("aria-pressed", state.eraser);
+    $("inktc").setAttribute("aria-pressed", state.touchDraws);
+    $("inktc").querySelector(".il").textContent = state.touchDraws ? "Finger ✎" : "Finger ↕";
+    $("inkhd").setAttribute("aria-pressed", state.hidden);
+    $("inkhd").innerHTML = ic(state.hidden ? "eyeoff" : "eye") + '<span class="il">' + (state.hidden ? "Show" : "Hide") + "</span>";
+    [].forEach.call(bar.querySelectorAll(".isw"), function (b) {
+      b.setAttribute("aria-pressed", !state.eraser && COLORS[+b.dataset.c].v === state.color);
+    });
+    input.style.pointerEvents = state.on ? "auto" : "none";
+    input.style.touchAction = state.touchDraws ? "none" : "pan-y";
+    setCursor();
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.classList.contains("isw")) { var c = COLORS[+b.dataset.c]; state.color = c.v; state.hi = !!c.hi; state.eraser = false; }
+    else if (b.id === "inkon") { state.on = true; if (state.hidden) { state.hidden = false; repaintAll(); } }
+    else if (b.id === "inkoff") state.on = false;
+    else if (b.id === "inker") state.eraser = !state.eraser;
+    else if (b.id === "inkun") doUndo();
+    else if (b.id === "inkcl") doClear();
+    else if (b.id === "inktc") { state.touchDraws = !state.touchDraws; save(); }
+    else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
+    sync();
+  });
+  // Hold Shift to scroll by dragging: the cursor turns into a hand while Shift is down.
+  function onShift(e) { if (e.key === "Shift") { shiftDown = e.type === "keydown"; if (!panning) setCursor(); } }
+  window.addEventListener("keydown", onShift);
+  window.addEventListener("keyup", onShift);
+  window.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      if ((e.key === "z" || e.key === "Z") && state.on && !e.shiftKey) { e.preventDefault(); doUndo(); }
+      return;
+    }
+    if (e.repeat || /input|textarea|select/i.test((e.target && e.target.tagName) || "")) return;
+    var k = e.key.toLowerCase();
+    if (k === "d") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; repaintAll(); } sync(); }
+    else if (k === "e" && state.on) { state.eraser = !state.eraser; sync(); }
+  });
+
+  /* ---------------- wire up ---------------- */
+  document.body.appendChild(layer);
+  document.body.appendChild(input);
+  document.body.appendChild(bar);
+  rebuild(); sync();
+  var rT = 0;
+  function relayout() { clearTimeout(rT); rT = setTimeout(rebuild, 120); }
+  window.addEventListener("resize", relayout);
+  // Page height changes (a Q&A opened, fonts arrived) move the chapters: re-measure and repaint.
+  if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.querySelector("main") || document.body);
+  window.addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  var sT = false;
+  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
+  window.addEventListener("blur", function () { shiftDown = false; if (activePointer !== null) endStroke(); setCursor(); });
+  input.addEventListener("pointerdown", onDown);
+  // Moves and releases are heard on the whole window: pointer capture can be lost just before the
+  // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
+  window.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerup", onUp);
+  window.addEventListener("pointercancel", onUp);
+})();
+</script></body></html>
