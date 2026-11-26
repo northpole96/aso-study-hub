@@ -262,7 +262,8 @@ print("key mismatches:", *warn, sep="\n  ")
 # ---------------------------------------------------------------- page
 JS = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 HTML = open(os.path.join(ROOT, "tools/pyq_bank_template.html"), encoding="utf-8").read()
-HTML = (HTML.replace("__DATA__", JS(out)).replace("__TOPICS__", JS(LABELS)).replace("__PASSAGES__", JS(PASSAGES))
-        .replace("__FIGS__", JS(FIGS)).replace("__PAPERS__", JS([[k, n, s, w] for k, n, s, w in PAPERS])))
+DATA = "var PAP=%s,D=%s,T=%s,PG=%s,FG=%s;\n" % (JS([[k, n, s, w] for k, n, s, w in PAPERS]), JS(out), JS(LABELS), JS(PASSAGES), JS(FIGS))
+open(os.path.join(ROOT, "pyq-data.js"), "w", encoding="utf-8").write(DATA)   # shared by the PYQ Bank and the Analysis page
+print("wrote pyq-data.js", len(DATA) // 1024, "KB")
 open(os.path.join(ROOT, "ASO-PYQ-Bank.html"), "w", encoding="utf-8").write(HTML)
 print("wrote ASO-PYQ-Bank.html", len(HTML) // 1024, "KB")

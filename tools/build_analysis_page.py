@@ -19,6 +19,12 @@ PAPERS = [
 ]
 STYLE = {'one': 'Single answer', 'stmt': 'Statements', 'match': 'Match the following', 'not': 'NOT / except', 'order': 'Put in order', 'fig': 'Figure question'}
 KIND = {'static': 'Static', 'news': 'Current news', 'day': 'Days and themes', 'verbal': 'Text', 'nonverbal': 'Figure'}
+# the questions themselves come from pyq-data.js (shared with the PYQ Bank); counts must agree with it
+dj = open('pyq-data.js', encoding='utf8').read()
+dec = json.JSONDecoder(); k = dj.index('=') + 1
+_, e = dec.raw_decode(dj[k:]); k += e
+BANK, _ = dec.raw_decode(dj[k + 3:])
+BP = {'ga': 'ga', 'reasoning': 're', 'maths': 'ma', 'english': 'en', 'odia': 'od'}
 out = []
 for key, name, paper, size in PAPERS:
     rows = [dict(r) for r in pyq.load(key)]
@@ -51,7 +57,10 @@ for key, name, paper, size in PAPERS:
     sizes = [sum(1 for r in rows if r['y'] == y) for y in years]
     assert all(topics and sum(t['y'][i] for t in topics) == sizes[i] for i in range(len(years))), (key, sizes)
     assert sum(sum(f['y']) for f in fam) == len(rows), key
-    out.append(dict(id=key, name=name, paper=paper, years=years, sizes=sizes, topics=topics, fam=fam, mix=mix, total=len(rows)))
+    bc = collections.Counter((d['y'], d['t'].split(':')[1], d['f']) for d in BANK if d['p'] == BP[key])
+    mc = collections.Counter((r['y'], r['topic'], r['family'].split('.', 1)[1]) for r in rows)
+    assert bc == mc, (key, list((bc - mc).items())[:5], list((mc - bc).items())[:5])
+    out.append(dict(id=key, bp=BP[key], name=name, paper=paper, years=years, sizes=sizes, topics=topics, fam=fam, mix=mix, total=len(rows)))
     print(key, years, sizes, len(topics), len(fam))
 tpl = open('tools/analysis_template.html', encoding='utf8').read()
 html = tpl.replace('__DATA__', json.dumps(out, ensure_ascii=False, separators=(',', ':')))

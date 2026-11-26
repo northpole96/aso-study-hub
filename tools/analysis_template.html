@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ASO PYQ analysis: what was asked, by topic and year</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&family=Noto+Sans+Oriya:wght@400;600&display=swap">
 <style>
 :root{--bg:#fbfbfb;--paper:#fff;--fg:#111;--muted:#6e6e73;--rule:#d7d7da;--grid:#eef0f6;--blue:#2b4cff;--soft:#e0e6ff;
 --serif:"EB Garamond",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--pix:"Silkscreen","IBM Plex Mono",monospace}
@@ -56,67 +56,173 @@ details{margin-top:12px}summary{cursor:pointer;font-size:11px;color:var(--blue)}
 .legend b{font-family:var(--mono);font-weight:500}
 .top{margin-top:34px;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:600px){body{font-size:17px}.fig .lab,.bar,.fm{display:none}table{font-size:.94rem}td,th{padding:5px 4px}.fig{padding:16px 10px}.n{width:2.5em}h2{font-size:1.45rem}.tr{width:auto}.trw{display:none}}
+
+/* split view: tables on the left, the questions you picked on the right */
+.shell{max-width:1560px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);}
+.left{padding:30px max(16px,env(safe-area-inset-left)) 90px;min-width:0}
+.right{display:none}
+@media(min-width:1000px){.shell{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.right{display:block;position:sticky;top:0;height:100vh;overflow-y:auto;border-left:1px dotted var(--rule);background:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+ .bar{display:none}}
+@media(min-width:1000px) and (max-width:1300px){.trw,.fm{display:none}}
+.sel{cursor:pointer}
+td.sel:hover,th.sel:hover{outline:1px solid var(--blue);outline-offset:-1px}
+.sel.cur{outline:2px solid var(--blue);outline-offset:-2px}
+a.sel{text-decoration:underline dotted var(--blue)}a.sel.cur{color:var(--blue);font-weight:600}
+th.sel{cursor:pointer}th.sel:hover{color:var(--blue)}
+.once .sel{cursor:pointer;border-bottom:1px dotted var(--blue)}.once .sel.cur{color:var(--blue);font-weight:600}
+.qhead{position:sticky;top:0;z-index:4;background:var(--paper);border-bottom:1px solid var(--blue);padding:14px 22px 10px}
+.trail{font:12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.trail i{color:var(--muted);font-style:normal;margin:0 4px}
+.qtools{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.qtools .cnt{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:auto}
+.qhead .back{display:none}
+.qbody{padding:6px 22px 60px}
+.empty{padding:40px 22px;max-width:30em;color:#333}
+.empty h3{font:400 1.5rem/1.3 var(--serif);margin:0 0 10px}
+.empty p{margin:0 0 10px;font-size:1rem}
+.empty .mono{font-size:11px;color:var(--muted)}
+.grp{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 6px;padding-bottom:4px;border-bottom:1px dotted var(--rule)}
+.q{background:var(--paper);border:1px solid var(--rule);padding:12px 16px;margin:10px 0;position:relative}
+.q .meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.q .yy{background:var(--blue);color:#fff;padding:1px 7px}
+.q .chk{border:1px solid #c00;color:#c00;padding:0 6px}
+.q .st{margin:8px 0 6px;white-space:pre-line;overflow-wrap:anywhere;font-size:1.05rem;line-height:1.55}
+.q .op{display:flex;gap:10px;padding:2px 6px;font-size:1rem;line-height:1.45}
+.q .op b{font:500 12px/1.9 var(--mono);color:var(--muted);width:1.2em;flex:none}
+.q .op.r{background:#eef1ff;outline:1px solid var(--blue)}
+.q .ans{margin-top:8px;padding:8px 10px;border-left:3px solid var(--blue);background:#f4f6ff;font-size:.95rem;line-height:1.5;display:none;white-space:pre-line}
+.q.open .ans{display:block}
+.q .fg img{max-width:100%;height:auto;display:block;margin:6px 0;border:1px solid var(--rule)}
+.q details{margin:6px 0}.q details div{white-space:pre-line;font-size:.95rem;padding:6px 8px;background:#fafafa;border:1px solid var(--rule);margin-top:4px}
+.q .tg{margin-top:6px}
+.q.od .st,.q.od .op,.q.od .ans{font-family:"Noto Sans Oriya","EB Garamond",serif;line-height:1.7}
+.pp{border:1px solid var(--fg);color:var(--fg);padding:0 6px}
+@media(max-width:999px){
+ .right.show{display:block;position:fixed;inset:0;z-index:30;background:var(--bg);overflow-y:auto}
+ .qhead .back{display:inline-block}
+}
+@media(max-width:600px){.qhead{padding:12px 14px 10px}.qbody{padding:4px 12px 60px}.q{padding:10px 12px}}
 </style>
-<div class="page">
+<div class="shell">
+<div class="left"><div class="page" style="padding:0">
 <div class="util">OPSC ASO · 2018 · 2021 · 2025 (and 2015 where we have it)</div>
 <h1>What was asked</h1>
-<p class="lead">Pick a paper. For every topic, and for every family inside the topic, this page counts the questions that came in each year. A family is one kind of question that keeps coming back, such as "days and themes" in General Awareness or "time and work" in Maths. A dark box means many questions that year; a dot means none. Use it to see what the examiner likes, what he has dropped, and which families have not come yet.</p>
+<p class="lead">Pick a paper. For every topic, and for every family inside the topic, this page counts the questions that came in each year. A family is one kind of question that keeps coming back, such as "days and themes" in General Awareness or "time and work" in Maths. A dark box means many questions that year; a dot means none.</p>
+<p class="lead" style="margin-top:12px"><b>Click anything to read the real questions on the right.</b> A topic or family name shows every year. A number shows only that year. A year at the top of a column shows that year for the whole topic list. Dotted underlines and outlined boxes are clickable.</p>
 <div class="orn">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
 <div class="tabs" id="tabs"></div>
 <div class="opts" id="opts"></div>
 <div id="panel"></div>
 <p class="top"><a href="#top" id="up">↑ Top</a></p>
+</div></div>
+<aside class="right" id="qp" aria-live="polite"></aside>
 </div>
+<script src="pyq-data.js"></script>
 <script>
-var D=__DATA__;
-var UK="aso-analysis-ui",ui={once:0,note:0};try{ui=Object.assign(ui,JSON.parse(localStorage.getItem(UK)||"{}"))}catch(e){}
+var AN=__DATA__;   /* the tables; the questions themselves are D, T, PG, FG from pyq-data.js */
+var UK="aso-analysis-ui",ui={once:0,note:0,ans:0};try{ui=Object.assign(ui,JSON.parse(localStorage.getItem(UK)||"{}"))}catch(e){}
+function save(){try{localStorage.setItem(UK,JSON.stringify(ui))}catch(e){}}
 var TIER={S:"Asked in two or three papers, or grew in 2025",A:"Asked once recently, or a clear syllabus line",B:"Old or thin: asked long ago or only once",C:"A syllabus line never asked yet",D:"A dropped kind of question",X:"Outside the syllabus, never expect it"};
 function el(i){return document.getElementById(i)}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function nice(f){return f.split(".").slice(1).join(" ").replace(/-/g," ")}
+function slug(f){return f.split(".").slice(1).join(".")}
+function nice(f){return slug(f).replace(/-/g," ")}
 function sum(a){return a.reduce(function(x,y){return x+y},0)}
-function cell(n,big,sz){if(!n)return '<td class="n z">·</td>';var k=big?(n/sz>=.15?3:n/sz>=.08?2:1):Math.min(n,3);return '<td class="n h'+k+'">'+n+'</td>'}
+function pap(id){return AN.filter(function(p){return p.id===id})[0]||AN[0]}
+/* ---- selection: {t:topic id, f:family slug, y:year} (empty = all). Hash: #paper/topic/family/year, "-" = all ---- */
+var cur="ga",sel={t:"",f:"",y:0};
+function fromHash(){var p=location.hash.replace(/^#\/?/,"").split("/");if(!AN.some(function(x){return x.id===p[0]}))return false;
+  cur=p[0];sel={t:(p[1]&&p[1]!=="-")?p[1]:"",f:(p[2]&&p[2]!=="-")?p[2]:"",y:(p[3]&&p[3]!=="-")?+p[3]:0};if(!sel.t)sel.f="";return true}
+function toHash(){var h=cur;if(sel.t||sel.f||sel.y)h+="/"+(sel.t||"-")+"/"+(sel.f||"-")+"/"+(sel.y||"-");try{history.replaceState(null,"","#"+h)}catch(e){}}
+function cell(n,big,sz,attr){if(!n)return '<td class="n z">·</td>';var k=big?(n/sz>=.15?3:n/sz>=.08?2:1):Math.min(n,3);
+  return '<td class="n h'+k+(attr?' sel" tabindex="0" role="button" '+attr:'"')+'>'+n+'</td>'}
+function sa(t,f,y){return 'data-t="'+(t||"")+'" data-f="'+(f||"")+'" data-y="'+(y||"")+'"'}
 function trend(P,y){var L=y.length-1,sz=P.sizes;if(L<1)return"";var prev=sum(y.slice(0,L))/L/(sum(sz.slice(0,L))/L),now=y[L]/sz[L],d=(now-prev)*100;
   if(d>=3)return['up','&uarr; <span class="trw">rising</span>'];if(d<=-3)return['dn','&darr; <span class="trw">falling</span>'];return['st','&rarr; <span class="trw">steady</span>']}
-function pap(id){return D.filter(function(p){return p.id===id})[0]||D[0]}
-var cur=(location.hash.slice(1)||"ga");
+function topicName(P,t){for(var i=0;i<P.topics.length;i++)if(P.topics[i].id===t)return P.topics[i].name;return t}
+
+/* ---- left: the tables ---- */
 function draw(){
-  var P=pap(cur);cur=P.id;try{history.replaceState(null,"","#"+cur)}catch(e){}
-  el("tabs").innerHTML=D.map(function(p){return '<button class="btn" data-p="'+p.id+'" aria-pressed="'+(p.id===cur)+'">'+esc(p.name)+'</button>'}).join("");
+  var P=pap(cur);cur=P.id;
+  el("tabs").innerHTML=AN.map(function(p){return '<button class="btn" data-p="'+p.id+'" aria-pressed="'+(p.id===cur)+'">'+esc(p.name)+'</button>'}).join("");
   el("opts").innerHTML='<button class="btn" data-o="once" aria-pressed="'+!!ui.once+'">Show families asked once</button><button class="btn" data-o="note" aria-pressed="'+!!ui.note+'">Show likely-next notes</button>';
   document.body.classList.toggle("shownote",!!ui.note);
   var yrs=P.years,Y=yrs.length,asked=P.fam.filter(function(f){return sum(f.y)>0}),twice=asked.filter(function(f){return sum(f.y)>=2});
+  var yh=function(t,f){return yrs.map(function(y){return '<th class="n'+(t||f?'':' sel')+'" '+(t||f?'':sa("","",y)+' tabindex="0" role="button" title="All '+y+' questions"')+'>'+y+'</th>'}).join("")};
   var h='<div class="chips"><span class="chip">'+P.paper+'</span><span class="chip">'+P.total+' past questions</span><span class="chip">'+P.topics.length+' topics</span><span class="chip">'+asked.length+' families asked</span><span class="chip">'+twice.length+' asked twice or more</span></div>';
   var mx=Math.max.apply(null,P.topics.map(function(t){return sum(t.y)}));
-  h+='<div class="fig"><span class="lab">FIG_001 · TOPICS</span><table><thead><tr><th>Topic</th>'+yrs.map(function(y){return '<th class="n">'+y+'</th>'}).join("")+'<th class="n">Total</th><th class="bar"></th><th class="tr">Trend</th><th class="n fm">Fam.</th></tr></thead><tbody>';
+  h+='<div class="fig"><span class="lab">FIG_001 · TOPICS</span><table><thead><tr><th>Topic</th>'+yh()+'<th class="n">Total</th><th class="bar"></th><th class="tr">Trend</th><th class="n fm">Fam.</th></tr></thead><tbody>';
   P.topics.slice().sort(function(a,b){return sum(b.y)-sum(a.y)}).forEach(function(t){
     var fam=asked.filter(function(f){return f.t===t.id}).length,tr=trend(P,t.y);
-    h+='<tr><td><a href="#t-'+t.id+'" data-jump="t-'+t.id+'">'+esc(t.name)+'</a>'+(t.out?' <span class="tier">outside syllabus</span>':'')+'</td>'+t.y.map(function(v){return cell(v,1,P.sizes[0])}).join("")+'<td class="n tot">'+sum(t.y)+'</td><td class="bar"><i style="width:'+Math.round(100*sum(t.y)/mx)+'%"></i></td><td class="tr '+tr[0]+'">'+tr[1]+'</td><td class="n fm">'+fam+'</td></tr>'});
-  h+='<tr><td><b>All questions</b></td>'+P.sizes.map(function(v){return '<td class="n tot">'+v+'</td>'}).join("")+'<td class="n tot">'+P.total+'</td><td class="bar"></td><td class="tr"></td><td class="n fm">'+asked.length+'</td></tr></tbody></table></div>';
-  h+='<p class="small">Trend compares the last paper ('+yrs[Y-1]+') with the average of the earlier ones, as a share of the paper: rising or falling means a change of 3 points or more. "Fam." is how many different families were asked in that topic. Click a topic to jump to it.</p>';
+    h+='<tr><td><a href="#" class="sel" '+sa(t.id)+'>'+esc(t.name)+'</a>'+(t.out?' <span class="tier">outside syllabus</span>':'')+'</td>'+t.y.map(function(v,i){return cell(v,1,P.sizes[0],sa(t.id,"",yrs[i]))}).join("")+'<td class="n tot sel" tabindex="0" role="button" '+sa(t.id)+'>'+sum(t.y)+'</td><td class="bar"><i style="width:'+Math.round(100*sum(t.y)/mx)+'%"></i></td><td class="tr '+tr[0]+'">'+tr[1]+'</td><td class="n fm">'+fam+'</td></tr>'});
+  h+='<tr><td><b>All questions</b></td>'+P.sizes.map(function(v,i){return '<td class="n tot sel" tabindex="0" role="button" '+sa("","",yrs[i])+'>'+v+'</td>'}).join("")+'<td class="n tot">'+P.total+'</td><td class="bar"></td><td class="tr"></td><td class="n fm">'+asked.length+'</td></tr></tbody></table></div>';
+  h+='<p class="small">Trend compares the last paper ('+yrs[Y-1]+') with the average of the earlier ones, as a share of the paper: rising or falling means a change of 3 points or more. "Fam." is how many different families were asked in that topic. Click a topic name to read its questions, or scroll down to its families.</p>';
   P.mix.forEach(function(m,i){
     h+='<div class="fig"><span class="lab">FIG_00'+(i+2)+'</span><h3>'+esc(m.title)+'</h3><table><thead><tr><th>Kind</th>'+yrs.map(function(y){return '<th class="n">'+y+'</th>'}).join("")+'<th class="n">Total</th></tr></thead><tbody>'+
       m.rows.map(function(r){return '<tr><td>'+esc(r.name)+'</td>'+r.y.map(function(v){return cell(v,1,P.sizes[0])}).join("")+'<td class="n tot">'+sum(r.y)+'</td></tr>'}).join("")+'</tbody></table></div>'});
   P.topics.slice().sort(function(a,b){return sum(b.y)-sum(a.y)}).forEach(function(t){
     var all=P.fam.filter(function(f){return f.t===t.id}).sort(function(a,b){return sum(b.y)-sum(a.y)||a.f.localeCompare(b.f)});
     var show=all.filter(function(f){return ui.once?sum(f.y)>=1:sum(f.y)>=2}),never=all.filter(function(f){return sum(f.y)===0}),once=all.filter(function(f){return sum(f.y)===1});
-    h+='<section id="t-'+t.id+'"><h2>'+esc(t.name)+(t.out?' <span class="out">OUTSIDE SYLLABUS</span>':'')+' <span class="mono">'+sum(t.y)+' questions · '+yrs.map(function(y,i){return y+' '+t.y[i]}).join(' · ')+'</span></h2>';
-    if(show.length){h+='<table><thead><tr><th>Family</th>'+yrs.map(function(y){return '<th class="n">'+y+'</th>'}).join("")+'<th class="n">Total</th><th class="n">Tier</th></tr></thead><tbody>';
-      show.forEach(function(f){h+='<tr><td class="nm">'+esc(nice(f.f))+'</td>'+f.y.map(function(v){return cell(v)}).join("")+'<td class="n tot">'+sum(f.y)+'</td><td class="n"><span class="tier t'+f.tier+'">'+f.tier+'</span></td></tr>'+(f.n?'<tr class="note"><td colspan="'+(Y+3)+'">Likely next: '+esc(f.n)+'</td></tr>':'')});
+    h+='<section id="t-'+t.id+'"><h2><a href="#" class="sel" '+sa(t.id)+'>'+esc(t.name)+'</a>'+(t.out?' <span class="out">OUTSIDE SYLLABUS</span>':'')+' <span class="mono">'+sum(t.y)+' questions · '+yrs.map(function(y,i){return y+' '+t.y[i]}).join(' · ')+'</span></h2>';
+    if(show.length){h+='<table><thead><tr><th>Family</th>'+yrs.map(function(y){return '<th class="n sel" '+sa(t.id,"",y)+' tabindex="0" role="button" title="'+esc(t.name)+', '+y+'">'+y+'</th>'}).join("")+'<th class="n">Total</th><th class="n">Tier</th></tr></thead><tbody>';
+      show.forEach(function(f){var s=slug(f.f);h+='<tr><td class="nm"><a href="#" class="sel" '+sa(t.id,s)+'>'+esc(nice(f.f))+'</a></td>'+f.y.map(function(v,i){return cell(v,0,0,sa(t.id,s,yrs[i]))}).join("")+'<td class="n tot sel" tabindex="0" role="button" '+sa(t.id,s)+'>'+sum(f.y)+'</td><td class="n"><span class="tier t'+f.tier+'">'+f.tier+'</span></td></tr>'+(f.n?'<tr class="note"><td colspan="'+(Y+3)+'">Likely next: '+esc(f.n)+'</td></tr>':'')});
       h+='</tbody></table>'}else h+='<p class="small">No family in this topic was asked more than once.</p>';
-    if(!ui.once&&once.length)h+='<details><summary>Asked once · '+once.length+' families</summary><p class="once">'+once.map(function(f){var y=yrs[f.y.findIndex(function(v){return v})];return esc(nice(f.f))+' <span class="yr">'+y+'</span> <span class="tier t'+f.tier+'">'+f.tier+'</span>'}).join('; ')+'</p></details>';
+    if(!ui.once&&once.length)h+='<details><summary>Asked once · '+once.length+' families</summary><p class="once">'+once.map(function(f){var y=yrs[f.y.findIndex(function(v){return v})];return '<span class="sel" '+sa(t.id,slug(f.f),y)+' tabindex="0" role="button">'+esc(nice(f.f))+'</span> <span class="yr">'+y+'</span> <span class="tier t'+f.tier+'">'+f.tier+'</span>'}).join('; ')+'</p></details>';
     if(never.length)h+='<details><summary>Not asked yet · '+never.length+' families</summary><p class="once">'+never.map(function(f){return esc(nice(f.f))+' <span class="tier t'+f.tier+'">'+f.tier+'</span>'}).join('; ')+'</p></details>';
     h+='</section>'});
   h+='<div class="fig" style="margin-top:44px"><span class="lab">KEY · TIER</span><h3>What the tier letters mean</h3><div class="legend">'+Object.keys(TIER).map(function(k){return '<div><span class="tier t'+k+'">'+k+'</span> '+TIER[k]+'</div>'}).join("")+'</div></div>';
-  h+='<p class="small">Counts come from the tags in the mock-maker\'s data ('+yrs.join(", ")+'). Years scanned by OCR may be off by one here and there. This page counts questions only; it does not say which answer is right. Tiers are the mock-maker\'s own judgement.</p>';
+  h+='<p class="small">Counts come from the tags in the mock-maker\'s data ('+yrs.join(", ")+'), and the questions on the right come from the PYQ Bank, so the two always agree. Years scanned by OCR may be off by one here and there. Keys are mine, except Reasoning and Odia, which are the Udyam IAS book\'s; no official key exists. Tiers are the mock-maker\'s own judgement.</p>';
   el("panel").innerHTML=h;
+  mark();showQ();
 }
+function mark(){document.querySelectorAll(".sel").forEach(function(e){
+  var on=(e.dataset.t||"")===sel.t&&(e.dataset.f||"")===sel.f&&(+e.dataset.y||0)===sel.y&&(sel.t||sel.f||sel.y);
+  e.classList.toggle("cur",!!on)})}
+
+/* ---- right: the questions ---- */
+function pick(){var P=pap(cur),r=D.filter(function(d){return d.p===P.bp&&(!sel.t||d.t===P.bp+":"+sel.t)&&(!sel.f||d.f===sel.f)&&(!sel.y||d.y===sel.y)});
+  var TO={};P.topics.forEach(function(t,i){TO[P.bp+":"+t.id]=i});
+  r.sort(function(a,b){return (sel.y?0:b.y-a.y)||(sel.t?0:TO[a.t]-TO[b.t])||(sel.f?0:(a.f<b.f?-1:a.f>b.f?1:0))||a.y-b.y||a.q-b.q});return r}
+function card(d,P){var L="ABCD",o=d.o.map(function(x,i){return '<div class="op'+(ui.ans&&L[i]===d.a?' r':'')+'"><b>'+L[i]+'</b><span>'+esc(x)+'</span></div>'}).join("");
+  var lab=d.a?'<b>Answer '+esc(d.a)+'.</b> ':d.nv?'<b>Not valued.</b> ':d.o.length?'<b>Key missing.</b> ':'';
+  var ps=d.g!=null?'<details><summary class="mono" style="font-size:11px;color:var(--blue);cursor:pointer">Passage</summary><div>'+esc(PG[d.g])+'</div></details>':"";
+  var fig=d.i?'<div class="fg">'+d.i.map(function(i){return '<img loading="lazy" alt="figure" src="'+FG[i]+'">'}).join("")+'</div>':"";
+  return '<div class="q'+(d.p==="od"?' od':'')+(ui.ans?' open':'')+'"><div class="meta"><span class="yy">'+d.y+'</span><span>Q'+d.q+'</span><span>'+esc(T[d.t])+'</span>'+(d.f?'<span>'+esc(d.f.replace(/-/g," "))+'</span>':'')+(d.c?'<span class="chk">CHECK</span>':'')+(d.nv?'<span class="chk">NOT VALUED</span>':'')+'</div>'+ps+
+    '<div class="st">'+esc(d.s)+'</div>'+fig+o+(lab||d.w?'<div class="ans">'+lab+esc(d.w)+'</div>':'')+
+    '<div class="tg"><button class="btn" data-a="1">'+(ui.ans?'Hide answer':'Show answer')+'</button></div></div>'}
+function showQ(){
+  var P=pap(cur),box=el("qp"),has=sel.t||sel.f||sel.y,rs=has?pick():[];
+  var crumbs=[P.name];if(sel.t)crumbs.push(topicName(P,sel.t));if(sel.f)crumbs.push(sel.f.replace(/-/g," "));if(sel.y)crumbs.push(String(sel.y));
+  if(!has){crumbs.push("all years")}
+  var all=!has?D.filter(function(d){return d.p===P.bp}):rs;
+  var head='<div class="qhead"><div class="trail">'+crumbs.map(esc).join(' <i>›</i> ')+'</div><div class="qtools"><span class="cnt">'+(has?rs.length:all.length)+' question'+((has?rs.length:all.length)===1?'':'s')+'</span>'+
+    '<button class="btn" data-ans="1" aria-pressed="'+!!ui.ans+'">Answers: '+(ui.ans?'shown':'hidden')+'</button>'+
+    (has?'<button class="btn" data-clear="1">Clear</button>':'')+'<button class="btn back" data-close="1">← Back to tables</button></div></div>';
+  var body;
+  if(!has)body='<div class="empty"><h3>Click a topic, a family or a number.</h3><p>The real questions will show here, newest first, with their options. Press <b>Show answer</b> on a card to see the key and the explanation.</p><p>A topic or family name shows <b>every year</b>. A number shows <b>only that year</b>. A year at the top of a column shows that year for every topic.</p><p class="mono">Try: '+esc(P.topics[0].name)+' → click its name.</p></div>';
+  else if(!rs.length)body='<div class="empty"><h3>No questions here.</h3></div>';
+  else{var last=null;body='<div class="qbody">'+rs.map(function(d){var g=[];if(!sel.y)g.push(String(d.y));if(!sel.t)g.push(topicName(P,d.t.split(":")[1]));var gk=g.join(" · "),hd="";
+      if(gk&&gk!==last){last=gk;var n=rs.filter(function(x){var xs=[];if(!sel.y)xs.push(String(x.y));if(!sel.t)xs.push(topicName(P,x.t.split(":")[1]));return xs.join(" · ")===gk}).length;hd='<div class="grp">'+esc(gk)+' · '+n+'</div>'}
+      return hd+card(d,P)}).join("")+'</div>'}
+  box.innerHTML=head+body;
+  box.classList.toggle("show",!!has);
+  box.scrollTop=0;
+}
+/* ---- events ---- */
+function choose(e,x){sel={t:x.dataset.t||"",f:x.dataset.f||"",y:+x.dataset.y||0};if(!sel.t)sel.f="";toHash();mark();showQ()}
 document.addEventListener("click",function(e){
-  var b=e.target.closest("[data-p]");if(b){cur=b.dataset.p;draw();window.scrollTo(0,0);return}
-  b=e.target.closest("[data-o]");if(b){var k=b.dataset.o;ui[k]=ui[k]?0:1;try{localStorage.setItem(UK,JSON.stringify(ui))}catch(x){}draw();return}
-  b=e.target.closest("[data-jump]");if(b){e.preventDefault();var t=el(b.dataset.jump);if(t)window.scrollTo({top:t.getBoundingClientRect().top+scrollY-56,behavior:"smooth"})}
+  var b=e.target.closest("[data-p]");if(b){cur=b.dataset.p;sel={t:"",f:"",y:0};toHash();draw();window.scrollTo(0,0);return}
+  b=e.target.closest("[data-o]");if(b){var k=b.dataset.o;ui[k]=ui[k]?0:1;save();draw();return}
+  b=e.target.closest("[data-ans]");if(b){ui.ans=ui.ans?0:1;save();var s=el("qp").scrollTop;showQ();el("qp").scrollTop=s;return}
+  b=e.target.closest("[data-a]");if(b){var q=b.closest(".q");q.classList.toggle("open");b.textContent=q.classList.contains("open")?"Hide answer":"Show answer";return}
+  b=e.target.closest("[data-clear]");if(b){sel={t:"",f:"",y:0};toHash();mark();showQ();return}
+  b=e.target.closest("[data-close]");if(b){el("qp").classList.remove("show");return}
+  b=e.target.closest(".sel");if(b&&b.dataset.t!==undefined){e.preventDefault();choose(e,b);return}
   if(e.target.id==="up"){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"})}
 });
-window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(D.some(function(p){return p.id===h})&&h!==cur){cur=h;draw()}});
+document.addEventListener("keydown",function(e){var x=e.target;if((e.key==="Enter"||e.key===" ")&&x.classList&&x.classList.contains("sel")&&x.tagName!=="A"){e.preventDefault();choose(e,x)}
+  if(e.key==="Escape"&&el("qp").classList.contains("show")&&innerWidth<1000)el("qp").classList.remove("show")});
+window.addEventListener("hashchange",function(){var o=cur+JSON.stringify(sel);if(fromHash()&&cur+JSON.stringify(sel)!==o)draw()});
+if(!fromHash()){cur="ga"}
 draw();
 </script>
