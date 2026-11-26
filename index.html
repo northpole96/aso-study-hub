@@ -320,7 +320,7 @@ var R = [
  {t:"English Mock 06", f:"ASO-English-Mock-Test-2027-6.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-6", n:100, y:"M06", main:1},
  {t:"English Mock 07", f:"ASO-English-Mock-Test-2027-7.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-7", n:100, y:"M07", main:1},
  {t:"English Mock 08", f:"ASO-English-Mock-Test-2027-8.html", s:"mock", p:"EN", g:"English mocks", k:"aso-english-mock-2027-8", n:100, y:"M08", main:1},
- {t:"Paper II Mock · 2021 paper", f:"ASO-Paper-II-Mock-2021.html", s:"mock", p:"RE", g:"Paper II mocks", k:"aso-paper2-mock-2021", n:100, y:"P2-21", main:1},
+ {t:"Paper II Mock · 2021 paper", f:"ASO-Paper-II-Mock-2021.html", s:"mock", p:"RE", g:"Paper II mocks", k:"aso-paper2-mock-2021", n:100, y:"P2-21", main:1, q:1},
  {t:"Reasoning Mock 01", f:"ASO-Reasoning-Mock-2027-1.html", s:"mock", p:"RE", g:"Paper II mocks", k:"aso-reasoning-mock-2027-1", n:50, y:"RE01", main:1},
  {t:"Maths Mock 01", f:"ASO-Maths-Mock-2027-1.html", s:"mock", p:"MA", g:"Paper II mocks", k:"aso-maths-mock-2027-1", n:50, y:"MA01", main:1},
  {t:"Number System Mock 01", f:"ASO-Maths-Number-System-Mock-1.html", s:"mock", p:"MA", g:"Paper II mocks", k:"aso-maths-numsys-mock-1", n:50, y:"NUMM1", main:1, topic:"ari"},
@@ -330,7 +330,7 @@ var R = [
  {t:"Time and Work · 14 types", f:"ASO-Maths-Time-Work-1.html", s:"mock", p:"MA", g:"Topic sets", k:"aso-maths-time-work-1", n:14, y:"TW1", topic:"ari"},
  {t:"Speed, Trains, Races, Boats", f:"ASO-Maths-Speed-1.html", s:"mock", p:"MA", g:"Topic sets", k:"aso-maths-speed-1", n:26, y:"SPD1", topic:"ari"},
  {t:"Number System Set 01", f:"ASO-Maths-Number-System-1.html", s:"mock", p:"MA", g:"Topic sets", k:"aso-maths-numsys-1", n:30, y:"NUM1", topic:"ari"},
- {t:"GA Mock · 2021 paper", f:"ASO-GA-Mock-2021-Paper-I.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-ga-mock-2021", n:100, y:"GA21", main:1},
+ {t:"GA Mock · 2021 paper", f:"ASO-GA-Mock-2021-Paper-I.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-ga-mock-2021", n:100, y:"GA21", main:1, q:1},
  {t:"GS Mock 01", f:"ASO-GS-Mock-Test-2027-1.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-1", n:100, y:"GS01", main:1},
  {t:"GS Mock 02 · most likely", f:"ASO-GS-Mock-Test-2027-2.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-2", n:100, y:"GS02", main:1},
  {t:"GS Mock 03 · most likely II", f:"ASO-GS-Mock-Test-2027-3.html", s:"mock", p:"GA", g:"GS mocks", k:"aso-gs-mock-2027-3", n:100, y:"GS03", main:1},
@@ -347,7 +347,7 @@ var R = [
  {t:"Vocabulary Test", f:"ASO-Vocabulary-Test-65-MCQ.html", s:"mock", p:"EN", g:"Topic sets", n:65, y:"VOC"},
  {t:"Number Series Set 01", f:"ASO-Reasoning-Series-1.html", s:"mock", p:"RE", g:"Topic sets", k:"aso-reasoning-series-1", n:30, y:"SER1", topic:"rser"},
  {t:"Number Series Set 02", f:"ASO-Reasoning-Series-2.html", s:"mock", p:"RE", g:"Topic sets", k:"aso-reasoning-series-2", n:30, y:"SER2", topic:"rser"},
- {t:"Coding-Decoding · all past questions", f:"ASO-Reasoning-Coding-PYQ.html", s:"mock", p:"RE", g:"Topic sets", k:"aso-reasoning-coding-pyq", n:17, y:"CODP", topic:"rcod"},
+ {t:"Coding-Decoding · all past questions", f:"ASO-Reasoning-Coding-PYQ.html", s:"mock", p:"RE", g:"Topic sets", k:"aso-reasoning-coding-pyq", n:17, y:"CODP", topic:"rcod", q:1},
  {t:"Ranking Set 01", f:"ASO-Reasoning-Ranking-1.html", s:"mock", p:"RE", g:"Topic sets", k:"aso-reasoning-ranking-1", n:30, y:"RNK1", topic:"rrnk"},
  {t:"Odia Mock 01", f:"ASO-Odia-Mock-2027-1.html", s:"mock", p:"OD", g:"Odia mocks", k:"aso-odia-mock-2027-1", n:100, y:"OD01", main:1},
  {t:"Odia Mock 02", f:"ASO-Odia-Mock-2027-2.html", s:"mock", p:"OD", g:"Odia mocks", k:"aso-odia-mock-2027-2", n:100, y:"OD02", main:1},
@@ -363,6 +363,9 @@ var R = [
  {t:"English Paper III · 2025", f:E25, s:"pyq", p:"EN", y:"2025", main:1, x:"100 Q · answers"},
  {t:"English Paper III · 2021", f:E21, s:"pyq", p:"EN", y:"2021", x:"100 Q · answers"},
  {t:"English Paper III · 2018", f:E18, s:"pyq", p:"EN", y:"2018", x:"100 Q · answers"},
+ {t:"PYQ Bank · Maths and Reasoning, all years", f:"ASO-Maths-PYQ-Bank.html", s:"pyq", p:"MA", y:"15–25", main:1, x:"350 Q · filter by year, topic, family"},
+ {t:"Maths Paper II · 2018", f:"pyq/OPSC-ASO-2018-Maths-Paper-II.html", s:"pyq", p:"MA", y:"2018", x:"50 Q · answers"},
+ {t:"Maths Paper II · 2025", f:"pyq/OPSC-ASO-2025-Maths-Paper-II.html", s:"pyq", p:"MA", y:"2025", x:"50 Q · answers"},
  {t:"English 3-year trend", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"18–25", x:"What each year asked"},
  {t:"Reasoning Paper II · 2021", f:"pyq/OPSC-ASO-2021-Reasoning-Maths-Paper-II.html#reasoning-and-mental-ability-q1-50", s:"pyq", p:"RE", y:"2021", main:1, x:"50 Q · answers"},
  {t:"Maths Paper II · 2021", f:"pyq/OPSC-ASO-2021-Reasoning-Maths-Paper-II.html#mathematics-q51-100", s:"pyq", p:"MA", y:"2021", main:1, x:"50 Q · answers"},
@@ -693,6 +696,16 @@ V.papers=function(){
   return h;
 };
 
+/* PYQ: every past paper and every set made from past questions, by subject */
+V.pyq=function(){
+  var list=R.filter(function(r){return r.s==="pyq"||r.q});
+  var h=ph("PYQ","Past year questions","Every past paper, and every set made from them, filed by subject.",'<a class="btn pri" href="'+openHref("ASO-Maths-PYQ-Bank.html","PYQ Bank")+'">Open the PYQ Bank</a>');
+  SYL.forEach(function(S){var l=list.filter(function(r){return subOf(r)===S.id}); if(l.length) h+=sec(S.paper+' · '+S.name,l.length)+'<div class="panel rows">'+rows(l,false)+'</div>'});
+  var gaps=SYL.filter(function(S){return !list.some(function(r){return subOf(r)===S.id})}).map(function(S){return S.name});
+  if(gaps.length) h+='<p class="note">No past questions in the hub yet for '+gaps.join(", ")+'.</p>';
+  return h;
+};
+
 V.guides=function(){
   var h=ph("Library","Guides","Notes to read, filed by subject.");
   SYL.forEach(function(S){var o=subj(S); if(o.guides.length) h+=sec(S.name,o.guides.length)+'<div class="panel rows">'+rows(o.guides)+'</div>'});
@@ -732,15 +745,18 @@ var ICON={
  home:'<path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/>',
  subjects:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
  tests:'<rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+ pyq:'<path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6M9 17h3"/>',
  papers:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 16h7"/>',
  guides:'<path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/>',
  syllabus:'<path d="M5 4h14v16H5z"/><path d="M9 4v16M12 9h4M12 13h4"/>'
 };
 function svg(k){return '<svg viewBox="0 0 24 24">'+ICON[k]+'</svg>'}
 function count(s){return R.filter(function(r){return r.s===s}).length}
-var LIB='<span class="bc">Library <i>›</i> </span>', NAMES={home:"Home",subjects:"Subjects",tests:LIB+"Tests",papers:LIB+"Past papers",guides:LIB+"Guides",syllabus:LIB+"Syllabus"};
+var LIB='<span class="bc">Library <i>›</i> </span>', NAMES={home:"Home",pyq:"PYQ",subjects:"Subjects",tests:LIB+"Tests",papers:LIB+"Past papers",guides:LIB+"Guides",syllabus:LIB+"Syllabus"};
 $("#sidenav").innerHTML='<a class="ni" href="#/home" data-v="home">'+svg("home")+'Home</a>'+
   '<div class="ng m">Subjects</div>'+SYL.map(function(S){var o=subj(S); return '<a class="ni'+(o.count?'':' off')+'" href="#/s/'+S.id+'" data-v="s/'+S.id+'"><span class="rn">'+S.no+'</span>'+S.name+'<span class="c">'+(o.count||"—")+'</span></a>'}).join("")+
+  '<div class="ng m">PYQ</div>'+[["pyq","All PYQs",R.filter(function(r){return r.s==="pyq"||r.q}).length]].map(function(n){return '<a class="ni" href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'<span class="c">'+n[2]+'</span></a>'}).join("")+
+  '<a class="ni" href="'+openHref("ASO-Maths-PYQ-Bank.html","PYQ Bank")+'" data-v="bank">'+svg("pyq")+'PYQ Bank<span class="c">350</span></a>'+
   '<div class="ng m">Library</div>'+[["tests","Tests",count("mock")],["papers","Past papers",count("pyq")],["guides","Guides",count("guide")],["syllabus","Syllabus",""]].map(function(n){return '<a class="ni" href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'<span class="c">'+n[2]+'</span></a>'}).join("");
 $("#tabs").innerHTML=[["home","Home"],["subjects","Subjects"],["tests","Tests"],["papers","Papers"],["guides","Guides"]].map(function(n){return '<a href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'</a>'}).join("");
 
