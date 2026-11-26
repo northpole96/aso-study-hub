@@ -24,22 +24,30 @@
     if (on) { o.prevSel = s.userSelect; o.prevWk = s.webkitUserSelect; s.userSelect = s.webkitUserSelect = "none"; var g = window.getSelection && getSelection(); if (g && g.removeAllRanges) g.removeAllRanges(); }
     else { s.userSelect = o.prevSel || ""; s.webkitUserSelect = o.prevWk || ""; }
   }
-  function fling(box, v) {                       /* a little glide after the pen lifts */
-    cancelAnimationFrame(raf); var last = performance.now();
+  var TAU = 340, VMAX = 4, VMIN = 0.012;          /* glide: speed fades by 1/e every 340 ms; px per ms */
+  function stopFling() { cancelAnimationFrame(raf); raf = 0; }
+  function fling(box, v) {                       /* keep going after the pen lifts, slow down smoothly, stop at the ends */
+    stopFling();
+    var pos = box.scrollTop, max = function () { return Math.max(0, box.scrollHeight - box.clientHeight); }, last = performance.now();
+    v = Math.max(-VMAX, Math.min(VMAX, v));
     (function step(t) {
-      var dt = t - last; last = t; go(box, box.scrollTop + v * dt); v *= Math.pow(0.0035, dt / 1000);
-      if (Math.abs(v) > 0.02) raf = requestAnimationFrame(step);
+      var dt = Math.min(48, t - last); last = t;
+      pos += v * dt; v *= Math.exp(-dt / TAU);
+      var m = max(), hit = pos <= 0 || pos >= m;
+      pos = Math.max(0, Math.min(m, pos)); go(box, pos);
+      if (!hit && Math.abs(v) > VMIN) raf = requestAnimationFrame(step); else raf = 0;
     })(last);
   }
+  ["wheel", "keydown", "touchstart"].forEach(function (n) { document.addEventListener(n, stopFling, { passive: true, capture: true }); });
 
   document.addEventListener("pointerdown", function (e) {
-    cancelAnimationFrame(raf);
+    stopFling();
     if (e.pointerType !== "pen" || e.button !== 0 || e.defaultPrevented || !e.isPrimary) return;
     if (document.body && document.body.classList.contains("drawing")) return;
     var t = e.target; if (!t || t.nodeType !== 1) return;
     if (t.closest && t.closest(CONTROL)) return;
     if (e.shiftKey) return;                                          /* Shift + drag = select text as usual */
-    st = { id: e.pointerId, y: e.clientY, y0: e.clientY, x0: e.clientX, box: scroller(t), going: false, t: performance.now(), v: 0 };
+    st = { id: e.pointerId, y: e.clientY, y0: e.clientY, x0: e.clientX, box: scroller(t), going: false, s: [] };
   }, false);
 
   document.addEventListener("pointermove", function (e) {
@@ -49,9 +57,10 @@
       if (Math.abs(e.clientY - st.y0) < TAP && Math.abs(e.clientX - st.x0) < TAP) return;
       st.going = true; lock(true, st);
     }
-    var dy = e.clientY - st.y, now = performance.now(), dt = Math.max(1, now - st.t);
+    var dy = e.clientY - st.y, now = performance.now();
     go(st.box, st.box.scrollTop - dy); st.y = e.clientY;
-    st.v = 0.8 * st.v + 0.2 * (-dy / dt); st.t = now;
+    st.s.push({ t: now, y: e.clientY });                              /* the last 100 ms of the pen's path gives the flick speed */
+    while (st.s.length > 2 && now - st.s[0].t > 100) st.s.shift();
     e.preventDefault();
   }, { passive: false });
 
@@ -61,7 +70,11 @@
     if (s.going) {
       lock(false, s);
       if (e.type === "pointerup") { window.__penClickBlock = 1; setTimeout(function () { window.__penClickBlock = 0; }, 60); }
-      if (e.type === "pointerup" && Math.abs(s.v) > 0.15 && performance.now() - s.t < 90) fling(s.box, s.v);
+      var n = s.s.length, now = performance.now();
+      if (e.type === "pointerup" && n > 1 && now - s.s[n - 1].t < 80) {   /* lifted while still moving = a flick */
+        var span = s.s[n - 1].t - s.s[0].t;
+        if (span > 8) { var v = -(s.s[n - 1].y - s.s[0].y) / span; if (Math.abs(v) > 0.1) fling(s.box, v); }
+      }
     }
   }
   document.addEventListener("dragstart", function (e) { if (st) e.preventDefault(); }, true);
