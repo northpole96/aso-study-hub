@@ -765,7 +765,9 @@ function route(){
     $("#title").textContent=t; $("#full").href=f; view.className="view frame";
     if(!view.querySelector("iframe")||view.dataset.f!==f){view.innerHTML='<iframe title="'+esc(t)+'" src="'+esc(f)+'"></iframe>'; view.dataset.f=f;
       /* give the opened page the keyboard, so its shortcuts and arrow keys work straight away */
-      var fr=view.querySelector("iframe"); fr.addEventListener("load",function(){ try{ fr.focus(); fr.contentWindow.focus() }catch(e){} })}
+      var fr=view.querySelector("iframe"); fr.addEventListener("load",function(){ try{ fr.focus(); fr.contentWindow.focus() }catch(e){}
+        /* pen scrolling inside every page opened here, even one that does not carry the script itself */
+        try{ var d=fr.contentDocument; if(d&&d.head&&!fr.contentWindow.__penScroll){ var sc=d.createElement("script"); sc.src=new URL("pen-scroll.js",location.href).href; d.head.appendChild(sc) } }catch(e){} })}
     mark(cur);
     var side=$$("#sidenav .ni").filter(function(a){return a.getAttribute("href")===location.hash});
     if(side.length){$$("#sidenav .ni").forEach(function(a){a.removeAttribute("aria-current")}); side[0].setAttribute("aria-current","page")}
@@ -832,3 +834,4 @@ if("serviceWorker" in navigator&&location.protocol.indexOf("http")===0){
   });
 }
 </script>
+<script src="pen-scroll.js" defer></script>
