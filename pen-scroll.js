@@ -1,26 +1,14 @@
-/* Pen scrolling for the whole study site (added 26 Nov 2026).
-   A pen (stylus, drawing tablet) dragged over empty space scrolls the page up and down like a hand; over text, a link, a button
-   or any control it behaves as before (select, click). Mouse and finger are untouched. Off while a page's draw mode is on.
-   One small file, loaded by every page and injected by the hub into the pages it opens. */
+/* Pen scrolling for the whole study site (added 26 Nov 2026; widened the same day to text and links).
+   A pen (stylus, drawing tablet) dragged anywhere on a page scrolls it up and down like a hand: over empty space, over text, over a
+   link or a button. A tap (press and lift without moving) still clicks or places the cursor as before. Not touched: form fields,
+   canvases, video, anything marked data-pen="off", Shift+drag and the pen's side button (both still select text), mouse and finger.
+   Off while a page's draw mode is on. One small file, loaded by every page and injected by the hub into the pages it opens. */
 (function () {
   if (window.__penScroll) return; window.__penScroll = 1;
   var TAP = 6;                                   /* px of movement before a press becomes a scroll */
-  var CONTROL = 'a[href],button,input,select,textarea,summary,label,option,video,audio,canvas,iframe,[role="button"],[role="link"],[role="tab"],[contenteditable=""],[contenteditable="true"],[tabindex]:not([tabindex="-1"]),[data-pen="off"]';
+  var CONTROL = 'input,select,textarea,option,video,audio,canvas,iframe,[contenteditable=""],[contenteditable="true"],[data-pen="off"]';
   var st = null, raf = 0;
 
-  function overGlyph(x, y) {                     /* is the pen tip on a line of text (letters or the spaces between them)? */
-    var n = null, o = 0, p, r;
-    if (document.caretPositionFromPoint) { p = document.caretPositionFromPoint(x, y); if (p) { n = p.offsetNode; o = p.offset; } }
-    else if (document.caretRangeFromPoint) { r = document.caretRangeFromPoint(x, y); if (r) { n = r.startContainer; o = r.startOffset; } }
-    if (!n || n.nodeType !== 3) return false;
-    var len = n.nodeValue.length, rg = document.createRange();
-    for (var i = Math.max(0, o - 1); i <= Math.min(len - 1, o); i++) {
-      rg.setStart(n, i); rg.setEnd(n, i + 1);
-      var rs = rg.getClientRects();
-      for (var k = 0; k < rs.length; k++) { var q = rs[k]; if (x >= q.left - 1 && x <= q.right + 1 && y >= q.top - 1 && y <= q.bottom + 1) return true; }
-    }
-    return false;
-  }
   function scroller(el) {                        /* nearest ancestor that really scrolls up and down, else the page */
     for (; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
       var cs = getComputedStyle(el), oy = cs.overflowY;
@@ -50,7 +38,7 @@
     if (document.body && document.body.classList.contains("drawing")) return;
     var t = e.target; if (!t || t.nodeType !== 1) return;
     if (t.closest && t.closest(CONTROL)) return;
-    if (overGlyph(e.clientX, e.clientY)) return;
+    if (e.shiftKey) return;                                          /* Shift + drag = select text as usual */
     st = { id: e.pointerId, y: e.clientY, y0: e.clientY, x0: e.clientX, box: scroller(t), going: false, t: performance.now(), v: 0 };
   }, false);
 
@@ -76,6 +64,7 @@
       if (e.type === "pointerup" && Math.abs(s.v) > 0.15 && performance.now() - s.t < 90) fling(s.box, s.v);
     }
   }
+  document.addEventListener("dragstart", function (e) { if (st) e.preventDefault(); }, true);
   document.addEventListener("pointerup", end, false);
   document.addEventListener("pointercancel", end, false);
   /* the drag must not turn into a click on whatever lies under the pen when it lifts */
