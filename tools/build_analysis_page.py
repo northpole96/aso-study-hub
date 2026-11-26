@@ -4,6 +4,7 @@ from each topic and each family in every year. Data: the aso-mock skill's tagged
 import sys, re, json, collections, importlib
 sys.path.insert(0, '.claude/skills/aso-mock/scripts'); sys.path.insert(0, '.claude/skills/aso-mock')
 import pyq
+sys.path.insert(0, 'tools'); import pyq2015 as P15
 
 # Reasoning 2015 tags (topic, family) from the PYQ bank builder
 src = open('tools/build_pyq_bank.py', encoding='utf8').read()
@@ -32,6 +33,10 @@ for key, name, paper, size in PAPERS:
     if key == 'reasoning':
         for n in range(1, 51):
             t, f = T15[n]; rows.append(dict(y=2015, q=n, topic=t, family=f, style='fig' if n >= 31 else 'one', kind='nonverbal' if n >= 31 else 'verbal'))
+    if key in ('ga', 'english'):   # 2015 from the Udyam books (tags in tools/pyq2015.py)
+        tg = P15.GA if key == 'ga' else P15.EN
+        for n in range(1, 101):
+            t, f = tg[n]; rows.append(dict(y=2015, q=n, topic=t, family=t + '.' + f, style='one', kind='static'))
     years = sorted({r['y'] for r in rows})
     excl = set(getattr(mp, 'EXCLUDE', []))
     cnt = collections.defaultdict(lambda: collections.Counter())

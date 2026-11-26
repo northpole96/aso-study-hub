@@ -122,7 +122,7 @@ th.sel{cursor:pointer}th.sel:hover{color:var(--blue)}
 var AN=__DATA__;   /* the tables; the questions themselves are D, T, PG, FG from pyq-data.js */
 var UK="aso-analysis-ui",ui={once:0,note:0,ans:0};try{ui=Object.assign(ui,JSON.parse(localStorage.getItem(UK)||"{}"))}catch(e){}
 function save(){try{localStorage.setItem(UK,JSON.stringify(ui))}catch(e){}}
-var TIER={S:"Asked in two or three papers, or grew in 2025",A:"Asked once recently, or a clear syllabus line",B:"Old or thin: asked long ago or only once",C:"A syllabus line never asked yet",D:"A dropped kind of question",X:"Outside the syllabus, never expect it"};
+var TIER={S:"Asked in two or three papers, or grew in 2025",A:"Asked once recently, or a clear syllabus line",B:"Old or thin: asked long ago or only once",C:"A syllabus line never asked yet",D:"A dropped kind of question",X:"Outside the syllabus, never expect it","?":"Seen only in a 2015 question; not in the mock-maker\u2019s map yet"};
 function el(i){return document.getElementById(i)}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function slug(f){return f.split(".").slice(1).join(".")}

@@ -363,7 +363,7 @@ var R = [
  {t:"English Paper III · 2025", f:E25, s:"pyq", p:"EN", y:"2025", main:1, x:"100 Q · answers"},
  {t:"English Paper III · 2021", f:E21, s:"pyq", p:"EN", y:"2021", x:"100 Q · answers"},
  {t:"English Paper III · 2018", f:E18, s:"pyq", p:"EN", y:"2018", x:"100 Q · answers"},
- {t:"PYQ Bank · every paper, every year", f:"ASO-PYQ-Bank.html", s:"pyq", y:"15–25", main:1, x:"1,300 Q · filter by paper, year, section"},
+ {t:"PYQ Bank · every paper, every year", f:"ASO-PYQ-Bank.html", s:"pyq", y:"15–25", main:1, x:"1,500 Q · filter by paper, year, section"},
  {t:"Maths Paper II · 2018", f:"pyq/OPSC-ASO-2018-Maths-Paper-II.html", s:"pyq", p:"MA", y:"2018", x:"50 Q · answers"},
  {t:"Maths Paper II · 2025", f:"pyq/OPSC-ASO-2025-Maths-Paper-II.html", s:"pyq", p:"MA", y:"2025", x:"50 Q · answers"},
  {t:"English 3-year trend", f:"pyq/English-PYQ-Breakdown-2018-2021-2025.html", s:"pyq", p:"EN", y:"18–25", x:"What each year asked"},
@@ -746,7 +746,7 @@ function count(s){return R.filter(function(r){return r.s===s}).length}
 var LIB='<span class="bc">Library <i>›</i> </span>', NAMES={home:"Home",subjects:"Subjects",tests:LIB+"Tests",papers:LIB+"Past papers",guides:LIB+"Guides",syllabus:LIB+"Syllabus"};
 $("#sidenav").innerHTML='<a class="ni" href="#/home" data-v="home">'+svg("home")+'Home</a>'+
   '<div class="ng m">Subjects</div>'+SYL.map(function(S){var o=subj(S); return '<a class="ni'+(o.count?'':' off')+'" href="#/s/'+S.id+'" data-v="s/'+S.id+'"><span class="rn">'+S.no+'</span>'+S.name+'<span class="c">'+(o.count||"—")+'</span></a>'}).join("")+
-  '<div class="ng m">PYQ</div><a class="ni" href="'+openHref("ASO-PYQ-Bank.html","PYQ Bank")+'" data-v="bank">'+svg("pyq")+'PYQ Bank<span class="c">1,300</span></a>'+
+  '<div class="ng m">PYQ</div><a class="ni" href="'+openHref("ASO-PYQ-Bank.html","PYQ Bank")+'" data-v="bank">'+svg("pyq")+'PYQ Bank<span class="c">1,500</span></a>'+
   '<a class="ni" href="'+openHref("ASO-Analysis.html","Analysis · what was asked, by topic and year")+'" data-v="analysis">'+svg("analysis")+'Analysis<span class="c">5 papers</span></a>'+
   '<div class="ng m">Library</div>'+[["tests","Tests",count("mock")],["papers","Past papers",count("pyq")],["guides","Guides",count("guide")],["syllabus","Syllabus",""]].map(function(n){return '<a class="ni" href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'<span class="c">'+n[2]+'</span></a>'}).join("");
 $("#tabs").innerHTML=[["home","Home"],["subjects","Subjects"],["tests","Tests"],["papers","Papers"],["guides","Guides"]].map(function(n){return '<a href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'</a>'}).join("");

@@ -20,15 +20,17 @@ def lines_of(kind):
 
 def load(kind):
     ls, year, res, cur = lines_of(kind), None, {}, None
-    seen = set()
+    seen = set(); sec = None
     for l in ls:
         m = re.match(HEAD[kind], l.strip())
         if m: year = int(m.group(1)); cur = None; continue
         if year is None: continue
-        m = re.match(r"(\d{1,3})\.\s+(\S.*)$", l)
+        hm = re.match(r"(\d{1,2}\.\d{1,2})\s+[A-Z]", l.strip())
+        if hm and (cur is None or cur['done']): sec = hm.group(1)
+        m = re.match(r"(\d{1,3})\.\s+(\S.*)$", l) or re.match(r"(\d{1,3})\.\s*()$", l)
         if m and (cur is None or cur["done"]) and 1 <= int(m.group(1)) <= 100:
             n = int(m.group(1)); idx = sum(1 for k in res if k[0] == year) + 1
-            cur = res[(year, idx)] = dict(lines=[m.group(2)], done=False, y=year, n=n, bookno=n); continue
+            cur = res[(year, idx)] = dict(lines=[m.group(2)] if m.group(2) else [], done=False, y=year, n=n, bookno=n, sec=sec); continue
         if cur is not None:
             cur["lines"].append(l)
             if re.match(r"Answer\s*:", l): cur["done"] = True; cur["ai"] = len(cur["lines"]) - 1

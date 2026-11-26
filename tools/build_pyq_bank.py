@@ -239,12 +239,24 @@ for r in pyq.load("odia"):
     if g is not None: e["g"] = g
     out.append(e)
 
+# ---------------------------------------------------------------- 2015 General Awareness and English (Udyam IAS books, tagged by hand in tools/pyq2015.py)
+import pyq2015 as P15
+_pg15 = {}
+for (lo, hi), i in P15.EN_PASSAGE.items(): add_passage(2015, lo, hi, P15.en_passages()[i], _pg15)
+for e in P15.entries():
+    if e["p"] == "en":
+        g = next((v for (yy, lo, hi), v in _pg15.items() if lo <= e["q"] <= hi), None)
+        if g is not None: e["g"] = g
+    if e["p"] == "ga" and not e["a"]:
+        e["w"] = (e["w"] + " The book calls this question unresolved, so there is no key.").strip()
+    out.append(e)
+
 # ---------------------------------------------------------------- order and checks
 PO = {p[0]: i for i, p in enumerate(PAPERS)}
 out.sort(key=lambda d: (PO[d["p"]], d["y"], d["q"]))
 cnt = {}
 for d in out: cnt[(d["p"], d["y"])] = cnt.get((d["p"], d["y"]), 0) + 1
-want = {("ga", 2018): 100, ("ga", 2021): 100, ("ga", 2025): 100, ("re", 2015): 50, ("re", 2018): 50, ("re", 2021): 50, ("re", 2025): 50,
+want = {("ga", 2015): 100, ("en", 2015): 100, ("ga", 2018): 100, ("ga", 2021): 100, ("ga", 2025): 100, ("re", 2015): 50, ("re", 2018): 50, ("re", 2021): 50, ("re", 2025): 50,
         ("ma", 2015): 50, ("ma", 2018): 50, ("ma", 2021): 50, ("ma", 2025): 50,
         ("en", 2018): 100, ("en", 2021): 100, ("en", 2025): 100, ("od", 2018): 100, ("od", 2021): 100, ("od", 2025): 100}
 assert cnt == want, (cnt, want)
