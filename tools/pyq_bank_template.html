@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO PYQ Bank</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Oriya:wght@400;600&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fbfbfb;--fg:#111;--blue:#2b4cff;--rule:#cfcfcf;--mute:#777;--mono:"IBM Plex Mono",monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--fg);font:19px/1.55 "EB Garamond",Georgia,serif}
+.w{max-width:860px;margin:0 auto;padding:22px 16px 80px}
+h1{font:400 30px "Silkscreen",monospace;color:var(--blue);margin:0 0 4px}
+.sub{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.bar{padding:10px 0;border-bottom:1px dotted var(--rule);margin-bottom:6px}.bar .cnt{margin:0}
+button,select,input{font:12px var(--mono);text-transform:uppercase;border:1px solid var(--fg);background:#fff;color:var(--fg);padding:5px 9px;border-radius:0}
+input{text-transform:none;flex:1;min-width:140px}
+button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+button i{font-style:normal;opacity:.6;margin-left:4px}
+.cnt{font:12px var(--mono);color:var(--mute);margin:6px 0}
+.q{background:#fff;border:1px solid var(--rule);padding:14px 16px;margin:12px 0}
+.od .st,.od .op,.od .ans,.od .ps{font-family:"Noto Sans Oriya","EB Garamond",serif;line-height:1.7}
+.meta{font:11px var(--mono);text-transform:uppercase;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.yr{background:var(--blue);color:#fff;padding:1px 7px}
+.pp{border:1px solid var(--fg);color:var(--fg);padding:0 6px}
+.chk{border:1px solid #c00;color:#c00;padding:0 6px}
+.st{margin:8px 0 6px;white-space:pre-line;overflow-wrap:anywhere}
+.ps{margin:8px 0;border:1px dashed var(--rule);padding:6px 10px;background:var(--paper)}
+.ps summary{font:11px var(--mono);text-transform:uppercase;color:var(--blue);cursor:pointer}
+.ps div{white-space:pre-line;overflow-wrap:anywhere;margin-top:6px}
+.op{padding:3px 0;overflow-wrap:anywhere}.op b{font:500 13px var(--mono);color:var(--blue);margin-right:6px}
+.ans{margin-top:10px;border-left:2px solid var(--blue);padding:6px 12px;background:var(--paper);overflow-wrap:anywhere}
+.op.r{color:var(--blue);font-weight:600}
+.hint{font:11px var(--mono);color:var(--mute);text-transform:uppercase}
+
+.hudb{position:fixed;right:12px;bottom:12px;z-index:20;font:12px var(--mono);background:var(--blue);color:#fff;border-color:var(--blue)}
+.hud{position:fixed;right:12px;bottom:52px;z-index:20;width:min(360px,calc(100vw - 24px));max-height:calc(100vh - 80px);overflow:auto;background:#fff;border:1px solid var(--fg);box-shadow:4px 4px 0 var(--blue);padding:0;display:none}
+.hud.open{display:block}
+.hud h3{margin:0;padding:8px 12px;background:var(--fg);color:#fff;font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.hud .g{padding:9px 12px;border-bottom:1px dotted var(--rule)}
+.hud .g>span{display:block;font:11px var(--mono);text-transform:uppercase;color:var(--mute);margin-bottom:5px}
+.hud .g>span.chs{display:block;margin:0}
+.hud .g button{margin:0 4px 4px 0;padding:4px 8px}
+body.cmp .q{padding:8px 12px;margin:7px 0}body.cmp .op{padding:1px 0}
+.grp{font:12px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--blue);border-bottom:1px solid var(--blue);margin:22px 0 4px;padding-bottom:3px}
+</style></head><body><div class="w">
+<h1>PYQ Bank</h1>
+<div class="sub">All papers · 2018, 2021, 2025 (Maths also 2015) · keys are mine, not official (Odia: the Udyam book's) · Reasoning 2018 and 2025: short stems only (raw scans)</div>
+<div class="bar"><span class="cnt" id="cnt"></span> <span class="sub">· open the HUD (bottom right) to pick a paper, year or section</span></div>
+<div id="list"></div></div>
+<button class="hudb" id="hb">HUD</button>
+<div class="hud" id="hud"><h3>Filters and settings</h3>
+<div class="g"><span>Paper</span><span class="chs" id="fp"></span></div>
+<div class="g"><span>Year</span><span class="chs" id="fy"></span></div>
+<div class="g"><span>Section</span><span class="chs" id="ft"></span></div>
+<div class="g"><span>Family</span><select id="ff" style="width:100%"></select></div>
+<div class="g"><span>Search</span><input id="fs" placeholder="words or numbers" style="width:100%"></div>
+<div class="g"><span>Show</span><button id="sa">Answers: hidden</button><button id="sc">Only CHECK</button><button id="rs">Reset filters</button></div>
+<div class="g"><span>Text size · <b id="fsz"></b>px</span><button data-u="size" data-v="-1">A −</button><button data-u="size" data-v="1">A +</button><button data-u="size" data-v="0">Default</button></div>
+<div class="g"><span>Page width</span><button data-u="w" data-v="680">Narrow</button><button data-u="w" data-v="860">Normal</button><button data-u="w" data-v="1200">Wide</button></div>
+<div class="g"><span>Density</span><button data-u="cmp" data-v="0">Comfortable</button><button data-u="cmp" data-v="1">Compact</button></div>
+<div class="g"><span>Sort by</span><button data-u="sort" data-v="paper">Paper order</button><button data-u="sort" data-v="yearD">Newest first</button><button data-u="sort" data-v="topic">Section</button><button data-u="sort" data-v="family">Family</button><button data-u="sort" data-v="rand">Shuffle</button></div>
+<div class="g"><span>Group headings</span><button data-u="grp" data-v="">None</button><button data-u="grp" data-v="p">Paper</button><button data-u="grp" data-v="y">Year</button><button data-u="grp" data-v="t">Section</button><button data-u="grp" data-v="f">Family</button></div>
+<div class="g"><span>Show on each card</span><button data-u="tg" data-v="year">Year</button><button data-u="tg" data-v="topic">Section</button><button data-u="tg" data-v="family">Family</button><button data-u="tg" data-v="opts">Options</button></div>
+<div class="g"><span>Show first</span><button data-u="lim" data-v="0">All</button><button data-u="lim" data-v="25">25</button><button data-u="lim" data-v="50">50</button><button data-u="lim" data-v="100">100</button></div>
+<div class="g"><button data-u="reset">Reset HUD</button><button data-u="close">Close</button></div></div>
+<script>
+var PAP=__PAPERS__,D=__DATA__,T=__TOPICS__,PG=__PASSAGES__;
+var PN={},PS={},PO={};PAP.forEach(function(x,i){PN[x[0]]=x[1];PS[x[0]]=x[2];PO[x[0]]=i});
+var st={p:"",y:0,t:"",f:"",s:"",a:false,c:false},shuf=null;
+var UK="aso-pyq-bank-ui",U0={size:19,w:860,cmp:0,sort:"paper",grp:"",lim:0,year:1,topic:1,family:1,opts:1},ui;
+try{ui=Object.assign({},U0,JSON.parse(localStorage.getItem(UK)||"{}"))}catch(e){ui=Object.assign({},U0)}
+function el(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+/* does a question pass every filter except the one named in skip (so each chip can show how many it would give) */
+function match(d,skip){var q=st.s.toLowerCase();
+  return (skip=="p"||!st.p||d.p==st.p)&&(skip=="y"||!st.y||d.y==st.y)&&(skip=="t"||!st.t||d.t==st.t)&&(skip=="f"||!st.f||d.f==st.f)&&(!st.c||d.c)&&
+   (!q||(d.s+" "+d.o.join(" ")).toLowerCase().indexOf(q)>=0)}
+function chips(id,items,key){el(id).innerHTML=items.map(function(x){return '<button data-k="'+key+'" data-v="'+x[0]+'">'+x[1]+'<i>'+x[2]+'</i></button>'}).join(" ")}
+function menus(){
+  chips("fp",[["","All",D.filter(function(d){return match(d,"p")}).length]].concat(PAP.map(function(x){return[x[0],x[1],D.filter(function(d){return match(d,"p")&&d.p==x[0]}).length]})),"p");
+  var ys=[];D.forEach(function(d){if((!st.p||d.p==st.p)&&ys.indexOf(d.y)<0)ys.push(d.y)});ys.sort();
+  chips("fy",[[0,"All",D.filter(function(d){return match(d,"y")}).length]].concat(ys.map(function(y){return[y,y,D.filter(function(d){return match(d,"y")&&d.y==y}).length]})),"y");
+  if(!st.p){el("ft").innerHTML='<span class="hint">Pick a paper first, then its sections show here.</span>'}
+  else{var ts=[];D.forEach(function(d){if(d.p==st.p&&ts.indexOf(d.t)<0)ts.push(d.t)});
+    var items=[["","All",D.filter(function(d){return match(d,"t")}).length]];
+    ts.forEach(function(k){var n=D.filter(function(d){return match(d,"t")&&d.t==k}).length;if(n||st.t==k)items.push([k,esc(T[k]),n])});
+    chips("ft",items,"t")}
+  var fams={};D.forEach(function(d){if(d.f&&(!st.p||d.p==st.p)&&(!st.t||d.t==st.t)&&match(d,"f"))fams[d.f]=(fams[d.f]||0)+1});
+  var fk=Object.keys(fams).sort();
+  el("ff").innerHTML='<option value="">All families</option>'+fk.map(function(f){return '<option value="'+f+'">'+f.replace(/-/g," ")+' ('+fams[f]+')</option>'}).join("");el("ff").value=st.f;}
+var CMP={y:function(a,b){return b.y-a.y},p:function(a,b){return PO[a.p]-PO[b.p]},
+ t:function(a,b){return PO[a.p]-PO[b.p]||(T[a.t]<T[b.t]?-1:T[a.t]>T[b.t]?1:0)},f:function(a,b){return PO[a.p]-PO[b.p]||(a.f<b.f?-1:a.f>b.f?1:0)}};
+function sortList(r){r=r.slice();
+ if(ui.sort=="rand"){if(!shuf){shuf={};D.forEach(function(d){shuf[d.p+d.y+"-"+d.q]=Math.random()})}r.sort(function(a,b){return shuf[a.p+a.y+"-"+a.q]-shuf[b.p+b.y+"-"+b.q]})}
+ else if(ui.sort=="yearD")r.sort(function(a,b){return b.y-a.y||PO[a.p]-PO[b.p]||a.q-b.q});
+ else if(ui.sort=="topic")r.sort(function(a,b){return CMP.t(a,b)||a.y-b.y||a.q-b.q});
+ else if(ui.sort=="family")r.sort(function(a,b){return CMP.f(a,b)||a.y-b.y||a.q-b.q});
+ if(ui.grp)r.sort(CMP[ui.grp]); /* stable: keeps the chosen order inside each group */
+ return r}
+function gname(d){return ui.grp=="p"?PN[d.p]:ui.grp=="y"?String(d.y):ui.grp=="t"?PS[d.p]+" · "+T[d.t]:PS[d.p]+" · "+d.f.replace(/-/g," ")}
+function draw(){
+  var r=D.filter(function(d){return match(d)});
+  r=sortList(r);var total=r.length;if(ui.lim)r=r.slice(0,ui.lim);
+  el("cnt").textContent=(ui.lim&&total>r.length?"showing "+r.length+" of "+total+" matches · "+D.length+" in all":total+" of "+D.length+" questions");
+  menus();
+  document.querySelectorAll("button[data-k]").forEach(function(b){b.className=(String(st[b.dataset.k])==b.dataset.v)?"on":""});
+  el("sa").textContent="Answers: "+(st.a?"shown":"hidden");el("sa").className=st.a?"on":"";el("sc").className=st.c?"on":"";
+  var last=null,L="ABCD";
+  el("list").innerHTML=r.map(function(d){
+    var head="";if(ui.grp){var gk=gname(d);if(gk!==last){last=gk;head='<div class="grp">'+esc(gk)+'</div>'}}
+    var o=ui.opts||!d.o.length?d.o.map(function(x,i){return '<div class="op'+(st.a&&L[i]==d.a?' r':'')+'"><b>'+L[i]+'</b>'+esc(x)+'</div>'}).join(""):"";
+    var ps=d.g!=null?'<details class="ps"><summary>Passage</summary><div>'+esc(PG[d.g])+'</div></details>':"";
+    var lab=d.a?'<b>Answer '+esc(d.a)+'.</b> ':d.nv?'<b>Not valued.</b> ':d.o.length?'<b>No key.</b> ':'';
+    var show=st.a||!d.o.length;
+    return head+'<div class="q'+(d.p=="od"?' od':'')+'"><div class="meta">'+(ui.year?'<span class="yr">'+d.y+'</span>':'')+'<span class="pp">'+PS[d.p]+'</span><span>'+(ui.year?'':d.y+' ')+'Q'+d.q+'</span>'+
+      (ui.topic?'<span>'+esc(T[d.t])+'</span>':'')+(ui.family&&d.f&&d.f.replace(/-/g," ").toLowerCase()!=T[d.t].toLowerCase()?'<span>'+esc(d.f.replace(/-/g," "))+'</span>':'')+(d.c?'<span class="chk">CHECK</span>':'')+(d.nv?'<span class="chk">NOT VALUED</span>':'')+'</div>'+ps+'<div class="st">'+esc(d.s)+'</div>'+o+
+      (show&&(lab||d.w)?'<div class="ans">'+lab+esc(d.w)+'</div>':'')+'</div>'}).join("");
+}
+document.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.k){var k=b.dataset.k,v=b.dataset.v;st[k]=(k=="y")?+v:v;
+    if(k=="p"){st.t="";st.f="";if(st.y&&!D.some(function(d){return d.y==st.y&&(!st.p||d.p==st.p)}))st.y=0}
+    if(k=="t")st.f=""}
+  else if(b.id=="sa")st.a=!st.a;else if(b.id=="sc")st.c=!st.c;
+  else if(b.id=="rs"){st={p:"",y:0,t:"",f:"",s:"",a:st.a,c:false};el("fs").value=""}
+  else return;
+  draw()});
+el("ff").onchange=function(){st.f=this.value;draw()};
+var tm=null;el("fs").oninput=function(){var v=this.value;clearTimeout(tm);tm=setTimeout(function(){st.s=v;draw()},120)};
+function applyUI(){document.body.style.fontSize=ui.size+"px";document.querySelector(".w").style.maxWidth=ui.w+"px";document.body.classList.toggle("cmp",!!ui.cmp);el("fsz").textContent=ui.size;
+ document.querySelectorAll("[data-u]").forEach(function(b){var u=b.dataset.u,v=b.dataset.v,on=false;
+  if(u=="w"||u=="sort"||u=="grp"||u=="cmp"||u=="lim")on=String(ui[u])==v;else if(u=="tg")on=!!ui[v];
+  if(u!="size"&&u!="reset"&&u!="close")b.className=on?"on":""});
+ try{localStorage.setItem(UK,JSON.stringify(ui))}catch(e){}}
+el("hb").onclick=function(){el("hud").classList.toggle("open")};
+el("hud").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var u=b.dataset.u,v=b.dataset.v;if(!u)return;
+ if(u=="size")ui.size=v=="0"?19:Math.min(30,Math.max(13,ui.size+ +v*2));else if(u=="w")ui.w=+v;else if(u=="cmp")ui.cmp=+v;
+ else if(u=="lim")ui.lim=+v;else if(u=="tg")ui[v]=ui[v]?0:1;else if(u=="reset")ui=Object.assign({},U0);else if(u=="close"){el("hud").classList.remove("open");return}
+ else if(u=="sort"){ui.sort=v;shuf=null}else ui[u]=v;
+ applyUI();draw()});
+applyUI();draw();
+</script></body></html>
