@@ -736,6 +736,7 @@ var ICON={
  subjects:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
  tests:'<rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/>',
  pyq:'<path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6M9 17h3"/>',
+ analysis:'<path d="M4 20h16"/><path d="M6 20v-7h3v7M10.5 20V6h3v14M15 20v-10h3v10"/>',
  papers:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 16h7"/>',
  guides:'<path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/>',
  syllabus:'<path d="M5 4h14v16H5z"/><path d="M9 4v16M12 9h4M12 13h4"/>'
@@ -746,6 +747,7 @@ var LIB='<span class="bc">Library <i>›</i> </span>', NAMES={home:"Home",subjec
 $("#sidenav").innerHTML='<a class="ni" href="#/home" data-v="home">'+svg("home")+'Home</a>'+
   '<div class="ng m">Subjects</div>'+SYL.map(function(S){var o=subj(S); return '<a class="ni'+(o.count?'':' off')+'" href="#/s/'+S.id+'" data-v="s/'+S.id+'"><span class="rn">'+S.no+'</span>'+S.name+'<span class="c">'+(o.count||"—")+'</span></a>'}).join("")+
   '<div class="ng m">PYQ</div><a class="ni" href="'+openHref("ASO-PYQ-Bank.html","PYQ Bank")+'" data-v="bank">'+svg("pyq")+'PYQ Bank<span class="c">1,300</span></a>'+
+  '<a class="ni" href="'+openHref("ASO-Analysis.html","Analysis · what was asked, by topic and year")+'" data-v="analysis">'+svg("analysis")+'Analysis<span class="c">5 papers</span></a>'+
   '<div class="ng m">Library</div>'+[["tests","Tests",count("mock")],["papers","Past papers",count("pyq")],["guides","Guides",count("guide")],["syllabus","Syllabus",""]].map(function(n){return '<a class="ni" href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'<span class="c">'+n[2]+'</span></a>'}).join("");
 $("#tabs").innerHTML=[["home","Home"],["subjects","Subjects"],["tests","Tests"],["papers","Papers"],["guides","Guides"]].map(function(n){return '<a href="#/'+n[0]+'" data-v="'+n[0]+'">'+svg(n[0])+n[1]+'</a>'}).join("");
 
@@ -764,7 +766,10 @@ function route(){
     if(!view.querySelector("iframe")||view.dataset.f!==f){view.innerHTML='<iframe title="'+esc(t)+'" src="'+esc(f)+'"></iframe>'; view.dataset.f=f;
       /* give the opened page the keyboard, so its shortcuts and arrow keys work straight away */
       var fr=view.querySelector("iframe"); fr.addEventListener("load",function(){ try{ fr.focus(); fr.contentWindow.focus() }catch(e){} })}
-    mark(cur); return;
+    mark(cur);
+    var side=$$("#sidenav .ni").filter(function(a){return a.getAttribute("href")===location.hash});
+    if(side.length){$$("#sidenav .ni").forEach(function(a){a.removeAttribute("aria-current")}); side[0].setAttribute("aria-current","page")}
+    return;
   }
   view.className="view"; view.dataset.f="";
   var S=/^s\//.test(name)?subById(name.slice(2)):null;
