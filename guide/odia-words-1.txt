@@ -1,0 +1,745 @@
+#CH start | Start here: the word block of the Odia paper | ବନାନ · ପ୍ରତିଶବ୍ଦ · ବିପରୀତ · 98 QUESTIONS
+In the Odia paper, one block does not need grammar at all. It needs only **words**. The block has three parts: **ଶୁଦ୍ଧ ବନାନ** (the correct spelling, "shuddhi"), **ପ୍ରତିଶବ୍ଦ** (synonym: a word with the same meaning) and **ବିପରୀତ ଶବ୍ଦ** (antonym: a word with the opposite meaning). In the three papers of 2018, 2021 and 2025 the examiner asked **98 such questions**: 33 on spelling, 32 on synonyms and 33 on antonyms. In 2025 the paper put them first and gave exactly **10 + 10 + 10**: Q1–10 spelling, Q11–20 antonyms, Q21–30 synonyms. That is 30 marks out of 100 for a block you can learn by heart.
+
+This guide does two jobs. First, it shows **how the examiner chooses a word**, so you can see the pattern. Second, it gives a **"likely next" list** for each part: words the examiner has not asked yet, but that sit right beside the words he did ask. These lists are our prediction. Nobody can know the exact words, but the examiner has a habit of repeating and of moving to the neighbour word, so the lists are a good bet.
+
+##How often each part was asked
+|Part|2018|2021|2025|Total|
+|---|---|---|---|---|
+|ଶୁଦ୍ଧ ବନାନ (spelling)|12|11|10|33|
+|ପ୍ରତିଶବ୍ଦ (synonym)|12|10|10|32|
+|ବିପରୀତ ଶବ୍ଦ (antonym)|12|11|10|33|
+The count is almost the same every year. So **expect about 10 questions of each kind** in 2027. These are the safest marks in the paper.
+
+##What the examiner repeats
+The examiner uses the same word again and again, or uses a word next to it:
+- **ଅନିବାର୍ଯ୍ୟ** was asked word for word in 2018 and again in 2021 ⟦2018 Q79⟧ ⟦2021 Q1⟧.
+- **ନିଅଣ୍ଟ** (shortage) and its opposite **ବଳକା** (what is left over) was asked in 2018 and again in 2021 ⟦2018 Q69⟧ ⟦2021 Q28⟧.
+- **ମେଘ** (cloud) was a synonym question in 2018 (answer ଜୀମୂତ) and again in 2025 (answer ଜଳଦ) ⟦2018 Q90⟧ ⟦2025 Q27⟧. The word was the same; the answer was the neighbour.
+- **ସାପ** (snake) came in 2018 (answer ଅହି) and again in 2025 (answer ଉରଗ) ⟦2018 Q89⟧ ⟦2025 Q22⟧.
+- **ଦନୁଜ** (demon) was asked in 2018, 2021 and 2025 in three different ways ⟦2018 Q82⟧ ⟦2021 Q14⟧ ⟦2025 Q25⟧.
+So the plan is simple: learn **the whole family** of a word, not one answer. If you know all the words for "cloud", it does not matter which one the question prints.
+
+>KEY:The best order to learn
+1. Spelling rules (chapter 1) and the spelling list (chapter 2): the same 10 trap types come again and again.
+2. Synonyms by **family**: sky and weather, land and water, animals, gods and people (chapters 3 and 4).
+3. Antonyms in **pairs**: learn both words together (chapters 5 and 6).
+4. Last-week sheet (chapter 7).
+
+>WARN:The key is a book's key, not OPSC's
+OPSC has not published an answer key that we could fetch. Every answer in this guide is the key from the Udyam IAS book of past papers, checked against a standard dictionary where we could. Where keys and grammar disagree, the page shows a **CHECK** tag. Our "likely next" words are our own prediction; their spellings follow the standard Odia dictionary form of Sanskrit words (the **ତତ୍ସମ** words), and where two forms are in use we say so.
+
+>TIP:How to use this guide
+Read one chapter. Cover the answers of the **Past questions** tables and try each one. Then open the **Check yourself** boxes. Spend most time on chapters 2, 4 and 6: those are the lists.
+
+#CH rules | 1. Spelling: the ten traps | ଶୁଦ୍ଧ ବନାନ · THE RULES
+In a spelling question you get **four spellings of one word**. One is right. The other three are the same word with a small mistake. The mistakes are not random: in the 33 questions of three years they fall into **ten kinds**. If you know the ten kinds, you can see the mistake in each wrong option.
+
+A word of comfort first. Most words in these questions are **ତତ୍ସମ** (tatsama): Sanskrit words used in Odia without change. They follow Sanskrit spelling. So the safest rule is: **when two spellings look possible, pick the one that is closest to the Sanskrit word.**
+
+##Trap 1: short or long ି ୀ ୁ ୂ
+Odia has two "i" signs (**ି** short, **ୀ** long) and two "u" signs (**ୁ** short, **ୂ** long). The question often swaps one for the other. Learn this: **most words that end in ି are short** (the word is Sanskrit, ending in short i): **ତ୍ରୁଟି, ଶକ୍ତି, ପ୍ରକୃତି**. Words that name a **female person** or a **river** end in **ୀ**: **ଭଗିନୀ, ନଦୀ, ଲକ୍ଷ୍ମୀ**. And the first part of a word often has the short sign: **ଗରିମା, ପରିଷଦ**.
+|Question asked|Right spelling|Wrong options show|
+|---|---|---|
+|ପରିଷଦ ⟦2025 Q1⟧|**ପରିଷଦ**|ପରିଶଦ, ପରିସଦ, ପରୀଷଦ|
+|ଶଶିଭୂଷଣ ⟦2025 Q3⟧|**ଶଶିଭୂଷଣ**|ଶଶୀଭୂଷଣ, ସଶିଭୂଷଣ, ଶଶିଭୁଷଣ|
+|ଭଗିନୀ ⟦2025 Q5⟧|**ଭଗିନୀ**|ଭଗୀନୀ, ଭଗିନି, ଭଗୀନି|
+|ତ୍ରୁଟି ⟦2025 Q6⟧|**ତ୍ରୁଟି**|ତ୍ରୁଟୀ, ତୃଟୀ, ତୃଟି|
+|ଗରିମା ⟦2025 Q7⟧|**ଗରିମା**|ଗାରିମା, ଗରୀମା, ଗାରୀମା|
+|ନିରୁପମା ⟦2025 Q4⟧|**ନିରୁପମା**|ନୀରୂପମା, ନିରୂପମା, ନୀରୁପମା|
+|ପିୟୂଷ ⟦2021 Q5⟧|**ପିୟୂଷ**|ପୀୟୁଷ, ପିୟୁଷ, ପୀୟୂଷ|
+|ଆଶୀର୍ବାଦ ⟦2021 Q3⟧|**ଆଶୀର୍ବାଦ**|ଆର୍ଶିବାଦ, ଆଶ୍ରିବାଦ, ଆଶ୍ରୀବାଦ|
+|ଊନବିଂଶ ⟦2018 Q61⟧|**ଊନବିଂଶ**|ଉନବିଂଶ, ଊନବିଂଷ, ଉନବିଂଷ|
+Notice: in **2025, 5 of the 10 spelling questions** were this trap. This is the biggest one. Also notice the double trick in **ଭଗିନୀ**: the first i is short and the last is long. And **ପିୟୂଷ** (nectar) has a short ି and a long ୂ.
+
+##Trap 2: ଶ, ଷ or ସ
+Odia has three "s" letters. They sound nearly the same, so the examiner uses all three as bait. The word has only one right choice, and it comes from Sanskrit. Memory help: **ଷ** is used mostly with **ଟ ଠ ଣ କ ପ** after it (ବିଷଣ୍ଣ, ଶ୍ରେଷ୍ଠ, ନିଷ୍କଳ, ଦୁଷ୍ପ୍ରାପ୍ୟ), and in **ଭୂଷଣ, ପରିଷଦ, ପୁରସ୍କାର** each letter has to be learned as it is.
+- **ପରିଷଦ** (council) ⟦2025 Q1⟧: ଷ, not ଶ or ସ.
+- **ପୁରସ୍କାର** (prize) ⟦2018 Q68⟧: ସ୍କ with ସ, not ଷ୍କ or ଶ୍କ.
+- **ବିଷଣ୍ଣ** (sad) ⟦2018 Q72⟧: ଷ୍ଣ.
+- **ଅବସନ୍ନ** (tired, hopeless) ⟦2025 Q2⟧ ⟨CHECK: the book could not read the scan clearly; the option with ସ and ନ୍ନ is the standard spelling⟩.
+- **ପର୍ଯ୍ୟବସିତ** (ended up as) ⟦2018 Q80⟧: ସ, not ଶ or ଷ.
+- **ଶଶିଭୂଷଣ** ⟦2025 Q3⟧: first two letters ଶଶି, then ଭୂଷଣ.
+
+##Trap 3: ଣ or ନ
+The rule is old and simple. **After a letter ର, ଷ or ଋ in the same word, a ନ turns into ଣ**, unless a letter of the "ch, j, t, d" groups sits in between. So **ପ୍ରାଣ, ପ୍ରଣାମ, ଭୂଷଣ, କାରଣ, ଲକ୍ଷଣ, ବ୍ରାହ୍ମଣ** all have ଣ. But **ପ୍ରୟୋଜନ** has ନ (the ଜ in the middle breaks the rule). And in a **joined word** the ନ stays: **ଦୁର୍ନୀତି, ଦୁର୍ନାମ** (the word ନୀତି and ନାମ were already complete).
+- **ଉତ୍ତରାୟଣ** (the sun's northward path) ⟦2018 Q73⟧: ର୍ ... ୟ ... ଣ, so ଣ. The wrong options had ନ.
+- **ବିଷଣ୍ଣ** ⟦2018 Q72⟧ and **ଅକ୍ଷୁଣ୍ଣ** (not broken) ⟦2018 Q75⟧: ଣ after ଷ.
+
+##Trap 4: ର୍ before a joined letter
+Many words have a **ର୍** (half r) that sits on top of the next letter. The question puts the ର୍ in the wrong place, or drops it.
+- **ଅନିବାର୍ଯ୍ୟ** (cannot be stopped) ⟦2018 Q79⟧ ⟦2021 Q1⟧: ର୍ଯ୍ୟ. The wrong options: ଅନିର୍ବାର୍ଯ୍ୟ (extra ର୍), ଅନୀର୍ବାର୍ଯ୍ୟ, ଅନିବାର୍ଯ୍ୟ with a dropped ଯ.
+- **ପ୍ରାଦୁର୍ଭାବ** (appearance) ⟦2021 Q8⟧: ପ୍ର + ଆଦୁର୍ + ଭାବ. Wrong options: ପାଦୁର୍ଭାବ, ପ୍ରାର୍ଦୁଭାବ, ପାର୍ଦୁଭାବ.
+- **ଅନ୍ତର୍ଯାମୀ** (knower of hearts) ⟦2021 Q9⟧: ଅନ୍ତର୍ + ଯାମୀ. The ର୍ is on the ତ.
+- **ଆଶୀର୍ବାଦ** ⟦2021 Q3⟧: ର୍ବ.
+Memory help: the ର୍ comes **before** the letter it belongs with, in Sanskrit. ଅନ୍ତର୍ = "inside" + ଯାମୀ.
+
+##Trap 5: the little prefix (ଦୁର, ନିର, ଅନ, ଅବ)
+Words made with a **prefix** (a small word put in front, such as ଅ, ଦୁ, ନି) have a fixed shape. If you do not know which prefix was used, you pick the wrong one.
+- **ଦୁରବସ୍ଥା** (bad condition) ⟦2021 Q10⟧: ଦୁଃ + ଅବସ୍ଥା = ଦୁରବସ୍ଥା. Not ଦୂରବସ୍ଥା (that puts a "distant" sign), not ଦୁରାବସ୍ଥା.
+- **ଅରକ୍ଷିତ** (unprotected) ⟦2018 Q76⟧: ଅ + ରକ୍ଷିତ. Short ି, no ୀ.
+- **ଅନସୂୟା** (a woman with no jealousy) ⟦2018 Q77⟧: ଅନ୍ + ଅସୂୟା, so ଅନସୂୟା. The bait was ଅନୁସୂୟା with the extra ୁ.
+- **ନିଷ୍ଫଳ** (useless) ⟦2021 Q2⟧ ⟨CHECK: the book says the scan is unclear; ନିଷ୍ଫଳ with ଫଳ is the standard spelling⟩.
+- **ଓତଃପ୍ରୋତ** and **ଓତପ୍ରୋତ**: ⟦2021 Q4⟧ ⟨CHECK: the book keys D ଓତପ୍ରୋତ, but many dictionaries print ଓତଃପ୍ରୋତ; the book's key is **ଓତପ୍ରୋତ**⟩.
+
+##Trap 6: the joined letter has the wrong form
+A **conjunct** is two letters joined, like ତ୍ୱ, ଶ୍ର, ଜ୍ଞ. The question changes one letter in it.
+- **ତ୍ୱିଷାଂପତି** (Sun, the lord of light) ⟦2025 Q10⟧: ତ୍ୱି + ଷାଂ + ପତି. The wrong options changed ି to ୀ.
+- **ଅକ୍ଷୁଣ୍ଣ** ⟦2018 Q75⟧ ⟨CHECK: the scan is unclear⟩.
+- **ନିର୍ଜନ**, **ନିର୍ଧନ** ⟦2018 Q74⟧ ⟨CHECK: the scan does not show if the doubled ଜ is printed; ନିର୍ଧନ is also a real word⟩.
+
+##Trap 7: ଳ or ଲ
+Odia has two "l" letters: ଲ (dental) and ଳ (the cerebral l, tongue curled back). Many Odia words end in ଳ (**ଜଳ, ବଳ, ମଙ୍ଗଳ, କମଳ**), but a joined **ଲ୍ଲ, ଲ୍ୟ** uses ଲ (**କଲ୍ୟାଣ, ବଲ୍ଲଭ**). There is no clean rule; learn the word.
+- **ମଧୁଳିକା** (a kind of honey flower) ⟦2025 Q9⟧ ⟨CHECK: OPSC accepted two answers, B ମଧୁଳିକା and D ମଧୁଲିକା; the book stores B⟩.
+
+##Trap 8: anusvara ଂ or the joined ଙ୍ଗ, ଙ୍କ
+Some words can be written with the dot **ଂ** (anusvara) or with a joined **ଙ୍ଗ / ଙ୍କ**. The key chose the **joined** form when it was a real choice:
+- **ଆନୁଷଙ୍ଗିକ** (connected, related) ⟦2025 Q8⟧: ଙ୍ଗ. The wrong options had ଂଗ (ଆନୁସଂଗିକ) or a long ୀ.
+- The dot is right when the sound is a nasal that comes **before ପ, ମ, ଶ, ଷ, ସ, ହ** and in words like **ସଂସ୍କୃତି, ସଂହାର, ସିଂହ, ବିଂଶ, ତ୍ୱିଷାଂପତି**.
+⟨CHECK: for **ସଙ୍ଗୀତ / ସଂଗୀତ** and **ଅହଙ୍କାର / ଅହଂକାର** both forms are printed in books; the papers have not asked these. If you see both in one question, choose the form with **ଙ୍ଗ / ଙ୍କ**⟩.
+
+##Trap 9: ୟ, ଯ and ଯ୍ୟ
+The letter **ୟ** (the "y" that follows a vowel) and the joined **ଯ୍ୟ** look alike.
+- **ପିୟୂଷ**: ୟ in the middle.
+- **ପର୍ଯ୍ୟବସିତ**: ର୍ଯ୍ୟ.
+- **ଅନିବାର୍ଯ୍ୟ**: ର୍ଯ୍ୟ.
+- **ଅନସୂୟା**: ୟ.
+Rule that helps: a **joined ଯ୍ୟ** comes at the end of a word (**କାର୍ଯ୍ୟ, ଆଚାର୍ଯ୍ୟ, ସୂର୍ଯ୍ୟ, ଧୈର୍ଯ୍ୟ**); **ୟ** by itself comes after a vowel sign (**ପିୟୂଷ, ଅସୂୟା, ଉତ୍ତରାୟଣ**).
+
+##Trap 10: a clean word broken into parts
+A few wrong options are made by joining the parts of a word in the wrong order, like **ଆର୍ଶିବାଦ** for ଆଶୀର୍ବାଦ, or **ପୂଜ୍ୟଷ୍ପଦ** for **ପୂଜ୍ୟାସ୍ପଦ** ⟦2021 Q6⟧. For these, **split the word** into its parts and rebuild it:
+- ପୂଜ୍ୟ (worthy) + ଆସ୍ପଦ (place) = **ପୂଜ୍ୟାସ୍ପଦ**.
+- ଆଶିଷ୍ + ବାଦ → **ଆଶୀର୍ବାଦ**.
+- ପ୍ର + ବ୍ରଜନ (going) = **ପ୍ରବ୍ରଜନ** ⟦2021 Q93⟧.
+- ପର୍ଯ୍ୟ + ବସିତ = **ପର୍ଯ୍ୟବସିତ** ⟦2018 Q80⟧.
+
+>NEXT:Check yourself
+?? Which is right: ପରିଷଦ, ପରୀଷଦ, ପରିସଦ?||ପରିଷଦ (short ି, then ଷ).
+?? Which is right: ଭଗିନୀ or ଭଗୀନୀ?||ଭଗିନୀ. Short ି first, long ୀ at the end.
+?? Which is right: ଦୂରବସ୍ଥା or ଦୁରବସ୍ଥା?||ଦୁରବସ୍ଥା (ଦୁଃ + ଅବସ୍ଥା), not the word for "distance".
+?? A ନ after ର୍, ଷ or ଋ becomes what?||ଣ (ପ୍ରାଣ, ଭୂଷଣ, କାରଣ). It stays ନ if a ଚ, ଜ, ଟ, ଡ, ତ, ଦ type letter breaks the gap, or in a joined word like ଦୁର୍ନୀତି.
+?? Which is right: ଆନୁଷଙ୍ଗିକ or ଆନୁସଂଗିକ?||ଆନୁଷଙ୍ଗିକ.
+
+#CH lists | 2. Spelling: all past words and the likely next | ଶୁଦ୍ଧ ବନାନ · 33 QUESTIONS
+Here is the whole bank of past spelling questions, in one table, with the key. After it come the **likely next** words, grouped by the trap they test. A "likely next" word is one the examiner has **not yet asked**, but that tests the same trap in the same way.
+
+##Past questions (all 33)
+|Year and Q|Right spelling|The trap|
+|---|---|---|
+|2018 Q61|ଊନବିଂଶ|long ଊ|
+|2018 Q68|ପୁରସ୍କାର|ସ୍କ|
+|2018 Q71|ପୌରୋହିତ୍ୟ|ୌ and ୋ|
+|2018 Q72|ବିଷଣ୍ଣ|ଷ୍ଣ|
+|2018 Q73|ଉତ୍ତରାୟଣ|ଣ|
+|2018 Q74|ନିର୍ଧନ ⟨CHECK⟩|ଧ and ଜ|
+|2018 Q75|ଅକ୍ଷୁଣ୍ଣ ⟨CHECK⟩|short ୁ and ଣ|
+|2018 Q76|ଅରକ୍ଷିତ|prefix ଅ|
+|2018 Q77|ଅନସୂୟା|ଅନ୍ + ଅସୂୟା|
+|2018 Q78|ଅଧୀନ ⟨CHECK⟩|ଅଧୀନସ୍ଥ is also a word|
+|2018 Q79|ଅନିବାର୍ଯ୍ୟ|ର୍ଯ୍ୟ|
+|2018 Q80|ପର୍ଯ୍ୟବସିତ|ର୍ଯ୍ୟ and ସ|
+|2021 Q1|ଅନିବାର୍ଯ୍ୟ|(repeat of 2018 Q79)|
+|2021 Q2|ନିଷ୍ଫଳ ⟨CHECK⟩|ଷ୍ଫ|
+|2021 Q3|ଆଶୀର୍ବାଦ|ର୍ + long ୀ|
+|2021 Q4|ଓତପ୍ରୋତ ⟨CHECK⟩|ଃ or none|
+|2021 Q5|ପିୟୂଷ|ି and ୂ|
+|2021 Q6|ପୂଜ୍ୟାସ୍ପଦ|splitting|
+|2021 Q7|ସାର୍ବଜନୀନ ⟨CHECK⟩|ସର୍ବଜନୀନ is also used|
+|2021 Q8|ପ୍ରାଦୁର୍ଭାବ|ର୍ placement|
+|2021 Q9|ଅନ୍ତର୍ଯାମୀ|ର୍ and long ୀ|
+|2021 Q10|ଦୁରବସ୍ଥା|prefix ଦୁ|
+|2021 Q93|ପ୍ରବ୍ରଜନ|ବ୍ର|
+|2025 Q1|ପରିଷଦ|ି and ଷ|
+|2025 Q2|ଅବସନ୍ନ ⟨CHECK⟩|ସ and ନ୍ନ|
+|2025 Q3|ଶଶିଭୂଷଣ|ି and ଷ|
+|2025 Q4|ନିରୁପମା|ି and ୁ|
+|2025 Q5|ଭଗିନୀ|ି and ୀ|
+|2025 Q6|ତ୍ରୁଟି|ୁ and ି|
+|2025 Q7|ଗରିମା|ି|
+|2025 Q8|ଆନୁଷଙ୍ଗିକ|ଙ୍ଗ|
+|2025 Q9|ମଧୁଳିକା ⟨CHECK⟩|ଳ and ଲ|
+|2025 Q10|ତ୍ୱିଷାଂପତି|ି and ଂ|
+
+##What the table tells you
+Count the traps: **short and long i and u** are the biggest (about a third of the 33). Then ଷ, ଣ and the ର୍ placement. The dull but important point is that **the examiner picks Sanskrit words of the "learned" kind** (ପରିଷଦ, ବିଷଣ୍ଣ, ଅବସନ୍ନ, ପ୍ରାଦୁର୍ଭାବ), not everyday Odia words. So study the list of Sanskrit words below, not simple village words.
+
+##Likely next: group 1, short or long vowel signs
+These are the most likely, because trap 1 is the biggest and was 5 of the 10 questions in 2025. In each pair, the **right** spelling is the first one; the second is the bait.
+|Right|Typical bait|Meaning|
+|---|---|---|
+|**ପରୀକ୍ଷା**|ପରିକ୍ଷା, ପରୀକ୍ସା|examination|
+|**ପ୍ରତୀକ୍ଷା**|ପ୍ରତିକ୍ଷା|waiting|
+|**ପ୍ରତୀକ**|ପ୍ରତିକ|symbol|
+|**ସଂସ୍କୃତି**|ସଂସ୍କୃତୀ, ସଂସ୍କିତି|culture|
+|**କୀର୍ତ୍ତି**|କିର୍ତ୍ତି, କୀର୍ତ୍ତୀ|fame|
+|**ପୃଥିବୀ**|ପୃଥୀବି, ପୃଥିବି|earth|
+|**ଶରୀର**|ଶରିର, ଶରୀୟ|body|
+|**ଗୃହିଣୀ**|ଗୃହୀଣି, ଗୃହିଣି|housewife|
+|**ମହିଳା**|ମହୀଳା|woman|
+|**ଅତିଥି**|ଅତୀଥି, ଅତିଥୀ|guest|
+|**ସମିତି**|ସମୀତି, ସମିତୀ|committee|
+|**ଶ୍ରୀମତୀ**|ଶ୍ରୀମତି|Mrs.|
+|**ଯୁବତୀ**|ଯୁବତି|young woman|
+|**ମନୀଷୀ**|ମନିଷୀ, ମନୀଷି|thinker|
+|**ତୁଳସୀ**|ତୁଳସି, ତୁଲସୀ|basil|
+|**ବାଲ୍ମୀକି**|ବାଲ୍ମିକି, ବାଲ୍ମୀକୀ|the poet|
+|**ଭାଗୀରଥୀ**|ଭାଗିରଥି|the Ganga|
+|**ବିଭୀଷଣ**|ବିଭିଷଣ|Ravana's brother|
+|**ଅଭିଳାଷ**|ଅଭୀଳାଷ|desire|
+|**ସୂଚୀ**|ସୁଚି, ସୂଚି|list|
+Two helpful patterns: (1) words for **female persons** and **rivers** end in **ୀ** (ଭଗିନୀ, ଯୁବତୀ, ଗୃହିଣୀ, ଭାଗୀରଥୀ); (2) the words **ପରୀକ୍ଷା, ପ୍ରତୀକ୍ଷା, ପ୍ରତୀକ, ଅଧୀନ, ନୀତି** have a **long ୀ in the first part** because the Sanskrit word has a long vowel there. ⟨CHECK: ସୂଚୀ is the Sanskrit-form; ସୂଚି is also printed; the papers have not asked it⟩
+
+##Likely next: group 2, ଶ, ଷ and ସ
+|Right|Bait|Meaning|
+|---|---|---|
+|**ଶୋଷଣ**|ସୋଷଣ, ଶୋଶଣ|exploitation|
+|**ଶ୍ରେଷ୍ଠ**|ଶ୍ରେଶ୍ଠ, ଶ୍ରେସ୍ଠ|best|
+|**ସନ୍ତୋଷ**|ସନ୍ତୋଶ, ଶନ୍ତୋଷ|satisfaction|
+|**ଅଭିଷେକ**|ଅଭିଶେକ, ଅଭିସେକ|anointing|
+|**ବିଶେଷ**|ବିସେଷ, ବିଷେଶ|special|
+|**ଆକର୍ଷଣ**|ଆକର୍ଶଣ|attraction|
+|**ଉତ୍କର୍ଷ**|ଉତ୍କର୍ଶ|excellence|
+|**ପରିଶ୍ରମ**|ପରିସ୍ରମ, ପରିଷ୍ରମ|hard work|
+|**ଅଭିଶାପ**|ଅଭିଷାପ|curse|
+|**ଆଶୀର୍ବାଦ**|ଆଶିର୍ବାଦ|blessing|
+|**ଶିଷ୍ଟାଚାର**|ସିଷ୍ଟାଚାର|good manners|
+|**ପ୍ରଶାସନ**|ପ୍ରସାସନ|administration|
+|**ସ୍ପର୍ଶ**|ସ୍ପର୍ସ, ସ୍ପର୍ଷ|touch|
+|**ଗ୍ରୀଷ୍ମ**|ଗ୍ରିଷ୍ମ, ଗ୍ରୀସ୍ମ|summer|
+Remember: **ଶ୍ରେଷ୍ଠ** has ଶ at the start and ଷ୍ଠ at the end; **ଗ୍ରୀଷ୍ମ** has ଷ୍ମ.
+
+##Likely next: group 3, ଣ or ନ
+|Right|Bait|Meaning|
+|---|---|---|
+|**ପ୍ରଣାମ**|ପ୍ରନାମ|bow|
+|**ପ୍ରାଣ**|ପ୍ରାନ|life|
+|**କଲ୍ୟାଣ**|କଲ୍ୟାନ|welfare|
+|**ଲକ୍ଷଣ**|ଲକ୍ଷନ|sign|
+|**ବ୍ରାହ୍ମଣ**|ବ୍ରାହ୍ମନ|a priest|
+|**ନିର୍ମାଣ**|ନିର୍ମାନ|building|
+|**ପୂର୍ଣ୍ଣିମା**|ପୂର୍ନିମା|full moon|
+|**ସ୍ୱର୍ଣ୍ଣ**|ସ୍ୱର୍ନ|gold|
+|**ଦର୍ପଣ**|ଦର୍ପନ|mirror|
+|**ଅର୍ପଣ**|ଅର୍ପନ|offering|
+|**ଋଣ**|ଋନ|debt|
+|**ତୃଣ**|ତୃନ|grass|
+|**ପ୍ରୟୋଜନ**|ପ୍ରୟୋଜଣ|need (keeps ନ!)|
+|**ଦୁର୍ନୀତି**|ଦୁର୍ଣୀତି|corruption (keeps ନ)|
+
+##Likely next: group 4, ର୍ and ଯ୍ୟ
+|Right|Bait|Meaning|
+|---|---|---|
+|**ଦୁର୍ଘଟଣା**|ଦୂର୍ଘଟଣା, ଦୁର୍ଘଟନା|accident|
+|**ନିର୍ବାହ**|ନିରବାହ|carrying out|
+|**ନିର୍ଦ୍ଦେଶ**|ନିର୍ଦେଶ|order|
+|**ପର୍ଯ୍ୟାୟ**|ପର୍ଯାୟ|stage|
+|**ସୌନ୍ଦର୍ଯ୍ୟ**|ସୌନ୍ଦର୍ୟ, ସୌନ୍ଦର୍ଜ୍ୟ|beauty|
+|**ଐଶ୍ୱର୍ଯ୍ୟ**|ଐଶ୍ୱର୍ୟ|wealth|
+|**ମାଧୁର୍ଯ୍ୟ**|ମାଧୁର୍ୟ|sweetness|
+|**ଧୈର୍ଯ୍ୟ**|ଧୈର୍ୟ|patience|
+|**ଆଚାର୍ଯ୍ୟ**|ଆଚାର୍ୟ|teacher|
+|**ଉଦ୍ଦେଶ୍ୟ**|ଉଦ୍ଦେସ୍ୟ|aim|
+|**ଆଶ୍ଚର୍ଯ୍ୟ**|ଆଶ୍ଚର୍ୟ, ଆଶ୍ଚର୍ଜ୍ୟ|wonder|
+|**ଅନ୍ତର୍ଗତ**|ଅନ୍ତର୍ଗତ୍|inside|
+|**ପ୍ରତ୍ୟୁତ୍ତର**|ପ୍ରତ୍ୟୁତର|reply|
+Memory: in **ସୌନ୍ଦର୍ଯ୍ୟ, ଐଶ୍ୱର୍ଯ୍ୟ, ମାଧୁର୍ଯ୍ୟ, ଧୈର୍ଯ୍ୟ, ଆଚାର୍ଯ୍ୟ, ଆଶ୍ଚର୍ଯ୍ୟ, କାର୍ଯ୍ୟ, ସୂର୍ଯ୍ୟ** the ending is always **ର୍ଯ୍ୟ**.
+
+##Likely next: group 5, prefix words (ଦୁଃ, ନିଃ, ନିର୍, ନିସ୍, ଅ, ଅନ୍)
+|Right|Bait|Meaning|
+|---|---|---|
+|**ନିଃସ୍ୱାର୍ଥ**|ନିସ୍ୱାର୍ଥ, ନିଃସ୍ବାର୍ଥ|selfless|
+|**ନିଃଶବ୍ଦ**|ନିଶବ୍ଦ|silent|
+|**ନିଃସନ୍ଦେହ**|ନିସନ୍ଦେହ|without doubt|
+|**ନିଷ୍କ୍ରିୟ**|ନିସ୍କ୍ରିୟ|idle|
+|**ନିଶ୍ଚିତ**|ନିଷ୍ଚିତ|sure|
+|**ଦୁଃଖ**|ଦୁଖ|sorrow|
+|**ଦୁଃସାହସ**|ଦୁସାହସ|rash daring|
+|**ଦୁଷ୍କର୍ମ**|ଦୁସ୍କର୍ମ|a bad deed|
+|**ଦୁଶ୍ଚରିତ୍ର**|ଦୁଶ୍ଚରିତ|bad character|
+|**ମନଃକଷ୍ଟ**|ମନକଷ୍ଟ|mental pain|
+|**ଅନ୍ତଃକରଣ**|ଅନ୍ତକରଣ|the heart|
+|**ପ୍ରାତଃକାଳ**|ପ୍ରାତକାଳ|morning|
+|**ଉଜ୍ଜ୍ୱଳ**|ଉଜ୍ବଳ, ଉଜ୍ଜଳ|bright|
+|**ଉଚ୍ଛ୍ୱାସ**|ଉଚ୍ଛ୍ବାସ|joy|
+|**ଅଧ୍ୟୟନ**|ଅଧ୍ୟନ|study|
+Note: **ସ୍ୱ** (as in ସ୍ୱାମୀ, ସ୍ୱାଧୀନ) is the standard Sanskrit form; **ସ୍ବ** is the Odia everyday form and is **not** the one the papers use. In ତ୍ୱ, ଜ୍ୱ, ଚ୍ଛ୍ୱ the joined letter is ୱ.
+
+##Likely next: group 6, ଳ or ଲ, and other letter pairs
+|Right|Bait|Meaning|
+|---|---|---|
+|**ଅଳଙ୍କାର**|ଅଲଙ୍କାର|ornament|
+|**ମଙ୍ଗଳ**|ମଙ୍ଗଲ|good|
+|**କୌଶଳ**|କୌଶଲ|skill|
+|**ନିର୍ମଳ**|ନିର୍ମଲ|pure|
+|**ଚଞ୍ଚଳ**|ଚଞ୍ଚଲ|restless|
+|**ଅଞ୍ଚଳ**|ଅଞ୍ଚଲ|area|
+|**ପ୍ରବାଳ**|ପ୍ରବାଲ|coral|
+|**ବିଶାଳ**|ବିଶାଲ|huge|
+|**ଶୀତଳ**|ଶିତଳ|cold|
+|**କଲ୍ୟାଣ**|କଳ୍ୟାଣ|welfare|
+|**ବଲ୍ଲଭ**|ବଳ୍ଲଭ|beloved|
+|**ମଲ୍ଲିକା**|ମଳ୍ଲିକା|jasmine|
+⟨CHECK: in many of these (କୌଶଳ/କୌଶଲ, ମଙ୍ଗଳ/ମଙ୍ଗଲ) the papers have not asked the pair, and some books print both. We use the Odia dictionary form with ଳ. If the paper offers both, take the one with ଳ.⟩
+
+##Likely next: group 7, the sandhi and joined words
+|Right|Meaning|
+|---|---|
+|**ଉତ୍ସବ**|festival|
+|**ଉଚ୍ଛେଦ**|destruction|
+|**ଉତ୍ତୀର୍ଣ୍ଣ**|passed|
+|**ଅତ୍ୟାଚାର**|cruelty|
+|**ଅଭ୍ୟାସ**|practice|
+|**ଉଦ୍ୟୋଗ**|effort|
+|**ସମ୍ମାନ**|respect|
+|**ସମ୍ମତି**|consent|
+|**ସଞ୍ଚୟ**|saving|
+|**ସମ୍ପର୍କ**|relation|
+|**ସମ୍ରାଟ**|emperor|
+|**ସଂହାର**|killing|
+|**ଯଥେଷ୍ଟ**|enough|
+|**ପରୋପକାର**|helping others|
+|**ଜଗଦୀଶ**|the Lord|
+|**ନିରୀକ୍ଷଣ**|inspection|
+|**ମହତ୍ତ୍ୱ**|importance|
+|**ସର୍ବତ୍ର**|everywhere|
+
+##Spotting the right option in 10 seconds
+1. Read the four options and **find the part that differs**. The three bad ones differ in **one** place.
+2. Ask: is it a vowel sign? an s-letter? ଣ/ନ? a ର୍? Match it to the ten traps.
+3. If you cannot tell, **split the word** (prefix + root) and check the Sanskrit form.
+4. Never pick an option just because it "looks nice". The wrong options look good on purpose.
+
+>NEXT:Check yourself and likely next
+?? ଶ୍ରେଷ୍ଠ, ଶ୍ରେସ୍ଠ, ସ୍ରେଷ୍ଠ: which is right?||ଶ୍ରେଷ୍ଠ.
+?? Which is right: ସୌନ୍ଦର୍ଯ୍ୟ or ସୌନ୍ଦର୍ୟ?||ସୌନ୍ଦର୍ଯ୍ୟ (ର୍ଯ୍ୟ at the end).
+?? Which is right: ପ୍ରାଣ or ପ୍ରାନ?||ପ୍ରାଣ (a ନ after ର becomes ଣ).
+?? Likely next: choose the right spelling of "examination".||ପରୀକ୍ଷା, with a long ୀ in the first part.
+?? Likely next: choose the right spelling of "selfless".||ନିଃସ୍ୱାର୍ଥ.
+
+#CH syn | 3. Synonyms: how the examiner picks | ପ୍ରତିଶବ୍ଦ · 32 QUESTIONS
+A **ପ୍ରତିଶବ୍ଦ** (synonym) means "a word with the same meaning". The question gives one word in quotes, for example **‘ମେଘ’ର ପ୍ରତିଶବ୍ଦ** (a synonym of "cloud") and four options. You pick the one that means the same.
+
+Odia has a rich stock of synonyms because it borrows from Sanskrit. A cloud is **ମେଘ, ଜଳଦ, ଜୀମୂତ, ବଳାହକ, ନୀରଦ, ପୟୋଦ, ଅମ୍ବୁଦ, ଘନ**. These are all cloud words. The examiner takes one and puts a **different word from the same family** among the options.
+
+##The four families
+All 32 questions of the three papers belong to four families. In each family the bait is a word from a **neighbour meaning** (a river word for a lake, a fire word for the sun).
+|Family|2018|2021|2025|Total|The words asked|
+|---|---|---|---|---|---|
+|Sky and weather|4|2|3|9|ଚନ୍ଦ୍ର, ଅମ୍ବର, ପବନ, ମେଘ, ଜଳଦ, ଭାସ୍କର, କୁଆପଥର, ଆକାଶ|
+|Land and water|3|4|3|10|ପୋଖରୀ, ଜାହ୍ନବୀ, ଅରଣ୍ୟ, ରାଜୀବ, ପର୍ବତ, ନିକେତନ, ପୃଥିବୀ, ଗଙ୍ଗା, ବାଟ, ନୌକା|
+|Animals and birds|2|3|1|6|ସାପ, କାଉ, ଗାଭୀ, ବିହଙ୍ଗ, ଗଜ|
+|Gods and people|3|1|3|7|ଦନୁଜ, ତନୟା, ଗଣପତି, ଛାତ୍ର, ଅସୁର, ଶିବ|
+The two biggest families are **land and water** and **sky and weather**. They are 19 of 32 questions. Learn them first.
+
+##Past questions: sky and weather
+|Word|Right answer|Bait in the options|
+|---|---|---|
+|ଚନ୍ଦ୍ର ⟦2018 Q59⟧|**ମୃଗାଙ୍କ** (moon with a deer mark)|ନଭସ୍ୱାନ (wind), ନିଶାନ୍ତ (end of night), କୁରଙ୍ଗ (deer)|
+|ଅମ୍ବର ⟦2018 Q81⟧|**ଅନ୍ତରୀକ୍ଷ** (sky)|ଅନଳ (fire), ଅମିୟ (nectar), ଅହିମକର (sun)|
+|ପବନ ⟦2018 Q88⟧|**ପବମାନ** (wind)|ପୁଣ୍ଡରୀକ (lotus), ପାରାବାର (sea), ଉରଗ (snake)|
+|ମେଘ ⟦2018 Q90⟧|**ଜୀମୂତ**|ମରୁତ (wind), ମିଳିନ୍ଦ, ସରିତ (river)|
+|ଜଳଦ ⟦2021 Q11⟧|**ଜୀମୂତ**|ଜଳଧି, ଅର୍ଣ୍ଣବ, ପୟୋନିଧି (all three are the sea)|
+|ଭାସ୍କର ⟦2021 Q12⟧|**ବିକର୍ତ୍ତନ** (sun)|ଅନଳ (fire), ମୃଗାଙ୍କ (moon), ବଳାହକ (cloud)|
+|କୁଆପଥର ⟦2025 Q21⟧|**କରକା** (hail)|କରକଚା, କରଞ୍ଚ, କରଭ|
+|ମେଘ ⟦2025 Q27⟧|**ଜଳଦ**|ଜଳଧି (sea), ଜଳଜ (lotus), ଜଗର|
+|ଆକାଶ ⟦2025 Q28⟧|**ପୁଷ୍କର** (sky)|ପୁଷ୍କଳ, ପୂର୍ଣ୍ଣକ, ପୁଷ୍ଟିକା|
+Two traps stand out. First, **the bait often starts with the same sound**: ଜଳଦ (cloud) next to ଜଳଧି (sea) and ଜଳଜ (lotus); ପୁଷ୍କର next to ପୁଷ୍କଳ. Read the full word, not the first letters. Second, **the sea words (ଜଳଧି, ଅର୍ଣ୍ଣବ, ପୟୋନିଧି) and the cloud words are often put side by side**.
+
+##Past questions: land and water
+|Word|Right answer|Bait|
+|---|---|---|
+|ପୋଖରୀ ⟦2018 Q70⟧|**ସରସୀ** (pond)|ନୀରଦ (cloud), ଅମ୍ବୁଦ (cloud), ପାବକ (fire)|
+|ଜାହ୍ନବୀ ⟦2018 Q84⟧|**ବିଷ୍ଣୁପଦୀ** (the Ganga)|ବିଷ୍ଣୁପଦ, ବିଷ୍ଣୁପଦା, ବିଷ୍ଣୁ|
+|ଅରଣ୍ୟ ⟦2018 Q86⟧|**ବିପିନ** (forest)|ପାବକ (fire), ବାସବ (Indra), କୋରକ (bud)|
+|ରାଜୀବ ⟦2021 Q13⟧|Not valued|OPSC dropped it|
+|ପର୍ବତ ⟦2021 Q17⟧|**ମହୀଧର** (mountain)|କାସାର (lake), ଓଷଧୀଶ (moon), କୁଳିଶ (thunderbolt)|
+|ନିକେତନ ⟦2021 Q18⟧|**ସଦ୍ମ** (house)|ଭୂଧର (mountain), ପାରାବାର (sea), ବିକର୍ତ୍ତନ (sun)|
+|ପୃଥିବୀ ⟦2021 Q20⟧|**ବିଶ୍ୱମ୍ଭରା** (earth)|ଶିଖୀ (peacock), ଅଦ୍ରୀ (mountain), ଶ୍ରୀ|
+|ଗଙ୍ଗା ⟦2025 Q24⟧|**ସ୍ୱର୍ଣ୍ଣଦୀ** (the Ganga)|ସ୍ୱର୍ଣ୍ଣଳୀ, ସରିତା (river), ନନ୍ଦିକା|
+|ବାଟ ⟦2025 Q29⟧|**ସରଣୀ** (road)|ତରଣୀ (boat), ବରଣୀ, ପରଣ|
+|ନୌକା ⟦2025 Q30⟧|**ବହିତ୍ର** (boat)|ବହଟି, ବହୁଧା, ବାଦିତ୍ର (a musical instrument)|
+Notice: in 2025 the bait were **look-alike words**: ସରଣୀ and ତରଣୀ, ବହିତ୍ର and ବାଦିତ୍ର, ସ୍ୱର୍ଣ୍ଣଦୀ and ସ୍ୱର୍ଣ୍ଣଳୀ. Every wrong option was a real or near-real word. That is why you must know each word's meaning, not guess by shape.
+
+##Past questions: animals, birds, gods and people
+|Word|Right answer|Bait|
+|---|---|---|
+|କାଉ ⟦2018 Q87⟧ ⟨CHECK: ପରଭୃତ means the koel (cuckoo), not the crow; no option is a crow word, so the stem may be a misprint of କୋଇଲି⟩|ପରଭୃତ|ପୁରନ୍ଦର (Indra), ନଗ (mountain), ଖଗ (bird)|
+|ସାପ ⟦2018 Q89⟧|**ଅହି**|ମହୀ (earth), ପବି (thunderbolt), ଦନ୍ତୀ (elephant)|
+|ଗାଭୀ ⟦2021 Q15⟧|**ରୋହିଣୀ**|ଜାହ୍ନବୀ, ଅଦ୍ରି, ଧୁନୀ|
+|ବିହଙ୍ଗ ⟦2021 Q16⟧|**ଦ୍ୱିଜ** (bird)|ବାରି, ସରସୀରୁହ, ବନଜ|
+|ଗଜ ⟦2021 Q19⟧|**ଦ୍ୱିପ** (elephant)|ଗନ୍ଧବହ (wind), ତୁରଗ (horse), ଦ୍ୱିଜ (bird)|
+|ସାପ ⟦2025 Q22⟧|**ଉରଗ**|ଉପଳ, ଉଦକ (water), ଉରଜ|
+|ଦନୁଜ ⟦2018 Q82⟧|**ଦାନବ**|ମାନବ, ଦେବତା, କିନ୍ନର|
+|ତନୟା ⟦2018 Q83⟧|**ସୁତା** (daughter)|ସୂତା, ଇଷିତା, ତନୁଜ|
+|ଗଣପତି ⟦2018 Q85⟧|**ବିନାୟକ**|ରାଜା, ପରମାତ୍ମା, ଭଗୀରଥ|
+|ଦାନବ ⟦2021 Q14⟧|**ଦନୁଜ**|ବ୍ରହ୍ମସୂ, ଗଜାସ୍ୟ, ଅମୃତାନ୍ଧ|
+|ଛାତ୍ର ⟦2025 Q23⟧ ⟨CHECK: the book's scan is unclear; the option printed twice is ଅଧୃତି⟩|ଅଧୀତୀ|ଅନକ୍ଷ, ଅଧ୍ୱଗୁ|
+|ଅସୁର ⟦2025 Q25⟧|**ଦନୁଜ**|ତନୁଜ, ଅନୁଜ, ସାନୁଜ|
+|ଶିବ ⟦2025 Q26⟧|**ଶ୍ରୀକଣ୍ଠ**|ଶ୍ରୀଖଣ୍ଡ, ଶ୍ରୀକାନ୍ତ, ଶ୍ରୀଧର|
+A hidden trap in 2025: **ତନୁଜ, ଅନୁଜ, ସାନୁଜ, ଦନୁଜ** all end in ନୁଜ. Only **ଦନୁଜ** (child of ଦନୁ, the mother of the demons) is a demon. And **ତନୁଜ** means "son".
+
+##The three habits of the examiner
+1. **He asks the same word in different years** (ମେଘ twice, ସାପ twice, ଦନୁଜ three times).
+2. **The right answer is often a lesser-known word**: ସରଣୀ for a road, ବହିତ୍ର for a boat, ଦ୍ୱିପ for an elephant. The common word (ବାଟ, ନୌକା, ଗଜ) is the question, not the answer.
+3. **The bait belongs to the same group, but a different thing**: cloud words beside sea words, fire words beside sun words.
+
+>NEXT:Check yourself
+?? ‘ଅମ୍ବର’ means sky. Which of these is also sky: ଅନ୍ତରୀକ୍ଷ, ଅନଳ, ଅମିୟ?||ଅନ୍ତରୀକ୍ଷ.
+?? Which word is the cloud and which is the sea: ଜଳଦ, ଜଳଧି?||ଜଳଦ = cloud. ଜଳଧି = sea.
+?? ‘ଦନୁଜ’ means demon. Which is also a demon: ଦାନବ, ମାନବ, କିନ୍ନର?||ଦାନବ.
+?? Which word means "elephant": ଗଜ, ଦ୍ୱିପ, ଦ୍ୱିଜ?||ଗଜ and ଦ୍ୱିପ both mean elephant. ଦ୍ୱିଜ means bird (or a Brahmin).
+?? Which one is a word for "road": ସରଣୀ or ତରଣୀ?||ସରଣୀ = road. ତରଣୀ = boat.
+
+#CH synlist | 4. Synonyms: the likely-next families | ପ୍ରତିଶବ୍ଦ · THE LISTS
+This chapter is the **big list**. Each row is one question word (in bold) with its synonyms. For each row, we say how likely it is: **★★★** means very likely (it is the next angle of a past question), **★★** likely, **★** possible. The ★★★ rows are the ones to learn first.
+
+##Why these words
+The examiner moves to the **neighbour**: if he asked ‘ଚନ୍ଦ୍ର’ (moon), next he may ask ‘ସୂର୍ଯ୍ୟ’ (sun) or ‘ଅଗ୍ନି’ (fire). If he asked ‘ପୋଖରୀ’ (pond), next he may ask ‘ନଦୀ’ (river) or ‘ସମୁଦ୍ର’ (sea). These lists follow that rule.
+
+##Sky and weather
+|Word|Chance|Synonyms to learn|
+|---|---|---|
+|**ସୂର୍ଯ୍ୟ** (sun)|★★★|ଭାସ୍କର, ଦିବାକର, ଭାନୁ, ରବି, ଆଦିତ୍ୟ, ମାର୍ତ୍ତଣ୍ଡ, ସବିତା, ଅର୍କ, ବିକର୍ତ୍ତନ, ପ୍ରଭାକର, ମିହିର, ଦିନମଣି|
+|**ଚନ୍ଦ୍ର** (moon)|★★★|ଶଶୀ, ଇନ୍ଦୁ, ସୋମ, ମୃଗାଙ୍କ, ଶଶାଙ୍କ, ନିଶାକର, ସୁଧାଂଶୁ, ବିଧୁ, ହିମାଂଶୁ, ଚନ୍ଦ୍ରମା, ଓଷଧୀଶ|
+|**ମେଘ** (cloud)|★★★|ଜଳଦ, ଜୀମୂତ, ବଳାହକ, ନୀରଦ, ପୟୋଦ, ଅମ୍ବୁଦ, ଘନ|
+|**ଆକାଶ** (sky)|★★★|ଗଗନ, ନଭ, ବ୍ୟୋମ, ଅମ୍ବର, ଅନ୍ତରୀକ୍ଷ, ପୁଷ୍କର, ଶୂନ୍ୟ|
+|**ପବନ** (wind)|★★★|ବାୟୁ, ସମୀର, ସମୀରଣ, ମରୁତ, ଅନିଳ, ପବମାନ, ଗନ୍ଧବହ, ନଭସ୍ୱାନ|
+|**ଅଗ୍ନି** (fire)|★★★|ଅନଳ, ପାବକ, ବହ୍ନି, ଦହନ, ହୁତାଶନ, ବୈଶ୍ୱାନର|
+|**ବିଜୁଳି** (lightning)|★★|ବିଦ୍ୟୁତ୍, ଚପଳା, ସୌଦାମିନୀ, ତଡ଼ିତ୍|
+|**ବର୍ଷା** (rain)|★★|ବୃଷ୍ଟି, ବର୍ଷଣ, ବାରିଧାରା|
+|**କୁଆପଥର** (hail)|★★|କରକା|
+|**ରାତ୍ରି** (night)|★★|ନିଶା, ରଜନୀ, ଯାମିନୀ, ଶର୍ବରୀ, ବିଭାବରୀ|
+|**ଦିନ** (day)|★|ଦିବସ, ବାସର, ଦିବା|
+|**ତାରା** (star)|★|ନକ୍ଷତ୍ର, ତାରକା, ଉଡୁ|
+|**ସନ୍ଧ୍ୟା** (evening)|★|ସାୟଂ, ଗୋଧୂଳି|
+
+##Land and water
+|Word|Chance|Synonyms to learn|
+|---|---|---|
+|**ନଦୀ** (river)|★★★|ସରିତା, ତଟିନୀ, ତରଙ୍ଗିଣୀ, ସ୍ରୋତସ୍ୱତୀ, ନିମ୍ନଗା|
+|**ଗଙ୍ଗା** (Ganga)|★★★|ଜାହ୍ନବୀ, ଭାଗୀରଥୀ, ସ୍ୱର୍ଣ୍ଣଦୀ, ବିଷ୍ଣୁପଦୀ, ମନ୍ଦାକିନୀ|
+|**ସମୁଦ୍ର** (sea)|★★★|ସାଗର, ଜଳଧି, ଅର୍ଣ୍ଣବ, ପାରାବାର, ଉଦଧି, ରତ୍ନାକର, ପୟୋନିଧି, ସିନ୍ଧୁ|
+|**ଜଳ / ପାଣି** (water)|★★★|ବାରି, ନୀର, ସଲିଳ, ଅମ୍ବୁ, ତୋୟ, ଉଦକ, ପୟ|
+|**ପୃଥିବୀ** (earth)|★★★|ଧରା, ଧରିତ୍ରୀ, ଭୂମି, ବସୁନ୍ଧରା, ମେଦିନୀ, ଅବନୀ, ବିଶ୍ୱମ୍ଭରା, ମହୀ|
+|**ପର୍ବତ** (mountain)|★★★|ଗିରି, ଅଦ୍ରି, ଶୈଳ, ଭୂଧର, ମହୀଧର, ନଗ, ଅଚଳ|
+|**ଘର** (house)|★★★|ଗୃହ, ଆଳୟ, ଭବନ, ସଦ୍ମ, ନିକେତନ, ନିଳୟ|
+|**ଅରଣ୍ୟ** (forest)|★★★|ବନ, ବିପିନ, କାନନ|
+|**ପୋଖରୀ** (pond)|★★|ସରସୀ, ତଡ଼ାଗ, ସରୋବର, କାସାର|
+|**କମଳ** (lotus)|★★★|ପଦ୍ମ, ପଙ୍କଜ, ସରୋଜ, ଅମ୍ବୁଜ, ଜଳଜ, ରାଜୀବ, ସରସୀରୁହ|
+|**ଫୁଲ** (flower)|★★|ପୁଷ୍ପ, କୁସୁମ, ସୁମନ, ପ୍ରସୂନ|
+|**ଗଛ** (tree)|★★|ବୃକ୍ଷ, ତରୁ, ପାଦପ, ବିଟପୀ, ଦ୍ରୁମ, ମହୀରୁହ, ଶାଖୀ|
+|**ବାଟ** (road)|★★|ସରଣୀ, ପଥ, ମାର୍ଗ, ରାସ୍ତା|
+|**ନୌକା** (boat)|★★|ତରଣୀ, ବହିତ୍ର, ତରୀ, ପୋତ|
+|**ବନ୍ୟା** (flood)|★|ବାନ, ପ୍ଲାବନ|
+Remember: **ରାଜୀବ** (a lotus word) was **Not valued** in 2021 ⟦2021 Q13⟧. It is safe to learn it with the lotus family, but expect nothing from that exact question.
+
+##Animals and birds
+|Word|Chance|Synonyms to learn|
+|---|---|---|
+|**ସାପ** (snake)|★★★|ଅହି, ଉରଗ, ଭୁଜଙ୍ଗ, ନାଗ, ସର୍ପ, ବ୍ୟାଳ, ଫଣୀ|
+|**ହାତୀ** (elephant)|★★★|ଗଜ, କରୀ, ଦନ୍ତୀ, ଦ୍ୱିପ, ମାତଙ୍ଗ, ବାରଣ, ହସ୍ତୀ|
+|**ପକ୍ଷୀ** (bird)|★★★|ବିହଙ୍ଗ, ଖଗ, ବିହଗ, ଦ୍ୱିଜ, ବିହଙ୍ଗମ|
+|**ଗାଈ** (cow)|★★|ଗାଭୀ, ଧେନୁ, ସୁରଭି, ରୋହିଣୀ|
+|**ସିଂହ** (lion)|★★★|କେଶରୀ, ମୃଗରାଜ, ପଶୁରାଜ, ହରି|
+|**ଘୋଡ଼ା** (horse)|★★★|ଅଶ୍ୱ, ତୁରଙ୍ଗ, ହୟ, ବାଜୀ, ଘୋଟକ|
+|**ଭ୍ରମର** (bee)|★★★|ମଧୁପ, ଅଳି, ଷଟ୍ପଦ, ମଧୁକର, ଭୃଙ୍ଗ|
+|**ମୟୂର** (peacock)|★★|ଶିଖୀ, କେକୀ, ବର୍ହୀ|
+|**କୋକିଳ** (cuckoo)|★★|ପିକ, ପରଭୃତ, କୋଇଲି|
+|**ହଂସ** (swan)|★|ମରାଳ|
+|**ମାଛ** (fish)|★★|ମୀନ, ମତ୍ସ୍ୟ, ଝଷ|
+|**ବାଘ** (tiger)|★★|ବ୍ୟାଘ୍ର, ଶାର୍ଦ୍ଦୂଳ|
+Note the family hint: **ଉରଗ, ଭୁଜଙ୍ଗ, ଅହି** all mean snake because they describe how it moves ("goes on its chest", "goes crooked", "bites"). A word that shows what the animal does is usually a synonym.
+
+##Gods, demons and people
+|Word|Chance|Synonyms to learn|
+|---|---|---|
+|**ଶିବ**|★★★|ଶଙ୍କର, ମହେଶ, ଶମ୍ଭୁ, ଶ୍ରୀକଣ୍ଠ, ମହାଦେବ, ତ୍ରିଲୋଚନ, ପିନାକୀ, ଚନ୍ଦ୍ରଶେଖର|
+|**ବିଷ୍ଣୁ**|★★★|ହରି, ମାଧବ, କେଶବ, ନାରାୟଣ, ଚକ୍ରପାଣି, ଜନାର୍ଦ୍ଦନ, ପୀତାମ୍ବର|
+|**ଗଣେଶ**|★★★|ଗଣପତି, ବିନାୟକ, ଗଜାନନ, ଲମ୍ବୋଦର, ଏକଦନ୍ତ, ଗଜାସ୍ୟ|
+|**ଲକ୍ଷ୍ମୀ**|★★|କମଳା, ପଦ୍ମା, ଇନ୍ଦିରା, ରମା|
+|**ଇନ୍ଦ୍ର**|★★★|ସୁରେଶ, ଶଚୀପତି, ପୁରନ୍ଦର, ବାସବ, ଦେବରାଜ|
+|**ଦେବତା**|★★|ସୁର, ଅମର, ନିର୍ଜର, ଦେବ|
+|**ଅସୁର / ଦାନବ**|★★★|ଦନୁଜ, ଦୈତ୍ୟ, ରାକ୍ଷସ, ନିଶାଚର|
+|**ଯମ**|★|ଶମନ, କୃତାନ୍ତ, ଧର୍ମରାଜ|
+|**ରାଜା**|★★★|ନୃପ, ନୃପତି, ଭୂପ, ଭୂପାଳ, ମହୀପାଳ, ନରପତି|
+|**ସ୍ତ୍ରୀ**|★★★|ନାରୀ, ଅବଳା, ରମଣୀ, ଲଳନା, ବନିତା, ମହିଳା|
+|**ପୁତ୍ର**|★★|ସୁତ, ତନୟ, ଆତ୍ମଜ, ନନ୍ଦନ|
+|**କନ୍ୟା**|★★★|ସୁତା, ତନୟା, ଦୁହିତା, ଆତ୍ମଜା, ନନ୍ଦିନୀ|
+|**ମିତ୍ର**|★★|ବନ୍ଧୁ, ସଖା, ସୁହୃଦ, ସଙ୍ଗୀ|
+|**ଶତ୍ରୁ**|★★|ଅରି, ରିପୁ, ବୈରୀ, ଦୁଶ୍ମନ|
+|**ଛାତ୍ର**|★★|ଶିଷ୍ୟ, ବିଦ୍ୟାର୍ଥୀ, ଅଧୀତୀ|
+|**ଗୁରୁ**|★★|ଆଚାର୍ଯ୍ୟ, ଶିକ୍ଷକ, ଉପାଧ୍ୟାୟ|
+|**ବ୍ରାହ୍ମଣ**|★|ଦ୍ୱିଜ, ବିପ୍ର|
+|**ମଣିଷ**|★★|ମାନବ, ନର, ମନୁଷ୍ୟ, ମର୍ତ୍ତ୍ୟ|
+|**ସେବକ**|★|ଭୃତ୍ୟ, ଦାସ, ପରିଚାରକ|
+|**ଚୋର**|★|ତସ୍କର, ଚୌର|
+
+##Body, wealth and war
+This is a family that **has not been asked yet**, so it is a possible new angle. The syllabus lists "ପ୍ରତିଶବ୍ଦ" without a limit.
+|Word|Chance|Synonyms to learn|
+|---|---|---|
+|**ଶରୀର** (body)|★★|ଦେହ, ତନୁ, କାୟା, ବପୁ, ଗାତ୍ର|
+|**ଆଖି** (eye)|★★|ନୟନ, ଚକ୍ଷୁ, ନେତ୍ର, ଲୋଚନ, ଅକ୍ଷି|
+|**ହାତ** (hand)|★★|କର, ହସ୍ତ, ପାଣି, ଭୁଜ, ବାହୁ|
+|**ମୁଖ** (face)|★|ବଦନ, ଆନନ, ବକ୍ତ୍ର|
+|**ଧନ** (wealth)|★★|ଅର୍ଥ, ବିତ୍ତ, ସମ୍ପତ୍ତି, ବୈଭବ|
+|**ଅମୃତ** (nectar)|★★|ସୁଧା, ପୀୟୂଷ, ଅମିୟ|
+|**ଯୁଦ୍ଧ** (war)|★★|ସମର, ରଣ, ସଂଗ୍ରାମ, ସଙ୍ଗର|
+|**ତୀର** (arrow)|★|ଶର, ସାୟକ, ବାଣ, ବିଶିଖ|
+|**ଖଡ୍ଗ** (sword)|★|ଅସି, କୃପାଣ, ତରବାରୀ|
+|**ଅଶ୍ରୁ** (tear)|★|ଲୋତକ, ନୟନଜଳ|
+
+##How to learn the lists fast
+1. Pick the **★★★ rows** only. There are about 25 words.
+2. Say each row aloud: word, then its family. Link each to a picture: moon with a deer mark (ମୃଗାଙ୍କ), snake going on its chest (ଉରଗ).
+3. Learn **pairs of look-alike bait**: ଜଳଦ / ଜଳଧି, ତରଣୀ / ସରଣୀ, ବହିତ୍ର / ବାଦିତ୍ର, ଦ୍ୱିଜ / ଦ୍ୱିପ, ଅନୁଜ / ଦନୁଜ / ତନୁଜ.
+4. Do a quick test next day: cover the right column.
+
+>NEXT:Check yourself and likely next
+?? Likely next: a synonym of ‘ସୂର୍ଯ୍ୟ’ (sun): ଦିବାକର, ଶଶାଙ୍କ, ଅନିଳ, ଅର୍ଣ୍ଣବ?||ଦିବାକର. ଶଶାଙ୍କ is the moon, ଅନିଳ the wind, ଅର୍ଣ୍ଣବ the sea.
+?? Likely next: a synonym of ‘ନଦୀ’: ସରିତା, ସରସୀ, ଜଳଧି, ପାବକ?||ସରିତା. ସରସୀ is a pond.
+?? Likely next: a synonym of ‘ଭ୍ରମର’: ମଧୁପ, ମୃଗାଙ୍କ, ମହୀଧର, ଗନ୍ଧବହ?||ମଧୁପ.
+?? Likely next: a synonym of ‘ଘୋଡ଼ା’: ତୁରଙ୍ଗ, ଦ୍ୱିପ, କେଶରୀ, ଉରଗ?||ତୁରଙ୍ଗ. (ତୁରଗ is also horse; it was bait for ଗଜ in 2021.)
+?? Likely next: a synonym of ‘ଶିବ’: ମହେଶ, ମାଧବ, କେଶବ, ବାସବ?||ମହେଶ. ମାଧବ and କେଶବ are Vishnu, ବାସବ is Indra.
+
+#CH ant | 5. Antonyms: how the examiner picks | ବିପରୀତ ଶବ୍ଦ · 33 QUESTIONS
+A **ବିପରୀତ ଶବ୍ଦ** (antonym) is a word that means the opposite: ସୁଖ (joy) and ଦୁଃଖ (sorrow). The question prints one word and four options. You pick the opposite one.
+
+##The three kinds of antonym question
+All 33 past questions fit three kinds. Each kind has a different trick.
+|Kind|What it means|Asked|Example|
+|---|---|---|---|
+|**Sanskrit pair**|a learned word and its learned opposite|20|ହର୍ଷ - ବିଷାଦ|
+|**Odia (ଦେଶୀ) pair**|an everyday Odia word and its opposite|8|ଡେଙ୍ଗା - ଗେଡ଼ା|
+|**Prefix pair**|the same word with a prefix like ଅ, ଅନ, ଅପ|5|ଖ୍ୟାତି - ଅପଖ୍ୟାତି|
+
+##Past questions: Sanskrit pairs
+|Word|Right opposite|Bait in the options|
+|---|---|---|
+|ହର୍ଷ (joy) ⟦2018 Q91⟧|**ବିଷାଦ**|ଦୁଃଖ, ବିହର୍ଷ, ଶୋକ|
+|ଆର୍ଦ୍ର (wet) ⟦2018 Q92⟧|**ଶୁଷ୍କ**|ଉଷ୍ଣ, ଶୁଖିଲା, ସିକ୍ତ|
+|ଅର୍ପଣ (giving) ⟦2018 Q93⟧|**ଗ୍ରହଣ**|ନିଃର୍ପଣ, ତର୍ପଣ, ଅନାର୍ପଣ|
+|ଆକର୍ଷଣ ⟦2018 Q94⟧|**ବିକର୍ଷଣ**|ଅନାକର୍ଷଣ, ନିଃକର୍ଷଣ, ନିଷ୍କର୍ଷଣ|
+|ଜୀବନ ⟦2018 Q98⟧|**ମରଣ**|ମୃତ୍ୟୁ, ଆଜୀବନ|
+|ପ୍ରସନ୍ନ ⟦2021 Q21⟧|**ବିଷଣ୍ଣ**|ଦୁଃଖୀ, ଅଧୀର, କ୍ରୋଧାନ୍ୱିତ|
+|କ୍ଷୀଣ ⟦2021 Q22⟧|**ପୃଥୁଳ** (stout)|ବୃହତ୍, ଅଧିକ, ସବଳ|
+|ସଂକୀର୍ଣ୍ଣ ⟦2021 Q23⟧|**ପ୍ରଶସ୍ତ** (wide)|ସଂକୁଚିତ, ଅନୁଦାର, ସମାକୀର୍ଣ୍ଣ|
+|ନିରପେକ୍ଷ ⟦2021 Q24⟧|**ପକ୍ଷପାତୀ**|ବିପକ୍ଷ, ପ୍ରତ୍ୟକ୍ଷ, ସହପକ୍ଷ|
+|ମସୃଣ (smooth) ⟦2021 Q25⟧|**ବନ୍ଧୁର** (rough)|ଚିକ୍କଣ, ଚୌରସ, କୋମଳ|
+|ନିବୃତ୍ତ (stopped) ⟦2021 Q26⟧|**ପ୍ରବୃତ୍ତ** (started)|ପ୍ରତ୍ୟାବୃତ୍ତ, କ୍ଷାନ୍ତ, ବିବୃତ୍ତ|
+|ପ୍ରସ୍ଥାନ (leaving) ⟦2021 Q29⟧|**ପ୍ରବେଶ**|ଉତ୍ପନ୍ନ, ଗମନ, ପ୍ରେରଣ|
+|ସମଷ୍ଟି (the whole) ⟦2021 Q30⟧|**ବ୍ୟଷ୍ଟି** (one part)|ସାକଲ୍ୟ, ସଂହତି, ସଂକ୍ଷେପଣ|
+|ବ୍ୟର୍ଥ ⟦2025 Q11⟧|**ସାର୍ଥ**|ସଫଳ, ସମର୍ଥ, ସ୍ୱାର୍ଥ|
+|ଭୀମ (terrible) ⟦2025 Q12⟧|**କାନ୍ତ** (gentle, lovely)|କୋମଳ, ଶାନ୍ତ, ଧୀର|
+|ପ୍ରବର୍ତ୍ତନ (starting) ⟦2025 Q14⟧|**ନିବର୍ତ୍ତନ**|ନିବାରଣ, ନିବୃତ୍ତି, ନିର୍ବହଣ|
+|ଶିଷ୍ଟ (polite) ⟦2025 Q16⟧ ⟨CHECK: ଅଶିଷ୍ଟ is also a fair opposite; the key is ଦୁଷ୍ଟ⟩|**ଦୁଷ୍ଟ**|ଅଶିଷ୍ଟ, ଖଳ, ଅଭଦ୍ର|
+|ସ୍ୱାବଲମ୍ବୀ ⟦2025 Q17⟧|**ପରାବଲମ୍ବୀ** (dependent)|ଅନାବଲମ୍ବୀ, ନିରାବଲମ୍ବୀ, ଅଣବଲମ୍ବୀ|
+|ଖର୍ଚ୍ଚ ⟦2025 Q20⟧|**ଜମା**|ସଂଚୟ, ପୁଞ୍ଜି, ସଂଗ୍ରହ|
+|ସ୍ଥାବର ⟦2021 Q27⟧ ⟨CHECK: printed as "synonym" but the key ଜଙ୍ଗମ is the opposite of ସ୍ଥାବର; ଅଚଳ is the true synonym⟩|**ଜଙ୍ଗମ**|ଜଡ଼, ଅଚଳ, ସ୍ଥିତିଶୀଳ|
+Look at the **trick in the bait**: the examiner puts a **second opposite** next to the right one, like ଦୁଃଖ (sorrow) and ଶୋକ (grief) for ହର୍ଷ. They are close to the opposite, but not the exact opposite. Choose the word that is the **textbook partner** (ହର୍ଷ - ବିଷାଦ, ସୁଖ - ଦୁଃଖ).
+
+##Past questions: Odia (desi) pairs
+|Word|Right opposite|Bait|
+|---|---|---|
+|ନିଅଣ୍ଟ (shortage) ⟦2018 Q69⟧ ⟦2021 Q28⟧|**ବଳକା** (left over)|ଅଧିକ, ବହୁତ, ବେଶୀ, ଅଭାବ, ଅଘଟ, ବହୁଳ|
+|ଡେଙ୍ଗା (tall) ⟦2018 Q97⟧|**ଗେଡ଼ା** (short, stout)|ଛୋଟ, ବାଙ୍ଗରା, ବାଣ୍ଠୁ|
+|ଝଅଟ (quick) ⟦2018 Q99⟧|**ମଠ** (slow, dull)|ବିଳମ୍ବ, ଡେରି, ଧୀର|
+|ଗାଲୁଆ (liar) ⟦2018 Q100⟧|**ସତିଆ**|ସତ୍ୟ, ସତ୍ୟବାଦୀ, ସତସତିକା|
+|ଉଚ୍ଛୁର (late) ⟦2021 Q100⟧|**ସଅଳ** (early)|ସଙ୍ଗେ ସଙ୍ଗେ, ଶୀଘ୍ର, ଜଲଦି|
+|ମୁକୁଳା (free) ⟦2025 Q13⟧|**ବଂଧା**|ବଂଧନ, ଶୃଙ୍ଖଳା, ଶୃଙ୍ଖଳ|
+|ତେଲିଆ (oily) ⟦2025 Q15⟧|**ରୁଖୁରା** (dry)|ପାମ୍ପରା, ଶୁଖିଲା, ଅତେଲିଆ|
+The Odia pairs repeat more than the Sanskrit pairs: **ନିଅଣ୍ଟ - ବଳକା** was asked twice, and in 2025 the word **ମୁକୁଳା - ବଂଧା** had four options that all came from the "bound" family: ବଂଧନ (the binding), ଶୃଙ୍ଖଳା and ଶୃଙ୍ଖଳ (a chain), ବଂଧା (bound). Only **ବଂଧା** is the opposite of free. Do not pick the **noun** (ବଂଧନ) when the question word is an **adjective**.
+
+##Past questions: prefix pairs
+|Word|Right opposite|Bait|
+|---|---|---|
+|ଦୟାଳୁ ⟦2018 Q60⟧|**ନିର୍ଦ୍ଦୟ**|ନିଷ୍ଠୁର, କଠୋର, ନିର୍ମମ|
+|ଆବୃତ ⟦2018 Q95⟧ ⟨CHECK: the real opposite of ଆବୃତ (covered) is ଅନାବୃତ; the key follows the printed ଆବୃତ୍ତ and picks ଅନାବୃତ୍ତ⟩|**ଅନାବୃତ୍ତ**|ନିବୃତ୍ତ, ଅନାବୃତ|
+|ଖ୍ୟାତି ⟦2018 Q96⟧|**ଅପଖ୍ୟାତି**|ଅନଖ୍ୟାତି, ଅଖ୍ୟାତି|
+|ଉତ୍କର୍ଷ ⟦2025 Q18⟧|**ଅପକର୍ଷ**|ଅନାକର୍ଷ, ଅନୁକର୍ଷ, ନିରୁତ୍କର୍ଷ|
+|ଆରାଧ୍ୟ ⟦2025 Q19⟧|**ଦୁରାରାଧ୍ୟ**|ଅନାରାଧ୍ୟ, ଦୁରାଧ୍ୟ, ବିପ୍ରରାଧ୍ୟ|
+**Important**: the prefix does not follow one rule. ଅ-, ଅନ-, ନି-, ଅପ-, ଦୁର- are all possible and the question tests **which one is used**. The only way is to know the pair: **ଖ୍ୟାତି - ଅପଖ୍ୟାତି**, **ଉତ୍କର୍ଷ - ଅପକର୍ଷ**, **ଆରାଧ୍ୟ - ଦୁରାରାଧ୍ୟ**, **ଦୟାଳୁ - ନିର୍ଦ୍ଦୟ**.
+
+##The three habits of the examiner
+1. **He picks the textbook partner**, not any word that means roughly the opposite.
+2. **The bait are always real words** that are near in meaning or sound: ଶୁଷ୍କ vs ଶୁଖିଲା (both "dry"), ସଂଚୟ vs ଜମା.
+3. **The Odia (desi) pairs repeat** across the years, so past pairs come again.
+
+>NEXT:Check yourself
+?? Opposite of ‘ହର୍ଷ’: ବିଷାଦ or ଶୋକ?||ବିଷାଦ (the textbook partner). ଶୋକ is only close.
+?? Opposite of ‘ନିଅଣ୍ଟ’?||ବଳକା.
+?? Opposite of ‘ଖ୍ୟାତି’: ଅଖ୍ୟାତି, ଅପଖ୍ୟାତି, ଅନଖ୍ୟାତି?||ଅପଖ୍ୟାତି.
+?? Opposite of ‘ଉତ୍କର୍ଷ’?||ଅପକର୍ଷ.
+?? Opposite of ‘ଝଅଟ’?||ମଠ.
+
+#CH antlist | 6. Antonyms: the likely-next pairs | ବିପରୀତ ଶବ୍ଦ · THE LISTS
+Here are the pairs we think come next. **★★★** = a close neighbour of a past question; **★★** = a standard textbook pair; **★** = possible. Each row gives the question word, then its right opposite, then one **bait word** you must avoid.
+
+##Sanskrit pairs (the biggest part)
+|Word|Chance|Opposite|Near-miss, not the pair|
+|---|---|---|---|
+|**ସୁଖ**|★★★|ଦୁଃଖ|ଆନନ୍ଦ|
+|**ଉନ୍ନତି**|★★★|ଅବନତି|—|
+|**ଆଦି**|★★★|ଅନ୍ତ|ମଧ୍ୟ|
+|**ଆରମ୍ଭ**|★★★|ସମାପ୍ତି|ଶେଷ (also fine; if both appear choose ସମାପ୍ତି)|
+|**ସୃଷ୍ଟି**|★★★|ପ୍ରଳୟ|ବିନାଶ|
+|**ଉଦୟ**|★★★|ଅସ୍ତ|ଅସ୍ତମିତ|
+|**ଜୟ**|★★★|ପରାଜୟ|—|
+|**ଲାଭ**|★★★|କ୍ଷତି|ହାନି|
+|**ଆୟ**|★★★|ବ୍ୟୟ|ଖର୍ଚ୍ଚ|
+|**ଧନୀ**|★★★|ଦରିଦ୍ର|ଗରିବ|
+|**ସଂଯୋଗ**|★★★|ବିୟୋଗ|ସଂଘାତ|
+|**ମିଳନ**|★★|ବିରହ|ବିଚ୍ଛେଦ|
+|**ଉତ୍ଥାନ**|★★★|ପତନ|—|
+|**ଉତ୍ତମ**|★★★|ଅଧମ|ମଧ୍ୟମ|
+|**ସତ୍ୟ**|★★★|ମିଥ୍ୟା|—|
+|**ଧର୍ମ**|★★|ଅଧର୍ମ|ପାପ|
+|**ପାପ**|★★|ପୁଣ୍ୟ|ଅଧର୍ମ|
+|**ସ୍ୱର୍ଗ**|★★|ନର୍କ|ପାତାଳ|
+|**ଆଲୋକ**|★★|ଅନ୍ଧକାର|ଛାୟା|
+|**ପ୍ରଶଂସା / ସ୍ତୁତି**|★★★|ନିନ୍ଦା|ଅପମାନ|
+|**ସମ୍ମାନ**|★★|ଅପମାନ|—|
+|**ଆଦର**|★★|ଅନାଦର|ଘୃଣା|
+|**ସଜ୍ଜନ**|★★★|ଦୁର୍ଜନ|ଖଳ|
+|**ଆସ୍ତିକ**|★★|ନାସ୍ତିକ|—|
+|**ସ୍ୱଦେଶ**|★★|ବିଦେଶ|ପରଦେଶ|
+|**ସ୍ୱାଧୀନ**|★★★|ପରାଧୀନ|ଅଧୀନ|
+|**ସୁଲଭ**|★★★|ଦୁର୍ଲଭ|କଠିନ|
+|**ସରଳ**|★★★|ଜଟିଳ|କଠିନ (also near; if both, ଜଟିଳ is the textbook partner)|
+|**ଗୁରୁ** (heavy)|★★|ଲଘୁ|ହାଲୁକା|
+|**ସ୍ଥୂଳ**|★★|ସୂକ୍ଷ୍ମ|କୃଶ|
+|**ସ୍ଥାୟୀ**|★★★|ଅସ୍ଥାୟୀ|କ୍ଷଣସ୍ଥାୟୀ|
+|**ପୂର୍ଣ୍ଣ**|★★|ଅପୂର୍ଣ୍ଣ|ଖାଲି|
+|**ବିଜ୍ଞ**|★★|ଅଜ୍ଞ|ମୂର୍ଖ|
+|**ଗୁଣ**|★★★|ଦୋଷ|—|
+|**ଜନ୍ମ**|★★★|ମୃତ୍ୟୁ|ମରଣ (mean the same; choose by the pair on the page)|
+|**ଭୋଗ**|★★|ତ୍ୟାଗ|ବର୍ଜନ|
+|**ଉର୍ଦ୍ଧ୍ୱ**|★★|ଅଧଃ|ନିମ୍ନ|
+|**ସମୀପ / ନିକଟ**|★★★|ଦୂର|—|
+|**ସମ୍ପଦ**|★★|ବିପଦ|ଦରିଦ୍ରତା|
+|**ଅନୁକୂଳ**|★★★|ପ୍ରତିକୂଳ|ବିପରୀତ|
+|**ଆଗମନ**|★★★|ପ୍ରସ୍ଥାନ / ନିର୍ଗମନ|ଗମନ|
+|**ପ୍ରକାଶ**|★★|ଗୋପନ|—|
+|**ଆଶା**|★★|ନିରାଶା|ହତାଶା|
+|**ଅନୁରାଗ**|★★|ବିରାଗ|ଘୃଣା|
+|**ଆବାହନ**|★|ବିସର୍ଜନ|ପ୍ରସ୍ଥାନ|
+|**ପ୍ରାଚୀନ**|★★|ନବୀନ / ଆଧୁନିକ|ନୂତନ|
+|**ପୂର୍ବ**|★★|ପଶ୍ଚିମ|ଉତ୍ତର|
+The list is long on purpose: antonyms are **33 of the 98 questions** and 20 of those were Sanskrit pairs. If you learn only the ★★★ rows (about 25 pairs), you cover most of what is likely.
+
+##Prefix pairs (learn the exact word)
+|Word|Chance|Opposite|Near-miss, not the pair|
+|---|---|---|---|
+|**ଦୟା**|★★|ନିର୍ଦ୍ଦୟ|—|
+|**ଆଶା**|★★|ନିରାଶା|—|
+|**ସଫଳ**|★★★|ବିଫଳ|—|
+|**ସମର୍ଥ**|★★★|ଅସମର୍ଥ|ଅଶକ୍ତ|
+|**ଯୋଗ୍ୟ**|★★★|ଅଯୋଗ୍ୟ|ଅନୁପଯୁକ୍ତ|
+|**ଉଚିତ**|★★★|ଅନୁଚିତ|ଅଯୋଗ୍ୟ|
+|**ବିଶ୍ୱାସ**|★★★|ଅବିଶ୍ୱାସ|ସନ୍ଦେହ|
+|**ଜ୍ଞାନ**|★★|ଅଜ୍ଞାନ|ଅଜ୍ଞ|
+|**ଉପକାର**|★★★|ଅପକାର|—|
+|**ସନ୍ତୋଷ**|★★|ଅସନ୍ତୋଷ|ଅସନ୍ତୁଷ୍ଟ|
+|**ଆବଶ୍ୟକ**|★★|ଅନାବଶ୍ୟକ|ଅଦରକାରୀ|
+|**ସାକାର**|★★|ନିରାକାର|ଅସାକାର|
+|**ସଗୁଣ**|★|ନିର୍ଗୁଣ|—|
+|**ସାର୍ଥକ**|★★|ନିରର୍ଥକ|—|
+|**ସବଳ**|★★|ଦୁର୍ବଳ|—|
+|**ସୁଗମ**|★★|ଦୁର୍ଗମ|—|
+|**ସୁକର**|★|ଦୁଷ୍କର|—|
+|**ସାବଧାନ**|★★|ଅସାବଧାନ|ଅନବଧାନ|
+|**ସଚେତନ**|★|ଅଚେତନ|ଅଜାଗ୍ରତ|
+|**ମୂର୍ତ୍ତ**|★|ଅମୂର୍ତ୍ତ|ନିରାକାର|
+Note: for the prefix pairs the **wrong options often have another prefix**: ଅନ-, ଅଣ-, ଅପ-, ନି-, ନିର୍-. The shape of the right one is usually **the common textbook form**. For **ଆରାଧ୍ୟ - ଦୁରାରାଧ୍ୟ** (a hard case) ⟦2025 Q19⟧ the right one has **ଦୁର** and not ଅ.
+
+##Odia (desi) pairs
+These are the most likely to repeat, because the examiner repeated ନିଅଣ୍ଟ - ବଳକା. The question words below are everyday words; the opposite is another everyday word.
+|Word|Chance|Opposite|Meaning|
+|---|---|---|---|
+|**ଭଲ**|★★★|ମନ୍ଦ|good, bad|
+|**ଗରମ**|★★★|ଥଣ୍ଡା|hot, cold|
+|**ଟାଣ**|★★|ନରମ|hard, soft|
+|**ଭାରୀ**|★★|ହାଲୁକା|heavy, light|
+|**ଧଳା**|★★|କଳା|white, black|
+|**ପୁରୁଣା**|★★★|ନୂଆ|old, new|
+|**ସତ**|★★★|ମିଛ|true, false|
+|**ଖୋଲା**|★★|ବନ୍ଦ|open, shut|
+|**ଭରା**|★★|ଖାଲି|full, empty|
+|**ମୋଟା**|★★|ପତଳା / ସରୁ|thick, thin|
+|**ମିଠା**|★★|ତିକ୍ତ / ତିତା|sweet, bitter|
+|**ସସ୍ତା**|★★|ମହଙ୍ଗା|cheap, dear|
+|**ଆମଦାନି**|★★|ରପ୍ତାନି|import, export|
+|**ଉଚ୍ଚ**|★★|ନୀଚ|high, low|
+|**ଲମ୍ବା**|★★★|ଗେଡ଼ା / ବେଣ୍ଟା|tall, short|
+|**ଶୀଘ୍ର**|★★|ବିଳମ୍ବ|quick, slow|
+|**ଅଧିକ**|★★★|କମ୍ / ଅଳ୍ପ|more, less|
+|**ଗରିବ**|★★|ଧନୀ|poor, rich|
+|**ସକାଳ**|★★|ସନ୍ଧ୍ୟା|morning, evening|
+|**ଉଜ୍ଜ୍ୱଳ**|★★|ମଳିନ|bright, dull|
+⟨CHECK: ଲମ୍ବା - ଗେଡ଼ା and ଲମ୍ବା - ବେଣ୍ଟା are both in use; the paper asked ଡେଙ୍ଗା - ଗେଡ଼ା, so ଗେଡ଼ା is the safest⟩
+
+##Traps to avoid
+- **Do not pick a synonym.** In ହର୍ଷ, the options ଦୁଃଖ and ଶୋକ and ବିଷାଦ all mean "sorrow". The paper's key is ବିଷାଦ, because the book says so. Learn the partner as a pair.
+- **Do not invent a "no" word** (ଅ + word) if a real opposite word exists. For ‘ଆର୍ଦ୍ର’ the right one is **ଶୁଷ୍କ**, not ଅଆର୍ଦ୍ର.
+- **Noun vs adjective.** ମୁକୁଳା (free, adjective) takes **ବଂଧା** (bound, adjective), not **ବଂଧନ** (a noun).
+- **Direction pairs** are easy to swap: ଆଗମନ (coming) goes with ପ୍ରସ୍ଥାନ or ନିର୍ଗମନ; ପ୍ରବେଶ (entering) goes with ନିର୍ଗମନ; ପ୍ରସ୍ଥାନ (leaving) goes with ପ୍ରବେଶ ⟦2021 Q29⟧.
+
+>NEXT:Check yourself and likely next
+?? Likely next: opposite of ‘ଉନ୍ନତି’?||ଅବନତି.
+?? Likely next: opposite of ‘ସୃଷ୍ଟି’?||ପ୍ରଳୟ.
+?? Likely next: opposite of ‘ସ୍ୱାଧୀନ’?||ପରାଧୀନ.
+?? Likely next: opposite of ‘ସୁଲଭ’?||ଦୁର୍ଲଭ.
+?? Likely next: opposite of ‘ସଫଳ’?||ବିଫଳ.
+
+#CH last | 7. Last-week sheet and CHECK list | LAST WEEK
+This is the one-page sheet for the last week before the exam. If you have only 30 minutes, read this chapter alone.
+
+##The ten spelling traps in one line each
+1. Short or long ି ୀ ୁ ୂ: female persons and rivers end in ୀ; the first part of ପରୀକ୍ଷା, ପ୍ରତୀକ୍ଷା, ଅଧୀନ has a long ୀ.
+2. ଶ, ଷ, ସ: follow the Sanskrit (ପରିଷଦ, ବିଷଣ୍ଣ, ଶ୍ରେଷ୍ଠ).
+3. ଣ or ନ: ନ turns to ଣ after ର, ଷ, ଋ (ପ୍ରାଣ, ଭୂଷଣ).
+4. ର୍ placement: ଅନିବାର୍ଯ୍ୟ, ପ୍ରାଦୁର୍ଭାବ, ଅନ୍ତର୍ଯାମୀ.
+5. Prefix shape: ଦୁରବସ୍ଥା, ଅରକ୍ଷିତ, ଅନସୂୟା.
+6. Conjunct form: ତ୍ୱ, ଜ୍ୱ, ସ୍ୱ.
+7. ଳ or ଲ: learn the word (ମଙ୍ଗଳ, ଜଳ, କଲ୍ୟାଣ).
+8. ଙ୍ଗ or ଂ: ଆନୁଷଙ୍ଗିକ.
+9. ର୍ଯ୍ୟ at the end: କାର୍ଯ୍ୟ, ସୂର୍ଯ୍ୟ, ଆଚାର୍ଯ୍ୟ.
+10. Split the word: prefix + root.
+
+##The 25 synonym rows to know
+ସୂର୍ଯ୍ୟ, ଚନ୍ଦ୍ର, ମେଘ, ଆକାଶ, ପବନ, ଅଗ୍ନି, ନଦୀ, ଗଙ୍ଗା, ସମୁଦ୍ର, ଜଳ, ପୃଥିବୀ, ପର୍ବତ, ଘର, ଅରଣ୍ୟ, କମଳ, ସାପ, ହାତୀ, ପକ୍ଷୀ, ସିଂହ, ଘୋଡ଼ା, ଭ୍ରମର, ଶିବ, ବିଷ୍ଣୁ, ଗଣେଶ, ଇନ୍ଦ୍ର, ଅସୁର, ରାଜା, ସ୍ତ୍ରୀ, କନ୍ୟା (chapter 4, rows with ★★★).
+
+##The 25 antonym pairs to know
+ସୁଖ-ଦୁଃଖ, ଉନ୍ନତି-ଅବନତି, ଆଦି-ଅନ୍ତ, ଆରମ୍ଭ-ସମାପ୍ତି, ସୃଷ୍ଟି-ପ୍ରଳୟ, ଉଦୟ-ଅସ୍ତ, ଜୟ-ପରାଜୟ, ଲାଭ-କ୍ଷତି, ଆୟ-ବ୍ୟୟ, ଧନୀ-ଦରିଦ୍ର, ସଂଯୋଗ-ବିୟୋଗ, ଉତ୍ଥାନ-ପତନ, ଉତ୍ତମ-ଅଧମ, ସତ୍ୟ-ମିଥ୍ୟା, ସଜ୍ଜନ-ଦୁର୍ଜନ, ସ୍ୱାଧୀନ-ପରାଧୀନ, ସୁଲଭ-ଦୁର୍ଲଭ, ସରଳ-ଜଟିଳ, ସ୍ଥାୟୀ-ଅସ୍ଥାୟୀ, ଗୁଣ-ଦୋଷ, ସମୀପ-ଦୂର, ଅନୁକୂଳ-ପ୍ରତିକୂଳ, ସଫଳ-ବିଫଳ, ଉପକାର-ଅପକାର, ବିଶ୍ୱାସ-ଅବିଶ୍ୱାସ. Plus the Odia pair **ନିଅଣ୍ଟ-ବଳକା** (asked twice).
+
+##Look-alike pairs that fool people
+|Pair|Difference|
+|---|---|
+|ଜଳଦ / ଜଳଧି|cloud / sea|
+|ସରଣୀ / ତରଣୀ|road / boat|
+|ବହିତ୍ର / ବାଦିତ୍ର|boat / musical instrument|
+|ଦ୍ୱିଜ / ଦ୍ୱିପ|bird / elephant|
+|ଦନୁଜ / ତନୁଜ / ଅନୁଜ|demon / son / younger brother|
+|ଅପକର୍ଷ / ଉତ୍କର୍ଷ|low / high|
+|ଶୁଷ୍କ / ଶୁଖିଲା|both dry (the key picks ଶୁଷ୍କ for ଆର୍ଦ୍ର)|
+|ପୁଷ୍କର / ପୁଷ୍କଳ|sky / (not a sky word)|
+
+##The CHECK list
+These questions have keys that are not certain. Do not learn them as final.
+- 2018 Q74 ନିର୍ଧନ, 2018 Q75 ଅକ୍ଷୁଣ୍ଣ (the book says the scan is unclear).
+- 2018 Q78 ଅଧୀନ (ଅଧୀନସ୍ଥ is also a word).
+- 2021 Q2 ନିଷ୍ଫଳ, 2021 Q4 ଓତପ୍ରୋତ (the book says the scan is unclear).
+- 2021 Q7 ସାର୍ବଜନୀନ (ସର୍ବଜନୀନ is also used).
+- 2025 Q2 ଅବସନ୍ନ (the book says the scan is unclear).
+- 2025 Q9 ମଧୁଳିକା / ମଧୁଲିକା (OPSC accepted two answers).
+- 2018 Q87 କାଉ (the key is ପରଭୃତ, which means the koel).
+- 2025 Q23 ଛାତ୍ର (the book says the scan is unclear).
+- 2018 Q95 ଆବୃତ୍ତ (the key follows a printed typo).
+- 2021 Q27 ସ୍ଥାବର (printed as synonym, key is the antonym).
+- 2025 Q16 ଶିଷ୍ଟ (ଅଶିଷ୍ଟ is also fair).
+- **Not valued** by OPSC (skip): 2021 Q13 ରାଜୀବ.
+- Our own "likely next" words and their spellings are a **prediction**; spelling pairs where both forms are printed (ସଙ୍ଗୀତ/ସଂଗୀତ, ଅହଙ୍କାର/ଅହଂକାର, ସୂଚୀ/ସୂଚି, କୌଶଳ/କୌଶଲ) carry a CHECK in the chapters.
+
+>NEXT:Check yourself
+?? Name the ten spelling traps from memory.||Vowel signs (ି ୀ ୁ ୂ), ଶ ଷ ସ, ଣ/ନ, ର୍ placement, prefix shape, conjunct form, ଳ/ଲ, ଙ୍ଗ/ଂ, ର୍ଯ୍ୟ/ୟ, splitting the word.
+?? How many of 100 marks does the word block give?||About 30 (10 spelling, 10 synonyms, 10 antonyms) if 2027 follows 2025.

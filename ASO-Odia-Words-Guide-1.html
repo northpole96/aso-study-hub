@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO Odia Words Guide 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference manual. A fixed contents column on the left (wide screens), and a single
+   reading column of ~760px where prose, tables and grid-paper FIG boxes of blue line art alternate. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b; --warn-soft:#fdf1e8;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  --side:272px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18.5px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+strong,b{font-weight:600}
+p{margin:12px 0}
+ul,ol{padding-left:1.25em;margin:12px 0}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+
+/* ---------- side contents ---------- */
+.bar{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:30;background:var(--bg);border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 0 calc(14px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+.bar-in{display:flex;flex-direction:column;gap:12px;padding:0 20px 14px;border-bottom:1px dotted var(--muted)}
+.bar-in b{font-family:var(--f-pixel);color:var(--blue);font-size:15px;line-height:1.25;font-weight:400;order:-1}
+#navbtn{display:none}
+.btn{border:1px solid var(--rule);background:var(--paper);padding:3px 9px;cursor:pointer;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-radius:2px}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;gap:3px}
+#nav{overflow-y:auto;flex:1;padding:10px 0}
+#nav a{display:flex;gap:10px;align-items:baseline;padding:4px 20px;text-decoration:none;font-size:15.5px;line-height:1.35;color:var(--fg)}
+#nav a .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2.2em}
+#nav a:hover{color:var(--blue)}
+#nav a.on{color:var(--blue)}
+#nav a.on .n{color:var(--blue)}
+.chap{flex-shrink:0;margin:12px 20px 4px;padding-top:12px;border-top:1px dotted var(--muted)}
+.chap-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chap-n{font-size:15px;line-height:20px;height:20px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chap-bar{height:6px;border:1px solid var(--blue);background:var(--paper)}
+.chap-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .15s}
+.chap-m{display:flex;justify-content:space-between;gap:8px;margin-top:6px;height:14px;line-height:14px;white-space:nowrap;overflow:hidden;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.chap-m b{color:var(--blue);font-weight:400}
+@media (max-width:1099px){
+  .chap{margin:0;padding:6px max(16px, env(safe-area-inset-right,0px)) 6px max(16px, env(safe-area-inset-left,0px));border-top:1px dotted var(--muted);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+  .chap-k{display:none}
+  .chap-n{margin:0;font-size:13px}
+  .chap-bar{grid-column:1/-1;order:3;height:4px}
+  .chap-m{margin:0}
+  .chap-m #chapPct{display:none}
+}
+.prog{position:relative;flex-shrink:0;margin:26px 20px 4px;height:6px;border:1px solid var(--fg);background:var(--paper)}
+.prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.prog::before{content:"CHAPTERS STUDIED";position:absolute;left:-1px;bottom:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+main{margin-left:var(--side);padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 110px}
+.col{max-width:800px;margin:0 auto}
+
+@media (max-width:1099px){
+  .bar{position:sticky;top:env(safe-area-inset-top,0px);inset:auto;width:auto;border-right:0;border-bottom:1px solid var(--rule);padding:8px 0 0;display:block}
+  .bar-in{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px;padding:0 max(16px, env(safe-area-inset-right,0px)) 8px max(16px, env(safe-area-inset-left,0px));border-bottom:0}
+  .bar-in b{order:0;font-size:12px;flex:1}
+  #navbtn{display:inline-block;order:-1}
+  #nav{display:none;max-height:70vh;border-top:1px dotted var(--muted)}
+  #nav.open{display:block}
+  .prog{margin:0;border-width:1px 0 0;height:3px}
+  .prog::before{display:none}
+  main{margin-left:0}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}
+}
+
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:20px 40px;align-items:end}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2rem,5vw,3.6rem);line-height:1.02}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:760px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 6px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:28px 40px;align-items:start;padding-block:24px 8px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .fig{max-width:420px}}
+.dropcap::first-letter{float:left;font-size:4em;line-height:.82;padding:6px 8px 0 0}
+.count{display:inline-block;margin-top:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px}
+
+/* contents */
+.toc{padding-block:48px 8px}
+.tochead{display:flex;align-items:center;gap:14px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:28px 0 0;padding:0}
+.toclist li{display:flex;align-items:baseline;gap:8px;padding:3px 0;margin:0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-transform:uppercase}
+@media (max-width:520px){.toclist .c{display:none}}
+
+/* ---------- chapters ---------- */
+section{padding-block:76px 8px;scroll-margin-top:12px}
+@media (max-width:1099px){section{scroll-margin-top:64px}}
+.sectrule{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sectrule .line{flex:1;height:1px;background:var(--fg);min-width:30px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.done{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.done input{accent-color:var(--blue);width:14px;height:14px;margin:0}
+section>h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:12px 0 18px}
+section>h2+p::first-letter{float:left;font-size:3.5em;line-height:.82;padding:6px 8px 0 0}
+section h3{font-size:1.45rem;margin:46px 0 8px;display:flex;gap:12px;align-items:baseline}
+section h3 .h3n{font-family:var(--f-mono);font-size:12px;color:var(--blue);letter-spacing:.06em;min-width:2.6em}
+
+.pyq{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* boxes */
+.box{margin:26px 0;padding:14px 18px;background:var(--paper);border:1px solid var(--rule)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box-t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.box ul{list-style:none;padding:0}
+.box li{padding-left:16px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;background:var(--fg)}
+.box.asked{background:transparent;border:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding:12px 0}
+.box.asked li{font-size:.98rem}
+.box.tip,.box.key{border:1px dashed var(--blue)}
+.box.tip .box-t,.box.key .box-t{color:var(--blue)}
+.box.key{background:var(--blue-soft)}
+.box.warn{border:1px dashed var(--warn);background:var(--warn-soft)}
+.box.warn .box-t{color:var(--warn)}
+.box.check{border:1px dotted var(--warn)}
+.box.check .box-t{color:var(--warn)}
+.box.fix{border:1px solid var(--rule);border-left:3px solid var(--blue)}
+.box.next{border:1px solid var(--fg);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.box.next .box-t{color:var(--fg)}
+.qas{counter-reset:q;border-top:1px solid var(--rule)}
+details.qa{border-bottom:1px dotted var(--muted);counter-increment:q}
+details.qa summary{list-style:none;cursor:pointer;padding:8px 30px 8px 38px;position:relative;font-size:1rem;line-height:1.45}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::before{content:"Q" counter(q,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+details.qa summary::after{content:"+";position:absolute;right:4px;top:6px;font-family:var(--f-mono);color:var(--blue);font-size:16px}
+details.qa[open] summary::after{content:"−"}
+details.qa summary:hover{color:var(--blue)}
+details.qa p{margin:0 0 10px 38px;padding:6px 12px;background:var(--blue);color:var(--on-blue);font-size:.98rem}
+
+/* tables */
+.tw{overflow-x:auto;margin:16px 0}
+table.t{width:100%;border-collapse:collapse;font-size:16.5px;line-height:1.5;margin:0}
+.t th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--fg);border-top:1px solid var(--fg)}
+.t td{padding:8px 12px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;text-align:left}
+.t td:first-child{font-weight:600}
+@media (max-width:640px){
+  table.t,.t tbody,.t tr,.t td{display:block;width:100%}
+  .t thead{display:none}
+  .t tr{border-top:1px solid var(--fg);padding:8px 0}
+  .t td{border:0;padding:2px 0}
+  .t td:not(:first-child)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+}
+
+/* figures */
+.figwrap{margin:30px 0 26px}
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible}
+.fl,.fr,.fy{position:absolute;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1}
+.fl,.fr{writing-mode:vertical-rl}
+.fl{left:10px;top:12px;transform:rotate(180deg)}
+.fr{right:10px;top:12px}
+.fy{right:12px;bottom:9px}
+.figcap{font-size:.95rem;font-style:italic;color:var(--muted);margin:8px 0 0}
+.figcap b{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--blue);font-weight:400;margin-right:6px}
+@media (max-width:560px){.fig{padding:26px 22px}.fl,.fr,.fy{font-size:8.5px}.fl{left:6px}.fr{right:6px}.fy{right:8px;bottom:6px}}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .grid{fill:none;stroke:var(--rule);stroke-width:1}
+.fig svg .hz{stroke:var(--blue);stroke-width:1.2}
+.fig svg .hl{stroke:var(--blue);stroke-width:.9}
+.fig svg .hd{fill:var(--blue)}
+.fig svg text{font-family:var(--f-mono);letter-spacing:.05em}
+.fig svg .lb{font-size:11px;fill:var(--blue)}
+.fig svg .lbm{font-size:11px;fill:var(--muted)}
+.fig svg .lbs{font-size:9.5px;fill:var(--muted)}
+.fig svg .ttl{font-size:10px;fill:var(--muted);letter-spacing:.1em}
+.fig svg .lbrv{font-size:11px;fill:var(--on-blue)}
+.fig svg .lbsrv{font-size:9.5px;fill:var(--on-blue)}
+.fig svg .big{font-family:var(--f-pixel);font-size:22px;fill:var(--blue)}
+.fig svg .bigrv{font-family:var(--f-pixel);font-size:19px;fill:var(--on-blue)}
+
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--fg);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+footer p{margin:0}
+#up{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;border-color:var(--blue);color:var(--blue);padding:6px 10px}
+
+:root{--f-serif:"EB Garamond","Noto Sans Oriya","Iowan Old Style",Georgia,serif}
+
+.chk{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--warn);border:1px dotted var(--warn);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;background:var(--warn-soft)}
+.chkn{font-style:italic;font-size:.85em;color:var(--warn)}
+.box.next .qas{margin-top:8px}
+.box.next details.qa p{background:var(--blue)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
+.hubbtn{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;text-decoration:none}
+.rule{display:flex;gap:10px;align-items:baseline;scroll-margin-top:70px}
+.rule .h3n{white-space:nowrap;min-width:5.2em}
+.wr{margin:10px 0 14px;border-left:2px solid var(--blue);padding:2px 0 2px 12px}
+.wr-r{display:flex;gap:10px;align-items:baseline;margin:3px 0;line-height:1.45}
+.wr-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;min-width:5.6em;flex:none}
+.wr-r.no .wr-k{color:var(--muted)}.wr-r.no .wr-s{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(110,110,115,.55)}
+.wr-r.ok .wr-k{color:var(--blue)}
+.ri td:first-child a{font-family:var(--f-mono);font-size:12px;color:var(--blue);text-decoration:none}
+.navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
+
+/* ---------- pen-tablet drawing mode (tools/ink_draw.js) ---------- */
+#inkl{position:absolute;left:0;top:0;width:0;height:0;z-index:25;pointer-events:none;mix-blend-mode:multiply}
+.inkt{position:absolute;left:0;pointer-events:none}
+#inki{position:fixed;inset:0;z-index:26;pointer-events:none}
+body.drawing main{-webkit-user-select:none;user-select:none}
+
+/* the rail, snapped to the right edge */
+#ink{position:fixed;z-index:40;right:env(safe-area-inset-right,0px);top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);color:var(--muted)}
+#ink button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#ink svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.igrid{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+
+/* closed: a slim tab with a vertical label, like the FIG_ labels */
+#ink .itab{display:flex;flex-direction:column;align-items:center;gap:10px;width:34px;padding:12px 0 14px;
+  border:1px dashed var(--blue);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+#ink .itab:hover{background-color:var(--blue-soft)}
+.iv{writing-mode:vertical-rl;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+#ink.open .itab{display:none}
+
+/* open: the tool panel */
+.ipanel{display:none;width:62px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+  border:1px solid var(--fg);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.ipanel::-webkit-scrollbar{display:none}
+#ink.open .ipanel{display:block}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:7px 6px 6px 9px;background:var(--fg)}
+.ihead .ik{color:#fff;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:0}
+#ink .ix svg{stroke:#fff;width:14px;height:14px}
+#ink .ix{padding:2px}
+.ig{padding:8px 0 9px;border-top:1px dotted var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ihead + .ig{border-top:0}
+.ik{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.isws{display:flex;flex-direction:column;align-items:center;gap:7px}
+#ink .isw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--rule)}
+#ink .isw.hi{width:30px;height:11px;border-radius:0;opacity:.8}
+#ink .isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.itools{gap:2px}
+#ink .itool{display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;padding:6px 0 5px;border:1px solid transparent}
+#ink .itool:hover{border-color:var(--rule);background:var(--paper)}
+#ink .itool[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.il{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-height:520px){.ig{padding:5px 0 6px;gap:4px}.isws{gap:5px}#ink .itool{padding:4px 0 3px}}
+@media print{#ink,#inkl,#inki{display:none}}
+</style></head><body>
+<div class="bar"><div class="bar-in"><button class="btn" id="navbtn" aria-expanded="false" aria-controls="nav">Contents</button><b>ASO 2027 · ODIA · WORDS</b></div>
+<nav id="nav"><a href="#start"><span class="n">00</span>Start here: the word block of the Odia paper</a><div class="navg">The nine families</div><a href="#rules"><span class="n">01</span>1. Spelling: the ten traps</a><a href="#lists"><span class="n">02</span>2. Spelling: all past words and the likely next</a><a href="#syn"><span class="n">03</span>3. Synonyms: how the examiner picks</a><a href="#synlist"><span class="n">04</span>4. Synonyms: the likely-next families</a><a href="#ant"><span class="n">05</span>5. Antonyms: how the examiner picks</a><a href="#antlist"><span class="n">06</span>6. Antonyms: the likely-next pairs</a><div class="navg">Last week</div><a href="#last"><span class="n">07</span>7. Last-week sheet and CHECK list</a></nav>
+<div class="chap" id="chap"><div class="chap-k">Now reading</div><div class="chap-n" id="chapN">Start here</div><div class="chap-bar"><i id="chapBar"></i></div><div class="chap-m"><span><b id="chapPct">0%</b></span><span id="chapMin"></span></div></div></div>
+<main><div class="col">
+<header class="mast"><h1>Odia Words</h1><p class="tag">Spelling, synonyms and antonyms,<br>built from all <b>98 word questions</b><br>of 2018, 2021 and 2025, with the likely next.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="stats"><span class="count">7 chapters</span><span class="count">about 6,400 words</span><span class="count">98 past questions</span><span class="count">Paper III · Odia</span></div>
+<div class="toc"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>7</span> chapters</span></div><ol class="toclist"><li><span class="n">00.</span><a href="#start">Start here: the word block of the Odia paper</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">01.</span><a href="#rules">1. Spelling: the ten traps</a><span class="dots"></span><span class="c">6 min</span></li><li><span class="n">02.</span><a href="#lists">2. Spelling: all past words and the likely next</a><span class="dots"></span><span class="c">5 min</span></li><li><span class="n">03.</span><a href="#syn">3. Synonyms: how the examiner picks</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">04.</span><a href="#synlist">4. Synonyms: the likely-next families</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">05.</span><a href="#ant">5. Antonyms: how the examiner picks</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">06.</span><a href="#antlist">6. Antonyms: the likely-next pairs</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">07.</span><a href="#last">7. Last-week sheet and CHECK list</a><span class="dots"></span><span class="c">3 min</span></li></ol></div>
+<section id="start"><div class="sectrule"><span class="eyebrow">Chapter <b>00</b> · ବନାନ · ପ୍ରତିଶବ୍ଦ · ବିପରୀତ · 98 QUESTIONS</span><span class="line"></span></div><h2>Start here: the word block of the Odia paper</h2><p>In the Odia paper, one block does not need grammar at all. It needs only <strong>words</strong>. The block has three parts: <strong>ଶୁଦ୍ଧ ବନାନ</strong> (the correct spelling, "shuddhi"), <strong>ପ୍ରତିଶବ୍ଦ</strong> (synonym: a word with the same meaning) and <strong>ବିପରୀତ ଶବ୍ଦ</strong> (antonym: a word with the opposite meaning). In the three papers of 2018, 2021 and 2025 the examiner asked <strong>98 such questions</strong>: 33 on spelling, 32 on synonyms and 33 on antonyms. In 2025 the paper put them first and gave exactly <strong>10 + 10 + 10</strong>: Q1–10 spelling, Q11–20 antonyms, Q21–30 synonyms. That is 30 marks out of 100 for a block you can learn by heart.</p><p>This guide does two jobs. First, it shows <strong>how the examiner chooses a word</strong>, so you can see the pattern. Second, it gives a <strong>"likely next" list</strong> for each part: words the examiner has not asked yet, but that sit right beside the words he did ask. These lists are our prediction. Nobody can know the exact words, but the examiner has a habit of repeating and of moving to the neighbour word, so the lists are a good bet.</p><h3><span class="h3n">0.1</span>How often each part was asked</h3><div class="tw"><table class="t"><thead><tr><th>Part</th><th>2018</th><th>2021</th><th>2025</th><th>Total</th></tr></thead><tbody><tr><td data-l="Part">ଶୁଦ୍ଧ ବନାନ (spelling)</td><td data-l="2018">12</td><td data-l="2021">11</td><td data-l="2025">10</td><td data-l="Total">33</td></tr><tr><td data-l="Part">ପ୍ରତିଶବ୍ଦ (synonym)</td><td data-l="2018">12</td><td data-l="2021">10</td><td data-l="2025">10</td><td data-l="Total">32</td></tr><tr><td data-l="Part">ବିପରୀତ ଶବ୍ଦ (antonym)</td><td data-l="2018">12</td><td data-l="2021">11</td><td data-l="2025">10</td><td data-l="Total">33</td></tr></tbody></table></div><p>The count is almost the same every year. So <strong>expect about 10 questions of each kind</strong> in 2027. These are the safest marks in the paper.</p><h3><span class="h3n">0.2</span>What the examiner repeats</h3><p>The examiner uses the same word again and again, or uses a word next to it:</p><ul><li><strong>ଅନିବାର୍ଯ୍ୟ</strong> was asked word for word in 2018 and again in 2021 <span class="pyq">2018 Q79</span> <span class="pyq">2021 Q1</span>.</li><li><strong>ନିଅଣ୍ଟ</strong> (shortage) and its opposite <strong>ବଳକା</strong> (what is left over) was asked in 2018 and again in 2021 <span class="pyq">2018 Q69</span> <span class="pyq">2021 Q28</span>.</li><li><strong>ମେଘ</strong> (cloud) was a synonym question in 2018 (answer ଜୀମୂତ) and again in 2025 (answer ଜଳଦ) <span class="pyq">2018 Q90</span> <span class="pyq">2025 Q27</span>. The word was the same; the answer was the neighbour.</li><li><strong>ସାପ</strong> (snake) came in 2018 (answer ଅହି) and again in 2025 (answer ଉରଗ) <span class="pyq">2018 Q89</span> <span class="pyq">2025 Q22</span>.</li><li><strong>ଦନୁଜ</strong> (demon) was asked in 2018, 2021 and 2025 in three different ways <span class="pyq">2018 Q82</span> <span class="pyq">2021 Q14</span> <span class="pyq">2025 Q25</span>.</li></ul><p>So the plan is simple: learn <strong>the whole family</strong> of a word, not one answer. If you know all the words for "cloud", it does not matter which one the question prints.</p><aside class="box key"><p class="box-t">The best order to learn</p><p>1. Spelling rules (chapter 1) and the spelling list (chapter 2): the same 10 trap types come again and again.</p><p>2. Synonyms by <strong>family</strong>: sky and weather, land and water, animals, gods and people (chapters 3 and 4).</p><p>3. Antonyms in <strong>pairs</strong>: learn both words together (chapters 5 and 6).</p><p>4. Last-week sheet (chapter 7).</p></aside><aside class="box warn"><p class="box-t">The key is a book's key, not OPSC's</p><p>OPSC has not published an answer key that we could fetch. Every answer in this guide is the key from the Udyam IAS book of past papers, checked against a standard dictionary where we could. Where keys and grammar disagree, the page shows a <strong>CHECK</strong> tag. Our "likely next" words are our own prediction; their spellings follow the standard Odia dictionary form of Sanskrit words (the <strong>ତତ୍ସମ</strong> words), and where two forms are in use we say so.</p></aside><aside class="box tip"><p class="box-t">How to use this guide</p><p>Read one chapter. Cover the answers of the <strong>Past questions</strong> tables and try each one. Then open the <strong>Check yourself</strong> boxes. Spend most time on chapters 2, 4 and 6: those are the lists.</p></aside></section>
+<section id="rules"><div class="sectrule"><span class="eyebrow">Chapter <b>01</b> · ଶୁଦ୍ଧ ବନାନ · THE RULES</span><span class="line"></span></div><h2>1. Spelling: the ten traps</h2><p>In a spelling question you get <strong>four spellings of one word</strong>. One is right. The other three are the same word with a small mistake. The mistakes are not random: in the 33 questions of three years they fall into <strong>ten kinds</strong>. If you know the ten kinds, you can see the mistake in each wrong option.</p><p>A word of comfort first. Most words in these questions are <strong>ତତ୍ସମ</strong> (tatsama): Sanskrit words used in Odia without change. They follow Sanskrit spelling. So the safest rule is: <strong>when two spellings look possible, pick the one that is closest to the Sanskrit word.</strong></p><h3><span class="h3n">1.1</span>Trap 1: short or long ି ୀ ୁ ୂ</h3><p>Odia has two "i" signs (<strong>ି</strong> short, <strong>ୀ</strong> long) and two "u" signs (<strong>ୁ</strong> short, <strong>ୂ</strong> long). The question often swaps one for the other. Learn this: <strong>most words that end in ି are short</strong> (the word is Sanskrit, ending in short i): <strong>ତ୍ରୁଟି, ଶକ୍ତି, ପ୍ରକୃତି</strong>. Words that name a <strong>female person</strong> or a <strong>river</strong> end in <strong>ୀ</strong>: <strong>ଭଗିନୀ, ନଦୀ, ଲକ୍ଷ୍ମୀ</strong>. And the first part of a word often has the short sign: <strong>ଗରିମା, ପରିଷଦ</strong>.</p><div class="tw"><table class="t"><thead><tr><th>Question asked</th><th>Right spelling</th><th>Wrong options show</th></tr></thead><tbody><tr><td data-l="Question asked">ପରିଷଦ <span class="pyq">2025 Q1</span></td><td data-l="Right spelling"><strong>ପରିଷଦ</strong></td><td data-l="Wrong options show">ପରିଶଦ, ପରିସଦ, ପରୀଷଦ</td></tr><tr><td data-l="Question asked">ଶଶିଭୂଷଣ <span class="pyq">2025 Q3</span></td><td data-l="Right spelling"><strong>ଶଶିଭୂଷଣ</strong></td><td data-l="Wrong options show">ଶଶୀଭୂଷଣ, ସଶିଭୂଷଣ, ଶଶିଭୁଷଣ</td></tr><tr><td data-l="Question asked">ଭଗିନୀ <span class="pyq">2025 Q5</span></td><td data-l="Right spelling"><strong>ଭଗିନୀ</strong></td><td data-l="Wrong options show">ଭଗୀନୀ, ଭଗିନି, ଭଗୀନି</td></tr><tr><td data-l="Question asked">ତ୍ରୁଟି <span class="pyq">2025 Q6</span></td><td data-l="Right spelling"><strong>ତ୍ରୁଟି</strong></td><td data-l="Wrong options show">ତ୍ରୁଟୀ, ତୃଟୀ, ତୃଟି</td></tr><tr><td data-l="Question asked">ଗରିମା <span class="pyq">2025 Q7</span></td><td data-l="Right spelling"><strong>ଗରିମା</strong></td><td data-l="Wrong options show">ଗାରିମା, ଗରୀମା, ଗାରୀମା</td></tr><tr><td data-l="Question asked">ନିରୁପମା <span class="pyq">2025 Q4</span></td><td data-l="Right spelling"><strong>ନିରୁପମା</strong></td><td data-l="Wrong options show">ନୀରୂପମା, ନିରୂପମା, ନୀରୁପମା</td></tr><tr><td data-l="Question asked">ପିୟୂଷ <span class="pyq">2021 Q5</span></td><td data-l="Right spelling"><strong>ପିୟୂଷ</strong></td><td data-l="Wrong options show">ପୀୟୁଷ, ପିୟୁଷ, ପୀୟୂଷ</td></tr><tr><td data-l="Question asked">ଆଶୀର୍ବାଦ <span class="pyq">2021 Q3</span></td><td data-l="Right spelling"><strong>ଆଶୀର୍ବାଦ</strong></td><td data-l="Wrong options show">ଆର୍ଶିବାଦ, ଆଶ୍ରିବାଦ, ଆଶ୍ରୀବାଦ</td></tr><tr><td data-l="Question asked">ଊନବିଂଶ <span class="pyq">2018 Q61</span></td><td data-l="Right spelling"><strong>ଊନବିଂଶ</strong></td><td data-l="Wrong options show">ଉନବିଂଶ, ଊନବିଂଷ, ଉନବିଂଷ</td></tr></tbody></table></div><p>Notice: in <strong>2025, 5 of the 10 spelling questions</strong> were this trap. This is the biggest one. Also notice the double trick in <strong>ଭଗିନୀ</strong>: the first i is short and the last is long. And <strong>ପିୟୂଷ</strong> (nectar) has a short ି and a long ୂ.</p><h3><span class="h3n">1.2</span>Trap 2: ଶ, ଷ or ସ</h3><p>Odia has three "s" letters. They sound nearly the same, so the examiner uses all three as bait. The word has only one right choice, and it comes from Sanskrit. Memory help: <strong>ଷ</strong> is used mostly with <strong>ଟ ଠ ଣ କ ପ</strong> after it (ବିଷଣ୍ଣ, ଶ୍ରେଷ୍ଠ, ନିଷ୍କଳ, ଦୁଷ୍ପ୍ରାପ୍ୟ), and in <strong>ଭୂଷଣ, ପରିଷଦ, ପୁରସ୍କାର</strong> each letter has to be learned as it is.</p><ul><li><strong>ପରିଷଦ</strong> (council) <span class="pyq">2025 Q1</span>: ଷ, not ଶ or ସ.</li><li><strong>ପୁରସ୍କାର</strong> (prize) <span class="pyq">2018 Q68</span>: ସ୍କ with ସ, not ଷ୍କ or ଶ୍କ.</li><li><strong>ବିଷଣ୍ଣ</strong> (sad) <span class="pyq">2018 Q72</span>: ଷ୍ଣ.</li><li><strong>ଅବସନ୍ନ</strong> (tired, hopeless) <span class="pyq">2025 Q2</span> <span class="chk">CHECK</span> <i class="chkn">: the book could not read the scan clearly; the option with ସ and ନ୍ନ is the standard spelling</i>.</li><li><strong>ପର୍ଯ୍ୟବସିତ</strong> (ended up as) <span class="pyq">2018 Q80</span>: ସ, not ଶ or ଷ.</li><li><strong>ଶଶିଭୂଷଣ</strong> <span class="pyq">2025 Q3</span>: first two letters ଶଶି, then ଭୂଷଣ.</li></ul><h3><span class="h3n">1.3</span>Trap 3: ଣ or ନ</h3><p>The rule is old and simple. <strong>After a letter ର, ଷ or ଋ in the same word, a ନ turns into ଣ</strong>, unless a letter of the "ch, j, t, d" groups sits in between. So <strong>ପ୍ରାଣ, ପ୍ରଣାମ, ଭୂଷଣ, କାରଣ, ଲକ୍ଷଣ, ବ୍ରାହ୍ମଣ</strong> all have ଣ. But <strong>ପ୍ରୟୋଜନ</strong> has ନ (the ଜ in the middle breaks the rule). And in a <strong>joined word</strong> the ନ stays: <strong>ଦୁର୍ନୀତି, ଦୁର୍ନାମ</strong> (the word ନୀତି and ନାମ were already complete).</p><ul><li><strong>ଉତ୍ତରାୟଣ</strong> (the sun's northward path) <span class="pyq">2018 Q73</span>: ର୍... ୟ... ଣ, so ଣ. The wrong options had ନ.</li><li><strong>ବିଷଣ୍ଣ</strong> <span class="pyq">2018 Q72</span> and <strong>ଅକ୍ଷୁଣ୍ଣ</strong> (not broken) <span class="pyq">2018 Q75</span>: ଣ after ଷ.</li></ul><h3><span class="h3n">1.4</span>Trap 4: ର୍ before a joined letter</h3><p>Many words have a <strong>ର୍</strong> (half r) that sits on top of the next letter. The question puts the ର୍ in the wrong place, or drops it.</p><ul><li><strong>ଅନିବାର୍ଯ୍ୟ</strong> (cannot be stopped) <span class="pyq">2018 Q79</span> <span class="pyq">2021 Q1</span>: ର୍ଯ୍ୟ. The wrong options: ଅନିର୍ବାର୍ଯ୍ୟ (extra ର୍), ଅନୀର୍ବାର୍ଯ୍ୟ, ଅନିବାର୍ଯ୍ୟ with a dropped ଯ.</li><li><strong>ପ୍ରାଦୁର୍ଭାବ</strong> (appearance) <span class="pyq">2021 Q8</span>: ପ୍ର + ଆଦୁର୍ + ଭାବ. Wrong options: ପାଦୁର୍ଭାବ, ପ୍ରାର୍ଦୁଭାବ, ପାର୍ଦୁଭାବ.</li><li><strong>ଅନ୍ତର୍ଯାମୀ</strong> (knower of hearts) <span class="pyq">2021 Q9</span>: ଅନ୍ତର୍ + ଯାମୀ. The ର୍ is on the ତ.</li><li><strong>ଆଶୀର୍ବାଦ</strong> <span class="pyq">2021 Q3</span>: ର୍ବ.</li></ul><p>Memory help: the ର୍ comes <strong>before</strong> the letter it belongs with, in Sanskrit. ଅନ୍ତର୍ = "inside" + ଯାମୀ.</p><h3><span class="h3n">1.5</span>Trap 5: the little prefix (ଦୁର, ନିର, ଅନ, ଅବ)</h3><p>Words made with a <strong>prefix</strong> (a small word put in front, such as ଅ, ଦୁ, ନି) have a fixed shape. If you do not know which prefix was used, you pick the wrong one.</p><ul><li><strong>ଦୁରବସ୍ଥା</strong> (bad condition) <span class="pyq">2021 Q10</span>: ଦୁଃ + ଅବସ୍ଥା = ଦୁରବସ୍ଥା. Not ଦୂରବସ୍ଥା (that puts a "distant" sign), not ଦୁରାବସ୍ଥା.</li><li><strong>ଅରକ୍ଷିତ</strong> (unprotected) <span class="pyq">2018 Q76</span>: ଅ + ରକ୍ଷିତ. Short ି, no ୀ.</li><li><strong>ଅନସୂୟା</strong> (a woman with no jealousy) <span class="pyq">2018 Q77</span>: ଅନ୍ + ଅସୂୟା, so ଅନସୂୟା. The bait was ଅନୁସୂୟା with the extra ୁ.</li><li><strong>ନିଷ୍ଫଳ</strong> (useless) <span class="pyq">2021 Q2</span> <span class="chk">CHECK</span> <i class="chkn">: the book says the scan is unclear; ନିଷ୍ଫଳ with ଫଳ is the standard spelling</i>.</li><li><strong>ଓତଃପ୍ରୋତ</strong> and <strong>ଓତପ୍ରୋତ</strong>: <span class="pyq">2021 Q4</span> <span class="chk">CHECK</span> <i class="chkn">: the book keys D ଓତପ୍ରୋତ, but many dictionaries print ଓତଃପ୍ରୋତ; the book's key is <strong>ଓତପ୍ରୋତ</strong></i>.</li></ul><h3><span class="h3n">1.6</span>Trap 6: the joined letter has the wrong form</h3><p>A <strong>conjunct</strong> is two letters joined, like ତ୍ୱ, ଶ୍ର, ଜ୍ଞ. The question changes one letter in it.</p><ul><li><strong>ତ୍ୱିଷାଂପତି</strong> (Sun, the lord of light) <span class="pyq">2025 Q10</span>: ତ୍ୱି + ଷାଂ + ପତି. The wrong options changed ି to ୀ.</li><li><strong>ଅକ୍ଷୁଣ୍ଣ</strong> <span class="pyq">2018 Q75</span> <span class="chk">CHECK</span> <i class="chkn">: the scan is unclear</i>.</li><li><strong>ନିର୍ଜନ</strong>, <strong>ନିର୍ଧନ</strong> <span class="pyq">2018 Q74</span> <span class="chk">CHECK</span> <i class="chkn">: the scan does not show if the doubled ଜ is printed; ନିର୍ଧନ is also a real word</i>.</li></ul><h3><span class="h3n">1.7</span>Trap 7: ଳ or ଲ</h3><p>Odia has two "l" letters: ଲ (dental) and ଳ (the cerebral l, tongue curled back). Many Odia words end in ଳ (<strong>ଜଳ, ବଳ, ମଙ୍ଗଳ, କମଳ</strong>), but a joined <strong>ଲ୍ଲ, ଲ୍ୟ</strong> uses ଲ (<strong>କଲ୍ୟାଣ, ବଲ୍ଲଭ</strong>). There is no clean rule; learn the word.</p><ul><li><strong>ମଧୁଳିକା</strong> (a kind of honey flower) <span class="pyq">2025 Q9</span> <span class="chk">CHECK</span> <i class="chkn">: OPSC accepted two answers, B ମଧୁଳିକା and D ମଧୁଲିକା; the book stores B</i>.</li></ul><h3><span class="h3n">1.8</span>Trap 8: anusvara ଂ or the joined ଙ୍ଗ, ଙ୍କ</h3><p>Some words can be written with the dot <strong>ଂ</strong> (anusvara) or with a joined <strong>ଙ୍ଗ / ଙ୍କ</strong>. The key chose the <strong>joined</strong> form when it was a real choice:</p><ul><li><strong>ଆନୁଷଙ୍ଗିକ</strong> (connected, related) <span class="pyq">2025 Q8</span>: ଙ୍ଗ. The wrong options had ଂଗ (ଆନୁସଂଗିକ) or a long ୀ.</li><li>The dot is right when the sound is a nasal that comes <strong>before ପ, ମ, ଶ, ଷ, ସ, ହ</strong> and in words like <strong>ସଂସ୍କୃତି, ସଂହାର, ସିଂହ, ବିଂଶ, ତ୍ୱିଷାଂପତି</strong>.</li></ul><p><span class="chk">CHECK</span> <i class="chkn">: for <strong>ସଙ୍ଗୀତ / ସଂଗୀତ</strong> and <strong>ଅହଙ୍କାର / ଅହଂକାର</strong> both forms are printed in books; the papers have not asked these. If you see both in one question, choose the form with <strong>ଙ୍ଗ / ଙ୍କ</strong></i>.</p><h3><span class="h3n">1.9</span>Trap 9: ୟ, ଯ and ଯ୍ୟ</h3><p>The letter <strong>ୟ</strong> (the "y" that follows a vowel) and the joined <strong>ଯ୍ୟ</strong> look alike.</p><ul><li><strong>ପିୟୂଷ</strong>: ୟ in the middle.</li><li><strong>ପର୍ଯ୍ୟବସିତ</strong>: ର୍ଯ୍ୟ.</li><li><strong>ଅନିବାର୍ଯ୍ୟ</strong>: ର୍ଯ୍ୟ.</li><li><strong>ଅନସୂୟା</strong>: ୟ.</li></ul><p>Rule that helps: a <strong>joined ଯ୍ୟ</strong> comes at the end of a word (<strong>କାର୍ଯ୍ୟ, ଆଚାର୍ଯ୍ୟ, ସୂର୍ଯ୍ୟ, ଧୈର୍ଯ୍ୟ</strong>); <strong>ୟ</strong> by itself comes after a vowel sign (<strong>ପିୟୂଷ, ଅସୂୟା, ଉତ୍ତରାୟଣ</strong>).</p><h3><span class="h3n">1.10</span>Trap 10: a clean word broken into parts</h3><p>A few wrong options are made by joining the parts of a word in the wrong order, like <strong>ଆର୍ଶିବାଦ</strong> for ଆଶୀର୍ବାଦ, or <strong>ପୂଜ୍ୟଷ୍ପଦ</strong> for <strong>ପୂଜ୍ୟାସ୍ପଦ</strong> <span class="pyq">2021 Q6</span>. For these, <strong>split the word</strong> into its parts and rebuild it:</p><ul><li>ପୂଜ୍ୟ (worthy) + ଆସ୍ପଦ (place) = <strong>ପୂଜ୍ୟାସ୍ପଦ</strong>.</li><li>ଆଶିଷ୍ + ବାଦ → <strong>ଆଶୀର୍ବାଦ</strong>.</li><li>ପ୍ର + ବ୍ରଜନ (going) = <strong>ପ୍ରବ୍ରଜନ</strong> <span class="pyq">2021 Q93</span>.</li><li>ପର୍ଯ୍ୟ + ବସିତ = <strong>ପର୍ଯ୍ୟବସିତ</strong> <span class="pyq">2018 Q80</span>.</li></ul><aside class="box next"><p class="box-t">Check yourself</p><div class="qas"><details class="qa"><summary>Which is right: ପରିଷଦ, ପରୀଷଦ, ପରିସଦ?</summary><p>ପରିଷଦ (short ି, then ଷ).</p></details><details class="qa"><summary>Which is right: ଭଗିନୀ or ଭଗୀନୀ?</summary><p>ଭଗିନୀ. Short ି first, long ୀ at the end.</p></details><details class="qa"><summary>Which is right: ଦୂରବସ୍ଥା or ଦୁରବସ୍ଥା?</summary><p>ଦୁରବସ୍ଥା (ଦୁଃ + ଅବସ୍ଥା), not the word for "distance".</p></details><details class="qa"><summary>A ନ after ର୍, ଷ or ଋ becomes what?</summary><p>ଣ (ପ୍ରାଣ, ଭୂଷଣ, କାରଣ). It stays ନ if a ଚ, ଜ, ଟ, ଡ, ତ, ଦ type letter breaks the gap, or in a joined word like ଦୁର୍ନୀତି.</p></details><details class="qa"><summary>Which is right: ଆନୁଷଙ୍ଗିକ or ଆନୁସଂଗିକ?</summary><p>ଆନୁଷଙ୍ଗିକ.</p></details></div></aside></section>
+<section id="lists"><div class="sectrule"><span class="eyebrow">Chapter <b>02</b> · ଶୁଦ୍ଧ ବନାନ · 33 QUESTIONS</span><span class="line"></span></div><h2>2. Spelling: all past words and the likely next</h2><p>Here is the whole bank of past spelling questions, in one table, with the key. After it come the <strong>likely next</strong> words, grouped by the trap they test. A "likely next" word is one the examiner has <strong>not yet asked</strong>, but that tests the same trap in the same way.</p><h3><span class="h3n">2.1</span>Past questions (all 33)</h3><div class="tw"><table class="t"><thead><tr><th>Year and Q</th><th>Right spelling</th><th>The trap</th></tr></thead><tbody><tr><td data-l="Year and Q">2018 Q61</td><td data-l="Right spelling">ଊନବିଂଶ</td><td data-l="The trap">long ଊ</td></tr><tr><td data-l="Year and Q">2018 Q68</td><td data-l="Right spelling">ପୁରସ୍କାର</td><td data-l="The trap">ସ୍କ</td></tr><tr><td data-l="Year and Q">2018 Q71</td><td data-l="Right spelling">ପୌରୋହିତ୍ୟ</td><td data-l="The trap">ୌ and ୋ</td></tr><tr><td data-l="Year and Q">2018 Q72</td><td data-l="Right spelling">ବିଷଣ୍ଣ</td><td data-l="The trap">ଷ୍ଣ</td></tr><tr><td data-l="Year and Q">2018 Q73</td><td data-l="Right spelling">ଉତ୍ତରାୟଣ</td><td data-l="The trap">ଣ</td></tr><tr><td data-l="Year and Q">2018 Q74</td><td data-l="Right spelling">ନିର୍ଧନ <span class="chk">CHECK</span></td><td data-l="The trap">ଧ and ଜ</td></tr><tr><td data-l="Year and Q">2018 Q75</td><td data-l="Right spelling">ଅକ୍ଷୁଣ୍ଣ <span class="chk">CHECK</span></td><td data-l="The trap">short ୁ and ଣ</td></tr><tr><td data-l="Year and Q">2018 Q76</td><td data-l="Right spelling">ଅରକ୍ଷିତ</td><td data-l="The trap">prefix ଅ</td></tr><tr><td data-l="Year and Q">2018 Q77</td><td data-l="Right spelling">ଅନସୂୟା</td><td data-l="The trap">ଅନ୍ + ଅସୂୟା</td></tr><tr><td data-l="Year and Q">2018 Q78</td><td data-l="Right spelling">ଅଧୀନ <span class="chk">CHECK</span></td><td data-l="The trap">ଅଧୀନସ୍ଥ is also a word</td></tr><tr><td data-l="Year and Q">2018 Q79</td><td data-l="Right spelling">ଅନିବାର୍ଯ୍ୟ</td><td data-l="The trap">ର୍ଯ୍ୟ</td></tr><tr><td data-l="Year and Q">2018 Q80</td><td data-l="Right spelling">ପର୍ଯ୍ୟବସିତ</td><td data-l="The trap">ର୍ଯ୍ୟ and ସ</td></tr><tr><td data-l="Year and Q">2021 Q1</td><td data-l="Right spelling">ଅନିବାର୍ଯ୍ୟ</td><td data-l="The trap">(repeat of 2018 Q79)</td></tr><tr><td data-l="Year and Q">2021 Q2</td><td data-l="Right spelling">ନିଷ୍ଫଳ <span class="chk">CHECK</span></td><td data-l="The trap">ଷ୍ଫ</td></tr><tr><td data-l="Year and Q">2021 Q3</td><td data-l="Right spelling">ଆଶୀର୍ବାଦ</td><td data-l="The trap">ର୍ + long ୀ</td></tr><tr><td data-l="Year and Q">2021 Q4</td><td data-l="Right spelling">ଓତପ୍ରୋତ <span class="chk">CHECK</span></td><td data-l="The trap">ଃ or none</td></tr><tr><td data-l="Year and Q">2021 Q5</td><td data-l="Right spelling">ପିୟୂଷ</td><td data-l="The trap">ି and ୂ</td></tr><tr><td data-l="Year and Q">2021 Q6</td><td data-l="Right spelling">ପୂଜ୍ୟାସ୍ପଦ</td><td data-l="The trap">splitting</td></tr><tr><td data-l="Year and Q">2021 Q7</td><td data-l="Right spelling">ସାର୍ବଜନୀନ <span class="chk">CHECK</span></td><td data-l="The trap">ସର୍ବଜନୀନ is also used</td></tr><tr><td data-l="Year and Q">2021 Q8</td><td data-l="Right spelling">ପ୍ରାଦୁର୍ଭାବ</td><td data-l="The trap">ର୍ placement</td></tr><tr><td data-l="Year and Q">2021 Q9</td><td data-l="Right spelling">ଅନ୍ତର୍ଯାମୀ</td><td data-l="The trap">ର୍ and long ୀ</td></tr><tr><td data-l="Year and Q">2021 Q10</td><td data-l="Right spelling">ଦୁରବସ୍ଥା</td><td data-l="The trap">prefix ଦୁ</td></tr><tr><td data-l="Year and Q">2021 Q93</td><td data-l="Right spelling">ପ୍ରବ୍ରଜନ</td><td data-l="The trap">ବ୍ର</td></tr><tr><td data-l="Year and Q">2025 Q1</td><td data-l="Right spelling">ପରିଷଦ</td><td data-l="The trap">ି and ଷ</td></tr><tr><td data-l="Year and Q">2025 Q2</td><td data-l="Right spelling">ଅବସନ୍ନ <span class="chk">CHECK</span></td><td data-l="The trap">ସ and ନ୍ନ</td></tr><tr><td data-l="Year and Q">2025 Q3</td><td data-l="Right spelling">ଶଶିଭୂଷଣ</td><td data-l="The trap">ି and ଷ</td></tr><tr><td data-l="Year and Q">2025 Q4</td><td data-l="Right spelling">ନିରୁପମା</td><td data-l="The trap">ି and ୁ</td></tr><tr><td data-l="Year and Q">2025 Q5</td><td data-l="Right spelling">ଭଗିନୀ</td><td data-l="The trap">ି and ୀ</td></tr><tr><td data-l="Year and Q">2025 Q6</td><td data-l="Right spelling">ତ୍ରୁଟି</td><td data-l="The trap">ୁ and ି</td></tr><tr><td data-l="Year and Q">2025 Q7</td><td data-l="Right spelling">ଗରିମା</td><td data-l="The trap">ି</td></tr><tr><td data-l="Year and Q">2025 Q8</td><td data-l="Right spelling">ଆନୁଷଙ୍ଗିକ</td><td data-l="The trap">ଙ୍ଗ</td></tr><tr><td data-l="Year and Q">2025 Q9</td><td data-l="Right spelling">ମଧୁଳିକା <span class="chk">CHECK</span></td><td data-l="The trap">ଳ and ଲ</td></tr><tr><td data-l="Year and Q">2025 Q10</td><td data-l="Right spelling">ତ୍ୱିଷାଂପତି</td><td data-l="The trap">ି and ଂ</td></tr></tbody></table></div><h3><span class="h3n">2.2</span>What the table tells you</h3><p>Count the traps: <strong>short and long i and u</strong> are the biggest (about a third of the 33). Then ଷ, ଣ and the ର୍ placement. The dull but important point is that <strong>the examiner picks Sanskrit words of the "learned" kind</strong> (ପରିଷଦ, ବିଷଣ୍ଣ, ଅବସନ୍ନ, ପ୍ରାଦୁର୍ଭାବ), not everyday Odia words. So study the list of Sanskrit words below, not simple village words.</p><h3><span class="h3n">2.3</span>Likely next: group 1, short or long vowel signs</h3><p>These are the most likely, because trap 1 is the biggest and was 5 of the 10 questions in 2025. In each pair, the <strong>right</strong> spelling is the first one; the second is the bait.</p><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Typical bait</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ପରୀକ୍ଷା</strong></td><td data-l="Typical bait">ପରିକ୍ଷା, ପରୀକ୍ସା</td><td data-l="Meaning">examination</td></tr><tr><td data-l="Right"><strong>ପ୍ରତୀକ୍ଷା</strong></td><td data-l="Typical bait">ପ୍ରତିକ୍ଷା</td><td data-l="Meaning">waiting</td></tr><tr><td data-l="Right"><strong>ପ୍ରତୀକ</strong></td><td data-l="Typical bait">ପ୍ରତିକ</td><td data-l="Meaning">symbol</td></tr><tr><td data-l="Right"><strong>ସଂସ୍କୃତି</strong></td><td data-l="Typical bait">ସଂସ୍କୃତୀ, ସଂସ୍କିତି</td><td data-l="Meaning">culture</td></tr><tr><td data-l="Right"><strong>କୀର୍ତ୍ତି</strong></td><td data-l="Typical bait">କିର୍ତ୍ତି, କୀର୍ତ୍ତୀ</td><td data-l="Meaning">fame</td></tr><tr><td data-l="Right"><strong>ପୃଥିବୀ</strong></td><td data-l="Typical bait">ପୃଥୀବି, ପୃଥିବି</td><td data-l="Meaning">earth</td></tr><tr><td data-l="Right"><strong>ଶରୀର</strong></td><td data-l="Typical bait">ଶରିର, ଶରୀୟ</td><td data-l="Meaning">body</td></tr><tr><td data-l="Right"><strong>ଗୃହିଣୀ</strong></td><td data-l="Typical bait">ଗୃହୀଣି, ଗୃହିଣି</td><td data-l="Meaning">housewife</td></tr><tr><td data-l="Right"><strong>ମହିଳା</strong></td><td data-l="Typical bait">ମହୀଳା</td><td data-l="Meaning">woman</td></tr><tr><td data-l="Right"><strong>ଅତିଥି</strong></td><td data-l="Typical bait">ଅତୀଥି, ଅତିଥୀ</td><td data-l="Meaning">guest</td></tr><tr><td data-l="Right"><strong>ସମିତି</strong></td><td data-l="Typical bait">ସମୀତି, ସମିତୀ</td><td data-l="Meaning">committee</td></tr><tr><td data-l="Right"><strong>ଶ୍ରୀମତୀ</strong></td><td data-l="Typical bait">ଶ୍ରୀମତି</td><td data-l="Meaning">Mrs.</td></tr><tr><td data-l="Right"><strong>ଯୁବତୀ</strong></td><td data-l="Typical bait">ଯୁବତି</td><td data-l="Meaning">young woman</td></tr><tr><td data-l="Right"><strong>ମନୀଷୀ</strong></td><td data-l="Typical bait">ମନିଷୀ, ମନୀଷି</td><td data-l="Meaning">thinker</td></tr><tr><td data-l="Right"><strong>ତୁଳସୀ</strong></td><td data-l="Typical bait">ତୁଳସି, ତୁଲସୀ</td><td data-l="Meaning">basil</td></tr><tr><td data-l="Right"><strong>ବାଲ୍ମୀକି</strong></td><td data-l="Typical bait">ବାଲ୍ମିକି, ବାଲ୍ମୀକୀ</td><td data-l="Meaning">the poet</td></tr><tr><td data-l="Right"><strong>ଭାଗୀରଥୀ</strong></td><td data-l="Typical bait">ଭାଗିରଥି</td><td data-l="Meaning">the Ganga</td></tr><tr><td data-l="Right"><strong>ବିଭୀଷଣ</strong></td><td data-l="Typical bait">ବିଭିଷଣ</td><td data-l="Meaning">Ravana's brother</td></tr><tr><td data-l="Right"><strong>ଅଭିଳାଷ</strong></td><td data-l="Typical bait">ଅଭୀଳାଷ</td><td data-l="Meaning">desire</td></tr><tr><td data-l="Right"><strong>ସୂଚୀ</strong></td><td data-l="Typical bait">ସୁଚି, ସୂଚି</td><td data-l="Meaning">list</td></tr></tbody></table></div><p>Two helpful patterns: (1) words for <strong>female persons</strong> and <strong>rivers</strong> end in <strong>ୀ</strong> (ଭଗିନୀ, ଯୁବତୀ, ଗୃହିଣୀ, ଭାଗୀରଥୀ); (2) the words <strong>ପରୀକ୍ଷା, ପ୍ରତୀକ୍ଷା, ପ୍ରତୀକ, ଅଧୀନ, ନୀତି</strong> have a <strong>long ୀ in the first part</strong> because the Sanskrit word has a long vowel there. <span class="chk">CHECK</span> <i class="chkn">: ସୂଚୀ is the Sanskrit-form; ସୂଚି is also printed; the papers have not asked it</i></p><h3><span class="h3n">2.4</span>Likely next: group 2, ଶ, ଷ and ସ</h3><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Bait</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ଶୋଷଣ</strong></td><td data-l="Bait">ସୋଷଣ, ଶୋଶଣ</td><td data-l="Meaning">exploitation</td></tr><tr><td data-l="Right"><strong>ଶ୍ରେଷ୍ଠ</strong></td><td data-l="Bait">ଶ୍ରେଶ୍ଠ, ଶ୍ରେସ୍ଠ</td><td data-l="Meaning">best</td></tr><tr><td data-l="Right"><strong>ସନ୍ତୋଷ</strong></td><td data-l="Bait">ସନ୍ତୋଶ, ଶନ୍ତୋଷ</td><td data-l="Meaning">satisfaction</td></tr><tr><td data-l="Right"><strong>ଅଭିଷେକ</strong></td><td data-l="Bait">ଅଭିଶେକ, ଅଭିସେକ</td><td data-l="Meaning">anointing</td></tr><tr><td data-l="Right"><strong>ବିଶେଷ</strong></td><td data-l="Bait">ବିସେଷ, ବିଷେଶ</td><td data-l="Meaning">special</td></tr><tr><td data-l="Right"><strong>ଆକର୍ଷଣ</strong></td><td data-l="Bait">ଆକର୍ଶଣ</td><td data-l="Meaning">attraction</td></tr><tr><td data-l="Right"><strong>ଉତ୍କର୍ଷ</strong></td><td data-l="Bait">ଉତ୍କର୍ଶ</td><td data-l="Meaning">excellence</td></tr><tr><td data-l="Right"><strong>ପରିଶ୍ରମ</strong></td><td data-l="Bait">ପରିସ୍ରମ, ପରିଷ୍ରମ</td><td data-l="Meaning">hard work</td></tr><tr><td data-l="Right"><strong>ଅଭିଶାପ</strong></td><td data-l="Bait">ଅଭିଷାପ</td><td data-l="Meaning">curse</td></tr><tr><td data-l="Right"><strong>ଆଶୀର୍ବାଦ</strong></td><td data-l="Bait">ଆଶିର୍ବାଦ</td><td data-l="Meaning">blessing</td></tr><tr><td data-l="Right"><strong>ଶିଷ୍ଟାଚାର</strong></td><td data-l="Bait">ସିଷ୍ଟାଚାର</td><td data-l="Meaning">good manners</td></tr><tr><td data-l="Right"><strong>ପ୍ରଶାସନ</strong></td><td data-l="Bait">ପ୍ରସାସନ</td><td data-l="Meaning">administration</td></tr><tr><td data-l="Right"><strong>ସ୍ପର୍ଶ</strong></td><td data-l="Bait">ସ୍ପର୍ସ, ସ୍ପର୍ଷ</td><td data-l="Meaning">touch</td></tr><tr><td data-l="Right"><strong>ଗ୍ରୀଷ୍ମ</strong></td><td data-l="Bait">ଗ୍ରିଷ୍ମ, ଗ୍ରୀସ୍ମ</td><td data-l="Meaning">summer</td></tr></tbody></table></div><p>Remember: <strong>ଶ୍ରେଷ୍ଠ</strong> has ଶ at the start and ଷ୍ଠ at the end; <strong>ଗ୍ରୀଷ୍ମ</strong> has ଷ୍ମ.</p><h3><span class="h3n">2.5</span>Likely next: group 3, ଣ or ନ</h3><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Bait</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ପ୍ରଣାମ</strong></td><td data-l="Bait">ପ୍ରନାମ</td><td data-l="Meaning">bow</td></tr><tr><td data-l="Right"><strong>ପ୍ରାଣ</strong></td><td data-l="Bait">ପ୍ରାନ</td><td data-l="Meaning">life</td></tr><tr><td data-l="Right"><strong>କଲ୍ୟାଣ</strong></td><td data-l="Bait">କଲ୍ୟାନ</td><td data-l="Meaning">welfare</td></tr><tr><td data-l="Right"><strong>ଲକ୍ଷଣ</strong></td><td data-l="Bait">ଲକ୍ଷନ</td><td data-l="Meaning">sign</td></tr><tr><td data-l="Right"><strong>ବ୍ରାହ୍ମଣ</strong></td><td data-l="Bait">ବ୍ରାହ୍ମନ</td><td data-l="Meaning">a priest</td></tr><tr><td data-l="Right"><strong>ନିର୍ମାଣ</strong></td><td data-l="Bait">ନିର୍ମାନ</td><td data-l="Meaning">building</td></tr><tr><td data-l="Right"><strong>ପୂର୍ଣ୍ଣିମା</strong></td><td data-l="Bait">ପୂର୍ନିମା</td><td data-l="Meaning">full moon</td></tr><tr><td data-l="Right"><strong>ସ୍ୱର୍ଣ୍ଣ</strong></td><td data-l="Bait">ସ୍ୱର୍ନ</td><td data-l="Meaning">gold</td></tr><tr><td data-l="Right"><strong>ଦର୍ପଣ</strong></td><td data-l="Bait">ଦର୍ପନ</td><td data-l="Meaning">mirror</td></tr><tr><td data-l="Right"><strong>ଅର୍ପଣ</strong></td><td data-l="Bait">ଅର୍ପନ</td><td data-l="Meaning">offering</td></tr><tr><td data-l="Right"><strong>ଋଣ</strong></td><td data-l="Bait">ଋନ</td><td data-l="Meaning">debt</td></tr><tr><td data-l="Right"><strong>ତୃଣ</strong></td><td data-l="Bait">ତୃନ</td><td data-l="Meaning">grass</td></tr><tr><td data-l="Right"><strong>ପ୍ରୟୋଜନ</strong></td><td data-l="Bait">ପ୍ରୟୋଜଣ</td><td data-l="Meaning">need (keeps ନ!)</td></tr><tr><td data-l="Right"><strong>ଦୁର୍ନୀତି</strong></td><td data-l="Bait">ଦୁର୍ଣୀତି</td><td data-l="Meaning">corruption (keeps ନ)</td></tr></tbody></table></div><h3><span class="h3n">2.6</span>Likely next: group 4, ର୍ and ଯ୍ୟ</h3><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Bait</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ଦୁର୍ଘଟଣା</strong></td><td data-l="Bait">ଦୂର୍ଘଟଣା, ଦୁର୍ଘଟନା</td><td data-l="Meaning">accident</td></tr><tr><td data-l="Right"><strong>ନିର୍ବାହ</strong></td><td data-l="Bait">ନିରବାହ</td><td data-l="Meaning">carrying out</td></tr><tr><td data-l="Right"><strong>ନିର୍ଦ୍ଦେଶ</strong></td><td data-l="Bait">ନିର୍ଦେଶ</td><td data-l="Meaning">order</td></tr><tr><td data-l="Right"><strong>ପର୍ଯ୍ୟାୟ</strong></td><td data-l="Bait">ପର୍ଯାୟ</td><td data-l="Meaning">stage</td></tr><tr><td data-l="Right"><strong>ସୌନ୍ଦର୍ଯ୍ୟ</strong></td><td data-l="Bait">ସୌନ୍ଦର୍ୟ, ସୌନ୍ଦର୍ଜ୍ୟ</td><td data-l="Meaning">beauty</td></tr><tr><td data-l="Right"><strong>ଐଶ୍ୱର୍ଯ୍ୟ</strong></td><td data-l="Bait">ଐଶ୍ୱର୍ୟ</td><td data-l="Meaning">wealth</td></tr><tr><td data-l="Right"><strong>ମାଧୁର୍ଯ୍ୟ</strong></td><td data-l="Bait">ମାଧୁର୍ୟ</td><td data-l="Meaning">sweetness</td></tr><tr><td data-l="Right"><strong>ଧୈର୍ଯ୍ୟ</strong></td><td data-l="Bait">ଧୈର୍ୟ</td><td data-l="Meaning">patience</td></tr><tr><td data-l="Right"><strong>ଆଚାର୍ଯ୍ୟ</strong></td><td data-l="Bait">ଆଚାର୍ୟ</td><td data-l="Meaning">teacher</td></tr><tr><td data-l="Right"><strong>ଉଦ୍ଦେଶ୍ୟ</strong></td><td data-l="Bait">ଉଦ୍ଦେସ୍ୟ</td><td data-l="Meaning">aim</td></tr><tr><td data-l="Right"><strong>ଆଶ୍ଚର୍ଯ୍ୟ</strong></td><td data-l="Bait">ଆଶ୍ଚର୍ୟ, ଆଶ୍ଚର୍ଜ୍ୟ</td><td data-l="Meaning">wonder</td></tr><tr><td data-l="Right"><strong>ଅନ୍ତର୍ଗତ</strong></td><td data-l="Bait">ଅନ୍ତର୍ଗତ୍</td><td data-l="Meaning">inside</td></tr><tr><td data-l="Right"><strong>ପ୍ରତ୍ୟୁତ୍ତର</strong></td><td data-l="Bait">ପ୍ରତ୍ୟୁତର</td><td data-l="Meaning">reply</td></tr></tbody></table></div><p>Memory: in <strong>ସୌନ୍ଦର୍ଯ୍ୟ, ଐଶ୍ୱର୍ଯ୍ୟ, ମାଧୁର୍ଯ୍ୟ, ଧୈର୍ଯ୍ୟ, ଆଚାର୍ଯ୍ୟ, ଆଶ୍ଚର୍ଯ୍ୟ, କାର୍ଯ୍ୟ, ସୂର୍ଯ୍ୟ</strong> the ending is always <strong>ର୍ଯ୍ୟ</strong>.</p><h3><span class="h3n">2.7</span>Likely next: group 5, prefix words (ଦୁଃ, ନିଃ, ନିର୍, ନିସ୍, ଅ, ଅନ୍)</h3><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Bait</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ନିଃସ୍ୱାର୍ଥ</strong></td><td data-l="Bait">ନିସ୍ୱାର୍ଥ, ନିଃସ୍ବାର୍ଥ</td><td data-l="Meaning">selfless</td></tr><tr><td data-l="Right"><strong>ନିଃଶବ୍ଦ</strong></td><td data-l="Bait">ନିଶବ୍ଦ</td><td data-l="Meaning">silent</td></tr><tr><td data-l="Right"><strong>ନିଃସନ୍ଦେହ</strong></td><td data-l="Bait">ନିସନ୍ଦେହ</td><td data-l="Meaning">without doubt</td></tr><tr><td data-l="Right"><strong>ନିଷ୍କ୍ରିୟ</strong></td><td data-l="Bait">ନିସ୍କ୍ରିୟ</td><td data-l="Meaning">idle</td></tr><tr><td data-l="Right"><strong>ନିଶ୍ଚିତ</strong></td><td data-l="Bait">ନିଷ୍ଚିତ</td><td data-l="Meaning">sure</td></tr><tr><td data-l="Right"><strong>ଦୁଃଖ</strong></td><td data-l="Bait">ଦୁଖ</td><td data-l="Meaning">sorrow</td></tr><tr><td data-l="Right"><strong>ଦୁଃସାହସ</strong></td><td data-l="Bait">ଦୁସାହସ</td><td data-l="Meaning">rash daring</td></tr><tr><td data-l="Right"><strong>ଦୁଷ୍କର୍ମ</strong></td><td data-l="Bait">ଦୁସ୍କର୍ମ</td><td data-l="Meaning">a bad deed</td></tr><tr><td data-l="Right"><strong>ଦୁଶ୍ଚରିତ୍ର</strong></td><td data-l="Bait">ଦୁଶ୍ଚରିତ</td><td data-l="Meaning">bad character</td></tr><tr><td data-l="Right"><strong>ମନଃକଷ୍ଟ</strong></td><td data-l="Bait">ମନକଷ୍ଟ</td><td data-l="Meaning">mental pain</td></tr><tr><td data-l="Right"><strong>ଅନ୍ତଃକରଣ</strong></td><td data-l="Bait">ଅନ୍ତକରଣ</td><td data-l="Meaning">the heart</td></tr><tr><td data-l="Right"><strong>ପ୍ରାତଃକାଳ</strong></td><td data-l="Bait">ପ୍ରାତକାଳ</td><td data-l="Meaning">morning</td></tr><tr><td data-l="Right"><strong>ଉଜ୍ଜ୍ୱଳ</strong></td><td data-l="Bait">ଉଜ୍ବଳ, ଉଜ୍ଜଳ</td><td data-l="Meaning">bright</td></tr><tr><td data-l="Right"><strong>ଉଚ୍ଛ୍ୱାସ</strong></td><td data-l="Bait">ଉଚ୍ଛ୍ବାସ</td><td data-l="Meaning">joy</td></tr><tr><td data-l="Right"><strong>ଅଧ୍ୟୟନ</strong></td><td data-l="Bait">ଅଧ୍ୟନ</td><td data-l="Meaning">study</td></tr></tbody></table></div><p>Note: <strong>ସ୍ୱ</strong> (as in ସ୍ୱାମୀ, ସ୍ୱାଧୀନ) is the standard Sanskrit form; <strong>ସ୍ବ</strong> is the Odia everyday form and is <strong>not</strong> the one the papers use. In ତ୍ୱ, ଜ୍ୱ, ଚ୍ଛ୍ୱ the joined letter is ୱ.</p><h3><span class="h3n">2.8</span>Likely next: group 6, ଳ or ଲ, and other letter pairs</h3><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Bait</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ଅଳଙ୍କାର</strong></td><td data-l="Bait">ଅଲଙ୍କାର</td><td data-l="Meaning">ornament</td></tr><tr><td data-l="Right"><strong>ମଙ୍ଗଳ</strong></td><td data-l="Bait">ମଙ୍ଗଲ</td><td data-l="Meaning">good</td></tr><tr><td data-l="Right"><strong>କୌଶଳ</strong></td><td data-l="Bait">କୌଶଲ</td><td data-l="Meaning">skill</td></tr><tr><td data-l="Right"><strong>ନିର୍ମଳ</strong></td><td data-l="Bait">ନିର୍ମଲ</td><td data-l="Meaning">pure</td></tr><tr><td data-l="Right"><strong>ଚଞ୍ଚଳ</strong></td><td data-l="Bait">ଚଞ୍ଚଲ</td><td data-l="Meaning">restless</td></tr><tr><td data-l="Right"><strong>ଅଞ୍ଚଳ</strong></td><td data-l="Bait">ଅଞ୍ଚଲ</td><td data-l="Meaning">area</td></tr><tr><td data-l="Right"><strong>ପ୍ରବାଳ</strong></td><td data-l="Bait">ପ୍ରବାଲ</td><td data-l="Meaning">coral</td></tr><tr><td data-l="Right"><strong>ବିଶାଳ</strong></td><td data-l="Bait">ବିଶାଲ</td><td data-l="Meaning">huge</td></tr><tr><td data-l="Right"><strong>ଶୀତଳ</strong></td><td data-l="Bait">ଶିତଳ</td><td data-l="Meaning">cold</td></tr><tr><td data-l="Right"><strong>କଲ୍ୟାଣ</strong></td><td data-l="Bait">କଳ୍ୟାଣ</td><td data-l="Meaning">welfare</td></tr><tr><td data-l="Right"><strong>ବଲ୍ଲଭ</strong></td><td data-l="Bait">ବଳ୍ଲଭ</td><td data-l="Meaning">beloved</td></tr><tr><td data-l="Right"><strong>ମଲ୍ଲିକା</strong></td><td data-l="Bait">ମଳ୍ଲିକା</td><td data-l="Meaning">jasmine</td></tr></tbody></table></div><p><span class="chk">CHECK</span> <i class="chkn">: in many of these (କୌଶଳ/କୌଶଲ, ମଙ୍ଗଳ/ମଙ୍ଗଲ) the papers have not asked the pair, and some books print both. We use the Odia dictionary form with ଳ. If the paper offers both, take the one with ଳ.</i></p><h3><span class="h3n">2.9</span>Likely next: group 7, the sandhi and joined words</h3><div class="tw"><table class="t"><thead><tr><th>Right</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Right"><strong>ଉତ୍ସବ</strong></td><td data-l="Meaning">festival</td></tr><tr><td data-l="Right"><strong>ଉଚ୍ଛେଦ</strong></td><td data-l="Meaning">destruction</td></tr><tr><td data-l="Right"><strong>ଉତ୍ତୀର୍ଣ୍ଣ</strong></td><td data-l="Meaning">passed</td></tr><tr><td data-l="Right"><strong>ଅତ୍ୟାଚାର</strong></td><td data-l="Meaning">cruelty</td></tr><tr><td data-l="Right"><strong>ଅଭ୍ୟାସ</strong></td><td data-l="Meaning">practice</td></tr><tr><td data-l="Right"><strong>ଉଦ୍ୟୋଗ</strong></td><td data-l="Meaning">effort</td></tr><tr><td data-l="Right"><strong>ସମ୍ମାନ</strong></td><td data-l="Meaning">respect</td></tr><tr><td data-l="Right"><strong>ସମ୍ମତି</strong></td><td data-l="Meaning">consent</td></tr><tr><td data-l="Right"><strong>ସଞ୍ଚୟ</strong></td><td data-l="Meaning">saving</td></tr><tr><td data-l="Right"><strong>ସମ୍ପର୍କ</strong></td><td data-l="Meaning">relation</td></tr><tr><td data-l="Right"><strong>ସମ୍ରାଟ</strong></td><td data-l="Meaning">emperor</td></tr><tr><td data-l="Right"><strong>ସଂହାର</strong></td><td data-l="Meaning">killing</td></tr><tr><td data-l="Right"><strong>ଯଥେଷ୍ଟ</strong></td><td data-l="Meaning">enough</td></tr><tr><td data-l="Right"><strong>ପରୋପକାର</strong></td><td data-l="Meaning">helping others</td></tr><tr><td data-l="Right"><strong>ଜଗଦୀଶ</strong></td><td data-l="Meaning">the Lord</td></tr><tr><td data-l="Right"><strong>ନିରୀକ୍ଷଣ</strong></td><td data-l="Meaning">inspection</td></tr><tr><td data-l="Right"><strong>ମହତ୍ତ୍ୱ</strong></td><td data-l="Meaning">importance</td></tr><tr><td data-l="Right"><strong>ସର୍ବତ୍ର</strong></td><td data-l="Meaning">everywhere</td></tr></tbody></table></div><h3><span class="h3n">2.10</span>Spotting the right option in 10 seconds</h3><p>1. Read the four options and <strong>find the part that differs</strong>. The three bad ones differ in <strong>one</strong> place. 2. Ask: is it a vowel sign? an s-letter? ଣ/ନ? a ର୍? Match it to the ten traps. 3. If you cannot tell, <strong>split the word</strong> (prefix + root) and check the Sanskrit form. 4. Never pick an option just because it "looks nice". The wrong options look good on purpose.</p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>ଶ୍ରେଷ୍ଠ, ଶ୍ରେସ୍ଠ, ସ୍ରେଷ୍ଠ: which is right?</summary><p>ଶ୍ରେଷ୍ଠ.</p></details><details class="qa"><summary>Which is right: ସୌନ୍ଦର୍ଯ୍ୟ or ସୌନ୍ଦର୍ୟ?</summary><p>ସୌନ୍ଦର୍ଯ୍ୟ (ର୍ଯ୍ୟ at the end).</p></details><details class="qa"><summary>Which is right: ପ୍ରାଣ or ପ୍ରାନ?</summary><p>ପ୍ରାଣ (a ନ after ର becomes ଣ).</p></details><details class="qa"><summary>Likely next: choose the right spelling of "examination".</summary><p>ପରୀକ୍ଷା, with a long ୀ in the first part.</p></details><details class="qa"><summary>Likely next: choose the right spelling of "selfless".</summary><p>ନିଃସ୍ୱାର୍ଥ.</p></details></div></aside></section>
+<section id="syn"><div class="sectrule"><span class="eyebrow">Chapter <b>03</b> · ପ୍ରତିଶବ୍ଦ · 32 QUESTIONS</span><span class="line"></span></div><h2>3. Synonyms: how the examiner picks</h2><p>A <strong>ପ୍ରତିଶବ୍ଦ</strong> (synonym) means "a word with the same meaning". The question gives one word in quotes, for example <strong>‘ମେଘ’ର ପ୍ରତିଶବ୍ଦ</strong> (a synonym of "cloud") and four options. You pick the one that means the same.</p><p>Odia has a rich stock of synonyms because it borrows from Sanskrit. A cloud is <strong>ମେଘ, ଜଳଦ, ଜୀମୂତ, ବଳାହକ, ନୀରଦ, ପୟୋଦ, ଅମ୍ବୁଦ, ଘନ</strong>. These are all cloud words. The examiner takes one and puts a <strong>different word from the same family</strong> among the options.</p><h3><span class="h3n">3.1</span>The four families</h3><p>All 32 questions of the three papers belong to four families. In each family the bait is a word from a <strong>neighbour meaning</strong> (a river word for a lake, a fire word for the sun).</p><div class="tw"><table class="t"><thead><tr><th>Family</th><th>2018</th><th>2021</th><th>2025</th><th>Total</th><th>The words asked</th></tr></thead><tbody><tr><td data-l="Family">Sky and weather</td><td data-l="2018">4</td><td data-l="2021">2</td><td data-l="2025">3</td><td data-l="Total">9</td><td data-l="The words asked">ଚନ୍ଦ୍ର, ଅମ୍ବର, ପବନ, ମେଘ, ଜଳଦ, ଭାସ୍କର, କୁଆପଥର, ଆକାଶ</td></tr><tr><td data-l="Family">Land and water</td><td data-l="2018">3</td><td data-l="2021">4</td><td data-l="2025">3</td><td data-l="Total">10</td><td data-l="The words asked">ପୋଖରୀ, ଜାହ୍ନବୀ, ଅରଣ୍ୟ, ରାଜୀବ, ପର୍ବତ, ନିକେତନ, ପୃଥିବୀ, ଗଙ୍ଗା, ବାଟ, ନୌକା</td></tr><tr><td data-l="Family">Animals and birds</td><td data-l="2018">2</td><td data-l="2021">3</td><td data-l="2025">1</td><td data-l="Total">6</td><td data-l="The words asked">ସାପ, କାଉ, ଗାଭୀ, ବିହଙ୍ଗ, ଗଜ</td></tr><tr><td data-l="Family">Gods and people</td><td data-l="2018">3</td><td data-l="2021">1</td><td data-l="2025">3</td><td data-l="Total">7</td><td data-l="The words asked">ଦନୁଜ, ତନୟା, ଗଣପତି, ଛାତ୍ର, ଅସୁର, ଶିବ</td></tr></tbody></table></div><p>The two biggest families are <strong>land and water</strong> and <strong>sky and weather</strong>. They are 19 of 32 questions. Learn them first.</p><h3><span class="h3n">3.2</span>Past questions: sky and weather</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right answer</th><th>Bait in the options</th></tr></thead><tbody><tr><td data-l="Word">ଚନ୍ଦ୍ର <span class="pyq">2018 Q59</span></td><td data-l="Right answer"><strong>ମୃଗାଙ୍କ</strong> (moon with a deer mark)</td><td data-l="Bait in the options">ନଭସ୍ୱାନ (wind), ନିଶାନ୍ତ (end of night), କୁରଙ୍ଗ (deer)</td></tr><tr><td data-l="Word">ଅମ୍ବର <span class="pyq">2018 Q81</span></td><td data-l="Right answer"><strong>ଅନ୍ତରୀକ୍ଷ</strong> (sky)</td><td data-l="Bait in the options">ଅନଳ (fire), ଅମିୟ (nectar), ଅହିମକର (sun)</td></tr><tr><td data-l="Word">ପବନ <span class="pyq">2018 Q88</span></td><td data-l="Right answer"><strong>ପବମାନ</strong> (wind)</td><td data-l="Bait in the options">ପୁଣ୍ଡରୀକ (lotus), ପାରାବାର (sea), ଉରଗ (snake)</td></tr><tr><td data-l="Word">ମେଘ <span class="pyq">2018 Q90</span></td><td data-l="Right answer"><strong>ଜୀମୂତ</strong></td><td data-l="Bait in the options">ମରୁତ (wind), ମିଳିନ୍ଦ, ସରିତ (river)</td></tr><tr><td data-l="Word">ଜଳଦ <span class="pyq">2021 Q11</span></td><td data-l="Right answer"><strong>ଜୀମୂତ</strong></td><td data-l="Bait in the options">ଜଳଧି, ଅର୍ଣ୍ଣବ, ପୟୋନିଧି (all three are the sea)</td></tr><tr><td data-l="Word">ଭାସ୍କର <span class="pyq">2021 Q12</span></td><td data-l="Right answer"><strong>ବିକର୍ତ୍ତନ</strong> (sun)</td><td data-l="Bait in the options">ଅନଳ (fire), ମୃଗାଙ୍କ (moon), ବଳାହକ (cloud)</td></tr><tr><td data-l="Word">କୁଆପଥର <span class="pyq">2025 Q21</span></td><td data-l="Right answer"><strong>କରକା</strong> (hail)</td><td data-l="Bait in the options">କରକଚା, କରଞ୍ଚ, କରଭ</td></tr><tr><td data-l="Word">ମେଘ <span class="pyq">2025 Q27</span></td><td data-l="Right answer"><strong>ଜଳଦ</strong></td><td data-l="Bait in the options">ଜଳଧି (sea), ଜଳଜ (lotus), ଜଗର</td></tr><tr><td data-l="Word">ଆକାଶ <span class="pyq">2025 Q28</span></td><td data-l="Right answer"><strong>ପୁଷ୍କର</strong> (sky)</td><td data-l="Bait in the options">ପୁଷ୍କଳ, ପୂର୍ଣ୍ଣକ, ପୁଷ୍ଟିକା</td></tr></tbody></table></div><p>Two traps stand out. First, <strong>the bait often starts with the same sound</strong>: ଜଳଦ (cloud) next to ଜଳଧି (sea) and ଜଳଜ (lotus); ପୁଷ୍କର next to ପୁଷ୍କଳ. Read the full word, not the first letters. Second, <strong>the sea words (ଜଳଧି, ଅର୍ଣ୍ଣବ, ପୟୋନିଧି) and the cloud words are often put side by side</strong>.</p><h3><span class="h3n">3.3</span>Past questions: land and water</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right answer</th><th>Bait</th></tr></thead><tbody><tr><td data-l="Word">ପୋଖରୀ <span class="pyq">2018 Q70</span></td><td data-l="Right answer"><strong>ସରସୀ</strong> (pond)</td><td data-l="Bait">ନୀରଦ (cloud), ଅମ୍ବୁଦ (cloud), ପାବକ (fire)</td></tr><tr><td data-l="Word">ଜାହ୍ନବୀ <span class="pyq">2018 Q84</span></td><td data-l="Right answer"><strong>ବିଷ୍ଣୁପଦୀ</strong> (the Ganga)</td><td data-l="Bait">ବିଷ୍ଣୁପଦ, ବିଷ୍ଣୁପଦା, ବିଷ୍ଣୁ</td></tr><tr><td data-l="Word">ଅରଣ୍ୟ <span class="pyq">2018 Q86</span></td><td data-l="Right answer"><strong>ବିପିନ</strong> (forest)</td><td data-l="Bait">ପାବକ (fire), ବାସବ (Indra), କୋରକ (bud)</td></tr><tr><td data-l="Word">ରାଜୀବ <span class="pyq">2021 Q13</span></td><td data-l="Right answer">Not valued</td><td data-l="Bait">OPSC dropped it</td></tr><tr><td data-l="Word">ପର୍ବତ <span class="pyq">2021 Q17</span></td><td data-l="Right answer"><strong>ମହୀଧର</strong> (mountain)</td><td data-l="Bait">କାସାର (lake), ଓଷଧୀଶ (moon), କୁଳିଶ (thunderbolt)</td></tr><tr><td data-l="Word">ନିକେତନ <span class="pyq">2021 Q18</span></td><td data-l="Right answer"><strong>ସଦ୍ମ</strong> (house)</td><td data-l="Bait">ଭୂଧର (mountain), ପାରାବାର (sea), ବିକର୍ତ୍ତନ (sun)</td></tr><tr><td data-l="Word">ପୃଥିବୀ <span class="pyq">2021 Q20</span></td><td data-l="Right answer"><strong>ବିଶ୍ୱମ୍ଭରା</strong> (earth)</td><td data-l="Bait">ଶିଖୀ (peacock), ଅଦ୍ରୀ (mountain), ଶ୍ରୀ</td></tr><tr><td data-l="Word">ଗଙ୍ଗା <span class="pyq">2025 Q24</span></td><td data-l="Right answer"><strong>ସ୍ୱର୍ଣ୍ଣଦୀ</strong> (the Ganga)</td><td data-l="Bait">ସ୍ୱର୍ଣ୍ଣଳୀ, ସରିତା (river), ନନ୍ଦିକା</td></tr><tr><td data-l="Word">ବାଟ <span class="pyq">2025 Q29</span></td><td data-l="Right answer"><strong>ସରଣୀ</strong> (road)</td><td data-l="Bait">ତରଣୀ (boat), ବରଣୀ, ପରଣ</td></tr><tr><td data-l="Word">ନୌକା <span class="pyq">2025 Q30</span></td><td data-l="Right answer"><strong>ବହିତ୍ର</strong> (boat)</td><td data-l="Bait">ବହଟି, ବହୁଧା, ବାଦିତ୍ର (a musical instrument)</td></tr></tbody></table></div><p>Notice: in 2025 the bait were <strong>look-alike words</strong>: ସରଣୀ and ତରଣୀ, ବହିତ୍ର and ବାଦିତ୍ର, ସ୍ୱର୍ଣ୍ଣଦୀ and ସ୍ୱର୍ଣ୍ଣଳୀ. Every wrong option was a real or near-real word. That is why you must know each word's meaning, not guess by shape.</p><h3><span class="h3n">3.4</span>Past questions: animals, birds, gods and people</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right answer</th><th>Bait</th></tr></thead><tbody><tr><td data-l="Word">କାଉ <span class="pyq">2018 Q87</span> <span class="chk">CHECK</span> <i class="chkn">: ପରଭୃତ means the koel (cuckoo), not the crow; no option is a crow word, so the stem may be a misprint of କୋଇଲି</i></td><td data-l="Right answer">ପରଭୃତ</td><td data-l="Bait">ପୁରନ୍ଦର (Indra), ନଗ (mountain), ଖଗ (bird)</td></tr><tr><td data-l="Word">ସାପ <span class="pyq">2018 Q89</span></td><td data-l="Right answer"><strong>ଅହି</strong></td><td data-l="Bait">ମହୀ (earth), ପବି (thunderbolt), ଦନ୍ତୀ (elephant)</td></tr><tr><td data-l="Word">ଗାଭୀ <span class="pyq">2021 Q15</span></td><td data-l="Right answer"><strong>ରୋହିଣୀ</strong></td><td data-l="Bait">ଜାହ୍ନବୀ, ଅଦ୍ରି, ଧୁନୀ</td></tr><tr><td data-l="Word">ବିହଙ୍ଗ <span class="pyq">2021 Q16</span></td><td data-l="Right answer"><strong>ଦ୍ୱିଜ</strong> (bird)</td><td data-l="Bait">ବାରି, ସରସୀରୁହ, ବନଜ</td></tr><tr><td data-l="Word">ଗଜ <span class="pyq">2021 Q19</span></td><td data-l="Right answer"><strong>ଦ୍ୱିପ</strong> (elephant)</td><td data-l="Bait">ଗନ୍ଧବହ (wind), ତୁରଗ (horse), ଦ୍ୱିଜ (bird)</td></tr><tr><td data-l="Word">ସାପ <span class="pyq">2025 Q22</span></td><td data-l="Right answer"><strong>ଉରଗ</strong></td><td data-l="Bait">ଉପଳ, ଉଦକ (water), ଉରଜ</td></tr><tr><td data-l="Word">ଦନୁଜ <span class="pyq">2018 Q82</span></td><td data-l="Right answer"><strong>ଦାନବ</strong></td><td data-l="Bait">ମାନବ, ଦେବତା, କିନ୍ନର</td></tr><tr><td data-l="Word">ତନୟା <span class="pyq">2018 Q83</span></td><td data-l="Right answer"><strong>ସୁତା</strong> (daughter)</td><td data-l="Bait">ସୂତା, ଇଷିତା, ତନୁଜ</td></tr><tr><td data-l="Word">ଗଣପତି <span class="pyq">2018 Q85</span></td><td data-l="Right answer"><strong>ବିନାୟକ</strong></td><td data-l="Bait">ରାଜା, ପରମାତ୍ମା, ଭଗୀରଥ</td></tr><tr><td data-l="Word">ଦାନବ <span class="pyq">2021 Q14</span></td><td data-l="Right answer"><strong>ଦନୁଜ</strong></td><td data-l="Bait">ବ୍ରହ୍ମସୂ, ଗଜାସ୍ୟ, ଅମୃତାନ୍ଧ</td></tr><tr><td data-l="Word">ଛାତ୍ର <span class="pyq">2025 Q23</span> <span class="chk">CHECK</span> <i class="chkn">: the book's scan is unclear; the option printed twice is ଅଧୃତି</i></td><td data-l="Right answer">ଅଧୀତୀ</td><td data-l="Bait">ଅନକ୍ଷ, ଅଧ୍ୱଗୁ</td></tr><tr><td data-l="Word">ଅସୁର <span class="pyq">2025 Q25</span></td><td data-l="Right answer"><strong>ଦନୁଜ</strong></td><td data-l="Bait">ତନୁଜ, ଅନୁଜ, ସାନୁଜ</td></tr><tr><td data-l="Word">ଶିବ <span class="pyq">2025 Q26</span></td><td data-l="Right answer"><strong>ଶ୍ରୀକଣ୍ଠ</strong></td><td data-l="Bait">ଶ୍ରୀଖଣ୍ଡ, ଶ୍ରୀକାନ୍ତ, ଶ୍ରୀଧର</td></tr></tbody></table></div><p>A hidden trap in 2025: <strong>ତନୁଜ, ଅନୁଜ, ସାନୁଜ, ଦନୁଜ</strong> all end in ନୁଜ. Only <strong>ଦନୁଜ</strong> (child of ଦନୁ, the mother of the demons) is a demon. And <strong>ତନୁଜ</strong> means "son".</p><h3><span class="h3n">3.5</span>The three habits of the examiner</h3><p>1. <strong>He asks the same word in different years</strong> (ମେଘ twice, ସାପ twice, ଦନୁଜ three times). 2. <strong>The right answer is often a lesser-known word</strong>: ସରଣୀ for a road, ବହିତ୍ର for a boat, ଦ୍ୱିପ for an elephant. The common word (ବାଟ, ନୌକା, ଗଜ) is the question, not the answer. 3. <strong>The bait belongs to the same group, but a different thing</strong>: cloud words beside sea words, fire words beside sun words.</p><aside class="box next"><p class="box-t">Check yourself</p><div class="qas"><details class="qa"><summary>‘ଅମ୍ବର’ means sky. Which of these is also sky: ଅନ୍ତରୀକ୍ଷ, ଅନଳ, ଅମିୟ?</summary><p>ଅନ୍ତରୀକ୍ଷ.</p></details><details class="qa"><summary>Which word is the cloud and which is the sea: ଜଳଦ, ଜଳଧି?</summary><p>ଜଳଦ = cloud. ଜଳଧି = sea.</p></details><details class="qa"><summary>‘ଦନୁଜ’ means demon. Which is also a demon: ଦାନବ, ମାନବ, କିନ୍ନର?</summary><p>ଦାନବ.</p></details><details class="qa"><summary>Which word means "elephant": ଗଜ, ଦ୍ୱିପ, ଦ୍ୱିଜ?</summary><p>ଗଜ and ଦ୍ୱିପ both mean elephant. ଦ୍ୱିଜ means bird (or a Brahmin).</p></details><details class="qa"><summary>Which one is a word for "road": ସରଣୀ or ତରଣୀ?</summary><p>ସରଣୀ = road. ତରଣୀ = boat.</p></details></div></aside></section>
+<section id="synlist"><div class="sectrule"><span class="eyebrow">Chapter <b>04</b> · ପ୍ରତିଶବ୍ଦ · THE LISTS</span><span class="line"></span></div><h2>4. Synonyms: the likely-next families</h2><p>This chapter is the <strong>big list</strong>. Each row is one question word (in bold) with its synonyms. For each row, we say how likely it is: <strong>★★★</strong> means very likely (it is the next angle of a past question), <strong>★★</strong> likely, <strong>★</strong> possible. The ★★★ rows are the ones to learn first.</p><h3><span class="h3n">4.1</span>Why these words</h3><p>The examiner moves to the <strong>neighbour</strong>: if he asked ‘ଚନ୍ଦ୍ର’ (moon), next he may ask ‘ସୂର୍ଯ୍ୟ’ (sun) or ‘ଅଗ୍ନି’ (fire). If he asked ‘ପୋଖରୀ’ (pond), next he may ask ‘ନଦୀ’ (river) or ‘ସମୁଦ୍ର’ (sea). These lists follow that rule.</p><h3><span class="h3n">4.2</span>Sky and weather</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Synonyms to learn</th></tr></thead><tbody><tr><td data-l="Word"><strong>ସୂର୍ଯ୍ୟ</strong> (sun)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଭାସ୍କର, ଦିବାକର, ଭାନୁ, ରବି, ଆଦିତ୍ୟ, ମାର୍ତ୍ତଣ୍ଡ, ସବିତା, ଅର୍କ, ବିକର୍ତ୍ତନ, ପ୍ରଭାକର, ମିହିର, ଦିନମଣି</td></tr><tr><td data-l="Word"><strong>ଚନ୍ଦ୍ର</strong> (moon)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଶଶୀ, ଇନ୍ଦୁ, ସୋମ, ମୃଗାଙ୍କ, ଶଶାଙ୍କ, ନିଶାକର, ସୁଧାଂଶୁ, ବିଧୁ, ହିମାଂଶୁ, ଚନ୍ଦ୍ରମା, ଓଷଧୀଶ</td></tr><tr><td data-l="Word"><strong>ମେଘ</strong> (cloud)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଜଳଦ, ଜୀମୂତ, ବଳାହକ, ନୀରଦ, ପୟୋଦ, ଅମ୍ବୁଦ, ଘନ</td></tr><tr><td data-l="Word"><strong>ଆକାଶ</strong> (sky)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଗଗନ, ନଭ, ବ୍ୟୋମ, ଅମ୍ବର, ଅନ୍ତରୀକ୍ଷ, ପୁଷ୍କର, ଶୂନ୍ୟ</td></tr><tr><td data-l="Word"><strong>ପବନ</strong> (wind)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ବାୟୁ, ସମୀର, ସମୀରଣ, ମରୁତ, ଅନିଳ, ପବମାନ, ଗନ୍ଧବହ, ନଭସ୍ୱାନ</td></tr><tr><td data-l="Word"><strong>ଅଗ୍ନି</strong> (fire)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଅନଳ, ପାବକ, ବହ୍ନି, ଦହନ, ହୁତାଶନ, ବୈଶ୍ୱାନର</td></tr><tr><td data-l="Word"><strong>ବିଜୁଳି</strong> (lightning)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ବିଦ୍ୟୁତ୍, ଚପଳା, ସୌଦାମିନୀ, ତଡ଼ିତ୍</td></tr><tr><td data-l="Word"><strong>ବର୍ଷା</strong> (rain)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ବୃଷ୍ଟି, ବର୍ଷଣ, ବାରିଧାରା</td></tr><tr><td data-l="Word"><strong>କୁଆପଥର</strong> (hail)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">କରକା</td></tr><tr><td data-l="Word"><strong>ରାତ୍ରି</strong> (night)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ନିଶା, ରଜନୀ, ଯାମିନୀ, ଶର୍ବରୀ, ବିଭାବରୀ</td></tr><tr><td data-l="Word"><strong>ଦିନ</strong> (day)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଦିବସ, ବାସର, ଦିବା</td></tr><tr><td data-l="Word"><strong>ତାରା</strong> (star)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ନକ୍ଷତ୍ର, ତାରକା, ଉଡୁ</td></tr><tr><td data-l="Word"><strong>ସନ୍ଧ୍ୟା</strong> (evening)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ସାୟଂ, ଗୋଧୂଳି</td></tr></tbody></table></div><h3><span class="h3n">4.3</span>Land and water</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Synonyms to learn</th></tr></thead><tbody><tr><td data-l="Word"><strong>ନଦୀ</strong> (river)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ସରିତା, ତଟିନୀ, ତରଙ୍ଗିଣୀ, ସ୍ରୋତସ୍ୱତୀ, ନିମ୍ନଗା</td></tr><tr><td data-l="Word"><strong>ଗଙ୍ଗା</strong> (Ganga)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଜାହ୍ନବୀ, ଭାଗୀରଥୀ, ସ୍ୱର୍ଣ୍ଣଦୀ, ବିଷ୍ଣୁପଦୀ, ମନ୍ଦାକିନୀ</td></tr><tr><td data-l="Word"><strong>ସମୁଦ୍ର</strong> (sea)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ସାଗର, ଜଳଧି, ଅର୍ଣ୍ଣବ, ପାରାବାର, ଉଦଧି, ରତ୍ନାକର, ପୟୋନିଧି, ସିନ୍ଧୁ</td></tr><tr><td data-l="Word"><strong>ଜଳ / ପାଣି</strong> (water)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ବାରି, ନୀର, ସଲିଳ, ଅମ୍ବୁ, ତୋୟ, ଉଦକ, ପୟ</td></tr><tr><td data-l="Word"><strong>ପୃଥିବୀ</strong> (earth)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଧରା, ଧରିତ୍ରୀ, ଭୂମି, ବସୁନ୍ଧରା, ମେଦିନୀ, ଅବନୀ, ବିଶ୍ୱମ୍ଭରା, ମହୀ</td></tr><tr><td data-l="Word"><strong>ପର୍ବତ</strong> (mountain)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଗିରି, ଅଦ୍ରି, ଶୈଳ, ଭୂଧର, ମହୀଧର, ନଗ, ଅଚଳ</td></tr><tr><td data-l="Word"><strong>ଘର</strong> (house)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଗୃହ, ଆଳୟ, ଭବନ, ସଦ୍ମ, ନିକେତନ, ନିଳୟ</td></tr><tr><td data-l="Word"><strong>ଅରଣ୍ୟ</strong> (forest)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ବନ, ବିପିନ, କାନନ</td></tr><tr><td data-l="Word"><strong>ପୋଖରୀ</strong> (pond)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ସରସୀ, ତଡ଼ାଗ, ସରୋବର, କାସାର</td></tr><tr><td data-l="Word"><strong>କମଳ</strong> (lotus)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ପଦ୍ମ, ପଙ୍କଜ, ସରୋଜ, ଅମ୍ବୁଜ, ଜଳଜ, ରାଜୀବ, ସରସୀରୁହ</td></tr><tr><td data-l="Word"><strong>ଫୁଲ</strong> (flower)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ପୁଷ୍ପ, କୁସୁମ, ସୁମନ, ପ୍ରସୂନ</td></tr><tr><td data-l="Word"><strong>ଗଛ</strong> (tree)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ବୃକ୍ଷ, ତରୁ, ପାଦପ, ବିଟପୀ, ଦ୍ରୁମ, ମହୀରୁହ, ଶାଖୀ</td></tr><tr><td data-l="Word"><strong>ବାଟ</strong> (road)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ସରଣୀ, ପଥ, ମାର୍ଗ, ରାସ୍ତା</td></tr><tr><td data-l="Word"><strong>ନୌକା</strong> (boat)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ତରଣୀ, ବହିତ୍ର, ତରୀ, ପୋତ</td></tr><tr><td data-l="Word"><strong>ବନ୍ୟା</strong> (flood)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ବାନ, ପ୍ଲାବନ</td></tr></tbody></table></div><p>Remember: <strong>ରାଜୀବ</strong> (a lotus word) was <strong>Not valued</strong> in 2021 <span class="pyq">2021 Q13</span>. It is safe to learn it with the lotus family, but expect nothing from that exact question.</p><h3><span class="h3n">4.4</span>Animals and birds</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Synonyms to learn</th></tr></thead><tbody><tr><td data-l="Word"><strong>ସାପ</strong> (snake)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଅହି, ଉରଗ, ଭୁଜଙ୍ଗ, ନାଗ, ସର୍ପ, ବ୍ୟାଳ, ଫଣୀ</td></tr><tr><td data-l="Word"><strong>ହାତୀ</strong> (elephant)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଗଜ, କରୀ, ଦନ୍ତୀ, ଦ୍ୱିପ, ମାତଙ୍ଗ, ବାରଣ, ହସ୍ତୀ</td></tr><tr><td data-l="Word"><strong>ପକ୍ଷୀ</strong> (bird)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ବିହଙ୍ଗ, ଖଗ, ବିହଗ, ଦ୍ୱିଜ, ବିହଙ୍ଗମ</td></tr><tr><td data-l="Word"><strong>ଗାଈ</strong> (cow)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଗାଭୀ, ଧେନୁ, ସୁରଭି, ରୋହିଣୀ</td></tr><tr><td data-l="Word"><strong>ସିଂହ</strong> (lion)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">କେଶରୀ, ମୃଗରାଜ, ପଶୁରାଜ, ହରି</td></tr><tr><td data-l="Word"><strong>ଘୋଡ଼ା</strong> (horse)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଅଶ୍ୱ, ତୁରଙ୍ଗ, ହୟ, ବାଜୀ, ଘୋଟକ</td></tr><tr><td data-l="Word"><strong>ଭ୍ରମର</strong> (bee)</td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ମଧୁପ, ଅଳି, ଷଟ୍ପଦ, ମଧୁକର, ଭୃଙ୍ଗ</td></tr><tr><td data-l="Word"><strong>ମୟୂର</strong> (peacock)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଶିଖୀ, କେକୀ, ବର୍ହୀ</td></tr><tr><td data-l="Word"><strong>କୋକିଳ</strong> (cuckoo)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ପିକ, ପରଭୃତ, କୋଇଲି</td></tr><tr><td data-l="Word"><strong>ହଂସ</strong> (swan)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ମରାଳ</td></tr><tr><td data-l="Word"><strong>ମାଛ</strong> (fish)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ମୀନ, ମତ୍ସ୍ୟ, ଝଷ</td></tr><tr><td data-l="Word"><strong>ବାଘ</strong> (tiger)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ବ୍ୟାଘ୍ର, ଶାର୍ଦ୍ଦୂଳ</td></tr></tbody></table></div><p>Note the family hint: <strong>ଉରଗ, ଭୁଜଙ୍ଗ, ଅହି</strong> all mean snake because they describe how it moves ("goes on its chest", "goes crooked", "bites"). A word that shows what the animal does is usually a synonym.</p><h3><span class="h3n">4.5</span>Gods, demons and people</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Synonyms to learn</th></tr></thead><tbody><tr><td data-l="Word"><strong>ଶିବ</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଶଙ୍କର, ମହେଶ, ଶମ୍ଭୁ, ଶ୍ରୀକଣ୍ଠ, ମହାଦେବ, ତ୍ରିଲୋଚନ, ପିନାକୀ, ଚନ୍ଦ୍ରଶେଖର</td></tr><tr><td data-l="Word"><strong>ବିଷ୍ଣୁ</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ହରି, ମାଧବ, କେଶବ, ନାରାୟଣ, ଚକ୍ରପାଣି, ଜନାର୍ଦ୍ଦନ, ପୀତାମ୍ବର</td></tr><tr><td data-l="Word"><strong>ଗଣେଶ</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଗଣପତି, ବିନାୟକ, ଗଜାନନ, ଲମ୍ବୋଦର, ଏକଦନ୍ତ, ଗଜାସ୍ୟ</td></tr><tr><td data-l="Word"><strong>ଲକ୍ଷ୍ମୀ</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">କମଳା, ପଦ୍ମା, ଇନ୍ଦିରା, ରମା</td></tr><tr><td data-l="Word"><strong>ଇନ୍ଦ୍ର</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ସୁରେଶ, ଶଚୀପତି, ପୁରନ୍ଦର, ବାସବ, ଦେବରାଜ</td></tr><tr><td data-l="Word"><strong>ଦେବତା</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ସୁର, ଅମର, ନିର୍ଜର, ଦେବ</td></tr><tr><td data-l="Word"><strong>ଅସୁର / ଦାନବ</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ଦନୁଜ, ଦୈତ୍ୟ, ରାକ୍ଷସ, ନିଶାଚର</td></tr><tr><td data-l="Word"><strong>ଯମ</strong></td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଶମନ, କୃତାନ୍ତ, ଧର୍ମରାଜ</td></tr><tr><td data-l="Word"><strong>ରାଜା</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ନୃପ, ନୃପତି, ଭୂପ, ଭୂପାଳ, ମହୀପାଳ, ନରପତି</td></tr><tr><td data-l="Word"><strong>ସ୍ତ୍ରୀ</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ନାରୀ, ଅବଳା, ରମଣୀ, ଲଳନା, ବନିତା, ମହିଳା</td></tr><tr><td data-l="Word"><strong>ପୁତ୍ର</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ସୁତ, ତନୟ, ଆତ୍ମଜ, ନନ୍ଦନ</td></tr><tr><td data-l="Word"><strong>କନ୍ୟା</strong></td><td data-l="Chance">★★★</td><td data-l="Synonyms to learn">ସୁତା, ତନୟା, ଦୁହିତା, ଆତ୍ମଜା, ନନ୍ଦିନୀ</td></tr><tr><td data-l="Word"><strong>ମିତ୍ର</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ବନ୍ଧୁ, ସଖା, ସୁହୃଦ, ସଙ୍ଗୀ</td></tr><tr><td data-l="Word"><strong>ଶତ୍ରୁ</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଅରି, ରିପୁ, ବୈରୀ, ଦୁଶ୍ମନ</td></tr><tr><td data-l="Word"><strong>ଛାତ୍ର</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଶିଷ୍ୟ, ବିଦ୍ୟାର୍ଥୀ, ଅଧୀତୀ</td></tr><tr><td data-l="Word"><strong>ଗୁରୁ</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଆଚାର୍ଯ୍ୟ, ଶିକ୍ଷକ, ଉପାଧ୍ୟାୟ</td></tr><tr><td data-l="Word"><strong>ବ୍ରାହ୍ମଣ</strong></td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଦ୍ୱିଜ, ବିପ୍ର</td></tr><tr><td data-l="Word"><strong>ମଣିଷ</strong></td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ମାନବ, ନର, ମନୁଷ୍ୟ, ମର୍ତ୍ତ୍ୟ</td></tr><tr><td data-l="Word"><strong>ସେବକ</strong></td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଭୃତ୍ୟ, ଦାସ, ପରିଚାରକ</td></tr><tr><td data-l="Word"><strong>ଚୋର</strong></td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ତସ୍କର, ଚୌର</td></tr></tbody></table></div><h3><span class="h3n">4.6</span>Body, wealth and war</h3><p>This is a family that <strong>has not been asked yet</strong>, so it is a possible new angle. The syllabus lists "ପ୍ରତିଶବ୍ଦ" without a limit.</p><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Synonyms to learn</th></tr></thead><tbody><tr><td data-l="Word"><strong>ଶରୀର</strong> (body)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଦେହ, ତନୁ, କାୟା, ବପୁ, ଗାତ୍ର</td></tr><tr><td data-l="Word"><strong>ଆଖି</strong> (eye)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ନୟନ, ଚକ୍ଷୁ, ନେତ୍ର, ଲୋଚନ, ଅକ୍ଷି</td></tr><tr><td data-l="Word"><strong>ହାତ</strong> (hand)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">କର, ହସ୍ତ, ପାଣି, ଭୁଜ, ବାହୁ</td></tr><tr><td data-l="Word"><strong>ମୁଖ</strong> (face)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ବଦନ, ଆନନ, ବକ୍ତ୍ର</td></tr><tr><td data-l="Word"><strong>ଧନ</strong> (wealth)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ଅର୍ଥ, ବିତ୍ତ, ସମ୍ପତ୍ତି, ବୈଭବ</td></tr><tr><td data-l="Word"><strong>ଅମୃତ</strong> (nectar)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ସୁଧା, ପୀୟୂଷ, ଅମିୟ</td></tr><tr><td data-l="Word"><strong>ଯୁଦ୍ଧ</strong> (war)</td><td data-l="Chance">★★</td><td data-l="Synonyms to learn">ସମର, ରଣ, ସଂଗ୍ରାମ, ସଙ୍ଗର</td></tr><tr><td data-l="Word"><strong>ତୀର</strong> (arrow)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଶର, ସାୟକ, ବାଣ, ବିଶିଖ</td></tr><tr><td data-l="Word"><strong>ଖଡ୍ଗ</strong> (sword)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଅସି, କୃପାଣ, ତରବାରୀ</td></tr><tr><td data-l="Word"><strong>ଅଶ୍ରୁ</strong> (tear)</td><td data-l="Chance">★</td><td data-l="Synonyms to learn">ଲୋତକ, ନୟନଜଳ</td></tr></tbody></table></div><h3><span class="h3n">4.7</span>How to learn the lists fast</h3><p>1. Pick the <strong>★★★ rows</strong> only. There are about 25 words. 2. Say each row aloud: word, then its family. Link each to a picture: moon with a deer mark (ମୃଗାଙ୍କ), snake going on its chest (ଉରଗ). 3. Learn <strong>pairs of look-alike bait</strong>: ଜଳଦ / ଜଳଧି, ତରଣୀ / ସରଣୀ, ବହିତ୍ର / ବାଦିତ୍ର, ଦ୍ୱିଜ / ଦ୍ୱିପ, ଅନୁଜ / ଦନୁଜ / ତନୁଜ. 4. Do a quick test next day: cover the right column.</p><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Likely next: a synonym of ‘ସୂର୍ଯ୍ୟ’ (sun): ଦିବାକର, ଶଶାଙ୍କ, ଅନିଳ, ଅର୍ଣ୍ଣବ?</summary><p>ଦିବାକର. ଶଶାଙ୍କ is the moon, ଅନିଳ the wind, ଅର୍ଣ୍ଣବ the sea.</p></details><details class="qa"><summary>Likely next: a synonym of ‘ନଦୀ’: ସରିତା, ସରସୀ, ଜଳଧି, ପାବକ?</summary><p>ସରିତା. ସରସୀ is a pond.</p></details><details class="qa"><summary>Likely next: a synonym of ‘ଭ୍ରମର’: ମଧୁପ, ମୃଗାଙ୍କ, ମହୀଧର, ଗନ୍ଧବହ?</summary><p>ମଧୁପ.</p></details><details class="qa"><summary>Likely next: a synonym of ‘ଘୋଡ଼ା’: ତୁରଙ୍ଗ, ଦ୍ୱିପ, କେଶରୀ, ଉରଗ?</summary><p>ତୁରଙ୍ଗ. (ତୁରଗ is also horse; it was bait for ଗଜ in 2021.)</p></details><details class="qa"><summary>Likely next: a synonym of ‘ଶିବ’: ମହେଶ, ମାଧବ, କେଶବ, ବାସବ?</summary><p>ମହେଶ. ମାଧବ and କେଶବ are Vishnu, ବାସବ is Indra.</p></details></div></aside></section>
+<section id="ant"><div class="sectrule"><span class="eyebrow">Chapter <b>05</b> · ବିପରୀତ ଶବ୍ଦ · 33 QUESTIONS</span><span class="line"></span></div><h2>5. Antonyms: how the examiner picks</h2><p>A <strong>ବିପରୀତ ଶବ୍ଦ</strong> (antonym) is a word that means the opposite: ସୁଖ (joy) and ଦୁଃଖ (sorrow). The question prints one word and four options. You pick the opposite one.</p><h3><span class="h3n">5.1</span>The three kinds of antonym question</h3><p>All 33 past questions fit three kinds. Each kind has a different trick.</p><div class="tw"><table class="t"><thead><tr><th>Kind</th><th>What it means</th><th>Asked</th><th>Example</th></tr></thead><tbody><tr><td data-l="Kind"><strong>Sanskrit pair</strong></td><td data-l="What it means">a learned word and its learned opposite</td><td data-l="Asked">20</td><td data-l="Example">ହର୍ଷ - ବିଷାଦ</td></tr><tr><td data-l="Kind"><strong>Odia (ଦେଶୀ) pair</strong></td><td data-l="What it means">an everyday Odia word and its opposite</td><td data-l="Asked">8</td><td data-l="Example">ଡେଙ୍ଗା - ଗେଡ଼ା</td></tr><tr><td data-l="Kind"><strong>Prefix pair</strong></td><td data-l="What it means">the same word with a prefix like ଅ, ଅନ, ଅପ</td><td data-l="Asked">5</td><td data-l="Example">ଖ୍ୟାତି - ଅପଖ୍ୟାତି</td></tr></tbody></table></div><h3><span class="h3n">5.2</span>Past questions: Sanskrit pairs</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right opposite</th><th>Bait in the options</th></tr></thead><tbody><tr><td data-l="Word">ହର୍ଷ (joy) <span class="pyq">2018 Q91</span></td><td data-l="Right opposite"><strong>ବିଷାଦ</strong></td><td data-l="Bait in the options">ଦୁଃଖ, ବିହର୍ଷ, ଶୋକ</td></tr><tr><td data-l="Word">ଆର୍ଦ୍ର (wet) <span class="pyq">2018 Q92</span></td><td data-l="Right opposite"><strong>ଶୁଷ୍କ</strong></td><td data-l="Bait in the options">ଉଷ୍ଣ, ଶୁଖିଲା, ସିକ୍ତ</td></tr><tr><td data-l="Word">ଅର୍ପଣ (giving) <span class="pyq">2018 Q93</span></td><td data-l="Right opposite"><strong>ଗ୍ରହଣ</strong></td><td data-l="Bait in the options">ନିଃର୍ପଣ, ତର୍ପଣ, ଅନାର୍ପଣ</td></tr><tr><td data-l="Word">ଆକର୍ଷଣ <span class="pyq">2018 Q94</span></td><td data-l="Right opposite"><strong>ବିକର୍ଷଣ</strong></td><td data-l="Bait in the options">ଅନାକର୍ଷଣ, ନିଃକର୍ଷଣ, ନିଷ୍କର୍ଷଣ</td></tr><tr><td data-l="Word">ଜୀବନ <span class="pyq">2018 Q98</span></td><td data-l="Right opposite"><strong>ମରଣ</strong></td><td data-l="Bait in the options">ମୃତ୍ୟୁ, ଆଜୀବନ</td></tr><tr><td data-l="Word">ପ୍ରସନ୍ନ <span class="pyq">2021 Q21</span></td><td data-l="Right opposite"><strong>ବିଷଣ୍ଣ</strong></td><td data-l="Bait in the options">ଦୁଃଖୀ, ଅଧୀର, କ୍ରୋଧାନ୍ୱିତ</td></tr><tr><td data-l="Word">କ୍ଷୀଣ <span class="pyq">2021 Q22</span></td><td data-l="Right opposite"><strong>ପୃଥୁଳ</strong> (stout)</td><td data-l="Bait in the options">ବୃହତ୍, ଅଧିକ, ସବଳ</td></tr><tr><td data-l="Word">ସଂକୀର୍ଣ୍ଣ <span class="pyq">2021 Q23</span></td><td data-l="Right opposite"><strong>ପ୍ରଶସ୍ତ</strong> (wide)</td><td data-l="Bait in the options">ସଂକୁଚିତ, ଅନୁଦାର, ସମାକୀର୍ଣ୍ଣ</td></tr><tr><td data-l="Word">ନିରପେକ୍ଷ <span class="pyq">2021 Q24</span></td><td data-l="Right opposite"><strong>ପକ୍ଷପାତୀ</strong></td><td data-l="Bait in the options">ବିପକ୍ଷ, ପ୍ରତ୍ୟକ୍ଷ, ସହପକ୍ଷ</td></tr><tr><td data-l="Word">ମସୃଣ (smooth) <span class="pyq">2021 Q25</span></td><td data-l="Right opposite"><strong>ବନ୍ଧୁର</strong> (rough)</td><td data-l="Bait in the options">ଚିକ୍କଣ, ଚୌରସ, କୋମଳ</td></tr><tr><td data-l="Word">ନିବୃତ୍ତ (stopped) <span class="pyq">2021 Q26</span></td><td data-l="Right opposite"><strong>ପ୍ରବୃତ୍ତ</strong> (started)</td><td data-l="Bait in the options">ପ୍ରତ୍ୟାବୃତ୍ତ, କ୍ଷାନ୍ତ, ବିବୃତ୍ତ</td></tr><tr><td data-l="Word">ପ୍ରସ୍ଥାନ (leaving) <span class="pyq">2021 Q29</span></td><td data-l="Right opposite"><strong>ପ୍ରବେଶ</strong></td><td data-l="Bait in the options">ଉତ୍ପନ୍ନ, ଗମନ, ପ୍ରେରଣ</td></tr><tr><td data-l="Word">ସମଷ୍ଟି (the whole) <span class="pyq">2021 Q30</span></td><td data-l="Right opposite"><strong>ବ୍ୟଷ୍ଟି</strong> (one part)</td><td data-l="Bait in the options">ସାକଲ୍ୟ, ସଂହତି, ସଂକ୍ଷେପଣ</td></tr><tr><td data-l="Word">ବ୍ୟର୍ଥ <span class="pyq">2025 Q11</span></td><td data-l="Right opposite"><strong>ସାର୍ଥ</strong></td><td data-l="Bait in the options">ସଫଳ, ସମର୍ଥ, ସ୍ୱାର୍ଥ</td></tr><tr><td data-l="Word">ଭୀମ (terrible) <span class="pyq">2025 Q12</span></td><td data-l="Right opposite"><strong>କାନ୍ତ</strong> (gentle, lovely)</td><td data-l="Bait in the options">କୋମଳ, ଶାନ୍ତ, ଧୀର</td></tr><tr><td data-l="Word">ପ୍ରବର୍ତ୍ତନ (starting) <span class="pyq">2025 Q14</span></td><td data-l="Right opposite"><strong>ନିବର୍ତ୍ତନ</strong></td><td data-l="Bait in the options">ନିବାରଣ, ନିବୃତ୍ତି, ନିର୍ବହଣ</td></tr><tr><td data-l="Word">ଶିଷ୍ଟ (polite) <span class="pyq">2025 Q16</span> <span class="chk">CHECK</span> <i class="chkn">: ଅଶିଷ୍ଟ is also a fair opposite; the key is ଦୁଷ୍ଟ</i></td><td data-l="Right opposite"><strong>ଦୁଷ୍ଟ</strong></td><td data-l="Bait in the options">ଅଶିଷ୍ଟ, ଖଳ, ଅଭଦ୍ର</td></tr><tr><td data-l="Word">ସ୍ୱାବଲମ୍ବୀ <span class="pyq">2025 Q17</span></td><td data-l="Right opposite"><strong>ପରାବଲମ୍ବୀ</strong> (dependent)</td><td data-l="Bait in the options">ଅନାବଲମ୍ବୀ, ନିରାବଲମ୍ବୀ, ଅଣବଲମ୍ବୀ</td></tr><tr><td data-l="Word">ଖର୍ଚ୍ଚ <span class="pyq">2025 Q20</span></td><td data-l="Right opposite"><strong>ଜମା</strong></td><td data-l="Bait in the options">ସଂଚୟ, ପୁଞ୍ଜି, ସଂଗ୍ରହ</td></tr><tr><td data-l="Word">ସ୍ଥାବର <span class="pyq">2021 Q27</span> <span class="chk">CHECK</span> <i class="chkn">: printed as "synonym" but the key ଜଙ୍ଗମ is the opposite of ସ୍ଥାବର; ଅଚଳ is the true synonym</i></td><td data-l="Right opposite"><strong>ଜଙ୍ଗମ</strong></td><td data-l="Bait in the options">ଜଡ଼, ଅଚଳ, ସ୍ଥିତିଶୀଳ</td></tr></tbody></table></div><p>Look at the <strong>trick in the bait</strong>: the examiner puts a <strong>second opposite</strong> next to the right one, like ଦୁଃଖ (sorrow) and ଶୋକ (grief) for ହର୍ଷ. They are close to the opposite, but not the exact opposite. Choose the word that is the <strong>textbook partner</strong> (ହର୍ଷ - ବିଷାଦ, ସୁଖ - ଦୁଃଖ).</p><h3><span class="h3n">5.3</span>Past questions: Odia (desi) pairs</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right opposite</th><th>Bait</th></tr></thead><tbody><tr><td data-l="Word">ନିଅଣ୍ଟ (shortage) <span class="pyq">2018 Q69</span> <span class="pyq">2021 Q28</span></td><td data-l="Right opposite"><strong>ବଳକା</strong> (left over)</td><td data-l="Bait">ଅଧିକ, ବହୁତ, ବେଶୀ, ଅଭାବ, ଅଘଟ, ବହୁଳ</td></tr><tr><td data-l="Word">ଡେଙ୍ଗା (tall) <span class="pyq">2018 Q97</span></td><td data-l="Right opposite"><strong>ଗେଡ଼ା</strong> (short, stout)</td><td data-l="Bait">ଛୋଟ, ବାଙ୍ଗରା, ବାଣ୍ଠୁ</td></tr><tr><td data-l="Word">ଝଅଟ (quick) <span class="pyq">2018 Q99</span></td><td data-l="Right opposite"><strong>ମଠ</strong> (slow, dull)</td><td data-l="Bait">ବିଳମ୍ବ, ଡେରି, ଧୀର</td></tr><tr><td data-l="Word">ଗାଲୁଆ (liar) <span class="pyq">2018 Q100</span></td><td data-l="Right opposite"><strong>ସତିଆ</strong></td><td data-l="Bait">ସତ୍ୟ, ସତ୍ୟବାଦୀ, ସତସତିକା</td></tr><tr><td data-l="Word">ଉଚ୍ଛୁର (late) <span class="pyq">2021 Q100</span></td><td data-l="Right opposite"><strong>ସଅଳ</strong> (early)</td><td data-l="Bait">ସଙ୍ଗେ ସଙ୍ଗେ, ଶୀଘ୍ର, ଜଲଦି</td></tr><tr><td data-l="Word">ମୁକୁଳା (free) <span class="pyq">2025 Q13</span></td><td data-l="Right opposite"><strong>ବଂଧା</strong></td><td data-l="Bait">ବଂଧନ, ଶୃଙ୍ଖଳା, ଶୃଙ୍ଖଳ</td></tr><tr><td data-l="Word">ତେଲିଆ (oily) <span class="pyq">2025 Q15</span></td><td data-l="Right opposite"><strong>ରୁଖୁରା</strong> (dry)</td><td data-l="Bait">ପାମ୍ପରା, ଶୁଖିଲା, ଅତେଲିଆ</td></tr></tbody></table></div><p>The Odia pairs repeat more than the Sanskrit pairs: <strong>ନିଅଣ୍ଟ - ବଳକା</strong> was asked twice, and in 2025 the word <strong>ମୁକୁଳା - ବଂଧା</strong> had four options that all came from the "bound" family: ବଂଧନ (the binding), ଶୃଙ୍ଖଳା and ଶୃଙ୍ଖଳ (a chain), ବଂଧା (bound). Only <strong>ବଂଧା</strong> is the opposite of free. Do not pick the <strong>noun</strong> (ବଂଧନ) when the question word is an <strong>adjective</strong>.</p><h3><span class="h3n">5.4</span>Past questions: prefix pairs</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Right opposite</th><th>Bait</th></tr></thead><tbody><tr><td data-l="Word">ଦୟାଳୁ <span class="pyq">2018 Q60</span></td><td data-l="Right opposite"><strong>ନିର୍ଦ୍ଦୟ</strong></td><td data-l="Bait">ନିଷ୍ଠୁର, କଠୋର, ନିର୍ମମ</td></tr><tr><td data-l="Word">ଆବୃତ <span class="pyq">2018 Q95</span> <span class="chk">CHECK</span> <i class="chkn">: the real opposite of ଆବୃତ (covered) is ଅନାବୃତ; the key follows the printed ଆବୃତ୍ତ and picks ଅନାବୃତ୍ତ</i></td><td data-l="Right opposite"><strong>ଅନାବୃତ୍ତ</strong></td><td data-l="Bait">ନିବୃତ୍ତ, ଅନାବୃତ</td></tr><tr><td data-l="Word">ଖ୍ୟାତି <span class="pyq">2018 Q96</span></td><td data-l="Right opposite"><strong>ଅପଖ୍ୟାତି</strong></td><td data-l="Bait">ଅନଖ୍ୟାତି, ଅଖ୍ୟାତି</td></tr><tr><td data-l="Word">ଉତ୍କର୍ଷ <span class="pyq">2025 Q18</span></td><td data-l="Right opposite"><strong>ଅପକର୍ଷ</strong></td><td data-l="Bait">ଅନାକର୍ଷ, ଅନୁକର୍ଷ, ନିରୁତ୍କର୍ଷ</td></tr><tr><td data-l="Word">ଆରାଧ୍ୟ <span class="pyq">2025 Q19</span></td><td data-l="Right opposite"><strong>ଦୁରାରାଧ୍ୟ</strong></td><td data-l="Bait">ଅନାରାଧ୍ୟ, ଦୁରାଧ୍ୟ, ବିପ୍ରରାଧ୍ୟ</td></tr></tbody></table></div><p><strong>Important</strong>: the prefix does not follow one rule. ଅ-, ଅନ-, ନି-, ଅପ-, ଦୁର- are all possible and the question tests <strong>which one is used</strong>. The only way is to know the pair: <strong>ଖ୍ୟାତି - ଅପଖ୍ୟାତି</strong>, <strong>ଉତ୍କର୍ଷ - ଅପକର୍ଷ</strong>, <strong>ଆରାଧ୍ୟ - ଦୁରାରାଧ୍ୟ</strong>, <strong>ଦୟାଳୁ - ନିର୍ଦ୍ଦୟ</strong>.</p><h3><span class="h3n">5.5</span>The three habits of the examiner</h3><p>1. <strong>He picks the textbook partner</strong>, not any word that means roughly the opposite. 2. <strong>The bait are always real words</strong> that are near in meaning or sound: ଶୁଷ୍କ vs ଶୁଖିଲା (both "dry"), ସଂଚୟ vs ଜମା. 3. <strong>The Odia (desi) pairs repeat</strong> across the years, so past pairs come again.</p><aside class="box next"><p class="box-t">Check yourself</p><div class="qas"><details class="qa"><summary>Opposite of ‘ହର୍ଷ’: ବିଷାଦ or ଶୋକ?</summary><p>ବିଷାଦ (the textbook partner). ଶୋକ is only close.</p></details><details class="qa"><summary>Opposite of ‘ନିଅଣ୍ଟ’?</summary><p>ବଳକା.</p></details><details class="qa"><summary>Opposite of ‘ଖ୍ୟାତି’: ଅଖ୍ୟାତି, ଅପଖ୍ୟାତି, ଅନଖ୍ୟାତି?</summary><p>ଅପଖ୍ୟାତି.</p></details><details class="qa"><summary>Opposite of ‘ଉତ୍କର୍ଷ’?</summary><p>ଅପକର୍ଷ.</p></details><details class="qa"><summary>Opposite of ‘ଝଅଟ’?</summary><p>ମଠ.</p></details></div></aside></section>
+<section id="antlist"><div class="sectrule"><span class="eyebrow">Chapter <b>06</b> · ବିପରୀତ ଶବ୍ଦ · THE LISTS</span><span class="line"></span></div><h2>6. Antonyms: the likely-next pairs</h2><p>Here are the pairs we think come next. <strong>★★★</strong> = a close neighbour of a past question; <strong>★★</strong> = a standard textbook pair; <strong>★</strong> = possible. Each row gives the question word, then its right opposite, then one <strong>bait word</strong> you must avoid.</p><h3><span class="h3n">6.1</span>Sanskrit pairs (the biggest part)</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Opposite</th><th>Near-miss, not the pair</th></tr></thead><tbody><tr><td data-l="Word"><strong>ସୁଖ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଦୁଃଖ</td><td data-l="Near-miss, not the pair">ଆନନ୍ଦ</td></tr><tr><td data-l="Word"><strong>ଉନ୍ନତି</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅବନତି</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଆଦି</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅନ୍ତ</td><td data-l="Near-miss, not the pair">ମଧ୍ୟ</td></tr><tr><td data-l="Word"><strong>ଆରମ୍ଭ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ସମାପ୍ତି</td><td data-l="Near-miss, not the pair">ଶେଷ (also fine; if both appear choose ସମାପ୍ତି)</td></tr><tr><td data-l="Word"><strong>ସୃଷ୍ଟି</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ପ୍ରଳୟ</td><td data-l="Near-miss, not the pair">ବିନାଶ</td></tr><tr><td data-l="Word"><strong>ଉଦୟ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅସ୍ତ</td><td data-l="Near-miss, not the pair">ଅସ୍ତମିତ</td></tr><tr><td data-l="Word"><strong>ଜୟ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ପରାଜୟ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଲାଭ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">କ୍ଷତି</td><td data-l="Near-miss, not the pair">ହାନି</td></tr><tr><td data-l="Word"><strong>ଆୟ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ବ୍ୟୟ</td><td data-l="Near-miss, not the pair">ଖର୍ଚ୍ଚ</td></tr><tr><td data-l="Word"><strong>ଧନୀ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଦରିଦ୍ର</td><td data-l="Near-miss, not the pair">ଗରିବ</td></tr><tr><td data-l="Word"><strong>ସଂଯୋଗ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ବିୟୋଗ</td><td data-l="Near-miss, not the pair">ସଂଘାତ</td></tr><tr><td data-l="Word"><strong>ମିଳନ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ବିରହ</td><td data-l="Near-miss, not the pair">ବିଚ୍ଛେଦ</td></tr><tr><td data-l="Word"><strong>ଉତ୍ଥାନ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ପତନ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଉତ୍ତମ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅଧମ</td><td data-l="Near-miss, not the pair">ମଧ୍ୟମ</td></tr><tr><td data-l="Word"><strong>ସତ୍ୟ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ମିଥ୍ୟା</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଧର୍ମ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅଧର୍ମ</td><td data-l="Near-miss, not the pair">ପାପ</td></tr><tr><td data-l="Word"><strong>ପାପ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ପୁଣ୍ୟ</td><td data-l="Near-miss, not the pair">ଅଧର୍ମ</td></tr><tr><td data-l="Word"><strong>ସ୍ୱର୍ଗ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନର୍କ</td><td data-l="Near-miss, not the pair">ପାତାଳ</td></tr><tr><td data-l="Word"><strong>ଆଲୋକ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅନ୍ଧକାର</td><td data-l="Near-miss, not the pair">ଛାୟା</td></tr><tr><td data-l="Word"><strong>ପ୍ରଶଂସା / ସ୍ତୁତି</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ନିନ୍ଦା</td><td data-l="Near-miss, not the pair">ଅପମାନ</td></tr><tr><td data-l="Word"><strong>ସମ୍ମାନ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅପମାନ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଆଦର</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅନାଦର</td><td data-l="Near-miss, not the pair">ଘୃଣା</td></tr><tr><td data-l="Word"><strong>ସଜ୍ଜନ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଦୁର୍ଜନ</td><td data-l="Near-miss, not the pair">ଖଳ</td></tr><tr><td data-l="Word"><strong>ଆସ୍ତିକ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନାସ୍ତିକ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସ୍ୱଦେଶ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ବିଦେଶ</td><td data-l="Near-miss, not the pair">ପରଦେଶ</td></tr><tr><td data-l="Word"><strong>ସ୍ୱାଧୀନ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ପରାଧୀନ</td><td data-l="Near-miss, not the pair">ଅଧୀନ</td></tr><tr><td data-l="Word"><strong>ସୁଲଭ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଦୁର୍ଲଭ</td><td data-l="Near-miss, not the pair">କଠିନ</td></tr><tr><td data-l="Word"><strong>ସରଳ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଜଟିଳ</td><td data-l="Near-miss, not the pair">କଠିନ (also near; if both, ଜଟିଳ is the textbook partner)</td></tr><tr><td data-l="Word"><strong>ଗୁରୁ</strong> (heavy)</td><td data-l="Chance">★★</td><td data-l="Opposite">ଲଘୁ</td><td data-l="Near-miss, not the pair">ହାଲୁକା</td></tr><tr><td data-l="Word"><strong>ସ୍ଥୂଳ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ସୂକ୍ଷ୍ମ</td><td data-l="Near-miss, not the pair">କୃଶ</td></tr><tr><td data-l="Word"><strong>ସ୍ଥାୟୀ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅସ୍ଥାୟୀ</td><td data-l="Near-miss, not the pair">କ୍ଷଣସ୍ଥାୟୀ</td></tr><tr><td data-l="Word"><strong>ପୂର୍ଣ୍ଣ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅପୂର୍ଣ୍ଣ</td><td data-l="Near-miss, not the pair">ଖାଲି</td></tr><tr><td data-l="Word"><strong>ବିଜ୍ଞ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅଜ୍ଞ</td><td data-l="Near-miss, not the pair">ମୂର୍ଖ</td></tr><tr><td data-l="Word"><strong>ଗୁଣ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଦୋଷ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଜନ୍ମ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ମୃତ୍ୟୁ</td><td data-l="Near-miss, not the pair">ମରଣ (mean the same; choose by the pair on the page)</td></tr><tr><td data-l="Word"><strong>ଭୋଗ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ତ୍ୟାଗ</td><td data-l="Near-miss, not the pair">ବର୍ଜନ</td></tr><tr><td data-l="Word"><strong>ଉର୍ଦ୍ଧ୍ୱ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅଧଃ</td><td data-l="Near-miss, not the pair">ନିମ୍ନ</td></tr><tr><td data-l="Word"><strong>ସମୀପ / ନିକଟ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଦୂର</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସମ୍ପଦ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ବିପଦ</td><td data-l="Near-miss, not the pair">ଦରିଦ୍ରତା</td></tr><tr><td data-l="Word"><strong>ଅନୁକୂଳ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ପ୍ରତିକୂଳ</td><td data-l="Near-miss, not the pair">ବିପରୀତ</td></tr><tr><td data-l="Word"><strong>ଆଗମନ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ପ୍ରସ୍ଥାନ / ନିର୍ଗମନ</td><td data-l="Near-miss, not the pair">ଗମନ</td></tr><tr><td data-l="Word"><strong>ପ୍ରକାଶ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଗୋପନ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଆଶା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନିରାଶା</td><td data-l="Near-miss, not the pair">ହତାଶା</td></tr><tr><td data-l="Word"><strong>ଅନୁରାଗ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ବିରାଗ</td><td data-l="Near-miss, not the pair">ଘୃଣା</td></tr><tr><td data-l="Word"><strong>ଆବାହନ</strong></td><td data-l="Chance">★</td><td data-l="Opposite">ବିସର୍ଜନ</td><td data-l="Near-miss, not the pair">ପ୍ରସ୍ଥାନ</td></tr><tr><td data-l="Word"><strong>ପ୍ରାଚୀନ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନବୀନ / ଆଧୁନିକ</td><td data-l="Near-miss, not the pair">ନୂତନ</td></tr><tr><td data-l="Word"><strong>ପୂର୍ବ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ପଶ୍ଚିମ</td><td data-l="Near-miss, not the pair">ଉତ୍ତର</td></tr></tbody></table></div><p>The list is long on purpose: antonyms are <strong>33 of the 98 questions</strong> and 20 of those were Sanskrit pairs. If you learn only the ★★★ rows (about 25 pairs), you cover most of what is likely.</p><h3><span class="h3n">6.2</span>Prefix pairs (learn the exact word)</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Opposite</th><th>Near-miss, not the pair</th></tr></thead><tbody><tr><td data-l="Word"><strong>ଦୟା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନିର୍ଦ୍ଦୟ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ଆଶା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନିରାଶା</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସଫଳ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ବିଫଳ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସମର୍ଥ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅସମର୍ଥ</td><td data-l="Near-miss, not the pair">ଅଶକ୍ତ</td></tr><tr><td data-l="Word"><strong>ଯୋଗ୍ୟ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅଯୋଗ୍ୟ</td><td data-l="Near-miss, not the pair">ଅନୁପଯୁକ୍ତ</td></tr><tr><td data-l="Word"><strong>ଉଚିତ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅନୁଚିତ</td><td data-l="Near-miss, not the pair">ଅଯୋଗ୍ୟ</td></tr><tr><td data-l="Word"><strong>ବିଶ୍ୱାସ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅବିଶ୍ୱାସ</td><td data-l="Near-miss, not the pair">ସନ୍ଦେହ</td></tr><tr><td data-l="Word"><strong>ଜ୍ଞାନ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅଜ୍ଞାନ</td><td data-l="Near-miss, not the pair">ଅଜ୍ଞ</td></tr><tr><td data-l="Word"><strong>ଉପକାର</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଅପକାର</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସନ୍ତୋଷ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅସନ୍ତୋଷ</td><td data-l="Near-miss, not the pair">ଅସନ୍ତୁଷ୍ଟ</td></tr><tr><td data-l="Word"><strong>ଆବଶ୍ୟକ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅନାବଶ୍ୟକ</td><td data-l="Near-miss, not the pair">ଅଦରକାରୀ</td></tr><tr><td data-l="Word"><strong>ସାକାର</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନିରାକାର</td><td data-l="Near-miss, not the pair">ଅସାକାର</td></tr><tr><td data-l="Word"><strong>ସଗୁଣ</strong></td><td data-l="Chance">★</td><td data-l="Opposite">ନିର୍ଗୁଣ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସାର୍ଥକ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନିରର୍ଥକ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସବଳ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଦୁର୍ବଳ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସୁଗମ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଦୁର୍ଗମ</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସୁକର</strong></td><td data-l="Chance">★</td><td data-l="Opposite">ଦୁଷ୍କର</td><td data-l="Near-miss, not the pair">—</td></tr><tr><td data-l="Word"><strong>ସାବଧାନ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଅସାବଧାନ</td><td data-l="Near-miss, not the pair">ଅନବଧାନ</td></tr><tr><td data-l="Word"><strong>ସଚେତନ</strong></td><td data-l="Chance">★</td><td data-l="Opposite">ଅଚେତନ</td><td data-l="Near-miss, not the pair">ଅଜାଗ୍ରତ</td></tr><tr><td data-l="Word"><strong>ମୂର୍ତ୍ତ</strong></td><td data-l="Chance">★</td><td data-l="Opposite">ଅମୂର୍ତ୍ତ</td><td data-l="Near-miss, not the pair">ନିରାକାର</td></tr></tbody></table></div><p>Note: for the prefix pairs the <strong>wrong options often have another prefix</strong>: ଅନ-, ଅଣ-, ଅପ-, ନି-, ନିର୍-. The shape of the right one is usually <strong>the common textbook form</strong>. For <strong>ଆରାଧ୍ୟ - ଦୁରାରାଧ୍ୟ</strong> (a hard case) <span class="pyq">2025 Q19</span> the right one has <strong>ଦୁର</strong> and not ଅ.</p><h3><span class="h3n">6.3</span>Odia (desi) pairs</h3><p>These are the most likely to repeat, because the examiner repeated ନିଅଣ୍ଟ - ବଳକା. The question words below are everyday words; the opposite is another everyday word.</p><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Chance</th><th>Opposite</th><th>Meaning</th></tr></thead><tbody><tr><td data-l="Word"><strong>ଭଲ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ମନ୍ଦ</td><td data-l="Meaning">good, bad</td></tr><tr><td data-l="Word"><strong>ଗରମ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଥଣ୍ଡା</td><td data-l="Meaning">hot, cold</td></tr><tr><td data-l="Word"><strong>ଟାଣ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନରମ</td><td data-l="Meaning">hard, soft</td></tr><tr><td data-l="Word"><strong>ଭାରୀ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ହାଲୁକା</td><td data-l="Meaning">heavy, light</td></tr><tr><td data-l="Word"><strong>ଧଳା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">କଳା</td><td data-l="Meaning">white, black</td></tr><tr><td data-l="Word"><strong>ପୁରୁଣା</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ନୂଆ</td><td data-l="Meaning">old, new</td></tr><tr><td data-l="Word"><strong>ସତ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ମିଛ</td><td data-l="Meaning">true, false</td></tr><tr><td data-l="Word"><strong>ଖୋଲା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ବନ୍ଦ</td><td data-l="Meaning">open, shut</td></tr><tr><td data-l="Word"><strong>ଭରା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଖାଲି</td><td data-l="Meaning">full, empty</td></tr><tr><td data-l="Word"><strong>ମୋଟା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ପତଳା / ସରୁ</td><td data-l="Meaning">thick, thin</td></tr><tr><td data-l="Word"><strong>ମିଠା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ତିକ୍ତ / ତିତା</td><td data-l="Meaning">sweet, bitter</td></tr><tr><td data-l="Word"><strong>ସସ୍ତା</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ମହଙ୍ଗା</td><td data-l="Meaning">cheap, dear</td></tr><tr><td data-l="Word"><strong>ଆମଦାନି</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ରପ୍ତାନି</td><td data-l="Meaning">import, export</td></tr><tr><td data-l="Word"><strong>ଉଚ୍ଚ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ନୀଚ</td><td data-l="Meaning">high, low</td></tr><tr><td data-l="Word"><strong>ଲମ୍ବା</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">ଗେଡ଼ା / ବେଣ୍ଟା</td><td data-l="Meaning">tall, short</td></tr><tr><td data-l="Word"><strong>ଶୀଘ୍ର</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ବିଳମ୍ବ</td><td data-l="Meaning">quick, slow</td></tr><tr><td data-l="Word"><strong>ଅଧିକ</strong></td><td data-l="Chance">★★★</td><td data-l="Opposite">କମ୍ / ଅଳ୍ପ</td><td data-l="Meaning">more, less</td></tr><tr><td data-l="Word"><strong>ଗରିବ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ଧନୀ</td><td data-l="Meaning">poor, rich</td></tr><tr><td data-l="Word"><strong>ସକାଳ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ସନ୍ଧ୍ୟା</td><td data-l="Meaning">morning, evening</td></tr><tr><td data-l="Word"><strong>ଉଜ୍ଜ୍ୱଳ</strong></td><td data-l="Chance">★★</td><td data-l="Opposite">ମଳିନ</td><td data-l="Meaning">bright, dull</td></tr></tbody></table></div><p><span class="chk">CHECK</span> <i class="chkn">: ଲମ୍ବା - ଗେଡ଼ା and ଲମ୍ବା - ବେଣ୍ଟା are both in use; the paper asked ଡେଙ୍ଗା - ଗେଡ଼ା, so ଗେଡ଼ା is the safest</i></p><h3><span class="h3n">6.4</span>Traps to avoid</h3><ul><li><strong>Do not pick a synonym.</strong> In ହର୍ଷ, the options ଦୁଃଖ and ଶୋକ and ବିଷାଦ all mean "sorrow". The paper's key is ବିଷାଦ, because the book says so. Learn the partner as a pair.</li><li><strong>Do not invent a "no" word</strong> (ଅ + word) if a real opposite word exists. For ‘ଆର୍ଦ୍ର’ the right one is <strong>ଶୁଷ୍କ</strong>, not ଅଆର୍ଦ୍ର.</li><li><strong>Noun vs adjective.</strong> ମୁକୁଳା (free, adjective) takes <strong>ବଂଧା</strong> (bound, adjective), not <strong>ବଂଧନ</strong> (a noun).</li><li><strong>Direction pairs</strong> are easy to swap: ଆଗମନ (coming) goes with ପ୍ରସ୍ଥାନ or ନିର୍ଗମନ; ପ୍ରବେଶ (entering) goes with ନିର୍ଗମନ; ପ୍ରସ୍ଥାନ (leaving) goes with ପ୍ରବେଶ <span class="pyq">2021 Q29</span>.</li></ul><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Likely next: opposite of ‘ଉନ୍ନତି’?</summary><p>ଅବନତି.</p></details><details class="qa"><summary>Likely next: opposite of ‘ସୃଷ୍ଟି’?</summary><p>ପ୍ରଳୟ.</p></details><details class="qa"><summary>Likely next: opposite of ‘ସ୍ୱାଧୀନ’?</summary><p>ପରାଧୀନ.</p></details><details class="qa"><summary>Likely next: opposite of ‘ସୁଲଭ’?</summary><p>ଦୁର୍ଲଭ.</p></details><details class="qa"><summary>Likely next: opposite of ‘ସଫଳ’?</summary><p>ବିଫଳ.</p></details></div></aside></section>
+<section id="last"><div class="sectrule"><span class="eyebrow">Chapter <b>07</b> · LAST WEEK</span><span class="line"></span></div><h2>7. Last-week sheet and CHECK list</h2><p>This is the one-page sheet for the last week before the exam. If you have only 30 minutes, read this chapter alone.</p><h3><span class="h3n">7.1</span>The ten spelling traps in one line each</h3><p>1. Short or long ି ୀ ୁ ୂ: female persons and rivers end in ୀ; the first part of ପରୀକ୍ଷା, ପ୍ରତୀକ୍ଷା, ଅଧୀନ has a long ୀ. 2. ଶ, ଷ, ସ: follow the Sanskrit (ପରିଷଦ, ବିଷଣ୍ଣ, ଶ୍ରେଷ୍ଠ). 3. ଣ or ନ: ନ turns to ଣ after ର, ଷ, ଋ (ପ୍ରାଣ, ଭୂଷଣ). 4. ର୍ placement: ଅନିବାର୍ଯ୍ୟ, ପ୍ରାଦୁର୍ଭାବ, ଅନ୍ତର୍ଯାମୀ. 5. Prefix shape: ଦୁରବସ୍ଥା, ଅରକ୍ଷିତ, ଅନସୂୟା. 6. Conjunct form: ତ୍ୱ, ଜ୍ୱ, ସ୍ୱ. 7. ଳ or ଲ: learn the word (ମଙ୍ଗଳ, ଜଳ, କଲ୍ୟାଣ). 8. ଙ୍ଗ or ଂ: ଆନୁଷଙ୍ଗିକ. 9. ର୍ଯ୍ୟ at the end: କାର୍ଯ୍ୟ, ସୂର୍ଯ୍ୟ, ଆଚାର୍ଯ୍ୟ. 10. Split the word: prefix + root.</p><h3><span class="h3n">7.2</span>The 25 synonym rows to know</h3><p>ସୂର୍ଯ୍ୟ, ଚନ୍ଦ୍ର, ମେଘ, ଆକାଶ, ପବନ, ଅଗ୍ନି, ନଦୀ, ଗଙ୍ଗା, ସମୁଦ୍ର, ଜଳ, ପୃଥିବୀ, ପର୍ବତ, ଘର, ଅରଣ୍ୟ, କମଳ, ସାପ, ହାତୀ, ପକ୍ଷୀ, ସିଂହ, ଘୋଡ଼ା, ଭ୍ରମର, ଶିବ, ବିଷ୍ଣୁ, ଗଣେଶ, ଇନ୍ଦ୍ର, ଅସୁର, ରାଜା, ସ୍ତ୍ରୀ, କନ୍ୟା (chapter 4, rows with ★★★).</p><h3><span class="h3n">7.3</span>The 25 antonym pairs to know</h3><p>ସୁଖ-ଦୁଃଖ, ଉନ୍ନତି-ଅବନତି, ଆଦି-ଅନ୍ତ, ଆରମ୍ଭ-ସମାପ୍ତି, ସୃଷ୍ଟି-ପ୍ରଳୟ, ଉଦୟ-ଅସ୍ତ, ଜୟ-ପରାଜୟ, ଲାଭ-କ୍ଷତି, ଆୟ-ବ୍ୟୟ, ଧନୀ-ଦରିଦ୍ର, ସଂଯୋଗ-ବିୟୋଗ, ଉତ୍ଥାନ-ପତନ, ଉତ୍ତମ-ଅଧମ, ସତ୍ୟ-ମିଥ୍ୟା, ସଜ୍ଜନ-ଦୁର୍ଜନ, ସ୍ୱାଧୀନ-ପରାଧୀନ, ସୁଲଭ-ଦୁର୍ଲଭ, ସରଳ-ଜଟିଳ, ସ୍ଥାୟୀ-ଅସ୍ଥାୟୀ, ଗୁଣ-ଦୋଷ, ସମୀପ-ଦୂର, ଅନୁକୂଳ-ପ୍ରତିକୂଳ, ସଫଳ-ବିଫଳ, ଉପକାର-ଅପକାର, ବିଶ୍ୱାସ-ଅବିଶ୍ୱାସ. Plus the Odia pair <strong>ନିଅଣ୍ଟ-ବଳକା</strong> (asked twice).</p><h3><span class="h3n">7.4</span>Look-alike pairs that fool people</h3><div class="tw"><table class="t"><thead><tr><th>Pair</th><th>Difference</th></tr></thead><tbody><tr><td data-l="Pair">ଜଳଦ / ଜଳଧି</td><td data-l="Difference">cloud / sea</td></tr><tr><td data-l="Pair">ସରଣୀ / ତରଣୀ</td><td data-l="Difference">road / boat</td></tr><tr><td data-l="Pair">ବହିତ୍ର / ବାଦିତ୍ର</td><td data-l="Difference">boat / musical instrument</td></tr><tr><td data-l="Pair">ଦ୍ୱିଜ / ଦ୍ୱିପ</td><td data-l="Difference">bird / elephant</td></tr><tr><td data-l="Pair">ଦନୁଜ / ତନୁଜ / ଅନୁଜ</td><td data-l="Difference">demon / son / younger brother</td></tr><tr><td data-l="Pair">ଅପକର୍ଷ / ଉତ୍କର୍ଷ</td><td data-l="Difference">low / high</td></tr><tr><td data-l="Pair">ଶୁଷ୍କ / ଶୁଖିଲା</td><td data-l="Difference">both dry (the key picks ଶୁଷ୍କ for ଆର୍ଦ୍ର)</td></tr><tr><td data-l="Pair">ପୁଷ୍କର / ପୁଷ୍କଳ</td><td data-l="Difference">sky / (not a sky word)</td></tr></tbody></table></div><h3><span class="h3n">7.5</span>The CHECK list</h3><p>These questions have keys that are not certain. Do not learn them as final.</p><ul><li>2018 Q74 ନିର୍ଧନ, 2018 Q75 ଅକ୍ଷୁଣ୍ଣ (the book says the scan is unclear).</li><li>2018 Q78 ଅଧୀନ (ଅଧୀନସ୍ଥ is also a word).</li><li>2021 Q2 ନିଷ୍ଫଳ, 2021 Q4 ଓତପ୍ରୋତ (the book says the scan is unclear).</li><li>2021 Q7 ସାର୍ବଜନୀନ (ସର୍ବଜନୀନ is also used).</li><li>2025 Q2 ଅବସନ୍ନ (the book says the scan is unclear).</li><li>2025 Q9 ମଧୁଳିକା / ମଧୁଲିକା (OPSC accepted two answers).</li><li>2018 Q87 କାଉ (the key is ପରଭୃତ, which means the koel).</li><li>2025 Q23 ଛାତ୍ର (the book says the scan is unclear).</li><li>2018 Q95 ଆବୃତ୍ତ (the key follows a printed typo).</li><li>2021 Q27 ସ୍ଥାବର (printed as synonym, key is the antonym).</li><li>2025 Q16 ଶିଷ୍ଟ (ଅଶିଷ୍ଟ is also fair).</li><li><strong>Not valued</strong> by OPSC (skip): 2021 Q13 ରାଜୀବ.</li><li>Our own "likely next" words and their spellings are a <strong>prediction</strong>; spelling pairs where both forms are printed (ସଙ୍ଗୀତ/ସଂଗୀତ, ଅହଙ୍କାର/ଅହଂକାର, ସୂଚୀ/ସୂଚି, କୌଶଳ/କୌଶଲ) carry a CHECK in the chapters.</li></ul><aside class="box next"><p class="box-t">Check yourself</p><div class="qas"><details class="qa"><summary>Name the ten spelling traps from memory.</summary><p>Vowel signs (ି ୀ ୁ ୂ), ଶ ଷ ସ, ଣ/ନ, ର୍ placement, prefix shape, conjunct form, ଳ/ଲ, ଙ୍ଗ/ଂ, ର୍ଯ୍ୟ/ୟ, splitting the word.</p></details><details class="qa"><summary>How many of 100 marks does the word block give?</summary><p>About 30 (10 spelling, 10 synonyms, 10 antonyms) if 2027 follows 2025.</p></details></div></aside></section></div></main>
+<button class="btn" id="up" aria-label="Back to top">Top</button>
+<footer><div class="col"><p>OPSC ASO 2027 · Odia Words Guide 1 · built 26 Nov 2026 from the 98 spelling, synonym and antonym questions of the 2018, 2021 and 2025 Odia papers (Udyam IAS book keys, not OPSC keys). Explanations are in English; the “likely next” words are our prediction, not a leaked list.</p><p>Tags marked CHECK are answers that keys or dictionaries disagree on: confirm them before the exam.</p></div></footer>
+<script>
+(function(){
+var nav=document.getElementById('nav'),btn=document.getElementById('navbtn'),links=[].slice.call(nav.querySelectorAll('a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+btn.onclick=function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+document.getElementById('up').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+var cn=document.getElementById('chapN'),cb=document.getElementById('chapBar'),cp=document.getElementById('chapPct');
+function spy(){
+  var y=window.scrollY+120,idx=0;
+  for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) idx=i; }
+  var s=secs[idx],top=s.offsetTop,h=s.offsetHeight,p=Math.max(0,Math.min(1,(window.scrollY+100-top)/Math.max(1,h-window.innerHeight*0.5)));
+  links.forEach(function(a,j){a.classList.toggle('on',j===idx)});
+  cn.textContent=links[idx].textContent.replace(/^\d+/,'');
+  cb.style.width=Math.round(p*100)+'%';cp.textContent=Math.round(p*100)+'%';
+}
+var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){spy();tk=false})}},{passive:true});spy();
+})();
+</script><script>window.ASO_INK_KEY='aso-ink-odia-words1-2027';</script>
+<script>
+/* Pen-tablet drawing mode for the ASO guides.
+   Ink engine ported from the draw-app project (ink-stroke.ts + ink-canvas.tsx):
+   streamlined, pressure-sensitive strokes, Catmull-Rom smoothing, pen/mouse brush,
+   pen-eraser end, tablet quirks (flat pressure, missed pointerup, coalesced events).
+   New here: strokes are anchored to the chapter they start in and painted on tiles that scroll with the text, saved in localStorage,
+   highlighter, stroke eraser, undo, clear, hide, and "touch scrolls / touch draws". */
+(function () {
+  "use strict";
+  var KEY = window.ASO_INK_KEY || "aso-ink-" + location.pathname;
+
+  /* ---------------- ink engine (from ink-stroke.ts) ---------------- */
+  var PRESSURE_RATE = 0.275, DENSE_SPACING = 3, SAMPLE_SPACING = 0.75, WIDTH_STEP = 0.04;
+
+  function densify(pts, emit) {
+    var n = pts.length;
+    function knot(a, b) { return Math.max(1e-4, Math.sqrt(Math.hypot(b.x - a.x, b.y - a.y))); }
+    for (var i = 0; i < n - 1; i++) {
+      var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n - 1, i + 2)];
+      var steps = Math.max(1, Math.ceil(Math.hypot(p2.x - p1.x, p2.y - p1.y) / DENSE_SPACING));
+      var t1 = p0 === p1 ? 1e-4 : knot(p0, p1);
+      var t2 = t1 + knot(p1, p2);
+      var t3 = t2 + (p3 === p2 ? 1e-4 : knot(p2, p3));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, t = t1 + (t2 - t1) * u;
+        var lerp = function (a, b, ta, tb) { return ((tb - t) * a + (t - ta) * b) / (tb - ta); };
+        var ax1 = lerp(p0.x, p1.x, 0, t1), ay1 = lerp(p0.y, p1.y, 0, t1);
+        var ax2 = lerp(p1.x, p2.x, t1, t2), ay2 = lerp(p1.y, p2.y, t1, t2);
+        var ax3 = lerp(p2.x, p3.x, t2, t3), ay3 = lerp(p2.y, p3.y, t2, t3);
+        var bx1 = lerp(ax1, ax2, 0, t2), by1 = lerp(ay1, ay2, 0, t2);
+        var bx2 = lerp(ax2, ax3, t1, t3), by2 = lerp(ay2, ay3, t1, t3);
+        emit(lerp(bx1, bx2, t1, t2), lerp(by1, by2, t1, t2), p1.p + (p2.p - p1.p) * u);
+      }
+    }
+  }
+
+  function steady(input, brush, isComplete) {
+    var n = input.length;
+    if (n === 0) return [];
+    var size = brush.size, first = input[0], firstP = first.p, i = 1, minD2 = Math.pow(size / 3, 2);
+    while (i < n && Math.pow(input[i].x - first.x, 2) + Math.pow(input[i].y - first.y, 2) <= minD2) {
+      firstP = Math.max(firstP, input[i].p); i++;
+    }
+    var out = [{ x: first.x, y: first.y, p: firstP, dist: 0, run: 0 }];
+    var lag = Math.max(0.1, brush.streamline * size), px = first.x, py = first.y, run = 0, k = 1;
+    function take(ix, iy, ip, exact) {
+      var x = ix, y = iy;
+      if (!exact) {
+        var a = 1 - Math.exp(-Math.hypot(ix - px, iy - py) / lag);
+        x = px + (ix - px) * a; y = py + (iy - py) * a;
+      }
+      if (Math.abs(x - px) < 1e-4 && Math.abs(y - py) < 1e-4) return;
+      var d = Math.hypot(x - px, y - py);
+      run += d;
+      if (k++ < 4 && run < size) return;
+      out.push({ x: x, y: y, p: ip, dist: d, run: run });
+      px = x; py = y;
+    }
+    var kept = [first].concat(input.slice(i));
+    densify(kept, function (x, y, p) { take(x, y, p, false); });
+    if (isComplete && n > 1) { var last = input[n - 1]; take(last.x, last.y, last.p, true); }
+    return out;
+  }
+
+  function widths(pts, brush) {
+    var size = brush.size, thinning = brush.thinning, sim = brush.simulatePressure, easing = brush.easing, n = pts.length;
+    function radius(p) { return Math.max(0.05, size * easing(0.5 - thinning * (0.5 - p))); }
+    var total = pts[n - 1].run;
+    if (!sim && total < size) {
+      var max = pts.reduce(function (m, q) { return Math.max(m, q.p); }, 0.5);
+      return pts.map(function () { return radius(max); });
+    }
+    function step(prev, q) {
+      var sp = Math.min(1, q.dist / size), target = sim ? Math.min(1, 1 - sp) : q.p;
+      return Math.min(1, prev + (target - prev) * sp * PRESSURE_RATE);
+    }
+    var prev = sim ? 0.5 : pts[0].p;
+    for (var j = 0; j < n; j++) {
+      var q = pts[j];
+      if (q.run > size * 5) break;
+      var sp = Math.min(1, q.dist / size);
+      var p = sim ? Math.min(1, prev + (Math.min(1, 1 - sp) - prev) * sp * PRESSURE_RATE)
+                  : Math.min(1, prev + (q.p - prev) * 0.5);
+      prev += (p - prev) * 0.5;
+    }
+    return pts.map(function (q) { prev = step(prev, q); return radius(prev); });
+  }
+
+  function paintStroke(ctx, input, brush, isComplete) {
+    var pts = steady(input, brush, isComplete);
+    if (pts.length === 0) return;
+    var r = widths(pts, brush);
+    if (pts.length === 1) { ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, r[0], 0, Math.PI * 2); ctx.fill(); return; }
+    ctx.save();
+    ctx.strokeStyle = ctx.fillStyle; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    var runWidth = -1;
+    function wOf(rad) { return Math.max(WIDTH_STEP, Math.round((2 * rad) / WIDTH_STEP) * WIDTH_STEP); }
+    function begin(x, y, w) { runWidth = w; ctx.beginPath(); ctx.moveTo(x, y); }
+    function end() { ctx.lineWidth = runWidth; ctx.stroke(); }
+    begin(pts[0].x, pts[0].y, wOf(r[0]));
+    function emit(x, y, rad) {
+      var w = wOf(rad);
+      ctx.lineTo(x, y);
+      if (w !== runWidth) { end(); begin(x, y, w); }
+    }
+    function line(x0, y0, r0, x1, y1, r1) {
+      var steps = Math.max(1, Math.ceil(Math.hypot(x1 - x0, y1 - y0) / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) { var u = s / steps; emit(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, r0 + (r1 - r0) * u); }
+    }
+    var n = pts.length;
+    function mid(i) { return { x: (pts[i].x + pts[i + 1].x) / 2, y: (pts[i].y + pts[i + 1].y) / 2, r: (r[i] + r[i + 1]) / 2 }; }
+    var a = mid(0);
+    line(pts[0].x, pts[0].y, r[0], a.x, a.y, a.r);
+    for (var i = 1; i < n - 1; i++) {
+      var c = pts[i], b = mid(i);
+      var approx = Math.hypot(c.x - a.x, c.y - a.y) + Math.hypot(b.x - c.x, b.y - c.y);
+      var steps = Math.max(1, Math.ceil(approx / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, w = 1 - u;
+        emit(w * w * a.x + 2 * w * u * c.x + u * u * b.x, w * w * a.y + 2 * w * u * c.y + u * u * b.y,
+             w * w * a.r + 2 * w * u * r[i] + u * u * b.r);
+      }
+      a = b;
+    }
+    line(a.x, a.y, a.r, pts[n - 1].x, pts[n - 1].y, r[n - 1]);
+    end();
+    ctx.restore();
+  }
+
+  /* ---------------- brushes (from ink-canvas.tsx) ---------------- */
+  var PEN_WIDTH_SCALE = 0.54;
+  function penEasing(t) { return (t * 0.65 + Math.sin((t * Math.PI) / 2) * 0.35) * PEN_WIDTH_SCALE; }
+  var PEN = { size: 4.6, thinning: 0.62, streamline: 0.62, simulatePressure: false, easing: penEasing };
+  var HI = { size: 18, thinning: 0, streamline: 0.35, simulatePressure: false, easing: function () { return 0.5; } };
+  var PEN_PRESSURE_BOOST = 1.25, MIN_PEN_PRESSURE = 0.025, MOUSE_PRESSURE = 0.5, PEN_MIN_STEP = 1;
+  var useCoalesced = !/iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  var COLORS = [
+    { n: "Black", v: "#111111" }, { n: "Blue", v: "#2b4cff" }, { n: "Red", v: "#dc2626" }, { n: "Green", v: "#15803d" },
+    { n: "Yellow highlighter", v: "#ffd400", hi: 1 }, { n: "Green highlighter", v: "#3ddc84", hi: 1 }, { n: "Pink highlighter", v: "#ff6fb5", hi: 1 }
+  ];
+
+  /* ---------------- page layout + state ----------------
+     The ink is painted on canvas TILES that sit inside the page (position:absolute), so they scroll
+     with the text natively, in the same frame. (A fixed canvas repainted on scroll lags one frame
+     behind and looks like parallax.) Only tiles near the screen exist; the rest are dropped.
+     Each stroke is stored relative to the chapter <section> it starts in: x in the column's units
+     (scaled when the column width changes), y from the section top. So opening a Q&A or a new
+     layout moves the ink together with its chapter. */
+  var col = document.querySelector("main .col") || document.body;
+  var secs = [].slice.call(document.querySelectorAll("main section[id]"));
+  var L = { left: 0, w: 1, tops: {}, docW: 1, docH: 1 };
+  function measure() {
+    var sx = window.scrollX, sy = window.scrollY, r = col.getBoundingClientRect();
+    L.left = r.left + sx; L.w = Math.max(1, col.clientWidth);
+    L.tops = {};
+    secs.forEach(function (s) { L.tops[s.id] = s.getBoundingClientRect().top + sy; });
+    L.docW = document.documentElement.clientWidth;
+    L.docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  }
+  function topOf(s) { return s.a && L.tops[s.a] != null ? L.tops[s.a] : 0; }
+  function sectionAt(pageY) {
+    var best = null, bt = -1e9;
+    secs.forEach(function (s) { var t = L.tops[s.id]; if (t <= pageY && t > bt) { bt = t; best = s.id; } });
+    return best;
+  }
+
+  var strokes = [], undo = [], current = null, activePointer = null, lastKept = null, erasing = false, erased = [];
+  var state = { on: false, color: COLORS[0].v, hi: false, eraser: false, touchDraws: false, hidden: false };
+  try { var sv = JSON.parse(localStorage.getItem(KEY) || "null"); if (sv && sv.strokes) strokes = sv.strokes; if (sv && sv.touchDraws) state.touchDraws = true; } catch (e) {}
+
+  var saveT = 0;
+  function save() {
+    clearTimeout(saveT);
+    saveT = setTimeout(function () {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 2, touchDraws: state.touchDraws, strokes: strokes })); } catch (e) {}
+    }, 400);
+  }
+
+  /* ---------------- painting ---------------- */
+  var TILE = 512;
+  var layer = document.createElement("div");
+  layer.id = "inkl"; layer.setAttribute("aria-hidden", "true");
+  var live = document.createElement("canvas"), lctx = live.getContext("2d"), liveTop = 0;
+  live.className = "inkt"; live.style.display = "none";
+  layer.appendChild(live);
+  var tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
+  var tiles = {}, dpr = 1, frame = 0;
+
+  // Paint one stroke onto canvas context c, whose top edge is at page y = top.
+  function paint(c, s, top, done) {
+    var k = L.w / s.w, ox = L.left, oy = topOf(s) - top;
+    var pts = s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: s.pen && s.flat ? MOUSE_PRESSURE : q[2] }; });
+    if (s.hi) {
+      var cv = c.canvas;
+      if (tmp.width !== cv.width || tmp.height !== cv.height) { tmp.width = cv.width; tmp.height = cv.height; }
+      tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tmp.width, tmp.height);
+      tctx.setTransform(dpr, 0, 0, dpr, 0, 0); tctx.fillStyle = s.c;
+      paintStroke(tctx, pts, HI, done);
+      c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 0.4; c.drawImage(tmp, 0, 0); c.restore();
+    } else {
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.fillStyle = s.c;
+      paintStroke(c, pts, PEN, done);
+    }
+  }
+  function yRange(s) { var t = topOf(s); return [t + s.b[1], t + s.b[3]]; }
+
+  function paintTile(t) {
+    t.ctx.setTransform(1, 0, 0, 1, 0, 0); t.ctx.clearRect(0, 0, t.c.width, t.c.height);
+    if (state.hidden) return;
+    strokes.forEach(function (s) { var y = yRange(s); if (y[1] > t.top && y[0] < t.top + t.h) paint(t.ctx, s, t.top, true); });
+  }
+  function dropTile(i) { var t = tiles[i]; t.c.width = t.c.height = 0; t.c.remove(); delete tiles[i]; }
+  function makeTile(i) {
+    var top = i * TILE, h = Math.min(TILE, L.docH - top);
+    if (h <= 0) return;
+    var c = document.createElement("canvas");
+    c.className = "inkt";
+    c.style.top = top + "px"; c.style.width = L.docW + "px"; c.style.height = h + "px";
+    c.width = Math.max(1, Math.round(L.docW * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var t = tiles[i] = { c: c, ctx: c.getContext("2d"), top: top, h: h };
+    layer.appendChild(c); paintTile(t);
+  }
+  // Keep tiles from one screen above to two screens below the view; drop the rest.
+  function ensureTiles() {
+    var vh = window.innerHeight, sy = window.scrollY, last = Math.ceil(L.docH / TILE) - 1;
+    var lo = Math.max(0, Math.floor((sy - vh) / TILE)), hi = Math.min(last, Math.floor((sy + 2 * vh) / TILE));
+    Object.keys(tiles).forEach(function (i) { if (i < lo - 1 || i > hi + 1) dropTile(i); });
+    for (var i = lo; i <= hi; i++) if (!tiles[i]) makeTile(i);
+  }
+  function repaintAll() { Object.keys(tiles).forEach(function (i) { paintTile(tiles[i]); }); }
+  function rebuild() {
+    dpr = window.devicePixelRatio || 1;
+    Object.keys(tiles).forEach(dropTile);
+    measure(); ensureTiles();
+  }
+
+  function renderLive() {
+    frame = 0;
+    lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
+    if (current) paint(lctx, current.s, liveTop, false);
+  }
+  function request() { if (!frame) frame = requestAnimationFrame(renderLive); }
+  // The stroke being drawn goes on its own canvas covering the screen at pen-down time.
+  function startLive() {
+    var h = Math.max(1, Math.min(window.innerHeight, L.docH - window.scrollY));
+    liveTop = window.scrollY;
+    live.style.top = liveTop + "px"; live.style.width = L.docW + "px"; live.style.height = h + "px";
+    live.width = Math.round(L.docW * dpr); live.height = Math.round(h * dpr);
+    live.style.display = "block";
+  }
+  function stopLive() { live.style.display = "none"; live.width = live.height = 1; }
+
+  /* ---------------- drawing input (from ink-canvas.tsx) ---------------- */
+  var input = document.createElement("div");
+  input.id = "inki"; input.setAttribute("aria-hidden", "true");
+
+  function pageOf(e, isPen, s) {
+    var k = L.w / s.w;
+    return [Math.round(((e.clientX + window.scrollX - L.left) / k) * 10) / 10,
+      Math.round((e.clientY + window.scrollY - topOf(s)) * 10) / 10,
+      isPen ? Math.round(Math.min(1, Math.max(MIN_PEN_PRESSURE, e.pressure * PEN_PRESSURE_BOOST)) * 1000) / 1000 : MOUSE_PRESSURE];
+  }
+  function notePressure(cur, raw) {
+    if (!cur.s.pen || raw === 0) return;
+    if (cur.first === null) cur.first = raw; else if (raw !== cur.first) cur.s.flat = false;
+  }
+  function addPoint(cur, pt) {
+    var pts = cur.s.pts;
+    if (cur.s.pen && lastKept && Math.hypot(pt[0] - lastKept[0], pt[1] - lastKept[1]) < PEN_MIN_STEP) { pts[pts.length - 1] = pt; return; }
+    var prev = pts[pts.length - 1];
+    if (prev && prev[0] === pt[0] && prev[1] === pt[1] && prev[2] === pt[2]) return;
+    pts.push(pt); lastKept = pt;
+  }
+  function bbox(pts, pad) {
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    pts.forEach(function (q) { x0 = Math.min(x0, q[0]); y0 = Math.min(y0, q[1]); x1 = Math.max(x1, q[0]); y1 = Math.max(y1, q[1]); });
+    return [x0 - pad, y0 - pad, x1 + pad, y1 + pad];
+  }
+
+  // Stroke eraser: remove every stroke that has a point near the pen.
+  function eraseAt(e) {
+    var px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
+    strokes.forEach(function (s) {
+      var k = L.w / s.w, X = (px - L.left) / k, Y = py - topOf(s);
+      if (X < s.b[0] - R || X > s.b[2] + R || Y < s.b[1] - R || Y > s.b[3] + R) return;
+      var r2 = Math.pow(R / k + (s.hi ? 9 : 2), 2);
+      for (var i = 0; i < s.pts.length; i++) {
+        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - Y;
+        if (dx * dx + dy * dy <= r2) { hit.push(s); return; }
+      }
+    });
+    if (hit.length) { strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; }); erased = erased.concat(hit); repaintAll(); }
+  }
+
+  function onDown(e) {
+    if (!state.on) return;
+    if (e.pointerType === "mouse" && e.button !== 0 && e.button !== 5) return;
+    if (e.pointerType === "touch" && !state.touchDraws) return;
+    if (activePointer !== null) endStroke(null);
+    e.preventDefault();
+    try { input.setPointerCapture(e.pointerId); } catch (x) {}
+    activePointer = e.pointerId;
+    var isPen = e.pointerType === "pen";
+    // Shift held: the pen drags the page like a hand tool instead of drawing.
+    if (e.shiftKey) { panning = { y: e.clientY, x: e.clientX }; lastTap = null; input.style.cursor = "grabbing"; return; }
+    // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
+    erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
+    if (erasing) { erased = []; eraseAt(e); return; }
+    var s = { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: L.w, a: sectionAt(e.clientY + window.scrollY), pts: [], b: null };
+    current = { first: null, s: s };
+    s.pts.push(pageOf(e, isPen, s));
+    notePressure(current, e.pressure);
+    lastKept = s.pts[0];
+    downTime = e.timeStamp; downX = e.clientX; downY = e.clientY;
+    startLive(); request();
+  }
+  function onMove(e) {
+    if (e.pointerId !== activePointer) return;
+    if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
+    if (panning) {
+      // The page follows the pen: drag up to read further down.
+      // "instant": the page has scroll-behavior:smooth, which would make the drag lag.
+      window.scrollBy({ left: panning.x - e.clientX, top: panning.y - e.clientY, behavior: "instant" });
+      panning.x = e.clientX; panning.y = e.clientY;
+      return;
+    }
+    if (erasing) { eraseAt(e); return; }
+    if (!current) return;
+    var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
+    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
+    request();
+  }
+  // Double-tap to clear (as in draw-app). The browser's own dblclick uses the system's very tight
+  // distance limit, so taps are detected here with a looser one.
+  var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
+  var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  var panning = null, shiftDown = false;
+  function setCursor() {
+    input.style.cursor = !state.on ? "" : panning ? "grabbing" : shiftDown ? "grab" : state.eraser ? "cell" : "crosshair";
+  }
+  // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
+  // (or forgets the last one if this was a real stroke).
+  function isDoubleTap(s, e) {
+    var p0 = s.pts[0];
+    var isTap = !!e && e.type === "pointerup" && e.timeStamp - downTime <= TAP_MAX_TIME &&
+      s.pts.every(function (q) { return Math.hypot(q[0] - p0[0], q[1] - p0[1]) <= TAP_MAX_MOVE; });
+    if (!isTap) { lastTap = null; return false; }
+    if (lastTap && downTime - lastTap.time <= DOUBLE_TAP_TIME && Math.hypot(downX - lastTap.x, downY - lastTap.y) <= DOUBLE_TAP_DISTANCE) {
+      return true;
+    }
+    lastTap = { x: downX, y: downY, time: e.timeStamp, s: s };
+    return false;
+  }
+
+  function endStroke(e) {
+    activePointer = null;
+    if (panning) { panning = null; setCursor(); return; }
+    if (erasing) {
+      erasing = false; lastTap = null;
+      if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
+      erased = []; return;
+    }
+    if (current && isDoubleTap(current.s, e)) {
+      // Drop the dot the first tap left, then clear; Undo brings back the page as it was.
+      var dot = lastTap.s; lastTap = null; current = null;
+      var u = undo[undo.length - 1];
+      if (u && u.t === "add" && u.s === dot) { undo.pop(); strokes = strokes.filter(function (x) { return x !== dot; }); }
+      doClear(); repaintAll(); stopLive();
+      return;
+    }
+    if (current) {
+      var s = current.s;
+      s.b = bbox(s.pts, s.hi ? 12 : 6);
+      strokes.push(s); undo.push({ t: "add", s: s }); current = null;
+      var y = yRange(s);
+      Object.keys(tiles).forEach(function (i) { var t = tiles[i]; if (y[1] > t.top && y[0] < t.top + t.h && !state.hidden) paint(t.ctx, s, t.top, true); });
+      save();
+    }
+    stopLive();
+  }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
+
+  function doUndo() {
+    var a = undo.pop(); if (!a) return;
+    if (a.t === "add") strokes = strokes.filter(function (s) { return s !== a.s; });
+    else strokes = strokes.concat(a.list);
+    repaintAll(); save();
+  }
+  function doClear() {
+    if (!strokes.length) return;
+    undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
+  }
+
+  /* ---------------- toolbar: a rail on the right edge ---------------- */
+  var I = {
+    pen: '<path d="M4 20l1.2-4.6L15.8 4.8a1.7 1.7 0 0 1 2.4 0l1 1a1.7 1.7 0 0 1 0 2.4L8.6 18.8z"/><path d="M14 6.6l3.4 3.4"/>',
+    erase: '<path d="M8.5 19.5L3.8 14.8a1.6 1.6 0 0 1 0-2.3L12.5 3.8a1.6 1.6 0 0 1 2.3 0l5.4 5.4a1.6 1.6 0 0 1 0 2.3l-8 8z"/><path d="M8 9l7 7M8.5 19.5H20"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.5a1.6 1.6 0 0 1 2.5-2L8 15"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeoff: '<path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.5 9.5 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>'
+  };
+  function ic(n) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[n] + "</svg>"; }
+  function tool(id, icon, label, title) {
+    return '<button type="button" class="itool" id="' + id + '" title="' + title + '">' + ic(icon) + '<span class="il">' + label + "</span></button>";
+  }
+
+  var bar = document.createElement("div");
+  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools"); bar.setAttribute("aria-orientation", "vertical");
+  var pens = COLORS.filter(function (c) { return !c.hi; }), his = COLORS.filter(function (c) { return c.hi; });
+  function sw(list) {
+    return list.map(function (c) {
+      var i = COLORS.indexOf(c);
+      return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
+    }).join("");
+  }
+  bar.innerHTML =
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D). Hold Shift and drag to scroll.">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<div class="ipanel" id="inkpanel">' +
+      '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
+      '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
+      '<div class="ig"><span class="ik">Mark</span><div class="isws">' + sw(his) + "</div></div>" +
+      '<div class="ig itools">' +
+        tool("inker", "erase", "Erase", "Erase whole strokes (E). The back end of a pen erases too.") +
+        tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
+        tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
+        tool("inkhd", "eye", "Hide", "Hide or show the ink") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (or double-tap the page). Undo brings it back.") +
+      "</div>" +
+    "</div>";
+  var $ = function (id) { return bar.querySelector("#" + id); };
+
+  function sync() {
+    document.body.classList.toggle("drawing", state.on);
+    bar.classList.toggle("open", state.on);
+    $("inkon").setAttribute("aria-pressed", state.on);
+    $("inker").setAttribute("aria-pressed", state.eraser);
+    $("inktc").setAttribute("aria-pressed", state.touchDraws);
+    $("inktc").querySelector(".il").textContent = state.touchDraws ? "Finger ✎" : "Finger ↕";
+    $("inkhd").setAttribute("aria-pressed", state.hidden);
+    $("inkhd").innerHTML = ic(state.hidden ? "eyeoff" : "eye") + '<span class="il">' + (state.hidden ? "Show" : "Hide") + "</span>";
+    [].forEach.call(bar.querySelectorAll(".isw"), function (b) {
+      b.setAttribute("aria-pressed", !state.eraser && COLORS[+b.dataset.c].v === state.color);
+    });
+    input.style.pointerEvents = state.on ? "auto" : "none";
+    input.style.touchAction = state.touchDraws ? "none" : "pan-y";
+    setCursor();
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.classList.contains("isw")) { var c = COLORS[+b.dataset.c]; state.color = c.v; state.hi = !!c.hi; state.eraser = false; }
+    else if (b.id === "inkon") { state.on = true; if (state.hidden) { state.hidden = false; repaintAll(); } }
+    else if (b.id === "inkoff") state.on = false;
+    else if (b.id === "inker") state.eraser = !state.eraser;
+    else if (b.id === "inkun") doUndo();
+    else if (b.id === "inkcl") doClear();
+    else if (b.id === "inktc") { state.touchDraws = !state.touchDraws; save(); }
+    else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
+    sync();
+  });
+  // Hold Shift to scroll by dragging: the cursor turns into a hand while Shift is down.
+  function onShift(e) { if (e.key === "Shift") { shiftDown = e.type === "keydown"; if (!panning) setCursor(); } }
+  window.addEventListener("keydown", onShift);
+  window.addEventListener("keyup", onShift);
+  window.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      if ((e.key === "z" || e.key === "Z") && state.on && !e.shiftKey) { e.preventDefault(); doUndo(); }
+      return;
+    }
+    if (e.repeat || /input|textarea|select/i.test((e.target && e.target.tagName) || "")) return;
+    var k = e.key.toLowerCase();
+    if (k === "d") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; repaintAll(); } sync(); }
+    else if (k === "e" && state.on) { state.eraser = !state.eraser; sync(); }
+  });
+
+  /* ---------------- wire up ---------------- */
+  document.body.appendChild(layer);
+  document.body.appendChild(input);
+  document.body.appendChild(bar);
+  rebuild(); sync();
+  var rT = 0;
+  function relayout() { clearTimeout(rT); rT = setTimeout(rebuild, 120); }
+  window.addEventListener("resize", relayout);
+  // Page height changes (a Q&A opened, fonts arrived) move the chapters: re-measure and repaint.
+  if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.querySelector("main") || document.body);
+  window.addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  var sT = false;
+  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
+  window.addEventListener("blur", function () { shiftDown = false; if (activePointer !== null) endStroke(); setCursor(); });
+  input.addEventListener("pointerdown", onDown);
+  // Moves and releases are heard on the whole window: pointer capture can be lost just before the
+  // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
+  window.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerup", onUp);
+  window.addEventListener("pointercancel", onUp);
+})();
+</script><script src="pen-scroll.js?v=8" defer></script></body></html>
