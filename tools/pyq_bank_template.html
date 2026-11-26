@@ -22,6 +22,7 @@ button i{font-style:normal;opacity:.6;margin-left:4px}
 .pp{border:1px solid var(--fg);color:var(--fg);padding:0 6px}
 .chk{border:1px solid #c00;color:#c00;padding:0 6px}
 .st{margin:8px 0 6px;white-space:pre-line;overflow-wrap:anywhere}
+.fg img{max-width:100%;height:auto;display:block;margin:8px 0;border:1px solid var(--rule);background:#fff}
 .ps{margin:8px 0;border:1px dashed var(--rule);padding:6px 10px;background:var(--paper)}
 .ps summary{font:11px var(--mono);text-transform:uppercase;color:var(--blue);cursor:pointer}
 .ps div{white-space:pre-line;overflow-wrap:anywhere;margin-top:6px}
@@ -42,7 +43,7 @@ body.cmp .q{padding:8px 12px;margin:7px 0}body.cmp .op{padding:1px 0}
 .grp{font:12px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--blue);border-bottom:1px solid var(--blue);margin:22px 0 4px;padding-bottom:3px}
 </style></head><body><div class="w">
 <h1>PYQ Bank</h1>
-<div class="sub">All papers · 2018, 2021, 2025 (Maths also 2015) · keys are mine, not official (Odia: the Udyam book's) · Reasoning 2018 and 2025: short stems only (raw scans)</div>
+<div class="sub">All papers · 2018, 2021, 2025 (Maths and Reasoning also 2015) · no official keys: Reasoning and Odia keys are the Udyam IAS book's, the rest are mine</div>
 <div class="bar"><span class="cnt" id="cnt"></span> <span class="sub">· open the HUD (bottom right) to pick a paper, year or section</span></div>
 <div id="list"></div></div>
 <button class="hudb" id="hb">HUD</button>
@@ -62,7 +63,7 @@ body.cmp .q{padding:8px 12px;margin:7px 0}body.cmp .op{padding:1px 0}
 <div class="g"><span>Show first</span><button data-u="lim" data-v="0">All</button><button data-u="lim" data-v="25">25</button><button data-u="lim" data-v="50">50</button><button data-u="lim" data-v="100">100</button></div>
 <div class="g"><button data-u="reset">Reset HUD</button><button data-u="close">Close</button></div></div>
 <script>
-var PAP=__PAPERS__,D=__DATA__,T=__TOPICS__,PG=__PASSAGES__;
+var PAP=__PAPERS__,D=__DATA__,T=__TOPICS__,PG=__PASSAGES__,FG=__FIGS__;
 var PN={},PS={},PO={};PAP.forEach(function(x,i){PN[x[0]]=x[1];PS[x[0]]=x[2];PO[x[0]]=i});
 var st={p:"",y:0,t:"",f:"",s:"",a:false,c:false},shuf=null;
 var UK="aso-pyq-bank-ui",U0={size:19,w:860,cmp:0,sort:"paper",grp:"",lim:0,year:1,topic:1,family:1,opts:1},ui;
@@ -111,7 +112,7 @@ function draw(){
     var lab=d.a?'<b>Answer '+esc(d.a)+'.</b> ':d.nv?'<b>Not valued.</b> ':d.o.length?'<b>No key.</b> ':'';
     var show=st.a||!d.o.length;
     return head+'<div class="q'+(d.p=="od"?' od':'')+'"><div class="meta">'+(ui.year?'<span class="yr">'+d.y+'</span>':'')+'<span class="pp">'+PS[d.p]+'</span><span>'+(ui.year?'':d.y+' ')+'Q'+d.q+'</span>'+
-      (ui.topic?'<span>'+esc(T[d.t])+'</span>':'')+(ui.family&&d.f&&d.f.replace(/-/g," ").toLowerCase()!=T[d.t].toLowerCase()?'<span>'+esc(d.f.replace(/-/g," "))+'</span>':'')+(d.c?'<span class="chk">CHECK</span>':'')+(d.nv?'<span class="chk">NOT VALUED</span>':'')+'</div>'+ps+'<div class="st">'+esc(d.s)+'</div>'+o+
+      (ui.topic?'<span>'+esc(T[d.t])+'</span>':'')+(ui.family&&d.f&&d.f.replace(/-/g," ").toLowerCase()!=T[d.t].toLowerCase()?'<span>'+esc(d.f.replace(/-/g," "))+'</span>':'')+(d.c?'<span class="chk">CHECK</span>':'')+(d.nv?'<span class="chk">NOT VALUED</span>':'')+'</div>'+ps+'<div class="st">'+esc(d.s)+'</div>'+(d.i?'<div class="fg">'+d.i.map(function(i){return '<img loading="lazy" alt="figure" src="'+FG[i]+'">'}).join("")+'</div>':'')+o+
       (show&&(lab||d.w)?'<div class="ans">'+lab+esc(d.w)+'</div>':'')+'</div>'}).join("");
 }
 document.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
