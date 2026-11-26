@@ -1,4 +1,4 @@
-/* Pen scrolling for the whole study site (v6, 26 Nov 2026).
+/* Pen scrolling for the whole study site (v7, 26 Nov 2026: the flick now also works when the tip is simply lifted; see flick()).
    Dragging with the pen (or the mouse) anywhere on a page scrolls it up and down like a hand: over empty space, text, links and
    buttons. A tap still clicks or places the cursor. A flick keeps the page gliding and it slows down smoothly.
    Not touched: form fields, canvases, video, [data-pen="off"], Shift+drag (selects text), side or right button, finger (native). Off in draw mode.
@@ -10,7 +10,7 @@
    click-drag no longer selects text; Shift+drag or a double click does. ?penmouse=0 gives the old mouse behaviour back (?penmouse=1 undoes it).
    Diagnosis: ?pendebug=1 shows a badge at the bottom left (?pendebug=0 hides it). */
 (function () {
-  if (window.__penScroll) return; window.__penScroll = 6;
+  if (window.__penScroll) return; window.__penScroll = 7;
   var TAP = 6;                                    /* px of movement before a press becomes a scroll */
   var CONTROL = 'input,select,textarea,option,video,audio,canvas,iframe,[contenteditable=""],[contenteditable="true"],[data-pen="off"]';
   var TAU = 325, VMAX = 4.5, VMIN = 0.01;          /* glide: speed fades by 1/e every 325 ms; speeds in px per ms */
@@ -31,7 +31,7 @@
       b.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#111;color:#fff;font:11px/1.45 ui-monospace,Menlo,monospace;padding:5px 9px;max-width:86vw;pointer-events:none;opacity:.92;white-space:pre-wrap";
       (document.body || root).appendChild(b);
     }
-    b.textContent = "pen-scroll v6 · #" + (++dn) + " · pointer: " + (e ? e.pointerType : "-") + (e && e.pointerType === "pen" ? " · pressure " + (e.pressure || 0).toFixed(2) : "") +
+    b.textContent = "pen-scroll v7 · #" + (++dn) + " · pointer: " + (e ? e.pointerType : "-") + (e && e.pointerType === "pen" ? " · pressure " + (e.pressure || 0).toFixed(2) : "") +
       "\npen seen in this browser: " + (penSeen ? "yes" : "no") + " · mouse drags scroll too: " + (mouseAsPen ? "on" : "off") + "\n" + msg;
   }
   function learn(e) { if (e.pointerType === "pen" && !penSeen) { penSeen = true; ls("aso-pen-seen", "1"); say("a pen was seen; remembered", e); } }
@@ -119,7 +119,10 @@
 
   document.addEventListener("pointermove", function (e) {
     if (!st || e.pointerId !== st.id) return;
-    if (!(e.buttons & 1)) { drop(); return; }          /* the tip is up: the release was missed */
+    if (!(e.buttons & 1)) {                                            /* the tip is already up: many tablets send this move before the release */
+      if (st.going) end(e); else drop();
+      return;
+    }
     if (!st.going) {
       if (Math.abs(e.clientY - st.y0) < TAP && Math.abs(e.clientX - st.x0) < TAP) return;
       st.box = canMove(st.list, st.y0 - e.clientY);
@@ -131,31 +134,32 @@
     }
     var evs = (e.getCoalescedEvents && e.getCoalescedEvents()) || []; if (!evs.length) evs = [e];
     for (var i = 0; i < evs.length; i++) st.s.push({ t: evs[i].timeStamp || e.timeStamp, y: evs[i].clientY });
-    while (st.s.length > 3 && e.timeStamp - st.s[0].t > 150) st.s.shift();
+    while (st.s.length > 3 && e.timeStamp - st.s[0].t > 400) st.s.shift();
     pend += st.y - e.clientY; st.y = e.clientY; st.lastT = e.timeStamp;
     if (!frame) frame = requestAnimationFrame(flush);
     e.preventDefault();
   }, { passive: false });
 
-  function speed(s, tEnd) {                         /* px per ms over the last stretch of the stroke; picks the faster of two windows */
-    function over(win) {
-      var i = s.length - 1; if (i < 1) return 0;
-      var j = i; while (j > 0 && s[i].t - s[j - 1].t <= win) j--;
-      var dt = s[i].t - s[j].t; return dt >= 8 ? (s[j].y - s[i].y) / dt : 0;
-    }
-    var a = over(60), b = over(130);
-    return Math.abs(a) > Math.abs(b) ? a : b;
+  /* Flick speed. Tablet drivers often hold the cursor still for a moment as the tip lifts (so a tap does not jump), and some send a
+     move with the tip already up before the release. So: find the last moment the pen really moved, and measure the speed just
+     before that, not at the instant of the release. */
+  function flick(s, tUp) {
+    var n = s.length; if (n < 2) return { v: 0, still: 1e9 };
+    var k = n - 1; while (k > 0 && Math.abs(s[k].y - s[k - 1].y) < 0.5) k--;      /* k = last sample that moved */
+    var still = tUp - s[k].t;
+    function over(win) { var j = k; while (j > 0 && s[k].t - s[j - 1].t <= win) j--; var dt = s[k].t - s[j].t; return dt >= 8 ? (s[j].y - s[k].y) / dt : 0; }
+    var a = over(50), b = over(100);
+    return { v: Math.abs(a) > Math.abs(b) ? a : b, still: still };
   }
   function end(e) {
     if (!st || e.pointerId !== st.id) return;
     var s = st; if (s.going) flush(); st = null; release(s);
     if (!s.going) { say(e.type === "pointercancel" ? "cancelled before moving: the browser took the pen" : "tap (no scroll)", e); return; }
-    if (e.type === "lostpointercapture") return;
-    if (e.type === "pointerup") { window.__penClickBlock = 1; setTimeout(function () { window.__penClickBlock = 0; }, 80); }
-    var gap = e.timeStamp - (s.lastT || 0), v = speed(s.s), note;
-    if (e.type === "pointerup" && s.box && gap < 140 && Math.abs(v) > 0.08) { fling(s.box, v); note = "flick " + v.toFixed(2) + " px/ms → gliding"; }
-    else note = "no glide (speed " + v.toFixed(2) + " px/ms, pen was still for " + Math.round(gap) + " ms before lifting)";
-    say((e.type === "pointercancel" ? "cancelled by the browser · " : "lifted · ") + note, e);
+    window.__penClickBlock = 1; setTimeout(function () { window.__penClickBlock = 0; }, 120);
+    var f = flick(s.s, e.timeStamp || performance.now()), note;
+    if (s.box && f.still < 260 && Math.abs(f.v) > 0.12) { fling(s.box, f.v); note = "flick " + f.v.toFixed(2) + " px/ms → gliding"; }
+    else note = "no glide (speed " + f.v.toFixed(2) + " px/ms; the pen stood still " + Math.round(f.still) + " ms before lifting)";
+    say("ended by " + e.type + " · " + note, e);
   }
   document.addEventListener("dragstart", function (e) { if (st) e.preventDefault(); }, true);
   document.addEventListener("pointerup", end, false);
