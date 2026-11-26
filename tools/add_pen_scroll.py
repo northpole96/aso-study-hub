@@ -1,7 +1,7 @@
 """Adds <script src="pen-scroll.js" defer> to every tracked page (idempotent). Run it after any builder that rewrites pages.
 Skips ASO-GA-Study-Guide.html (never touched); the hub still injects the script into it when it is opened inside the hub."""
 import subprocess, re, os
-VERSION = 4   # bump when pen-scroll.js changes: it busts the 10-minute browser cache that made old and new copies mix
+VERSION = 5   # bump when pen-scroll.js changes: it busts the 10-minute browser cache that made old and new copies mix
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 files = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True).stdout.split()
 n = 0
