@@ -252,6 +252,17 @@ assert len({(d["p"], d["y"], d["q"]) for d in out}) == len(out)
 for d in out:
     assert d["t"] in LABELS, (d["p"], d["y"], d["q"], d["t"])
     assert d["s"], (d["p"], d["y"], d["q"], "empty stem")
+# ---------------------------------------------------------------- corrections from the Udyam GA and English books
+import udyam_overlay as UO
+_ix = {(d["p"], d["y"], d["q"]): d for d in out}
+for (p_, y_, q_), v in UO.FILL.items():
+    d = _ix[(p_, y_, q_)]
+    if "o" in v: d["o"] = v["o"]
+    d["a"] = v["a"]; d["w"] = v["w"]; d["c"] = v.get("c", False)
+for (p_, y_, q_), (a_, w_) in UO.ADOPT.items():
+    d = _ix[(p_, y_, q_)]; d["a"] = a_; d["w"] = w_; d["c"] = False
+for (p_, y_, q_), w_ in UO.CHECK.items():
+    d = _ix[(p_, y_, q_)]; d["c"] = True; d["w"] = (w_ + "\n" + (d.get("w") or "")).strip()
 bad = [(d["p"], d["y"], d["q"], len(d["o"])) for d in out if d["p"] in ("ga", "en", "od", "re") and len(d["o"]) != 4]
 nokey = [(d["p"], d["y"], d["q"]) for d in out if d["p"] in ("ga", "en", "od", "ma", "re") and d["o"] and not d["a"] and not d.get("nv")]
 print("counts", {k[0] + str(k[1]): v for k, v in cnt.items()}, "total", len(out))
