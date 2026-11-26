@@ -1,17 +1,16 @@
-/* Pen scrolling for the whole study site (v5, 26 Nov 2026).
-   A pen (stylus, drawing tablet) dragged anywhere on a page scrolls it up and down like a hand: over empty space, text, links and
+/* Pen scrolling for the whole study site (v6, 26 Nov 2026).
+   Dragging with the pen (or the mouse) anywhere on a page scrolls it up and down like a hand: over empty space, text, links and
    buttons. A tap still clicks or places the cursor. A flick keeps the page gliding and it slows down smoothly.
-   Not touched: form fields, canvases, video, [data-pen="off"], Shift+drag (selects text), the pen's side button, finger. Off in draw mode.
+   Not touched: form fields, canvases, video, [data-pen="off"], Shift+drag (selects text), side or right button, finger (native). Off in draw mode.
 
-   Why v5. Chrome on a Mac learns that the pointer is a pen only from the tablet's "proximity" message, sent when the pen comes into
-   range or when the browser becomes the active app again. A page that is reloaded while the pen hovers starts out believing the pen is
-   a mouse (pointerType "mouse") until the next such message: that is the "does not work after refresh, works after switching apps and
-   back" the user saw. So once this browser has seen a real pen (remembered in localStorage "aso-pen-seen"), a left-button drag that
-   Chrome calls "mouse" is treated as the pen too. Side effect: a mouse or trackpad click-drag also scrolls instead of selecting; Shift+drag
-   or a double click still selects. Turn that part off with ?penmouse=0 (back on with ?penmouse=1).
+   Why the mouse too (v6). The browser often reports the user's pen as a mouse: Chrome on a Mac learns "pen" only from the tablet's
+   proximity message (pen coming into range, or Chrome becoming the active app again), so after a refresh the pen is "mouse"; the
+   Claude app's browser pane never reported "pen" at all (localStorage showed no pen ever seen). v1-v5 waited for "pen" and so worked
+   only now and then. A left-button drag is now a scroll whatever the browser calls the pointer. Side effect: a mouse or trackpad
+   click-drag no longer selects text; Shift+drag or a double click does. ?penmouse=0 gives the old mouse behaviour back (?penmouse=1 undoes it).
    Diagnosis: ?pendebug=1 shows a badge at the bottom left (?pendebug=0 hides it). */
 (function () {
-  if (window.__penScroll) return; window.__penScroll = 5;
+  if (window.__penScroll) return; window.__penScroll = 6;
   var TAP = 6;                                    /* px of movement before a press becomes a scroll */
   var CONTROL = 'input,select,textarea,option,video,audio,canvas,iframe,[contenteditable=""],[contenteditable="true"],[data-pen="off"]';
   var TAU = 325, VMAX = 4.5, VMIN = 0.01;          /* glide: speed fades by 1/e every 325 ms; speeds in px per ms */
@@ -32,8 +31,8 @@
       b.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#111;color:#fff;font:11px/1.45 ui-monospace,Menlo,monospace;padding:5px 9px;max-width:86vw;pointer-events:none;opacity:.92;white-space:pre-wrap";
       (document.body || root).appendChild(b);
     }
-    b.textContent = "pen-scroll v5 · #" + (++dn) + " · pointer: " + (e ? e.pointerType : "-") + (e && e.pointerType === "pen" ? " · pressure " + (e.pressure || 0).toFixed(2) : "") +
-      "\npen seen in this browser: " + (penSeen ? "yes" : "no") + " · mouse drags as pen: " + (penSeen && mouseAsPen ? "on" : "off") + "\n" + msg;
+    b.textContent = "pen-scroll v6 · #" + (++dn) + " · pointer: " + (e ? e.pointerType : "-") + (e && e.pointerType === "pen" ? " · pressure " + (e.pressure || 0).toFixed(2) : "") +
+      "\npen seen in this browser: " + (penSeen ? "yes" : "no") + " · mouse drags scroll too: " + (mouseAsPen ? "on" : "off") + "\n" + msg;
   }
   function learn(e) { if (e.pointerType === "pen" && !penSeen) { penSeen = true; ls("aso-pen-seen", "1"); say("a pen was seen; remembered", e); } }
   document.addEventListener("pointermove", learn, true);
@@ -103,9 +102,8 @@
     if (st) drop();
     var why = null, asMouse = false;
     if (e.pointerType === "pen") learn(e);
-    else if (e.pointerType === "mouse" && penSeen && mouseAsPen) asMouse = true;
-    else why = e.pointerType === "mouse" ? (penSeen ? "mouse drags as pen are off (?penmouse=1)" : "Chrome says mouse and no pen has been seen in this browser yet: move the pen out of range and back once")
-                                         : "not a pen ('" + e.pointerType + "')";
+    else if (e.pointerType === "mouse" && mouseAsPen) asMouse = true;
+    else why = e.pointerType === "mouse" ? "mouse drags are switched off (?penmouse=1 turns them on)" : "not a pen ('" + e.pointerType + "')";
     if (!why && e.button !== 0) why = "side button / eraser / right click (button " + e.button + ")";
     if (!why && e.defaultPrevented) why = "the page handled the press itself";
     if (!why && !e.isPrimary) why = "second pointer";
@@ -116,7 +114,7 @@
     if (!why && t.closest && t.closest(CONTROL)) why = "on a form field, canvas or video";
     if (why) { say("ignored: " + why, e); return; }
     st = { id: e.pointerId, y: e.clientY, y0: e.clientY, x0: e.clientX, list: chain(t), box: null, going: false, s: [{ t: e.timeStamp, y: e.clientY }], cap: false, mouse: asMouse };
-    say("armed" + (asMouse ? " (Chrome calls it a mouse; treated as the pen)" : "") + ": drag to scroll", e);
+    say("armed" + (asMouse ? " (the browser calls it a mouse; scrolls all the same)" : "") + ": drag to scroll", e);
   }, false);
 
   document.addEventListener("pointermove", function (e) {
