@@ -1,7 +1,7 @@
-/* Pen scrolling for the whole study site (v7, 26 Nov 2026: the flick now also works when the tip is simply lifted; see flick()).
+/* Pen scrolling for the whole study site (v8, 26 Nov 2026: text selection switched off site-wide; v7 made the flick work on a plain tip lift).
    Dragging with the pen (or the mouse) anywhere on a page scrolls it up and down like a hand: over empty space, text, links and
    buttons. A tap still clicks or places the cursor. A flick keeps the page gliding and it slows down smoothly.
-   Not touched: form fields, canvases, video, [data-pen="off"], Shift+drag (selects text), side or right button, finger (native). Off in draw mode.
+   Not touched: form fields, canvases, video, [data-pen="off"], Shift+drag, side or right button, finger (native). Off in draw mode.
 
    Why the mouse too (v6). The browser often reports the user's pen as a mouse: Chrome on a Mac learns "pen" only from the tablet's
    proximity message (pen coming into range, or Chrome becoming the active app again), so after a refresh the pen is "mouse"; the
@@ -10,7 +10,7 @@
    click-drag no longer selects text; Shift+drag or a double click does. ?penmouse=0 gives the old mouse behaviour back (?penmouse=1 undoes it).
    Diagnosis: ?pendebug=1 shows a badge at the bottom left (?pendebug=0 hides it). */
 (function () {
-  if (window.__penScroll) return; window.__penScroll = 7;
+  if (window.__penScroll) return; window.__penScroll = 8;
   var TAP = 6;                                    /* px of movement before a press becomes a scroll */
   var CONTROL = 'input,select,textarea,option,video,audio,canvas,iframe,[contenteditable=""],[contenteditable="true"],[data-pen="off"]';
   var TAU = 325, VMAX = 4.5, VMIN = 0.01;          /* glide: speed fades by 1/e every 325 ms; speeds in px per ms */
@@ -20,6 +20,16 @@
   var q = /[?&]pendebug=(\d)/.exec(location.search); if (q) ls("aso-pen-debug", q[1]);
   q = /[?&]penmouse=(\d)/.exec(location.search); if (q) ls("aso-pen-mouse", q[1]);
   var dbg = ls("aso-pen-debug") === "1";
+
+  /* No text selection anywhere on the site (user's wish, 26 Nov 2026), except in boxes you type into.
+     ?textselect=1 turns selection back on in this browser, ?textselect=0 switches it off again. */
+  q = /[?&]textselect=(\d)/.exec(location.search); if (q) ls("aso-text-select", q[1]);
+  if (ls("aso-text-select") !== "1") {
+    var css = document.createElement("style"); css.id = "no-text-select";
+    css.textContent = "html,body,*{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none}" +
+      "input,textarea,select,[contenteditable=''],[contenteditable='true'],[contenteditable='true'] *{-webkit-user-select:text!important;user-select:text!important}";
+    (document.head || root).appendChild(css);
+  }
   var penSeen = ls("aso-pen-seen") === "1", mouseAsPen = ls("aso-pen-mouse") !== "0";
 
   var dn = 0;
@@ -31,7 +41,7 @@
       b.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#111;color:#fff;font:11px/1.45 ui-monospace,Menlo,monospace;padding:5px 9px;max-width:86vw;pointer-events:none;opacity:.92;white-space:pre-wrap";
       (document.body || root).appendChild(b);
     }
-    b.textContent = "pen-scroll v7 · #" + (++dn) + " · pointer: " + (e ? e.pointerType : "-") + (e && e.pointerType === "pen" ? " · pressure " + (e.pressure || 0).toFixed(2) : "") +
+    b.textContent = "pen-scroll v8 · #" + (++dn) + " · pointer: " + (e ? e.pointerType : "-") + (e && e.pointerType === "pen" ? " · pressure " + (e.pressure || 0).toFixed(2) : "") +
       "\npen seen in this browser: " + (penSeen ? "yes" : "no") + " · mouse drags scroll too: " + (mouseAsPen ? "on" : "off") + "\n" + msg;
   }
   function learn(e) { if (e.pointerType === "pen" && !penSeen) { penSeen = true; ls("aso-pen-seen", "1"); say("a pen was seen; remembered", e); } }
