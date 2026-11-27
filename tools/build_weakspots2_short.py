@@ -44,6 +44,8 @@ css += """
 .wr-r.no .wr-k{color:var(--muted)}.wr-r.no .wr-s{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(110,110,115,.55)}
 .wr-r.ok .wr-k{color:var(--blue)}
 .ri td:first-child a{font-family:var(--f-mono);font-size:12px;color:var(--blue);text-decoration:none}
+.box ul.opts{margin:4px 0 8px;padding-left:1.2em}.box ul.opts li{margin:1px 0}
+.box .qstem{font-size:1.02em}
 .navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
 """
 
@@ -187,12 +189,15 @@ while i < len(lines):
         if qa:
             out += '<div class="qas">' + "".join(
                 '<details class="qa"><summary>%s</summary><p>%s</p></details>' % tuple(inline(x.strip()) for x in b[3:].split("||", 1)) for b in qa) + "</div>"
-        ul = [b for b in body if b.startswith("- ")]
-        other = [b for b in body if not b.startswith("- ") and not b.startswith("?? ")]
-        for o in other:
-            out += "<p>%s</p>" % inline(o)
-        if ul:
-            out += "<ul>%s</ul>" % "".join("<li>%s</li>" % inline(b[2:]) for b in ul)
+        # keep the lines in their written order; consecutive "- " lines make one list
+        ul = []
+        for b in [x for x in body if not x.startswith("?? ")] + [""]:
+            if b.startswith("- "):
+                ul.append(b[2:]); continue
+            if ul:
+                out += '<ul class="opts">%s</ul>' % "".join("<li>%s</li>" % inline(x) for x in ul); ul = []
+            if b:
+                out += "<p>%s</p>" % inline(b)
         out += "</aside>"
         cur["parts"].append(out); words(out); continue
     if ln.startswith("?? "):
