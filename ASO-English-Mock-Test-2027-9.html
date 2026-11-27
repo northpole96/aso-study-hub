@@ -1,0 +1,552 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO English Mock 09</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}.nav #b-show{order:5;grid-column:1/-1}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.pass{margin-top:14px;border-left:2px solid var(--blue);padding:10px 14px;background:var(--paper);font-size:1rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+details.pass summary{cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.qfig{margin-top:14px;border:1px dashed var(--rule);padding:12px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.qfig svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · English Paper III · Mock 09</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>English Mock 09</h1>
+<p class="tag">100 <b>hard</b> questions on the <b>2021 layout</b>,<br>with close options and natural-looking traps.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This full English paper (45 minutes) follows the 2021 booklet. It opens with a mixed grammar block of twenty, then six parts of speech, eight pick-the-correct-sentence and spot-the-error questions, six mixed questions, sixteen vocabulary questions, ten prepositions, ten articles, five tenses, four rearrangements, ten agreement questions and one reading passage.</p>
+<p class="lead" style="margin-top:14px">The level is hard. Many options are close, and several words change their part of speech with their place (look, hard, enough, but, before). Each question still tests one rule. Three are exact past questions: 2021 Q13 (had never been), 2021 Q46 (SUBVERSION) and 2025 Q42 (focuses on). The passage is about the sea taking the coastal villages of Satabhaya in Kendrapara.</p>
+<div class="rules">
+<div><b>Paper</b><span>100 questions · 45 minutes · 100 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will bring back what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 45 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>100</span> questions</span></div>
+<ol class="bp"><li><span class="n">05</span><span>Vocabulary</span><span class="dots"></span><span class="c"></span></li><li><span class="n">09</span><span>Tenses</span><span class="dots"></span><span class="c"></span></li><li><span class="n">12</span><span>Subject–verb agreement</span><span class="dots"></span><span class="c"></span></li><li><span class="n">14</span><span>Preposition</span><span class="dots"></span><span class="c"></span></li><li><span class="n">05</span><span>Adverb</span><span class="dots"></span><span class="c"></span></li><li><span class="n">10</span><span>Articles</span><span class="dots"></span><span class="c"></span></li><li><span class="n">06</span><span>Verb</span><span class="dots"></span><span class="c"></span></li><li><span class="n">13</span><span>Error spotting</span><span class="dots"></span><span class="c"></span></li><li><span class="n">06</span><span>Synonyms</span><span class="dots"></span><span class="c"></span></li><li><span class="n">05</span><span>Antonyms</span><span class="dots"></span><span class="c"></span></li><li><span class="n">05</span><span>Comprehension</span><span class="dots"></span><span class="c"></span></li><li><span class="n">04</span><span>Sentence rearrangement</span><span class="dots"></span><span class="c"></span></li><li><span class="n">06</span><span>Parts of speech</span><span class="dots"></span><span class="c"></span></li></ol>
+<p class="src" style="margin-top:14px">Topic counts follow the 2018, 2021 and 2025 papers (2021 and 2025 weighted fully, 2018 at half) and the official syllabus.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">45:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 100 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="pass" id="q-pass" hidden></div>
+<div class="qtext" id="q-text"></div>
+<div class="qfig" id="q-fig" hidden></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-show" hidden>Show answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · ASO English Mock 09 · built 27 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 papers. Questions tagged Check rest on facts that could not be confirmed: check them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Verb", "q": "Looking back on his life, the old clerk deeply regretted ____ school after Class 8, because he could never rise to a better post.", "o": ["to leave", "leaving", "leave", "to leaving"], "a": 1, "e": "Regret + -ing means being sorry about something already done (he left school long ago). Regret + to-infinitive is for something you are about to say or do: 'We regret to inform you that…'. The clue is 'looking back'. Grew from the 2025 verb-form questions (gerund or infinitive after a verb).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The new government has promised to ____ the old system of paper permits and issue every licence online.", "o": ["do away of", "do up with", "do away with", "do away from"], "a": 2, "e": "'Do away with' means abolish or put an end to. The phrasal verb has two particles, 'away' and 'with', and neither can be changed. Grew from 2021 and 2025 phrasal verbs (turned out, take to heart, called for).", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "If you had taken the medicine on time yesterday, you ____ much better today.", "o": ["will feel", "would have felt", "had felt", "would feel"], "a": 3, "e": "A mixed conditional: the condition is in the past (had taken … yesterday) but the result is in the present (today), so the result takes would + base verb. 'Would have felt' is for a result in the past. The time words decide. Grew from 2025 conditionals (type 2 and type 3).", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "Only when the lights came back on ____ how much damage the storm had done to the hall.", "o": ["saw we", "we saw", "we did see", "did we see"], "a": 3, "e": "A sentence that opens with 'Only when', 'Only after', 'Not until' or 'Never' puts the helping verb before the subject in the main clause: did we see. 'Saw we' moves the main verb, which English does not allow. Grew from the four inversion openers of 2025 (Rarely does, Never before had).", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose how the sentence can be improved: She was uneasy because she (never be) on a plane before.", "o": ["had never been", "never been", "is never been", "No improvement"], "a": 0, "e": "Past question (2021 Q13), asked again. Exact past question (2021 Q13). Her experience up to that past moment needs the past perfect: had never been. 'Before' and 'was uneasy' place it in the past. The family: earlier of two past times takes had + past participle.", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "Choose the correct passive form: People say that the old banyan tree is three hundred years old.", "o": ["The old banyan tree was said that it is three hundred years old.", "The old banyan tree is said to have been three hundred years old.", "It is said by people the old banyan tree is three hundred years old.", "The old banyan tree is said to be three hundred years old."], "a": 3, "e": "'People say that X is …' becomes 'X is said to be …'. The present 'is' becomes the present infinitive 'to be'; 'to have been' would put the age in the past. Grew from the voice questions of 2018 and 2021 ('everyone understands English').", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "The night guard looked ____ at the stranger who was standing near the bank's locked gate at midnight.", "o": ["suspicion", "more suspicious", "suspiciously", "suspicious"], "a": 2, "e": "'Look at' is an action (using the eyes), so it takes an adverb: looked suspiciously at him. 'He looked suspicious' (he seemed so) would take an adjective, because there 'look' is a linking verb like seem. The word 'at' shows the action. Grew from 2025 adjective-or-adverb questions.", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The new rule on late fees is not applicable ____ students who have already paid for the whole year.", "o": ["with", "to", "on", "for"], "a": 1, "e": "We say 'applicable to', 'relevant to', 'suitable for'. 'Applicable for' is a common mistake. Adjective + preposition pairs are learnt as pairs. Grew from the 2018 and 2021 fixed prepositions (different from, according to, based on).", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "You ____ to have told the police at once; by keeping quiet you only made matters worse.", "o": ["had better", "must", "ought", "should"], "a": 2, "e": "Only 'ought' is followed by 'to'. 'Should have told', 'must have told' and 'had better tell' take no 'to'. 'Ought to have + past participle' blames a missed duty in the past. Grew from 2021 Q2 (modals of duty).", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose how the part in brackets can be improved. If no change is needed, choose 'No improvement'.\nThe more you practise speaking in public, (the less nervous you will feel) on the stage.", "o": ["less nervous you will feel", "the lesser nervous you will feel", "the less nervous will you feel", "No improvement"], "a": 3, "e": "The sentence is correct. 'The more …, the less …' needs 'the' in both halves, the plain comparative 'less' (not 'lesser'), and normal word order (you will feel). A hard paper always has a few sentences that need no change. Grew from the 2021 sentence improvement block (Q12–16).", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "When we returned from the fair late at night, we found that our house ____ into by thieves.", "o": ["had broken", "has been broken", "was broken", "had been broken"], "a": 3, "e": "Two past actions: the thieves broke in first, we found it later. The earlier one takes the past perfect, and the house did not do the breaking, so it is passive: had been broken into. 'Had broken' is active and wrong. Grew from the 2025 past-perfect questions.", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "I would rather you ____ this matter to anyone until the enquiry is over.", "o": ["not mention", "did not mention", "do not mention", "had not mentioned"], "a": 1, "e": "'Would rather' + another person + past simple speaks of the present or future: I would rather you did not mention it. 'Had not mentioned' would be a regret about the past, but 'until the enquiry is over' points to the future. Grew from the would-rather family (2018).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The young officer was blamed ____ the delay, although he was not responsible ____ it, and the enquiry later cleared him ____ all charges.", "o": ["for, for, of", "of, for, from", "for, to, of", "on, with, from"], "a": 0, "e": "Blamed for a fault, responsible for a thing, cleared of a charge (also accused of, acquitted of). One sentence, three pairs: the 2018 and 2021 multi-blank style ('in his honour … invited to it').", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose how the part in brackets can be improved. If no change is needed, choose 'No improvement'.\nThe reason why he failed the test (is because) he did not read the questions carefully.", "o": ["was because", "is that", "is due to", "No improvement"], "a": 1, "e": "'The reason … is because' says the same thing twice. After 'the reason' use 'that': The reason is that he did not read. 'Is due to' cannot be followed by a full clause (he did not read). Grew from 2021 sentence improvement ('because of they dislike').", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "Halfway up the steep hill, the old pilgrim stopped ____ his breath, and then walked on slowly to the temple.", "o": ["to catch", "catch", "to catching", "catching"], "a": 0, "e": "Stop + to-infinitive = stop in order to do something (he stopped so that he could rest). Stop + -ing = no longer do it. 'Stopped catching his breath' would mean he gave up breathing. Grew from 2025 gerund-or-infinitive questions.", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "The farmers worked ____ all through the summer, so no one was surprised when they had a rich harvest.", "o": ["hard", "hardness", "hardly", "hardily"], "a": 0, "e": "'Hard' is both an adjective and an adverb (work hard). 'Hardly' means 'almost not', which is the opposite of the sense here. Same trap: late / lately, near / nearly, high / highly. Grew from 2025 adjective-or-adverb questions.", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose how the part in brackets can be improved. If no change is needed, choose 'No improvement'.\n(Though he is poor, but) he never takes help from anyone in the village.", "o": ["Although he is poor, but", "Despite he is poor,", "Though he is poor,", "No improvement"], "a": 2, "e": "'Though' and 'but' both join the two parts, so using both is a double joining. Keep one: Though he is poor, he never takes help. 'Despite' must be followed by a noun or -ing (despite being poor). Grew from 2021 sentence improvement.", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "As the chief guest was in a hurry, the organisers decided to dispense ____ the usual speeches and began the prize distribution at once.", "o": ["from", "with", "off", "of"], "a": 1, "e": "'Dispense with' means do without or leave out. Verb + preposition pairs like this (part with, dispense with, comply with) are fixed. Grew from 2025 Q42 and the verb + preposition family.", "k": "one", "n": false, "c": false}, {"s": "Verb", "q": "The accused denied ____ anywhere near the bank on the night of the robbery.", "o": ["to have been", "have been", "having been", "to be"], "a": 2, "e": "'Deny' is followed by the -ing form, never by to. Since the act was in the past, the perfect gerund 'having been' is the best choice. Same group: admit, avoid, mind, risk. Grew from 2025 verb-form questions (denied having been is an open angle).", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose how the part in brackets can be improved. If no change is needed, choose 'No improvement'.\n(Unless you do not apply) before Friday, you will lose your seat in the hostel.", "o": ["Unless you apply", "If you apply", "Unless you will apply", "No improvement"], "a": 0, "e": "'Unless' already means 'if not', so 'unless … not' is a double negative. 'If you apply' turns the meaning round (you would lose the seat by applying). No 'will' after unless or if. Grew from 2021 sentence improvement and the 2025 conditional row.", "k": "one", "n": false, "c": false}, {"s": "Parts of speech", "q": "Choose the correct part of speech for the word in bracket:\nPlease put (that) bag on the top shelf before the guests arrive.", "o": ["Adverb", "Pronoun", "Conjunction", "Adjective"], "a": 3, "e": "'That' stands before a noun (bag) and points it out, so it is a demonstrative adjective. In 'That is my bag' it stands alone and is a pronoun; in 'He said that he was late' it joins and is a conjunction. Grew from 2021 Q17–22.", "k": "one", "n": false, "c": false}, {"s": "Parts of speech", "q": "Choose the correct part of speech for the word in bracket:\nI am sure I have met this gentleman somewhere (before).", "o": ["Conjunction", "Preposition", "Adjective", "Adverb"], "a": 3, "e": "With nothing after it, 'before' tells when and modifies the verb (have met): an adverb. 'Before lunch' would make it a preposition; 'before he came' a conjunction. Grew from 2021 Q18 ('for' as preposition).", "k": "one", "n": false, "c": false}, {"s": "Parts of speech", "q": "Choose the correct part of speech for the word in bracket:\nIn summer the farmers (water) their fields twice a week.", "o": ["Adverb", "Noun", "Adjective", "Verb"], "a": 3, "e": "Here 'water' is the action the farmers do, so it is a verb. A word's job in the sentence decides its part of speech, not the word itself. Grew from 2021 Q21 (liar = noun) and the 'noun used as a verb' angle.", "k": "one", "n": false, "c": false}, {"s": "Parts of speech", "q": "Choose the correct part of speech for the word in bracket:\nThe boy is not tall (enough) to reach the top shelf.", "o": ["Adjective", "Pronoun", "Adverb", "Noun"], "a": 2, "e": "'Enough' after an adjective (tall enough) tells how tall, so it modifies the adjective: an adverb. Before a noun (enough money) it is an adjective. Grew from 2021 Q19 (costly looks like an adverb but is an adjective).", "k": "one", "n": false, "c": false}, {"s": "Parts of speech", "q": "Choose the correct part of speech for the word in bracket:\nAll (but) one of the students passed the final examination.", "o": ["Adjective", "Preposition", "Adverb", "Conjunction"], "a": 1, "e": "Here 'but' means 'except' and stands before 'one', so it is a preposition. In 'He is poor but honest' it joins two words and is a conjunction. Grew from 2021 Q17 (as well as = conjunction).", "k": "one", "n": false, "c": false}, {"s": "Parts of speech", "q": "Choose the correct part of speech for the word in bracket:\n(Seeing) the police at the gate, the thief ran out through the back door.", "o": ["Verb", "Gerund", "Participle", "Infinitive"], "a": 2, "e": "'Seeing the police' describes the thief (the thief, seeing the police, ran), so it works like an adjective: a participle. An -ing word that works as a noun ('Seeing is believing') is a gerund. Grew from 2021 Q20 (drowning man).", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose the grammatically correct sentence:", "o": ["The climate of Puri is more milder than that of Bhubaneswar.", "The climate of Puri is milder than Bhubaneswar.", "The climate of Puri is milder than those of Bhubaneswar.", "The climate of Puri is milder than that of Bhubaneswar."], "a": 3, "e": "We compare climate with climate, not climate with a city, so 'that of Bhubaneswar' is needed ('those of' for a plural). 'More milder' is a double comparative. Grew from 2021 pick-the-correct-sentence questions.", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose the grammatically correct sentence:", "o": ["The man who I thought was honest cheated me.", "The man who I thought he was honest cheated me.", "The man whom I thought was honest cheated me.", "The man which I thought was honest cheated me."], "a": 0, "e": "'I thought' is only a small inserted clause. Take it out: 'The man who was honest'. The relative word is the subject of 'was', so it must be 'who', not 'whom'. A classic hard trap. Grew from 2021 pick-correct questions.", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose the grammatically correct sentence:", "o": ["Walk carefully lest you will fall.", "Walk carefully lest you should not fall.", "Walk carefully lest you should fall.", "Walk carefully lest you may not fall."], "a": 2, "e": "'Lest' means 'so that … not', so it never takes another 'not', and it is followed by 'should'. Grew from 2021 pick-correct questions.", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose the grammatically correct sentence:", "o": ["She is both clever and also hardworking.", "She is both clever as well as hardworking.", "She is clever both and hardworking.", "She is both clever and hardworking."], "a": 3, "e": "'Both' pairs only with 'and', and 'both' stands just before the first of the two words. 'Both … as well as' mixes two joiners. Grew from 2021 pick-correct questions and 2018 Q7 (as well as).", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose the grammatically correct sentence:", "o": ["He is as tall as, if not taller than, his brother.", "He is as tall, if not taller than, his brother.", "He is as tall as, if not taller, his brother.", "He is tall as, if not taller than, his brother."], "a": 0, "e": "Each half must be complete on its own: 'as tall as his brother' and 'taller than his brother'. Only the first sentence keeps both 'as … as' and 'than'. Grew from 2021 pick-correct questions and the degree family of 2025.", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Choose the grammatically correct sentence:", "o": ["The boy resembles with his father in every way.", "The boy resembles to his father in every way.", "The boy is resembling his father in every way.", "The boy resembles his father in every way."], "a": 3, "e": "'Resemble' takes its object directly, with no preposition (like discuss, reach, enter). It is a state verb, so it is not used in the continuous form. Grew from 2021 pick-correct questions.", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Identify the incorrect segment in the sentence below:\n[Not only did he] [lost his money] [but also] [his good name.]", "o": ["Not only did he", "lost his money", "but also", "his good name."], "a": 1, "e": "After 'did', the verb goes back to its base form: did he lose, not did he lost. The inversion after 'Not only' is right. Grew from 2025 error spotting ('Not only does … made').", "k": "one", "n": false, "c": false}, {"s": "Error spotting", "q": "Identify the incorrect segment in the sentence below:\n[The scenery of] [the Koraput hills] [are charming] [during the monsoon.]", "o": ["The scenery of", "the Koraput hills", "are charming", "during the monsoon."], "a": 2, "e": "The subject is 'scenery', an uncountable noun that takes a singular verb: is charming. The plural 'hills' after 'of' does not change the verb. Grew from the 2025 error-spotting rows ('rules has', 'committee are').", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "Ravi and Sunil ____ each other for ten years when they decided to start a business together.", "o": ["knew", "had known", "were knowing", "have known"], "a": 1, "e": "The knowing ran up to a past moment (when they decided), so it takes the past perfect: had known … for ten years. 'Know' is a state verb and is not used in -ing forms. Grew from 2025 past-perfect questions ('had known each other for a decade').", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "The pair of shoes that I bought at the fair last week ____ already too tight for me.", "o": ["are", "have been", "is", "were"], "a": 2, "e": "The subject is 'pair', which is singular: the pair … is. 'Shoes' alone would take 'are'. The words in between (that I bought…) do not change it. Grew from 2021 agreement questions (pair of).", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "We need ____ information about the scheme before we can fill in the form.", "o": ["further", "farther", "furthest", "more far"], "a": 0, "e": "'Further' means more or additional (further information, further help). 'Farther' is only for real distance. 'More far' is not used. Grew from 2025 degree questions (irregular comparisons).", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "By the time you receive this letter, I ____ for Mumbai.", "o": ["will leave", "will have left", "would have left", "have left"], "a": 1, "e": "'By the time' + a future event: the other action will be complete before it, so use the future perfect, will have left. 'By the time you receive' is present in form but future in meaning. Grew from 2025 future-tense questions.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "Each and every member of the two clubs ____ a right to vote at the meeting.", "o": ["has", "were having", "have", "are having"], "a": 0, "e": "'Each and every' takes a singular verb, even when a plural noun (clubs) comes later. 'Have' in the sense of own is a state verb and has no -ing form here. Grew from 2021 and 2025 each/every questions.", "k": "one", "n": false, "c": false}, {"s": "Adverb", "q": "The milk had turned ____ because it was left outside in the heat all afternoon.", "o": ["sour", "sourness", "sourly", "soured"], "a": 0, "e": "'Turn' here means 'become', a linking verb, so it is followed by an adjective that describes the milk: turned sour. Same with grow, become, seem, look. Grew from 2025 adjective-or-adverb questions (felt tired, looked dull).", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "Choose the word closest in meaning to the word in bracket:\nThe minister's (cryptic) reply left the reporters wondering what he really meant.", "o": ["mysterious", "polite", "angry", "honest"], "a": 0, "e": "Cryptic = having a hidden or puzzling meaning, so mysterious. The clue is 'wondering what he really meant'. Grew from 2021 Q41–42 (word in bracket).", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "Choose the word closest in meaning to the word in bracket:\nThe (incessant) rain of the last three days has flooded the low-lying parts of the town.", "o": ["seasonal", "heavy", "sudden", "unceasing"], "a": 3, "e": "Incessant = going on without stopping. 'Heavy' is tempting, but the word is about time (three days without a break), not strength. Grew from 2021 Q41–42.", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "Choose the word closest in meaning to the word in bracket:\nThe court said that it would not waste its time on such (frivolous) complaints.", "o": ["false", "serious", "trivial", "angry"], "a": 2, "e": "Frivolous = not serious, silly or trivial. 'False' is tempting, but a frivolous complaint may be true and still not worth the court's time. Grew from 2021 Q41–42.", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "Choose the word most similar in meaning to AMELIORATE:", "o": ["Improve", "Accept", "Measure", "Worsen"], "a": 0, "e": "Ameliorate = make a bad situation better (ameliorate the condition of the poor). 'Worsen' is its opposite. Grew from 2021 Q43 (veracity).", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "Select the pair of synonyms:\n(I) Diligent (II) Careless (III) Industrious (IV) Idle", "o": ["(I) and (II)", "(II) and (IV)", "(I) and (III)", "(III) and (IV)"], "a": 2, "e": "Diligent and industrious both mean hardworking. Careless and idle are both faults, but they do not mean the same thing (one is about attention, the other about work). Grew from the 2021 pick-the-pair question.", "k": "one", "n": false, "c": false}, {"s": "Synonyms", "q": "Choose the word most similar in meaning to AUDACIOUS:", "o": ["Loud", "Clever", "Cruel", "Bold"], "a": 3, "e": "Audacious = daring, bold, ready to take risks (an audacious plan). It has nothing to do with noise. Grew from 2021 Q43.", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "Choose the word most opposite in meaning to SUBVERSION:", "o": ["Clarity", "Sanity", "Compliance", "Destabilisation"], "a": 2, "e": "Past question (2021 Q46), asked again. Exact past question (2021 Q46). Subversion is the undermining of authority; its opposite is obeying it: compliance. Destabilisation is close to a synonym.", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "Choose the word most opposite in meaning to ADVERSITY:", "o": ["Misfortune", "Prosperity", "Hardship", "Courage"], "a": 1, "e": "Adversity = hard times, misfortune. Its opposite is prosperity (good fortune). Misfortune and hardship are synonyms, the usual trap. Grew from the four antonyms of 2021 (military, embrace, subversion, sinister).", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "Choose the word most opposite in meaning to AFFLUENT:", "o": ["Prosperous", "Impoverished", "Influential", "Generous"], "a": 1, "e": "Affluent = rich. Impoverished = made poor. 'Influential' sounds like 'affluent' but means powerful. Grew from the 2021 antonyms.", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "Choose the word most opposite in meaning to PROFOUND:", "o": ["Deep", "Serious", "Difficult", "Superficial"], "a": 3, "e": "Profound = deep (profound knowledge, profound sorrow). Its opposite is superficial, which means only on the surface. Grew from the 2021 antonyms.", "k": "one", "n": false, "c": false}, {"s": "Antonyms", "q": "Choose the word most opposite in meaning to ZEAL:", "o": ["Apathy", "Passion", "Courage", "Anger"], "a": 0, "e": "Zeal = great energy and eagerness for a cause. Apathy = lack of interest or feeling. Passion is a synonym. Grew from the 2021 antonyms.", "k": "one", "n": false, "c": false}, {"s": "Vocabulary", "q": "The stranger's ____ manner (whispering, glancing around and hiding his face) made the shopkeeper call the police.", "o": ["cheerful", "furtive", "careless", "candid"], "a": 1, "e": "Furtive = secret and sly, as if hiding something. The clues in the brackets all point to hiding. Grew from the 2025 one-blank vocabulary questions (unwelcoming air → sullen).", "k": "one", "n": false, "c": false}, {"s": "Vocabulary", "q": "The old fort, once full of soldiers and traders, now stands ____; only bats and pigeons live in its empty halls.", "o": ["festive", "crowded", "renovated", "desolate"], "a": 3, "e": "Desolate = empty and lonely. 'Once full … now' sets up a contrast, and 'empty halls' confirms it. Grew from the 2025 one-blank vocabulary questions.", "k": "one", "n": false, "c": false}, {"s": "Vocabulary", "q": "The speech was so ____ that the listeners, who had expected a long lecture, were pleased when the speaker finished in five minutes.", "o": ["hesitant", "succinct", "eloquent", "verbose"], "a": 1, "e": "Succinct = brief and clear. 'Eloquent' (fluent and moving) is tempting, but the clue is the five minutes, which is about length. Verbose is the opposite. Grew from the 2025 one-blank vocabulary questions (lucid, meticulously).", "k": "one", "n": false, "c": false}, {"s": "Vocabulary", "q": "Unlike his ____ elder brother, who never asked a single question in class, Rahul wanted to know the reason behind everything.", "o": ["incurious", "inquisitive", "argumentative", "ambitious"], "a": 0, "e": "'Unlike' signals a contrast. Rahul is curious, so the brother must be the opposite: incurious. 'Inquisitive' describes Rahul, not the brother. Grew from the 2025 contrast-clue question ('unlike the pessimism of his brothers' → optimistic).", "k": "one", "n": false, "c": false}, {"s": "Vocabulary", "q": "In which sentence is the word 'board' used to mean 'a group of people who manage an organisation'?", "o": ["We went on board the ship at Paradip.", "The board of the bank met to choose a new chairman.", "The teacher wrote the date on the board.", "The hostel charges for room and board."], "a": 1, "e": "A board of directors is a group that manages. 'On the board' is a flat surface, 'on board' means on a ship, and 'room and board' means meals. Grew from 2018 word-meaning questions (a word with many meanings: bar).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The study focuses ____ the relationship between diet and mental health.", "o": ["at", "with", "in", "on"], "a": 3, "e": "Past question (2025 Q42), asked again. Exact past question (2025 Q42). Focus on, concentrate on, emphasis on. Family: verb + preposition (lies in, arrived at, confide in).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "____ the coming elections, the government has cancelled the leave of all its officers.", "o": ["Instead of", "In view of", "In place of", "In spite of"], "a": 1, "e": "'In view of' = because of something expected or present. The officers are needed for the elections, so their leave is cancelled. 'In spite of' would need a contrast. Grew from 2021 phrase prepositions (according to, based on).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "He was born ____ the morning of 2 October in a small village near Cuttack.", "o": ["on", "by", "at", "in"], "a": 0, "e": "We say 'in the morning', but 'on the morning of' a particular date, because a date takes 'on'. Grew from the time prepositions of 2021 and 2025 (in June, on Monday).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "She is very proficient ____ Sanskrit as well as Odia, and often translates old texts for the museum.", "o": ["in", "at", "on", "with"], "a": 0, "e": "Proficient in (a skill or language), like skilled in. 'Good at' takes 'at', which is why 'at' is the trap. Grew from the 2018 and 2021 adjective + preposition pairs.", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "Because orders have fallen, the factory has had to ____ fifty of its workers until the new season.", "o": ["lay out", "lay down", "lay by", "lay off"], "a": 3, "e": "Lay off = stop employing workers for a time because there is no work. Lay out = arrange or spend; lay down = put down or make a rule. Grew from 2021 and 2025 phrasal verbs.", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The match was postponed ____ the heavy rain that had flooded the ground since morning.", "o": ["owing to", "instead of", "in spite of", "on behalf of"], "a": 0, "e": "'Owing to' gives the cause (because of). 'In spite of' would mean the match went ahead. Grew from 2021 phrase prepositions.", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The rich merchant refused to part ____ even a single coin for the repair of the village temple.", "o": ["from", "with", "away", "off"], "a": 1, "e": "Part with = give away something you own. Part from = leave a person ('She parted from her friends'). Grew from the verb + preposition family (2025 Q42).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The shop will stay open ____ nine o'clock tonight; after that the owner will lock it and go home.", "o": ["since", "until", "for", "by"], "a": 1, "e": "'Until' shows that an action goes on up to a time (stay open until nine). 'By' means 'not later than' and suits one finished act (finish it by nine). Grew from 2021 time prepositions (wait until Saturday).", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The officer was accused of being partial ____ his own relatives when he gave out the contracts.", "o": ["with", "for", "on", "to"], "a": 3, "e": "Partial to = favouring someone unfairly. Grew from the 2018 and 2021 adjective + preposition pairs.", "k": "one", "n": false, "c": false}, {"s": "Preposition", "q": "The frightened child clung ____ his mother's saree and would not let go.", "o": ["on", "at", "to", "with"], "a": 2, "e": "Cling to (past: clung to) = hold tightly. Same as stick to, hold on to. Grew from the verb + preposition family.", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "In recognition of his service, he was made ____ honorary member of the club.", "o": ["a", "an", "No article", "the"], "a": 1, "e": "The 'h' in 'honorary' is silent, so the word begins with a vowel sound: an honorary. Same with hour, honest, heir. Grew from the 2021 and 2025 a/an questions (an honour).", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "The victim lodged ____ FIR at the nearest police station the same night.", "o": ["an", "No article", "the", "a"], "a": 0, "e": "F is read 'ef', which begins with a vowel sound, so 'an FIR'. Letters F, H, L, M, N, R, S, X take 'an' (an MP, an SP). Grew from 2021 and 2025 a/an questions (an MLA).", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "The driver took ____ U-turn in the middle of the busy road and was fined by the traffic police.", "o": ["an", "No article", "the", "a"], "a": 3, "e": "U is read 'you', which begins with a consonant sound (y), so 'a U-turn', like a university, a union. Grew from the 2021 and 2025 a/an questions (a unique).", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "The doctor asked for ____ X-ray of the injured man's chest before the operation.", "o": ["No article", "a", "an", "the"], "a": 2, "e": "X is read 'eks', a vowel sound, so 'an X-ray'. The spelling begins with a consonant letter, but the sound decides. Grew from the a/an family.", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "My grandfather reads ____ Samaja every morning with his first cup of tea.", "o": ["an", "No article", "a", "the"], "a": 3, "e": "Names of newspapers take 'the': the Samaja, the Hindu, the Times of India. Grew from the 2021 and 2025 'the' questions (rivers, forests, the police).", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "Amsterdam is the capital of ____ Netherlands.", "o": ["the", "No article", "an", "a"], "a": 0, "e": "Most country names take no article, but a few plural or 'group' names take 'the': the Netherlands, the Philippines, the United States. Grew from the 'the' family of 2021 and 2025.", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "The government runs special schools for ____ blind in every district.", "o": ["No article", "an", "the", "a"], "a": 2, "e": "The + adjective names a whole group of people: the blind, the poor, the old. It takes a plural verb. Grew from the 'the' family.", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "Rina is ____ only girl from our village who has played hockey for the state.", "o": ["an", "the", "No article", "a"], "a": 1, "e": "'Only' (like 'same' and the superlatives) points to one particular person, so it takes 'the': the only girl. Grew from the 'the' family (superlatives).", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "____ man is the only animal that cooks its food.", "o": ["An", "A", "No article", "The"], "a": 2, "e": "'Man' meaning all human beings takes no article: Man is mortal. Grew from the zero-article family of 2021 and 2025 (general plurals, meals, languages).", "k": "one", "n": false, "c": false}, {"s": "Articles", "q": "The old watchman goes to ____ school every day, not to study but to guard its gate.", "o": ["an", "a", "No article", "the"], "a": 3, "e": "Go to school (no article) means going there to study. When someone goes to the building for another purpose, use 'the': goes to the school to guard it. Same with church, hospital, prison. Grew from the zero-article family.", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "This is the third time she ____ the state-level debate competition.", "o": ["has won", "had won", "wins", "won"], "a": 0, "e": "'This is the first (second, third) time' is followed by the present perfect: has won. Grew from the 2018 and 2021 present-perfect questions.", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "'When ____ from Delhi?' 'Only last night.'", "o": ["did you return", "had you returned", "have you returned", "do you return"], "a": 0, "e": "A question with 'When' asks for a point of time in the past, so it takes the past simple. The present perfect is never used with 'When…?' Grew from 2018 and 2021 past-simple questions.", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "It was in 1936 that Odisha ____ a separate province, after a long movement led by leaders such as Madhusudan Das.", "o": ["has become", "had become", "became", "was becoming"], "a": 2, "e": "A finished event at a stated past time (in 1936) takes the past simple. The 'after' phrase does not need the past perfect, because the order is already clear. Grew from the past-year question (They won the Asia Cup in 1993).", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "'You look very tired.' 'Yes, I ____ in the garden since early morning.'", "o": ["had been working", "have been working", "worked", "am working"], "a": 1, "e": "An action that began in the past and is still going on (or has just stopped, with a result now: tired) takes the present perfect continuous with since. Grew from 2025 perfect-continuous questions.", "k": "one", "n": false, "c": false}, {"s": "Tenses", "q": "She gives orders to everyone as if she ____ the owner of the house.", "o": ["is", "were", "has been", "will be"], "a": 1, "e": "'As if' and 'as though' describe something that is not true (she is not the owner), so they take the past subjunctive 'were' for every person. Grew from the wish and unreal-past family (I wish I had spent, 2018 and 2025).", "k": "one", "n": false, "c": false}, {"s": "Sentence rearrangement", "q": "Rearrange the following parts to make a meaningful sentence:\nP: that the old bridge\nQ: the engineers warned\nR: was no longer safe\nS: the district officials", "o": ["QPRS", "QSRP", "QSPR", "SQPR"], "a": 2, "e": "the engineers warned (Q) the district officials (S) that the old bridge (P) was no longer safe (R). 'Warned' needs its object (who was warned) before the 'that' clause; 'was no longer safe' needs the bridge as its subject. Method from the 2025 sentence-part questions.", "k": "one", "n": false, "c": false}, {"s": "Sentence rearrangement", "q": "Rearrange the following parts to make a meaningful sentence:\nP: has been chosen\nQ: who scored the highest marks\nR: the student\nS: for the state scholarship", "o": ["RPQS", "RQPS", "QRPS", "RQSP"], "a": 1, "e": "the student (R) who scored the highest marks (Q) has been chosen (P) for the state scholarship (S). 'Who' must come right after the noun it describes; 'chosen for' joins the verb to its phrase. Same method as 2025.", "k": "one", "n": false, "c": false}, {"s": "Sentence rearrangement", "q": "Rearrange the following parts to make a meaningful sentence:\nP: hardly had\nQ: when the guests\nR: the bride's party reached the hall\nS: began to leave", "o": ["PQRS", "RPQS", "PRSQ", "PRQS"], "a": 3, "e": "hardly had (P) the bride's party reached the hall (R) when the guests (Q) began to leave (S). 'Hardly had' + subject + past participle, then 'when' + the second action. Grew from 2025 rearrangement and the inversion openers.", "k": "one", "n": false, "c": false}, {"s": "Sentence rearrangement", "q": "Rearrange the following sentences to make a meaningful paragraph:\nP: but within a few years most of them had stopped working\nQ: the reason was that no one in the villages knew how to repair them\nR: some years ago hundreds of hand pumps were set up in the dry villages of the district\nS: so the new scheme trains one young person in every village as a mechanic", "o": ["RQPS", "RPSQ", "RPQS", "PRQS"], "a": 2, "e": "R opens: it names the hand pumps. 'But … them' (P) needs the pumps already named. Q gives the reason they stopped, and 'so' (S) gives the answer to that reason. Openers like but, so and 'the reason' always point back. Grew from 2025 paragraph rearrangement.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "The Governor, accompanied by his wife and two senior officers, ____ expected to visit the flood relief camp tomorrow.", "o": ["have been", "are", "were", "is"], "a": 3, "e": "'Accompanied by', 'together with', 'along with' and 'as well as' do not join subjects; the verb agrees with the first noun (Governor): is. Grew from 2021 and 2025 'as well as' questions.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "Measles ____ a dangerous disease for small children who have not been vaccinated.", "o": ["is", "have been", "are", "were"], "a": 0, "e": "Names of diseases that end in -s (measles, mumps, rickets) are singular. Same with news, physics, mathematics. Grew from 2021 plural-looking nouns.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "There is many a student in this school who ____ the answer but is too shy to speak.", "o": ["know", "are knowing", "have known", "knows"], "a": 3, "e": "'Many a' + singular noun takes a singular verb, and so does the 'who' clause that describes it: many a student who knows. The second verb 'is' confirms it. Grew from 2021 'many a' questions.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "A bunch of keys ____ found near the temple gate by the cleaner this morning.", "o": ["have been", "was", "were", "are"], "a": 1, "e": "'A bunch of', 'a set of', 'a collection of' is one unit, so the verb is singular: a bunch of keys was found. Grew from 2021 and 2025 collective-noun questions.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "Either you or he ____ to blame for the loss of the file.", "o": ["am", "is", "are", "were"], "a": 1, "e": "With either … or and neither … nor, the verb agrees with the nearer subject (he): is to blame. Grew from 2025 error spotting (neither … nor).", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "The Principal, and not the teachers, ____ responsible for the new timetable.", "o": ["have been", "were", "is", "are"], "a": 2, "e": "In 'X, and not Y', the verb agrees with X, the subject that is really meant. 'Not the teachers' is only added in commas. Grew from the 'as well as' family (2021, 2025).", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "To find honest and hardworking helpers ____ not easy these days.", "o": ["were", "have", "is", "are"], "a": 2, "e": "An infinitive phrase (to find …) as the subject is singular, even if a plural noun (helpers) stands next to the verb. Same with gerunds: Taking walks is good. Grew from 2021 gerund-subject questions (to err is human).", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "Everybody in the two neighbouring villages ____ invited to the wedding feast of the headman's son.", "o": ["was", "were", "have been", "are"], "a": 0, "e": "Everybody, everyone, each and every are singular, even when a plural noun (villages) follows. Grew from 2021 and 2025 each/every questions (everyone at the party was).", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "Many a girl in these villages ____ to give up her studies after Class 10.", "o": ["has had", "have had", "are having", "were having"], "a": 0, "e": "'Many a' takes a singular noun and a singular verb (has had), and 'her studies' agrees with it. 'Many girls' would take 'have'. Grew from 2021 'many a' questions.", "k": "one", "n": false, "c": false}, {"s": "Subject–verb agreement", "q": "The cost of the new school buses ____ been shared by the panchayat and the parents.", "o": ["have", "are", "were", "has"], "a": 3, "e": "The subject is 'cost' (singular); 'of the new school buses' only describes it. Grew from 2021 agreement questions (the headmaster wants; a plural noun after 'of' does not change the verb).", "k": "one", "n": false, "c": false}, {"s": "Comprehension", "q": "Read the passage on Satabhaya and answer the question.\nAccording to the passage, what did the mangrove forests once do for the coast?", "o": ["They gave the villagers land for fish ponds", "They broke the force of the waves and held the soil", "They stopped the level of the sea from rising", "They supplied the wood for building boats"], "a": 1, "e": "Paragraph 2: mangroves 'once broke the force of the waves and held the soil together with their roots'. Fish ponds and firewood are why they were cut, not what they did. A detail question; 2025 had mostly detail questions (Odisha hockey passage).", "k": "one", "n": false, "c": false, "p": "For many years the people of Satabhaya, a group of fishing villages on the coast of Kendrapara district, have watched the sea come closer. Old men still remember a temple, a school and a row of coconut trees that stood where the waves now break. Each year the sea takes a little more land, and in some years, after a strong cyclone, it takes a great deal at once.\n\nScientists say that several things are at work. The sea is rising slowly as the earth grows warmer. Strong storms push the waves further inland. In many places, mangrove forests, which once broke the force of the waves and held the soil together with their roots, have been cut down for firewood or for fish ponds. Without them, the coast has little to protect it.\n\nFor a long time the villagers refused to leave. Their boats, their nets and the graves of their parents were here, and they feared that life inland would have no place for fishermen. But as their houses fell one by one into the sea, most families finally agreed to move to a new colony built for them further from the coast. There they were given land, a house and electricity.\n\nThe move has not been easy. The new colony is far from the sea, so some fishermen must travel a long way each day to reach their boats. Younger people have begun to look for work in factories and shops. Many of the old, however, still walk back to the empty shore in the evening and sit where their homes once stood. For them, the sea that took their land is still the centre of their lives."}, {"s": "Comprehension", "q": "Read the passage on Satabhaya and answer the question.\nWhy did the villagers refuse to leave for a long time?", "o": ["They feared there would be no place for fishermen inland", "The new colony had no electricity", "They believed the sea would go back", "The government did not offer them any land"], "a": 0, "e": "Paragraph 3: 'they feared that life inland would have no place for fishermen'. The colony did have land and electricity, so two options contradict the passage. Grew from the 2025 detail questions.", "k": "one", "n": false, "c": false, "p": "For many years the people of Satabhaya, a group of fishing villages on the coast of Kendrapara district, have watched the sea come closer. Old men still remember a temple, a school and a row of coconut trees that stood where the waves now break. Each year the sea takes a little more land, and in some years, after a strong cyclone, it takes a great deal at once.\n\nScientists say that several things are at work. The sea is rising slowly as the earth grows warmer. Strong storms push the waves further inland. In many places, mangrove forests, which once broke the force of the waves and held the soil together with their roots, have been cut down for firewood or for fish ponds. Without them, the coast has little to protect it.\n\nFor a long time the villagers refused to leave. Their boats, their nets and the graves of their parents were here, and they feared that life inland would have no place for fishermen. But as their houses fell one by one into the sea, most families finally agreed to move to a new colony built for them further from the coast. There they were given land, a house and electricity.\n\nThe move has not been easy. The new colony is far from the sea, so some fishermen must travel a long way each day to reach their boats. Younger people have begun to look for work in factories and shops. Many of the old, however, still walk back to the empty shore in the evening and sit where their homes once stood. For them, the sea that took their land is still the centre of their lives."}, {"s": "Comprehension", "q": "Read the passage on Satabhaya and answer the question.\nWhat can be inferred about the older villagers from the last paragraph?", "o": ["They are angry with the government for moving them", "They have found new work in factories and shops", "They remain deeply attached to the sea and their old home", "They plan to return and rebuild the old village"], "a": 2, "e": "They walk back each evening and sit where their homes stood, and the sea is 'still the centre of their lives': attachment. Nothing says they plan to rebuild or are angry, and the factory work is about the younger people. An inference question: pick what the lines show, not what they might lead to. Grew from 2025 Q-passage inference.", "k": "one", "n": false, "c": false, "p": "For many years the people of Satabhaya, a group of fishing villages on the coast of Kendrapara district, have watched the sea come closer. Old men still remember a temple, a school and a row of coconut trees that stood where the waves now break. Each year the sea takes a little more land, and in some years, after a strong cyclone, it takes a great deal at once.\n\nScientists say that several things are at work. The sea is rising slowly as the earth grows warmer. Strong storms push the waves further inland. In many places, mangrove forests, which once broke the force of the waves and held the soil together with their roots, have been cut down for firewood or for fish ponds. Without them, the coast has little to protect it.\n\nFor a long time the villagers refused to leave. Their boats, their nets and the graves of their parents were here, and they feared that life inland would have no place for fishermen. But as their houses fell one by one into the sea, most families finally agreed to move to a new colony built for them further from the coast. There they were given land, a house and electricity.\n\nThe move has not been easy. The new colony is far from the sea, so some fishermen must travel a long way each day to reach their boats. Younger people have begun to look for work in factories and shops. Many of the old, however, still walk back to the empty shore in the evening and sit where their homes once stood. For them, the sea that took their land is still the centre of their lives."}, {"s": "Comprehension", "q": "Read the passage on Satabhaya and answer the question.\nAccording to the passage, what problem do some fishermen face in the new colony?", "o": ["Their nets were lost during the move", "They have no houses of their own", "They must travel far each day to reach their boats", "They are not allowed to fish in the sea"], "a": 2, "e": "Paragraph 4: 'some fishermen must travel a long way each day to reach their boats'. The colony gave them houses. Grew from the 2025 detail questions.", "k": "one", "n": false, "c": false, "p": "For many years the people of Satabhaya, a group of fishing villages on the coast of Kendrapara district, have watched the sea come closer. Old men still remember a temple, a school and a row of coconut trees that stood where the waves now break. Each year the sea takes a little more land, and in some years, after a strong cyclone, it takes a great deal at once.\n\nScientists say that several things are at work. The sea is rising slowly as the earth grows warmer. Strong storms push the waves further inland. In many places, mangrove forests, which once broke the force of the waves and held the soil together with their roots, have been cut down for firewood or for fish ponds. Without them, the coast has little to protect it.\n\nFor a long time the villagers refused to leave. Their boats, their nets and the graves of their parents were here, and they feared that life inland would have no place for fishermen. But as their houses fell one by one into the sea, most families finally agreed to move to a new colony built for them further from the coast. There they were given land, a house and electricity.\n\nThe move has not been easy. The new colony is far from the sea, so some fishermen must travel a long way each day to reach their boats. Younger people have begun to look for work in factories and shops. Many of the old, however, still walk back to the empty shore in the evening and sit where their homes once stood. For them, the sea that took their land is still the centre of their lives."}, {"s": "Comprehension", "q": "Read the passage on Satabhaya and answer the question.\nWhich is the most suitable title for the passage?", "o": ["Cyclones on the Odisha Coast", "A New Colony for Fishermen", "The Rising Sea and the People of Satabhaya", "Why Mangroves Must Be Saved"], "a": 2, "e": "The passage tells of the sea taking the villages, its causes, the move and the life after it. The first title covers all four paragraphs; mangroves, the colony and cyclones are only parts. Title questions grew from 2018 comprehension.", "k": "one", "n": false, "c": false, "p": "For many years the people of Satabhaya, a group of fishing villages on the coast of Kendrapara district, have watched the sea come closer. Old men still remember a temple, a school and a row of coconut trees that stood where the waves now break. Each year the sea takes a little more land, and in some years, after a strong cyclone, it takes a great deal at once.\n\nScientists say that several things are at work. The sea is rising slowly as the earth grows warmer. Strong storms push the waves further inland. In many places, mangrove forests, which once broke the force of the waves and held the soil together with their roots, have been cut down for firewood or for fish ponds. Without them, the coast has little to protect it.\n\nFor a long time the villagers refused to leave. Their boats, their nets and the graves of their parents were here, and they feared that life inland would have no place for fishermen. But as their houses fell one by one into the sea, most families finally agreed to move to a new colony built for them further from the coast. There they were given land, a house and electricity.\n\nThe move has not been easy. The new colony is far from the sea, so some fishermen must travel a long way each day to reach their boats. Younger people have begun to look for work in factories and shops. Many of the old, however, still walk back to the empty shore in the evening and sit where their homes once stood. For them, the sea that took their land is still the centre of their lives."}];
+(function(){
+  var SK="aso-english-mock-2027-9";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=45*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice"; st.rev=st.rev||{}; var rv=prac && !!st.rev[i], locked=prac && (a>=0 || rv);
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",fig:"Figure",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q; var pz=$("q-pass"); pz.hidden=!q.p; pz.textContent=q.p||""; var fz=$("q-fig"); fz.hidden=!q.f; fz.innerHTML=q.f||"";
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a<0?'ok">Answer ('+L[q.a]+')':a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0; $("b-show").hidden = !prac || locked;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-show").onclick=function(){ st.rev=st.rev||{}; st.rev[st.cur]=true; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 100 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 100</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Vocabulary", "Tenses", "Subject–verb agreement", "Preposition", "Adverb", "Articles", "Verb", "Error spotting", "Synonyms", "Antonyms", "Comprehension", "Sentence rearrangement", "Parts of speech"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO ENGLISH MOCK 09 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / "+N+" · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please bring my wrong and skipped questions back in the next mock.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div>'+(q.p?'<details class="pass"><summary>Passage</summary>'+esc(q.p)+'</details>':'')+'<div class="qtext">'+esc(q.q)+'</div>'+(q.f?'<div class="qfig">'+q.f+'</div>':'')+'<ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+<script src="pen-scroll.js?v=8" defer></script>
+</body>
