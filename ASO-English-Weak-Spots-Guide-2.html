@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASO English Weak-Spots Guide 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference manual. A fixed contents column on the left (wide screens), and a single
+   reading column of ~760px where prose, tables and grid-paper FIG boxes of blue line art alternate. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b; --warn-soft:#fdf1e8;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+  --side:272px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18.5px/1.75 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+strong,b{font-weight:600}
+p{margin:12px 0}
+ul,ol{padding-left:1.25em;margin:12px 0}
+li{margin:4px 0}
+li::marker{color:var(--muted)}
+
+/* ---------- side contents ---------- */
+.bar{position:fixed;inset:0 auto 0 0;width:var(--side);z-index:30;background:var(--bg);border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 0 calc(14px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,0px)}
+.bar-in{display:flex;flex-direction:column;gap:12px;padding:0 20px 14px;border-bottom:1px dotted var(--muted)}
+.bar-in b{font-family:var(--f-pixel);color:var(--blue);font-size:15px;line-height:1.25;font-weight:400;order:-1}
+#navbtn{display:none}
+.btn{border:1px solid var(--rule);background:var(--paper);padding:3px 9px;cursor:pointer;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-radius:2px}
+.btn[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;gap:3px}
+#nav{overflow-y:auto;flex:1;padding:10px 0}
+#nav a{display:flex;gap:10px;align-items:baseline;padding:4px 20px;text-decoration:none;font-size:15.5px;line-height:1.35;color:var(--fg)}
+#nav a .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2.2em}
+#nav a:hover{color:var(--blue)}
+#nav a.on{color:var(--blue)}
+#nav a.on .n{color:var(--blue)}
+.chap{flex-shrink:0;margin:12px 20px 4px;padding-top:12px;border-top:1px dotted var(--muted)}
+.chap-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chap-n{font-size:15px;line-height:20px;height:20px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chap-bar{height:6px;border:1px solid var(--blue);background:var(--paper)}
+.chap-bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .15s}
+.chap-m{display:flex;justify-content:space-between;gap:8px;margin-top:6px;height:14px;line-height:14px;white-space:nowrap;overflow:hidden;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.chap-m b{color:var(--blue);font-weight:400}
+@media (max-width:1099px){
+  .chap{margin:0;padding:6px max(16px, env(safe-area-inset-right,0px)) 6px max(16px, env(safe-area-inset-left,0px));border-top:1px dotted var(--muted);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px}
+  .chap-k{display:none}
+  .chap-n{margin:0;font-size:13px}
+  .chap-bar{grid-column:1/-1;order:3;height:4px}
+  .chap-m{margin:0}
+  .chap-m #chapPct{display:none}
+}
+.prog{position:relative;flex-shrink:0;margin:26px 20px 4px;height:6px;border:1px solid var(--fg);background:var(--paper)}
+.prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.prog::before{content:"CHAPTERS STUDIED";position:absolute;left:-1px;bottom:10px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+main{margin-left:var(--side);padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 110px}
+.col{max-width:800px;margin:0 auto}
+
+@media (max-width:1099px){
+  .bar{position:sticky;top:env(safe-area-inset-top,0px);inset:auto;width:auto;border-right:0;border-bottom:1px solid var(--rule);padding:8px 0 0;display:block}
+  .bar-in{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px;padding:0 max(16px, env(safe-area-inset-right,0px)) 8px max(16px, env(safe-area-inset-left,0px));border-bottom:0}
+  .bar-in b{order:0;font-size:12px;flex:1}
+  #navbtn{display:inline-block;order:-1}
+  #nav{display:none;max-height:70vh;border-top:1px dotted var(--muted)}
+  #nav.open{display:block}
+  .prog{margin:0;border-width:1px 0 0;height:3px}
+  .prog::before{display:none}
+  main{margin-left:0}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}
+}
+
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:20px 40px;align-items:end}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2rem,5vw,3.6rem);line-height:1.02}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6;margin:0}
+@media (max-width:760px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 6px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:28px 40px;align-items:start;padding-block:24px 8px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .fig{max-width:420px}}
+.dropcap::first-letter{float:left;font-size:4em;line-height:.82;padding:6px 8px 0 0}
+.count{display:inline-block;margin-top:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px}
+
+/* contents */
+.toc{padding-block:48px 8px}
+.tochead{display:flex;align-items:center;gap:14px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:28px 0 0;padding:0}
+.toclist li{display:flex;align-items:baseline;gap:8px;padding:3px 0;margin:0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-transform:uppercase}
+@media (max-width:520px){.toclist .c{display:none}}
+
+/* ---------- chapters ---------- */
+section{padding-block:76px 8px;scroll-margin-top:12px}
+@media (max-width:1099px){section{scroll-margin-top:64px}}
+.sectrule{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sectrule .line{flex:1;height:1px;background:var(--fg);min-width:30px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.done{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.done input{accent-color:var(--blue);width:14px;height:14px;margin:0}
+section>h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:12px 0 18px}
+section>h2+p::first-letter{float:left;font-size:3.5em;line-height:.82;padding:6px 8px 0 0}
+section h3{font-size:1.45rem;margin:46px 0 8px;display:flex;gap:12px;align-items:baseline}
+section h3 .h3n{font-family:var(--f-mono);font-size:12px;color:var(--blue);letter-spacing:.06em;min-width:2.6em}
+
+.pyq{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--blue);border:1px solid var(--blue);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* boxes */
+.box{margin:26px 0;padding:14px 18px;background:var(--paper);border:1px solid var(--rule)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box-t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.box ul{list-style:none;padding:0}
+.box li{padding-left:16px;position:relative}
+.box li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;background:var(--fg)}
+.box.asked{background:transparent;border:0;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding:12px 0}
+.box.asked li{font-size:.98rem}
+.box.tip,.box.key{border:1px dashed var(--blue)}
+.box.tip .box-t,.box.key .box-t{color:var(--blue)}
+.box.key{background:var(--blue-soft)}
+.box.warn{border:1px dashed var(--warn);background:var(--warn-soft)}
+.box.warn .box-t{color:var(--warn)}
+.box.check{border:1px dotted var(--warn)}
+.box.check .box-t{color:var(--warn)}
+.box.fix{border:1px solid var(--rule);border-left:3px solid var(--blue)}
+.box.next{border:1px solid var(--fg);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.box.next .box-t{color:var(--fg)}
+.qas{counter-reset:q;border-top:1px solid var(--rule)}
+details.qa{border-bottom:1px dotted var(--muted);counter-increment:q}
+details.qa summary{list-style:none;cursor:pointer;padding:8px 30px 8px 38px;position:relative;font-size:1rem;line-height:1.45}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::before{content:"Q" counter(q,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+details.qa summary::after{content:"+";position:absolute;right:4px;top:6px;font-family:var(--f-mono);color:var(--blue);font-size:16px}
+details.qa[open] summary::after{content:"−"}
+details.qa summary:hover{color:var(--blue)}
+details.qa p{margin:0 0 10px 38px;padding:6px 12px;background:var(--blue);color:var(--on-blue);font-size:.98rem}
+
+/* tables */
+.tw{overflow-x:auto;margin:16px 0}
+table.t{width:100%;border-collapse:collapse;font-size:16.5px;line-height:1.5;margin:0}
+.t th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:6px 10px 6px 0;border-bottom:1px solid var(--fg);border-top:1px solid var(--fg)}
+.t td{padding:8px 12px 8px 0;border-bottom:1px dotted var(--muted);vertical-align:top;text-align:left}
+.t td:first-child{font-weight:600}
+@media (max-width:640px){
+  table.t,.t tbody,.t tr,.t td{display:block;width:100%}
+  .t thead{display:none}
+  .t tr{border-top:1px solid var(--fg);padding:8px 0}
+  .t td{border:0;padding:2px 0}
+  .t td:not(:first-child)::before{content:attr(data-l) " · ";font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+}
+
+/* figures */
+.figwrap{margin:30px 0 26px}
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible}
+.fl,.fr,.fy{position:absolute;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1}
+.fl,.fr{writing-mode:vertical-rl}
+.fl{left:10px;top:12px;transform:rotate(180deg)}
+.fr{right:10px;top:12px}
+.fy{right:12px;bottom:9px}
+.figcap{font-size:.95rem;font-style:italic;color:var(--muted);margin:8px 0 0}
+.figcap b{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--blue);font-weight:400;margin-right:6px}
+@media (max-width:560px){.fig{padding:26px 22px}.fl,.fr,.fy{font-size:8.5px}.fl{left:6px}.fr{right:6px}.fy{right:8px;bottom:6px}}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .grid{fill:none;stroke:var(--rule);stroke-width:1}
+.fig svg .hz{stroke:var(--blue);stroke-width:1.2}
+.fig svg .hl{stroke:var(--blue);stroke-width:.9}
+.fig svg .hd{fill:var(--blue)}
+.fig svg text{font-family:var(--f-mono);letter-spacing:.05em}
+.fig svg .lb{font-size:11px;fill:var(--blue)}
+.fig svg .lbm{font-size:11px;fill:var(--muted)}
+.fig svg .lbs{font-size:9.5px;fill:var(--muted)}
+.fig svg .ttl{font-size:10px;fill:var(--muted);letter-spacing:.1em}
+.fig svg .lbrv{font-size:11px;fill:var(--on-blue)}
+.fig svg .lbsrv{font-size:9.5px;fill:var(--on-blue)}
+.fig svg .big{font-family:var(--f-pixel);font-size:22px;fill:var(--blue)}
+.fig svg .bigrv{font-family:var(--f-pixel);font-size:19px;fill:var(--on-blue)}
+
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--fg);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+footer p{margin:0}
+#up{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;border-color:var(--blue);color:var(--blue);padding:6px 10px}
+
+.chk{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--warn);border:1px dotted var(--warn);padding:0 5px;line-height:1.7;vertical-align:2px;white-space:nowrap;background:var(--warn-soft)}
+.chkn{font-style:italic;font-size:.85em;color:var(--warn)}
+.box.next .qas{margin-top:8px}
+.box.next details.qa p{background:var(--blue)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px}
+.hubbtn{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;text-decoration:none}
+.rule{display:flex;gap:10px;align-items:baseline;scroll-margin-top:70px}
+.rule .h3n{white-space:nowrap;min-width:5.2em}
+.wr{margin:10px 0 14px;border-left:2px solid var(--blue);padding:2px 0 2px 12px}
+.wr-r{display:flex;gap:10px;align-items:baseline;margin:3px 0;line-height:1.45}
+.wr-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;min-width:5.6em;flex:none}
+.wr-r.no .wr-k{color:var(--muted)}.wr-r.no .wr-s{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(110,110,115,.55)}
+.wr-r.ok .wr-k{color:var(--blue)}
+.ri td:first-child a{font-family:var(--f-mono);font-size:12px;color:var(--blue);text-decoration:none}
+.navg{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 20px 2px}
+
+/* ---------- pen-tablet drawing mode (tools/ink_draw.js) ---------- */
+#inkl{position:absolute;left:0;top:0;width:0;height:0;z-index:25;pointer-events:none;mix-blend-mode:multiply}
+.inkt{position:absolute;left:0;pointer-events:none}
+#inki{position:fixed;inset:0;z-index:26;pointer-events:none}
+body.drawing main{-webkit-user-select:none;user-select:none}
+
+/* the rail, snapped to the right edge */
+#ink{position:fixed;z-index:40;right:env(safe-area-inset-right,0px);top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);color:var(--muted)}
+#ink button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#ink svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.igrid{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+
+/* closed: a slim tab with a vertical label, like the FIG_ labels */
+#ink .itab{display:flex;flex-direction:column;align-items:center;gap:10px;width:34px;padding:12px 0 14px;
+  border:1px dashed var(--blue);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+#ink .itab:hover{background-color:var(--blue-soft)}
+.iv{writing-mode:vertical-rl;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+#ink.open .itab{display:none}
+
+/* open: the tool panel */
+.ipanel{display:none;width:62px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+  border:1px solid var(--fg);border-right:0;background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.ipanel::-webkit-scrollbar{display:none}
+#ink.open .ipanel{display:block}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:7px 6px 6px 9px;background:var(--fg)}
+.ihead .ik{color:#fff;font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;padding:0}
+#ink .ix svg{stroke:#fff;width:14px;height:14px}
+#ink .ix{padding:2px}
+.ig{padding:8px 0 9px;border-top:1px dotted var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ihead + .ig{border-top:0}
+.ik{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.isws{display:flex;flex-direction:column;align-items:center;gap:7px}
+#ink .isw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--rule)}
+#ink .isw.hi{width:30px;height:11px;border-radius:0;opacity:.8}
+#ink .isw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.itools{gap:2px}
+#ink .itool{display:flex;flex-direction:column;align-items:center;gap:3px;width:52px;padding:6px 0 5px;border:1px solid transparent}
+#ink .itool:hover{border-color:var(--rule);background:var(--paper)}
+#ink .itool[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+.il{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media (max-height:520px){.ig{padding:5px 0 6px;gap:4px}.isws{gap:5px}#ink .itool{padding:4px 0 3px}}
+@media print{#ink,#inkl,#inki{display:none}}
+</style></head><body>
+<div class="bar"><div class="bar-in"><button class="btn" id="navbtn" aria-expanded="false" aria-controls="nav">Contents</button><b>ASO 2027 · WEAK SPOTS 2</b></div>
+<nav id="nav"><a href="#start"><span class="n">00</span>Start here: your 25 weak questions</a><div class="navg">Ten weak spots</div><a href="#tense"><span class="n">01</span>1. Tense signals: today, the third time, as if</a><a href="#inv"><span class="n">02</span>2. &quot;Only when&quot; at the start turns the verb round</a><a href="#verb"><span class="n">03</span>3. Verb patterns: would rather, deny, lest</a><a href="#imp"><span class="n">04</span>4. Sentence improvement: when nothing is wrong, and &quot;the reason is because&quot;</a><a href="#who"><span class="n">05</span>5. Who or whom when &quot;I thought&quot; sits in the middle</a><a href="#comp"><span class="n">06</span>6. Comparisons must be complete</a><a href="#pos"><span class="n">07</span>7. Parts of speech: before, but and seeing</a><a href="#agr"><span class="n">08</span>8. Agreement: scenery and a pair of shoes</a><a href="#prep"><span class="n">09</span>9. Prepositions: resemble, dispense with, part with</a><a href="#voc"><span class="n">10</span>10. Vocabulary: six words and their traps</a><div class="navg">Last week</div><a href="#last"><span class="n">11</span>Last-week sheet: your 25 in one page</a></nav>
+<div class="chap" id="chap"><div class="chap-k">Now reading</div><div class="chap-n" id="chapN">Start here</div><div class="chap-bar"><i id="chapBar"></i></div><div class="chap-m"><span><b id="chapPct">0%</b></span><span id="chapMin"></span></div></div></div>
+<main><div class="col">
+<header class="mast"><h1>Weak Spots 2</h1><p class="tag">Ten small guides built from the <b>25 questions</b><br>you got wrong or skipped<br>in English Mock 09.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="stats"><span class="count">11 chapters</span><span class="count">about 5,700 words</span><span class="count">Mock 09 · 25 questions</span><span class="count">Paper III · English</span></div>
+<div class="toc"><div class="tochead"><h2>Table of Contents.</h2><span class="line"></span><span class="r"><span>11</span> chapters</span></div><ol class="toclist"><li><span class="n">00.</span><a href="#start">Start here: your 25 weak questions</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">01.</span><a href="#tense">1. Tense signals: today, the third time, as if</a><span class="dots"></span><span class="c">4 min</span></li><li><span class="n">02.</span><a href="#inv">2. &quot;Only when&quot; at the start turns the verb round</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">03.</span><a href="#verb">3. Verb patterns: would rather, deny, lest</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">04.</span><a href="#imp">4. Sentence improvement: when nothing is wrong, and &quot;the reason is because&quot;</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">05.</span><a href="#who">5. Who or whom when &quot;I thought&quot; sits in the middle</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">06.</span><a href="#comp">6. Comparisons must be complete</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">07.</span><a href="#pos">7. Parts of speech: before, but and seeing</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">08.</span><a href="#agr">8. Agreement: scenery and a pair of shoes</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">09.</span><a href="#prep">9. Prepositions: resemble, dispense with, part with</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">10.</span><a href="#voc">10. Vocabulary: six words and their traps</a><span class="dots"></span><span class="c">3 min</span></li><li><span class="n">11.</span><a href="#last">Last-week sheet: your 25 in one page</a><span class="dots"></span><span class="c">3 min</span></li></ol></div>
+<section id="start"><div class="sectrule"><span class="eyebrow">Chapter <b>00</b> · YOUR SCORE · Mock 09</span><span class="line"></span></div><h2>Start here: your 25 weak questions</h2><p>You scored <strong>70.00 out of 100</strong> on English Mock 09: 75 right, 20 wrong and 5 skipped. Mock 09 was a hard paper. Many of its options were close, and several words changed their part of speech with their place. A score of 70 on it is solid, and the mistakes tell us exactly where the remaining marks are.</p><p>The 25 questions you missed fall into <strong>ten small ideas</strong>. Each idea has its own short chapter. Some chapters have one question and some have six, but each one teaches a single rule. Learn the ten rules and you will get most of these questions right, and their twins too.</p><p>Every chapter follows the same four steps, as in Weak Spots 1. First comes <strong>the rule</strong> in plain words, with the reason it works. Then comes <strong>your question</strong>: what you picked, what was right, and why the wrong option looked tempting. Then come <strong>more examples</strong>, and last a <strong>Check yourself</strong> box with tap-to-open answers and the questions most likely to come next.</p><h3><span class="h3n">0.1</span>Which chapter fixes which question</h3><div class="tw"><table class="t"><thead><tr><th>Chapter</th><th>Idea</th><th>Your questions</th></tr></thead><tbody><tr><td data-l="Chapter">1</td><td data-l="Idea">Tense signals: today, the third time, as if</td><td data-l="Your questions">Q3, Q77, Q81</td></tr><tr><td data-l="Chapter">2</td><td data-l="Idea">"Only when" at the start turns the verb round</td><td data-l="Your questions">Q4</td></tr><tr><td data-l="Chapter">3</td><td data-l="Idea">Verb patterns: would rather, deny, lest</td><td data-l="Your questions">Q12, Q19, Q29</td></tr><tr><td data-l="Chapter">4</td><td data-l="Idea">Sentence improvement: when nothing is wrong, and "the reason is because"</td><td data-l="Your questions">Q10, Q14</td></tr><tr><td data-l="Chapter">5</td><td data-l="Idea">Who or whom when "I thought" sits in the middle</td><td data-l="Your questions">Q28</td></tr><tr><td data-l="Chapter">6</td><td data-l="Idea">Comparisons must be complete: as tall as, if not taller than</td><td data-l="Your questions">Q31</td></tr><tr><td data-l="Chapter">7</td><td data-l="Idea">Parts of speech: before, but and seeing</td><td data-l="Your questions">Q22, Q25, Q26</td></tr><tr><td data-l="Chapter">8</td><td data-l="Idea">Agreement: scenery and a pair of shoes</td><td data-l="Your questions">Q34, Q36</td></tr><tr><td data-l="Chapter">9</td><td data-l="Idea">Prepositions: resemble, dispense with, part with</td><td data-l="Your questions">Q18, Q32, Q63</td></tr><tr><td data-l="Chapter">10</td><td data-l="Idea">Vocabulary: six words and their traps</td><td data-l="Your questions">Q43, Q44, Q45, Q47, Q51, Q54</td></tr></tbody></table></div><aside class="box key"><p class="box-t">What your score tells us</p><p>Articles (10 of 10), comprehension (5 of 5) and rearrangement (4 of 4) were perfect, and agreement was nearly so (11 of 12). The marks went in two places. <strong>Error spotting</strong> cost 7 of 13, mostly in the "pick the correct sentence" block, where every option looks almost right. <strong>Vocabulary, synonyms and antonyms</strong> cost 6 of 16. Chapters 4, 5, 6 and 10 are the most valuable, so read those first.</p></aside><aside class="box tip"><p class="box-t">How to use this guide</p><p>Read one chapter, then try the Check yourself questions before you tap them open. Come back to the same chapter two days later. English Mock 10 is the redo set: it brings back all 25 questions, each with a twin. If you get the twin right as well as the original, you have learnt the rule and not just the sentence.</p></aside></section>
+<section id="tense"><div class="sectrule"><span class="eyebrow">Chapter <b>01</b> · WEAK SPOT · Q3, Q77, Q81</span><span class="line"></span></div><h2>1. Tense signals: today, the third time, as if</h2><p>Three of your misses were tense questions, and in all three the sentence held a <strong>signal word</strong> that decides the tense. A tense question is rarely about knowing the forms. It is about noticing the one word that points to past, present or unreal time. Train your eye to look for that word first.</p><div class="figwrap"><figure class="fig"><span class="fl">FIG_001</span><span class="fr">[ TENSE LINE ]</span><svg viewBox="0 0 520 200" role="img" aria-label="Tense timeline from past perfect to future perfect"><line class="hz" x1="30" y1="100" x2="490" y2="100"/><circle class="hd" cx="30" cy="100" r="4"/><line class="hl" x1="30" y1="100" x2="30" y2="70"/><text class="lb" x="30" y="64" text-anchor="middle">had done</text><text class="lbs" x="30" y="50" text-anchor="middle">earlier past</text><circle class="hd" cx="122" cy="100" r="4"/><line class="hl" x1="122" y1="100" x2="122" y2="130"/><text class="lb" x="122" y="144" text-anchor="middle">did</text><text class="lbs" x="122" y="158" text-anchor="middle">finished past</text><circle class="hd" cx="214" cy="100" r="4"/><line class="hl" x1="214" y1="100" x2="214" y2="70"/><text class="lb" x="214" y="64" text-anchor="middle">have done</text><text class="lbs" x="214" y="50" text-anchor="middle">past to now</text><circle class="hd" cx="306" cy="100" r="4"/><line class="hl" x1="306" y1="100" x2="306" y2="130"/><text class="lb" x="306" y="144" text-anchor="middle">do / doing</text><text class="lbs" x="306" y="158" text-anchor="middle">now</text><circle class="hd" cx="398" cy="100" r="4"/><line class="hl" x1="398" y1="100" x2="398" y2="70"/><text class="lb" x="398" y="64" text-anchor="middle">will do</text><text class="lbs" x="398" y="50" text-anchor="middle">future</text><circle class="hd" cx="490" cy="100" r="4"/><line class="hl" x1="490" y1="100" x2="490" y2="130"/><text class="lb" x="490" y="144" text-anchor="middle">will have done</text><text class="lbs" x="490" y="158" text-anchor="middle">done by then</text></svg><span class="fy">RULES</span></figure><p class="figcap"><b>FIG_001</b>Each tense is a place on one line. When two past actions are given, the earlier one takes had + V3.</p></div><h3><span class="h3n">1.1</span>Signal 1: a past condition with a present result</h3><p>Most if-sentences keep both halves in the same time. Type 3 talks about the past in both halves: "If you had taken the medicine, you <strong>would have felt</strong> better" (then, yesterday). But sometimes the condition is in the past and the result is <strong>now</strong>. This is called a <strong>mixed conditional</strong>. The if-part keeps had + past participle, but the result takes <strong>would + base verb</strong>, because the result is in the present.</p><p>The signal is a present time word in the result part: <strong>today, now, at present, these days</strong>.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">If you had taken the medicine yesterday, you would have felt much better today.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">If you had taken the medicine yesterday, you would feel much better today.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">If he had studied medicine, he would be a doctor now.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q3)</p><p>"If you had taken the medicine on time yesterday, you ____ much better today." You chose <strong>would have felt</strong>. The right answer was <strong>would feel</strong>. The trap: "had taken" looks like type 3, and type 3 pairs with "would have". But the result happens <strong>today</strong>, so it takes would + base verb. Always read both time words, not just the if-part. The 2025 paper used the same family twice <span class="pyq">2025 Q13</span> <span class="pyq">2025 Q38</span>.</p></aside><h3><span class="h3n">1.2</span>Signal 2: "This is the first (second, third) time"</h3><p>After <strong>It is / This is the first time</strong> (or second, third, only time), English uses the <strong>present perfect</strong>: has done, have seen. The reason is that the sentence counts experiences up to now, and counting up to now is the job of the present perfect. If the sentence is in the past ("It was the first time"), use the past perfect.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">This is the third time she wins the debate.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">This is the third time she has won the debate.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">It was the first time I had flown in a plane.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q77)</p><p>"This is the third time she ____ the state-level debate competition." You chose <strong>wins</strong>. The right answer was <strong>has won</strong>. The trap: "wins" sounds lively, like a news headline, and "this is" looks present. But the sentence counts wins up to now, so it needs <strong>has won</strong>.</p></aside><h3><span class="h3n">1.3</span>Signal 3: "as if" and "as though"</h3><p><strong>As if</strong> and <strong>as though</strong> compare with something that is <strong>not true</strong>. For an untrue present, English uses the past form, and for "be" it uses <strong>were</strong> with every subject: as if I were, as if she were. This is the same unreal past that comes after "I wish" <span class="pyq">2025 Q1</span> and in "If I were you" <span class="pyq">2025 Q38</span>.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">She gives orders as if she is the owner of the house.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">She gives orders as if she were the owner of the house.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">He talks as though he knew everything. (He does not.)</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q81)</p><p>You chose <strong>is</strong>. The right answer was <strong>were</strong>. The trap: in everyday speech many people say "as if she is", and it does not sound wrong. The exam follows the textbook rule. The clue is that she is not the owner, so the comparison is unreal and takes <strong>were</strong>.</p></aside><h3><span class="h3n">1.4</span>One table for the three signals</h3><div class="tw"><table class="t"><thead><tr><th>Signal in the sentence</th><th>Tense to use</th><th>Example</th></tr></thead><tbody><tr><td data-l="Signal in the sentence">had + V3 in the if-part, <strong>today/now</strong> in the result</td><td data-l="Tense to use">would + base verb</td><td data-l="Example">you would feel better today</td></tr><tr><td data-l="Signal in the sentence">had + V3 in the if-part, past result</td><td data-l="Tense to use">would have + V3</td><td data-l="Example">you would have felt better yesterday</td></tr><tr><td data-l="Signal in the sentence">This is the first/third time</td><td data-l="Tense to use">present perfect</td><td data-l="Example">she has won</td></tr><tr><td data-l="Signal in the sentence">It was the first time</td><td data-l="Tense to use">past perfect</td><td data-l="Example">she had won</td></tr><tr><td data-l="Signal in the sentence">as if / as though / I wish (unreal present)</td><td data-l="Tense to use">past form, were</td><td data-l="Example">as if she were</td></tr></tbody></table></div><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "If I had saved some money last year, I ____ worried now." (would not be / would not have been)</summary><p>would not be. The result is now.</p></details><details class="qa"><summary>Fill in: "If he had left earlier, he ____ the train." (would catch / would have caught)</summary><p>would have caught. The result is in the past too.</p></details><details class="qa"><summary>Fill in: "This is the second time you ____ late this week." (are / have been)</summary><p>have been. "This is the second time" takes the present perfect.</p></details><details class="qa"><summary>Fill in: "He spends money as though he ____ a millionaire." (is / were)</summary><p>were. He is not a millionaire.</p></details><details class="qa"><summary>Likely next: "It is high time we ____ the old rules." (change / changed)</summary><p>changed. "It is high time" also takes the past form for the present.</p></details></div></aside></section>
+<section id="inv"><div class="sectrule"><span class="eyebrow">Chapter <b>02</b> · WEAK SPOT · Q4</span><span class="line"></span></div><h2>2. &quot;Only when&quot; at the start turns the verb round</h2><p>In a normal sentence the subject comes before the verb: "We saw the damage." But when certain words open the sentence, English puts a <strong>helping verb before the subject</strong>, as in a question: "Only then <strong>did we see</strong> the damage." This is called <strong>inversion</strong>. The 2025 paper asked four inversion openers <span class="pyq">2025 Q8</span> <span class="pyq">2025 Q11</span> <span class="pyq">2025 Q21</span> <span class="pyq">2025 Q40</span>, so it is one of the most likely grammar questions in your exam.</p><h3><span class="h3n">2.1</span>Which openers cause inversion</h3><ul><li>Negative words: <strong>Never, Never before, Seldom, Rarely, Hardly, Scarcely, No sooner, Little, Not until, Not only, Under no circumstances, At no time</strong>.</li><li><strong>Only</strong> + a time or a way: <strong>Only when, Only after, Only then, Only by, Only in this way</strong>.</li><li><strong>So</strong> + adjective or adverb: So compellingly did she speak that…</li></ul><h3><span class="h3n">2.2</span>Where the helping verb comes from</h3><p>If the sentence already has a helping verb (had, was, can, will), that verb jumps in front of the subject. If it has none, English brings in <strong>do, does or did</strong> and puts the main verb back in its base form.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">Only when the lights came back on we saw the damage.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Only when the lights came back on did we see the damage.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Only after the doctor had checked him was he allowed to go home.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Only by working late every night was she able to finish.</span></div></div><p>Note one detail. With "Only when" and "Not until", the inversion happens in the <strong>main clause</strong>, not in the "when" clause. "Only when the lights came back on" keeps its normal order; "did we see" is where the change happens.</p><aside class="box warn"><p class="box-t">Your question (Mock 09 Q4)</p><p>"Only when the lights came back on ____ how much damage the storm had done to the hall." You chose <strong>we saw</strong>. The right answer was <strong>did we see</strong>. The trap: the first half of the sentence has normal order ("the lights came back on"), so normal order feels right in the second half too. But the sentence opened with <strong>Only when</strong>, so the main clause must turn round.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "Not until he lost his job ____ the value of money." (he realised / did he realise)</summary><p>did he realise.</p></details><details class="qa"><summary>Fill in: "Only then ____ the truth." (I understood / did I understand)</summary><p>did I understand.</p></details><details class="qa"><summary>Fill in: "Seldom ____ such a calm sea in July." (we see / do we see)</summary><p>do we see.</p></details><details class="qa"><summary>Which is right? "Only after the rain stopped the match began." / "Only after the rain stopped did the match begin."</summary><p>The second.</p></details><details class="qa"><summary>Likely next: "Under no circumstances ____ leave the hall during the exam." (candidates should / should candidates)</summary><p>should candidates.</p></details></div></aside></section>
+<section id="verb"><div class="sectrule"><span class="eyebrow">Chapter <b>03</b> · WEAK SPOT · Q12, Q19, Q29</span><span class="line"></span></div><h2>3. Verb patterns: would rather, deny, lest</h2><p>Some words decide the <strong>shape of the verb</strong> that follows them. You do not choose the tense by meaning alone; you follow the pattern that the word demands. Three of your misses were of this kind. Learn each pattern as a fixed frame.</p><h3><span class="h3n">3.1</span>Pattern 1: would rather + another person + past form</h3><p>When the subject talks about <strong>its own</strong> choice, "would rather" takes the bare verb: "I would rather <strong>stay</strong> at home." When it talks about <strong>what another person should do</strong>, it takes the <strong>past form</strong>, even though the time is the present or future: "I would rather <strong>you stayed</strong> at home." This past form is the same unreal past as in chapter 1. It is softer and more polite than a direct order.</p><div class="wr"><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I would rather go by train. (my own action: bare verb)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I would rather you went by train. (your action: past form)</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">I would rather you not mention it to anyone.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">I would rather you did not mention it to anyone.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q12)</p><p>"I would rather you ____ this matter to anyone until the enquiry is over." You chose <strong>not mention</strong>. The right answer was <strong>did not mention</strong>. The trap: "not mention" looks like the bare verb that follows "would rather" in "I would rather not go". That bare form is only used when the subject and the doer are the same person. Here the speaker is talking about <strong>you</strong>, so the past form "did not mention" is needed. "Had not mentioned" would be a regret about the past, but the enquiry is still going on.</p></aside><h3><span class="h3n">3.2</span>Pattern 2: deny, admit, avoid + -ing (or having + V3)</h3><p>A small group of verbs is always followed by the <strong>-ing form</strong>, never by "to": <strong>deny, admit, avoid, enjoy, finish, mind, risk, regret (the past), suggest, consider</strong>. When the action happened before the denying, you can use the <strong>perfect gerund</strong>: having + past participle.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The accused denied to be near the bank.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The accused denied being near the bank.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The accused denied having been near the bank. (best: it happened earlier)</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">He admitted having taken the files.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q19)</p><p>"The accused denied ____ anywhere near the bank on the night of the robbery." You chose <strong>to be</strong>. The right answer was <strong>having been</strong>. The trap: "to be" is the most common verb form after a verb, so it feels safe. But "deny" is on the -ing list. Keep this short list in mind: <strong>deny, admit, avoid, mind, risk + -ing</strong> <span class="pyq">2025 Q34</span>.</p></aside><h3><span class="h3n">3.3</span>Pattern 3: lest + should + base verb</h3><p><strong>Lest</strong> means "so that … not" or "for fear that". Because the "not" is already inside it, you never add another "not". The verb after it is <strong>should + base verb</strong> (some books allow the bare verb alone, but "should" is the exam form).</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">Walk carefully lest you should not fall.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">Walk carefully lest you will fall.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Walk carefully lest you should fall.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">Speak softly lest you should wake the baby.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q29, skipped)</p><p>You skipped this one. The right sentence was <strong>Walk carefully lest you should fall.</strong> The other three added a "not" or used "will" or "may not". Once you know the rule (lest = so that … not, + should), this question takes five seconds.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "I would rather ____ the bus than walk." (take / took)</summary><p>take. The speaker's own action: bare verb.</p></details><details class="qa"><summary>Fill in: "My mother would rather I ____ home before dark." (come / came)</summary><p>came. Another person's action: past form.</p></details><details class="qa"><summary>Fill in: "She avoided ____ his eyes." (to meet / meeting)</summary><p>meeting.</p></details><details class="qa"><summary>Fill in: "Run fast lest you ____ the bus." (miss / should miss / will miss)</summary><p>should miss.</p></details><details class="qa"><summary>Likely next: "Would you mind ____ the window?" (to open / opening)</summary><p>opening. "Mind" takes -ing.</p></details></div></aside></section>
+<section id="imp"><div class="sectrule"><span class="eyebrow">Chapter <b>04</b> · WEAK SPOT · Q10, Q14</span><span class="line"></span></div><h2>4. Sentence improvement: when nothing is wrong, and &quot;the reason is because&quot;</h2><p>Sentence improvement questions give you a sentence with a part in brackets and four choices, the last of which is <strong>No improvement</strong>. The 2021 paper had five of them in a row <span class="pyq">2021 Q12</span> <span class="pyq">2021 Q13</span>. Two of your misses came from this style, and they teach two opposite lessons.</p><h3><span class="h3n">4.1</span>Lesson 1: sometimes nothing is wrong</h3><p>Students learn to expect a mistake in every bracket, so they change a correct sentence. A good paper always has a few brackets that are already right. Before you choose a change, <strong>read the bracketed part with each option in turn</strong>. If the sentence is already correct and every option breaks something, the answer is No improvement.</p><p>The frame <strong>The more …, the more …</strong> (also the less, the better, the sooner) has three parts that must all be present: <strong>the</strong> before each comparative, the plain comparative (<strong>less</strong>, not lesser), and the normal word order (you will feel, not will you feel).</p><div class="wr"><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The more you practise, the less nervous you will feel.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The more you practise, less nervous you will feel.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The more you practise, the lesser nervous you will feel.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The sooner you start, the better it will be.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q10)</p><p>"The more you practise speaking in public, (the less nervous you will feel) on the stage." You chose <strong>less nervous you will feel</strong>, which drops the second "the". The right answer was <strong>No improvement</strong>. The trap: the bracket was long, so it looked like something must be wrong with it. Ask of each option: does it make the sentence better, or only different?</p></aside><h3><span class="h3n">4.2</span>Lesson 2: do not say the same thing twice</h3><p>"The reason … is because" uses two words that both mean reason. The textbook form is <strong>The reason is that …</strong>. In the same way, "return back", "repeat again" and "though … but" all say one thing twice.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The reason why he failed is because he did not read the questions.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The reason why he failed is that he did not read the questions.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The reason for his absence is due to he was ill.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The reason for his absence is that he was ill.</span></div></div><p>A related rule: <strong>because of</strong> is followed by a noun ("because of his illness"), while <strong>because</strong> is followed by a full clause ("because he was ill"). That is the exact past question <span class="pyq">2021 Q12</span>.</p><aside class="box warn"><p class="box-t">Your question (Mock 09 Q14)</p><p>You chose <strong>was because</strong>. The right answer was <strong>is that</strong>. The trap: "was because" fixed the tense and looked like a careful correction, but it kept "because". The real fault was the double reason, not the tense.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Improve: "The higher you climb, (more colder) it becomes."</summary><p>the colder.</p></details><details class="qa"><summary>Improve: "He (returned back) the book."</summary><p>returned.</p></details><details class="qa"><summary>Improve: "(Though he is poor, but) he is honest."</summary><p>Though he is poor, (or Although he is poor,). Drop "but".</p></details><details class="qa"><summary>Improve: "The reason he left is (that) he was unhappy."</summary><p>No improvement.</p></details><details class="qa"><summary>Likely next: "He could not come (because of he was ill)."</summary><p>because he was ill.</p></details></div></aside></section>
+<section id="who"><div class="sectrule"><span class="eyebrow">Chapter <b>05</b> · WEAK SPOT · Q28</span><span class="line"></span></div><h2>5. Who or whom when &quot;I thought&quot; sits in the middle</h2><p><strong>Who</strong> is used for the subject of a verb (the one who does). <strong>Whom</strong> is used for the object (the one to whom something is done). Most students know this. The hard part comes when a small clause like <strong>I thought, we believed, they said</strong> sits between "who" and its verb. That small clause hides the real verb.</p><h3><span class="h3n">5.1</span>The test: take the small clause out</h3><p>Cover "I thought" with your finger and read again. If "who/whom" is now followed by a verb, it is the subject of that verb, so it must be <strong>who</strong>.</p><ul><li>The man who/whom <strong>I thought</strong> was honest cheated me.</li><li>Cover "I thought": The man <strong>who was honest</strong> cheated me. So: <strong>who</strong>.</li><li>The man whom I trusted cheated me. Here "whom" is the object of "trusted" (I trusted him), so <strong>whom</strong> is right.</li></ul><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The man whom I thought was honest cheated me.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The man who I thought was honest cheated me.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The man whom I trusted cheated me.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q28)</p><p>You chose <strong>The man whom I thought was honest cheated me.</strong> The right answer used <strong>who</strong>. The trap: "whom I thought" sounds like "whom I trusted", and "whom" also sounds more formal, so it feels like the careful answer. Cover the small clause and the verb "was" appears; "whom was honest" is clearly wrong.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "She is the girl ____ we believe will top the exam." (who / whom)</summary><p>who. Cover "we believe": the girl who will top.</p></details><details class="qa"><summary>Fill in: "She is the girl ____ we chose as captain." (who / whom)</summary><p>whom. We chose her: object.</p></details><details class="qa"><summary>Fill in: "The officer ____ everyone said was strict turned out to be kind." (who / whom)</summary><p>who.</p></details><details class="qa"><summary>Likely next: "____ do you think will win?" (Who / Whom)</summary><p>Who. Cover "do you think": who will win.</p></details></div></aside></section>
+<section id="comp"><div class="sectrule"><span class="eyebrow">Chapter <b>06</b> · WEAK SPOT · Q31</span><span class="line"></span></div><h2>6. Comparisons must be complete</h2><p>A comparison has fixed partner words. <strong>as … as</strong> compares two equal things; <strong>-er … than</strong> compares two unequal things. When a sentence puts both comparisons together ("as tall as, if not taller than"), <strong>each half must still be complete on its own</strong>. The quickest test is to read each half alone with the end of the sentence.</p><h3><span class="h3n">6.1</span>Read each half alone</h3><p>"He is as tall as, if not taller than, his brother."</p><ul><li>Half 1: He is <strong>as tall as</strong> his brother. Complete.</li><li>Half 2: He is <strong>taller than</strong> his brother. Complete.</li></ul><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">He is as tall, if not taller than, his brother. (half 1 reads "as tall his brother")</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">He is as tall as, if not taller, his brother. (half 2 reads "taller his brother")</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">He is as tall as, if not taller than, his brother.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">This school is as good as, if not better than, the one in town.</span></div></div><h3><span class="h3n">6.2</span>The second half of a comparison: that of, those of</h3><p>In Mock 09 you got the "climate of Puri … than that of Bhubaneswar" question right. It belongs to the same family: compare <strong>like with like</strong>. Climate is compared with climate (that of), not with a city.</p><aside class="box warn"><p class="box-t">Your question (Mock 09 Q31)</p><p>You chose <strong>He is as tall, if not taller than, his brother.</strong> The right answer kept the second "as". The trap: when read quickly, the sentence sounds smooth because the ear fills in the missing word. On paper, test each half.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Which is right? "Her marks are as good as, if not better than, mine." / "Her marks are as good, if not better than, mine."</summary><p>The first.</p></details><details class="qa"><summary>Fill in: "The population of Cuttack is larger than ____ of Puri." (that / those)</summary><p>that.</p></details><details class="qa"><summary>Fill in: "The roads of this town are better than ____ of the city." (that / those)</summary><p>those. Roads is plural.</p></details><details class="qa"><summary>Likely next: "He is senior ____ me." (than / to)</summary><p>to. Senior, junior, superior and prior take "to".</p></details></div></aside></section>
+<section id="pos"><div class="sectrule"><span class="eyebrow">Chapter <b>07</b> · WEAK SPOT · Q22, Q25, Q26</span><span class="line"></span></div><h2>7. Parts of speech: before, but and seeing</h2><p>This chapter continues Weak Spots 1. The rule is the same: <strong>the job of a word in this sentence decides its part of speech</strong>, not the word itself. Mock 09 used three words that can do two or three different jobs. The 2021 paper had six direct questions of this kind <span class="pyq">2021 Q17–22</span>, so one or two are likely in your exam.</p><h3><span class="h3n">7.1</span>Before, after, since: three jobs</h3><p>Look at what <strong>follows</strong> the word.</p><div class="tw"><table class="t"><thead><tr><th>What follows</th><th>Part of speech</th><th>Example</th></tr></thead><tbody><tr><td data-l="What follows">nothing (end of the clause)</td><td data-l="Part of speech">Adverb</td><td data-l="Example">I have met him <strong>before</strong>.</td></tr><tr><td data-l="What follows">a noun or pronoun</td><td data-l="Part of speech">Preposition</td><td data-l="Example">Come <strong>before</strong> lunch.</td></tr><tr><td data-l="What follows">a full clause (subject + verb)</td><td data-l="Part of speech">Conjunction</td><td data-l="Example">Come <strong>before</strong> the guests arrive.</td></tr></tbody></table></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q22)</p><p>"I am sure I have met this gentleman somewhere (before)." You chose <strong>Preposition</strong>. The right answer was <strong>Adverb</strong>. The trap: "before" is most often seen as a preposition (before lunch). Here nothing follows it; it simply tells <strong>when</strong> about the verb "have met", so it is an adverb.</p></aside><h3><span class="h3n">7.2</span>But: conjunction or preposition</h3><p>"But" is usually a conjunction that joins two ideas: "He is poor <strong>but</strong> honest." When it means <strong>except</strong> and stands before a noun or pronoun, it is a <strong>preposition</strong>: "All <strong>but</strong> one passed." "Nobody <strong>but</strong> Ravi knew." A good test: if you can replace it with "except", it is a preposition.</p><aside class="box warn"><p class="box-t">Your question (Mock 09 Q25, skipped)</p><p>"All (but) one of the students passed the final examination." The answer was <strong>Preposition</strong>. Try the test: "All <strong>except</strong> one of the students passed." It works, so "but" is a preposition here.</p></aside><h3><span class="h3n">7.3</span>-ing words: gerund or participle</h3><p>An -ing word that <strong>works as a noun</strong> (subject, object, after a preposition) is a <strong>gerund</strong>: "<strong>Seeing</strong> is believing." An -ing word (or -ed word) that <strong>describes a noun</strong> is a <strong>participle</strong>: "<strong>Seeing</strong> the police, the thief ran." Here "seeing the police" tells us something about the thief, like an adjective. The same is true of past participles: "<strong>Tired</strong> of waiting, the villagers left."</p><aside class="box warn"><p class="box-t">Your question (Mock 09 Q26, skipped)</p><p>"(Seeing) the police at the gate, the thief ran out through the back door." The answer was <strong>Participle</strong>. In Weak Spots 1 the -ing word at the start ("Swimming is good exercise") was a gerund, because it was the subject. Here the subject is "the thief", and "Seeing the police" only describes him. The question to ask: <strong>is the -ing word the subject, or does it describe the subject?</strong></p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Name the part of speech: "I have not seen him (since)."</summary><p>Adverb. Nothing follows.</p></details><details class="qa"><summary>Name the part of speech: "He has lived here (since) 2010."</summary><p>Preposition. A noun follows.</p></details><details class="qa"><summary>Name the part of speech: "Everyone (but) Meena was present."</summary><p>Preposition (= except).</p></details><details class="qa"><summary>Name the part of speech: "(Walking) is good for health."</summary><p>Gerund. It is the subject.</p></details><details class="qa"><summary>Likely next: "(Frightened) by the noise, the child cried."</summary><p>Participle. It describes the child.</p></details></div></aside></section>
+<section id="agr"><div class="sectrule"><span class="eyebrow">Chapter <b>08</b> · WEAK SPOT · Q34, Q36</span><span class="line"></span></div><h2>8. Agreement: scenery and a pair of shoes</h2><p>You got 11 of the 12 agreement questions right, so the main rule is clear to you. The two misses were both cases where a <strong>plural-looking word sits next to the verb but is not the subject</strong>. The fix is the habit from Weak Spots 1: cross out the "of" phrase and find the real subject.</p><h3><span class="h3n">8.1</span>Uncountable nouns are singular</h3><p><strong>Scenery, machinery, furniture, luggage, information, advice, news, poetry, jewellery</strong> are uncountable. They have no plural and always take a singular verb.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The scenery of the Koraput hills are charming.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The scenery of the Koraput hills is charming.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The machinery in the mill has been sold.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q34)</p><p>"[The scenery of] [the Koraput hills] [are charming] [during the monsoon.]" You chose <strong>the Koraput hills</strong>. The right answer was <strong>are charming</strong>. The trap: the plural "hills" stands right before the verb, so "are" sounds natural, and you looked for the mistake in the noun instead. Cross out "of the Koraput hills": "The scenery … are charming" is clearly wrong.</p></aside><h3><span class="h3n">8.2</span>A pair of: the pair is the subject</h3><p><strong>Trousers, scissors, shoes, spectacles, earrings</strong> are plural on their own: "My shoes <strong>are</strong> tight." But when "pair" is the subject, the verb follows "pair", which is singular.</p><div class="wr"><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">These shoes are too tight.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">This pair of shoes is too tight.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The pair of shoes that I bought last week is already too tight.</span></div></div><aside class="box warn"><p class="box-t">Your question (Mock 09 Q36)</p><p>You chose <strong>are</strong>. The right answer was <strong>is</strong>. The trap was the long gap: "that I bought at the fair last week" pushed the verb far away from "pair", and "shoes … are" sounded right. In Weak Spots 1 you missed "A pair of trousers" for the same reason. This is now the second time, so make it a fixed habit: <strong>find the first noun of the subject, ignore everything after "of"</strong>.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "The furniture in these rooms ____ new." (is / are)</summary><p>is.</p></details><details class="qa"><summary>Fill in: "A pair of scissors ____ on the table." (is / are)</summary><p>is.</p></details><details class="qa"><summary>Fill in: "My spectacles ____ broken." (is / are)</summary><p>are. No "pair", so plural.</p></details><details class="qa"><summary>Fill in: "The luggage of the passengers ____ been checked." (has / have)</summary><p>has.</p></details><details class="qa"><summary>Likely next: "The poetry of Radhanath Ray ____ widely read." (is / are)</summary><p>is.</p></details></div></aside></section>
+<section id="prep"><div class="sectrule"><span class="eyebrow">Chapter <b>09</b> · WEAK SPOT · Q18, Q32, Q63</span><span class="line"></span></div><h2>9. Prepositions: resemble, dispense with, part with</h2><p>Prepositions after verbs are fixed by habit, not by logic, so they must be learnt in pairs. Your three misses show the two kinds of trap: a verb that takes a preposition you did not expect, and a verb that takes <strong>no</strong> preposition at all.</p><h3><span class="h3n">9.1</span>Verbs that take no preposition</h3><p><strong>Resemble, discuss, reach, enter, attack, marry, order, request, approach</strong> take their object directly. Students often add "with", "about" or "to" because the meaning seems to need it.</p><div class="wr"><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">The boy resembles with his father.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">The boy resembles his father.</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">We reached at the station.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">We reached the station. (but: we arrived at the station)</span></div><div class="wr-r no"><span class="wr-k">✗ Wrong</span><span class="wr-s">They discussed about the plan.</span></div><div class="wr-r ok"><span class="wr-k">✓ Right</span><span class="wr-s">They discussed the plan.</span></div></div><p>"Resemble" is also a <strong>state verb</strong>, so it is not used in the -ing form: "He is resembling" is wrong.</p><aside class="box warn"><p class="box-t">Your question (Mock 09 Q32)</p><p>You chose <strong>The boy resembles with his father in every way.</strong> The right answer had no preposition. The trap: "is similar to" and "looks like" need a preposition, so "resembles with" sounds natural. Learn the short list above.</p></aside><h3><span class="h3n">9.2</span>Verbs that keep a fixed preposition</h3><div class="tw"><table class="t"><thead><tr><th>Pair</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td data-l="Pair">dispense <strong>with</strong></td><td data-l="Meaning">do without, leave out</td><td data-l="Example">They dispensed with the speeches.</td></tr><tr><td data-l="Pair">part <strong>with</strong></td><td data-l="Meaning">give away something you own</td><td data-l="Example">He would not part with a coin.</td></tr><tr><td data-l="Pair">part <strong>from</strong></td><td data-l="Meaning">leave a person</td><td data-l="Example">She parted from her friends.</td></tr><tr><td data-l="Pair">cope <strong>with</strong></td><td data-l="Meaning">deal with a difficulty</td><td data-l="Example">We could not cope with the rush.</td></tr><tr><td data-l="Pair">dispose <strong>of</strong></td><td data-l="Meaning">get rid of</td><td data-l="Example">Dispose of the waste safely.</td></tr><tr><td data-l="Pair">comply <strong>with</strong></td><td data-l="Meaning">obey a rule</td><td data-l="Example">Comply with the new rules.</td></tr><tr><td data-l="Pair">focus <strong>on</strong></td><td data-l="Meaning">give attention to</td><td data-l="Example">The study focuses on diet <span class="pyq">2025 Q42</span>.</td></tr></tbody></table></div><aside class="box warn"><p class="box-t">Your questions (Mock 09 Q18 and Q63)</p><p>In Q18 (dispense ____ the usual speeches) you skipped; the answer was <strong>with</strong>. In Q63 (refused to part ____ even a single coin) you chose <strong>away</strong>; the answer was <strong>with</strong>. The trap in Q63: "give away" means almost the same thing, so "part away" felt natural. But the fixed phrase is <strong>part with</strong>. Many of these "with" verbs (dispense with, part with, cope with, comply with, do away with) share the idea of dealing with or letting go of something.</p></aside><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Fill in: "They ____ the matter for an hour." (discussed / discussed about)</summary><p>discussed.</p></details><details class="qa"><summary>Fill in: "The train reached ____ Puri at noon." (at / no preposition)</summary><p>No preposition: reached Puri.</p></details><details class="qa"><summary>Fill in: "She could not cope ____ the work." (up / with)</summary><p>with.</p></details><details class="qa"><summary>Fill in: "Please dispose ____ the old files." (off / of)</summary><p>of.</p></details><details class="qa"><summary>Likely next: "He married ____ his childhood friend." (with / no preposition)</summary><p>No preposition: married his friend.</p></details></div></aside></section>
+<section id="voc"><div class="sectrule"><span class="eyebrow">Chapter <b>10</b> · WEAK SPOT · Q43, Q44, Q45, Q47, Q51, Q54</span><span class="line"></span></div><h2>10. Vocabulary: six words and their traps</h2><p>Six of your 25 misses were word questions. In each one, the wrong option you chose was a <strong>near trap</strong>: a word linked to the meaning but not the meaning itself. The examiner builds options this way on purpose. The fix is to define the word in your own words <strong>before</strong> you look at the options.</p><h3><span class="h3n">10.1</span>The six words</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Meaning</th><th>The trap you chose</th><th>Why it is wrong</th></tr></thead><tbody><tr><td data-l="Word">frivolous</td><td data-l="Meaning">not serious, silly, trivial</td><td data-l="The trap you chose">false</td><td data-l="Why it is wrong">a frivolous complaint may be true and still silly</td></tr><tr><td data-l="Word">ameliorate</td><td data-l="Meaning">make better</td><td data-l="The trap you chose">(skipped)</td><td data-l="Why it is wrong">from Latin melior, "better"; worsen is the opposite</td></tr><tr><td data-l="Word">diligent / industrious</td><td data-l="Meaning">hardworking (a synonym pair)</td><td data-l="The trap you chose">careless / idle</td><td data-l="Why it is wrong">both are faults, but they do not mean the same thing</td></tr><tr><td data-l="Word">subversion</td><td data-l="Meaning">undermining authority</td><td data-l="The trap you chose">clarity</td><td data-l="Why it is wrong">its opposite is obeying: compliance <span class="pyq">2021 Q46</span></td></tr><tr><td data-l="Word">zeal</td><td data-l="Meaning">great energy and eagerness</td><td data-l="The trap you chose">anger</td><td data-l="Why it is wrong">its opposite is lack of feeling: apathy</td></tr><tr><td data-l="Word">succinct</td><td data-l="Meaning">brief and clear</td><td data-l="The trap you chose">eloquent</td><td data-l="Why it is wrong">eloquent is about beauty of speech, not length</td></tr></tbody></table></div><h3><span class="h3n">10.2</span>Three habits for word questions</h3><ul><li><strong>Say the meaning first.</strong> Before you read the options, say in three words what the word means ("not serious", "make better"). Then look for that meaning.</li><li><strong>For antonyms, find the synonym first.</strong> The examiner nearly always puts a synonym among the options as a trap (destabilisation for subversion, passion for zeal). Cross it out, then pick its opposite.</li><li><strong>In a sentence, find the clue.</strong> In Q54 the clue was "finished in five minutes", which is about <strong>length</strong>. A word about beauty (eloquent) does not answer a clue about length.</li></ul><h3><span class="h3n">10.3</span>Pick-the-pair questions</h3><p>In "Select the pair of synonyms" <span class="pyq">2021 Q43</span>, two of the four words mean the same and the other two are decoys. Decoys are often two <strong>faults</strong> (careless, idle) or two <strong>opposites</strong> of the real pair. Test each possible pair with one sentence: "He is a <strong>diligent</strong> worker" / "He is an <strong>industrious</strong> worker" mean the same; "He is a <strong>careless</strong> worker" / "He is an <strong>idle</strong> worker" do not.</p><aside class="box warn"><p class="box-t">Your questions in one line each</p><p>Q43 frivolous: you chose <strong>false</strong>; the answer was <strong>trivial</strong>. Q44 ameliorate: skipped; the answer was <strong>improve</strong>. Q45: you chose <strong>(II) and (IV)</strong>; the answer was <strong>(I) and (III)</strong>. Q47 subversion: you chose <strong>clarity</strong>; the answer was <strong>compliance</strong>. Q51 zeal: you chose <strong>anger</strong>; the answer was <strong>apathy</strong>. Q54: you chose <strong>eloquent</strong>; the answer was <strong>succinct</strong>.</p></aside><h3><span class="h3n">10.4</span>Word families worth knowing (likely next)</h3><div class="tw"><table class="t"><thead><tr><th>Word</th><th>Meaning</th><th>Opposite</th></tr></thead><tbody><tr><td data-l="Word">alleviate</td><td data-l="Meaning">make pain less</td><td data-l="Opposite">aggravate</td></tr><tr><td data-l="Word">ardour</td><td data-l="Meaning">warm eagerness</td><td data-l="Opposite">indifference</td></tr><tr><td data-l="Word">defiance</td><td data-l="Meaning">open refusal to obey</td><td data-l="Opposite">obedience</td></tr><tr><td data-l="Word">petty</td><td data-l="Meaning">small, unimportant</td><td data-l="Opposite">important</td></tr><tr><td data-l="Word">concise, terse, crisp</td><td data-l="Meaning">short and clear</td><td data-l="Opposite">verbose, wordy</td></tr><tr><td data-l="Word">frugal, thrifty</td><td data-l="Meaning">careful with money</td><td data-l="Opposite">extravagant</td></tr><tr><td data-l="Word">lethargic</td><td data-l="Meaning">slow, without energy</td><td data-l="Opposite">energetic</td></tr><tr><td data-l="Word">candid</td><td data-l="Meaning">frank, open</td><td data-l="Opposite">evasive</td></tr></tbody></table></div><aside class="box next"><p class="box-t">Check yourself and likely next</p><div class="qas"><details class="qa"><summary>Opposite of APATHY?</summary><p>Zeal (or enthusiasm, interest).</p></details><details class="qa"><summary>Synonym of TRIVIAL?</summary><p>Petty, unimportant, frivolous.</p></details><details class="qa"><summary>Opposite of VERBOSE?</summary><p>Succinct, concise.</p></details><details class="qa"><summary>Synonym of AMELIORATE?</summary><p>Improve (alleviate is close).</p></details><details class="qa"><summary>Likely next: opposite of COMPLIANCE?</summary><p>Defiance (or disobedience, subversion).</p></details></div></aside></section>
+<section id="last"><div class="sectrule"><span class="eyebrow">Chapter <b>11</b> · LAST WEEK</span><span class="line"></span></div><h2>Last-week sheet: your 25 in one page</h2><p>This is the whole guide on one page. Read it every day in the last week before the exam.</p><h3><span class="h3n">11.1</span>One line for each wrong or skipped question</h3><div class="tw"><table class="t"><thead><tr><th>Q</th><th>Mistake</th><th>The fix in one line</th></tr></thead><tbody><tr><td data-l="Q">Q3</td><td data-l="Mistake">"would have felt" with "today"</td><td data-l="The fix in one line">Past if-part + present result = <strong>would + base verb</strong>.</td></tr><tr><td data-l="Q">Q4</td><td data-l="Mistake">"Only when … we saw"</td><td data-l="The fix in one line"><strong>Only when / Not until</strong> at the start: did we see.</td></tr><tr><td data-l="Q">Q10</td><td data-l="Mistake">changed a correct sentence</td><td data-l="The fix in one line">If every option breaks it, choose <strong>No improvement</strong>.</td></tr><tr><td data-l="Q">Q12</td><td data-l="Mistake">"would rather you not mention"</td><td data-l="The fix in one line">Would rather + another person + <strong>past form</strong>: you did not mention.</td></tr><tr><td data-l="Q">Q14</td><td data-l="Mistake">"was because"</td><td data-l="The fix in one line"><strong>The reason is that</strong>, never "is because".</td></tr><tr><td data-l="Q">Q18</td><td data-l="Mistake">skipped dispense ____</td><td data-l="The fix in one line"><strong>Dispense with</strong>.</td></tr><tr><td data-l="Q">Q19</td><td data-l="Mistake">"denied to be"</td><td data-l="The fix in one line">Deny, admit, avoid + <strong>-ing</strong>: denied having been.</td></tr><tr><td data-l="Q">Q22</td><td data-l="Mistake">"before" = preposition</td><td data-l="The fix in one line">Nothing follows = <strong>adverb</strong>.</td></tr><tr><td data-l="Q">Q25</td><td data-l="Mistake">skipped "All but one"</td><td data-l="The fix in one line">But = except before a noun = <strong>preposition</strong>.</td></tr><tr><td data-l="Q">Q26</td><td data-l="Mistake">skipped "Seeing the police"</td><td data-l="The fix in one line">-ing that describes the subject = <strong>participle</strong>.</td></tr><tr><td data-l="Q">Q28</td><td data-l="Mistake">"whom I thought was"</td><td data-l="The fix in one line">Cover "I thought": <strong>who</strong> was honest.</td></tr><tr><td data-l="Q">Q29</td><td data-l="Mistake">skipped lest</td><td data-l="The fix in one line">Lest + <strong>should</strong>, never "not".</td></tr><tr><td data-l="Q">Q31</td><td data-l="Mistake">"as tall, if not taller than"</td><td data-l="The fix in one line">Each half complete: <strong>as tall as</strong>, taller than.</td></tr><tr><td data-l="Q">Q32</td><td data-l="Mistake">"resembles with"</td><td data-l="The fix in one line">Resemble, discuss, reach, enter: <strong>no preposition</strong>.</td></tr><tr><td data-l="Q">Q34</td><td data-l="Mistake">blamed "the Koraput hills"</td><td data-l="The fix in one line">Scenery is uncountable: <strong>is charming</strong>.</td></tr><tr><td data-l="Q">Q36</td><td data-l="Mistake">"pair of shoes … are"</td><td data-l="The fix in one line"><strong>Pair</strong> is the subject: is.</td></tr><tr><td data-l="Q">Q43</td><td data-l="Mistake">frivolous = false</td><td data-l="The fix in one line">Frivolous = <strong>trivial</strong>.</td></tr><tr><td data-l="Q">Q44</td><td data-l="Mistake">skipped ameliorate</td><td data-l="The fix in one line">Ameliorate = <strong>improve</strong>.</td></tr><tr><td data-l="Q">Q45</td><td data-l="Mistake">careless and idle</td><td data-l="The fix in one line">Diligent = <strong>industrious</strong>.</td></tr><tr><td data-l="Q">Q47</td><td data-l="Mistake">subversion ↔ clarity</td><td data-l="The fix in one line">Opposite of undermining = <strong>compliance</strong>.</td></tr><tr><td data-l="Q">Q51</td><td data-l="Mistake">zeal ↔ anger</td><td data-l="The fix in one line">Opposite of eagerness = <strong>apathy</strong>.</td></tr><tr><td data-l="Q">Q54</td><td data-l="Mistake">eloquent</td><td data-l="The fix in one line">Clue about length: <strong>succinct</strong>.</td></tr><tr><td data-l="Q">Q63</td><td data-l="Mistake">"part away"</td><td data-l="The fix in one line"><strong>Part with</strong> a thing, part from a person.</td></tr><tr><td data-l="Q">Q77</td><td data-l="Mistake">"wins"</td><td data-l="The fix in one line">This is the third time + <strong>has won</strong>.</td></tr><tr><td data-l="Q">Q81</td><td data-l="Mistake">"as if she is"</td><td data-l="The fix in one line">As if (untrue) + <strong>were</strong>.</td></tr></tbody></table></div><h3><span class="h3n">11.2</span>The four habits that would have saved most of these marks</h3><ul><li>In tense questions, <strong>circle every time word</strong> (today, now, yesterday, the third time) before choosing.</li><li>In agreement and who/whom questions, <strong>cover the middle phrase</strong> ("of the hills", "I thought") and read again.</li><li>In sentence improvement, <strong>test the sentence as it is</strong> before you change it.</li><li>In word questions, <strong>say the meaning before reading the options</strong>, and cross out the synonym trap in antonym questions.</li></ul><aside class="box key"><p class="box-t">What comes next</p><p>English Mock 10 is your redo set: all 25 of these questions, each with a twin that tests the same rule in a fresh sentence, plus 50 new questions. After Mock 10, paste the report again. Whatever is still wrong will become Weak Spots 3.</p></aside></section></div></main>
+<button class="btn" id="up" aria-label="Back to top">Top</button>
+<footer><div class="col"><p>OPSC ASO 2027 · English Weak Spots Guide 2 · built 27 Nov 2026 from the wrong and skipped answers of English Mock 09; the rules come from the Grammar Guide, the 2018, 2021 and 2025 papers and standard grammar. The wording and all examples are this guide’s own.</p><p>Tags marked CHECK are answers that keys or grammar books disagree on: confirm them before the exam.</p></div></footer>
+<script>
+(function(){
+var nav=document.getElementById('nav'),btn=document.getElementById('navbtn'),links=[].slice.call(nav.querySelectorAll('a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+btn.onclick=function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+document.getElementById('up').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+var cn=document.getElementById('chapN'),cb=document.getElementById('chapBar'),cp=document.getElementById('chapPct');
+function spy(){
+  var y=window.scrollY+120,idx=0;
+  for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) idx=i; }
+  var s=secs[idx],top=s.offsetTop,h=s.offsetHeight,p=Math.max(0,Math.min(1,(window.scrollY+100-top)/Math.max(1,h-window.innerHeight*0.5)));
+  links.forEach(function(a,j){a.classList.toggle('on',j===idx)});
+  cn.textContent=links[idx].textContent.replace(/^\d+/,'');
+  cb.style.width=Math.round(p*100)+'%';cp.textContent=Math.round(p*100)+'%';
+}
+var tk=false;window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){spy();tk=false})}},{passive:true});spy();
+})();
+</script><script>window.ASO_INK_KEY='aso-ink-weak2-2027';</script>
+<script>
+/* Pen-tablet drawing mode for the ASO guides.
+   Ink engine ported from the draw-app project (ink-stroke.ts + ink-canvas.tsx):
+   streamlined, pressure-sensitive strokes, Catmull-Rom smoothing, pen/mouse brush,
+   pen-eraser end, tablet quirks (flat pressure, missed pointerup, coalesced events).
+   New here: strokes are anchored to the chapter they start in and painted on tiles that scroll with the text, saved in localStorage,
+   highlighter, stroke eraser, undo, clear, hide, and "touch scrolls / touch draws". */
+(function () {
+  "use strict";
+  var KEY = window.ASO_INK_KEY || "aso-ink-" + location.pathname;
+
+  /* ---------------- ink engine (from ink-stroke.ts) ---------------- */
+  var PRESSURE_RATE = 0.275, DENSE_SPACING = 3, SAMPLE_SPACING = 0.75, WIDTH_STEP = 0.04;
+
+  function densify(pts, emit) {
+    var n = pts.length;
+    function knot(a, b) { return Math.max(1e-4, Math.sqrt(Math.hypot(b.x - a.x, b.y - a.y))); }
+    for (var i = 0; i < n - 1; i++) {
+      var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n - 1, i + 2)];
+      var steps = Math.max(1, Math.ceil(Math.hypot(p2.x - p1.x, p2.y - p1.y) / DENSE_SPACING));
+      var t1 = p0 === p1 ? 1e-4 : knot(p0, p1);
+      var t2 = t1 + knot(p1, p2);
+      var t3 = t2 + (p3 === p2 ? 1e-4 : knot(p2, p3));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, t = t1 + (t2 - t1) * u;
+        var lerp = function (a, b, ta, tb) { return ((tb - t) * a + (t - ta) * b) / (tb - ta); };
+        var ax1 = lerp(p0.x, p1.x, 0, t1), ay1 = lerp(p0.y, p1.y, 0, t1);
+        var ax2 = lerp(p1.x, p2.x, t1, t2), ay2 = lerp(p1.y, p2.y, t1, t2);
+        var ax3 = lerp(p2.x, p3.x, t2, t3), ay3 = lerp(p2.y, p3.y, t2, t3);
+        var bx1 = lerp(ax1, ax2, 0, t2), by1 = lerp(ay1, ay2, 0, t2);
+        var bx2 = lerp(ax2, ax3, t1, t3), by2 = lerp(ay2, ay3, t1, t3);
+        emit(lerp(bx1, bx2, t1, t2), lerp(by1, by2, t1, t2), p1.p + (p2.p - p1.p) * u);
+      }
+    }
+  }
+
+  function steady(input, brush, isComplete) {
+    var n = input.length;
+    if (n === 0) return [];
+    var size = brush.size, first = input[0], firstP = first.p, i = 1, minD2 = Math.pow(size / 3, 2);
+    while (i < n && Math.pow(input[i].x - first.x, 2) + Math.pow(input[i].y - first.y, 2) <= minD2) {
+      firstP = Math.max(firstP, input[i].p); i++;
+    }
+    var out = [{ x: first.x, y: first.y, p: firstP, dist: 0, run: 0 }];
+    var lag = Math.max(0.1, brush.streamline * size), px = first.x, py = first.y, run = 0, k = 1;
+    function take(ix, iy, ip, exact) {
+      var x = ix, y = iy;
+      if (!exact) {
+        var a = 1 - Math.exp(-Math.hypot(ix - px, iy - py) / lag);
+        x = px + (ix - px) * a; y = py + (iy - py) * a;
+      }
+      if (Math.abs(x - px) < 1e-4 && Math.abs(y - py) < 1e-4) return;
+      var d = Math.hypot(x - px, y - py);
+      run += d;
+      if (k++ < 4 && run < size) return;
+      out.push({ x: x, y: y, p: ip, dist: d, run: run });
+      px = x; py = y;
+    }
+    var kept = [first].concat(input.slice(i));
+    densify(kept, function (x, y, p) { take(x, y, p, false); });
+    if (isComplete && n > 1) { var last = input[n - 1]; take(last.x, last.y, last.p, true); }
+    return out;
+  }
+
+  function widths(pts, brush) {
+    var size = brush.size, thinning = brush.thinning, sim = brush.simulatePressure, easing = brush.easing, n = pts.length;
+    function radius(p) { return Math.max(0.05, size * easing(0.5 - thinning * (0.5 - p))); }
+    var total = pts[n - 1].run;
+    if (!sim && total < size) {
+      var max = pts.reduce(function (m, q) { return Math.max(m, q.p); }, 0.5);
+      return pts.map(function () { return radius(max); });
+    }
+    function step(prev, q) {
+      var sp = Math.min(1, q.dist / size), target = sim ? Math.min(1, 1 - sp) : q.p;
+      return Math.min(1, prev + (target - prev) * sp * PRESSURE_RATE);
+    }
+    var prev = sim ? 0.5 : pts[0].p;
+    for (var j = 0; j < n; j++) {
+      var q = pts[j];
+      if (q.run > size * 5) break;
+      var sp = Math.min(1, q.dist / size);
+      var p = sim ? Math.min(1, prev + (Math.min(1, 1 - sp) - prev) * sp * PRESSURE_RATE)
+                  : Math.min(1, prev + (q.p - prev) * 0.5);
+      prev += (p - prev) * 0.5;
+    }
+    return pts.map(function (q) { prev = step(prev, q); return radius(prev); });
+  }
+
+  function paintStroke(ctx, input, brush, isComplete) {
+    var pts = steady(input, brush, isComplete);
+    if (pts.length === 0) return;
+    var r = widths(pts, brush);
+    if (pts.length === 1) { ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, r[0], 0, Math.PI * 2); ctx.fill(); return; }
+    ctx.save();
+    ctx.strokeStyle = ctx.fillStyle; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    var runWidth = -1;
+    function wOf(rad) { return Math.max(WIDTH_STEP, Math.round((2 * rad) / WIDTH_STEP) * WIDTH_STEP); }
+    function begin(x, y, w) { runWidth = w; ctx.beginPath(); ctx.moveTo(x, y); }
+    function end() { ctx.lineWidth = runWidth; ctx.stroke(); }
+    begin(pts[0].x, pts[0].y, wOf(r[0]));
+    function emit(x, y, rad) {
+      var w = wOf(rad);
+      ctx.lineTo(x, y);
+      if (w !== runWidth) { end(); begin(x, y, w); }
+    }
+    function line(x0, y0, r0, x1, y1, r1) {
+      var steps = Math.max(1, Math.ceil(Math.hypot(x1 - x0, y1 - y0) / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) { var u = s / steps; emit(x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, r0 + (r1 - r0) * u); }
+    }
+    var n = pts.length;
+    function mid(i) { return { x: (pts[i].x + pts[i + 1].x) / 2, y: (pts[i].y + pts[i + 1].y) / 2, r: (r[i] + r[i + 1]) / 2 }; }
+    var a = mid(0);
+    line(pts[0].x, pts[0].y, r[0], a.x, a.y, a.r);
+    for (var i = 1; i < n - 1; i++) {
+      var c = pts[i], b = mid(i);
+      var approx = Math.hypot(c.x - a.x, c.y - a.y) + Math.hypot(b.x - c.x, b.y - c.y);
+      var steps = Math.max(1, Math.ceil(approx / SAMPLE_SPACING));
+      for (var s = 1; s <= steps; s++) {
+        var u = s / steps, w = 1 - u;
+        emit(w * w * a.x + 2 * w * u * c.x + u * u * b.x, w * w * a.y + 2 * w * u * c.y + u * u * b.y,
+             w * w * a.r + 2 * w * u * r[i] + u * u * b.r);
+      }
+      a = b;
+    }
+    line(a.x, a.y, a.r, pts[n - 1].x, pts[n - 1].y, r[n - 1]);
+    end();
+    ctx.restore();
+  }
+
+  /* ---------------- brushes (from ink-canvas.tsx) ---------------- */
+  var PEN_WIDTH_SCALE = 0.54;
+  function penEasing(t) { return (t * 0.65 + Math.sin((t * Math.PI) / 2) * 0.35) * PEN_WIDTH_SCALE; }
+  var PEN = { size: 4.6, thinning: 0.62, streamline: 0.62, simulatePressure: false, easing: penEasing };
+  var HI = { size: 18, thinning: 0, streamline: 0.35, simulatePressure: false, easing: function () { return 0.5; } };
+  var PEN_PRESSURE_BOOST = 1.25, MIN_PEN_PRESSURE = 0.025, MOUSE_PRESSURE = 0.5, PEN_MIN_STEP = 1;
+  var useCoalesced = !/iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  var COLORS = [
+    { n: "Black", v: "#111111" }, { n: "Blue", v: "#2b4cff" }, { n: "Red", v: "#dc2626" }, { n: "Green", v: "#15803d" },
+    { n: "Yellow highlighter", v: "#ffd400", hi: 1 }, { n: "Green highlighter", v: "#3ddc84", hi: 1 }, { n: "Pink highlighter", v: "#ff6fb5", hi: 1 }
+  ];
+
+  /* ---------------- page layout + state ----------------
+     The ink is painted on canvas TILES that sit inside the page (position:absolute), so they scroll
+     with the text natively, in the same frame. (A fixed canvas repainted on scroll lags one frame
+     behind and looks like parallax.) Only tiles near the screen exist; the rest are dropped.
+     Each stroke is stored relative to the chapter <section> it starts in: x in the column's units
+     (scaled when the column width changes), y from the section top. So opening a Q&A or a new
+     layout moves the ink together with its chapter. */
+  var col = document.querySelector("main .col") || document.body;
+  var secs = [].slice.call(document.querySelectorAll("main section[id]"));
+  var L = { left: 0, w: 1, tops: {}, docW: 1, docH: 1 };
+  function measure() {
+    var sx = window.scrollX, sy = window.scrollY, r = col.getBoundingClientRect();
+    L.left = r.left + sx; L.w = Math.max(1, col.clientWidth);
+    L.tops = {};
+    secs.forEach(function (s) { L.tops[s.id] = s.getBoundingClientRect().top + sy; });
+    L.docW = document.documentElement.clientWidth;
+    L.docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  }
+  function topOf(s) { return s.a && L.tops[s.a] != null ? L.tops[s.a] : 0; }
+  function sectionAt(pageY) {
+    var best = null, bt = -1e9;
+    secs.forEach(function (s) { var t = L.tops[s.id]; if (t <= pageY && t > bt) { bt = t; best = s.id; } });
+    return best;
+  }
+
+  var strokes = [], undo = [], current = null, activePointer = null, lastKept = null, erasing = false, erased = [];
+  var state = { on: false, color: COLORS[0].v, hi: false, eraser: false, touchDraws: false, hidden: false };
+  try { var sv = JSON.parse(localStorage.getItem(KEY) || "null"); if (sv && sv.strokes) strokes = sv.strokes; if (sv && sv.touchDraws) state.touchDraws = true; } catch (e) {}
+
+  var saveT = 0;
+  function save() {
+    clearTimeout(saveT);
+    saveT = setTimeout(function () {
+      try { localStorage.setItem(KEY, JSON.stringify({ v: 2, touchDraws: state.touchDraws, strokes: strokes })); } catch (e) {}
+    }, 400);
+  }
+
+  /* ---------------- painting ---------------- */
+  var TILE = 512;
+  var layer = document.createElement("div");
+  layer.id = "inkl"; layer.setAttribute("aria-hidden", "true");
+  var live = document.createElement("canvas"), lctx = live.getContext("2d"), liveTop = 0;
+  live.className = "inkt"; live.style.display = "none";
+  layer.appendChild(live);
+  var tmp = document.createElement("canvas"), tctx = tmp.getContext("2d");
+  var tiles = {}, dpr = 1, frame = 0;
+
+  // Paint one stroke onto canvas context c, whose top edge is at page y = top.
+  function paint(c, s, top, done) {
+    var k = L.w / s.w, ox = L.left, oy = topOf(s) - top;
+    var pts = s.pts.map(function (q) { return { x: ox + q[0] * k, y: oy + q[1], p: s.pen && s.flat ? MOUSE_PRESSURE : q[2] }; });
+    if (s.hi) {
+      var cv = c.canvas;
+      if (tmp.width !== cv.width || tmp.height !== cv.height) { tmp.width = cv.width; tmp.height = cv.height; }
+      tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tmp.width, tmp.height);
+      tctx.setTransform(dpr, 0, 0, dpr, 0, 0); tctx.fillStyle = s.c;
+      paintStroke(tctx, pts, HI, done);
+      c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 0.4; c.drawImage(tmp, 0, 0); c.restore();
+    } else {
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.fillStyle = s.c;
+      paintStroke(c, pts, PEN, done);
+    }
+  }
+  function yRange(s) { var t = topOf(s); return [t + s.b[1], t + s.b[3]]; }
+
+  function paintTile(t) {
+    t.ctx.setTransform(1, 0, 0, 1, 0, 0); t.ctx.clearRect(0, 0, t.c.width, t.c.height);
+    if (state.hidden) return;
+    strokes.forEach(function (s) { var y = yRange(s); if (y[1] > t.top && y[0] < t.top + t.h) paint(t.ctx, s, t.top, true); });
+  }
+  function dropTile(i) { var t = tiles[i]; t.c.width = t.c.height = 0; t.c.remove(); delete tiles[i]; }
+  function makeTile(i) {
+    var top = i * TILE, h = Math.min(TILE, L.docH - top);
+    if (h <= 0) return;
+    var c = document.createElement("canvas");
+    c.className = "inkt";
+    c.style.top = top + "px"; c.style.width = L.docW + "px"; c.style.height = h + "px";
+    c.width = Math.max(1, Math.round(L.docW * dpr)); c.height = Math.max(1, Math.round(h * dpr));
+    var t = tiles[i] = { c: c, ctx: c.getContext("2d"), top: top, h: h };
+    layer.appendChild(c); paintTile(t);
+  }
+  // Keep tiles from one screen above to two screens below the view; drop the rest.
+  function ensureTiles() {
+    var vh = window.innerHeight, sy = window.scrollY, last = Math.ceil(L.docH / TILE) - 1;
+    var lo = Math.max(0, Math.floor((sy - vh) / TILE)), hi = Math.min(last, Math.floor((sy + 2 * vh) / TILE));
+    Object.keys(tiles).forEach(function (i) { if (i < lo - 1 || i > hi + 1) dropTile(i); });
+    for (var i = lo; i <= hi; i++) if (!tiles[i]) makeTile(i);
+  }
+  function repaintAll() { Object.keys(tiles).forEach(function (i) { paintTile(tiles[i]); }); }
+  function rebuild() {
+    dpr = window.devicePixelRatio || 1;
+    Object.keys(tiles).forEach(dropTile);
+    measure(); ensureTiles();
+  }
+
+  function renderLive() {
+    frame = 0;
+    lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
+    if (current) paint(lctx, current.s, liveTop, false);
+  }
+  function request() { if (!frame) frame = requestAnimationFrame(renderLive); }
+  // The stroke being drawn goes on its own canvas covering the screen at pen-down time.
+  function startLive() {
+    var h = Math.max(1, Math.min(window.innerHeight, L.docH - window.scrollY));
+    liveTop = window.scrollY;
+    live.style.top = liveTop + "px"; live.style.width = L.docW + "px"; live.style.height = h + "px";
+    live.width = Math.round(L.docW * dpr); live.height = Math.round(h * dpr);
+    live.style.display = "block";
+  }
+  function stopLive() { live.style.display = "none"; live.width = live.height = 1; }
+
+  /* ---------------- drawing input (from ink-canvas.tsx) ---------------- */
+  var input = document.createElement("div");
+  input.id = "inki"; input.setAttribute("aria-hidden", "true");
+
+  function pageOf(e, isPen, s) {
+    var k = L.w / s.w;
+    return [Math.round(((e.clientX + window.scrollX - L.left) / k) * 10) / 10,
+      Math.round((e.clientY + window.scrollY - topOf(s)) * 10) / 10,
+      isPen ? Math.round(Math.min(1, Math.max(MIN_PEN_PRESSURE, e.pressure * PEN_PRESSURE_BOOST)) * 1000) / 1000 : MOUSE_PRESSURE];
+  }
+  function notePressure(cur, raw) {
+    if (!cur.s.pen || raw === 0) return;
+    if (cur.first === null) cur.first = raw; else if (raw !== cur.first) cur.s.flat = false;
+  }
+  function addPoint(cur, pt) {
+    var pts = cur.s.pts;
+    if (cur.s.pen && lastKept && Math.hypot(pt[0] - lastKept[0], pt[1] - lastKept[1]) < PEN_MIN_STEP) { pts[pts.length - 1] = pt; return; }
+    var prev = pts[pts.length - 1];
+    if (prev && prev[0] === pt[0] && prev[1] === pt[1] && prev[2] === pt[2]) return;
+    pts.push(pt); lastKept = pt;
+  }
+  function bbox(pts, pad) {
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    pts.forEach(function (q) { x0 = Math.min(x0, q[0]); y0 = Math.min(y0, q[1]); x1 = Math.max(x1, q[0]); y1 = Math.max(y1, q[1]); });
+    return [x0 - pad, y0 - pad, x1 + pad, y1 + pad];
+  }
+
+  // Stroke eraser: remove every stroke that has a point near the pen.
+  function eraseAt(e) {
+    var px = e.clientX + window.scrollX, py = e.clientY + window.scrollY, R = 14, hit = [];
+    strokes.forEach(function (s) {
+      var k = L.w / s.w, X = (px - L.left) / k, Y = py - topOf(s);
+      if (X < s.b[0] - R || X > s.b[2] + R || Y < s.b[1] - R || Y > s.b[3] + R) return;
+      var r2 = Math.pow(R / k + (s.hi ? 9 : 2), 2);
+      for (var i = 0; i < s.pts.length; i++) {
+        var dx = s.pts[i][0] - X, dy = s.pts[i][1] - Y;
+        if (dx * dx + dy * dy <= r2) { hit.push(s); return; }
+      }
+    });
+    if (hit.length) { strokes = strokes.filter(function (s) { return hit.indexOf(s) < 0; }); erased = erased.concat(hit); repaintAll(); }
+  }
+
+  function onDown(e) {
+    if (!state.on) return;
+    if (e.pointerType === "mouse" && e.button !== 0 && e.button !== 5) return;
+    if (e.pointerType === "touch" && !state.touchDraws) return;
+    if (activePointer !== null) endStroke(null);
+    e.preventDefault();
+    try { input.setPointerCapture(e.pointerId); } catch (x) {}
+    activePointer = e.pointerId;
+    var isPen = e.pointerType === "pen";
+    // Shift held: the pen drags the page like a hand tool instead of drawing.
+    if (e.shiftKey) { panning = { y: e.clientY, x: e.clientX }; lastTap = null; input.style.cursor = "grabbing"; return; }
+    // The flipped (eraser) end of a pen reports button 5 / buttons bit 32.
+    erasing = state.eraser || e.button === 5 || (e.buttons & 32) === 32;
+    if (erasing) { erased = []; eraseAt(e); return; }
+    var s = { c: state.color, hi: state.hi ? 1 : 0, pen: isPen, flat: true, w: L.w, a: sectionAt(e.clientY + window.scrollY), pts: [], b: null };
+    current = { first: null, s: s };
+    s.pts.push(pageOf(e, isPen, s));
+    notePressure(current, e.pressure);
+    lastKept = s.pts[0];
+    downTime = e.timeStamp; downX = e.clientX; downY = e.clientY;
+    startLive(); request();
+  }
+  function onMove(e) {
+    if (e.pointerId !== activePointer) return;
+    if ((e.buttons & 33) === 0 && e.pointerType !== "touch") { endStroke(null); return; }   // release was missed
+    if (panning) {
+      // The page follows the pen: drag up to read further down.
+      // "instant": the page has scroll-behavior:smooth, which would make the drag lag.
+      window.scrollBy({ left: panning.x - e.clientX, top: panning.y - e.clientY, behavior: "instant" });
+      panning.x = e.clientX; panning.y = e.clientY;
+      return;
+    }
+    if (erasing) { eraseAt(e); return; }
+    if (!current) return;
+    var evs = (useCoalesced && e.getCoalescedEvents && e.getCoalescedEvents()) || [];
+    (evs.length ? evs : [e]).forEach(function (ev) { notePressure(current, ev.pressure); addPoint(current, pageOf(ev, current.s.pen, current.s)); });
+    request();
+  }
+  // Double-tap to clear (as in draw-app). The browser's own dblclick uses the system's very tight
+  // distance limit, so taps are detected here with a looser one.
+  var TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, DOUBLE_TAP_DISTANCE = 30, DOUBLE_TAP_TIME = 450;
+  var downTime = 0, downX = 0, downY = 0, lastTap = null;
+  var panning = null, shiftDown = false;
+  function setCursor() {
+    input.style.cursor = !state.on ? "" : panning ? "grabbing" : shiftDown ? "grab" : state.eraser ? "cell" : "crosshair";
+  }
+  // True when this stroke is a tap that completes a double-tap. Otherwise it remembers the tap
+  // (or forgets the last one if this was a real stroke).
+  function isDoubleTap(s, e) {
+    var p0 = s.pts[0];
+    var isTap = !!e && e.type === "pointerup" && e.timeStamp - downTime <= TAP_MAX_TIME &&
+      s.pts.every(function (q) { return Math.hypot(q[0] - p0[0], q[1] - p0[1]) <= TAP_MAX_MOVE; });
+    if (!isTap) { lastTap = null; return false; }
+    if (lastTap && downTime - lastTap.time <= DOUBLE_TAP_TIME && Math.hypot(downX - lastTap.x, downY - lastTap.y) <= DOUBLE_TAP_DISTANCE) {
+      return true;
+    }
+    lastTap = { x: downX, y: downY, time: e.timeStamp, s: s };
+    return false;
+  }
+
+  function endStroke(e) {
+    activePointer = null;
+    if (panning) { panning = null; setCursor(); return; }
+    if (erasing) {
+      erasing = false; lastTap = null;
+      if (erased.length) { undo.push({ t: "erase", list: erased }); save(); }
+      erased = []; return;
+    }
+    if (current && isDoubleTap(current.s, e)) {
+      // Drop the dot the first tap left, then clear; Undo brings back the page as it was.
+      var dot = lastTap.s; lastTap = null; current = null;
+      var u = undo[undo.length - 1];
+      if (u && u.t === "add" && u.s === dot) { undo.pop(); strokes = strokes.filter(function (x) { return x !== dot; }); }
+      doClear(); repaintAll(); stopLive();
+      return;
+    }
+    if (current) {
+      var s = current.s;
+      s.b = bbox(s.pts, s.hi ? 12 : 6);
+      strokes.push(s); undo.push({ t: "add", s: s }); current = null;
+      var y = yRange(s);
+      Object.keys(tiles).forEach(function (i) { var t = tiles[i]; if (y[1] > t.top && y[0] < t.top + t.h && !state.hidden) paint(t.ctx, s, t.top, true); });
+      save();
+    }
+    stopLive();
+  }
+  function onUp(e) { if (e.pointerId === activePointer) endStroke(e); }
+
+  function doUndo() {
+    var a = undo.pop(); if (!a) return;
+    if (a.t === "add") strokes = strokes.filter(function (s) { return s !== a.s; });
+    else strokes = strokes.concat(a.list);
+    repaintAll(); save();
+  }
+  function doClear() {
+    if (!strokes.length) return;
+    undo.push({ t: "erase", list: strokes }); strokes = []; repaintAll(); save();
+  }
+
+  /* ---------------- toolbar: a rail on the right edge ---------------- */
+  var I = {
+    pen: '<path d="M4 20l1.2-4.6L15.8 4.8a1.7 1.7 0 0 1 2.4 0l1 1a1.7 1.7 0 0 1 0 2.4L8.6 18.8z"/><path d="M14 6.6l3.4 3.4"/>',
+    erase: '<path d="M8.5 19.5L3.8 14.8a1.6 1.6 0 0 1 0-2.3L12.5 3.8a1.6 1.6 0 0 1 2.3 0l5.4 5.4a1.6 1.6 0 0 1 0 2.3l-8 8z"/><path d="M8 9l7 7M8.5 19.5H20"/>',
+    undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.8-2.4L3 15.5a1.6 1.6 0 0 1 2.5-2L8 15"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeoff: '<path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.5 9.5 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>'
+  };
+  function ic(n) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + I[n] + "</svg>"; }
+  function tool(id, icon, label, title) {
+    return '<button type="button" class="itool" id="' + id + '" title="' + title + '">' + ic(icon) + '<span class="il">' + label + "</span></button>";
+  }
+
+  var bar = document.createElement("div");
+  bar.id = "ink"; bar.setAttribute("role", "toolbar"); bar.setAttribute("aria-label", "Drawing tools"); bar.setAttribute("aria-orientation", "vertical");
+  var pens = COLORS.filter(function (c) { return !c.hi; }), his = COLORS.filter(function (c) { return c.hi; });
+  function sw(list) {
+    return list.map(function (c) {
+      var i = COLORS.indexOf(c);
+      return '<button type="button" class="isw' + (c.hi ? " hi" : "") + '" data-c="' + i + '" aria-label="' + c.n + '" title="' + c.n + '" style="--sw:' + c.v + '"></button>';
+    }).join("");
+  }
+  bar.innerHTML =
+    '<button type="button" id="inkon" class="itab" aria-pressed="false" title="Draw on the page (D). Hold Shift and drag to scroll.">' + ic("pen") + '<span class="iv">Draw · D</span></button>' +
+    '<div class="ipanel" id="inkpanel">' +
+      '<div class="ihead"><span class="ik">Ink</span><button type="button" class="ix" id="inkoff" title="Stop drawing (D)" aria-label="Stop drawing">' + ic("close") + "</button></div>" +
+      '<div class="ig"><span class="ik">Pen</span><div class="isws">' + sw(pens) + "</div></div>" +
+      '<div class="ig"><span class="ik">Mark</span><div class="isws">' + sw(his) + "</div></div>" +
+      '<div class="ig itools">' +
+        tool("inker", "erase", "Erase", "Erase whole strokes (E). The back end of a pen erases too.") +
+        tool("inkun", "undo", "Undo", "Undo (Ctrl/Cmd+Z)") +
+        tool("inktc", "hand", "Finger", "Pen and mouse always draw. Choose whether a finger scrolls or draws.") +
+        tool("inkhd", "eye", "Hide", "Hide or show the ink") +
+        tool("inkcl", "trash", "Clear", "Erase every drawing on this page (or double-tap the page). Undo brings it back.") +
+      "</div>" +
+    "</div>";
+  var $ = function (id) { return bar.querySelector("#" + id); };
+
+  function sync() {
+    document.body.classList.toggle("drawing", state.on);
+    bar.classList.toggle("open", state.on);
+    $("inkon").setAttribute("aria-pressed", state.on);
+    $("inker").setAttribute("aria-pressed", state.eraser);
+    $("inktc").setAttribute("aria-pressed", state.touchDraws);
+    $("inktc").querySelector(".il").textContent = state.touchDraws ? "Finger ✎" : "Finger ↕";
+    $("inkhd").setAttribute("aria-pressed", state.hidden);
+    $("inkhd").innerHTML = ic(state.hidden ? "eyeoff" : "eye") + '<span class="il">' + (state.hidden ? "Show" : "Hide") + "</span>";
+    [].forEach.call(bar.querySelectorAll(".isw"), function (b) {
+      b.setAttribute("aria-pressed", !state.eraser && COLORS[+b.dataset.c].v === state.color);
+    });
+    input.style.pointerEvents = state.on ? "auto" : "none";
+    input.style.touchAction = state.touchDraws ? "none" : "pan-y";
+    setCursor();
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.classList.contains("isw")) { var c = COLORS[+b.dataset.c]; state.color = c.v; state.hi = !!c.hi; state.eraser = false; }
+    else if (b.id === "inkon") { state.on = true; if (state.hidden) { state.hidden = false; repaintAll(); } }
+    else if (b.id === "inkoff") state.on = false;
+    else if (b.id === "inker") state.eraser = !state.eraser;
+    else if (b.id === "inkun") doUndo();
+    else if (b.id === "inkcl") doClear();
+    else if (b.id === "inktc") { state.touchDraws = !state.touchDraws; save(); }
+    else if (b.id === "inkhd") { state.hidden = !state.hidden; repaintAll(); }
+    sync();
+  });
+  // Hold Shift to scroll by dragging: the cursor turns into a hand while Shift is down.
+  function onShift(e) { if (e.key === "Shift") { shiftDown = e.type === "keydown"; if (!panning) setCursor(); } }
+  window.addEventListener("keydown", onShift);
+  window.addEventListener("keyup", onShift);
+  window.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      if ((e.key === "z" || e.key === "Z") && state.on && !e.shiftKey) { e.preventDefault(); doUndo(); }
+      return;
+    }
+    if (e.repeat || /input|textarea|select/i.test((e.target && e.target.tagName) || "")) return;
+    var k = e.key.toLowerCase();
+    if (k === "d") { state.on = !state.on; if (state.on && state.hidden) { state.hidden = false; repaintAll(); } sync(); }
+    else if (k === "e" && state.on) { state.eraser = !state.eraser; sync(); }
+  });
+
+  /* ---------------- wire up ---------------- */
+  document.body.appendChild(layer);
+  document.body.appendChild(input);
+  document.body.appendChild(bar);
+  rebuild(); sync();
+  var rT = 0;
+  function relayout() { clearTimeout(rT); rT = setTimeout(rebuild, 120); }
+  window.addEventListener("resize", relayout);
+  // Page height changes (a Q&A opened, fonts arrived) move the chapters: re-measure and repaint.
+  if (window.ResizeObserver) new ResizeObserver(relayout).observe(document.querySelector("main") || document.body);
+  window.addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  var sT = false;
+  window.addEventListener("scroll", function () { if (!sT) { sT = true; requestAnimationFrame(function () { sT = false; ensureTiles(); }); } }, { passive: true });
+  window.addEventListener("blur", function () { shiftDown = false; if (activePointer !== null) endStroke(); setCursor(); });
+  input.addEventListener("pointerdown", onDown);
+  // Moves and releases are heard on the whole window: pointer capture can be lost just before the
+  // pen lifts (seen with UGEE tablets at the window edge) and the stroke would stay stuck.
+  window.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerup", onUp);
+  window.addEventListener("pointercancel", onUp);
+})();
+</script><script src="pen-scroll.js?v=8" defer></script>
+</body></html>
