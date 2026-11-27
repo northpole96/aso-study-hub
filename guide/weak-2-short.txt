@@ -1,0 +1,276 @@
+#CH start | Start here | MOCK 09 · 70.00
+Mock 09 score: **70.00** (75 right, 20 wrong, 5 skipped). Your 25 misses come down to **ten rules**. Each chapter below gives one rule, your question, a few examples and a quick self-test.
+
+|Ch|Rule|Your questions|
+|---|---|---|
+|1|Tense signals: today, the third time, as if|Q3, Q77, Q81|
+|2|"Only when" at the start → did we see|Q4|
+|3|would rather, deny, lest|Q12, Q19, Q29|
+|4|No improvement; "the reason is that"|Q10, Q14|
+|5|who, with "I thought" in the middle|Q28|
+|6|as tall as, if not taller than|Q31|
+|7|before, but, seeing|Q22, Q25, Q26|
+|8|scenery; a pair of shoes|Q34, Q36|
+|9|resemble, dispense with, part with|Q18, Q32, Q63|
+|10|six words|Q43, Q44, Q45, Q47, Q51, Q54|
+
+>KEY:Read these first
+Most marks went in **error spotting** (7 of 13 lost) and **vocabulary** (6 of 16 lost). So start with chapters 4, 5, 6 and 10. Articles, the passage and rearrangement were perfect.
+
+#CH tense | 1. Tense signals | WEAK SPOT · Q3, Q77, Q81
+In a tense question, one **time word** decides the answer. Find it before you look at the options.
+
+@@fig tenses
+
+|Signal word|Use|Example|
+|---|---|---|
+|had + V3 in the if-part, **today / now** in the result|would + base verb|If you had taken the medicine yesterday, you **would feel** better today.|
+|had + V3 in the if-part, result also past|would have + V3|…you **would have felt** better yesterday.|
+|This is the first / third time|has / have + V3|This is the third time she **has won**.|
+|It was the first time|had + V3|It was the first time I **had flown**.|
+|as if / as though (not true)|past form; **were** for be|She acts as if she **were** the owner.|
+
+>WARN:Your questions
+**Q3:** you chose *would have felt*; answer **would feel**. The word *today* puts the result in the present.
+**Q77:** you chose *wins*; answer **has won**. "This is the third time" counts up to now.
+**Q81:** you chose *is*; answer **were**. She is not the owner, so the comparison is untrue.
+
+>NEXT:Check yourself
+?? "If I had saved money last year, I ____ worried now." (would not be / would not have been)||would not be. The result is now.
+?? "This is the second time you ____ late." (are / have been)||have been.
+?? "He spends as though he ____ a millionaire." (is / were)||were.
+?? Likely next: "It is high time we ____ the rules." (change / changed)||changed.
+
+#CH inv | 2. "Only when" at the start | WEAK SPOT · Q4
+When **Only when, Only after, Only then, Not until, Never, Seldom, Hardly, No sooner** opens a sentence, the main clause takes **question order**: helping verb before the subject. If there is no helping verb, add **do / does / did**. The 2025 paper asked this four times ⟦2025 Q8⟧ ⟦2025 Q40⟧.
+
+✗ Only when the lights came back on we saw the damage.
+✓ Only when the lights came back on did we see the damage.
+✓ Only after the doctor checked him was he allowed home.
+
+The "when" part keeps normal order. Only the **main** part turns round.
+
+>WARN:Your question (Q4)
+You chose *we saw*; answer **did we see**. The first half looked normal, so you kept normal order. But the sentence opens with "Only when".
+
+>NEXT:Check yourself
+?? "Not until he lost his job ____ the value of money." (he realised / did he realise)||did he realise.
+?? "Seldom ____ such a calm sea." (we see / do we see)||do we see.
+?? Likely next: "Under no circumstances ____ leave the hall." (candidates should / should candidates)||should candidates.
+
+#CH verb | 3. would rather, deny, lest | WEAK SPOT · Q12, Q19, Q29
+These words fix the **shape** of the next verb. Learn each as a frame.
+
+|Frame|Rule|Example|
+|---|---|---|
+|would rather + **you / he / they**|past form|I would rather you **did not mention** it.|
+|would rather (my own action)|base verb|I would rather **stay** home.|
+|deny, admit, avoid, mind, enjoy, finish, risk|+ -ing (never "to")|He denied **having been** there.|
+|lest (= so that … not)|+ should + base verb; no extra "not"|Walk carefully lest you **should fall**.|
+
+>WARN:Your questions
+**Q12:** you chose *not mention*; answer **did not mention**. The speaker means another person (you), so the past form.
+**Q19:** you chose *to be*; answer **having been**. Deny is an -ing verb ⟦2025 Q34⟧.
+**Q29 (skipped):** answer **lest you should fall**. Lest already holds "not".
+
+>NEXT:Check yourself
+?? "My mother would rather I ____ home before dark." (come / came)||came.
+?? "She avoided ____ his eyes." (to meet / meeting)||meeting.
+?? "Run fast lest you ____ the bus." (miss / should miss / will miss)||should miss.
+?? Likely next: "Would you mind ____ the window?" (to open / opening)||opening.
+
+#CH imp | 4. No improvement; "the reason is that" | WEAK SPOT · Q10, Q14
+Two opposite lessons from sentence improvement ⟦2021 Q12⟧ ⟦2021 Q13⟧.
+
+##Lesson 1: sometimes nothing is wrong
+Try the sentence **as it is** first. If it is correct and every option breaks it, choose **No improvement**. The frame "The more …, **the** less …" needs *the* in both halves and the plain word *less*.
+✓ The more you practise, the less nervous you will feel.
+✗ The more you practise, less nervous you will feel.
+
+##Lesson 2: don't say "reason" twice
+*Reason* and *because* mean the same thing. Write **the reason is that**.
+✗ The reason he failed is because he did not read the questions.
+✓ The reason he failed is that he did not read the questions.
+
+Also: **because of** + noun (because of his illness); **because** + clause (because he was ill).
+
+>WARN:Your questions
+**Q10:** you chose *less nervous you will feel*; answer **No improvement**. A long bracket is not always wrong.
+**Q14:** you chose *was because*; answer **is that**. The fault was "because", not the tense.
+
+>NEXT:Check yourself
+?? Improve: "The higher you climb, (more colder) it becomes."||the colder.
+?? Improve: "(Though he is poor, but) he is honest."||Though he is poor, — drop "but".
+?? Likely next: "He could not come (because of he was ill)."||because he was ill.
+
+#CH who | 5. who, with "I thought" in the middle | WEAK SPOT · Q28
+**Who** does the action (subject). **Whom** receives it (object). When *I thought, we believe, they said* sits in the middle, **cover it** and read again.
+
+The man who/whom ~~I thought~~ was honest → "the man **who** was honest". So **who**.
+
+✗ The man whom I thought was honest cheated me.
+✓ The man who I thought was honest cheated me.
+✓ The man whom I trusted cheated me. (I trusted **him**: object)
+
+>WARN:Your question (Q28)
+You chose the *whom* sentence. "Whom" sounds formal and careful, but after covering "I thought", the verb *was* needs a subject: **who**.
+
+>NEXT:Check yourself
+?? "She is the girl ____ we believe will top." (who / whom)||who.
+?? "She is the girl ____ we chose as captain." (who / whom)||whom. We chose her.
+?? Likely next: "____ do you think will win?" (Who / Whom)||Who.
+
+#CH comp | 6. Complete comparisons | WEAK SPOT · Q31
+In "as tall as, if not taller than", read **each half alone** with the end of the sentence. Both must be complete.
+
+- Half 1: He is **as tall as** his brother. Complete.
+- Half 2: He is **taller than** his brother. Complete.
+
+✗ He is as tall, if not taller than, his brother. ("as tall his brother")
+✓ He is as tall as, if not taller than, his brother.
+
+Same family: compare like with like. "The climate of Puri is milder than **that of** Bhubaneswar"; plural → **those of**.
+
+>WARN:Your question (Q31)
+You chose the sentence missing the second *as*. Read fast, the ear fills the gap. On paper, test each half.
+
+>NEXT:Check yourself
+?? "The roads here are better than ____ of the city." (that / those)||those.
+?? Likely next: "He is senior ____ me." (than / to)||to. Senior, junior, superior, prior take "to".
+
+#CH pos | 7. before, but, seeing | WEAK SPOT · Q22, Q25, Q26
+A word's **job in the sentence** decides its part of speech ⟦2021 Q17–22⟧.
+
+|Word|Test|Part of speech|
+|---|---|---|
+|before / after / since|nothing follows|Adverb: I have met him **before**.|
+|before / after / since|a noun follows|Preposition: **before** lunch.|
+|before / after / since|subject + verb follows|Conjunction: **before** they arrive.|
+|but|can be replaced by "except"|Preposition: All **but** one passed.|
+|-ing word|it is the subject or object|Gerund: **Walking** is healthy.|
+|-ing / -ed word|it describes the subject|Participle: **Seeing** the police, the thief ran.|
+
+>WARN:Your questions
+**Q22:** you chose *Preposition*; answer **Adverb**. Nothing came after "before".
+**Q25 (skipped):** All **but** one = all except one → **Preposition**.
+**Q26 (skipped):** "Seeing the police" describes the thief → **Participle**.
+
+>NEXT:Check yourself
+?? "He has lived here (since) 2010."||Preposition.
+?? "Everyone (but) Meena came."||Preposition.
+?? Likely next: "(Frightened) by the noise, the child cried."||Participle.
+
+#CH agr | 8. scenery; a pair of shoes | WEAK SPOT · Q34, Q36
+Both misses had a **plural word next to the verb that was not the subject**. Cross out the "of …" part and find the real subject.
+
+- **Scenery, furniture, luggage, machinery, information, advice, news, poetry** are uncountable: singular verb.
+- **A pair of** shoes / trousers / scissors: the subject is *pair*, so singular.
+
+✗ The scenery of the Koraput hills are charming.
+✓ The scenery of the Koraput hills is charming.
+✓ The pair of shoes that I bought last week is tight.
+✓ These shoes are tight. (no "pair": plural)
+
+>WARN:Your questions
+**Q34:** you blamed *the Koraput hills*; the error was **are charming**.
+**Q36:** you chose *are*; answer **is**. This is your second "pair of" miss (Mock 07 had trousers).
+
+>NEXT:Check yourself
+?? "The furniture in these rooms ____ new." (is / are)||is.
+?? "A pair of scissors ____ on the table." (is / are)||is.
+?? "My spectacles ____ broken." (is / are)||are.
+
+#CH prep | 9. resemble, dispense with, part with | WEAK SPOT · Q18, Q32, Q63
+Two traps: adding a preposition where none is needed, and picking the wrong fixed one.
+
+**No preposition:** resemble, discuss, reach, enter, marry, attack, approach.
+✗ The boy resembles with his father.
+✓ The boy resembles his father.
+✗ They discussed about the plan.
+✓ They discussed the plan.
+
+|Fixed pair|Meaning|
+|---|---|
+|dispense **with**|do without|
+|part **with**|give away a thing|
+|part **from**|leave a person|
+|cope **with**|manage a difficulty|
+|dispose **of**|get rid of|
+|comply **with**|obey|
+
+>WARN:Your questions
+**Q32:** you chose *resembles with*; answer: no preposition.
+**Q18 (skipped):** dispense **with**.
+**Q63:** you chose *away*; answer **with**. "Give away" misled you; the phrase is **part with**.
+
+>NEXT:Check yourself
+?? "The train reached ____ Puri at noon." (at / nothing)||nothing: reached Puri.
+?? "Please dispose ____ the old files." (off / of)||of.
+?? Likely next: "He married ____ his friend." (with / nothing)||nothing.
+
+#CH voc | 10. Six words | WEAK SPOT · Q43, Q44, Q45, Q47, Q51, Q54
+Each time you picked a **near trap**: a word linked to the meaning, not the meaning. Say the meaning in your own words **before** reading the options.
+
+|Q|Word|Meaning|You chose|Answer|
+|---|---|---|---|---|
+|43|frivolous|not serious, silly|false|trivial|
+|44|ameliorate|make better|skipped|improve|
+|45|diligent|hardworking|careless, idle|industrious|
+|47|subversion (opposite)|undermining rules|clarity|compliance|
+|51|zeal (opposite)|eager energy|anger|apathy|
+|54|"finished in five minutes"|short and clear|eloquent|succinct|
+
+##Two habits
+- **Antonyms:** the options usually hide a synonym. Cross it out, then pick its opposite ⟦2021 Q46⟧.
+- **Word in a sentence:** find the clue. In Q54 it was about **length**, so a word about fine speech (eloquent) could not fit.
+
+##Likely next
+|Word|Meaning|Opposite|
+|---|---|---|
+|alleviate|ease pain|aggravate|
+|frugal|careful with money|extravagant|
+|candid|frank|evasive|
+|lethargic|without energy|energetic|
+|concise|short and clear|verbose|
+
+>NEXT:Check yourself
+?? Opposite of VERBOSE?||Succinct, concise.
+?? Synonym of TRIVIAL?||Petty, frivolous.
+?? Opposite of COMPLIANCE?||Defiance.
+
+#CH last | Last-week sheet | LAST WEEK
+All 25 in one line each.
+
+|Q|Fix|
+|---|---|
+|Q3|Past if + **today** → would feel|
+|Q4|Only when … **did we see**|
+|Q10|Correct already → **No improvement**|
+|Q12|would rather **you did not** mention|
+|Q14|The reason **is that**|
+|Q18|dispense **with**|
+|Q19|denied **having been**|
+|Q22|nothing after before → **adverb**|
+|Q25|but = except → **preposition**|
+|Q26|-ing describing the subject → **participle**|
+|Q28|cover "I thought" → **who**|
+|Q29|lest you **should** fall|
+|Q31|**as** tall **as**, if not taller **than**|
+|Q32|resemble → **no preposition**|
+|Q34|scenery **is**|
+|Q36|pair **is**|
+|Q43|frivolous = **trivial**|
+|Q44|ameliorate = **improve**|
+|Q45|diligent = **industrious**|
+|Q47|subversion ↔ **compliance**|
+|Q51|zeal ↔ **apathy**|
+|Q54|short and clear = **succinct**|
+|Q63|**part with** a thing|
+|Q77|third time → **has won**|
+|Q81|as if → **were**|
+
+>TIP:Four habits
+Circle the **time word**. Cover the **middle phrase** ("of the hills", "I thought"). Test the sentence **as it is** first. Say a word's **meaning before** the options.
+
+>KEY:Next
+Mock 10 brings back all 25 with a twin each. Paste its report after; what is still wrong becomes Weak Spots 3.
