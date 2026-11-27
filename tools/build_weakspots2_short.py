@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build ASO-English-Weak-Spots-Guide-2-Short.html from guide/weak-2-short.txt (27 Nov 2026; the short version of Weak Spots 2, copy of build_weakspots2.py; adds *italic* and ~~strike~~).
 
-    python3 tools/build_weakspots2.py
+    python3 tools/build_weakspots2_short.py
 
 Same markup as build_history_guide.py, plus:
   ##R12 Title || one-line rule      numbered rule heading (also feeds the @@index table)
