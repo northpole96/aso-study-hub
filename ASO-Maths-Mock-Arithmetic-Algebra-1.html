@@ -1,0 +1,552 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASO Arithmetic &amp; Algebra Mock 01</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout: a reference-manual page. Masthead + drop-cap intro beside a grid-paper figure,
+   a dotted-leader table of contents, then each section as prose beside a FIG_ box of blue line art. */
+:root{
+  --bg:#fbfbfb; --paper:#ffffff; --fg:#111111; --muted:#6e6e73; --rule:#d7d7da; --grid:#eef0f6;
+  --blue:#2b4cff; --blue-soft:#e0e6ff; --on-blue:#ffffff; --warn:#b4410b;
+  --f-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-pixel:"Silkscreen","IBM Plex Mono",ui-monospace,monospace;
+}
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--fg);font:18px/1.8 var(--f-serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg);text-decoration:underline dotted;text-decoration-color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:600}
+i{font-style:italic}
+
+.page{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:40px 96px}
+.mono,.eyebrow,.chip,.yr,.chk,.seal,.fl,.fr,.fy{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* top utility bar */
+.util{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme{display:flex;gap:2px}
+.theme button{border:1px solid var(--rule);background:var(--paper);padding:3px 10px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.theme button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+
+/* masthead */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px 48px;align-items:end;margin-top:28px}
+.mast h1{font-family:var(--f-pixel);color:var(--blue);font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:.02em}
+.mast .tag{text-align:right;font-size:1.02rem;line-height:1.6}
+.mast .tag b{font-weight:600}
+@media (max-width:820px){.mast{grid-template-columns:1fr}.mast .tag{text-align:left}}
+.orn{margin-block:22px 8px;height:12px;color:var(--muted);overflow:hidden;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;line-height:12px;opacity:.7}
+
+/* intro spread */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 56px;align-items:start;padding-block:32px 24px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;padding:6px 8px 0 0;font-weight:400}
+@media (min-width:900px){.hero .lead,.sh .intro p{text-align:justify;hyphens:auto}}
+.hero .lead+.lead{margin-top:16px}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--paper);padding:2px 10px;font-size:11px;color:var(--fg)}
+.legend{display:grid;gap:6px;margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ok{color:var(--blue);font-family:var(--f-mono)}
+.chk{display:inline-block;font-size:10px;color:var(--warn);border:1px dashed currentColor;padding:0 5px;margin-left:4px;vertical-align:2px;line-height:1.7}
+
+/* figure boxes */
+.fig{position:relative;margin:0;border:1px dashed var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:10px 10px;padding:30px 34px}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fl,.fr,.fy{position:absolute;font-size:10px;color:var(--muted);writing-mode:vertical-rl;line-height:1}
+.fl{left:9px;top:12px;transform:rotate(180deg)}
+.fr{right:9px;top:12px}
+.fy{right:9px;bottom:12px}
+.fig svg .ln{fill:var(--paper);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round}
+.fig svg .lt{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.2;stroke-linejoin:round}
+.fig svg .bl{fill:var(--blue)}
+.fig svg .nf{fill:none;stroke:var(--blue);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fig svg .dt{fill:none;stroke:var(--blue);stroke-width:1;stroke-dasharray:2 3}
+.fig svg .lb{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--blue)}
+.fig svg .lbm{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.06em;fill:var(--muted)}
+.fig svg .big{font-family:var(--f-pixel);font-size:18px;fill:var(--blue)}
+
+/* contents */
+.toc{padding-block:56px 24px}
+.tochead{display:flex;align-items:center;gap:16px}
+.tochead h2{font-size:1.25rem;white-space:nowrap}
+.tochead .v{font-family:var(--f-mono);font-size:10px;color:var(--muted);align-self:flex-start}
+.tochead .line{flex:1;height:1px;background:var(--fg);min-width:20px}
+.tochead .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tochead .r span{color:var(--blue)}
+.toclist{list-style:none;margin:36px 0 0;padding:0;columns:2 340px;column-gap:56px}
+.toclist li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:1rem}
+.toclist .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:2.4em}
+.toclist a{text-decoration:none}
+.toclist .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:16px}
+.toclist .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+
+/* sections */
+section.spread{padding-block:72px 8px;scroll-margin-top:16px}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:32px 56px;align-items:start}
+@media (max-width:860px){.sh{grid-template-columns:1fr}.sh .fig{max-width:420px}}
+.sectrule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sectrule .line{flex:1;height:1px;background:var(--fg)}
+.eyebrow{font-size:11px;color:var(--muted)}
+.eyebrow b{color:var(--blue);font-weight:400}
+.sh h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:6px}
+.sh .intro{margin-top:16px;max-width:66ch}
+.sh .intro p+p{margin-top:14px}
+.sh .intro p:first-child::first-letter{float:left;font-size:3.6em;line-height:.82;padding:6px 8px 0 0}
+
+h3.sub{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:44px 0 10px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:12px}
+
+.asked{margin-top:28px;border-top:1px solid var(--fg);border-bottom:1px solid var(--rule);padding-block:12px 14px}
+.asked h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.asked ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.asked li{font-size:1rem;padding-left:16px;position:relative}
+.asked li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;background:var(--fg)}
+.yr{display:inline-block;font-size:10px;color:var(--blue);border:1px solid var(--blue);padding:0 5px;margin-right:6px;vertical-align:2px;line-height:1.7;font-variant-numeric:tabular-nums}
+
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;margin-top:12px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.slip{padding:14px 16px;min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.slip .t{font-weight:600;line-height:1.35}
+.slip .d{font-size:.95rem;margin-top:6px;line-height:1.6}
+.slip.hot .t::before{content:"";display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;vertical-align:2px}
+
+.rows{margin-top:10px;border-top:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:4px 24px;padding:10px 0;border-bottom:1px dotted var(--muted)}
+.row>div:first-child{font-weight:600}
+.row>div{min-width:0}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+.fam .row{grid-template-columns:minmax(150px,220px) minmax(0,1fr) minmax(0,1.15fr)}
+@media (max-width:760px){.fam .row{grid-template-columns:1fr}}
+.fam .head>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+.trap{margin-top:24px;max-width:80ch;border:1px dashed var(--blue);background:var(--paper);padding:14px 18px;font-size:.98rem}
+.trap b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400;margin-right:6px}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--fg)}
+.method .m{padding:16px 18px 16px 0;min-width:0;border-bottom:1px dotted var(--muted)}
+.method .m .big{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.method .m p{font-size:.95rem;margin-top:8px}
+
+/* flip cards */
+.likely{margin-top:40px}
+.likely h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.likely h3::after{content:"";flex:1;border-bottom:1px dotted var(--muted)}
+.likely .hint{font-size:.9rem;color:var(--muted);margin-top:4px}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{perspective:1000px;border:0;background:none;padding:0;cursor:pointer;text-align:left;min-height:210px;display:block;width:100%}
+.card .in{position:relative;display:block;width:100%;height:100%;min-height:210px;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.card .f{background-color:var(--paper);border:1px solid var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.card .f .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card .f .q{font-size:1.02rem;line-height:1.45}
+.card .f::after{content:"TAP TO TURN \2192";position:absolute;left:16px;bottom:10px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:var(--blue)}
+.card .b{background:var(--blue);color:var(--on-blue);transform:rotateY(180deg);border:1px solid var(--blue)}
+.card .b .a{font-size:1.15rem;line-height:1.35}
+.card .b .x{font-size:.92rem;line-height:1.5;opacity:.9}
+.card:hover .f{border-color:var(--blue)}
+.seal{position:absolute;right:12px;top:12px;font-size:9px;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;background:var(--paper);line-height:1.5}
+.card .f .n{padding-right:96px}
+@media (prefers-reduced-motion: reduce){.card .in{transition:none}}
+
+.practice{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:32px 56px;align-items:start;margin-top:22px}
+@media (max-width:800px){.practice{grid-template-columns:1fr}}
+.practice .card{min-height:280px}.practice .card .in{min-height:280px}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pbtns button{border:1px solid var(--fg);background:var(--paper);padding:5px 14px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px}
+.pbtns button.pri{border-color:var(--blue);color:var(--blue)}
+.pbtns button:hover{background:var(--blue-soft)}
+.score{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+
+.check ul{columns:2 320px;column-gap:40px;padding-left:1.1em}
+.check li{break-inside:avoid;margin-bottom:6px}
+.src{font-size:.9rem;color:var(--muted)}
+.src ul{columns:3 260px;column-gap:28px;padding-left:1.1em}
+.src li{break-inside:avoid;margin-bottom:3px;overflow-wrap:anywhere}
+footer{padding-top:36px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue);background:var(--paper);border:1px solid var(--blue);padding:6px 10px;border-radius:3px}
+
+:root{--ok:#0f7a3d;--ok-soft:#e3f4ea;--warn-soft:#fbe9df;--mark:#e0a400}
+
+.wrap{max-width:980px}
+[hidden]{display:none!important}
+.intro2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;padding-block:28px 8px}
+@media (max-width:860px){.intro2{grid-template-columns:1fr}}
+.rules{margin-top:18px;border-top:1px solid var(--fg)}
+.rules div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--muted);font-size:.98rem}
+.rules b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted);padding-top:4px}
+.bp{list-style:none;margin:16px 0 0;padding:0}
+.bp li{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:.98rem}
+.bp .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:2em}
+.bp .dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:12px}
+.bp .c{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:var(--muted);text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{border:1px solid var(--fg);background:var(--paper);padding:8px 16px;cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;color:var(--fg)}
+.btn.pri{border-color:var(--blue);background:var(--blue);color:var(--on-blue)}
+.btn:hover{border-color:var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.sm{padding:5px 12px}
+/* test screen */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--fg);padding:10px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.top .mode{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.top .clock{font-family:var(--f-pixel);font-size:1.5rem;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1}
+.top .clock.low{color:var(--warn)}
+.top .sp{flex:1}
+.top .cnt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.qwrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px 40px;padding-top:24px;align-items:start}
+@media (max-width:860px){.qwrap{grid-template-columns:1fr}}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.qmeta .no{font-family:var(--f-pixel);font-size:1.6rem;color:var(--blue);line-height:1;margin-right:8px}
+.tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:0 6px;color:var(--muted);line-height:1.8;background:var(--paper)}
+.tag.news{border-color:var(--blue);color:var(--blue)}
+.tag.chk{border:1px dashed var(--warn);color:var(--warn)}
+.qtext{margin-top:14px;font-size:1.12rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.opt{width:100%;text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;border:1px solid var(--rule);background:var(--paper);padding:10px 12px;cursor:pointer;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--fg);border-radius:2px}
+.opt:hover{border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:3px}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .l{color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opt[disabled]{cursor:default}
+.expl{margin-top:16px;border-left:2px solid var(--blue);padding:6px 0 6px 14px;font-size:.98rem;line-height:1.6}
+.expl .v{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.expl .v.ok{color:var(--ok)} .expl .v.no{color:var(--warn)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding-top:14px;border-top:1px dotted var(--muted)}
+.nav .sp{flex:1}
+.pal h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:10px}
+.grid button{aspect-ratio:1;border:1px solid var(--rule);background:var(--paper);font-family:var(--f-mono);font-size:10px;cursor:pointer;padding:0;color:var(--muted);border-radius:2px;min-width:0}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.grid button.mk{box-shadow:inset 0 -3px 0 var(--mark)}
+.grid button.cur{outline:2px solid var(--fg);outline-offset:1px}
+.grid button.r{background:var(--ok);border-color:var(--ok);color:var(--on-blue)}
+.grid button.w{background:var(--warn);border-color:var(--warn);color:var(--on-blue)}
+.pal .key{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media (max-width:860px){.grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+/* result */
+.big4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--fg);margin-top:22px}
+.big4 div{padding:14px 12px 14px 0;border-bottom:1px dotted var(--muted)}
+.big4 .b{font-family:var(--f-pixel);font-size:2rem;color:var(--blue);line-height:1}
+.big4 p{font-size:.9rem;color:var(--muted);margin-top:6px}
+.sec{margin-top:26px;border-top:1px solid var(--fg)}
+.sec .row{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,.6fr)) minmax(0,1.4fr);gap:6px 12px;padding:8px 0;border-bottom:1px dotted var(--muted);align-items:center;font-size:.95rem}
+.sec .row.h{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec .row .num{font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.bar2{height:6px;background:var(--grid);position:relative}
+.bar2 i{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+@media (max-width:640px){.sec .row{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,.5fr))}.sec .row .hm{display:none}}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.filters button[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rv{margin-top:12px;border-top:1px solid var(--fg)}
+.rvq{padding:16px 0;border-bottom:1px dotted var(--muted)}
+.rvq .qtext{font-size:1.02rem;margin-top:8px}
+.rvq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:3px;font-size:.97rem}
+.rvq li{padding-left:28px;position:relative;overflow-wrap:anywhere}
+.rvq li .l{position:absolute;left:0;font-family:var(--f-mono);font-size:11px;color:var(--muted);top:3px}
+.rvq li.ok{color:var(--ok);font-weight:600}
+.rvq li.bad{color:var(--warn);text-decoration:line-through}
+.st{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px;line-height:1.8;border:1px solid}
+.st.r{color:var(--ok)} .st.w{color:var(--warn)} .st.s{color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.cf{position:fixed;inset:0;z-index:30;background:color-mix(in srgb,var(--fg) 35%,transparent);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px))}
+.cf .box{background:var(--paper);border:1px solid var(--fg);max-width:420px;width:100%;padding:22px 22px 18px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.cf .box h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.cf .box p{margin-top:10px;font-size:1.05rem;line-height:1.5}
+.cf .btns{margin-top:18px}
+body.testing .totop{display:none}
+@media (max-width:640px){
+  body{font-size:17px}
+  .util{gap:8px}
+  .mast h1{font-size:2.3rem}
+  .top{gap:6px 12px;padding:8px 0}
+  .top .mode{display:none}
+  .top .clock{font-size:1.25rem}
+  .qwrap{padding-top:16px;gap:24px}
+  .qtext{font-size:1.06rem}
+  .opt{padding:12px 10px;grid-template-columns:28px minmax(0,1fr);min-height:48px}
+  .nav{position:sticky;bottom:0;z-index:12;background:var(--bg);margin-top:16px;padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav .sp{display:none}
+  .nav #b-prev{order:1}.nav #b-next{order:2}.nav #b-clear{order:3}.nav #b-mark{order:4}.nav #b-show{order:5;grid-column:1/-1}
+  .nav .btn{padding:10px 8px;text-align:center}
+  .nav #b-prev,.nav #b-next{padding:13px 8px;font-size:12px}
+  .grid{gap:4px}
+  .grid button{font-size:11px}
+  .rules div{grid-template-columns:1fr;gap:2px}
+  .btns .btn{flex:1 1 100%;padding:12px 16px}
+}
+.pass{margin-top:14px;border-left:2px solid var(--blue);padding:10px 14px;background:var(--paper);font-size:1rem;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+details.pass summary{cursor:pointer;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.qfig{margin-top:14px;border:1px dashed var(--rule);padding:12px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.qfig svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.send{margin-top:24px;border:1px dashed var(--rule);padding:16px 16px 14px;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:10px 10px}
+.send h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:400}
+.send p{margin-top:8px;font-size:1rem;line-height:1.55}
+.send .btns{margin-top:12px;align-items:center}
+.send .cmsg{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ok)}
+.send textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;font-family:var(--f-mono);font-size:12px;line-height:1.5;border:1px solid var(--rule);background:var(--paper);color:var(--fg);padding:10px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+<body>
+<div class="page wrap">
+<div class="util"><span>OPSC ASO 2027 · Paper II (B) · Arithmetic and Algebra · Mock 01</span></div>
+
+<!-- START -->
+<section class="screen" id="s-start">
+<header class="mast"><h1>Ari+Alg M01</h1>
+<p class="tag">50 <b>moderate-to-hard</b> questions on arithmetic and algebra,<br>drawn from the 2018, 2021 and 2025 papers.</p></header>
+<div class="orn" aria-hidden="true">· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·</div>
+<div class="intro2">
+<div>
+<p class="lead dropcap">This mock covers only the first two topics of the Maths syllabus, arithmetic and algebra: fifty questions in forty-five minutes. The plan was drawn by probability from the 2018, 2021 and 2025 papers, so arithmetic gets 36 questions (the 2025 paper was almost all arithmetic) and algebra gets 14 (the Class 10 template of 2018 and 2021).</p>
+<p class="lead" style="margin-top:14px">The level is moderate to hard. Most questions take a type the examiner has asked and add a twist: the unknown is reversed, a second condition is added, or two steps are joined. Two questions are real past questions word for word (2025 Q65 and 2025 Q76). Every answer shows the working, the past question it grew from and the next twist to expect. Press Copy answers at the end and paste the report into the chat for a redo set.</p>
+<div class="rules">
+<div><b>Paper</b><span>50 questions · 45 minutes · 50 marks</span></div>
+<div><b>Marking</b><span>+1 for a right answer, −0.25 for a wrong one, 0 for a skipped one</span></div>
+<div><b>Exam mode</b><span>Timer on. No answers until you submit. The test submits itself when time runs out.</span></div>
+<div><b>Practice</b><span>No timer. The answer and a plain-English reason show as soon as you pick.</span></div>
+<div><b>After the test</b><span>Press “Copy answers” on the result page and paste the report into the chat. Claude will bring back what you got wrong or skipped.</span></div>
+<div><b>Tags</b><span><span class="tag news">2026</span> needs recent news · <span class="tag chk">Check</span> based on one news report, so confirm before the exam</span></div>
+</div>
+<div class="btns">
+<button class="btn pri" id="b-exam">Start exam mode · 45 min</button>
+<button class="btn" id="b-prac">Start practice mode</button>
+<button class="btn" id="b-resume" hidden>Resume saved attempt</button>
+</div>
+</div>
+<div>
+<div class="tochead"><h2>Blueprint.</h2><span class="line"></span><span class="r"><span>50</span> questions</span></div>
+<ol class="bp"><li><span class="n">36</span><span>Arithmetic</span><span class="dots"></span><span class="c"></span></li><li><span class="n">14</span><span>Algebra</span><span class="dots"></span><span class="c"></span></li></ol>
+<p class="src" style="margin-top:14px">Topic counts follow the 2018, 2021 and 2025 papers (2021 and 2025 weighted fully, 2018 at half) and the official syllabus.</p>
+</div>
+</div>
+</section>
+
+<!-- TEST -->
+<section class="screen" id="s-test" hidden>
+<div class="top">
+<span class="mode" id="t-mode">Exam mode</span>
+<span class="clock" id="t-clock">45:00</span>
+<span class="sp"></span>
+<span class="cnt" id="t-cnt">0 / 50 answered</span>
+<button class="btn sm pri" id="b-submit">Submit test</button>
+</div>
+<div class="qwrap">
+<div>
+<div class="qmeta" id="q-meta"></div>
+<div class="pass" id="q-pass" hidden></div>
+<div class="qtext" id="q-text"></div>
+<div class="qfig" id="q-fig" hidden></div>
+<ol class="opts" id="q-opts"></ol>
+<div id="q-expl"></div>
+<div class="nav">
+<button class="btn sm" id="b-prev">← Previous</button>
+<button class="btn sm" id="b-clear">Clear answer</button>
+<button class="btn sm" id="b-show" hidden>Show answer</button>
+<button class="btn sm" id="b-mark">Mark for review</button>
+<span class="sp"></span>
+<button class="btn sm pri" id="b-next">Next →</button>
+</div>
+</div>
+<aside class="pal">
+<h3>All questions</h3>
+<div class="grid" id="grid"></div>
+<p class="key">Blue = answered · yellow line = marked for review · outlined = current question.</p>
+</aside>
+</div>
+<div class="cf" id="cf" hidden role="dialog" aria-modal="true" aria-labelledby="cf-h"><div class="box"><h3 id="cf-h">Submit test</h3><p id="cf-msg"></p><div class="btns"><button class="btn pri" id="cf-yes">Submit now</button><button class="btn" id="cf-no">Keep going</button></div></div></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="s-result" hidden>
+<div class="sectrule" style="margin-top:28px"><span class="eyebrow">Result</span><span class="line"></span><span class="eyebrow" id="r-mode"></span></div>
+<h2 style="font-size:clamp(1.7rem,3vw,2.3rem)">Your score.</h2>
+<div class="big4" id="r-big"></div>
+<p class="prose" id="r-note" style="margin-top:16px"></p>
+<div class="send">
+<h3>Send your answers to Claude</h3>
+<p>Copy this report and paste it into the chat. It lists every wrong and skipped question with your choice and the right answer, so the next mock can bring those back.</p>
+<div class="btns"><button class="btn pri" id="b-copy">Copy answers</button><span class="cmsg" id="copy-msg" aria-live="polite"></span></div>
+<textarea id="r-copy" readonly rows="9" aria-label="Answer report"></textarea>
+</div>
+<div class="sec" id="r-sec"></div>
+<div class="filters" role="toolbar" aria-label="Review filter">
+<button class="btn sm" data-f="all" aria-pressed="true">All</button>
+<button class="btn sm" data-f="w" aria-pressed="false">Wrong</button>
+<button class="btn sm" data-f="s" aria-pressed="false">Skipped</button>
+<button class="btn sm" data-f="r" aria-pressed="false">Right</button>
+<button class="btn sm" data-f="n" aria-pressed="false">2026 news</button>
+</div>
+<div class="rv" id="r-list"></div>
+<div class="btns"><button class="btn" id="b-again">Start again</button></div>
+</section>
+
+<footer>OPSC ASO 2027 · ASO Arithmetic &amp; Algebra Mock 01 · built 28 Nov 2026 from the official syllabus and the 2018, 2021 and 2025 papers. Questions tagged Check rest on facts that could not be confirmed: check them before the exam.</footer>
+</div>
+<a class="totop" href="#">Top ↑</a>
+<script>
+var Q = [{"s": "Arithmetic", "q": "In an examination, a candidate who gets 30% of the maximum marks fails by 30 marks. Another candidate who gets 45% of the maximum marks gets 15 marks more than the pass mark. What percentage of marks is needed to pass?", "o": ["40%", "42%", "38%", "36%"], "a": 0, "e": "Let the maximum be M. The pass mark is 0.30M + 30 and also 0.45M − 15. So 0.15M = 45 and M = 300. Pass mark = 90 + 30 = 120, which is 120/300 = 40%. Trap: 36% or 38% come from taking the average of 30% and 45% without the marks. Grew from: 2025 Q96 (marks as a share of a total). Next twist: the pass mark is given and the maximum is asked.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A man covers a journey of 600 km partly by train and partly by car. If he goes 120 km by train and the rest by car, he takes 8 hours. If he goes 200 km by train and the rest by car, he takes 20 minutes longer. What is the ratio of the speed of the train to that of the car?", "o": ["3 : 4", "4 : 3", "3 : 2", "2 : 3"], "a": 0, "e": "Let the train take u hours per km and the car v hours per km. Then 120u + 480v = 8 and 200u + 400v = 25/3. From the first, u = (8 − 480v)/120. Putting it in the second: 40/3 − 800v + 400v = 25/3, so 400v = 5 and v = 1/80, u = 1/60. Train 60 km/h, car 80 km/h, ratio 3 : 4. Trap: 4 : 3 is the ratio the wrong way round. Grew from: 2021 Q62 (ratio of the speeds of two trains). Next twist: the total time is asked for a third split.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "Two pipes can fill a tank in 10 hours and 15 hours respectively. When both are opened together, a leak at the bottom makes the tank take 1 hour more to fill. In how many hours can the leak alone empty the full tank?", "o": ["36 hours", "48 hours", "42 hours", "35 hours"], "a": 2, "e": "Together the pipes fill 1/10 + 1/15 = 1/6 of the tank per hour, so 6 hours. With the leak it takes 7 hours. Leak per hour = 1/6 − 1/7 = 1/42, so the leak empties the tank in 42 hours. Shortcut: leak time = (6 × 7) ÷ (7 − 6). Grew from: 2025 Q74 (one pump and a leak, 3 hours becomes 3½). Twist here: two pipes first. Next twist: the leak is found only after the tank is half full.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "What is the remainder when (17²³ + 23²³) is divided by 40?", "o": ["17", "0", "1", "23"], "a": 1, "e": "Rule: when n is odd, aⁿ + bⁿ is always divisible by a + b. Here n = 23 is odd and 17 + 23 = 40, so the remainder is 0. (For aⁿ − bⁿ, the number a − b always divides it, for any n.) Grew from: the remainder questions of 2025 Q56 and Q70. Next twist: (19³⁷ − 7³⁷) divided by 12.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "The value of √(248 + √(52 + √144)) is:", "o": ["18", "15", "14", "16"], "a": 3, "e": "Work from the inside out. √144 = 12. Then 52 + 12 = 64 and √64 = 8. Then 248 + 8 = 256 and √256 = 16. Trap: starting from the outside gives nothing clean. Grew from: 2021 Q63 (√1.5625) and 2025 Q86 (a root with a fraction inside). Next twist: a nested root with decimals, such as √(0.0169 × 0.0004).", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "If 6 men working 6 hours a day can do 6 units of work in 6 days, how many units of work can 12 men do working 12 hours a day for 12 days?", "o": ["12", "48", "24", "96"], "a": 1, "e": "Work is in proportion to men × hours × days. 6 × 6 × 6 = 216 man-hour-days do 6 units, so one unit needs 36. 12 × 12 × 12 = 1728 man-hour-days do 1728 ÷ 36 = 48 units. Shortcut: each factor doubles, so the work grows 2 × 2 × 2 = 8 times: 6 × 8 = 48. Trap: 12 (doubling once) or 96. Grew from: 2025 Q73 (x men, x hours, x days, x units). Next twist: the general form, y³/x² units.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "In a group of ducks and cows, the number of legs is 24 more than twice the number of heads. How many cows are there in the group?", "o": ["24", "12", "8", "6"], "a": 1, "e": "Let there be d ducks and c cows. Legs = 2d + 4c and heads = d + c. 2d + 4c = 2(d + c) + 24, so 2c = 24 and c = 12. The number of ducks cannot be found, and it is not needed. Trap: 24 (forgetting to halve) or 6. Grew from: 2025 Q75 (hens, goats, camels and keepers: feet 224 more than heads). Next twist: feet are 'n more than twice the heads' with three kinds of animal.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A and B start a business with Rs. 20,000 and Rs. 30,000. After 4 months, A puts in Rs. 10,000 more and B takes out Rs. 10,000. At the end of the year the profit is Rs. 30,000. What is A's share?", "o": ["Rs. 15,000", "Rs. 12,000", "Rs. 14,000", "Rs. 16,000"], "a": 3, "e": "Multiply money by months. A: 20,000 × 4 + 30,000 × 8 = 3,20,000. B: 30,000 × 4 + 20,000 × 8 = 2,80,000. Ratio 32 : 28 = 8 : 7. A's share = 30,000 × 8/15 = Rs. 16,000. Trap: Rs. 12,000 uses the first amounts only (2 : 3). Grew from: 2025 Q81 (B joins after 5 months) and 2025 Q63 (cow-months of a pasture). Next twist: a partner leaves before the year ends and the shares are given.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "What is the value of 1/(√1 + √2) + 1/(√2 + √3) + 1/(√3 + √4) + … + 1/(√99 + √100)?", "o": ["11", "99", "10", "9"], "a": 3, "e": "Rationalise one term: 1/(√n + √(n+1)) = √(n+1) − √n. The sum becomes (√2 − √1) + (√3 − √2) + … + (√100 − √99). Everything cancels except √100 − √1 = 10 − 1 = 9. Trap: 10 forgets the −1. Grew from: 2018 Q51 and 2021 Q51 (telescoping fractions 1/(1·3) + 1/(3·5) + …), joined with 2025 Q93 (rationalising surds). Next twist: the same sum stopping at √(n²), which is always n − 1.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "What is the angle between the hour hand and the minute hand of a clock at 4:40?", "o": ["90°", "80°", "100°", "110°"], "a": 2, "e": "Angle = |30H − 5.5M| = |30 × 4 − 5.5 × 40| = |120 − 220| = 100°. Why: the hour hand moves 0.5° a minute, so at 4:40 it is at 120 + 20 = 140°; the minute hand is at 40 × 6 = 240°. Trap: 80° forgets that the hour hand moves past 4. Grew from: 2025 Q55 and Q69 (clocks that gain and lose). Next twist: the angle at a time like 7:20 is asked as the reflex angle.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "The average age of 8 men goes up by 2 years when two of them, aged 21 years and 23 years, are replaced by two women. What is the average age of the two women?", "o": ["32 years", "26 years", "30 years", "24 years"], "a": 2, "e": "The total goes up by 8 × 2 = 16 years. The two women together = 21 + 23 + 16 = 60 years, so their average is 30 years. Trap: 24 years adds only 2 to the average of the two men. Grew from: 2025 Q68 and 2021 Q95 (averages of groups). Next twist: the average falls and a new member's age is asked.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "The L.C.M. of two numbers is 48 times their H.C.F. The sum of their H.C.F. and L.C.M. is 1176. If one of the numbers is 72, what is the other?", "o": ["288", "360", "432", "384"], "a": 3, "e": "Let the H.C.F. be h. Then h + 48h = 1176, so h = 24 and L.C.M. = 1152. Product of two numbers = H.C.F. × L.C.M., so the other number = 24 × 1152 ÷ 72 = 384. Check: H.C.F.(72, 384) = 24. Grew from: 2025 Q79 (numbers from a ratio and the H.C.F.). Next twist: the H.C.F. and the sum of the numbers are given; how many pairs?", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A's income is 20% more than B's income, and B's income is 25% less than C's income. By what percentage is A's income less than C's income?", "o": ["5%", "12%", "10%", "15%"], "a": 2, "e": "Let C = 100. B = 75 and A = 75 × 1.2 = 90. So A is 10 less than C, that is 10%. Trap: 5% comes from 25 − 20; percentages multiply, they do not subtract. Grew from: 2018 Q57 and 2021 Q57 (two numbers x% and y% more than a third). Next twist: A is p% more and B is q% less than C: ratio of A to B.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A person goes to his office at one-third of the speed at which he returns. If his average speed for the whole trip is 12 km/h, what is his speed while going to the office?", "o": ["24 km/h", "6 km/h", "8 km/h", "16 km/h"], "a": 2, "e": "Let the going speed be x, so the return speed is 3x. For equal distances, average speed = 2 × x × 3x ÷ (x + 3x) = 1.5x. So 1.5x = 12 and x = 8 km/h. Trap: 24 km/h is the return speed; 6 km/h uses the simple average (x + 3x)/2. Grew from: 2018 Q62 and 2021 Q62 (speed and ratio of speeds). Next twist: the return speed is asked.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "0.3̅ + 0.6̅ + 0.7̅ + 0.8̅ = ? (the bar means the digit recurs)", "o": ["13/5", "12/5", "8/3", "2.4"], "a": 2, "e": "A single recurring digit a is a/9. The sum is (3 + 6 + 7 + 8)/9 = 24/9 = 8/3. Trap: 2.4 adds 0.3 + 0.6 + 0.7 + 0.8 as plain decimals. Grew from: 2021 Q56 (0.68̅ + 0.73̅) and 2018 Q56. Next twist: a mixed recurring decimal such as 0.12̅, which is (12 − 1)/90.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A sum of money at compound interest amounts to Rs. 2,420 in 2 years and to Rs. 2,662 in 3 years. What is the sum?", "o": ["Rs. 2,000", "Rs. 2,100", "Rs. 1,800", "Rs. 2,200"], "a": 0, "e": "The third year's interest is 2662 − 2420 = 242, which is 10% of 2420, so the rate is 10%. Sum = 2420 ÷ (1.1)² = 2420 ÷ 1.21 = Rs. 2,000. Trap: Rs. 2,200 goes back only one year. Grew from: 2018 Q60 and 2021 Q60 (CI − SI) and 2025 Q78, Q90 (rates). Next twist: compounded half-yearly.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "If 2^(x − 1) + 2^(x + 1) = 1280, then x = ?", "o": ["9", "8", "11", "10"], "a": 0, "e": "Take out the smaller power: 2^(x − 1) × (1 + 2²) = 5 × 2^(x − 1) = 1280. So 2^(x − 1) = 256 = 2⁸, x − 1 = 8 and x = 9. Trap: 8 stops at the power of 256. Grew from: 2025 Q80 (2^x × 8^(1/5) = 2^(1/5)). Next twist: 3^(x + 2) − 3^x = 216.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "If (1/5)^(3y) = 0.008, then the value of (0.25)^y is:", "o": ["0.26", "0.24", "0.27", "0.25"], "a": 3, "e": "Past question (2025 Q76), asked again. Exact past question (2025 Q76; wording from the Udyam IAS book, our scan lost the powers). 0.008 = 8/1000 = 1/125 = (1/5)³. So 3y = 3 and y = 1. Then (0.25)¹ = 0.25. Family: equal bases, the same as 2025 Q80 and 2021 Q65. Next twist: (0.2)^(2y) = 0.0016, find (0.5)^y.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "(0.0036 × 2.5) ÷ (0.012 × 0.15) = ?", "o": ["0.5", "0.05", "50", "5"], "a": 3, "e": "Numerator: 36 × 25 = 900 with 4 + 1 = 5 decimal places, so 0.00900. Denominator: 12 × 15 = 180 with 3 + 2 = 5 places, so 0.00180. Both have 5 places, so the answer is 900 ÷ 180 = 5. Trap: counting places wrongly gives 0.5 or 50. Grew from: 2018 Q54 and 2021 Q54 (products of decimals). Next twist: the answer in standard form.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A hostel has food for 120 students for 40 days. After 10 days some students leave, and the remaining food lasts for 45 more days. How many students left?", "o": ["50", "20", "40", "30"], "a": 2, "e": "After 10 days the food left is enough for 120 students for 30 days = 3,600 student-days. It now lasts 45 days, so 3600 ÷ 45 = 80 students remain. 120 − 80 = 40 left. Trap: 30 uses 40 days instead of 30 days. Grew from: 2025 Q95 (a fort, 25 men leave). Twist: the unknown is reversed. Next twist: men join and the food lasts fewer days.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "How many numbers from 1 to 500 are divisible by 3 but not by 5?", "o": ["166", "133", "143", "100"], "a": 1, "e": "Divisible by 3: 500 ÷ 3 = 166 numbers. Of these, those divisible by both 3 and 5 are divisible by 15: 500 ÷ 15 = 33. So 166 − 33 = 133. Trap: 166 forgets to take out the multiples of 15. Grew from: 2021 Q82 (numbers between 23 and 100 divisible by 6). Next twist: divisible by 4 or 6 (use the L.C.M. 12).", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "After how many places of decimals will the decimal expansion of 13/3125 terminate?", "o": ["4", "5", "6", "3"], "a": 1, "e": "3125 = 5⁵. Multiply top and bottom by 2⁵: 13 × 32 / 10⁵ = 416/100000 = 0.00416. That has 5 decimal places. Rule: if the denominator is 2^m × 5^n, the decimal ends after the larger of m and n places. Grew from: 2015 Q51-53 (theory of real numbers, NCERT Class 10). Next twist: which of four fractions has a non-terminating decimal.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A is 50% more efficient than B. C does half as much work as A and B together do in the same time. If C alone can finish a work in 15 days, in how many days can A, B and C together finish it?", "o": ["7.5 days", "10 days", "6 days", "5 days"], "a": 3, "e": "Let B do b a day. A does 1.5b, and A + B do 2.5b. C does half of that: 1.25b = 1/15, so b = 4/75. A + B = 2.5b = 2/15 and C = 1/15. All three: 3/15 = 1/5 of the work a day, so 5 days. Trap: 7.5 days is A + B alone. Grew from: 2018 Q61 (A + B, B + C, A + B + C). Next twist: wages shared by efficiency.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A can do a work in 15 days and B in 20 days. They work together for 4 days. Then A leaves and C joins B, and B and C finish the remaining work in 4 days. In how many days can C alone do the whole work?", "o": ["10 days", "12 days", "15 days", "18 days"], "a": 1, "e": "A + B do 1/15 + 1/20 = 7/60 a day; in 4 days 28/60 = 7/15. Left: 8/15. B + C do 8/15 in 4 days, so 2/15 a day. C = 2/15 − 1/20 = 8/60 − 3/60 = 5/60 = 1/12. C alone takes 12 days. Grew from: 2021 Q61 (B works 10 days and leaves, others finish). Next twist: C joins for the whole time and the total time is given.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "In a 100 m race, A runs at 8 km per hour. If A gives B a start of 4 m and still beats him by 15 seconds, what is the speed of B?", "o": ["5.76 km/hr", "6.25 km/hr", "7.28 km/hr", "4.25 km/hr"], "a": 0, "e": "Past question (2025 Q65), asked again. Exact past question (2025 Q65). A's speed = 8 × 5/18 = 20/9 m/s, so A runs 100 m in 45 seconds. B runs only 96 m (start of 4 m) and takes 45 + 15 = 60 seconds. B's speed = 96/60 = 1.6 m/s = 1.6 × 18/5 = 5.76 km/h. Family: 2025 Q60 (A beats B by 28 m in 7 s). Next twist: a dead heat, where the start is just enough.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "At what time between 3 o'clock and 4 o'clock are the hands of a clock together?", "o": ["15 minutes past 3", "17 1/11 minutes past 3", "16 6/11 minutes past 3", "16 4/11 minutes past 3"], "a": 3, "e": "At 3:00 the minute hand is 15 minute-spaces behind the hour hand. It gains 55 minute-spaces in 60 minutes, so it gains 15 spaces in 15 × 60/55 = 180/11 = 16 4/11 minutes. The hands meet at 16 4/11 minutes past 3. Trap: 15 minutes past 3 forgets that the hour hand also moves. Grew from: 2025 Q55 and Q69 (clocks). Next twist: when are the hands opposite (180°) between 3 and 4?", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "[(2.3)³ − 0.027] ÷ [(2.3)² + 0.69 + 0.09] = ?", "o": ["2.6", "2.3", "1.7", "2"], "a": 3, "e": "Let a = 2.3 and b = 0.3. Then 0.027 = b³, 0.69 = ab and 0.09 = b². The expression is (a³ − b³) ÷ (a² + ab + b²) = a − b = 2.3 − 0.3 = 2. Trap: 2.6 is a + b, the answer for a³ + b³ over a² − ab + b². Grew from: 2018 Q55 and 2021 Q55 ([(a + b)² − (a − b)²] ÷ ab = 4). Next twist: the a³ + b³ form.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "An examination has 60 questions. A right answer gets 4 marks and a wrong answer loses 1 mark. A student answers all the questions and scores 130. How many questions did he answer correctly?", "o": ["38", "36", "40", "34"], "a": 0, "e": "This is a heads-and-legs question. Let r be right. 4r − (60 − r) = 130, so 5r = 190 and r = 38. Check: 38 × 4 − 22 = 152 − 22 = 130. Trap: 32.5 (not a whole number) comes from forgetting the minus marks, 4r = 130. Grew from: 2025 Q75 (heads and feet). Next twist: some questions are left out and both the score and the number attempted are given.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "Two trains run in the same direction at 50 km/h and 32 km/h. The faster train passes a man sitting in the slower train in 15 seconds. What is the length of the faster train?", "o": ["75 m", "135 m", "90 m", "120 m"], "a": 0, "e": "Same direction, so the relative speed is 50 − 32 = 18 km/h = 5 m/s. To pass a man, the train covers only its own length: 5 × 15 = 75 m. Trap: 135 m uses 32 km/h alone; 120 m does not convert units properly. Grew from: 2025 Q59 and Q82 (a train passing a man walking). Next twist: the man walks inside the train.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A man buys hens at Rs. 300 each and goats at Rs. 2,500 each. He buys 30 animals in all, which have 80 feet together. How much does he spend?", "o": ["Rs. 25,000", "Rs. 31,000", "Rs. 37,000", "Rs. 43,000"], "a": 1, "e": "If all 30 were hens there would be 60 feet. The 20 extra feet come from goats, 2 extra feet each, so 10 goats and 20 hens. Cost = 20 × 300 + 10 × 2,500 = 6,000 + 25,000 = Rs. 31,000. Trap: Rs. 43,000 swaps hens and goats. Grew from: 2025 Q75 (heads and feet). Twist: a second step after the count.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "Ten years ago, A was half as old as B. If the ratio of their present ages is 3 : 4, what is the sum of their present ages?", "o": ["40 years", "30 years", "35 years", "45 years"], "a": 2, "e": "Let the ages be 3x and 4x. Ten years ago: 3x − 10 = (4x − 10)/2, so 6x − 20 = 4x − 10 and x = 5. Ages 15 and 20, sum 35. Check: ten years ago 5 and 10. Grew from: 2025 Q52 (one year ago four times as old) and 2025 Q85. Next twist: the ratio after some years is given instead.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "A tank is 2/5 full. When 36 litres are drawn out, it is 1/4 full. What is the capacity of the tank?", "o": ["200 litres", "180 litres", "144 litres", "240 litres"], "a": 3, "e": "36 litres = 2/5 − 1/4 = 8/20 − 5/20 = 3/20 of the tank. Capacity = 36 × 20/3 = 240 litres. Trap: 144 litres is 36 ÷ (1/4). Grew from: 2025 Q51 (3/8 and 4/5 of a book, 30 pages left). Next twist: water is added and the tank goes from 1/3 to 3/4 full.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "(476 + 424)² − 4 × 476 × 424 = ?", "o": ["2800", "2704", "2916", "2600"], "a": 1, "e": "(a + b)² − 4ab = (a − b)². So the value is (476 − 424)² = 52² = 2704. Grew from: 2018 Q55 and 2021 Q55 ([(a + b)² − (a − b)²] ÷ ab). Next twist: (a + b)² + (a − b)² over a² + b², which is 2.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "What is the third proportional to 0.36 and 0.48?", "o": ["0.42", "0.56", "0.64", "0.60"], "a": 2, "e": "If a : b = b : c, then c is the third proportional and c = b²/a = 0.48² ÷ 0.36 = 0.2304 ÷ 0.36 = 0.64. Trap: 0.42 is the mean of the two; 0.60 adds the gap 0.12 again. Grew from: 2018 Q68 and 2021 Q68 (fourth proportional). Next twist: the mean proportional of 0.36 and 0.64 (= 0.48).", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "Pipes A and B can fill a tank in 12 minutes and 15 minutes respectively. They are opened in turn for one minute each, A first. In how much time will the tank be full?", "o": ["13¼ minutes", "13½ minutes", "14 minutes", "12¾ minutes"], "a": 0, "e": "Two minutes (A then B) fill 1/12 + 1/15 = 9/60 = 3/20. Six rounds (12 minutes) fill 18/20. In the 13th minute A adds 1/12, making 18/20 + 1/12 = 59/60. B fills the last 1/60 in (1/60) ÷ (1/15) = 1/4 minute. Total 13¼ minutes. Trap: 13½ gives B a full half minute. Grew from: 2025 Q91 and Q97 (two pipes together). Next twist: one pipe empties while the other fills, in turn.", "k": "one", "n": false, "c": false}, {"s": "Arithmetic", "q": "In a 500 m race, the speeds of A and B are in the ratio 3 : 4. A has a start of 140 m. By how many metres does A win?", "o": ["80 m", "60 m", "20 m", "40 m"], "a": 2, "e": "A has to run 500 − 140 = 360 m. In that time B runs 360 × 4/3 = 480 m. So B is still 20 m short when A finishes: A wins by 20 m. Trap: 80 m compares 480 m with 400 m and forgets the start. Grew from: 2025 Q60 and Q65 (a start and still wins). Next twist: the start needed for a dead heat (here 125 m).", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If A is the matrix [[2, 3], [1, 4]] (each inner bracket is a row), what is the determinant of 3A?", "o": ["45", "15", "135", "25"], "a": 0, "e": "det A = 2 × 4 − 3 × 1 = 5. Multiplying a 2 × 2 matrix by 3 multiplies every entry, so each row gets a factor 3 and the determinant gets 3² = 9. det(3A) = 9 × 5 = 45. Trap: 15 multiplies by 3 only once. Grew from: 2018 Q70 and 2021 Q70 (M + 2N, 2M + N) and 2018 Q69 (determinants). Next twist: det(A × B) = det A × det B.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "In an A.P., 7 times the 7th term is equal to 11 times the 11th term. What is its 18th term?", "o": ["18", "−1", "1", "0"], "a": 3, "e": "7(a + 6d) = 11(a + 10d), so 7a + 42d = 11a + 110d, which gives 4a = −68d and a = −17d. The 18th term = a + 17d = 0. Grew from: 2018 Q74 and 2021 Q74 (a term from two given terms). Next twist: m times the mth term equals n times the nth term: the (m + n)th term is always 0.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If 5^(x + 3) = 25^(3x − 4), then x = ?", "o": ["7/5", "11/5", "5/11", "1"], "a": 1, "e": "Write 25 as 5². Then 5^(x + 3) = 5^(6x − 8). Equal bases, so x + 3 = 6x − 8 and 5x = 11, x = 11/5. Trap: 7/5 forgets to double the 4. Grew from: 2021 Q65 (p^(5x + 3) = 1) and 2025 Q80. Next twist: 9^x = 27^(x − 1).", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "For what values of a and b does the pair of equations 2x + 3y = 7 and (a − b)x + (a + b)y = 3a + b − 2 have infinitely many solutions?", "o": ["a = 3, b = 1", "a = 5, b = 1", "a = 5, b = 3", "a = 1, b = 5"], "a": 1, "e": "Infinitely many solutions: (a − b)/2 = (a + b)/3 = (3a + b − 2)/7. From the first two: 3a − 3b = 2a + 2b, so a = 5b. Then a + b = 6b and 3a + b − 2 = 16b − 2. From (a + b)/3 = (3a + b − 2)/7: 42b = 48b − 6, so b = 1 and a = 5. Grew from: 2018 Q71 and 2021 Q71 (value of k for no solution). Twist: two unknowns. Next twist: values for no solution.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If α and β are the zeroes of the polynomial x² − 5x + k and α − β = 1, what is the value of k?", "o": ["5", "4", "6", "8"], "a": 2, "e": "α + β = 5 and αβ = k. Use (α − β)² = (α + β)² − 4αβ: 1 = 25 − 4k, so k = 6. Check: the zeroes are 3 and 2. Grew from: 2015 Q71-73 (zeroes of polynomials) and 2018 Q64, 2021 Q64 (α + β and α − β). Next twist: α − β is given and the polynomial is asked.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "The sum of the first 7 terms of an A.P. is 49 and the sum of its first 17 terms is 289. What is the sum of its first 20 terms?", "o": ["420", "400", "441", "380"], "a": 1, "e": "S7 = 7/2 (2a + 6d) = 49 gives a + 3d = 7. S17 = 17/2 (2a + 16d) = 289 gives a + 8d = 17. So d = 2 and a = 1: the A.P. is 1, 3, 5, … and Sn = n². S20 = 400. Trap: 441 is S21. Grew from: 2018 Q77 (S11 from the 6th term) and 2021 Q75, Q76 (Sn formulas). Next twist: the formula Sn itself is asked.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If the matrices [[x + y, 2], [5, x − y]] and [[6, 2], [5, 2]] are equal (each inner bracket is a row), then:", "o": ["x = 3, y = 3", "x = 4, y = 2", "x = 2, y = 4", "x = 4, y = −2"], "a": 1, "e": "Equal matrices have equal entries in the same places. So x + y = 6 and x − y = 2. Adding: 2x = 8, x = 4, then y = 2. Trap: x = 2, y = 4 swaps the two. Grew from: 2021 Q69 and 2018 Q69 (x and y from equal determinants). Next twist: a 2 × 2 matrix equation with 2x + y and x − 3y.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "How many proper subsets does a set with 6 elements have?", "o": ["36", "64", "63", "62"], "a": 2, "e": "A set with n elements has 2ⁿ subsets. 2⁶ = 64. A proper subset is any subset except the set itself, so 64 − 1 = 63. Trap: 64 is the power set; 62 also leaves out the empty set; 36 is 6². Grew from: 2018 Q83 and 2021 Q83 (the power set has 2ⁿ elements). Next twist: the number of subsets with exactly 2 elements (6C2 = 15).", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If (a/b)^(x − 1) = (b/a)^(x − 3), then x = ?", "o": ["2", "1", "3", "1/2"], "a": 0, "e": "b/a = (a/b)^(−1), so the right side is (a/b)^(3 − x). Equal bases: x − 1 = 3 − x, so 2x = 4 and x = 2. Trap: writing x − 1 = x − 3 forgets the minus sign from turning the fraction over, and then there is no answer. Grew from: 2021 Q65 (p^(5x + 3) = 1). Next twist: (3/5)^x × (5/3)^(2x) = 125/27.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "What is the area of the triangle formed by the lines 2x + y = 6 and 2x − y + 2 = 0 and the x-axis?", "o": ["8 sq units", "6 sq units", "16 sq units", "12 sq units"], "a": 0, "e": "Solve the pair: adding gives 4x + 2 = 6, so x = 1 and y = 4. The lines meet at (1, 4). They cut the x-axis at x = 3 and x = −1, so the base is 4. Height = 4 (the y of the meeting point). Area = 1/2 × 4 × 4 = 8. Trap: 16 forgets the 1/2. Grew from: 2018 Q71-73 and 2021 Q71-73 (pairs of linear equations). Next twist: the triangle with the y-axis.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If (3x − 2y) : (2x + 3y) = 5 : 6, then x : y is:", "o": ["9 : 4", "8 : 27", "27 : 8", "3 : 2"], "a": 2, "e": "Cross-multiply: 6(3x − 2y) = 5(2x + 3y), so 18x − 12y = 10x + 15y and 8x = 27y. So x : y = 27 : 8. Trap: 8 : 27 turns it over. Grew from: 2018 Q67 ((2x + 5y) : (5x − 7y) = 5 : 3). Next twist: find (x + y) : (x − y) next.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "How many terms of the A.P. 24, 21, 18, … must be taken so that their sum is 78?", "o": ["6 or 10", "4 only", "13 only", "4 or 13"], "a": 3, "e": "Sn = n/2 [2 × 24 + (n − 1)(−3)] = n(51 − 3n)/2 = 78. So 3n² − 51n + 156 = 0, that is n² − 17n + 52 = 0 = (n − 4)(n − 13). Both work: the 5th to 13th terms (12, 9, …, −12) add up to 0. Trap: '4 only' throws away a true answer. Grew from: 2021 Q75 (which term is 164) and 2018 Q77. Next twist: which term is the first negative one.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If x³ + ax² + bx + 6 has (x − 2) as a factor and leaves a remainder 3 when divided by (x − 3), then:", "o": ["a = −3, b = −1", "a = 3, b = −13", "a = −1, b = −3", "a = −3, b = 1"], "a": 0, "e": "Factor: f(2) = 8 + 4a + 2b + 6 = 0, so 2a + b = −7. Remainder: f(3) = 27 + 9a + 3b + 6 = 3, so 3a + b = −10. Subtract: a = −3, then b = −1. Check: f(2) = 8 − 12 − 2 + 6 = 0. Grew from: 2018 Q66 (remainder k when divided by x − 2). Twist: two conditions, two unknowns. Next twist: two factors given.", "k": "one", "n": false, "c": false}, {"s": "Algebra", "q": "If one root of the equation x² − 3x + k = 0 is double the other, what is the value of k?", "o": ["2", "3", "1", "9/2"], "a": 0, "e": "Let the roots be r and 2r. Sum: 3r = 3, so r = 1 and the roots are 1 and 2. Product: k = 1 × 2 = 2. Trap: 9/2 comes from b²/4a (the value for equal roots, k = 9/4, doubled). Grew from: 2018 Q64 and 2021 Q64 (equation from α + β and α − β). Next twist: one root is the square of the other.", "k": "one", "n": false, "c": false}];
+(function(){
+  var SK="aso-maths-arith-alg-1";
+
+  var $=function(id){return document.getElementById(id)};
+  var L="ABCD", N=Q.length, DUR=45*60;
+  var st=null, tick=null;
+  function save(){ try{localStorage.setItem(SK,JSON.stringify(st));}catch(e){} }
+  function load(){ try{var s=JSON.parse(localStorage.getItem(SK)||"null"); return s;}catch(e){return null;} }
+  function clearSave(){ try{localStorage.removeItem(SK);}catch(e){} }
+  function show(id){ ["s-start","s-test","s-result"].forEach(function(x){$(x).hidden=(x!==id);}); document.body.classList.toggle("testing",id==="s-test"); window.scrollTo(0,0); }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  var saved=load();
+  if(saved && !saved.done){ $("b-resume").hidden=false; $("b-resume").textContent="Resume saved attempt ("+(saved.mode==="exam"?"exam":"practice")+")"; }
+
+  function start(mode){
+    st={mode:mode, ans:new Array(N).fill(-1), mark:new Array(N).fill(false), cur:0, left:DUR, done:false};
+    save(); openTest();
+  }
+  $("b-exam").onclick=function(){start("exam")};
+  $("b-prac").onclick=function(){start("practice")};
+  $("b-resume").onclick=function(){ st=load(); openTest(); };
+
+  function openTest(){
+    $("t-mode").textContent = st.mode==="exam" ? "Exam mode" : "Practice mode";
+    $("t-clock").hidden = st.mode!=="exam";
+    var g=$("grid"); g.innerHTML="";
+    for(var i=0;i<N;i++){ var b=document.createElement("button"); b.textContent=i+1; b.setAttribute("aria-label","Question "+(i+1)); (function(k){b.onclick=function(){go(k)}})(i); g.appendChild(b); }
+    show("s-test"); render();
+    if(tick) clearInterval(tick);
+    if(st.mode==="exam"){ tick=setInterval(function(){ st.left--; clock(); if(st.left%10===0) save(); if(st.left<=0){ finish(true); } },1000); clock(); }
+  }
+  function clock(){ var m=Math.floor(Math.max(st.left,0)/60), s=Math.max(st.left,0)%60; var c=$("t-clock"); c.textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s; c.classList.toggle("low",st.left<300); }
+  function go(i){ st.cur=Math.max(0,Math.min(N-1,i)); save(); render(); var t=$("q-meta"); if(t.getBoundingClientRect().top<0) t.scrollIntoView({block:"start"}); }
+
+  function render(){
+    var i=st.cur, q=Q[i], a=st.ans[i], prac=st.mode==="practice"; st.rev=st.rev||{}; var rv=prac && !!st.rev[i], locked=prac && (a>=0 || rv);
+    var kind={stmt:"Statements",match:"Match the lists",order:"Arrange in order",not:"Find the odd one",fig:"Figure",one:""}[q.k];
+    $("q-meta").innerHTML='<span class="no">'+(i+1<10?"0":"")+(i+1)+'</span><span class="tag">'+esc(q.s)+'</span>'+(kind?'<span class="tag">'+kind+'</span>':'')+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'');
+    $("q-text").textContent=q.q; var pz=$("q-pass"); pz.hidden=!q.p; pz.textContent=q.p||""; var fz=$("q-fig"); fz.hidden=!q.f; fz.innerHTML=q.f||"";
+    var ol=$("q-opts"); ol.innerHTML="";
+    q.o.forEach(function(o,j){
+      var li=document.createElement("li"), b=document.createElement("button");
+      b.className="opt"; b.innerHTML='<span class="l">('+L[j]+')</span><span>'+esc(o)+'</span>';
+      if(a===j) b.classList.add("sel");
+      if(locked){ b.disabled=true; if(j===q.a) b.classList.add("right"); else if(j===a) b.classList.add("wrong"); }
+      b.setAttribute("aria-pressed",String(a===j));
+      b.onclick=function(){ st.ans[i]=j; save(); render(); };
+      li.appendChild(b); ol.appendChild(li);
+    });
+    $("q-expl").innerHTML = locked ? '<div class="expl"><span class="v '+(a<0?'ok">Answer ('+L[q.a]+')':a===q.a?'ok">Right':'no">Wrong · answer ('+L[q.a]+')')+'</span><p>'+esc(q.e)+'</p></div>' : "";
+    $("b-clear").disabled = locked || a<0; $("b-show").hidden = !prac || locked;
+    $("b-mark").textContent = st.mark[i] ? "Unmark" : "Mark for review";
+    $("b-prev").disabled = i===0;
+    $("b-next").textContent = i===N-1 ? "Finish →" : "Next →";
+    var n=0; st.ans.forEach(function(x){ if(x>=0) n++; });
+    $("t-cnt").textContent=n+" / "+N+" answered";
+    var bs=$("grid").children;
+    for(var k=0;k<N;k++){ var c=bs[k]; c.className=""; var x=st.ans[k];
+      if(prac && x>=0) c.classList.add(x===Q[k].a?"r":"w"); else if(x>=0) c.classList.add("ans");
+      if(st.mark[k]) c.classList.add("mk"); if(k===i) c.classList.add("cur"); }
+  }
+  $("b-prev").onclick=function(){go(st.cur-1)};
+  $("b-next").onclick=function(){ if(st.cur===N-1) askSubmit(); else go(st.cur+1); };
+  $("b-clear").onclick=function(){ st.ans[st.cur]=-1; save(); render(); };
+  $("b-show").onclick=function(){ st.rev=st.rev||{}; st.rev[st.cur]=true; save(); render(); };
+  $("b-mark").onclick=function(){ st.mark[st.cur]=!st.mark[st.cur]; save(); render(); };
+  $("b-submit").onclick=askSubmit;
+  function askSubmit(){
+    var left=st.ans.filter(function(x){return x<0}).length, mk=st.mark.filter(Boolean).length;
+    $("cf-msg").textContent = (left ? left+" question"+(left>1?"s are":" is")+" not answered. " : "All 50 questions are answered. ")+(mk? mk+" marked for review. ":"")+"Submit the test now?";
+    $("cf").hidden=false; $("cf-yes").focus();
+  }
+  $("cf-yes").onclick=function(){ $("cf").hidden=true; finish(false); };
+  $("cf-no").onclick=function(){ $("cf").hidden=true; };
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape" && !$("cf").hidden){ $("cf").hidden=true; return; }
+    if($("s-test").hidden || !$("cf").hidden || (e.target.closest && e.target.closest("input,textarea"))) return;
+    if(e.key==="ArrowRight") go(st.cur+1); else if(e.key==="ArrowLeft") go(st.cur-1);
+    else if("1234abcd".indexOf(e.key.toLowerCase())>=0 && e.key.length===1){ var j="1234".indexOf(e.key); if(j<0) j="abcd".indexOf(e.key.toLowerCase());
+      if(!(st.mode==="practice" && st.ans[st.cur]>=0)){ st.ans[st.cur]=j; save(); render(); } }
+  });
+
+  function finish(timeUp){
+    if(tick){clearInterval(tick); tick=null;}
+    st.done=true; st.timeUp=!!timeUp; st.at=Date.now(); save();
+    var r=0,w=0,s=0, by={};
+    Q.forEach(function(q,i){ var b=by[q.s]||(by[q.s]={r:0,w:0,s:0,t:0}); b.t++;
+      if(st.ans[i]<0){s++;b.s++;} else if(st.ans[i]===q.a){r++;b.r++;} else {w++;b.w++;} });
+    var net=r-0.25*w;
+    $("r-mode").textContent=(st.mode==="exam"?"Exam mode":"Practice mode")+(timeUp?" · time ran out":"");
+    $("r-big").innerHTML='<div><div class="b">'+net.toFixed(2)+'</div><p>net marks out of 50</p></div><div><div class="b">'+r+'</div><p>right (+'+r+')</p></div><div><div class="b">'+w+'</div><p>wrong (−'+(w*0.25).toFixed(2)+')</p></div><div><div class="b">'+s+'</div><p>skipped</p></div>';
+    var acc = (r+w) ? Math.round(100*r/(r+w)) : 0;
+    $("r-note").textContent = "You attempted "+(r+w)+" question"+((r+w)===1?"":"s")+" with "+acc+"% accuracy. "+(acc>=80?"High accuracy: you can afford to attempt more questions.":acc>=60?"Good. Each wrong answer costs a quarter mark, so attempt a question only when you can rule out two options.":"Too many wrong answers. Attempt only when you can rule out at least two options; at this accuracy, guessing costs marks.")+" Revise the topic with the lowest net score first.";
+    var order=["Arithmetic", "Algebra"];
+    var h='<div class="row h"><span>Topic</span><span>Qs</span><span>Right</span><span>Wrong</span><span class="hm">Net</span><span class="hm">Net %</span></div>';
+    order.forEach(function(k){ var b=by[k]; if(!b) return; var n=b.r-0.25*b.w, p=Math.max(0,Math.round(100*n/b.t));
+      h+='<div class="row"><span>'+k+'</span><span class="num">'+b.t+'</span><span class="num">'+b.r+'</span><span class="num">'+b.w+'</span><span class="num hm">'+n.toFixed(2)+'</span><span class="hm"><span class="bar2"><i style="width:'+p+'%"></i></span></span></div>'; });
+    $("r-sec").innerHTML=h;
+    $("r-copy").value=report(r,w,s,net,by,order); $("copy-msg").textContent="";
+    review("all"); show("s-result");
+  }
+  function one(i){ return String(Q[i].q).replace(/\s*\n\s*/g," / ").replace(/\s+/g," ").trim(); }
+  function report(r,w,s,net,by,order){
+    var d=new Date(st.at||Date.now()), out=[];
+    out.push("ASO ARITHMETIC & ALGEBRA MOCK 01 — MY ANSWERS");
+    out.push((st.mode==="exam"?"Exam mode":"Practice mode")+(st.timeUp?" (time ran out)":"")+" · "+d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}));
+    out.push("Net "+net.toFixed(2)+" / "+N+" · Right "+r+" · Wrong "+w+" · Skipped "+s);
+    out.push("Please bring my wrong and skipped questions back in the next mock.");
+    out.push("");
+    out.push("BY TOPIC (right / wrong / skipped of total)");
+    order.forEach(function(k){ var b=by[k]; if(b) out.push("- "+k+": "+b.r+" / "+b.w+" / "+b.s+" of "+b.t); });
+    var W=[],S=[],M=[],RR=[];
+    Q.forEach(function(q,i){ var a=st.ans[i]; if(a<0) S.push(i); else if(a!==q.a) W.push(i); else { RR.push(i+1); if(st.mark[i]) M.push(i); } });
+    function line(i,withPick){ var q=Q[i], a=st.ans[i], h="Q"+(i+1)+" ["+q.s+"]";
+      if(withPick) h+=" — I chose ("+L[a]+") "+q.o[a]+"; answer ("+L[q.a]+") "+q.o[q.a];
+      else h+=" — answer ("+L[q.a]+") "+q.o[q.a];
+      return h+"\n   "+one(i); }
+    out.push(""); out.push("WRONG ("+W.length+")"); W.forEach(function(i){ out.push(line(i,true)); });
+    out.push(""); out.push("SKIPPED ("+S.length+")"); S.forEach(function(i){ out.push(line(i,false)); });
+    if(M.length){ out.push(""); out.push("RIGHT BUT MARKED FOR REVIEW — maybe guessed ("+M.length+")"); M.forEach(function(i){ out.push(line(i,false)); }); }
+    out.push(""); out.push("RIGHT ("+RR.length+"): "+(RR.join(", ")||"none"));
+    return out.join("\n");
+  }
+  $("b-copy").onclick=function(){
+    var t=$("r-copy"), msg=$("copy-msg"), txt=t.value;
+    function fallback(){ t.focus(); t.select(); t.setSelectionRange(0,txt.length); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+      msg.textContent = ok ? "Copied. Paste it into the chat." : "Your browser blocked copying. The text below is selected: copy it by hand."; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ msg.textContent="Copied. Paste it into the chat."; }, fallback); }
+    else fallback();
+  };
+  function review(f){
+    document.querySelectorAll(".filters button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.f===f));});
+    var out="";
+    Q.forEach(function(q,i){ var a=st.ans[i], k=a<0?"s":(a===q.a?"r":"w");
+      if(f!=="all" && !(f===k || (f==="n" && q.n))) return;
+      var lis=q.o.map(function(o,j){ return '<li class="'+(j===q.a?"ok":(j===a?"bad":""))+'"><span class="l">('+L[j]+')</span>'+esc(o)+'</li>'; }).join("");
+      out+='<div class="rvq"><div class="qmeta"><span class="no" style="font-size:1.1rem">'+(i+1)+'</span><span class="st '+k+'">'+({r:"Right",w:"Wrong",s:"Skipped"})[k]+'</span><span class="tag">'+esc(q.s)+'</span>'+(q.n?'<span class="tag news">News</span>':'')+(q.c?'<span class="tag chk">Check</span>':'')+'</div>'+(q.p?'<details class="pass"><summary>Passage</summary>'+esc(q.p)+'</details>':'')+'<div class="qtext">'+esc(q.q)+'</div>'+(q.f?'<div class="qfig">'+q.f+'</div>':'')+'<ol>'+lis+'</ol><div class="expl"><p>'+esc(q.e)+'</p></div></div>';
+    });
+    $("r-list").innerHTML = out || '<p class="src" style="padding:16px 0">Nothing in this group.</p>';
+  }
+  document.querySelectorAll(".filters button").forEach(function(b){ b.onclick=function(){review(b.dataset.f)}; });
+  $("b-again").onclick=function(){ clearSave(); $("b-resume").hidden=true; show("s-start"); };
+})();
+</script>
+<script src="pen-scroll.js?v=8" defer></script>
+</body>
